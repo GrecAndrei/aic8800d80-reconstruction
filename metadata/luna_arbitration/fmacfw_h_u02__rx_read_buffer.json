@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rx_read_buffer",
+ "luna": "buffer_queue_remove_matching",
+ "doc": "Searches the queue for the first node accepted by the predicate, unlinks it, and returns it, or returns NULL if no node matches.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "buffer_queue_remove_matching",
+   "probabilities": [
+    {
+     "value": "rx_read_buffer",
+     "probability": 0.41
+    },
+    {
+     "value": "buffer_queue_remove_matching",
+     "probability": 0.58
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.37
+  }
+ ],
+ "status": "ok"
+}

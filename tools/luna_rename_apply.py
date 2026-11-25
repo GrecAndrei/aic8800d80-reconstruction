@@ -62,14 +62,36 @@ def apply_image(img, batch, check=False):
     texts = {f: open(f).read() for f in files}
     all_text = "".join(texts.values())
 
-    # collect current noise names with their addresses from module slices
+    # arbitration verdicts: functions whose GLM-vs-luna disagreement was
+    # adjudicated by the decisions API with the function body as evidence.
+    # Validated 2026-11-25 under symmetric control (6/6 verdicts unchanged
+    # without the rationale asymmetry, probabilities 0.80-0.99). A decisive
+    # luna win (p >= 0.8) is the best available evidence the name is wrong.
+    decisive = {}
+    for af in glob.glob("metadata/luna_arbitration/*.json"):
+        try:
+            ad = json.load(open(af))
+            a = (ad.get("answers") or [{}])[0]
+            ps = {p["value"]: p["probability"] for p in a.get("probabilities", [])}
+            if (a.get("choice") == ad.get("luna")
+                    and ps.get(ad["luna"], 0) >= 0.8):
+                decisive[(ad["img"], ad["fn"])] = ad["luna"]
+        except Exception:
+            continue
+
+    # collect current names with their addresses from module slices —
+    # noise names always; real names only when arbitration-decisive
     defs = {}  # name -> (file, addr)
     for f, text in texts.items():
-        for m in re.finditer(r"(?m)^// (\S+) @ 0x([0-9a-f]+)\n[\w\s\*]+?\b(\w+)\s*\(", text):
+        # marker comments appear exactly once per function definition; the
+        # signature shape must not be required here because inserted
+        # /* luna: ... */ docstring lines now intervene between marker and
+        # signature — requiring it silently dropped every documented function
+        for m in re.finditer(r"(?m)^// (\S+) @ 0x([0-9a-f]+)\n", text):
             disp = m.group(1)
             addr = int(m.group(2), 16)
             # the display name in the comment is the canonical current name
-            if NOISE.match(disp):
+            if NOISE.match(disp) or (img, disp) in decisive:
                 defs[disp] = (f, addr)
 
     taken = set()
@@ -77,20 +99,26 @@ def apply_image(img, batch, check=False):
         for m in re.finditer(r"(?m)^// (\S+) @", text):
             taken.add(m.group(1))
 
-    renames = {}
+        renames = {}
     collisions = 0
     skipped = 0
     assigned = set()  # names taken by this pass itself — two noise-named
     # trivial functions can draw the same obvious candidate (noop_success
     # collided across modules this way)
     for disp, (f, addr) in sorted(defs.items()):
+        # path 2: arbitration-decisive rename of a REAL name — eligible even
+        # when the current name is not noise, because the judge saw the body
+        forced = decisive.get((img, disp))
         d = batch.get((img, disp))
-        if not d:
+        if not d and not forced:
             skipped += 1
             continue
-        new = d.get("name", "")
-        conf = d.get("confidence", "")
-        if conf != "high" or not new or new == disp or not re.fullmatch(r"[a-z][a-z0-9_]{2,40}", new):
+        new = forced or d.get("name", "")
+        conf = d.get("confidence", "") if d else ""
+        if not forced and (conf != "high" or not new or new == disp):
+            skipped += 1
+            continue
+        if not re.fullmatch(r"[a-z][a-z0-9_]{2,40}", new or "") or new == disp:
             skipped += 1
             continue
         if (new in taken and new != disp) or new in assigned:

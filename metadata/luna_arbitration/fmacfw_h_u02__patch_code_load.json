@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "patch_code_load",
+ "luna": "apm_stop_cac_req_handler",
+ "doc": "Processes an APM stop-CAC request, conditionally updates the indexed interface state under IRQ protection, and writes a response header.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "apm_stop_cac_req_handler",
+   "probabilities": [
+    {
+     "value": "patch_code_load",
+     "probability": 0.2
+    },
+    {
+     "value": "apm_stop_cac_req_handler",
+     "probability": 0.72
+    },
+    {
+     "value": "neither",
+     "probability": 0.08
+    }
+   ],
+   "confidence": 0.58
+  }
+ ],
+ "status": "ok"
+}

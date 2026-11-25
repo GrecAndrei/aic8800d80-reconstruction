@@ -1,6 +1,6 @@
-// wlan_ioctl_handler_1 @ 0x12d108
+// co_list_push_back @ 0x12d108
 /* luna: Appends an element to the end of a list and clears the element’s next pointer. */
-int wlan_ioctl_handler_1(int result, volatile uint32_t *a2) {
+int co_list_push_back(int result, volatile uint32_t *a2) {
   int v2; // r5
 
   v2 = result;
@@ -228,7 +228,7 @@ volatile uint32_t * list_find_prev(volatile uint32_t *result, volatile uint32_t 
   volatile uint32_t **v3; // r3
 
   if ( !a2 )
-    return (volatile uint32_t *)wlan_ioctl_handler_1((int)result, a3);
+    return (volatile uint32_t *)co_list_push_back((int)result, a3);
   v3 = (volatile uint32_t **)*result;
   if ( (volatile uint32_t *)*result == a2 )
     return (volatile uint32_t *)wlan_ioctl_handler_2((int)result, a3);
@@ -281,9 +281,9 @@ volatile uint32_t * get_ptr_value(volatile uint32_t *result, volatile uint32_t *
 
 
 
-// is_global_flag_set @ 0x12d320
+// list_remove_node @ 0x12d320
 /* luna: Removes a node from a singly linked list, updates the head or tail as needed, and clears the removed node’s next pointer. */
-int is_global_flag_set(int result, volatile uint32_t *a2, volatile uint32_t *a3) {
+int list_remove_node(int result, volatile uint32_t *a2, volatile uint32_t *a3) {
   volatile int16_t **v3; // r7
   volatile uint32_t *v4; // r6
 
@@ -365,22 +365,22 @@ int load_version_string(int a1) {
   memcpy((volatile char *)_frame.v11, (volatile char *)off_12D458, 0x80u);
   memcpy(_frame.v12, (volatile char *)v1 + 128, 0x80u);
   v3 = ((uint64_t (*)())float_to_double)(a1);
-  v4 = ((uint64_t (*)())double_compare_common)(v3, *(volatile uint64_t *)&dword_12D450);
+  v4 = ((uint64_t (*)())double_multiply)(v3, *(volatile uint64_t *)&dword_12D450);
   v5 = (v5 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_12D45C) << 32);
   v5 = (v5 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v6 = ((uint64_t (*)())double_compare_common)(v4, v5);
+  v6 = ((uint64_t (*)())double_multiply)(v4, v5);
   v7 = (v7 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_12D460) << 32);
   v7 = (v7 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v8 = double_compare_eq(v6, v7);
+  v8 = double_add(v6, v7);
   v9 = ((int (*)(uint64_t))double_to_float_1)(v8);
   return v9 & 0x7F800000
        | ((((int64_t)(int32_t)(v9 & 0x7FFFFF) * (int64_t)(int32_t)(_frame.v11[(v9 >> 18) & 0x1F])) >> 23) + *(volatile uint32_t *)&_frame.v12[4 * ((v9 >> 18) & 0x1F)]);
 }
 
 
-// f32_to_f16 @ 0x12d464
+// fast_log2f @ 0x12d464
 /* luna: Approximates log2 of a positive normal IEEE-754 float by adding its exponent to a piecewise-linear approximation of the mantissa contribution. */
-unsigned int f32_to_f16(unsigned int a1) {
+unsigned int fast_log2f(unsigned int a1) {
   unsigned int mantissa_bits; // r3
   int mantissa_bits_copy; // s15
   int exponent_field; // r0
@@ -450,9 +450,9 @@ unsigned int log_float_converted(unsigned int a1) {
   uint64_t v2; // r0
   uint64_t v3; // r0
 
-  v1 = f32_to_f16(a1);
+  v1 = fast_log2f(a1);
   v2 = ((uint64_t (*)())float_to_double)(v1);
-  v3 = ((uint64_t (*)())double_compare_common)(v2, *(volatile uint64_t *)&dword_12D5C0);
+  v3 = ((uint64_t (*)())double_multiply)(v2, *(volatile uint64_t *)&dword_12D5C0);
   return ((int (*)(uint64_t))double_to_int)(v3);
 }
 
@@ -464,9 +464,9 @@ int trampoline_142570(int a1) {
 }
 
 
-// read_config_block @ 0x12d5cc
+// fast_sqrtf @ 0x12d5cc
 /* luna: Estimates the square root of a positive float using a table-derived initial guess and one Newton iteration. */
-float read_config_block(float a1) {
+float fast_sqrtf(float a1) {
   int v1; // r1
   int v2; // r2
   int v3; // r3

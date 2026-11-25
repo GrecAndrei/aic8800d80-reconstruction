@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "call_hook_27",
+ "luna": "invoke_hook_27",
+ "doc": "Calls the hook function stored at address 0x1FC with hook index 27 and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "call_hook_27",
+   "probabilities": [
+    {
+     "value": "call_hook_27",
+     "probability": 0.59
+    },
+    {
+     "value": "invoke_hook_27",
+     "probability": 0.4
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.38
+  }
+ ],
+ "status": "ok"
+}

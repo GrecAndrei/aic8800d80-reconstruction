@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "read_random_from_mmio",
+ "luna": "set_sdio_phase_config",
+ "doc": "Programs the SDIO phase configuration from the argument\u2019s low 22 bits using a bit-22-selected register-write sequence, then logs the configured value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_sdio_phase_config",
+   "probabilities": [
+    {
+     "value": "read_random_from_mmio",
+     "probability": 0.06
+    },
+    {
+     "value": "set_sdio_phase_config",
+     "probability": 0.93
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.89
+  }
+ ],
+ "status": "ok"
+}

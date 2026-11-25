@@ -147,7 +147,7 @@ volatile uint32_t * is_ble_connected(volatile uint32_t *result) {
         v4 = *((volatile uint32_t *)off_1365BC + 4);
         *((volatile uint8_t *)v2 + 13) = 1;
         v2[7] = (int)(uintptr_t)(v1);
-        return (volatile uint32_t *)mem_copy_util((void *)(uintptr_t)((int)(v2 + 5)), v4 + v3);
+        return (volatile uint32_t *)mm_timer_set((void *)(uintptr_t)((int)(v2 + 5)), v4 + v3);
       }
     }
   }
@@ -169,7 +169,7 @@ int reset_hci_control_block() {
   *((volatile uint32_t *)hci_control_block + 4) = 20000;
   *((volatile uint32_t *)hci_control_block + 6) = (int)(uintptr_t)(v1);
   hci_control_block[12] = 0;
-  return hci_cmd_preprocess(7u, 0);
+  return ke_state_set(7u, 0);
 }
 
 
@@ -223,7 +223,7 @@ int send_vendor_hci_command(int a1) {
     *(volatile uint32_t *)(v16 + 200) = v14;
     *(volatile uint8_t *)(v16 + 52) = 2;
     *(volatile uint8_t *)(v16 + 204) = v15;
-    get_phy_status_byte(v16);
+    set_rf_mode_from_status_bytes(v16);
     v17 = *(volatile uint8_t *)(v16 + 350);
     *(volatile uint16_t *)(v16 + 38) = 1;
     *(volatile uint8_t *)(v16 + 350) = v17 | 0x10;
@@ -236,7 +236,7 @@ int send_vendor_hci_command(int a1) {
   rx_process_packet_1((int)v4);
   tx_process_jump((int)(uintptr_t)((volatile char *)(v3 - 12)));
   *v1 = 0;
-  return hci_cmd_preprocess(7u, 0);
+  return ke_state_set(7u, 0);
 }
 
 
@@ -290,27 +290,27 @@ int send_hci_event_1() {
     v14 = (volatile uint8_t *)tx_send_pdu(5145, 5, 7, 2);
     *v14 = 1;
     v14[1] = *(volatile uint8_t *)(v6 + 107);
-    wlan_ioctl_handler_1((int)off_13683C + 4, (volatile uint32_t *)v14 - 3);
+    co_list_push_back((int)off_13683C + 4, (volatile uint32_t *)v14 - 3);
   }
   v8 = v0 + 1320 * v2;
   v9 = *(volatile uint32_t *)(v8 + 100);
   *(volatile uint16_t *)(v3 + 4) = *(volatile uint16_t *)(v8 + 104);
   *(volatile uint32_t *)v3 = v9;
   *(volatile uint8_t *)(v3 + 6) = *(volatile uint8_t *)(v1 + 51);
-  wlan_ioctl_handler_1(dword_136844, (volatile uint32_t *)(v3 - 12));
+  co_list_push_back(dword_136844, (volatile uint32_t *)(v3 - 12));
   *(volatile uint8_t *)(v4 + 5) = *(volatile uint8_t *)(v1 + 16);
   *(volatile uint32_t *)v4 = handle_rx_packet((volatile uint8_t *)v1, 1);
   *(volatile uint8_t *)(v4 + 4) = *(volatile uint8_t *)(v1 + 51);
-  wlan_ioctl_handler_1(dword_136844, (volatile uint32_t *)(v4 - 12));
+  co_list_push_back(dword_136844, (volatile uint32_t *)(v4 - 12));
   *(volatile uint16_t *)v5 = *(volatile uint16_t *)(v1 + 40);
   *(volatile uint8_t *)(v5 + 2) = *(volatile uint8_t *)(v1 + 51);
-  wlan_ioctl_handler_1(dword_136844, (volatile uint32_t *)(v5 - 12));
+  co_list_push_back(dword_136844, (volatile uint32_t *)(v5 - 12));
   *v7 = 1;
   v10 = dword_136844;
   v7[1] = *(volatile uint8_t *)(v1 + 51);
-  v11 = wlan_ioctl_handler_1(v10, (volatile uint32_t *)v7 - 3);
+  v11 = co_list_push_back(v10, (volatile uint32_t *)v7 - 3);
   acquire_lock_check_state(v11, v12);
-  return hci_cmd_preprocess(7u, 1);
+  return ke_state_set(7u, 1);
 }
 
 
@@ -331,7 +331,7 @@ int send_hci_command() {
   *(volatile uint8_t *)(v1 + 8) = *(volatile uint8_t *)(v0 + 50);
   *(volatile uint8_t *)(v1 + 9) = *(volatile uint8_t *)(v0 + 51);
   rx_process_packet_1(v1);
-  return hci_cmd_preprocess(7u, 2);
+  return ke_state_set(7u, 2);
 }
 
 
@@ -356,7 +356,7 @@ int send_ble_hci_command(int a1) {
   is_hci_ready();
   *v2 = 0;
   v2[1] = *(volatile uint8_t *)(a1 + 107);
-  wlan_ioctl_handler_1(dword_1369B4, (volatile uint32_t *)v2 - 3);
+  co_list_push_back(dword_1369B4, (volatile uint32_t *)v2 - 3);
   v5 = *((volatile int **)off_1369B8 + 2);
   if ( v5 )
   {
@@ -388,17 +388,17 @@ LABEL_6:
     v13 = tx_send_pdu(30, 0, 7, 4);
     *(volatile uint8_t *)(v13 + 2) = 0;
     *(volatile uint8_t *)(v13 + 3) = *(volatile uint8_t *)(a1 + 107);
-    wlan_ioctl_handler_1(dword_1369B4, (volatile uint32_t *)(v13 - 12));
+    co_list_push_back(dword_1369B4, (volatile uint32_t *)(v13 - 12));
   }
   if ( *(volatile uint32_t *)(a1 + 72) )
   {
     v7 = (volatile uint8_t *)tx_send_pdu(57, 0, 7, 1);
     *v7 = *(volatile uint8_t *)(a1 + 107);
-    wlan_ioctl_handler_1(dword_1369B4, (volatile uint32_t *)v7 - 3);
+    co_list_push_back(dword_1369B4, (volatile uint32_t *)v7 - 3);
   }
   *v4 = 0;
   v4[1] = *(volatile uint8_t *)(a1 + 107);
-  v8 = wlan_ioctl_handler_1(dword_1369B4, (volatile uint32_t *)v4 - 3);
+  v8 = co_list_push_back(dword_1369B4, (volatile uint32_t *)v4 - 3);
   acquire_lock_check_state(v8, v9);
   if ( !*(volatile uint8_t *)(a1 + 1224) )
   {
@@ -410,7 +410,7 @@ LABEL_6:
   *((volatile uint8_t *)off_1369BC + 13) = 0;
   v10[14] = 0;
   mem_set_util((int)(uintptr_t)(v11));
-  return hci_cmd_preprocess(7u, 3);
+  return ke_state_set(7u, 3);
 }
 
 
@@ -508,7 +508,7 @@ volatile int ** handle_acl_packet(int a1, int a2, volatile uint32_t *a3) {
   {
 LABEL_24:
     if ( **(volatile int16_t **)off_136BC8 < 0 )
-      mmio_write_field(dword_136BD0, dword_136BCC, 441);
+      log_warning(dword_136BD0, dword_136BCC, 441);
 LABEL_26:
     *a3 = 1;
     return 0;
@@ -524,7 +524,7 @@ LABEL_26:
       goto LABEL_24;
     v8 = (volatile int **)*v8;
   }
-  is_global_flag_set(a2 + 572, (void *)(v12), (void *)(v8));
+  list_remove_node(a2 + 572, (void *)(v12), (void *)(v8));
   v13 = *(volatile uint8_t *)(a2 + 54);
   if ( (v13 & 8) != 0 )
     v14 = 4;
@@ -596,9 +596,9 @@ int rf_get_rate_table_index(int result, int a2) {
 
 
 
-// rf_config_lookup @ 0x136c2c
+// send_deauth_frame @ 0x136c2c
 /* luna: Builds and submits an 802.11 deauthentication frame to the specified peer using reason code 7 and the interface MAC as the source and BSSID. */
-int rf_config_lookup(int a1, int a2) {
+int send_deauth_frame(int a1, int a2) {
   int v2; // r3
   int v5; // r3
   int result; // r0

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_txrx_path_enable",
+ "luna": "rf_measure_lpf_bypass_power",
+ "doc": "Temporarily configures the RF path, samples the 15-bit LPF-bypass power value into the context, and returns the subsequent status-check result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_measure_lpf_bypass_power",
+   "probabilities": [
+    {
+     "value": "rf_txrx_path_enable",
+     "probability": 0.27
+    },
+    {
+     "value": "rf_measure_lpf_bypass_power",
+     "probability": 0.73
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

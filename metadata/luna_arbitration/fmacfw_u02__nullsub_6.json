@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "nullsub_6",
+ "luna": "noop_success",
+ "doc": "Stub function that performs no operation and returns zero.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "noop_success",
+   "probabilities": [
+    {
+     "value": "nullsub_6",
+     "probability": 0.08
+    },
+    {
+     "value": "noop_success",
+     "probability": 0.92
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.88
+  }
+ ],
+ "status": "ok"
+}

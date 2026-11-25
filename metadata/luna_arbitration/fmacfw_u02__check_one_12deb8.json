@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "check_one_12deb8",
+ "luna": "wlan_find_ht_operation_ie",
+ "doc": "Scans a length-delimited 802.11 information-element stream and returns the HT Operation element (ID 61, length 22), or NULL if it is absent or truncated.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "wlan_find_ht_operation_ie",
+   "probabilities": [
+    {
+     "value": "check_one_12deb8",
+     "probability": 0.14
+    },
+    {
+     "value": "wlan_find_ht_operation_ie",
+     "probability": 0.82
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.73
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "patch_check_magic",
+ "luna": "patch_apply_if_magic_valid",
+ "doc": "Checks the patch header magic markers, applies its relocation entries, and copies enabled aligned patch regions.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "patch_apply_if_magic_valid",
+   "probabilities": [
+    {
+     "value": "patch_check_magic",
+     "probability": 0.18
+    },
+    {
+     "value": "patch_apply_if_magic_valid",
+     "probability": 0.82
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.73
+  }
+ ],
+ "status": "ok"
+}

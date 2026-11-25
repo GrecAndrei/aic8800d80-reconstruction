@@ -1,6 +1,6 @@
-// is_initialized @ 0x117e0c
+// txl_ba_push @ 0x117e0c
 /* luna: Pops a buffer from the selected transmit queue and prepares its BA-related descriptor metadata and frame header. */
-int is_initialized(int a1, int a2, int a3, int a4) {
+int txl_ba_push(int a1, int a2, int a3, int a4) {
   int queue_index; // r2
   volatile uint32_t *popped_buffer; // r0
   volatile int16_t *v7; // r1
@@ -20,7 +20,7 @@ int is_initialized(int a1, int a2, int a3, int a4) {
   v7 = *(volatile int16_t **)off_117F04;
   tx_buffer = (int)popped_buffer;
   if ( **(volatile int16_t **)off_117F04 < 0 && !popped_buffer )
-    return unknown_12f2c8((int)aAggDescNull, (int)aTxlBaPush, 369);
+    return log_assert_failure((int)aAggDescNull, (int)aTxlBaPush, 369);
   tx_descriptor_info = *(volatile uint32_t *)(a1 + 84);
   result = tx_descriptor_info << 6;
   *(volatile uint16_t *)(tx_buffer + 8) |= 0x20u;
@@ -28,7 +28,7 @@ int is_initialized(int a1, int a2, int a3, int a4) {
   {
     result = (uint16_t)(tx_descriptor_info >> 15);
     if ( *v7 < 0 && (result & 0x3F0) == 0 )
-      return unknown_12f2c8((int)aKeyIdxHwMmSecD, (int)aTxlIsBaValid, 217);
+      return log_assert_failure((int)aKeyIdxHwMmSecD, (int)aTxlIsBaValid, 217);
     if ( ((tx_descriptor_info >> 15) & 0x3FF) - 16 == *(volatile uint8_t *)(tx_buffer + 12) )
     {
       v11 = *(volatile uint32_t *)(*(volatile uint32_t *)(a1 + 28) + 8);
@@ -148,7 +148,7 @@ volatile uint32_t *invoke_handler() {
     }
     else
     {
-      return (volatile uint32_t *)wait_for_state(v1);
+      return (volatile uint32_t *)pkt_mem_free(v1);
     }
   }
   return result;
@@ -338,7 +338,7 @@ LABEL_54:
                     *(volatile uint32_t *)(dword_118308 + 4 * (9 * v29 + v30 + 2062)) -= *(volatile uint16_t *)(v4 + 4);
                 }
                 rx_packet_ready(v4);
-                check_cal_status(v4, (volatile uint32_t *)(v7 + 4));
+                send_tx_confirmation(v4, (volatile uint32_t *)(v7 + 4));
                 if ( (*(volatile uint16_t *)(v4 + 30) & 1) != 0 )
                   irq_disable_global_2(512);
                 v3 = (volatile uint32_t *)unknown_12f4b4((uint8_t)a1, v4);
@@ -583,7 +583,7 @@ LABEL_24:
         if ( v18 <= 8 )
           *(volatile uint32_t *)(dword_118308 + 4 * (9 * v17 + v18 + 2062)) -= *(volatile uint16_t *)(v4 + 4);
       }
-      check_cal_status(v4, (volatile uint32_t *)(v7 + 4));
+      send_tx_confirmation(v4, (volatile uint32_t *)(v7 + 4));
       if ( (*(volatile uint16_t *)(v4 + 30) & 1) != 0 )
       {
         irq_disable_global_2(512);
@@ -601,7 +601,7 @@ LABEL_101:
         if ( !v19 )
           goto LABEL_101;
       }
-      wait_for_state(v19);
+      pkt_mem_free(v19);
       v20 = *v15;
       *(volatile uint32_t *)(v4 + 72) = 0;
       if ( *v20 == 1 )
@@ -672,13 +672,13 @@ volatile uint32_t * phy_dispatch(unsigned int a1, int a2, int a3) {
         return alloc_dma_buf();
     }
     *(volatile uint32_t *)(v8 + 4) |= 0x800000u;
-    check_cal_status((int)v7, (volatile uint32_t *)(v8 + 4));
+    send_tx_confirmation((int)v7, (volatile uint32_t *)(v8 + 4));
     conn_handle_get((int)v7);
     if ( phy_switch_radio((int)v7, 1) )
     {
       if ( **v3 < 0 && !a3 )
         irq_disable_mmio_write((int)aRepushList, (int)aTxlCfmFlush, 1105);
-      wlan_ioctl_handler_1(a3, v7);
+      co_list_push_back(a3, v7);
     }
     else
     {
@@ -808,7 +808,7 @@ int verify_header_magic(int a1) {
       v4[10] = 0;
       v4[15] = 0;
       v4[7] = (int)(uintptr_t)(v3 + 27);
-      wlan_ioctl_handler_1(v7, (volatile uint32_t *)v2);
+      co_list_push_back(v7, (volatile uint32_t *)v2);
     }
     v2 += 100;
     v3 += 155;

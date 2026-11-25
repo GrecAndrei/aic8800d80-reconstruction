@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_rx_check",
+ "luna": "rxl_frame_handle",
+ "doc": "Handles an incoming RXL header descriptor, including its packet buffer and receive-status checks.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_rx_check",
+   "probabilities": [
+    {
+     "value": "rf_rx_check",
+     "probability": 0.56
+    },
+    {
+     "value": "rxl_frame_handle",
+     "probability": 0.42
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.34
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mac_dma_setup",
+ "luna": "sm_assoc_req_send",
+ "doc": "Prepares a station association-request transmission by filling per-link parameters and negotiating AMPDU settings.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "sm_assoc_req_send",
+   "probabilities": [
+    {
+     "value": "mac_dma_setup",
+     "probability": 0.04
+    },
+    {
+     "value": "sm_assoc_req_send",
+     "probability": 0.96
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.94
+  }
+ ],
+ "status": "ok"
+}

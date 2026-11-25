@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_analog_ctrl_set",
+ "luna": "rf_pa_current_calibrate",
+ "doc": "Adjusts the RF RES and CGM analog codes in single-count steps to bring measured PA current toward its target, returning the RES-code offset and writing the chosen CGM code through the output pointer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_pa_current_calibrate",
+   "probabilities": [
+    {
+     "value": "rf_analog_ctrl_set",
+     "probability": 0.37
+    },
+    {
+     "value": "rf_pa_current_calibrate",
+     "probability": 0.62
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.43
+  }
+ ],
+ "status": "ok"
+}

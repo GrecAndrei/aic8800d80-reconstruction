@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "check_buf_range_12d938",
+ "luna": "find_tlv_tag_0x3c_len4",
+ "doc": "Scans a bounded sequence of length-prefixed elements for tag 0x3C with a four-byte payload, returning its pointer or NULL if it is absent or truncated.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_tlv_tag_0x3c_len4",
+   "probabilities": [
+    {
+     "value": "check_buf_range_12d938",
+     "probability": 0.43
+    },
+    {
+     "value": "find_tlv_tag_0x3c_len4",
+     "probability": 0.51
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.27
+  }
+ ],
+ "status": "ok"
+}

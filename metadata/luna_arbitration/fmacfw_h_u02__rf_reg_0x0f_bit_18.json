@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_reg_0x0f_bit_18",
+ "luna": "rf_get_reg_0x0f_bit_18",
+ "doc": "Returns bit 18 of RF register 0x0F.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_get_reg_0x0f_bit_18",
+   "probabilities": [
+    {
+     "value": "rf_reg_0x0f_bit_18",
+     "probability": 0.38
+    },
+    {
+     "value": "rf_get_reg_0x0f_bit_18",
+     "probability": 0.62
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.43
+  }
+ ],
+ "status": "ok"
+}

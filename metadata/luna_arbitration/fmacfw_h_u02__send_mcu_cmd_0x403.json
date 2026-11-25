@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "send_mcu_cmd_0x403",
+ "luna": "send_mcu_cmd_write_memory",
+ "doc": "Builds and dispatches MCU command 0x403 for a memory write, including the reported value or readback in its payload.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "send_mcu_cmd_write_memory",
+   "probabilities": [
+    {
+     "value": "send_mcu_cmd_0x403",
+     "probability": 0.39
+    },
+    {
+     "value": "send_mcu_cmd_write_memory",
+     "probability": 0.6
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.4
+  }
+ ],
+ "status": "ok"
+}

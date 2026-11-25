@@ -324,9 +324,9 @@ void check_patch_signature() {
 
 
 
-// is_patch_loaded @ 0x114de8
+// firmware_startup @ 0x114de8
 /* luna: Clears and copies firmware memory sections, configures startup state, loads the AES key, checks the patch signature, initializes MAC state, and then e */
-void is_patch_loaded() {
+void firmware_startup() {
   volatile uint32_t *zero_fill_ptr; // r2
   unsigned int zero_fill_end; // r3
   int initialized_data_start; // r1
@@ -457,9 +457,9 @@ int get_phy_state() {
 }
 
 
-// apply_patch_table @ 0x114fec
+// dump_fault_context @ 0x114fec
 /* luna: Prints the saved Cortex-M register context and SCB fault status, then dumps 256 bytes of the captured stack. */
-int apply_patch_table() {
+int dump_fault_context() {
   volatile uint32_t *saved_context; // r7
   volatile int *saved_context_word_ptr; // r5
   int i; // r4
@@ -618,7 +618,7 @@ void log_boot_message() {
       ;
     v0 = radio_rx_read_byte();
     v1 = lock_with_timeout(v0);
-    rf_calibration_proc(v1, v2);
+    test_command_queue_process(v1, v2);
   }
 }
 
@@ -642,7 +642,7 @@ void process_debug_char(int a1) {
       break;
   }
   debug_printf(aContext);
-  apply_patch_table();
+  dump_fault_context();
   debug_printf(aFaultHandler);
   log_boot_message();
 }
@@ -693,7 +693,7 @@ int int_flag_get() {
           break;
       }
       v4 = (*(volatile uint32_t *)0x40501010u);
-      return mem_copy_util((void *)(uintptr_t)(off_11546C), v4 + v3);
+      return mm_timer_set((void *)(uintptr_t)(off_11546C), v4 + v3);
     }
   }
   else
@@ -929,7 +929,7 @@ volatile uint32_t * rx_packet_pending(int a1, int a2) {
     v19 = (*(volatile uint32_t *)0x40501010u);
     *(volatile uint8_t *)(v8 + 7) = v17;
     *(volatile uint8_t *)(v8 + 0xB) = 1;
-    mem_copy_util((volatile uint32_t *)(v8 + 12), v19 + 60000 * v18);
+    mm_timer_set((volatile uint32_t *)(v8 + 12), v19 + 60000 * v18);
     alloc_tx_event("update %d, %d\r\n", (char)v17, v16);
   }
   *(volatile uint8_t *)(v8 + 6) = 0;
@@ -1021,7 +1021,7 @@ volatile uint8_t *chip_revision_read() {
   }
   else if ( v9 == 1 )
   {
-    mmio_read_bit13();
+    wait_for_mmio_bit18();
     v14 = (void *)(uintptr_t)(off_1159A0);
     *(volatile uint32_t *)off_11599C |= 0x20u;
     v14[20] |= 0x20000u;
@@ -1122,7 +1122,7 @@ LABEL_23:
           alloc_tx_event(aWifiidleBtNotA);
         if ( get_init_flag() )
           chip_revision_read();
-        mmio_read_bit13();
+        wait_for_mmio_bit18();
         return;
       }
       if ( !get_init_flag() || *(volatile uint8_t *)dword_115BF0 )
@@ -1146,7 +1146,7 @@ LABEL_8:
     if ( !v14 )
     {
       alloc_tx_event(aBt1);
-      mmio_read_bit13();
+      wait_for_mmio_bit18();
     }
     if ( (uint8_t)**v1 > 1u )
       return;
@@ -1180,7 +1180,7 @@ LABEL_46:
     && !*(volatile uint32_t *)(dword_115BC8 + 0x1F8)
     && ((dword_115BF8 & *(volatile uint32_t *)dword_115BF4) == 0 || (unsigned int)(32 * *(volatile uint32_t *)dword_115BFC) > 0x1387) )
   {
-    mmio_read_bit13();
+    wait_for_mmio_bit18();
     v10 = (*(volatile uint32_t *)0x40501010u);
     v11 = v10 + 28;
     do
@@ -1265,7 +1265,7 @@ void ll_init_tables(int a1, int a2, int a3, int a4) {
         memory_barrier();
       if ( !*v9 )
         process_event_queue();
-      v7 = rf_calibration_proc(v7, v8);
+      v7 = test_command_queue_process(v7, v8);
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
@@ -1342,7 +1342,7 @@ LABEL_15:
     goto LABEL_21;
   }
 LABEL_36:
-  mmio_read_bit13();
+  wait_for_mmio_bit18();
   v19 = (*(volatile uint32_t *)0x40501010u);
   v20 = v19 + 28;
   do

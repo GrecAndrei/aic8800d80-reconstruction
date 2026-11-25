@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_compare_common",
+ "luna": "double_multiply",
+ "doc": "Multiplies two IEEE-754 binary64 values using the ARM EABI double-precision helper.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_multiply",
+   "probabilities": [
+    {
+     "value": "double_compare_common",
+     "probability": 0.02
+    },
+    {
+     "value": "double_multiply",
+     "probability": 0.95
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.93
+  }
+ ],
+ "status": "ok"
+}

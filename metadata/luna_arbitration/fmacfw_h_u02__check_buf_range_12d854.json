@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "check_buf_range_12d854",
+ "luna": "find_rsn_ie",
+ "doc": "Scans 802.11 information elements for an in-bounds RSN element with at least 18 bytes of payload and returns its pointer and length.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_rsn_ie",
+   "probabilities": [
+    {
+     "value": "check_buf_range_12d854",
+     "probability": 0.26
+    },
+    {
+     "value": "find_rsn_ie",
+     "probability": 0.59
+    },
+    {
+     "value": "neither",
+     "probability": 0.15
+    }
+   ],
+   "confidence": 0.38
+  }
+ ],
+ "status": "ok"
+}

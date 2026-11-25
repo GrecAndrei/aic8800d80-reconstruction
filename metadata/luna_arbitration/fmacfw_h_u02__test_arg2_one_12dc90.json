@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "test_arg2_one_12dc90",
+ "luna": "find_tlv_id_83_len2",
+ "doc": "Scans a length-prefixed element list and returns the header of element ID 83 with a two-byte payload, or NULL if it is absent or out of bounds.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_tlv_id_83_len2",
+   "probabilities": [
+    {
+     "value": "test_arg2_one_12dc90",
+     "probability": 0.22
+    },
+    {
+     "value": "find_tlv_id_83_len2",
+     "probability": 0.76
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.64
+  }
+ ],
+ "status": "ok"
+}

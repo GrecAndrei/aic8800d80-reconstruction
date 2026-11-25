@@ -59,7 +59,7 @@ int ble_state_check_13397c() {
     }
     else
     {
-      hci_cmd_preprocess(6u, 0);
+      ke_state_set(6u, 0);
     }
     return 0;
   }
@@ -71,7 +71,7 @@ int ble_state_check_13397c() {
     {
       if ( (*(volatile uint32_t *)(v0 + 48) & 0x40) != 0 )
       {
-        mac_dma_setup();
+        sm_assoc_req_send();
         v2 = (void *)(uintptr_t)(off_133A90);
         if ( *((volatile uint8_t *)off_133A90 + 13) )
         {

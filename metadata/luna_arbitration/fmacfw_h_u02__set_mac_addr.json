@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "set_mac_addr",
+ "luna": "set_mac_address",
+ "doc": "Stores the supplied six-byte MAC address in global state once, marking the state initialized afterward.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_mac_address",
+   "probabilities": [
+    {
+     "value": "set_mac_addr",
+     "probability": 0.37
+    },
+    {
+     "value": "set_mac_address",
+     "probability": 0.58
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.37
+  }
+ ],
+ "status": "ok"
+}

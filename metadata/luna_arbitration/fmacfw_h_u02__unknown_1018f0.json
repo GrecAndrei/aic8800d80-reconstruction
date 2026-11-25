@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "unknown_1018f0",
+ "luna": "phy_get_channel",
+ "doc": "Copies the stored 64-bit channel value to the output and logs an error when a nonzero radio ID is requested.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "phy_get_channel",
+   "probabilities": [
+    {
+     "value": "unknown_1018f0",
+     "probability": 0.26
+    },
+    {
+     "value": "phy_get_channel",
+     "probability": 0.7
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.55
+  }
+ ],
+ "status": "ok"
+}

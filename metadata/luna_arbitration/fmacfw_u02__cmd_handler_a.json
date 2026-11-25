@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "cmd_handler_a",
+ "luna": "co_list_push_back",
+ "doc": "Appends a list header to the tail of an intrusive list and clears the new header\u2019s next pointer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "co_list_push_back",
+   "probabilities": [
+    {
+     "value": "cmd_handler_a",
+     "probability": 0.1
+    },
+    {
+     "value": "co_list_push_back",
+     "probability": 0.8
+    },
+    {
+     "value": "neither",
+     "probability": 0.1
+    }
+   ],
+   "confidence": 0.7
+  }
+ ],
+ "status": "ok"
+}

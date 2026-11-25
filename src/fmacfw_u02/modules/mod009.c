@@ -310,9 +310,9 @@ int rf_cmd8_read(volatile uint32_t *a1, volatile unsigned int *a2) {
 
 
 
-// copy_global_1672ec @ 0x114920
+// rf_cmd_read_decode @ 0x114920
 /* luna: Executes the selected RF command, decodes its three signed-magnitude nibble values into the output buffer, and returns packed per-value status flags. */
-int copy_global_1672ec(int a1, int a2) {
+int rf_cmd_read_decode(int a1, int a2) {
   int v3; // r1
   int v4; // r2
   unsigned int response_word; // r0

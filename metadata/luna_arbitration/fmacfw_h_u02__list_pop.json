@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "list_pop",
+ "luna": "list_pop_front",
+ "doc": "Removes and returns the head node, clearing the tail pointer when the list becomes empty.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "list_pop_front",
+   "probabilities": [
+    {
+     "value": "list_pop",
+     "probability": 0.35
+    },
+    {
+     "value": "list_pop_front",
+     "probability": 0.65
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.48
+  }
+ ],
+ "status": "ok"
+}

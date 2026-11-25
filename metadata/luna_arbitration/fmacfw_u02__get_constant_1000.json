@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "get_constant_1000",
+ "luna": "rf_get_constant_1000",
+ "doc": "Returns the constant value 1000.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "get_constant_1000",
+   "probabilities": [
+    {
+     "value": "get_constant_1000",
+     "probability": 0.96
+    },
+    {
+     "value": "rf_get_constant_1000",
+     "probability": 0.04
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.94
+  }
+ ],
+ "status": "ok"
+}

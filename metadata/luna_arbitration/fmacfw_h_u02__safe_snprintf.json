@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "safe_snprintf",
+ "luna": "find_vendor_ie",
+ "doc": "Scans a length-delimited 802.11 IE buffer for a vendor-specific (ID 221) element whose payload begins with the supplied byte sequence, returning the element start and writing its total encoded length.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_vendor_ie",
+   "probabilities": [
+    {
+     "value": "safe_snprintf",
+     "probability": 0.11
+    },
+    {
+     "value": "find_vendor_ie",
+     "probability": 0.78
+    },
+    {
+     "value": "neither",
+     "probability": 0.11
+    }
+   ],
+   "confidence": 0.67
+  }
+ ],
+ "status": "ok"
+}

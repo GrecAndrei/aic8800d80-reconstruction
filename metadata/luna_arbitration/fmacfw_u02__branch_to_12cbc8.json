@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "branch_to_12cbc8",
+ "luna": "tx_pkt_enqueue",
+ "doc": "Forwards the packet pointer to the transmit packet enqueue routine.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "branch_to_12cbc8",
+   "probabilities": [
+    {
+     "value": "branch_to_12cbc8",
+     "probability": 0.53
+    },
+    {
+     "value": "tx_pkt_enqueue",
+     "probability": 0.45
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.3
+  }
+ ],
+ "status": "ok"
+}

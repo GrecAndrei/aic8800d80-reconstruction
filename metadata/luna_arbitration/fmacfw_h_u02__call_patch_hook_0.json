@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "call_patch_hook_0",
+ "luna": "invoke_patch_hook_0",
+ "doc": "Calls the no-argument function pointer stored at MEMD offset 0x1B0 and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "call_patch_hook_0",
+   "probabilities": [
+    {
+     "value": "call_patch_hook_0",
+     "probability": 0.52
+    },
+    {
+     "value": "invoke_patch_hook_0",
+     "probability": 0.48
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.28
+  }
+ ],
+ "status": "ok"
+}

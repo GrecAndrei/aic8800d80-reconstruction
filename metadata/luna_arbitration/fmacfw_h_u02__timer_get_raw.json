@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "timer_get_raw",
+ "luna": "sdio_set_phase_config",
+ "doc": "Updates the SDIO phase configuration register using its control-bit write sequence and logs the resulting phase value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "sdio_set_phase_config",
+   "probabilities": [
+    {
+     "value": "timer_get_raw",
+     "probability": 0.1
+    },
+    {
+     "value": "sdio_set_phase_config",
+     "probability": 0.85
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.77
+  }
+ ],
+ "status": "ok"
+}

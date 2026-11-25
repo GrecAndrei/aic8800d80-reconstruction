@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_cmd_6_version",
+ "luna": "rf_cmd_6_get_version",
+ "doc": "Queries RF command 6, writes byte 3 if nonzero or otherwise byte 2 (zero if both are zero), and returns 0, 1, or 2 to indicate which case applied.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_cmd_6_get_version",
+   "probabilities": [
+    {
+     "value": "rf_cmd_6_version",
+     "probability": 0.49
+    },
+    {
+     "value": "rf_cmd_6_get_version",
+     "probability": 0.5
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.25
+  }
+ ],
+ "status": "ok"
+}

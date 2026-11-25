@@ -254,9 +254,9 @@ void patch_check_valid() {
 }
 
 
-// patch_check_magic @ 0x114eac
+// patch_apply_if_magic_valid @ 0x114eac
 /* luna: Checks the patch header magic markers, applies its relocation entries, and copies enabled aligned patch regions. */
-void patch_check_magic() {
+void patch_apply_if_magic_valid() {
   volatile uint32_t *patch_header; // r3
   int relocation_entries; // r2
   unsigned int relocation_index; // r1
@@ -382,7 +382,7 @@ void patch_check_region() {
     *(volatile uint32_t *)off_115018 &= ~0x4000u;
   *(volatile uint8_t *)off_11501C = BYTE2(*(volatile uint32_t *)off_115004);
   load_and_store_block();
-  patch_check_magic();
+  patch_apply_if_magic_valid();
   queue_init();
   while ( 1 )
     ;
@@ -454,9 +454,9 @@ int patch_get_state() {
 }
 
 
-// patch_copy_table @ 0x11512c
+// dump_cortex_m_fault_context @ 0x11512c
 /* luna: Logs the saved Cortex-M register context, SCB fault status, execution mode, and memory around the saved MSP and PSP. */
-int patch_copy_table() {
+int dump_cortex_m_fault_context() {
   volatile uint32_t *saved_context; // r7
   volatile int *v1; // r5
   int i; // r4
@@ -639,7 +639,7 @@ void cli_parse_char(int a1) {
       break;
   }
   log_printf(aContext);
-  patch_copy_table();
+  dump_cortex_m_fault_context();
   log_printf(aFaultHandler);
   patch_init();
 }
@@ -862,9 +862,9 @@ int system_init() {
 
 
 
-// check_event_flag @ 0x1157d8
+// handle_reset_event @ 0x1157d8
 /* luna: Handles a firmware reset event by reinitializing radio-related state, applying any pending PHY update, and releasing the reset critical section. */
-volatile uint32_t * check_event_flag(int a1, int a2) {
+volatile uint32_t * handle_reset_event(int a1, int a2) {
   volatile int *reset_refcount; // r4
   volatile uint32_t *v3; // r3
   volatile unsigned int v4; // r1

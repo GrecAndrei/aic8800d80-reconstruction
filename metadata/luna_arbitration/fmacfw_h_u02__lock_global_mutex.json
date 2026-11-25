@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "lock_global_mutex",
+ "luna": "test_console_handle_key",
+ "doc": "Processes a console keystroke, updating the input line and returning its completion or cancellation status.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "test_console_handle_key",
+   "probabilities": [
+    {
+     "value": "lock_global_mutex",
+     "probability": 0.24
+    },
+    {
+     "value": "test_console_handle_key",
+     "probability": 0.67
+    },
+    {
+     "value": "neither",
+     "probability": 0.09
+    }
+   ],
+   "confidence": 0.51
+  }
+ ],
+ "status": "ok"
+}

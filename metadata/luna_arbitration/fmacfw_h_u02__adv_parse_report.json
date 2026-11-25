@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "adv_parse_report",
+ "luna": "handle_rx_descriptor",
+ "doc": "Validates an incoming Wi-Fi RX descriptor, copies it into an available host descriptor, updates per-peer/TID byte accounting, and dispatches it to the selected interface queue.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "handle_rx_descriptor",
+   "probabilities": [
+    {
+     "value": "adv_parse_report",
+     "probability": 0.15
+    },
+    {
+     "value": "handle_rx_descriptor",
+     "probability": 0.83
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.74
+  }
+ ],
+ "status": "ok"
+}

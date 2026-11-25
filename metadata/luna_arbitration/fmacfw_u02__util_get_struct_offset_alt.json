@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "util_get_struct_offset_alt",
+ "luna": "gpio_sync_pin1_with_flag",
+ "doc": "Drives GPIO pin 1 high when the global byte flag is nonzero and low otherwise.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "gpio_sync_pin1_with_flag",
+   "probabilities": [
+    {
+     "value": "util_get_struct_offset_alt",
+     "probability": 0.17
+    },
+    {
+     "value": "gpio_sync_pin1_with_flag",
+     "probability": 0.81
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.72
+  }
+ ],
+ "status": "ok"
+}

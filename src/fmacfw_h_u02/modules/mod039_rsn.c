@@ -259,7 +259,7 @@ LABEL_19:
           goto LABEL_28;
         }
         if ( **(volatile int16_t **)off_1296B8 < 0 )
-          result = mmio_write_field(dword_1296C0, dword_1296BC, 347);
+          result = log_warning(dword_1296C0, dword_1296BC, 347);
         v1 = v24;
         v10 = v23 + *(volatile uint32_t *)(v15 + 28);
       }
@@ -632,7 +632,7 @@ volatile uint8_t * key_install_check(volatile uint8_t *result) {
   {
     v3 = *((volatile uint32_t *)result + 29);
     result[114] = 1;
-    mem_copy_util((void *)(uintptr_t)((int)(result + 96)), v3);
+    mm_timer_set((void *)(uintptr_t)((int)(result + 96)), v3);
     return rsn_parse_ie(v2);
   }
   return result;

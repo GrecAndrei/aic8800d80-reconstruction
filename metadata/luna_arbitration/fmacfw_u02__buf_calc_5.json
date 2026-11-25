@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "buf_calc_5",
+ "luna": "mac_find_rsn_ie",
+ "doc": "Scans a bounded 802.11 information-element list for an RSN (EID 48) element with at least 18 payload bytes, stores its payload length, and returns its pointer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mac_find_rsn_ie",
+   "probabilities": [
+    {
+     "value": "buf_calc_5",
+     "probability": 0.26
+    },
+    {
+     "value": "mac_find_rsn_ie",
+     "probability": 0.69
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.53
+  }
+ ],
+ "status": "ok"
+}

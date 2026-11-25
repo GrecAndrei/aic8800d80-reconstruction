@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "get_bss_by_index",
+ "luna": "unregister_vif_by_index",
+ "doc": "Tears down the indexed virtual interface, clears its current-interface reference, and cleans up per-channel state.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "unregister_vif_by_index",
+   "probabilities": [
+    {
+     "value": "get_bss_by_index",
+     "probability": 0.13
+    },
+    {
+     "value": "unregister_vif_by_index",
+     "probability": 0.87
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.8
+  }
+ ],
+ "status": "ok"
+}

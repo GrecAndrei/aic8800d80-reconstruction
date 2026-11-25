@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "div_by_20",
+ "luna": "rf_set_digital_power_from_delta",
+ "doc": "Converts a power delta and base power into a digital power value, clamps it to 0x20\u20130xE8, stores it in the RF state, and reports analog-index limit warnings.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_set_digital_power_from_delta",
+   "probabilities": [
+    {
+     "value": "div_by_20",
+     "probability": 0.06
+    },
+    {
+     "value": "rf_set_digital_power_from_delta",
+     "probability": 0.93
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.89
+  }
+ ],
+ "status": "ok"
+}

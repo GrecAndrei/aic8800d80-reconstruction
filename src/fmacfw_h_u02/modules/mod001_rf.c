@@ -175,20 +175,20 @@ void rf_calibrate_tx( unsigned int a1, unsigned int a2, unsigned int r2_0, unsig
     v156 = (volatile unsigned int *)off_102898;
     v155 = (v155 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
     v157 = double_exp_check(v155);
-    *v156 = *v156 & 0xC00FFFFF | dword_10289C & (((int (*)(uint64_t))double_to_float_rounding)(v157) << 20);
+    *v156 = *v156 & 0xC00FFFFF | dword_10289C & (((int (*)(uint64_t))double_to_uint32)(v157) << 20);
   }
   else
   {
     v13 = signed_int_to_double(v11);
     if ( a4 > 1 )
-      v14 = ((uint64_t (*)())double_compare_common)(v13, *(volatile uint64_t *)&dword_1024E8);
+      v14 = ((uint64_t (*)())double_multiply)(v13, *(volatile uint64_t *)&dword_1024E8);
     else
-      v14 = ((uint64_t (*)())double_compare_common)(v13, *(volatile uint64_t *)&dword_1021F8);
+      v14 = ((uint64_t (*)())double_multiply)(v13, *(volatile uint64_t *)&dword_1021F8);
     v15 = ((int (*)(uint64_t))double_to_int)(v14);
     v16 = ((uint64_t (*)())float_to_double)(v15);
     v17 = (volatile unsigned int *)off_102218;
     v18 = double_exp_check(v16);
-    *v17 = *v17 & 0xF003FFFF | dword_10221C & (((int (*)(uint64_t))double_to_float_rounding)(v18) << 18);
+    *v17 = *v17 & 0xF003FFFF | dword_10221C & (((int (*)(uint64_t))double_to_uint32)(v18) << 18);
   }
   if ( a1 )
     v19 = (void *)(uintptr_t)(off_10288C);
@@ -253,37 +253,37 @@ LABEL_18:
   {
     v25 = signed_int_to_double(r2_0);
     v26 = signed_int_to_double(v24);
-    v27 = double_compare_eq(v25, v25);
+    v27 = double_add(v25, v25);
     v28 = (v28 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10224C) << 32);
     v29 = v27;
     v28 = (v28 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-    v30 = ((uint64_t (*)())double_compare_common)(v26, v28);
-    v31 = ((uint64_t (*)())double_compare_core)(v29, v30);
+    v30 = ((uint64_t (*)())double_multiply)(v26, v28);
+    v31 = ((uint64_t (*)())double_divide)(v29, v30);
     v32 = (v32 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_102250) << 32);
     v32 = (v32 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-    v33 = ((uint64_t (*)())double_compare_common)(v31, v32);
+    v33 = ((uint64_t (*)())double_multiply)(v31, v32);
     v34 = double_exp_check(v33);
-    v35 = ((int (*)(uint64_t))double_to_float_rounding)(v34);
+    v35 = ((int (*)(uint64_t))double_to_uint32)(v34);
     v36 = (v36 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10224C) << 32);
     v36 = (v36 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
     v29 = (v29 & ~0xFFFFFFFFull) | ((uint32_t)(v35) & 0xFFFFFFFFu);
-    v37 = ((uint64_t (*)())double_compare_core)(v25, v36);
+    v37 = ((uint64_t (*)())double_divide)(v25, v36);
     v38 = double_exp_check(v37);
     v39 = unsigned_int_to_double(v29);
     v40 = (v40 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10224C) << 32);
     v40 = (v40 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-    v41 = ((uint64_t (*)())double_compare_common)(v39, v40);
+    v41 = ((uint64_t (*)())double_multiply)(v39, v40);
     v42 = (v42 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_102254) << 32);
     v42 = (v42 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-    v43 = ((uint64_t (*)())double_compare_common)(v41, v42);
-    v44 = ((uint64_t (*)())double_compare_common)(v43, v26);
+    v43 = ((uint64_t (*)())double_multiply)(v41, v42);
+    v44 = ((uint64_t (*)())double_multiply)(v43, v26);
     v45 = (v45 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
     v45 = (v45 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_102258) << 32);
-    v46 = ((uint64_t (*)())double_compare_common)(v44, v45);
+    v46 = ((uint64_t (*)())double_multiply)(v44, v45);
     set_clock_divider(0);
     v47 = (volatile unsigned int *)off_102260;
     *(volatile uint32_t *)off_10225C = v29 & 0x7FFFFFFF;
-    v48 = ((int (*)(uint64_t))double_to_float_rounding)(v38);
+    v48 = ((int (*)(uint64_t))double_to_uint32)(v38);
     v49 = (void *)(uintptr_t)(off_10226C);
     *v47 = dword_102268 & *v47 | dword_102264 & (v48 << 13);
     *v49 |= 1u;
@@ -291,11 +291,11 @@ LABEL_25:
     v50 = (v50 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_102270) << 32);
     v51 = (volatile unsigned int *)off_102274;
     v50 = (v50 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-    v52 = ((uint64_t (*)())double_compare_core)(v50, v46);
+    v52 = ((uint64_t (*)())double_divide)(v50, v46);
     v53 = double_exp_check(v52);
     *v51 = ((int (*)(uint64_t))double_to_float_1)(v53) & 0xFFFFFFF | *v51 & 0xF0000000;
     v54 = 0;
-    v55 = ((uint64_t (*)())double_compare_core)(v46, *(volatile uint64_t *)&dword_102200);
+    v55 = ((uint64_t (*)())double_divide)(v46, *(volatile uint64_t *)&dword_102200);
     goto LABEL_26;
   }
   v128 = signed_int_to_double(r2_0);
@@ -304,29 +304,29 @@ LABEL_25:
   v131 = (volatile unsigned int *)off_102860;
   v130 = (v130 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v132 = v129;
-  v133 = ((uint64_t (*)())double_compare_common)(v129, v130);
-  v134 = ((uint64_t (*)())double_compare_core)(v128, v133);
+  v133 = ((uint64_t (*)())double_multiply)(v129, v130);
+  v134 = ((uint64_t (*)())double_divide)(v128, v133);
   v135 = (v135 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_102864) << 32);
   v135 = (v135 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v136 = ((uint64_t (*)())double_compare_common)(v134, v135);
+  v136 = ((uint64_t (*)())double_multiply)(v134, v135);
   v137 = double_exp_check(v136);
-  v138 = ((int (*)(uint64_t))double_to_float_rounding)(v137);
+  v138 = ((int (*)(uint64_t))double_to_uint32)(v137);
   v139 = (v139 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_102868) << 32);
   v139 = (v139 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v140 = v138;
-  v141 = ((uint64_t (*)())double_compare_core)(v128, v139);
+  v141 = ((uint64_t (*)())double_divide)(v128, v139);
   v142 = double_exp_check(v141);
   v143 = unsigned_int_to_double(v140);
   v144 = (v144 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10285C) << 32);
   v144 = (v144 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v145 = ((uint64_t (*)())double_compare_common)(v143, v144);
-  v146 = ((uint64_t (*)())double_compare_common)(v145, v132);
+  v145 = ((uint64_t (*)())double_multiply)(v143, v144);
+  v146 = ((uint64_t (*)())double_multiply)(v145, v132);
   v147 = (v147 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v147 = (v147 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10286C) << 32);
-  v46 = ((uint64_t (*)())double_compare_common)(v146, v147);
+  v46 = ((uint64_t (*)())double_multiply)(v146, v147);
   set_clock_divider(0);
   *(volatile uint32_t *)off_102870 = v140 & 0x7FFFFFFF;
-  v148 = ((int (*)(uint64_t))double_to_float_rounding)(v142);
+  v148 = ((int (*)(uint64_t))double_to_uint32)(v142);
   v149 = (void *)(uintptr_t)(off_10287C);
   *v131 = dword_102878 & *v131 | dword_102874 & (v148 << 13);
   *v149 |= 1u;
@@ -335,20 +335,20 @@ LABEL_25:
   v150 = (v150 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_102880) << 32);
   v151 = (volatile unsigned int *)off_102884;
   v150 = (v150 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v152 = ((uint64_t (*)())double_compare_core)(v150, v46);
+  v152 = ((uint64_t (*)())double_divide)(v150, v46);
   v153 = double_exp_check(v152);
   *v151 = *v151 & 0xF0000000 | ((int (*)(uint64_t))double_to_float_1)(v153) & 0xFFFFFFF;
   v154 = (v154 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v154 = (v154 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_102888) << 32);
   v54 = 1;
-  v55 = ((uint64_t (*)())double_compare_core)(v46, v154);
+  v55 = ((uint64_t (*)())double_divide)(v46, v154);
 LABEL_26:
   v56 = (v56 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_102278) << 32);
   v56 = (v56 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-if ( ((int (*)())double_greater_equal)(v55, v56) ) { v161 = ((uint64_t (*)())double_compare_common)(v55, 0x4180000000000000uLL);
+if ( ((int (*)())double_greater_equal)(v55, v56) ) { v161 = ((uint64_t (*)())double_multiply)(v55, 0x4180000000000000uLL);
     v162 = (v162 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_1028A4) << 32);
     v162 = (v162 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-    v163 = ((uint64_t (*)())double_compare_core)(v161, v162);
+    v163 = ((uint64_t (*)())double_divide)(v161, v162);
     v164 = double_exp_check(v163);
     v63 = ((int (*)(uint64_t))double_to_float_1)(v164);
     v64 = 0x20000000;
@@ -358,12 +358,12 @@ if ( ((int (*)())double_greater_equal)(v55, v56) ) { v161 = ((uint64_t (*)())dou
     v57 = (v57 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10227C) << 32);
     v57 = (v57 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
     v58 = ((int (*)())double_greater_equal)(v55, v57);
-    v59 = ((uint64_t (*)())double_compare_common)(v55, 0x4180000000000000uLL);
+    v59 = ((uint64_t (*)())double_multiply)(v55, 0x4180000000000000uLL);
     if ( v58 )
     {
       v60 = (v60 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10227C) << 32);
       v60 = (v60 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-      v61 = ((uint64_t (*)())double_compare_core)(v59, v60);
+      v61 = ((uint64_t (*)())double_divide)(v59, v60);
       v62 = double_exp_check(v61);
       v63 = ((int (*)(uint64_t))double_to_float_1)(v62);
       v64 = 0x10000000;
@@ -372,7 +372,7 @@ if ( ((int (*)())double_greater_equal)(v55, v56) ) { v161 = ((uint64_t (*)())dou
     {
       v158 = (v158 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_1028A0) << 32);
       v158 = (v158 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-      v159 = ((uint64_t (*)())double_compare_core)(v59, v158);
+      v159 = ((uint64_t (*)())double_divide)(v59, v158);
       v160 = double_exp_check(v159);
       v63 = ((int (*)(uint64_t))double_to_float_1)(v160);
       v64 = 0;
@@ -385,34 +385,34 @@ if ( ((int (*)())double_greater_equal)(v55, v56) ) { v161 = ((uint64_t (*)())dou
   *v65 = *v65 & 0xFFFFFFF | v64;
   *v66 = *v66 & 0xFFFFFFFC | v54;
   v68 = signed_int_to_double(a2);
-  v69 = double_compare_eq(v68, v46);
+  v69 = double_add(v68, v46);
   v70 = signed_int_to_double(r2_0);
   v71 = ((uint64_t (*)())double_compare_neg)(v69, v70);
   v72 = (v72 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10228C) << 32);
   v73 = (volatile unsigned int *)off_102294;
   v72 = (v72 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v74 = ((uint64_t (*)())double_compare_core)(v72, v46);
+  v74 = ((uint64_t (*)())double_divide)(v72, v46);
   v75 = (v75 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v75 = (v75 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_102254) << 32);
-  v76 = double_compare_eq(v74, v75);
+  v76 = double_add(v74, v75);
   _frame.v166 = *v67;
-  *v67 = _frame.v166 & 0xFFFF8000 | ((int (*)(uint64_t))double_to_float_rounding)(v76) & 0x7FFF;
+  *v67 = _frame.v166 & 0xFFFF8000 | ((int (*)(uint64_t))double_to_uint32)(v76) & 0x7FFF;
   v77 = (v77 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v77 = (v77 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_1024F0) << 32);
-  v78 = ((uint64_t (*)())double_compare_common)(v46, v77);
-  v79 = ((uint64_t (*)())double_compare_core)(v78, v71);
+  v78 = ((uint64_t (*)())double_multiply)(v46, v77);
+  v79 = ((uint64_t (*)())double_divide)(v78, v71);
   v80 = (v80 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_1024F4) << 32);
   v81 = *v73;
   v80 = (v80 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v82 = double_compare_eq(v79, v80);
-  *v73 = (uint16_t)((int (*)(uint64_t))double_to_float_rounding)(v82) | (HIWORD(v81) << 16);
+  v82 = double_add(v79, v80);
+  *v73 = (uint16_t)((int (*)(uint64_t))double_to_uint32)(v82) | (HIWORD(v81) << 16);
   v83 = (v83 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_1024F8) << 32);
   v83 = (v83 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v84 = ((uint64_t (*)())double_compare_core)(v83, v71);
+  v84 = ((uint64_t (*)())double_divide)(v83, v71);
   v85 = (v85 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_1024F4) << 32);
   v85 = (v85 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v86 = double_compare_eq(v84, v85);
-  *v73 = *v73 & 0x8000FFFF | dword_1024FC & (((int (*)(uint64_t))double_to_float_rounding)(v86) << 16);
+  v86 = double_add(v84, v85);
+  *v73 = *v73 & 0x8000FFFF | dword_1024FC & (((int (*)(uint64_t))double_to_uint32)(v86) << 16);
   *v65 = a4 & 0xF | *v65 & 0xFFFFFFF0;
   if ( a4 )
   {

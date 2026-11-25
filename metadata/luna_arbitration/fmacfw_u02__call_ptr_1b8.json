@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "call_ptr_1b8",
+ "luna": "call_function_pointer_1b8",
+ "doc": "Invokes the zero-argument function pointer stored at address 0x1B8 and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "call_function_pointer_1b8",
+   "probabilities": [
+    {
+     "value": "call_ptr_1b8",
+     "probability": 0.48
+    },
+    {
+     "value": "call_function_pointer_1b8",
+     "probability": 0.51
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.27
+  }
+ ],
+ "status": "ok"
+}

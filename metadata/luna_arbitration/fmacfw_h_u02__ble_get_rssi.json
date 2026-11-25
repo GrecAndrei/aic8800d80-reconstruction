@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "ble_get_rssi",
+ "luna": "rx_dma_advance_cursor",
+ "doc": "Walks the RX descriptor chain until status bit 0 is set, updates the DMA cursor and wrap state, and returns the previous cursor value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rx_dma_advance_cursor",
+   "probabilities": [
+    {
+     "value": "ble_get_rssi",
+     "probability": 0.12
+    },
+    {
+     "value": "rx_dma_advance_cursor",
+     "probability": 0.83
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.74
+  }
+ ],
+ "status": "ok"
+}

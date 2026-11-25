@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "f32_to_f16",
+ "luna": "fast_log2f",
+ "doc": "Approximates log2 of a positive normal IEEE-754 float by adding its exponent to a piecewise-linear approximation of the mantissa contribution.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "fast_log2f",
+   "probabilities": [
+    {
+     "value": "f32_to_f16",
+     "probability": 0.01
+    },
+    {
+     "value": "fast_log2f",
+     "probability": 0.96
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.94
+  }
+ ],
+ "status": "ok"
+}

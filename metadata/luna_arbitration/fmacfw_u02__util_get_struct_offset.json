@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "util_get_struct_offset",
+ "luna": "gpio_write_bit2_from_flag",
+ "doc": "Mirrors a global boolean control byte onto GPIO bit 2, setting the bit when the byte is nonzero and clearing it otherwise.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "gpio_write_bit2_from_flag",
+   "probabilities": [
+    {
+     "value": "util_get_struct_offset",
+     "probability": 0.0
+    },
+    {
+     "value": "gpio_write_bit2_from_flag",
+     "probability": 1.0
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "status": "ok"
+}

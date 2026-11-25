@@ -116,7 +116,7 @@ int get_sched_item(int result) {
       v6 = (int)&v1[7 * result];
       result = *(volatile uint32_t *)(v6 + 36);
       if ( result )
-        result = ((int (*)())rf_switch_case)(result, v4, v3, v6);
+        result = ((int (*)())tx_queue_set_head)(result, v4, v3, v6);
       v1[v5 - v4 + 9] = 0;
     }
   }
@@ -184,7 +184,7 @@ LABEL_17:
     goto LABEL_17;
   }
 LABEL_8:
-  result = mem_copy_util((void *)(&v4[28 * a1 + 20]), *((volatile uint32_t *)off_11B348 + 4) + 0x2000);
+  result = mm_timer_set((void *)(&v4[28 * a1 + 20]), *((volatile uint32_t *)off_11B348 + 4) + 0x2000);
   v8 = *v5;
 LABEL_9:
   if ( v8 )

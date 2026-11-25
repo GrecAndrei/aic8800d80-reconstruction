@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "irq_counter_inc",
+ "luna": "irq_counter_increment",
+ "doc": "Increments the volatile IRQ counter at byte offset 0x1F8 from the global state base.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "irq_counter_inc",
+   "probabilities": [
+    {
+     "value": "irq_counter_inc",
+     "probability": 0.51
+    },
+    {
+     "value": "irq_counter_increment",
+     "probability": 0.45
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.27
+  }
+ ],
+ "status": "ok"
+}

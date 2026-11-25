@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_tx_flag_check",
+ "luna": "apm_probe_sta_cfm",
+ "doc": "Handles an AP-mode station probe result, recording a success timestamp or queuing a follow-up message after repeated failures.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "apm_probe_sta_cfm",
+   "probabilities": [
+    {
+     "value": "rf_tx_flag_check",
+     "probability": 0.19
+    },
+    {
+     "value": "apm_probe_sta_cfm",
+     "probability": 0.79
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.69
+  }
+ ],
+ "status": "ok"
+}

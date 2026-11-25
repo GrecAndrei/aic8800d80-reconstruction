@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "patch_copy_table",
+ "luna": "dump_cortex_m_fault_context",
+ "doc": "Logs the saved Cortex-M register context, SCB fault status, execution mode, and memory around the saved MSP and PSP.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "dump_cortex_m_fault_context",
+   "probabilities": [
+    {
+     "value": "patch_copy_table",
+     "probability": 0.0
+    },
+    {
+     "value": "dump_cortex_m_fault_context",
+     "probability": 0.99
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "status": "ok"
+}

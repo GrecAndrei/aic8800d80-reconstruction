@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "lld_evt_schedule_next",
+ "luna": "mm_start_req_handler",
+ "doc": "Handles the MAC-manager start request by initializing radio and peripheral state, applying request configuration, and conditionally sending a no-parameter response.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mm_start_req_handler",
+   "probabilities": [
+    {
+     "value": "lld_evt_schedule_next",
+     "probability": 0.4
+    },
+    {
+     "value": "mm_start_req_handler",
+     "probability": 0.5
+    },
+    {
+     "value": "neither",
+     "probability": 0.1
+    }
+   ],
+   "confidence": 0.25
+  }
+ ],
+ "status": "ok"
+}

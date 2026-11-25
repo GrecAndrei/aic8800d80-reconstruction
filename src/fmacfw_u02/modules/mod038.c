@@ -293,7 +293,7 @@ int sta_lookup_by_bss(int a1, int a2) {
       }
       while ( v24 != v23 );
     }
-    cmd_handler_a(dword_128ABC, v7);
+    co_list_push_back(dword_128ABC, v7);
     if ( (v10[88] & 0xC) != 0 )
     {
       v22 = *((volatile uint32_t *)v10 + 8);

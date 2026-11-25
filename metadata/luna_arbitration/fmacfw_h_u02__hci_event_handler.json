@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "hci_event_handler",
+ "luna": "hci_event_handler_count",
+ "doc": "Looks up the handler list for an HCI event and optional subevent, falls back to the event-wide list when needed, and returns the selected list\u2019s node count.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "hci_event_handler_count",
+   "probabilities": [
+    {
+     "value": "hci_event_handler",
+     "probability": 0.4
+    },
+    {
+     "value": "hci_event_handler_count",
+     "probability": 0.59
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.38
+  }
+ ],
+ "status": "ok"
+}

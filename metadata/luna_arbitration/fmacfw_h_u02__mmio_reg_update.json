@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mmio_reg_update",
+ "luna": "update_mmio_enable",
+ "doc": "Sets or clears bit 10 in one MMIO register and bit 19 in another according to bit 0 of the input, returning the updated second register value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "update_mmio_enable",
+   "probabilities": [
+    {
+     "value": "mmio_reg_update",
+     "probability": 0.32
+    },
+    {
+     "value": "update_mmio_enable",
+     "probability": 0.66
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.49
+  }
+ ],
+ "status": "ok"
+}

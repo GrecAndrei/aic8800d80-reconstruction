@@ -152,8 +152,8 @@ int bt_get_current_profile_conn(unsigned int a1) {
   *(volatile uint16_t *)(v9 + 38) = *(volatile uint16_t *)(v14 + 372);
   *(volatile uint32_t *)(v9 + 34) = v15;
   *(volatile uint32_t *)(v9 + 40) = bswap32(a1);
-  rx_phy_status_parse(6u, 6);
-  ke_task_create(6154, 6, off_135924);
+  ke_state_set(6u, 6);
+  ke_timer_set(6154, 6, off_135924);
   return (int)ke_msg_send_2(v9);
 }
 
@@ -209,8 +209,8 @@ int bt_send_ack_message(char a1, int a2, unsigned int a3) {
     }
     while ( v10 != v11 );
   }
-  rx_phy_status_parse(6u, 7);
-  ke_task_create(6154, 6, dword_1359F4);
+  ke_state_set(6u, 7);
+  ke_timer_set(6154, 6, dword_1359F4);
   return (int)ke_msg_send_2(v9);
 }
 
@@ -241,7 +241,7 @@ int bt_send_acl_event(volatile uint16_t *a1) {
   v6 = v1[1];
   if ( v6 == 4 )
   {
-    get_controller_state(0xBB8u);
+    wait_timer_ticks(0xBB8u);
     return init_rf_tables();
   }
   if ( v6 == 2 && *a1 > 0x22u )

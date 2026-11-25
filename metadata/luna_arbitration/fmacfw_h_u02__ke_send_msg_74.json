@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "ke_send_msg_74",
+ "luna": "send_mac_address_response",
+ "doc": "Reads the device's six-byte MAC address from the RF or SMC source and sends it in a response packet.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "send_mac_address_response",
+   "probabilities": [
+    {
+     "value": "ke_send_msg_74",
+     "probability": 0.33
+    },
+    {
+     "value": "send_mac_address_response",
+     "probability": 0.66
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.49
+  }
+ ],
+ "status": "ok"
+}

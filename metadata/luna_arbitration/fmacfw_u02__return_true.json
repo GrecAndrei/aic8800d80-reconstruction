@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "return_true",
+ "luna": "always_true",
+ "doc": "Returns 1 unconditionally.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "return_true",
+   "probabilities": [
+    {
+     "value": "return_true",
+     "probability": 0.82
+    },
+    {
+     "value": "always_true",
+     "probability": 0.18
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.73
+  }
+ ],
+ "status": "ok"
+}

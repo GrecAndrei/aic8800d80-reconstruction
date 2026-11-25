@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "parse_scan_report",
+ "luna": "mac_parse_country_ie",
+ "doc": "Finds the Country Information Element, converts the supplied band and frequency to a channel number, and stores the matching subband's maximum transmit power.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "parse_scan_report",
+   "probabilities": [
+    {
+     "value": "parse_scan_report",
+     "probability": 0.58
+    },
+    {
+     "value": "mac_parse_country_ie",
+     "probability": 0.4
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.37
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "is_initialized",
+ "luna": "txl_ba_push",
+ "doc": "Pops a buffer from the selected transmit queue and prepares its BA-related descriptor metadata and frame header.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "txl_ba_push",
+   "probabilities": [
+    {
+     "value": "is_initialized",
+     "probability": 0.0
+    },
+    {
+     "value": "txl_ba_push",
+     "probability": 1.0
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "status": "ok"
+}

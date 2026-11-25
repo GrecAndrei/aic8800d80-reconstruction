@@ -731,9 +731,9 @@ int mac_reset_disable(int a1, int a2, int a3, int a4) {
 }
 
 
-// compare_memory_ranges @ 0x105188
+// rf_update_am_back_power_diff @ 0x105188
 /* luna: Computes 20 times the signed difference between current and base AM backoff values, stores it at offset 96, and reports the scaled difference. */
-int compare_memory_ranges(int a1, int a2, int a3) {
+int rf_update_am_back_power_diff(int a1, int a2, int a3) {
   float power_difference; // s14
   int scaled_difference_for_log; // r3
   uint64_t v9; // r8
@@ -1887,7 +1887,7 @@ LABEL_3:
   *v49 &= ~0x200u;
   *v55 |= 0x10000000u;
   timer_delay(6500);
-  start_arm_boot();
+  dump_tone_type3();
   *v51 = *v51 & 0xFFBFFFFF | (v112 << 22);
   *v51 = *v51 & 0xFFDFFFFF | (v111 << 21);
   mac_irq_disable();
@@ -1941,9 +1941,9 @@ LABEL_3:
 }
 
 
-// timer_elapsed_compare @ 0x1063f4
+// rf_tx_gain_map_write @ 0x1063f4
 /* luna: Builds and writes the TX gain-map register value, applying optional per-index temperature scaling and table/index bypass encoding. */
-int timer_elapsed_compare(int a1, int a2, int a3, int a4, int a5) {
+int rf_tx_gain_map_write(int a1, int a2, int a3, int a4, int a5) {
   int scaled_gain_byte; // r4
   unsigned int tx_gain_map_word; // r4
   int gain_map_control_field; // r8
@@ -2632,7 +2632,7 @@ LABEL_19:
     *(volatile uint32_t *)(a2 + 164) = v38;
     *v36 = v36[3];
     ++v36;
-    timer_elapsed_compare(a1, v37, a5, a2, a6);
+    rf_tx_gain_map_write(a1, v37, a5, a2, a6);
     *v32 &= ~0x200u;
     *v32 |= 0x200u;
     *v32 &= ~0x200u;
@@ -2654,7 +2654,7 @@ LABEL_19:
     {
       while ( 1 )
       {
-        timer_elapsed_compare(a1, v42, a5, a2, a6);
+        rf_tx_gain_map_write(a1, v42, a5, a2, a6);
         v45 = *(volatile uint32_t *)(a2 + 124);
         *v43 &= ~0x200u;
         *v43 |= 0x200u;
@@ -3690,9 +3690,9 @@ int read_status_high() {
 }
 
 
-// read_status_low @ 0x108238
+// rf_apply_loft_q_calibration @ 0x108238
 /* luna: Reads the LOFT-Q calibration value, adds it to the RF register’s low 12 bits, and sets the calibration update bit. */
-int read_status_low() {
+int rf_apply_loft_q_calibration() {
   volatile unsigned int *v0; // r5
   int loft_q_register_value; // r6
   int16_t loft_q_calibration_value; // r4
@@ -4095,7 +4095,7 @@ volatile uint32_t * periph_init_multi( int a1, volatile unsigned int *a2, int a3
             read_status_high();
             rf_tx_cfg_write((int)&_frame.v169);
             clear_flag_and_invoke();
-            read_status_low();
+            rf_apply_loft_q_calibration();
             v41 = *v30 & 0xFFF;
             v42 = (*v30 & 0x8000000) != 0 ? (HIWORD(*v30) & 0xFFF) - 4096 : HIWORD(*v30) & 0xFFF;
             v43 = (*v30 & 0x800) != 0 ? v41 - 4096 : *v30 & 0xFFF;
@@ -4119,7 +4119,7 @@ volatile uint32_t * periph_init_multi( int a1, volatile unsigned int *a2, int a3
           *v30 = (2 * v41) & 0xFFF | *v30 & v36;
           rf_tx_cfg_write((int)&_frame.v169);
           clear_flag_and_invoke();
-          read_status_low();
+          rf_apply_loft_q_calibration();
           v45 = HIWORD(*v30) & 0xFFF;
           v46 = *v30 & 0xFFF;
           v47 = v46 + (v45 << 16);

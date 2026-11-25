@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "memcpy_aligned",
+ "luna": "strlen",
+ "doc": "Returns the number of bytes before the first NUL terminator in the input string.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "strlen",
+   "probabilities": [
+    {
+     "value": "memcpy_aligned",
+     "probability": 0.01
+    },
+    {
+     "value": "strlen",
+     "probability": 0.98
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.97
+  }
+ ],
+ "status": "ok"
+}

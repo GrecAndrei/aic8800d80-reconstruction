@@ -287,7 +287,7 @@ uint64_t rf_timer_init() {
   {
     v4 = v1;
     v1 += 4;
-    cmd_handler_a(v3, (void *)(v4));
+    co_list_push_back(v3, (void *)(v4));
   }
   while ( v1 != v2 );
   v5 = dword_10F454;
@@ -375,7 +375,7 @@ int rf_wait_ready() {
     v13 = (int ( **)(int))off_10F51C;
     *(volatile uint16_t *)(v12 + 8244) = 0;
     v14 = (int)(uintptr_t)(ke_state_get_fast());
-    ke_state_get(v14);
+    usb_wlan_rx_pkt_free_list_init(v14);
     v15 = v13[6](dword_10F540);
     v16 = v13[7](v15);
     v4 = (v4 & ~0xFFFFFFFFull) | ((uint32_t)(store_byte_field(v16)) & 0xFFFFFFFFu);
@@ -502,7 +502,7 @@ LABEL_25:
           if ( (*(volatile uint16_t *)(v13 + 30) & 1) != 0 )
           {
 LABEL_56:
-            cmd_handler_a(v8 + 8 * (87 * (int16_t)v12 + v25 + 78), (volatile uint32_t *)v13);
+            co_list_push_back(v8 + 8 * (87 * (int16_t)v12 + v25 + 78), (volatile uint32_t *)v13);
             goto LABEL_23;
           }
           mmio_clear_register((int)aTxdescTmpHostF, (int)aReplenishSend, 383);
@@ -564,7 +564,7 @@ LABEL_38:
               __enable_irq();
           }
         }
-        cmd_handler_a(v8 + 8 * (87 * (int16_t)v16 + v26 + 73), v18);
+        co_list_push_back(v8 + 8 * (87 * (int16_t)v16 + v26 + 73), v18);
 LABEL_37:
         v15 = *(volatile uint32_t *)(v6 + 1264);
         if ( !v15 )
@@ -787,9 +787,9 @@ LABEL_6:
 }
 
 
-// rx_packet_handler_1 @ 0x10fb28
+// buffer_pool_alloc @ 0x10fb28
 /* luna: Allocates and removes a free buffer from a size-class pool large enough for the requested size, validating the freelist pointer against configured mem */
-volatile uint32_t * rx_packet_handler_1(int a1, unsigned int a2) {
+volatile uint32_t * buffer_pool_alloc(int a1, unsigned int a2) {
   unsigned int pool_count; // r6
   volatile uint32_t *v3; // r5
   volatile uint16_t *pool_descriptor; // r4
@@ -1209,15 +1209,15 @@ int hci_send_command(int a1, int a2, int a3) {
 
 
 
-// is_hci_initialized @ 0x10ffbc
+// set_user_id @ 0x10ffbc
 /* luna: Obtains a controller buffer and stores the supplied user ID in the byte immediately preceding its payload, logging if the buffer is invalid. */
-volatile uint32_t * is_hci_initialized(char a1) {
+volatile uint32_t * set_user_id(char a1) {
   volatile uint32_t *v2; // r4
 
   if ( **(volatile uint8_t **)off_10FFFC == 1 )
     v2 = is_hold_mode();
   else
-    v2 = rx_packet_handler_1(dword_110000, 0x7Cu);
+    v2 = buffer_pool_alloc(dword_110000, 0x7Cu);
   if ( !v2 )
     return v2;
   if ( check_controller_mode((unsigned int)v2) )
@@ -1352,8 +1352,8 @@ volatile uint32_t *get_link_channel() {
     v5 = 0;
     do
     {
-      v6 = rx_packet_handler_1(v3, 0x63Cu);
-      result = (volatile uint32_t *)cmd_handler_a(v4, v6);
+      v6 = buffer_pool_alloc(v3, 0x63Cu);
+      result = (volatile uint32_t *)co_list_push_back(v4, v6);
       v7 = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 6);
       ++v5;
       ++*v2;
@@ -1382,8 +1382,8 @@ volatile uint32_t *get_link_rate() {
     v4 = 0;
     do
     {
-      v5 = rx_packet_handler_1(v2, 0xCu);
-      result = (volatile uint32_t *)cmd_handler_a(v3, v5);
+      v5 = buffer_pool_alloc(v2, 0xCu);
+      result = (volatile uint32_t *)co_list_push_back(v3, v5);
       ++v4;
     }
     while ( *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );
@@ -1413,8 +1413,8 @@ volatile uint32_t *get_modulation_type() {
     v5 = 0;
     do
     {
-      v6 = rx_packet_handler_1(v3, 0x6B8u);
-      result = (volatile uint32_t *)cmd_handler_a(v4, v6);
+      v6 = buffer_pool_alloc(v3, 0x6B8u);
+      result = (volatile uint32_t *)co_list_push_back(v4, v6);
       v7 = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8);
       ++v5;
       ++*v2;
@@ -1443,8 +1443,8 @@ volatile uint32_t *get_link_tx_power() {
     v4 = 0;
     do
     {
-      v5 = rx_packet_handler_1(v2, 0x7Cu);
-      result = (volatile uint32_t *)cmd_handler_a(v3, v5);
+      v5 = buffer_pool_alloc(v2, 0x7Cu);
+      result = (volatile uint32_t *)co_list_push_back(v3, v5);
       ++v4;
     }
     while ( *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );
@@ -1501,7 +1501,7 @@ int is_inquiry_enabled(volatile uint32_t *a1) {
   v2 = (volatile int *)off_110338;
   v3 = dword_11033C;
   ++*(volatile uint32_t *)off_110338;
-  result = cmd_handler_a(v3, a1);
+  result = co_list_push_back(v3, a1);
   if ( *v2 )
   {
     v5 = *v2 - 1;
@@ -1534,7 +1534,7 @@ int is_connected_flag(volatile uint32_t *a1) {
   v2 = (volatile int *)off_1103D4;
   v3 = dword_1103D8;
   ++*(volatile uint32_t *)off_1103D4;
-  result = cmd_handler_a(v3, a1);
+  result = co_list_push_back(v3, a1);
   v5 = *v2;
   ++*(volatile uint32_t *)off_1103DC;
   if ( v5 )
@@ -1604,7 +1604,7 @@ int is_sniff_mode(volatile uint32_t *a1) {
   v2 = (volatile int *)off_110474;
   v3 = dword_110478;
   ++*(volatile uint32_t *)off_110474;
-  result = cmd_handler_a(v3, a1);
+  result = co_list_push_back(v3, a1);
   v5 = *v2;
   ++*(volatile uint32_t *)off_11047C;
   if ( v5 )
@@ -1670,7 +1670,7 @@ int is_park_mode(volatile uint32_t *a1) {
   v2 = (volatile int *)off_1104FC;
   v3 = dword_110500;
   ++*(volatile uint32_t *)off_1104FC;
-  result = cmd_handler_a(v3, a1);
+  result = co_list_push_back(v3, a1);
   if ( *v2 )
   {
     v5 = *v2 - 1;
@@ -1686,9 +1686,9 @@ int is_park_mode(volatile uint32_t *a1) {
 }
 
 
-// rf_pll_program @ 0x110504
+// replenish_rxmsg_buffers @ 0x110504
 /* luna: Allocates RX message buffers and descriptors, links them onto the receive queue, and notifies the hardware until the context has more than one buffer. */
-int rf_pll_program(int result) {
+int replenish_rxmsg_buffers(int result) {
   volatile uint32_t *rx_doorbell_register; // r4
   unsigned int buffer_count; // r3
   volatile int *v3; // r6
@@ -1820,7 +1820,7 @@ int rf_bb_config(int a1, int a2) {
   v2 = (void *)(uintptr_t)(off_110760);
   v3 = (volatile int *)off_110764;
   v21 = *(volatile uint16_t *)(*(volatile uint32_t *)off_11075C + 48);
-  rf_pll_program(a2);
+  replenish_rxmsg_buffers(a2);
   v6 = *(volatile uint16_t *)(a2 + 12);
 LABEL_2:
   v7 = (void *)(uintptr_t)(off_11078C);
@@ -2381,7 +2381,7 @@ int mutex_lock(char a1, volatile char *a2, unsigned int a3, int a4) {
   int v10; // r2
   int v11; // r3
 
-  v7 = is_hci_initialized(4);
+  v7 = set_user_id(4);
   if ( !v7 )
     return log_printf(aErrNoMsgPkt);
   v8 = v7;
@@ -2418,9 +2418,9 @@ int get_status_flag() {
 
 
 
-// read_random_from_mmio @ 0x11130c
+// set_sdio_phase_config @ 0x11130c
 /* luna: Programs the SDIO phase configuration from the argument’s low 22 bits using a bit-22-selected register-write sequence, then logs the configured value. */
-int read_random_from_mmio(int a1) {
+int set_sdio_phase_config(int a1) {
   volatile int *sdio_phase_reg; // r3
   int phase_value; // r2
   int current_phase; // r1

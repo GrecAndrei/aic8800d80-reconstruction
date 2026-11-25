@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "gpio_mode_set",
+ "luna": "rf_pa_current_calibrate",
+ "doc": "Tunes the RF resistor and CGM codes toward the target PA current, returns the signed adjustment count, and stores the final CGM code through the output pointer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_pa_current_calibrate",
+   "probabilities": [
+    {
+     "value": "gpio_mode_set",
+     "probability": 0.08
+    },
+    {
+     "value": "rf_pa_current_calibrate",
+     "probability": 0.91
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.86
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "read_u32",
+ "luna": "list_count",
+ "doc": "Counts the nodes in a null-terminated singly linked list whose next pointer is the first word of each node.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "list_count",
+   "probabilities": [
+    {
+     "value": "read_u32",
+     "probability": 0.1
+    },
+    {
+     "value": "list_count",
+     "probability": 0.89
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.83
+  }
+ ],
+ "status": "ok"
+}

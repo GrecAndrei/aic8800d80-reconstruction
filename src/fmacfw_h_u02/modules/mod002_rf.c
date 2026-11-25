@@ -561,9 +561,9 @@ unsigned int crypto_read_status(unsigned int result) {
 }
 
 
-// crypto_start_operation @ 0x10327c
+// rf_calibrate_mdll_duty @ 0x10327c
 /* luna: Calibrates the MDLL duty setting for the selected 280- or 320-MHz operating point by sampling the RF status bit and stores the resulting duty value. */
-void crypto_start_operation(int a1) {
+void rf_calibrate_mdll_duty(int a1) {
   volatile uint32_t *mdll_ctrl_reg; // r6
   volatile uint32_t *calibration_ctrl_reg; // r5
   int last_status_bit; // r7
@@ -1023,9 +1023,9 @@ LABEL_17:
   uart_send_data(1, 0, 0x10u, *(volatile int *)aX);
   uart_send_data(1, 16, 0x10u, *(volatile int *)asc_152738);
   rf_config_read_b();
-  crypto_start_operation(1);
+  rf_calibrate_mdll_duty(1);
   rf_config_read_a(0);
-  crypto_start_operation(0);
+  rf_calibrate_mdll_duty(0);
   *(volatile uint32_t *)off_1038D0 |= 0x8000000u;
   v36 = rf_power_adjust();
   v37 = ((int)(((uint64_t)((int32_t)dword_1038D4 * (int64_t)(int32_t)(4 * (v36 - 35))) >> 32) + 4 * (v36 - 35)) >> 2)
@@ -1635,9 +1635,9 @@ LABEL_9:
 
 
 
-// ke_acquire_lock @ 0x1042bc
+// rf_remove_iq_dc_offset @ 0x1042bc
 /* luna: Computes the mean I/Q bias across 8192 packed samples in the selected buffer and subtracts those DC offsets from each sample. */
-int ke_acquire_lock() {
+int rf_remove_iq_dc_offset() {
   BOOL v0; // r1
   int min_i; // r2
   volatile int *iq_samples; // r4
@@ -1746,7 +1746,7 @@ int mac_config_and_start() {
   *(volatile uint32_t *)off_1044B0 = 0;
   check_feature_flag(1, aDumpFinish);
   *(volatile uint32_t *)off_1044A0 = saved_control_value;
-  ke_acquire_lock();
+  rf_remove_iq_dc_offset();
   result = check_feature_flag(1, "** dump tone typ3   r 00100000 %d**\n", 0x4000);
   v7 = (void *)(uintptr_t)(off_1044A4);
   v8 = (void *)(uintptr_t)(off_1044CC);

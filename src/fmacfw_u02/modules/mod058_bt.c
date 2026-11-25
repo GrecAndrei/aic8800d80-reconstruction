@@ -131,13 +131,13 @@ int bt_get_profile_ctx() {
   check_flag_and_proceed();
   *v2 = 1;
   v2[1] = *(volatile uint8_t *)(v1 + 61);
-  cmd_handler_a((int)off_134D7C + 24, (volatile uint32_t *)v2 - 3);
+  co_list_push_back((int)off_134D7C + 24, (volatile uint32_t *)v2 - 3);
   v8 = *(volatile uint32_t *)(v0 + 1320 * v24 + 368);
   *(volatile uint16_t *)(v3 + 4) = *(volatile uint16_t *)(v0 + 1320 * v24 + 372);
   v9 = (void *)(uintptr_t)(off_134D7C);
   *(volatile uint32_t *)v3 = v8;
   *(volatile uint8_t *)(v3 + 6) = *(volatile uint8_t *)(v1 + 61);
-  cmd_handler_a((int)v9 + 24, (volatile uint32_t *)(v3 - 12));
+  co_list_push_back((int)v9 + 24, (volatile uint32_t *)(v3 - 12));
   *(volatile uint8_t *)(v5 + 5) = *(volatile uint8_t *)(v0 + 1320 * v24 + 412);
   v10 = bt_process_msg((volatile uint8_t *)(1320 * v24 + 424 + v0), 1);
   v11 = *(volatile uint8_t *)(v5 + 5);
@@ -154,17 +154,17 @@ int bt_get_profile_ctx() {
       *((volatile uint32_t *)off_134D80 + 5) = 4;
     }
   }
-  cmd_handler_a(dword_134D84, (volatile uint32_t *)(v5 - 12));
+  co_list_push_back(dword_134D84, (volatile uint32_t *)(v5 - 12));
   v12 = dword_134D84;
   v13 = v0 + 1320 * v24;
   *(volatile uint16_t *)v6 = *(volatile uint16_t *)(v13 + 422);
   *(volatile uint8_t *)(v6 + 2) = *(volatile uint8_t *)(v1 + 61);
-  cmd_handler_a(v12, (volatile uint32_t *)(v6 - 12));
+  co_list_push_back(v12, (volatile uint32_t *)(v6 - 12));
   if ( (*(volatile uint32_t *)(v13 + 472) & 8) != 0 )
   {
     v23 = (volatile int *)ke_msg_alloc(113, 0, 6, 4);
     *v23 = rf_get_tx_chan(v0 + v4 + 248);
-    cmd_handler_a(dword_134D84, (void *)(v23 - 3));
+    co_list_push_back(dword_134D84, (void *)(v23 - 3));
   }
   v14 = 0;
   v15 = dword_134D84;
@@ -178,15 +178,15 @@ int bt_get_profile_ctx() {
     *(volatile uint8_t *)(v17 + 6) = *(volatile uint8_t *)(v1 + 61);
     *(volatile uint8_t *)(v17 + 4) = 0;
     ++v14;
-    cmd_handler_a(v15, (volatile uint32_t *)(v17 - 12));
+    co_list_push_back(v15, (volatile uint32_t *)(v17 - 12));
   }
   while ( v14 != 4 );
   *v7 = 1;
   v19 = dword_134D84;
   v7[1] = *(volatile uint8_t *)(v1 + 61);
-  v20 = cmd_handler_a(v19, (volatile uint32_t *)v7 - 3);
+  v20 = co_list_push_back(v19, (volatile uint32_t *)v7 - 3);
   bt_is_controller_ready(v20, v21);
-  return rx_phy_status_parse(6u, 4);
+  return ke_state_set(6u, 4);
 }
 
 
@@ -198,7 +198,7 @@ int bt_schedule_ack_timeout(int a1, int a2, int a3) {
   *((volatile uint8_t *)off_134DE4 + 4) = a3;
   v3[2] = a1;
   *((volatile uint16_t *)v3 + 6) = a2;
-  rx_phy_status_parse(6u, 10);
+  ke_state_set(6u, 10);
   check_status_bits(
     256,
     "disconnct:%d,%d, sta_tx_cnt=%d, host_init=%d\r\n",
@@ -315,7 +315,7 @@ LABEL_8:
           *v36 |= 0x80000000;
           *v37 = v38;
         }
-        rx_phy_status_parse(6u, 10);
+        ke_state_set(6u, 10);
         v3[2] = v8;
         *v3 = v7 - 12;
         bt_send_host_message(v8);
@@ -399,7 +399,7 @@ LABEL_10:
     *(volatile uint8_t *)(v4 + 1320 * v6 + 149) = 1;
     v35 = (*(volatile uint32_t *)0x40501010u);
     unknown_worker((volatile uint32_t *)(1320 * v6 + 152 + v4), dword_1350C0 + v35);
-    rx_phy_status_parse(6u, 0);
+    ke_state_set(6u, 0);
     goto LABEL_10;
   }
   return result;
@@ -579,8 +579,8 @@ LABEL_5:
   v11[23] = (int)(uintptr_t)(v11);
   tx_path_status((int)v11, 5);
   v2[34] = 1;
-  ke_task_create(6154, 6, a3);
-  return rx_phy_status_parse(6u, 5);
+  ke_timer_set(6154, 6, a3);
+  return ke_state_set(6u, 5);
 }
 
 
@@ -717,8 +717,8 @@ LABEL_5:
   v29 = (void *)(uintptr_t)(off_135534);
   tx_path_status(v28, 5);
   v29[34] = 1;
-  ke_task_create(6154, 6, _frame.a3a);
-  return rx_phy_status_parse(6u, 8);
+  ke_timer_set(6154, 6, _frame.a3a);
+  return ke_state_set(6u, 8);
 }
 
 
@@ -733,7 +733,7 @@ int bt_send_vendor_cmd(uint16_t a1) {
   *(volatile uint8_t *)(v3 + 2) = 1;
   *(volatile uint8_t *)(v3 + 3) = *(volatile uint8_t *)(v2 + 61);
   ke_msg_send_2(v3);
-  return rx_phy_status_parse(6u, 9);
+  return ke_state_set(6u, 9);
 }
 
 

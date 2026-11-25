@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "radio_tx_write_string",
+ "luna": "rf_tx_write_string",
+ "doc": "Writes a null-terminated byte string to the radio transmit register, polling until the transmit status bit clears before each byte, and returns a pointer to the terminator.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "radio_tx_write_string",
+   "probabilities": [
+    {
+     "value": "radio_tx_write_string",
+     "probability": 0.63
+    },
+    {
+     "value": "rf_tx_write_string",
+     "probability": 0.35
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.45
+  }
+ ],
+ "status": "ok"
+}

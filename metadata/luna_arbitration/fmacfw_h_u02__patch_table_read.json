@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "patch_table_read",
+ "luna": "apm_update_basic_rates",
+ "doc": "Copies an AP basic-rate update into the indexed station context when its state is 2, refreshes PHY status, and emits the associated header word.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "apm_update_basic_rates",
+   "probabilities": [
+    {
+     "value": "patch_table_read",
+     "probability": 0.33
+    },
+    {
+     "value": "apm_update_basic_rates",
+     "probability": 0.65
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.48
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "bt_scan_stop",
+ "luna": "p2p_process_noa_ie",
+ "doc": "Searches a received 802.11 management frame for a P2P vendor IE containing the Notice of Absence attribute and forwards that attribute to the NoA handler when processing is enabled.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "p2p_process_noa_ie",
+   "probabilities": [
+    {
+     "value": "bt_scan_stop",
+     "probability": 0.03
+    },
+    {
+     "value": "p2p_process_noa_ie",
+     "probability": 0.96
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.94
+  }
+ ],
+ "status": "ok"
+}

@@ -81,7 +81,7 @@ LABEL_7:
     ke_msg_send_no_param(3, a4, a3);
   set_clock_divisor();
   read_cal_trim();
-  rx_phy_status_parse(a3, 2);
+  ke_state_set(a3, 2);
   return 0;
 }
 
@@ -101,7 +101,7 @@ int lld_evt_schedule_check(int a1, void ( **a2)(int), unsigned int a3) {
     if ( result != 2 )
     {
       read_cal_trim();
-      rx_phy_status_parse(a3, 2);
+      ke_state_set(a3, 2);
       return 2;
     }
   }
@@ -109,7 +109,7 @@ int lld_evt_schedule_check(int a1, void ( **a2)(int), unsigned int a3) {
   {
     if ( **v3 < 0 && *(volatile uint32_t *)off_123BEC << 28 )
       mmio_clear_register((int)aNxmacCurrentSt, (int)aMmForceIdleReq_0, 1594);
-    v7 = rx_phy_status_parse(a3, 3);
+    v7 = ke_state_set(a3, 3);
     (*a2)(v7);
     return 0;
   }
@@ -153,7 +153,7 @@ LABEL_6:
   if ( result != 2 )
   {
     read_cal_trim();
-    rx_phy_status_parse(a3, 2);
+    ke_state_set(a3, 2);
     return 2;
   }
   return result;
@@ -924,7 +924,7 @@ LABEL_21:
     v14 = 2;
 LABEL_10:
     *(volatile uint32_t *)off_123F60 = (uint8_t)(16 * v13[19]);
-    rx_phy_status_parse(a3, (uint8_t)v13[18]);
+    ke_state_set(a3, (uint8_t)v13[18]);
     return v14;
   }
   if ( (uint16_t)(v8 - 2) > 2u )
@@ -933,7 +933,7 @@ LABEL_10:
     *((volatile uint8_t *)off_123F64 + 19) = *(volatile uint8_t *)off_123F60 & 0xF;
     v12[18] = rx_rate_field_parse(a3);
     read_cal_trim();
-    rx_phy_status_parse(a3, 2);
+    ke_state_set(a3, 2);
   }
   return 2;
 }

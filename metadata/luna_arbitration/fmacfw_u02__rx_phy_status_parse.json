@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rx_phy_status_parse",
+ "luna": "ke_state_set",
+ "doc": "Sets a task instance\u2019s state and dispatches queued messages for that task when the state changes.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_state_set",
+   "probabilities": [
+    {
+     "value": "rx_phy_status_parse",
+     "probability": 0.06
+    },
+    {
+     "value": "ke_state_set",
+     "probability": 0.94
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.91
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "check_global_flag",
+ "luna": "append_tkip_mic",
+ "doc": "Computes and appends an 8-byte TKIP Michael MIC for the payload, or writes eight zero bytes when the global bypass flag is set.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "append_tkip_mic",
+   "probabilities": [
+    {
+     "value": "check_global_flag",
+     "probability": 0.12
+    },
+    {
+     "value": "append_tkip_mic",
+     "probability": 0.87
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.8
+  }
+ ],
+ "status": "ok"
+}

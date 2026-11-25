@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "parse_param_direction",
+ "luna": "handle_arp_request",
+ "doc": "Recognizes ARP frames and invokes the handler when a request targets the VIF's IPv4 address.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "handle_arp_request",
+   "probabilities": [
+    {
+     "value": "parse_param_direction",
+     "probability": 0.13
+    },
+    {
+     "value": "handle_arp_request",
+     "probability": 0.85
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.77
+  }
+ ],
+ "status": "ok"
+}

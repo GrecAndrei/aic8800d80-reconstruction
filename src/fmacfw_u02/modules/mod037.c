@@ -330,7 +330,7 @@ LABEL_32:
   if ( v27 == 3 )
   {
     event_dispatch(aCbSetState, v22);
-    rx_phy_status_parse(2u, 3);
+    ke_state_set(2u, 3);
     v27 = *(volatile uint8_t *)(v24 + 24);
   }
   if ( v27 <= 2 )
@@ -409,7 +409,7 @@ LABEL_6:
   if ( v12 )
     ctrl_register_handler((int)(uintptr_t)(v12));
 LABEL_14:
-  cmd_handler_a(dword_12788C, v5);
+  co_list_push_back(dword_12788C, v5);
   v13 = v7[10];
   if ( *(volatile uint8_t *)(v13 + 24) > 2u )
     ctrl_reset_handler(v13, 0);
@@ -600,7 +600,7 @@ int stat_clear() {
     *((volatile uint8_t *)i + 27) = -1;
     if ( v2 <= 2 )
     {
-      cmd_handler_a((int)v1, (void *)(i));
+      co_list_push_back((int)v1, (void *)(i));
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -614,10 +614,10 @@ LABEL_4:
     goto LABEL_4;
   zero_8_bytes((volatile uint32_t *)dword_127AB0);
   zero_8_bytes((volatile uint32_t *)dword_127AB4);
-  cmd_handler_a(dword_127AB0, (volatile uint32_t *)dword_127AB8);
-  cmd_handler_a(dword_127AB0, (volatile uint32_t *)dword_127ABC);
-  cmd_handler_a(dword_127AB0, (volatile uint32_t *)dword_127AC0);
-  result = cmd_handler_a(dword_127AB0, (volatile uint32_t *)dword_127AC4);
+  co_list_push_back(dword_127AB0, (volatile uint32_t *)dword_127AB8);
+  co_list_push_back(dword_127AB0, (volatile uint32_t *)dword_127ABC);
+  co_list_push_back(dword_127AB0, (volatile uint32_t *)dword_127AC0);
+  result = co_list_push_back(dword_127AB0, (volatile uint32_t *)dword_127AC4);
   v5 = (void *)(uintptr_t)(off_127AA8);
   v6 = (void *)(uintptr_t)(off_127ACC);
   *((volatile uint32_t *)off_127AA8 + 13) = off_127AC8;
@@ -878,7 +878,7 @@ int wlc_validate_chip_queue(int a1) {
   {
     v5 = 8 * a1;
   }
-  cmd_handler_a(dword_127E90, (void *)(v4));
+  co_list_push_back(dword_127E90, (void *)(v4));
   v6 = v2 + 4 * (v5 - a1);
   result = (int)memset(v4, 0, 0x1Cu);
   *(volatile uint16_t *)(v6 + 14) = 255;

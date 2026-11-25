@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "timer_delay",
+ "luna": "rf_delay_ticks",
+ "doc": "Busy-waits until the free-running hardware timer reaches its initial value plus the requested number of ticks.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "timer_delay",
+   "probabilities": [
+    {
+     "value": "timer_delay",
+     "probability": 0.66
+    },
+    {
+     "value": "rf_delay_ticks",
+     "probability": 0.33
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.49
+  }
+ ],
+ "status": "ok"
+}

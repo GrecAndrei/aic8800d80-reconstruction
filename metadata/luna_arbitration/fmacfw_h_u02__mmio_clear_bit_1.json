@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mmio_clear_bit_1",
+ "luna": "mmio_clear_bit",
+ "doc": "Clears the bit at the specified index in a fixed volatile register and returns its bit mask.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mmio_clear_bit_1",
+   "probabilities": [
+    {
+     "value": "mmio_clear_bit_1",
+     "probability": 0.69
+    },
+    {
+     "value": "mmio_clear_bit",
+     "probability": 0.31
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.53
+  }
+ ],
+ "status": "ok"
+}

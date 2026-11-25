@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "ll_event_lookup",
+ "luna": "ll_event_enqueue",
+ "doc": "Appends an event node to the FIFO for queue index `a1`, clears its next link, and returns the internal queue slot (`a1 + 22`).",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ll_event_enqueue",
+   "probabilities": [
+    {
+     "value": "ll_event_lookup",
+     "probability": 0.18
+    },
+    {
+     "value": "ll_event_enqueue",
+     "probability": 0.78
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.67
+  }
+ ],
+ "status": "ok"
+}

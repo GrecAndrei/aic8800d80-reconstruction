@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "is_compact_mac_string",
+ "luna": "set_monitor_addresses",
+ "doc": "Validates 12-digit hexadecimal MAC and BSSID strings, programs the monitor address state, and logs the selected addresses.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_monitor_addresses",
+   "probabilities": [
+    {
+     "value": "is_compact_mac_string",
+     "probability": 0.29
+    },
+    {
+     "value": "set_monitor_addresses",
+     "probability": 0.71
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.56
+  }
+ ],
+ "status": "ok"
+}

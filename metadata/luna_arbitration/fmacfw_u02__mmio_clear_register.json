@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "mmio_clear_register",
+ "luna": "assert_err",
+ "doc": "Disables interrupts, reports the failed assertion and its source location, then waits in the assertion halt loop.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "assert_err",
+   "probabilities": [
+    {
+     "value": "mmio_clear_register",
+     "probability": 0.31
+    },
+    {
+     "value": "assert_err",
+     "probability": 0.6
+    },
+    {
+     "value": "neither",
+     "probability": 0.09
+    }
+   ],
+   "confidence": 0.4
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mac_config_and_start",
+ "luna": "rf_dump_tone_type3",
+ "doc": "Configures the RF dump path for tone type 3, waits for the capture to finish, and restores the saved control state.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_dump_tone_type3",
+   "probabilities": [
+    {
+     "value": "mac_config_and_start",
+     "probability": 0.3
+    },
+    {
+     "value": "rf_dump_tone_type3",
+     "probability": 0.69
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.53
+  }
+ ],
+ "status": "ok"
+}

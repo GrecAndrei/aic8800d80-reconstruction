@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mac_tx_setup",
+ "luna": "replenish_rx_messages",
+ "doc": "Adds RX buffer/descriptor pairs to the context queue until its queued-entry count exceeds one, notifying the hardware for each pair.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "replenish_rx_messages",
+   "probabilities": [
+    {
+     "value": "mac_tx_setup",
+     "probability": 0.01
+    },
+    {
+     "value": "replenish_rx_messages",
+     "probability": 0.99
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "status": "ok"
+}

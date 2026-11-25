@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "wlan_set_band",
+ "luna": "wlan_open",
+ "doc": "Validates and stores the WLAN configuration, initializes the interface hardware, enables interrupts, and optionally waits until the open state is reached.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "wlan_open",
+   "probabilities": [
+    {
+     "value": "wlan_set_band",
+     "probability": 0.0
+    },
+    {
+     "value": "wlan_open",
+     "probability": 1.0
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "status": "ok"
+}

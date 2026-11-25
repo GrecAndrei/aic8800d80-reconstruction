@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "handle_ampdu_action",
+ "luna": "parse_channel_definition",
+ "doc": "Parses a channel number and optional secondary-channel offset, then populates the output band and frequency fields.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "parse_channel_definition",
+   "probabilities": [
+    {
+     "value": "handle_ampdu_action",
+     "probability": 0.11
+    },
+    {
+     "value": "parse_channel_definition",
+     "probability": 0.88
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.82
+  }
+ ],
+ "status": "ok"
+}

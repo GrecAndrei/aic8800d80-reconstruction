@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mac_isr_check",
+ "luna": "apm_sta_probe_confirm",
+ "doc": "Handles a station-probe completion, recording the hardware timestamp on success and reporting the station after ten consecutive failures.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "apm_sta_probe_confirm",
+   "probabilities": [
+    {
+     "value": "mac_isr_check",
+     "probability": 0.24
+    },
+    {
+     "value": "apm_sta_probe_confirm",
+     "probability": 0.75
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.63
+  }
+ ],
+ "status": "ok"
+}

@@ -189,9 +189,9 @@ BOOL bt_id_match(int a1, unsigned int a2) {
 
 
 
-// ke_task_create @ 0x12c5e4
+// ke_timer_set @ 0x12c5e4
 /* luna: Creates or updates a kernel timer keyed by timer ID and task ID, reorders it by expiry time, and reschedules the timer event when the queue head chang */
-int ke_task_create(int a1, int a2, unsigned int a3) {
+int ke_timer_set(int a1, int a2, unsigned int a3) {
   volatile int16_t **v3; // r11
   volatile int *critical_section_depth; // r8
   volatile uint32_t *v8; // r10
@@ -524,7 +524,7 @@ volatile uint32_t * ke_msg_send_2(int a1) {
   {
     if ( (uint8_t)v1 <= 0xCu )
     {
-      cmd_handler_a(dword_12C9FC, (volatile uint32_t *)(a1 - 12));
+      co_list_push_back(dword_12C9FC, (volatile uint32_t *)(a1 - 12));
       return (volatile uint32_t *)unknown_func_12d104(0x4000000);
     }
   }
@@ -879,8 +879,8 @@ int iterate_word_array(int a1, volatile int *a2, int a3) {
 }
 
 
-// rx_phy_status_parse @ 0x12cd34
-int rx_phy_status_parse(unsigned int a1, int a2) {
+// ke_state_set @ 0x12cd34
+int ke_state_set(unsigned int a1, int a2) {
   volatile int16_t **v2; // r7
   unsigned int v5; // r9
   int v6; // r6
@@ -956,7 +956,7 @@ LABEL_3:
       v12 = (volatile int *)off_12CE60;
       v13 = dword_12CE64;
       ++*(volatile uint32_t *)off_12CE60;
-      cmd_handler_a(v13, v16);
+      co_list_push_back(v13, v16);
       v14 = *v12 - 1;
       if ( *v12 )
       {
@@ -1140,7 +1140,7 @@ volatile uint32_t *unknown_func_12cff4() {
         goto LABEL_12;
       if ( result == (volatile uint32_t *)2 )
       {
-        result = (volatile uint32_t *)cmd_handler_a(dword_12D0F0, (void *)(v3));
+        result = (volatile uint32_t *)co_list_push_back(dword_12D0F0, (void *)(v3));
         goto LABEL_12;
       }
       if ( result )

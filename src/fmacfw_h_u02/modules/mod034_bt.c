@@ -1,6 +1,6 @@
-// mem_copy_util @ 0x124bfc
+// mm_timer_set @ 0x124bfc
 /* luna: Updates a timer’s expiration, reorders it in the pending-timer list, and adjusts timer state when it becomes the earliest deadline. */
-int mem_copy_util(volatile uint32_t *a1, int a2) {
+int mm_timer_set(volatile uint32_t *a1, int a2) {
   volatile int *timer_lock_count_ptr; // r7
   volatile unsigned int *v5; // r2
   int v6; // r3
@@ -919,7 +919,7 @@ volatile int * rf_chan_load(int a1) {
 // co_list_push @ 0x125764
 int co_list_push(int a1) {
   if ( *((volatile uint32_t *)off_12577C + 1) )
-    return wlan_ioctl_handler_1((int)off_12577C + 12, (volatile uint32_t *)(a1 - 12));
+    return co_list_push_back((int)off_12577C + 12, (volatile uint32_t *)(a1 - 12));
   else
     return (int)rx_pkt_parse((volatile uint16_t *)a1);
 }

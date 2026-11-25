@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_irq_pending",
+ "luna": "rf_irq_dispatch_pending",
+ "doc": "Dispatches pending RF interrupts for indices 0\u20137, acknowledging each interrupt before invoking its registered handler.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_irq_dispatch_pending",
+   "probabilities": [
+    {
+     "value": "rf_irq_pending",
+     "probability": 0.38
+    },
+    {
+     "value": "rf_irq_dispatch_pending",
+     "probability": 0.53
+    },
+    {
+     "value": "neither",
+     "probability": 0.09
+    }
+   ],
+   "confidence": 0.3
+  }
+ ],
+ "status": "ok"
+}

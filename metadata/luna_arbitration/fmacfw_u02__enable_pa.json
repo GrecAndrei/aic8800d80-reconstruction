@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "enable_pa",
+ "luna": "enable_wifi_dfe_rf_interface",
+ "doc": "Enables the Wi-Fi DFE and RF interface, waits for hardware-ready bits, and checks status bit 0x2000.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "enable_wifi_dfe_rf_interface",
+   "probabilities": [
+    {
+     "value": "enable_pa",
+     "probability": 0.26
+    },
+    {
+     "value": "enable_wifi_dfe_rf_interface",
+     "probability": 0.73
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

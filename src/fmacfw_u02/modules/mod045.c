@@ -1,5 +1,5 @@
-// cmd_handler_a @ 0x12d248
-int cmd_handler_a(int result, volatile uint32_t *a2) {
+// co_list_push_back @ 0x12d248
+int co_list_push_back(int result, volatile uint32_t *a2) {
   int v2; // r5
 
   v2 = result;
@@ -116,8 +116,8 @@ BOOL mem_word_cmp(volatile uint32_t **a1, volatile uint32_t *a2) {
 
 
 
-// read_u32 @ 0x12d36c
-int read_u32(volatile uint32_t **a1) {
+// list_count @ 0x12d36c
+int list_count(volatile uint32_t **a1) {
   volatile uint32_t *v1; // r3
   int result; // r0
 
@@ -220,7 +220,7 @@ volatile uint32_t * list_find_node(volatile uint32_t *result, volatile uint32_t 
   volatile uint32_t **v3; // r3
 
   if ( !a2 )
-    return (volatile uint32_t *)cmd_handler_a((int)result, a3);
+    return (volatile uint32_t *)co_list_push_back((int)result, a3);
   v3 = (volatile uint32_t **)*result;
   if ( (volatile uint32_t *)*result == a2 )
     return (volatile uint32_t *)cmd_handler_b((int)result, a3);

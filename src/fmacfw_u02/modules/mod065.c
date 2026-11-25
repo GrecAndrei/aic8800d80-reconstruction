@@ -567,7 +567,7 @@ LABEL_11:
     _frame.a2a = 0;
     if ( v12 && (*((volatile uint8_t *)off_13AEB4 + 15) & 6) == 2 && (*(volatile uint16_t *)(*(volatile uint32_t *)(a1 + 72) + 172) & 0xFC) == 0xB0 )
     {
-      ke_task_create(6155, 6, dword_13AEB8);
+      ke_timer_set(6155, 6, dword_13AEB8);
       mmio_set_control_bit_26();
       v11[15] |= 4u;
     }
@@ -756,7 +756,7 @@ volatile int * ll_conn_rx_packet_get(volatile int *result) {
   if ( v1 )
   {
     if ( *(volatile uint8_t *)(v1 + 96) == 1 )
-      return check_global_flag(
+      return append_tkip_mic(
                (int)result,
                v1 + 80,
                result[18] - *((volatile uint8_t *)result + 52) + 172,
@@ -946,8 +946,8 @@ int ll_encrypt_packet(int a1, int a2, unsigned int a3) {
       || *(volatile uint16_t *)(v6 + 3) )
     {
       rf_get_chan_state(v7);
-      cmd_handler_a(dword_13B35C, (volatile uint32_t *)(v10 + v12));
-      rx_phy_status_parse(a3, 0);
+      co_list_push_back(dword_13B35C, (volatile uint32_t *)(v10 + v12));
+      ke_state_set(a3, 0);
       return 0;
     }
     if ( *(volatile uint16_t *)(v11 + 20) > v9 >> 6 )
@@ -964,7 +964,7 @@ LABEL_38:
         v28 = v7;
 LABEL_31:
         rf_ctrl_send(v27, v28);
-        rx_phy_status_parse(a3, 3);
+        ke_state_set(a3, 3);
         return 0;
       }
       v29 = (v29 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
@@ -978,17 +978,17 @@ LABEL_31:
     {
       if ( rx_rate_field_parse(a3) == 1 || rx_rate_field_parse(a3) == 3 )
       {
-        rx_phy_status_parse(a3, 4);
+        ke_state_set(a3, 4);
         a4a = (volatile uint32_t *)(dword_13B368 + 32 * v7);
         if ( v7 > 0xF )
         {
           cmd_handler_c(dword_13B374, (volatile uint32_t *)(dword_13B368 + 32 * v7));
-          cmd_handler_a(dword_13B378, a4a);
+          co_list_push_back(dword_13B378, a4a);
         }
         else
         {
           cmd_handler_c(dword_13B36C, (volatile uint32_t *)(dword_13B368 + 32 * v7));
-          cmd_handler_a(dword_13B370, a4a);
+          co_list_push_back(dword_13B370, a4a);
         }
         rf_phy_write(*(volatile uint8_t *)(a2 + 7), v7);
         return 0;
@@ -1055,9 +1055,9 @@ LABEL_31:
     }
     else
     {
-      rx_phy_status_parse(a3, 4);
+      ke_state_set(a3, 4);
       cmd_handler_c(dword_13B36C, (volatile uint32_t *)v31);
-      cmd_handler_a(dword_13B370, (volatile uint32_t *)v31);
+      co_list_push_back(dword_13B370, (volatile uint32_t *)v31);
       rf_phy_write(v16, v7);
       v17 = 37;
     }

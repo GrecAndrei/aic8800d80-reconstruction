@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_compare_eq",
+ "luna": "double_add",
+ "doc": "Adds two IEEE-754 double-precision operands using the ARM EABI double-add routine.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_add",
+   "probabilities": [
+    {
+     "value": "double_compare_eq",
+     "probability": 0.03
+    },
+    {
+     "value": "double_add",
+     "probability": 0.9
+    },
+    {
+     "value": "neither",
+     "probability": 0.07
+    }
+   ],
+   "confidence": 0.85
+  }
+ ],
+ "status": "ok"
+}

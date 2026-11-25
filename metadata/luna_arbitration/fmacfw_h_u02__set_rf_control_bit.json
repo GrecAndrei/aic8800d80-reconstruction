@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "set_rf_control_bit",
+ "luna": "set_rf_control_bit3",
+ "doc": "Sets bit 3 of the RF control register to the low bit of the supplied value and returns the updated register value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_rf_control_bit3",
+   "probabilities": [
+    {
+     "value": "set_rf_control_bit",
+     "probability": 0.33
+    },
+    {
+     "value": "set_rf_control_bit3",
+     "probability": 0.65
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.48
+  }
+ ],
+ "status": "ok"
+}

@@ -102,7 +102,7 @@ volatile uint8_t * range_overflow_check(volatile uint8_t *a1, int a2, int a3, vo
   {
 LABEL_13:
     if ( **(volatile int16_t **)off_12D750 < 0 && (volatile uint8_t *)v5 != a1 )
-      mmio_write_field(dword_12D758, dword_12D754, 127);
+      log_warning(dword_12D758, dword_12D754, 127);
   }
   return 0;
 }
@@ -143,9 +143,9 @@ volatile uint8_t * check_buf_range_12d75c(volatile uint8_t *result, int a2, vola
 
 
 
-// check_buf_range_12d79c @ 0x12d79c
+// find_extended_supported_rates_ie @ 0x12d79c
 /* luna: Scans a bounded 802.11 information-element list for a nonempty element ID 50, returning its element pointer and writing its payload length or NULL if  */
-volatile uint8_t * check_buf_range_12d79c(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
+volatile uint8_t * find_extended_supported_rates_ie(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
   unsigned int ie_list_end; // r1
   int ie_len; // r4
   volatile uint8_t *next_ie; // r5
@@ -550,9 +550,9 @@ volatile uint8_t * test_arg2_one_12daa0(volatile uint8_t *result, int a2) {
 
 
 
-// test_arg2_one_12dae0 @ 0x12dae0
+// find_tlv_0xc7_len1 @ 0x12dae0
 /* luna: Scans a bounded TLV buffer for type 0xC7 with a one-byte payload and returns its record pointer if found. */
-volatile uint8_t * test_arg2_one_12dae0(volatile uint8_t *result, int a2) {
+volatile uint8_t * find_tlv_0xc7_len1(volatile uint8_t *result, int a2) {
   unsigned int buffer_end; // r1
   volatile uint8_t *tlv_end; // r2
 
@@ -860,9 +860,9 @@ volatile uint8_t * emit_hash_12dd50(volatile uint8_t *a1, int a2, volatile uint8
 
 
 
-// test_arg2_one_12dd78 @ 0x12dd78
+// find_ht_operation_ie @ 0x12dd78
 /* luna: Scans a bounded 802.11 information-element list and returns the HT Operation element (ID 61) only if its length is 22 bytes. */
-volatile uint8_t * test_arg2_one_12dd78(volatile uint8_t *result, int a2) {
+volatile uint8_t * find_ht_operation_ie(volatile uint8_t *result, int a2) {
   unsigned int ies_end; // r1
   volatile uint8_t *ie_end; // r2
 
@@ -1937,9 +1937,9 @@ LABEL_13:
 }
 
 
-// mmio_read_bit13 @ 0x12e8d0
+// wait_for_mmio_bit18 @ 0x12e8d0
 /* luna: Busy-waits until bit 18 of a volatile word at a fixed address is set. */
-void mmio_read_bit13() {
+void wait_for_mmio_bit18() {
   while ( (*(volatile uint32_t *)off_12E8E8 & 0x40000) == 0 )
     ;
 }

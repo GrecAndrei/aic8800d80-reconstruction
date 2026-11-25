@@ -917,7 +917,7 @@ volatile int * stack_canary_check(int a1) {
 // co_list_remove @ 0x1258a4
 int co_list_remove(int a1) {
   if ( *((volatile uint32_t *)off_1258BC + 1) )
-    return cmd_handler_a((int)off_1258BC + 12, (volatile uint32_t *)(a1 - 12));
+    return co_list_push_back((int)off_1258BC + 12, (volatile uint32_t *)(a1 - 12));
   else
     return (int)hci_acl_header_parse((volatile uint16_t *)a1);
 }

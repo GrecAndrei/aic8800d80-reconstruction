@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "dma_tx_ring",
+ "luna": "dma_tx_ring_alloc",
+ "doc": "Allocates and initializes a TX DMA entry for the requested ring index, returning 0 if its slot is occupied or the entry pool is empty.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "dma_tx_ring_alloc",
+   "probabilities": [
+    {
+     "value": "dma_tx_ring",
+     "probability": 0.38
+    },
+    {
+     "value": "dma_tx_ring_alloc",
+     "probability": 0.62
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.43
+  }
+ ],
+ "status": "ok"
+}

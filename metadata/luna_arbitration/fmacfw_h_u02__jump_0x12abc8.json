@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "jump_0x12abc8",
+ "luna": "get_acl_flag",
+ "doc": "Returns the ACL flag value for the supplied argument.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "get_acl_flag",
+   "probabilities": [
+    {
+     "value": "jump_0x12abc8",
+     "probability": 0.05
+    },
+    {
+     "value": "get_acl_flag",
+     "probability": 0.95
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.93
+  }
+ ],
+ "status": "ok"
+}

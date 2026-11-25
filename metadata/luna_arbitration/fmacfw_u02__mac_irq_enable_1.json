@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "mac_irq_enable_1",
+ "luna": "mac_irq_enable",
+ "doc": "Enables the MAC interrupt path by updating its interrupt-control registers and forwarding a pending shared event when the sampled status requires it.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mac_irq_enable_1",
+   "probabilities": [
+    {
+     "value": "mac_irq_enable_1",
+     "probability": 0.52
+    },
+    {
+     "value": "mac_irq_enable",
+     "probability": 0.47
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.28
+  }
+ ],
+ "status": "ok"
+}

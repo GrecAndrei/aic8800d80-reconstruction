@@ -131,13 +131,13 @@ int lld_evt_get_current() {
   controller_is_ready();
   *v2 = 1;
   v2[1] = *(volatile uint8_t *)(v1 + 61);
-  wlan_ioctl_handler_1((int)off_134C3C + 24, (volatile uint32_t *)v2 - 3);
+  co_list_push_back((int)off_134C3C + 24, (volatile uint32_t *)v2 - 3);
   v8 = *(volatile uint32_t *)(v0 + 1320 * v24 + 368);
   *(volatile uint16_t *)(v3 + 4) = *(volatile uint16_t *)(v0 + 1320 * v24 + 372);
   v9 = (void *)(uintptr_t)(off_134C3C);
   *(volatile uint32_t *)v3 = v8;
   *(volatile uint8_t *)(v3 + 6) = *(volatile uint8_t *)(v1 + 61);
-  wlan_ioctl_handler_1((int)v9 + 24, (volatile uint32_t *)(v3 - 12));
+  co_list_push_back((int)v9 + 24, (volatile uint32_t *)(v3 - 12));
   *(volatile uint8_t *)(v5 + 5) = *(volatile uint8_t *)(v0 + 1320 * v24 + 412);
   v10 = handle_rx_packet((volatile uint8_t *)(1320 * v24 + 424 + v0), 1);
   v11 = *(volatile uint8_t *)(v5 + 5);
@@ -154,17 +154,17 @@ int lld_evt_get_current() {
       *((volatile uint32_t *)off_134C40 + 5) = 4;
     }
   }
-  wlan_ioctl_handler_1(dword_134C44, (volatile uint32_t *)(v5 - 12));
+  co_list_push_back(dword_134C44, (volatile uint32_t *)(v5 - 12));
   v12 = dword_134C44;
   v13 = v0 + 1320 * v24;
   *(volatile uint16_t *)v6 = *(volatile uint16_t *)(v13 + 422);
   *(volatile uint8_t *)(v6 + 2) = *(volatile uint8_t *)(v1 + 61);
-  wlan_ioctl_handler_1(v12, (volatile uint32_t *)(v6 - 12));
+  co_list_push_back(v12, (volatile uint32_t *)(v6 - 12));
   if ( (*(volatile uint32_t *)(v13 + 472) & 8) != 0 )
   {
     v23 = (volatile int *)tx_send_pdu(113, 0, 6, 4);
     *v23 = rf_read_status_flags(v0 + v4 + 248);
-    wlan_ioctl_handler_1(dword_134C44, (void *)(v23 - 3));
+    co_list_push_back(dword_134C44, (void *)(v23 - 3));
   }
   v14 = 0;
   v15 = dword_134C44;
@@ -178,15 +178,15 @@ int lld_evt_get_current() {
     *(volatile uint8_t *)(v17 + 6) = *(volatile uint8_t *)(v1 + 61);
     *(volatile uint8_t *)(v17 + 4) = 0;
     ++v14;
-    wlan_ioctl_handler_1(v15, (volatile uint32_t *)(v17 - 12));
+    co_list_push_back(v15, (volatile uint32_t *)(v17 - 12));
   }
   while ( v14 != 4 );
   *v7 = 1;
   v19 = dword_134C44;
   v7[1] = *(volatile uint8_t *)(v1 + 61);
-  v20 = wlan_ioctl_handler_1(v19, (volatile uint32_t *)v7 - 3);
+  v20 = co_list_push_back(v19, (volatile uint32_t *)v7 - 3);
   ble_reset_controller(v20, v21);
-  return hci_cmd_preprocess(6u, 4);
+  return ke_state_set(6u, 4);
 }
 
 
@@ -198,7 +198,7 @@ int ke_timer_set(int a1, int a2, int a3) {
   *((volatile uint8_t *)off_134CA4 + 4) = a3;
   v3[2] = a1;
   *((volatile uint16_t *)v3 + 6) = a2;
-  hci_cmd_preprocess(6u, 10);
+  ke_state_set(6u, 10);
   check_feature_flag(
     256,
     "disconnct:%d,%d, sta_tx_cnt=%d, host_init=%d\r\n",
@@ -315,7 +315,7 @@ LABEL_8:
           *v36 |= 0x80000000;
           *v37 = v38;
         }
-        hci_cmd_preprocess(6u, 10);
+        ke_state_set(6u, 10);
         v3[2] = v8;
         *v3 = v7 - 12;
         hci_send_cmd_1419(v8);
@@ -398,8 +398,8 @@ LABEL_10:
       bt_set_address(v34 | (*(volatile uint8_t *)(v33 + 413) << 16) | 0x80000000);
     *(volatile uint8_t *)(v4 + 1320 * v6 + 149) = 1;
     v35 = (*(volatile uint32_t *)0x40501010u);
-    mem_copy_util((volatile uint32_t *)(1320 * v6 + 152 + v4), dword_134F80 + v35);
-    hci_cmd_preprocess(6u, 0);
+    mm_timer_set((volatile uint32_t *)(1320 * v6 + 152 + v4), dword_134F80 + v35);
+    ke_state_set(6u, 0);
     goto LABEL_10;
   }
   return result;
@@ -549,7 +549,7 @@ LABEL_5:
     if ( 512 - v23 < v28 )
     {
       if ( **(volatile int16_t **)off_135214 < 0 )
-        mmio_write_field(off_13521C, (int)aSmAuthSend_0, 1015);
+        log_warning(off_13521C, (int)aSmAuthSend_0, 1015);
     }
     else
     {
@@ -580,13 +580,13 @@ LABEL_5:
   sec_check((int)v11, 5);
   v2[34] = 1;
   ke_event_handler(6154, 6, a3);
-  return hci_cmd_preprocess(6u, 5);
+  return ke_state_set(6u, 5);
 }
 
 
-// mac_dma_setup @ 0x135224
+// sm_assoc_req_send @ 0x135224
 /* luna: Prepares a station association-request transmission by filling per-link parameters and negotiating AMPDU settings. */
-int mac_dma_setup() {
+int sm_assoc_req_send() {
   int v0; // r8
   int v1; // r9
   int link_idx; // r6
@@ -691,7 +691,7 @@ LABEL_5:
   if ( v24 )
   {
     if ( **(volatile uint16_t **)off_135414 < 0 )
-      mmio_write_field(off_13541C, (int)aSmAssocReqSend_0, 1115);
+      log_warning(off_13541C, (int)aSmAssocReqSend_0, 1115);
     *(volatile uint16_t *)(v8 + 14) = 0;
   }
   else
@@ -719,7 +719,7 @@ LABEL_5:
   sec_check(v28, 5);
   v29[34] = 1;
   ke_event_handler(6154, 6, _frame.a3a);
-  return hci_cmd_preprocess(6u, 8);
+  return ke_state_set(6u, 8);
 }
 
 
@@ -734,13 +734,13 @@ int mmio_write_sequence(uint16_t a1) {
   *(volatile uint8_t *)(v3 + 2) = 1;
   *(volatile uint8_t *)(v3 + 3) = *(volatile uint8_t *)(v2 + 61);
   rx_process_packet_1(v3);
-  return hci_cmd_preprocess(6u, 9);
+  return ke_state_set(6u, 9);
 }
 
 
-// hci_send_vendor_cmd @ 0x135458
+// mac_assoc_rsp_handler @ 0x135458
 /* luna: Accumulates association-response payload fragments in shared state and dispatches the response when the status is zero. */
-int hci_send_vendor_cmd(volatile char *a1) {
+int mac_assoc_rsp_handler(volatile char *a1) {
   int assoc_rsp_state; // r8
   unsigned int fragment_length; // r1
   int status; // r6
@@ -771,7 +771,7 @@ int hci_send_vendor_cmd(volatile char *a1) {
     {
       if ( **(volatile int16_t **)off_135518 < 0 )
       {
-        mmio_write_field(off_135524, (int)aSmAssocRspHand, 1236);
+        log_warning(off_135524, (int)aSmAssocRspHand, 1236);
         buffered_length = *(volatile uint16_t *)(assoc_rsp_state + 14);
       }
       copy_length = (uint16_t)(800 - buffered_length);

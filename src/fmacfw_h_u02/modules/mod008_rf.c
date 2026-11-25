@@ -136,7 +136,7 @@ void rf_get_flag(int a1, int a2, int a3, int a4) {
         if ( !--v14 )
         {
           debug_printf("wd rx max time %d\r\n", 5);
-          wait_for_state(v7);
+          pkt_mem_free(v7);
           irq_disable_global_2(32);
           return;
         }
@@ -151,9 +151,9 @@ void rf_get_flag(int a1, int a2, int a3, int a4) {
 }
 
 
-// rf_read_status_1 @ 0x1136d4
+// usb_wlan_rx_pkt_free_list_init @ 0x1136d4
 /* luna: Clears the USB WLAN RX packet free list and allocates and enqueues the configured number of packet buffers. */
-volatile uint32_t *rf_read_status_1() {
+volatile uint32_t *usb_wlan_rx_pkt_free_list_init() {
   void *rx_config; // r7
   volatile uint32_t *result; // r0
   volatile int *v2; // r9
@@ -175,14 +175,14 @@ volatile uint32_t *rf_read_status_1() {
     packet_index = 0;
     do
     {
-      rx_packet_buffer = tx_irq_handler(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
+      rx_packet_buffer = buffer_pool_alloc(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
       if ( !rx_packet_buffer )
       {
         alloc_tx_event("usb_wlan_rx_pkt_free_list_init alloc fail: %d\n", packet_index);
         if ( **v5 < 0 )
           irq_disable_mmio_write(off_113760, (int)aUsbWlanRxPktFr_0, 495);
       }
-      result = (volatile uint32_t *)wlan_ioctl_handler_1(dword_113754, rx_packet_buffer);
+      result = (volatile uint32_t *)co_list_push_back(dword_113754, rx_packet_buffer);
       v7 = *(volatile uint16_t *)(*(volatile uint32_t *)rx_config + 8);
       ++packet_index;
       ++*allocated_packet_count;
@@ -214,7 +214,7 @@ int util_call_raw(volatile uint32_t *a1) {
   v2 = (volatile int *)off_113864;
   v3 = dword_113868;
   ++*(volatile uint32_t *)off_113864;
-  wlan_ioctl_handler_1(v3, a1);
+  co_list_push_back(v3, a1);
   v4 = (void *)(uintptr_t)(off_113870);
   result = *(volatile uint8_t *)off_113870;
   v6 = *(volatile uint16_t *)off_11386C + 1;
@@ -266,8 +266,8 @@ volatile uint32_t *rf_read_channel() {
     v4 = 0;
     do
     {
-      v5 = tx_irq_handler(v2, 0x7Cu);
-      result = (volatile uint32_t *)wlan_ioctl_handler_1(v3, v5);
+      v5 = buffer_pool_alloc(v2, 0x7Cu);
+      result = (volatile uint32_t *)co_list_push_back(v3, v5);
       ++v4;
     }
     while ( *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );
@@ -326,7 +326,7 @@ int util_call_arg(volatile uint32_t *a1) {
   call_nesting_counter = (volatile int *)off_113944;
   handler_context = dword_113948;
   ++*(volatile uint32_t *)off_113944;
-  result = wlan_ioctl_handler_1(handler_context, a1);
+  result = co_list_push_back(handler_context, a1);
   if ( *call_nesting_counter )
   {
     remaining_call_count = *call_nesting_counter - 1;
@@ -465,9 +465,9 @@ int rf_load_calibration(int a1) {
 
 
 
-// adv_parse_report @ 0x113b08
+// handle_rx_descriptor @ 0x113b08
 /* luna: Validates an incoming Wi-Fi RX descriptor, copies it into an available host descriptor, updates per-peer/TID byte accounting, and dispatches it to the */
-int adv_parse_report(int a1) {
+int handle_rx_descriptor(int a1) {
   unsigned int peer_id; // r3
   int vif_id; // r7
   int v4; // r8
@@ -485,7 +485,7 @@ int adv_parse_report(int a1) {
   if ( peer_id <= 0x1F && !*(volatile uint8_t *)(dword_113C48 + 696 * peer_id + 37) )
   {
     alloc_tx_event(aPktDiscardSinc);
-    return wait_for_state((volatile uint32_t *)(a1 - *(volatile uint32_t *)(uintptr_t)(off_113C54) - 4));
+    return pkt_mem_free((volatile uint32_t *)(a1 - *(volatile uint32_t *)(uintptr_t)(off_113C54) - 4));
   }
   v4 = dword_113C6C;
   if ( (*(volatile uint16_t *)(a1 + 26) & 8) == 0 )
@@ -503,7 +503,7 @@ LABEL_13:
       while ( 1 )
         ;
     }
-    return wait_for_state((volatile uint32_t *)(a1 - *(volatile uint32_t *)(uintptr_t)(off_113C54) - 4));
+    return pkt_mem_free((volatile uint32_t *)(a1 - *(volatile uint32_t *)(uintptr_t)(off_113C54) - 4));
   }
   rx_queue_id = 3;
   rx_descriptor = (void *)(uintptr_t)(rssi_compare());
@@ -529,7 +529,7 @@ LABEL_7:
   *((volatile uint16_t *)rx_descriptor + 41) = 0;
   *((volatile uint16_t *)rx_descriptor + 15) = v9 & 0xFFFD;
   if ( (v9 & 8) != 0 )
-    return wlan_ioctl_handler_1(v4 + 1320 * vif_id + 1312, rx_descriptor);
+    return co_list_push_back(v4 + 1320 * vif_id + 1312, rx_descriptor);
   descriptor_peer_id = *((volatile uint8_t *)rx_descriptor + 29);
   if ( descriptor_peer_id <= 0x1F )
   {
@@ -537,7 +537,7 @@ LABEL_7:
     if ( tid <= 8 )
       *(volatile uint32_t *)(dword_113C58 + 4 * (9 * descriptor_peer_id + tid + 2062)) += *((volatile uint16_t *)rx_descriptor + 2);
   }
-  return wlan_ioctl_handler_1(v4 + 8 * (rx_queue_id + 165 * vif_id + 154), rx_descriptor);
+  return co_list_push_back(v4 + 8 * (rx_queue_id + 165 * vif_id + 154), rx_descriptor);
 }
 
 
@@ -594,7 +594,7 @@ int invoke_callback() {
   result = bt_get_state(*(volatile uint32_t *)off_114018 + v0, *(volatile uint32_t *)off_11401C);
   if ( result < 0 )
   {
-    wait_for_state(v1);
+    pkt_mem_free(v1);
     return debug_printf(aWlanDataRecvRe);
   }
   return result;
@@ -653,8 +653,8 @@ volatile uint32_t *rf_power_down() {
     v4 = 0;
     do
     {
-      v5 = tx_irq_handler(v3, 0x6B8u);
-      result = (volatile uint32_t *)wlan_ioctl_handler_1(*v0 + 628, v5);
+      v5 = buffer_pool_alloc(v3, 0x6B8u);
+      result = (volatile uint32_t *)co_list_push_back(*v0 + 628, v5);
       ++v4;
     }
     while ( *(volatile uint16_t *)(*(volatile uint32_t *)v1 + 8) > (unsigned int)(uint16_t)v4 );
@@ -681,7 +681,7 @@ int assert_fail(volatile uint32_t *a1) {
   ++*(volatile uint32_t *)off_114198;
   while ( !*v2 )
     ;
-  result = wlan_ioctl_handler_1(((volatile uint32_t *)(uintptr_t)off_1141A0)[0] + 628, a1);
+  result = co_list_push_back(((volatile uint32_t *)(uintptr_t)off_1141A0)[0] + 628, a1);
   *v2 = 1;
   if ( *v1 )
   {

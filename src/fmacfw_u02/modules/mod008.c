@@ -1,6 +1,6 @@
-// ke_state_get @ 0x113814
+// usb_wlan_rx_pkt_free_list_init @ 0x113814
 /* luna: Initializes the USB WLAN RX packet free list by allocating buffers and adding them until the configured count is reached. */
-volatile uint32_t *ke_state_get() {
+volatile uint32_t *usb_wlan_rx_pkt_free_list_init() {
   void *v0; // r7
   volatile uint32_t *result; // r0
   volatile int *v2; // r9
@@ -22,14 +22,14 @@ volatile uint32_t *ke_state_get() {
     buffer_index = 0;
     do
     {
-      rx_buffer = rx_packet_handler_1(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
+      rx_buffer = buffer_pool_alloc(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
       if ( !rx_buffer )
       {
         event_dispatch("usb_wlan_rx_pkt_free_list_init alloc fail: %d\n", buffer_index);
         if ( **v5 < 0 )
           mmio_clear_register(off_1138A0, (int)aUsbWlanRxPktFr_0, 495);
       }
-      result = (volatile uint32_t *)cmd_handler_a(dword_113894, rx_buffer);
+      result = (volatile uint32_t *)co_list_push_back(dword_113894, rx_buffer);
       configured_buffer_count = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8);
       ++buffer_index;
       ++*v3;
@@ -61,7 +61,7 @@ int assert_fault(volatile uint32_t *a1) {
   v2 = (volatile int *)off_1139A4;
   v3 = dword_1139A8;
   ++*(volatile uint32_t *)off_1139A4;
-  cmd_handler_a(v3, a1);
+  co_list_push_back(v3, a1);
   v4 = (void *)(uintptr_t)(off_1139B0);
   result = *(volatile uint8_t *)off_1139B0;
   v6 = *(volatile uint16_t *)off_1139AC + 1;
@@ -113,8 +113,8 @@ volatile uint32_t *ke_state_get_fast() {
     v4 = 0;
     do
     {
-      v5 = rx_packet_handler_1(v2, 0x7Cu);
-      result = (volatile uint32_t *)cmd_handler_a(v3, v5);
+      v5 = buffer_pool_alloc(v2, 0x7Cu);
+      result = (volatile uint32_t *)co_list_push_back(v3, v5);
       ++v4;
     }
     while ( *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );
@@ -171,7 +171,7 @@ int assert_error(volatile uint32_t *a1) {
   v2 = (volatile int *)off_113A84;
   v3 = dword_113A88;
   ++*(volatile uint32_t *)off_113A84;
-  result = cmd_handler_a(v3, a1);
+  result = co_list_push_back(v3, a1);
   if ( *v2 )
   {
     v5 = *v2 - 1;
@@ -371,7 +371,7 @@ LABEL_7:
   *((volatile uint16_t *)v6 + 41) = 0;
   *((volatile uint16_t *)v6 + 15) = v9 & 0xFFFD;
   if ( (v9 & 8) != 0 )
-    return cmd_handler_a(v4 + 1320 * v2 + 1312, v6);
+    return co_list_push_back(v4 + 1320 * v2 + 1312, v6);
   v11 = *((volatile uint8_t *)v6 + 29);
   if ( v11 <= 0x1F )
   {
@@ -379,7 +379,7 @@ LABEL_7:
     if ( v12 <= 8 )
       *(volatile uint32_t *)(dword_113D98 + 4 * (9 * v11 + v12 + 2062)) += *((volatile uint16_t *)v6 + 2);
   }
-  return cmd_handler_a(v4 + 8 * (v5 + 165 * v2 + 154), v6);
+  return co_list_push_back(v4 + 8 * (v5 + 165 * v2 + 154), v6);
 }
 
 
@@ -471,7 +471,7 @@ int is_current_task(int a1) {
   result = event_dispatch("%s, func is %s\n", aUsbTransErrorH, *(const volatile char **)&*((volatile uint8_t *)(uintptr_t)((volatile uint32_t *)(uintptr_t)&off_114228)[0] + (4 * v2)));
 LABEL_4:
   if ( BYTE1(((volatile uint32_t *)(uintptr_t)off_114224)[88]) )
-    return ke_task_create(1068, 1, 1000 * BYTE2(((volatile uint32_t *)(uintptr_t)off_114224)[88]));
+    return ke_timer_set(1068, 1, 1000 * BYTE2(((volatile uint32_t *)(uintptr_t)off_114224)[88]));
   return result;
 }
 
@@ -495,8 +495,8 @@ volatile uint32_t *process_task_queue() {
     v4 = 0;
     do
     {
-      v5 = rx_packet_handler_1(v3, 0x6B8u);
-      result = (volatile uint32_t *)cmd_handler_a(*v0 + 628, v5);
+      v5 = buffer_pool_alloc(v3, 0x6B8u);
+      result = (volatile uint32_t *)co_list_push_back(*v0 + 628, v5);
       ++v4;
     }
     while ( *(volatile uint16_t *)(*(volatile uint32_t *)v1 + 8) > (unsigned int)(uint16_t)v4 );
@@ -523,7 +523,7 @@ int sub_11428c(volatile uint32_t *a1) {
   ++*(volatile uint32_t *)off_1142D8;
   while ( !*v2 )
     ;
-  result = cmd_handler_a(((volatile uint32_t *)(uintptr_t)off_1142E0)[0] + 628, a1);
+  result = co_list_push_back(((volatile uint32_t *)(uintptr_t)off_1142E0)[0] + 628, a1);
   *v2 = 1;
   if ( *v1 )
   {

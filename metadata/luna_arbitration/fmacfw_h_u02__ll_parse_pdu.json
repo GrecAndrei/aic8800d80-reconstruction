@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "ll_parse_pdu",
+ "luna": "install_wifi_key",
+ "doc": "Installs a pairwise or group Wi-Fi key and updates the associated hardware key state.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "install_wifi_key",
+   "probabilities": [
+    {
+     "value": "ll_parse_pdu",
+     "probability": 0.29
+    },
+    {
+     "value": "install_wifi_key",
+     "probability": 0.7
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.55
+  }
+ ],
+ "status": "ok"
+}

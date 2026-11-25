@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_check_status",
+ "luna": "rf_find_matching_entry",
+ "doc": "Scans the 64-entry RF table for an active entry whose three 16-bit fields match the supplied values and returns its address, or zero if none matches.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_check_status",
+   "probabilities": [
+    {
+     "value": "rf_check_status",
+     "probability": 0.49
+    },
+    {
+     "value": "rf_find_matching_entry",
+     "probability": 0.48
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.24
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "test_arg2_one_12dd10",
+ "luna": "find_vht_capabilities_ie",
+ "doc": "Scans a bounded 802.11 information-element list and returns the VHT Capabilities IE (element ID 191, length 12), or NULL if it is absent or truncated.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_vht_capabilities_ie",
+   "probabilities": [
+    {
+     "value": "test_arg2_one_12dd10",
+     "probability": 0.33
+    },
+    {
+     "value": "find_vht_capabilities_ie",
+     "probability": 0.61
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.42
+  }
+ ],
+ "status": "ok"
+}

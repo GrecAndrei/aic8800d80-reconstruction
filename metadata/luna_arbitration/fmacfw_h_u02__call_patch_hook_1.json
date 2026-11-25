@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "call_patch_hook_1",
+ "luna": "invoke_patch_hook_1",
+ "doc": "Calls the function pointer stored at address 0x1B4 and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "call_patch_hook_1",
+   "probabilities": [
+    {
+     "value": "call_patch_hook_1",
+     "probability": 0.51
+    },
+    {
+     "value": "invoke_patch_hook_1",
+     "probability": 0.48
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.27
+  }
+ ],
+ "status": "ok"
+}

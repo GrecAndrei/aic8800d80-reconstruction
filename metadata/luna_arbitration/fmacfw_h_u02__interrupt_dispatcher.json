@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "interrupt_dispatcher",
+ "luna": "rf_peripheral_clock_init",
+ "doc": "Enables the RF clock and configures peripheral clocks, returning the peripheral configuration status.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_peripheral_clock_init",
+   "probabilities": [
+    {
+     "value": "interrupt_dispatcher",
+     "probability": 0.13
+    },
+    {
+     "value": "rf_peripheral_clock_init",
+     "probability": 0.87
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.8
+  }
+ ],
+ "status": "ok"
+}

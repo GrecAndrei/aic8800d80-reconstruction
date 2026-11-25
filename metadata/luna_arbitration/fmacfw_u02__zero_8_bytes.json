@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "zero_8_bytes",
+ "luna": "clear_8_bytes",
+ "doc": "Clears two volatile 32-bit words at the supplied address and returns that address.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "clear_8_bytes",
+   "probabilities": [
+    {
+     "value": "zero_8_bytes",
+     "probability": 0.46
+    },
+    {
+     "value": "clear_8_bytes",
+     "probability": 0.53
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.3
+  }
+ ],
+ "status": "ok"
+}

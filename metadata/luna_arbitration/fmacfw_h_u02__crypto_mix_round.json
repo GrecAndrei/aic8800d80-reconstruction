@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "crypto_mix_round",
+ "luna": "tkip_michael_mix_block",
+ "doc": "Applies one TKIP Michael MIC mixing step to the left and right state words using the supplied message word.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "tkip_michael_mix_block",
+   "probabilities": [
+    {
+     "value": "crypto_mix_round",
+     "probability": 0.24
+    },
+    {
+     "value": "tkip_michael_mix_block",
+     "probability": 0.75
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.63
+  }
+ ],
+ "status": "ok"
+}

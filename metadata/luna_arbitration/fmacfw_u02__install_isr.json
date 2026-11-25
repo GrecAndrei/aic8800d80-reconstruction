@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "install_isr",
+ "luna": "install_rf_interrupt_handlers",
+ "doc": "Installs radio interrupt handlers in the vector table, enables their NVIC lines, and globally enables interrupts.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "install_rf_interrupt_handlers",
+   "probabilities": [
+    {
+     "value": "install_isr",
+     "probability": 0.34
+    },
+    {
+     "value": "install_rf_interrupt_handlers",
+     "probability": 0.64
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.46
+  }
+ ],
+ "status": "ok"
+}

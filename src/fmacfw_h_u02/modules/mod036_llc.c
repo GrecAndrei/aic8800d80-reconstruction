@@ -26,7 +26,7 @@ int llc_env_lookup(int a1, int a2, int a3) {
   v7[3] = a3;
   v7[1] = a1;
   v7[2] = a2;
-  result = wlan_ioctl_handler_1((int)v9, v7);
+  result = co_list_push_back((int)v9, v7);
   if ( !v10 )
   {
     v8[18] = (int)(uintptr_t)(v7);
@@ -43,7 +43,7 @@ int llc_env_lookup(int a1, int a2, int a3) {
     *(volatile uint32_t *)off_126698 = v16;
     if ( (int)(v13 - v14 - 64) >= 0 )
     {
-      result = mem_copy_util((volatile uint32_t *)dword_12669C, v13);
+      result = mm_timer_set((volatile uint32_t *)dword_12669C, v13);
       if ( *v12 )
       {
         v19 = *v12 - 1;
@@ -97,7 +97,7 @@ volatile uint32_t *llc_env_get() {
     v4 = (int)(v1 + 8);
     do
     {
-      wlan_ioctl_handler_1(v3, v2);
+      co_list_push_back(v3, v2);
       result = list_pop(v4);
       v2 = result;
     }
@@ -674,7 +674,7 @@ LABEL_29:
       v1[1] = v18;
       if ( v17 < 0 && *(volatile uint32_t *)off_126EFC << 28 )
       {
-        mmio_write_field(dword_126F04, dword_126F00, 472);
+        log_warning(dword_126F04, dword_126F00, 472);
         v18 = v1[1];
       }
       *(volatile uint32_t *)off_126EE8 = v18 | *v1;
@@ -1009,7 +1009,7 @@ int llc_flag_test_bit4() {
     v1 = *((volatile uint8_t *)off_127234 + 90);
     *((volatile uint8_t *)off_127234 + 88) |= 0x10u;
     if ( v1 )
-      return mem_copy_util((void *)(uintptr_t)((int)v0 + 48), *((volatile uint32_t *)off_127238 + 4) + 30000);
+      return mm_timer_set((void *)(uintptr_t)((int)v0 + 48), *((volatile uint32_t *)off_127238 + 4) + 30000);
     else
       return llc_flag_test_bit0();
   }

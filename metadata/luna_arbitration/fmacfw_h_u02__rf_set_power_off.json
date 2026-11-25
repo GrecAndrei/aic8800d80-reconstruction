@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_set_power_off",
+ "luna": "rf_power_off",
+ "doc": "Turns off the RF power path by clearing radio-enable bits, programming shutdown controls, and committing the updated register state.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_set_power_off",
+   "probabilities": [
+    {
+     "value": "rf_set_power_off",
+     "probability": 0.62
+    },
+    {
+     "value": "rf_power_off",
+     "probability": 0.38
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.43
+  }
+ ],
+ "status": "ok"
+}

@@ -114,7 +114,7 @@ int ke_state_check() {
     {
       ke_msg_send_no_param(2050, v5, 2);
     }
-    rx_phy_status_parse(2u, 0);
+    ke_state_set(2u, 0);
     return 0;
   }
   else

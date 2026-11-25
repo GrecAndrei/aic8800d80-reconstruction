@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "check_event_flag",
+ "luna": "handle_reset_event",
+ "doc": "Handles a firmware reset event by reinitializing radio-related state, applying any pending PHY update, and releasing the reset critical section.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "handle_reset_event",
+   "probabilities": [
+    {
+     "value": "check_event_flag",
+     "probability": 0.12
+    },
+    {
+     "value": "handle_reset_event",
+     "probability": 0.88
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.82
+  }
+ ],
+ "status": "ok"
+}

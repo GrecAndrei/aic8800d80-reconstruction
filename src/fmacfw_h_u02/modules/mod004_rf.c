@@ -1028,11 +1028,11 @@ int rf_load_cal_config(int a1, volatile float *a2, int a3, int a4) {
         v26 = v22[32];
         v27 = v25 * *v22++;
         v28 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT((float)(v27 - v26) + *(volatile float *)(a4 + 12)));
-        v29 = ((uint64_t (*)())double_compare_common)(v28, v28);
+        v29 = ((uint64_t (*)())double_multiply)(v28, v28);
         v30 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT((float)(v25 * v25) + 1.0));
-        v31 = ((uint64_t (*)())double_compare_core)(v29, v30);
+        v31 = ((uint64_t (*)())double_divide)(v29, v30);
         v32 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT(v18));
-        v33 = double_compare_eq(v31, v32);
+        v33 = double_add(v31, v32);
         v18 = COERCE_FLOAT(((int (*)(uint64_t))double_to_int)(v33));
         if ( v22 == v23 )
           goto LABEL_6;
@@ -2936,7 +2936,7 @@ LABEL_37:
           v92 = signed_int_to_double(*_frame.v160);
           v93 = (v93 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
           v93 = (v93 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10BA70) << 32);
-          v94 = ((uint64_t (*)())double_compare_core)(v92, v93);
+          v94 = ((uint64_t (*)())double_divide)(v92, v93);
           v95 = ((int (*)(uint64_t))double_to_int)(v94);
           v83 = COERCE_FLOAT(log_float_converted(v95)) * 20.0;
           _frame.v156 = _frame.v147;
@@ -3042,7 +3042,7 @@ LABEL_80:
         while ( v130 >= (int)v102 );
         v106 = (float)(_frame.v153 - _frame.v156) - *(volatile float *)&_frame.result[_frame.v185];
         check_feature_flag(1, "stage_pwr_diff0*100= %d\n", (int)(float)(v106 * v22));
-        div_by_20(v106, v7, (int)_frame.v180);
+        rf_set_digital_power_from_delta(v106, v7, (int)_frame.v180);
         check_feature_flag(1, "base_index=%d dig_pwr=%x base_second_index=%d\n", _frame.v156, v7, _frame.v153);
         v102 = _frame.v185;
       }
@@ -3121,7 +3121,7 @@ LABEL_80:
                 "pwr_th*100=%-5d pwr_act*100=%-5d ",
                 -100 * _frame.v156 + 100 * v112,
                 (int)(float)(v118 * v22));
-              div_by_20(v120, v7, (int)_frame.v180);
+              rf_set_digital_power_from_delta(v120, v7, (int)_frame.v180);
             }
             else
             {
@@ -3152,7 +3152,7 @@ LABEL_80:
                   (int)(float)(v118 * v22),
                   (int)(float)(v106 * v22));
               }
-              div_by_20(v114, v7, (int)_frame.v180);
+              rf_set_digital_power_from_delta(v114, v7, (int)_frame.v180);
             }
             check_feature_flag(1, "i=%2d ana_index=%x dig_pwr=%x \n", v116, v117, _frame.v182);
             if ( _frame.v151 == v112 )
@@ -3165,7 +3165,7 @@ LABEL_80:
           else
           {
             check_feature_flag(1, "tx_gain_map_idx=%d ", v112);
-            div_by_20(v111, LOBYTE(v50[v116]), (int)_frame.v180);
+            rf_set_digital_power_from_delta(v111, LOBYTE(v50[v116]), (int)_frame.v180);
           }
           check_feature_flag(1, "i=%2d ana_index=%x dig_pwr=%x \n", v116, v117, _frame.v182);
           *(volatile uint8_t *)v119 = _frame.v182;
@@ -3188,7 +3188,7 @@ LABEL_108:
 if ( !((int (*)())double_greater_than)(_frame.v169, *(volatile uint64_t *)&dword_10BDF8) && !((int (*)())double_less_than)(_frame.v169, *(volatile uint64_t *)&dword_10BE00) ) { check_feature_flag(1, "pwr_diff*100=%d,dont need change\n", (int)(float)((float)((float)v71 - v121) * v22));
           goto LABEL_108;
         }
-        div_by_20((float)v71 - v121, _frame.v182, (int)_frame.v180);
+        rf_set_digital_power_from_delta((float)v71 - v121, _frame.v182, (int)_frame.v180);
         --v112;
         check_feature_flag(1, "i=%2d ana_index=%x dig_pwr=%x \n", v116, 15, _frame.v182);
         *(volatile uint8_t *)v119 = _frame.v182;
@@ -3369,21 +3369,21 @@ volatile unsigned int * mac_descriptor_parse(volatile unsigned int *result, int 
     v15 = signed_int_to_double(v12);
     v16 = (v16 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10C488) << 32);
     v16 = (v16 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-    v17 = ((uint64_t (*)())double_compare_common)(v15, v16);
-    v18 = ((uint64_t (*)())double_compare_core)(v13, v17);
+    v17 = ((uint64_t (*)())double_multiply)(v15, v16);
+    v18 = ((uint64_t (*)())double_divide)(v13, v17);
     v19 = (v19 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10C48C) << 32);
     v19 = (v19 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-    v20 = ((uint64_t (*)())double_compare_common)(v18, v19);
+    v20 = ((uint64_t (*)())double_multiply)(v18, v19);
     v21 = double_exp_check(v20);
     v22 = (v22 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10C488) << 32);
     v23 = v21;
     v22 = (v22 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-    v24 = ((uint64_t (*)())double_compare_core)(*(volatile uint64_t *)&v14, v22);
+    v24 = ((uint64_t (*)())double_divide)(*(volatile uint64_t *)&v14, v22);
     v25 = double_exp_check(v24);
     v26 = v23;
     v27 = v25;
-    *(volatile uint32_t *)off_10C4A8 = ((int (*)(uint64_t))double_to_float_rounding)(v26) & 0x7FFFFFFF;
-    *(volatile uint32_t *)off_10C490 = dword_10C494 & (((int (*)(uint64_t))double_to_float_rounding)(v27) << 13) | *(volatile uint32_t *)off_10C490 & dword_10C498;
+    *(volatile uint32_t *)off_10C4A8 = ((int (*)(uint64_t))double_to_uint32)(v26) & 0x7FFFFFFF;
+    *(volatile uint32_t *)off_10C490 = dword_10C494 & (((int (*)(uint64_t))double_to_uint32)(v27) << 13) | *(volatile uint32_t *)off_10C490 & dword_10C498;
   }
   rf_set_control_bit();
   rf_set_channel((uint8_t)v4, a2, v8, (uint16_t)v4 >> 12, BYTE1(v4) & 0xF, 0);
@@ -3567,9 +3567,9 @@ int peripheral_clock_config() {
 
 
 
-// interrupt_dispatcher @ 0x10c6f0
+// rf_peripheral_clock_init @ 0x10c6f0
 /* luna: Enables the RF clock and configures peripheral clocks, returning the peripheral configuration status. */
-int interrupt_dispatcher() {
+int rf_peripheral_clock_init() {
   rf_clock_enable();
   return peripheral_clock_config();
 }
@@ -3733,7 +3733,7 @@ int alloc_rx_buffer(char a1) {
       v15 = dword_10C984;
       v16 = &v2[20 * v8];
       *((volatile uint32_t *)v16 + 1) = (int)(uintptr_t)((volatile char *)v12 + *(volatile uint32_t *)(uintptr_t)(off_10C980));
-      wlan_ioctl_handler_1(v15, (void *)(v16));
+      co_list_push_back(v15, (void *)(v16));
       if ( !*(volatile uint32_t *)(v1 + 636) )
         goto LABEL_13;
     }
@@ -4258,7 +4258,7 @@ LABEL_16:
       v25 = (volatile int *)off_10CF84;
       v26 = dword_10CF88;
       ++*(volatile uint32_t *)off_10CF84;
-      wlan_ioctl_handler_1(v26, v8);
+      co_list_push_back(v26, v8);
       ((int (*)())rf_is_idle)();
       if ( *v25 )
       {
@@ -4285,7 +4285,7 @@ LABEL_16:
   v11 = (void *)(uintptr_t)(off_10CF6C);
   while ( !*(volatile uint32_t *)off_10CF6C )
     ;
-  wlan_ioctl_handler_1(((volatile uint32_t *)(uintptr_t)off_10CF70)[0] + 524, (volatile uint32_t *)(v5 - 4));
+  co_list_push_back(((volatile uint32_t *)(uintptr_t)off_10CF70)[0] + 524, (volatile uint32_t *)(v5 - 4));
   v12 = (void *)(uintptr_t)(off_10CF74);
   *v11 = 1;
   *v12 = 2;

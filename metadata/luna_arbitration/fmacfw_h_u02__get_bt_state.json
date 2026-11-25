@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "get_bt_state",
+ "luna": "process_bt_states",
+ "doc": "Clears and dispatches consecutive BT state-table entries marked 2, returning the number dispatched.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "process_bt_states",
+   "probabilities": [
+    {
+     "value": "get_bt_state",
+     "probability": 0.18
+    },
+    {
+     "value": "process_bt_states",
+     "probability": 0.81
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.72
+  }
+ ],
+ "status": "ok"
+}

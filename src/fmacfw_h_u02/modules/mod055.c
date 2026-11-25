@@ -76,7 +76,7 @@ if ( get_acl_conn_slot((void *)(uintptr_t)((int)_frame.a2)) ) { assert_trace(1);
       }
       *(volatile uint32_t *)(v11 + 12) = v15;
       rx_process_packet_1(v11);
-      hci_cmd_preprocess(6u, 3);
+      ke_state_set(6u, 3);
     }
     v9 = *(volatile uint32_t *)(v1 + 48);
     v10 = v3 + 1320 * v2;

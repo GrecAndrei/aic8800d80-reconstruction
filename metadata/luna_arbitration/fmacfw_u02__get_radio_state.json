@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "get_radio_state",
+ "luna": "set_radio_state",
+ "doc": "Applies the requested radio state by setting or clearing control-register bit 1 and conditionally issuing the matching PHY configuration command.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_radio_state",
+   "probabilities": [
+    {
+     "value": "get_radio_state",
+     "probability": 0.3
+    },
+    {
+     "value": "set_radio_state",
+     "probability": 0.69
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.53
+  }
+ ],
+ "status": "ok"
+}

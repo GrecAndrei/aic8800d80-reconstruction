@@ -848,8 +848,8 @@ volatile uint8_t * copy_config_data(volatile uint8_t *a1, int a2, volatile uint8
 
 
 
-// check_one_12deb8 @ 0x12deb8
-volatile uint8_t * check_one_12deb8(volatile uint8_t *result, int a2) {
+// wlan_find_ht_operation_ie @ 0x12deb8
+volatile uint8_t * wlan_find_ht_operation_ie(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
 
@@ -877,8 +877,8 @@ volatile uint8_t * check_one_12deb8(volatile uint8_t *result, int a2) {
 
 
 
-// check_one_12def8 @ 0x12def8
-volatile uint8_t * check_one_12def8(volatile uint8_t *result, int a2) {
+// mac_find_vht_operation_ie @ 0x12def8
+volatile uint8_t * mac_find_vht_operation_ie(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
 

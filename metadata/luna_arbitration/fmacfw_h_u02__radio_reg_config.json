@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "radio_reg_config",
+ "luna": "rf_cancel_scan",
+ "doc": "Sends a scan-cancel request, processes the response, and logs the HCI command result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_cancel_scan",
+   "probabilities": [
+    {
+     "value": "radio_reg_config",
+     "probability": 0.14
+    },
+    {
+     "value": "rf_cancel_scan",
+     "probability": 0.84
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.76
+  }
+ ],
+ "status": "ok"
+}

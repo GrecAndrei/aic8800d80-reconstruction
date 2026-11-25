@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "store_half_return_two",
+ "luna": "write_u16",
+ "doc": "Writes a 16-bit value to the destination and returns the number of bytes written (2).",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "store_half_return_two",
+   "probabilities": [
+    {
+     "value": "store_half_return_two",
+     "probability": 0.65
+    },
+    {
+     "value": "write_u16",
+     "probability": 0.33
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.48
+  }
+ ],
+ "status": "ok"
+}

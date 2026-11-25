@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_wait_event",
+ "luna": "rf_handle_irq",
+ "doc": "Acknowledges enabled RF interrupt causes, dispatches status handlers, masks selected sources, and reports pending causes when diagnostics are enabled.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_handle_irq",
+   "probabilities": [
+    {
+     "value": "rf_wait_event",
+     "probability": 0.48
+    },
+    {
+     "value": "rf_handle_irq",
+     "probability": 0.52
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.28
+  }
+ ],
+ "status": "ok"
+}

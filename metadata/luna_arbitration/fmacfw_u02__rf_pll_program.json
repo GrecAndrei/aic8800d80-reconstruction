@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_pll_program",
+ "luna": "replenish_rxmsg_buffers",
+ "doc": "Allocates RX message buffers and descriptors, links them onto the receive queue, and notifies the hardware until the context has more than one buffer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "replenish_rxmsg_buffers",
+   "probabilities": [
+    {
+     "value": "rf_pll_program",
+     "probability": 0.01
+    },
+    {
+     "value": "replenish_rxmsg_buffers",
+     "probability": 0.98
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.97
+  }
+ ],
+ "status": "ok"
+}

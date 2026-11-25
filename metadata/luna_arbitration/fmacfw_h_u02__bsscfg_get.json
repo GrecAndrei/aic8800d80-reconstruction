@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "bsscfg_get",
+ "luna": "chan_ctxt_unlink",
+ "doc": "Detaches a BSS configuration from its channel context and updates the associated link and reference counts.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "chan_ctxt_unlink",
+   "probabilities": [
+    {
+     "value": "bsscfg_get",
+     "probability": 0.07
+    },
+    {
+     "value": "chan_ctxt_unlink",
+     "probability": 0.92
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.88
+  }
+ ],
+ "status": "ok"
+}

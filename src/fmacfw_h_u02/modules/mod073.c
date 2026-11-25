@@ -73,7 +73,7 @@ int get_ll_conn_ctx(int a1, int a2) {
   v4 = rf_delay();
   v5 = *((volatile uint32_t *)off_141C54 + 4);
   *(volatile uint32_t *)(a1 + 56) = dword_141C58;
-  return mem_copy_util((void *)(uintptr_t)(a1 + 52), v5 + v3 - v4);
+  return mm_timer_set((void *)(uintptr_t)(a1 + 52), v5 + v3 - v4);
 }
 
 
@@ -112,7 +112,7 @@ int read_rf_timer(int a1) {
   *(volatile uint32_t *)(a1 + 56) = dword_141CFC;
   *(volatile uint64_t *)(a1 + 24) = v4;
   v5 = *(volatile uint8_t *)(a1 + 47);
-  mem_copy_util((void *)(uintptr_t)(a1 + 52), v3 + v1);
+  mm_timer_set((void *)(uintptr_t)(a1 + 52), v3 + v1);
   v6 = (void *)(uintptr_t)(off_141D04);
   v7 = dword_141D00 + 1320 * v5;
   v8 = *(volatile uint16_t *)a1 | 8;

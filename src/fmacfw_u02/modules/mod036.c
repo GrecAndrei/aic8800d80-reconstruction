@@ -26,7 +26,7 @@ int llm_ctrl_msg_handler(int a1, int a2, int a3) {
   v7[3] = a3;
   v7[1] = a1;
   v7[2] = a2;
-  result = cmd_handler_a((int)v9, v7);
+  result = co_list_push_back((int)v9, v7);
   if ( !v10 )
   {
     v8[18] = (int)(uintptr_t)(v7);
@@ -97,7 +97,7 @@ volatile uint32_t *ke_task_poll() {
     v4 = (int)(v1 + 8);
     do
     {
-      cmd_handler_a(v3, v2);
+      co_list_push_back(v3, v2);
       result = mem_word_load(v4);
       v2 = result;
     }

@@ -311,7 +311,7 @@ LABEL_31:
       memcpy((void *)(uintptr_t)(v15 + 18), (void *)(uintptr_t)(_frame.v59 + 100 + v3), 6);
       v51 = v32 - (*(volatile uint8_t *)(v15 + 51) + *(volatile uint8_t *)(v15 + 53));
       *(volatile uint8_t *)(v15 + 27) = 0;
-      check_global_flag(v15, _frame.v53 + 80, v26, v51 - 26);
+      append_tkip_mic(v15, _frame.v53 + 80, v26, v51 - 26);
     }
     return tx_path_status(v15, _frame.v58);
   }

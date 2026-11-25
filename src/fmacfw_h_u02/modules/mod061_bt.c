@@ -100,7 +100,7 @@ int is_link_active() {
   else if ( hci_cmd_handler(7u) == 3 )
   {
     mac_write_header_word(7171, 13, 7);
-    hci_cmd_preprocess(7u, 0);
+    ke_state_set(7u, 0);
   }
   return 0;
 }

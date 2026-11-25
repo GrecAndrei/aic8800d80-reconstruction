@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "is_patch_loaded",
+ "luna": "firmware_startup",
+ "doc": "Clears and copies firmware memory sections, configures startup state, loads the AES key, checks the patch signature, initializes MAC state, and then enters an infinite loop.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "firmware_startup",
+   "probabilities": [
+    {
+     "value": "is_patch_loaded",
+     "probability": 0.2
+    },
+    {
+     "value": "firmware_startup",
+     "probability": 0.8
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.7
+  }
+ ],
+ "status": "ok"
+}

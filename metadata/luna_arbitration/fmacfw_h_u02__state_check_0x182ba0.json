@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "state_check_0x182ba0",
+ "luna": "rx_packet_dispatch_wrapper",
+ "doc": "Forwards the supplied pointer to `rx_packet_dispatch` and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rx_packet_dispatch_wrapper",
+   "probabilities": [
+    {
+     "value": "state_check_0x182ba0",
+     "probability": 0.19
+    },
+    {
+     "value": "rx_packet_dispatch_wrapper",
+     "probability": 0.81
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.72
+  }
+ ],
+ "status": "ok"
+}

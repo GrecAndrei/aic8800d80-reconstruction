@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "skip_leading_spaces",
+ "luna": "tokenize_args",
+ "doc": "Destructively splits a mutable argument string on spaces and tabs into a pointer array, removing double-quote delimiters for quoted tokens and limiting the result to 16 tokens.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "tokenize_args",
+   "probabilities": [
+    {
+     "value": "skip_leading_spaces",
+     "probability": 0.42
+    },
+    {
+     "value": "tokenize_args",
+     "probability": 0.57
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.35
+  }
+ ],
+ "status": "ok"
+}

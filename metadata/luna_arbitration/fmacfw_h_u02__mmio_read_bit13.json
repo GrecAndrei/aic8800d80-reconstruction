@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mmio_read_bit13",
+ "luna": "wait_for_mmio_bit18",
+ "doc": "Busy-waits until bit 18 of a volatile word at a fixed address is set.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "wait_for_mmio_bit18",
+   "probabilities": [
+    {
+     "value": "mmio_read_bit13",
+     "probability": 0.05
+    },
+    {
+     "value": "wait_for_mmio_bit18",
+     "probability": 0.94
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.91
+  }
+ ],
+ "status": "ok"
+}

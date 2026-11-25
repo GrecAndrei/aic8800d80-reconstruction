@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "bt_parse_rx_packet",
+ "luna": "mac_handle_rx_action_frame",
+ "doc": "Dispatches received 802.11 action frames by category and records channel-switch announcements for the associated station.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mac_handle_rx_action_frame",
+   "probabilities": [
+    {
+     "value": "bt_parse_rx_packet",
+     "probability": 0.26
+    },
+    {
+     "value": "mac_handle_rx_action_frame",
+     "probability": 0.73
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

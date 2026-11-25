@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "ke_acquire_lock",
+ "luna": "rf_remove_iq_dc_offset",
+ "doc": "Computes the mean I/Q bias across 8192 packed samples in the selected buffer and subtracts those DC offsets from each sample.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_remove_iq_dc_offset",
+   "probabilities": [
+    {
+     "value": "ke_acquire_lock",
+     "probability": 0.05
+    },
+    {
+     "value": "rf_remove_iq_dc_offset",
+     "probability": 0.94
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.91
+  }
+ ],
+ "status": "ok"
+}

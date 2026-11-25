@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_call_handler",
+ "luna": "phy_get_channel",
+ "doc": "Stores the configured 64-bit fallback value in the output and logs an error if the requested radio does not exist.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "phy_get_channel",
+   "probabilities": [
+    {
+     "value": "rf_call_handler",
+     "probability": 0.38
+    },
+    {
+     "value": "phy_get_channel",
+     "probability": 0.45
+    },
+    {
+     "value": "neither",
+     "probability": 0.17
+    }
+   ],
+   "confidence": 0.18
+  }
+ ],
+ "status": "ok"
+}

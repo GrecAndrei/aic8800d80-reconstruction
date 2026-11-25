@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "get_ptr_value",
+ "luna": "list_merge",
+ "doc": "Appends the source chain to the destination list and clears the source head field.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "list_merge",
+   "probabilities": [
+    {
+     "value": "get_ptr_value",
+     "probability": 0.23
+    },
+    {
+     "value": "list_merge",
+     "probability": 0.7
+    },
+    {
+     "value": "neither",
+     "probability": 0.07
+    }
+   ],
+   "confidence": 0.55
+  }
+ ],
+ "status": "ok"
+}

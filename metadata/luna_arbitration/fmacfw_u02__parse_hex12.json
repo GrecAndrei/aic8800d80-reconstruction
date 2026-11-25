@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "parse_hex12",
+ "luna": "mac_monitor_set_addresses",
+ "doc": "Parses 12-digit hexadecimal MAC and BSSID strings from the request and programs the monitor address configuration, returning -2 if either string has the wrong length.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mac_monitor_set_addresses",
+   "probabilities": [
+    {
+     "value": "parse_hex12",
+     "probability": 0.16
+    },
+    {
+     "value": "mac_monitor_set_addresses",
+     "probability": 0.84
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.76
+  }
+ ],
+ "status": "ok"
+}

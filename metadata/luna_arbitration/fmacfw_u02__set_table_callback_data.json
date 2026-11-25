@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "set_table_callback_data",
+ "luna": "enqueue_table_callback",
+ "doc": "Appends a callback node to the list selected by `index + 22` and clears the node\u2019s next link.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "enqueue_table_callback",
+   "probabilities": [
+    {
+     "value": "set_table_callback_data",
+     "probability": 0.41
+    },
+    {
+     "value": "enqueue_table_callback",
+     "probability": 0.44
+    },
+    {
+     "value": "neither",
+     "probability": 0.15
+    }
+   ],
+   "confidence": 0.16
+  }
+ ],
+ "status": "ok"
+}

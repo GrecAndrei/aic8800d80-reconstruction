@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "ke_state_get",
+ "luna": "usb_wlan_rx_pkt_free_list_init",
+ "doc": "Initializes the USB WLAN RX packet free list by allocating buffers and adding them until the configured count is reached.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "usb_wlan_rx_pkt_free_list_init",
+   "probabilities": [
+    {
+     "value": "ke_state_get",
+     "probability": 0.04
+    },
+    {
+     "value": "usb_wlan_rx_pkt_free_list_init",
+     "probability": 0.94
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.91
+  }
+ ],
+ "status": "ok"
+}

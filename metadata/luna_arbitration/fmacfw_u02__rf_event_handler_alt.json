@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_event_handler_alt",
+ "luna": "rf_core_voltage_calibrate",
+ "doc": "Calibrates the RF core supply toward 840 mV by measuring its voltage and adjusting the trim code.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_core_voltage_calibrate",
+   "probabilities": [
+    {
+     "value": "rf_event_handler_alt",
+     "probability": 0.08
+    },
+    {
+     "value": "rf_core_voltage_calibrate",
+     "probability": 0.92
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.88
+  }
+ ],
+ "status": "ok"
+}

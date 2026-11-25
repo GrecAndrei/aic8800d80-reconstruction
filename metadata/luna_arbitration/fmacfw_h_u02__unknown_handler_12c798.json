@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "unknown_handler_12c798",
+ "luna": "tx_process_queued_packets",
+ "doc": "Drains the pending TX packet list and passes each popped packet to tx_pkt_process under interrupt protection.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "tx_process_queued_packets",
+   "probabilities": [
+    {
+     "value": "unknown_handler_12c798",
+     "probability": 0.02
+    },
+    {
+     "value": "tx_process_queued_packets",
+     "probability": 0.98
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.97
+  }
+ ],
+ "status": "ok"
+}

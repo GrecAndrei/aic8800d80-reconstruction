@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_calibration_init",
+ "luna": "mm_set_resume_res",
+ "doc": "Walks the sub-message IDs in an MM resume-response structure and maps recognized IDs to their associated payload fields.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mm_set_resume_res",
+   "probabilities": [
+    {
+     "value": "rf_calibration_init",
+     "probability": 0.0
+    },
+    {
+     "value": "mm_set_resume_res",
+     "probability": 0.99
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "status": "ok"
+}

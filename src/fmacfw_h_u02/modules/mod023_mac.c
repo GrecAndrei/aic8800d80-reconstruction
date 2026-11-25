@@ -223,9 +223,9 @@ LABEL_19:
 }
 
 
-// dma_clear_interrupt @ 0x11c7a4
+// dma_irq_handler @ 0x11c7a4
 /* luna: Acknowledges DMA interrupt sources and, for RX-completion events, processes the indicated channel’s MPDU queue and updates per-channel state. */
-void dma_clear_interrupt() {
+void dma_irq_handler() {
   volatile uint32_t *dma_status_reg; // r2
   volatile uint32_t *dma_register_base; // r7
   int dma_irq_status; // r3
@@ -305,7 +305,7 @@ LABEL_5:
     {
       v8 = *(volatile uint32_t *)(v7 + 36);
       if ( v8 )
-        ((int (*)())rf_switch_case)(v8, channel_id, *(volatile uint8_t *)(v7 + 46), v7);
+        ((int (*)())tx_queue_set_head)(v8, channel_id, *(volatile uint8_t *)(v7 + 46), v7);
       dma_register_base[7 * channel_id + 9] = 0;
     }
     v9 = (void *)(uintptr_t)(off_11C934);
@@ -417,7 +417,7 @@ LABEL_12:
             v16 = *(volatile uint16_t *)(v13 + 8);
             if ( **(volatile int16_t **)off_11CB18 < 0 && (v16 & 0x20) == 0 )
             {
-              unknown_12f2c8((int)aAggDescStatusA, (int)aTxlHeTbTransmi_0, 2274);
+              log_assert_failure((int)aAggDescStatusA, (int)aTxlHeTbTransmi_0, 2274);
               return;
             }
             break;
@@ -463,7 +463,7 @@ LABEL_25:
     {
       v19 = *((volatile uint32_t *)v18 + 9);
       if ( v19 )
-        rf_switch_case(v19, v2);
+        tx_queue_set_head(v19, v2);
       *(volatile uint32_t *)&v0[28 * v2 + 36] = 0;
     }
     v20 = (void *)(uintptr_t)(off_11CB28);

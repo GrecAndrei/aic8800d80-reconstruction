@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "test_arg2_one_12dd78",
+ "luna": "find_ht_operation_ie",
+ "doc": "Scans a bounded 802.11 information-element list and returns the HT Operation element (ID 61) only if its length is 22 bytes.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_ht_operation_ie",
+   "probabilities": [
+    {
+     "value": "test_arg2_one_12dd78",
+     "probability": 0.15
+    },
+    {
+     "value": "find_ht_operation_ie",
+     "probability": 0.83
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.74
+  }
+ ],
+ "status": "ok"
+}

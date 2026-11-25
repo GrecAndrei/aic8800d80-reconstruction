@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "crypto_init",
+ "luna": "rf_init",
+ "doc": "Configures RF control registers, enables the RF chain, and performs RF hardware startup.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_init",
+   "probabilities": [
+    {
+     "value": "crypto_init",
+     "probability": 0.01
+    },
+    {
+     "value": "rf_init",
+     "probability": 0.99
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "status": "ok"
+}

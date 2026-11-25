@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "unaligned_word_load",
+ "luna": "ble_crypto_update",
+ "doc": "Feeds bytes into a buffered BLE cryptographic context, mixing each complete little-endian 32-bit word and retaining any trailing bytes.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ble_crypto_update",
+   "probabilities": [
+    {
+     "value": "unaligned_word_load",
+     "probability": 0.22
+    },
+    {
+     "value": "ble_crypto_update",
+     "probability": 0.77
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.66
+  }
+ ],
+ "status": "ok"
+}

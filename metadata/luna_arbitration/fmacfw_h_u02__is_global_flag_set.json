@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "is_global_flag_set",
+ "luna": "list_remove_node",
+ "doc": "Removes a node from a singly linked list, updates the head or tail as needed, and clears the removed node\u2019s next pointer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "list_remove_node",
+   "probabilities": [
+    {
+     "value": "is_global_flag_set",
+     "probability": 0.09
+    },
+    {
+     "value": "list_remove_node",
+     "probability": 0.86
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.79
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "size_to_class",
+ "luna": "rx_size_to_class",
+ "doc": "Maps a size to class 2 when it is at most 0x2000, or class 4 when it is larger.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "size_to_class",
+   "probabilities": [
+    {
+     "value": "size_to_class",
+     "probability": 0.63
+    },
+    {
+     "value": "rx_size_to_class",
+     "probability": 0.33
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.45
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "float_compare",
+ "luna": "float_add",
+ "doc": "Adds two IEEE-754 single-precision floating-point values and returns the result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_add",
+   "probabilities": [
+    {
+     "value": "float_compare",
+     "probability": 0.02
+    },
+    {
+     "value": "float_add",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

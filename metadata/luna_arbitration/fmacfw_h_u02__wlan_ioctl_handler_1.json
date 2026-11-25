@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "wlan_ioctl_handler_1",
+ "luna": "co_list_push_back",
+ "doc": "Appends an element to the end of a list and clears the element\u2019s next pointer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "co_list_push_back",
+   "probabilities": [
+    {
+     "value": "wlan_ioctl_handler_1",
+     "probability": 0.04
+    },
+    {
+     "value": "co_list_push_back",
+     "probability": 0.93
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.89
+  }
+ ],
+ "status": "ok"
+}

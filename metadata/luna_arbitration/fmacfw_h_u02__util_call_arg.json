@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "util_call_arg",
+ "luna": "util_call_with_arg",
+ "doc": "Calls the WLAN handler with the supplied argument and stored context inside a nesting-counted IRQ critical section.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "util_call_with_arg",
+   "probabilities": [
+    {
+     "value": "util_call_arg",
+     "probability": 0.32
+    },
+    {
+     "value": "util_call_with_arg",
+     "probability": 0.66
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.49
+  }
+ ],
+ "status": "ok"
+}

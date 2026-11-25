@@ -98,7 +98,7 @@ int sec_check(int a1, int a2) {
 
 // set_string_0x1882c0 @ 0x118ba0
 int set_string_0x1882c0(volatile uint32_t *a1) {
-  wlan_ioctl_handler_1(dword_118BB8, a1);
+  co_list_push_back(dword_118BB8, a1);
   return irq_disable_global_2(0x20000);
 }
 
@@ -110,7 +110,7 @@ int check_packet_flag(int result, int a2) {
 
   v2 = result;
   if ( !*(volatile uint8_t *)(result + 96) )
-    result = wlan_ioctl_handler_1(dword_118BE4, (volatile uint32_t *)result);
+    result = co_list_push_back(dword_118BE4, (volatile uint32_t *)result);
   if ( a2 )
   {
     v4 = *(int ( **)(uint32_t, uint32_t))(v2 + 88);
@@ -169,7 +169,7 @@ volatile uint32_t *alloc_dma_buf() {
     }
     else if ( !*((volatile uint8_t *)v5 + 96) )
     {
-      wlan_ioctl_handler_1(dword_118C7C, v5);
+      co_list_push_back(dword_118C7C, v5);
     }
   }
   return result;
@@ -478,9 +478,9 @@ LABEL_7:
 
 
 
-// btm_chk_state @ 0x119124
+// send_probe_response @ 0x119124
 /* luna: Builds and queues an 802.11 probe response for the AP vif addressed to the supplied destination MAC. */
-int btm_chk_state(int a1, volatile char *a2) {
+int send_probe_response(int a1, volatile char *a2) {
   int v2; // r3
   int v3; // r3
   int v6; // r3

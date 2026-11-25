@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "compare_calibration_levels",
+ "luna": "rf_step_xtal_cap_toward_target",
+ "doc": "Moves the current XTAL capacitor value one step toward its target and logs the adjustment.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_step_xtal_cap_toward_target",
+   "probabilities": [
+    {
+     "value": "compare_calibration_levels",
+     "probability": 0.07
+    },
+    {
+     "value": "rf_step_xtal_cap_toward_target",
+     "probability": 0.91
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.86
+  }
+ ],
+ "status": "ok"
+}

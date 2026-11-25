@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_enable",
+ "luna": "phy_set_channel",
+ "doc": "Applies a PHY channel configuration for radio 0 when it differs from the cached settings, and skips redundant updates.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "phy_set_channel",
+   "probabilities": [
+    {
+     "value": "rf_enable",
+     "probability": 0.1
+    },
+    {
+     "value": "phy_set_channel",
+     "probability": 0.9
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.85
+  }
+ ],
+ "status": "ok"
+}

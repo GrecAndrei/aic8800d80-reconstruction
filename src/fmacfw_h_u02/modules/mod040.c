@@ -83,7 +83,7 @@ int sec_table_lookup(int a1, int a2, unsigned int a3, unsigned int a4) {
   v6 = v5;
   if ( !v5 )
     return 0;
-  mem_copy_util((void *)(uintptr_t)(a1), v5);
+  mm_timer_set((void *)(uintptr_t)(a1), v5);
   *(volatile uint8_t *)(a1 + 16) = 1;
   return v6;
 }
@@ -472,7 +472,7 @@ LABEL_10:
   if ( **v2 >= 0 )
     return 0;
 LABEL_15:
-  mmio_write_field(dword_12A140, dword_12A138, 1337);
+  log_warning(dword_12A140, dword_12A138, 1337);
   return 0;
 }
 
@@ -507,12 +507,12 @@ volatile uint8_t * bt_scan_poll(volatile uint8_t *result, int a2) {
     if ( *(volatile uint8_t *)(v4 + 112) || (v10 = a2 + 300, *((volatile uint32_t *)off_12A1D8 + 4) - v10 + 50 >= 0) )
     {
       *(volatile uint8_t *)(v3 + 140 * v2 + 114) = 1;
-      mem_copy_util((void *)(uintptr_t)(v7 + 96 + v3), v9);
+      mm_timer_set((void *)(uintptr_t)(v7 + 96 + v3), v9);
       return rsn_parse_ie(v8);
     }
     *(volatile uint32_t *)(v4 + 116) = v9;
     *(volatile uint8_t *)(v4 + 114) = 2;
-    return (volatile uint8_t *)mem_copy_util((void *)(uintptr_t)(v7 + 96 + v3), v10);
+    return (volatile uint8_t *)mm_timer_set((void *)(uintptr_t)(v7 + 96 + v3), v10);
   }
   return result;
 }
@@ -530,9 +530,9 @@ volatile uint8_t * bt_get_conn_ptr(int a1) {
 
 
 
-// bt_scan_stop @ 0x12a204
+// p2p_process_noa_ie @ 0x12a204
 /* luna: Searches a received 802.11 management frame for a P2P vendor IE containing the Notice of Absence attribute and forwards that attribute to the NoA hand */
-unsigned int bt_scan_stop(volatile uint8_t *a1, int a2, int a3) {
+unsigned int p2p_process_noa_ie(volatile uint8_t *a1, int a2, int a3) {
   unsigned int noa_attr; // r4
   unsigned int v5; // r0
   int frame; // r7

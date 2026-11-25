@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "empty_stub_0",
+ "luna": "noop_stub",
+ "doc": "An empty stub that performs no operation.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "noop_stub",
+   "probabilities": [
+    {
+     "value": "empty_stub_0",
+     "probability": 0.32
+    },
+    {
+     "value": "noop_stub",
+     "probability": 0.68
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.52
+  }
+ ],
+ "status": "ok"
+}

@@ -162,7 +162,7 @@ int rf_get_rssi() {
   else
   {
     v4 = (*(volatile uint32_t *)0x40501010u);
-    return mem_copy_util((volatile uint32_t *)v0 + 3, v4 + 30000 * *((volatile uint16_t *)v0 + 4));
+    return mm_timer_set((volatile uint32_t *)v0 + 3, v4 + 30000 * *((volatile uint16_t *)v0 + 4));
   }
   return result;
 }
@@ -231,7 +231,7 @@ int ke_get_state() {
 
 // bt_send_data @ 0x10f230
 int bt_send_data(int a1, int a2) {
-  wait_for_state((void *)(uintptr_t)(a2));
+  pkt_mem_free((void *)(uintptr_t)(a2));
   return 1;
 }
 
@@ -288,7 +288,7 @@ uint64_t rf_config_bb() {
   {
     v4 = v1;
     v1 += 4;
-    wlan_ioctl_handler_1(v3, (void *)(v4));
+    co_list_push_back(v3, (void *)(v4));
   }
   while ( v1 != v2 );
   v5 = dword_10F314;
@@ -376,7 +376,7 @@ int rf_get_state() {
     v13 = (int ( **)(int))off_10F3DC;
     *(volatile uint16_t *)(v12 + 8244) = 0;
     v14 = (int)(uintptr_t)(rf_read_channel());
-    rf_read_status_1(v14);
+    usb_wlan_rx_pkt_free_list_init(v14);
     v15 = v13[6](dword_10F400);
     v16 = v13[7](v15);
     v4 = (v4 & ~0xFFFFFFFFull) | ((uint32_t)(set_config_field(v16)) & 0xFFFFFFFFu);
@@ -485,7 +485,7 @@ LABEL_16:
           if ( *(volatile uint8_t *)(v14 + 37) || (*(volatile uint16_t *)(v13 + 30) & 8) != 0 )
             break;
           alloc_tx_event("sta invalid:%d\n", *(volatile uint8_t *)(v14 + 35));
-          phy_set_channel_1(v13, v10, 0x80000000);
+          phy_handle_txu_discard(v13, v10, 0x80000000);
           if ( !*(volatile uint32_t *)(v6 + 1304) )
           {
 LABEL_25:
@@ -503,7 +503,7 @@ LABEL_25:
           if ( (*(volatile uint16_t *)(v13 + 30) & 1) != 0 )
           {
 LABEL_56:
-            wlan_ioctl_handler_1(v8 + 8 * (87 * (int16_t)v12 + v25 + 78), (volatile uint32_t *)v13);
+            co_list_push_back(v8 + 8 * (87 * (int16_t)v12 + v25 + 78), (volatile uint32_t *)v13);
             goto LABEL_23;
           }
           irq_disable_mmio_write((int)aTxdescTmpHostF, (int)aReplenishSend, 383);
@@ -535,7 +535,7 @@ LABEL_26:
             break;
           alloc_tx_event("sta invalid:%d\n", v17[35]);
           v24 = list_pop(v6 + 1264);
-          phy_set_channel_1((int)v24, v10, 0x80000000);
+          phy_handle_txu_discard((int)v24, v10, 0x80000000);
           v15 = *(volatile uint32_t *)(v6 + 1264);
           if ( !v15 )
           {
@@ -565,7 +565,7 @@ LABEL_38:
               __enable_irq();
           }
         }
-        wlan_ioctl_handler_1(v8 + 8 * (87 * (int16_t)v16 + v26 + 73), v18);
+        co_list_push_back(v8 + 8 * (87 * (int16_t)v16 + v26 + 73), v18);
 LABEL_37:
         v15 = *(volatile uint32_t *)(v6 + 1264);
         if ( !v15 )
@@ -788,9 +788,9 @@ LABEL_6:
 }
 
 
-// tx_irq_handler @ 0x10f9e8
+// buffer_pool_alloc @ 0x10f9e8
 /* luna: Removes and returns a free buffer from the first size class with sufficient capacity, validating the buffer address and guard pattern along the way. */
-volatile uint32_t * tx_irq_handler(int a1, unsigned int a2) {
+volatile uint32_t * buffer_pool_alloc(int a1, unsigned int a2) {
   unsigned int pool_class_count; // r6
   volatile uint32_t *v3; // r5
   volatile uint16_t *pool_class_entry; // r4
@@ -970,9 +970,9 @@ LABEL_43:
 }
 
 
-// util_check_arg @ 0x10fba0
+// buffer_release @ 0x10fba0
 /* luna: Validates a buffer against its pool context, decrements its reference count, and returns it to the pool when the count reaches zero. */
-int util_check_arg(int a1, volatile uint32_t *a2) {
+int buffer_release(int a1, volatile uint32_t *a2) {
   volatile unsigned int *native_pool_bounds; // r7
   unsigned int pool_id; // r6
   int pool_entries; // r8
@@ -1211,15 +1211,15 @@ int log_event(int a1, int a2, int a3) {
 
 
 
-// is_chip_ready @ 0x10fe7c
+// set_user_id @ 0x10fe7c
 /* luna: Obtains and validates a buffer, writes the supplied user ID to the byte immediately preceding it, and returns the buffer. */
-volatile uint32_t * is_chip_ready(char a1) {
+volatile uint32_t * set_user_id(char a1) {
   volatile uint32_t *v2; // r4
 
   if ( **(volatile uint8_t **)off_10FEBC == 1 )
     v2 = (void *)(uintptr_t)(mmio_read_2());
   else
-    v2 = tx_irq_handler(dword_10FEC0, 0x7Cu);
+    v2 = buffer_pool_alloc(dword_10FEC0, 0x7Cu);
   if ( !v2 )
     return v2;
   if ( check_state_flag((unsigned int)v2) )
@@ -1232,9 +1232,9 @@ volatile uint32_t * is_chip_ready(char a1) {
 }
 
 
-// wait_for_state @ 0x10fec8
+// pkt_mem_free @ 0x10fec8
 /* luna: Validates a packet-buffer pointer and dispatches it to the appropriate allocator-specific release routine using the allocator mode and the tag precedi */
-int wait_for_state(volatile uint32_t *a1) {
+int pkt_mem_free(volatile uint32_t *a1) {
   int result; // r0
   int allocation_tag; // r2
   int allocator_mode; // r3
@@ -1254,7 +1254,7 @@ int wait_for_state(volatile uint32_t *a1) {
 LABEL_11:
         if ( !check_state_flag((unsigned int)a1) )
           debug_printf("get_user_id: Invalid buffer passed: %x\n", a1);
-        return util_check_arg(dword_10FFB0, a1);
+        return buffer_release(dword_10FFB0, a1);
       }
       if ( **(volatile int16_t **)off_10FFA8 < 0 )
         return irq_disable_mmio_write((int)aNativeId3, (int)aPktMemFree, 204);
@@ -1356,8 +1356,8 @@ volatile uint32_t *get_noise_floor() {
     v5 = 0;
     do
     {
-      v6 = tx_irq_handler(v3, 0x63Cu);
-      result = (volatile uint32_t *)wlan_ioctl_handler_1(v4, v6);
+      v6 = buffer_pool_alloc(v3, 0x63Cu);
+      result = (volatile uint32_t *)co_list_push_back(v4, v6);
       v7 = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 6);
       ++v5;
       ++*v2;
@@ -1386,8 +1386,8 @@ volatile uint32_t *get_current_channel() {
     v4 = 0;
     do
     {
-      v5 = tx_irq_handler(v2, 0xCu);
-      result = (volatile uint32_t *)wlan_ioctl_handler_1(v3, v5);
+      v5 = buffer_pool_alloc(v2, 0xCu);
+      result = (volatile uint32_t *)co_list_push_back(v3, v5);
       ++v4;
     }
     while ( *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 2) > (unsigned int)(uint16_t)v4 );
@@ -1417,8 +1417,8 @@ volatile uint32_t *get_core_temp() {
     v5 = 0;
     do
     {
-      v6 = tx_irq_handler(v3, 0x6B8u);
-      result = (volatile uint32_t *)wlan_ioctl_handler_1(v4, v6);
+      v6 = buffer_pool_alloc(v3, 0x6B8u);
+      result = (volatile uint32_t *)co_list_push_back(v4, v6);
       v7 = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8);
       ++v5;
       ++*v2;
@@ -1447,8 +1447,8 @@ volatile uint32_t *get_tx_power() {
     v4 = 0;
     do
     {
-      v5 = tx_irq_handler(v2, 0x7Cu);
-      result = (volatile uint32_t *)wlan_ioctl_handler_1(v3, v5);
+      v5 = buffer_pool_alloc(v2, 0x7Cu);
+      result = (volatile uint32_t *)co_list_push_back(v3, v5);
       ++v4;
     }
     while ( *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 4) > (unsigned int)(uint16_t)v4 );
@@ -1506,7 +1506,7 @@ int mmio_write_0(volatile uint32_t *a1) {
   v2 = (volatile int *)off_1101F8;
   v3 = dword_1101FC;
   ++*(volatile uint32_t *)off_1101F8;
-  result = wlan_ioctl_handler_1(v3, a1);
+  result = co_list_push_back(v3, a1);
   if ( *v2 )
   {
     v5 = *v2 - 1;
@@ -1539,7 +1539,7 @@ int mmio_write_1(volatile uint32_t *a1) {
   v2 = (volatile int *)off_110294;
   v3 = dword_110298;
   ++*(volatile uint32_t *)off_110294;
-  result = wlan_ioctl_handler_1(v3, a1);
+  result = co_list_push_back(v3, a1);
   v5 = *v2;
   ++*(volatile uint32_t *)off_11029C;
   if ( v5 )
@@ -1609,7 +1609,7 @@ int mmio_write_2(volatile uint32_t *a1) {
   v2 = (volatile int *)off_110334;
   v3 = dword_110338;
   ++*(volatile uint32_t *)off_110334;
-  result = wlan_ioctl_handler_1(v3, a1);
+  result = co_list_push_back(v3, a1);
   v5 = *v2;
   ++*(volatile uint32_t *)off_11033C;
   if ( v5 )
@@ -1676,7 +1676,7 @@ int mmio_write_3(volatile uint32_t *a1) {
   v2 = (volatile int *)off_1103BC;
   v3 = dword_1103C0;
   ++*(volatile uint32_t *)off_1103BC;
-  result = wlan_ioctl_handler_1(v3, a1);
+  result = co_list_push_back(v3, a1);
   if ( *v2 )
   {
     v5 = *v2 - 1;
@@ -1692,9 +1692,9 @@ int mmio_write_3(volatile uint32_t *a1) {
 }
 
 
-// mac_tx_setup @ 0x1103c4
+// replenish_rx_messages @ 0x1103c4
 /* luna: Adds RX buffer/descriptor pairs to the context queue until its queued-entry count exceeds one, notifying the hardware for each pair. */
-int mac_tx_setup(int result) {
+int replenish_rx_messages(int result) {
   volatile uint32_t *v1; // r4
   unsigned int v2; // r3
   volatile int *v3; // r6
@@ -1826,7 +1826,7 @@ int phy_calibrate(int a1, int a2) {
   v2 = (void *)(uintptr_t)(off_110620);
   v3 = (volatile int *)off_110624;
   v21 = *(volatile uint16_t *)(*(volatile uint32_t *)off_11061C + 48);
-  mac_tx_setup(a2);
+  replenish_rx_messages(a2);
   v6 = *(volatile uint16_t *)(a2 + 12);
 LABEL_2:
   v7 = (void *)(uintptr_t)(off_11064C);
@@ -2235,7 +2235,7 @@ int sub_110edc(int a1, int a2, int a3) {
       if ( v18 != 1 )
         goto LABEL_18;
     }
-    result = mem_copy_util((void *)(uintptr_t)(dword_110FF0), *((volatile uint32_t *)off_110FF4 + 4) + 10000);
+    result = mm_timer_set((void *)(uintptr_t)(dword_110FF0), *((volatile uint32_t *)off_110FF4 + 4) + 10000);
 LABEL_18:
     v8 = *v6;
   }
@@ -2337,7 +2337,7 @@ if ( get_mmio_state((void *)(uintptr_t)(dword_111128)) ) goto LABEL_18;
       if ( v13 != 1 )
         goto LABEL_18;
     }
-    mem_copy_util((void *)(uintptr_t)(dword_111128), *((volatile uint32_t *)off_11112C + 4) + 10000);
+    mm_timer_set((void *)(uintptr_t)(dword_111128), *((volatile uint32_t *)off_11112C + 4) + 10000);
 LABEL_18:
     v4 = *v2;
   }
@@ -2387,7 +2387,7 @@ int kmalloc(char a1, volatile char *a2, unsigned int a3, int a4) {
   int v10; // r2
   int v11; // r3
 
-  v7 = is_chip_ready(4);
+  v7 = set_user_id(4);
   if ( !v7 )
     return debug_printf(aErrNoMsgPkt);
   v8 = v7;
@@ -2409,7 +2409,7 @@ int kmalloc(char a1, volatile char *a2, unsigned int a3, int a4) {
   else
   {
     debug_printf(aErrSendMsgCfgT);
-    return wait_for_state(v8);
+    return pkt_mem_free(v8);
   }
 }
 
@@ -2424,9 +2424,9 @@ int get_init_flag() {
 
 
 
-// timer_get_raw @ 0x1111cc
+// sdio_set_phase_config @ 0x1111cc
 /* luna: Updates the SDIO phase configuration register using its control-bit write sequence and logs the resulting phase value. */
-int timer_get_raw(int a1) {
+int sdio_set_phase_config(int a1) {
   volatile int *phase_register; // r3
   int requested_phase; // r2
   int current_phase; // r1

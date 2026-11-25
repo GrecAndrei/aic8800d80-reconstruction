@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "bt_parse_adv_header",
+ "luna": "bt_crypto_gf128_double",
+ "doc": "Doubles a 128-bit block in GF(2^128), applying the 0x87 reduction polynomial when the high bit is set.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "bt_parse_adv_header",
+   "probabilities": [
+    {
+     "value": "bt_parse_adv_header",
+     "probability": 0.51
+    },
+    {
+     "value": "bt_crypto_gf128_double",
+     "probability": 0.39
+    },
+    {
+     "value": "neither",
+     "probability": 0.1
+    }
+   ],
+   "confidence": 0.27
+  }
+ ],
+ "status": "ok"
+}

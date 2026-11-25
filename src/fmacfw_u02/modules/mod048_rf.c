@@ -75,7 +75,7 @@ int parse_large_ioctl(int a1, int a2) {
       }
       v10 = dword_130278;
       ++*v2;
-      cmd_handler_a(v10, (volatile uint32_t *)v5);
+      co_list_push_back(v10, (volatile uint32_t *)v5);
       result = (int)mem_word_load(dword_130268);
       v5 = result;
       if ( *v2 )
@@ -119,8 +119,8 @@ void read_mmio_reg() {
 
 
 
-// compare_global_bytes @ 0x1302c4
-unsigned int compare_global_bytes() {
+// rf_xtal_cap_adjust @ 0x1302c4
+unsigned int rf_xtal_cap_adjust() {
   volatile uint8_t *v0; // r4
   unsigned int result; // r0
   unsigned int v2; // r3
@@ -277,7 +277,7 @@ int rf_temperature_compensation() {
     *((volatile uint8_t *)off_1304F4 + 3) = v0;
     rf_is_channel_valid((char)v0);
   }
-  return compare_global_bytes();
+  return rf_xtal_cap_adjust();
 }
 
 
@@ -388,7 +388,7 @@ int rf_enable_2() {
       v0[6] = v3;
       event_dispatch("\x9D\x89""adjust xtal_cap: tgt=0x%x, cur=0x%x\n", v3, v3);
     }
-    return ke_task_create(1070, 1, 1000 * ((volatile uint32_t *)(uintptr_t)off_130610)[91]);
+    return ke_timer_set(1070, 1, 1000 * ((volatile uint32_t *)(uintptr_t)off_130610)[91]);
   }
   return result;
 }
@@ -407,8 +407,8 @@ int rf_disable() {
 
 
 
-// format_mac_address @ 0x130640
-int format_mac_address(volatile int *a1) {
+// mac_append_ht_capabilities_ie @ 0x130640
+int mac_append_ht_capabilities_ie(volatile int *a1) {
   volatile char *v1; // r4
   int16_t v2; // r3
   int v3; // r2
@@ -969,7 +969,7 @@ LABEL_17:
   }
   if ( (v38 & 2) != 0 && (*((volatile uint8_t *)off_130CA8 + 374) & 1) != 0 )
   {
-    v82 = format_mac_address(&_frame.a1a);
+    v82 = mac_append_ht_capabilities_ie(&_frame.a1a);
     v41 = *(volatile uint32_t *)(a2 + 224);
     v40 = (uint16_t)(v82 + v40);
   }

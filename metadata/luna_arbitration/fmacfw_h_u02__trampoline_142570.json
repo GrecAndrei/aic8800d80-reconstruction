@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "trampoline_142570",
+ "luna": "convert_float_to_int",
+ "doc": "Forwards the input to the float-to-integer conversion helper and returns the converted value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "convert_float_to_int",
+   "probabilities": [
+    {
+     "value": "trampoline_142570",
+     "probability": 0.35
+    },
+    {
+     "value": "convert_float_to_int",
+     "probability": 0.64
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.46
+  }
+ ],
+ "status": "ok"
+}

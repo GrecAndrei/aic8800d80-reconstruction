@@ -490,13 +490,13 @@ int hci_cmd_process(int a1) {
   *(volatile uint32_t *)v2 = 0;
   ke_msg_send_2((int)v5);
   *((volatile uint32_t *)off_1375BC + 1) &= ~0x20u;
-  return rx_phy_status_parse(4u, 0);
+  return ke_state_set(4u, 0);
 }
 
 
 // clear_1924d0_buffer @ 0x1375d0
 int clear_1924d0_buffer() {
-  rx_phy_status_parse(4u, 0);
+  ke_state_set(4u, 0);
   return (int)memset((volatile int *)dword_1375EC, 0, 0xFC0u);
 }
 
@@ -915,7 +915,7 @@ LABEL_54:
     }
     goto LABEL_55;
   }
-  v45 = (int)check_one_12deb8((void *)(_frame.v140), _frame.a2);
+  v45 = (int)wlan_find_ht_operation_ie((void *)(_frame.v140), _frame.a2);
   if ( v45 )
   {
     v42 = *((volatile uint8_t *)a1 + 6);
@@ -1601,7 +1601,7 @@ LABEL_59:
     v48 = *((volatile uint8_t *)off_138624 + 374);
     if ( (v48 & 1) == 0 )
       goto LABEL_48;
-    format_mac_address(&_frame.v65);
+    mac_append_ht_capabilities_ie(&_frame.v65);
 LABEL_74:
     v48 = v43[374];
 LABEL_48:
@@ -1654,7 +1654,7 @@ LABEL_69:
     }
 LABEL_72:
     _frame.v64 = v24;
-    format_mac_address(&_frame.v65);
+    mac_append_ht_capabilities_ie(&_frame.v65);
     v24 = _frame.v64;
     goto LABEL_69;
   }
@@ -1778,7 +1778,7 @@ int ll_task_run() {
   *v11 = *v10;
   *v10 = (HIWORD(*v10) << 16) | 0x5DC;
   v2[1] |= 0x20u;
-  rx_phy_status_parse(4u, 1);
+  ke_state_set(4u, 1);
   v12 = *(volatile char **)(*(volatile uint32_t *)v1 + 360);
   if ( v12 )
   {

@@ -446,7 +446,7 @@ int phy_chan_set(int a1, int a2) {
   irq_lock_depth = (volatile int *)off_11767C;
   ++*(volatile uint32_t *)off_11767C;
   rate_set_config(a1, a2);
-  cmd_handler_a((int)(phy_config_entry + 12), (volatile uint32_t *)a1);
+  co_list_push_back((int)(phy_config_entry + 12), (volatile uint32_t *)a1);
   tx_len_check(*(volatile uint8_t *)(a1 + 28), *(volatile uint8_t *)(a1 + 29), 0);
   if ( (*(volatile uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((volatile uint32_t *)off_117664 + 126);
@@ -548,7 +548,7 @@ int phy_radio_init(int a1, int a2) {
       v30[2] = a1;
       v30[3] = a1;
     }
-    cmd_handler_a((int)(v4 + 12), (volatile uint32_t *)a1);
+    co_list_push_back((int)(v4 + 12), (volatile uint32_t *)a1);
     v17 = *((volatile uint32_t *)off_1178A0 + 8);
     ++*((volatile uint32_t *)off_117888 + 126);
     if ( v17 )
@@ -1102,7 +1102,7 @@ int ll_state_check(int result, volatile uint32_t *a2) {
             v19 = *a2 & 0xF;
             ++*(volatile uint32_t *)off_117EC0;
             event_dispatch("cfms: %x, sn=%d, st=%d\r\n", v4, v18, v19);
-            cmd_handler_a(dword_117EC8, v10);
+            co_list_push_back(dword_117EC8, v10);
             result = check_init_flag();
             if ( *v17 )
             {
@@ -1166,7 +1166,7 @@ int ipc_handler_register(volatile uint32_t *a1, int a2, int a3) {
   v3 = a1[19];
   v5 = dword_117F44;
   *(volatile uint32_t *)(v3 + 4) = a2;
-  result = cmd_handler_a(v5 + 8 * a3, a1);
+  result = co_list_push_back(v5 + 8 * a3, a1);
   if ( (a1[9] & 0x200000) == 0 )
     return unknown_func_12d104(((volatile uint32_t *)(uintptr_t)off_117F48)[a3]);
   return result;

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "ke_msg_send_no_param",
+ "luna": "ke_msg_send_basic",
+ "doc": "Allocates and sends a kernel message with no payload.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_msg_send_basic",
+   "probabilities": [
+    {
+     "value": "ke_msg_send_no_param",
+     "probability": 0.35
+    },
+    {
+     "value": "ke_msg_send_basic",
+     "probability": 0.65
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.48
+  }
+ ],
+ "status": "ok"
+}

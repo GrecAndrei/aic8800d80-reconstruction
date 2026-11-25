@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "call_patch_1fc_check",
+ "luna": "rf_patch_1fc_flag9",
+ "doc": "Calls the routine at 0x1FC with argument 1 and returns bit 9 of its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_patch_1fc_flag9",
+   "probabilities": [
+    {
+     "value": "call_patch_1fc_check",
+     "probability": 0.41
+    },
+    {
+     "value": "rf_patch_1fc_flag9",
+     "probability": 0.58
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.37
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "list_remove",
+ "luna": "list_insert_after",
+ "doc": "Searches the list for a position node, inserts a new node after it, and updates the tail when inserting after the old tail.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "list_insert_after",
+   "probabilities": [
+    {
+     "value": "list_remove",
+     "probability": 0.28
+    },
+    {
+     "value": "list_insert_after",
+     "probability": 0.7
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.55
+  }
+ ],
+ "status": "ok"
+}

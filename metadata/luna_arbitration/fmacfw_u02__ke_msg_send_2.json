@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "ke_msg_send_2",
+ "luna": "ke_msg_send",
+ "doc": "Routes a kernel message according to its destination and runtime mode, emitting a trace with its ID and source and destination tasks.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_msg_send",
+   "probabilities": [
+    {
+     "value": "ke_msg_send_2",
+     "probability": 0.23
+    },
+    {
+     "value": "ke_msg_send",
+     "probability": 0.77
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.66
+  }
+ ],
+ "status": "ok"
+}

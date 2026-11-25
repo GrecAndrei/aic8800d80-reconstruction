@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "hci_cmd_preprocess",
+ "luna": "ke_state_set",
+ "doc": "Updates the state of a task instance and dispatches queued messages for that task when the state changes.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_state_set",
+   "probabilities": [
+    {
+     "value": "hci_cmd_preprocess",
+     "probability": 0.02
+    },
+    {
+     "value": "ke_state_set",
+     "probability": 0.98
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.97
+  }
+ ],
+ "status": "ok"
+}

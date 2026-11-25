@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "test_arg2_one_12ddb8",
+ "luna": "find_vht_operation_ie",
+ "doc": "Scans a bounded 802.11 information-element buffer for a VHT Operation IE (element ID 192, length 5) and returns its address, or NULL if none is found or the list is malformed.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_vht_operation_ie",
+   "probabilities": [
+    {
+     "value": "test_arg2_one_12ddb8",
+     "probability": 0.16
+    },
+    {
+     "value": "find_vht_operation_ie",
+     "probability": 0.75
+    },
+    {
+     "value": "neither",
+     "probability": 0.09
+    }
+   ],
+   "confidence": 0.63
+  }
+ ],
+ "status": "ok"
+}

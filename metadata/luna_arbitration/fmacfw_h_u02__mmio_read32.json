@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mmio_read32",
+ "luna": "mmio_wait_ticks",
+ "doc": "Busy-waits until the hardware counter reaches its current value plus the requested number of ticks, then returns that deadline.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mmio_wait_ticks",
+   "probabilities": [
+    {
+     "value": "mmio_read32",
+     "probability": 0.19
+    },
+    {
+     "value": "mmio_wait_ticks",
+     "probability": 0.78
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.67
+  }
+ ],
+ "status": "ok"
+}

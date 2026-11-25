@@ -427,9 +427,9 @@ LABEL_3:
 }
 
 
-// rf_calibration_init @ 0x1232f0
+// mm_set_resume_res @ 0x1232f0
 /* luna: Walks the sub-message IDs in an MM resume-response structure and maps recognized IDs to their associated payload fields. */
-int rf_calibration_init(int a1, int a2, int a3, int a4) {
+int mm_set_resume_res(int a1, int a2, int a3, int a4) {
   int sub_msg_index; // r8
   int sub_msg_id_cursor; // r9
   unsigned int v8; // r4
@@ -942,7 +942,7 @@ int unknown_handler(int a1, int a2, int a3, int a4) {
     }
   }
   ke_msg_send_no_param(1, a4, a3);
-  rx_phy_status_parse(0, 0);
+  ke_state_set(0, 0);
   return 0;
 }
 

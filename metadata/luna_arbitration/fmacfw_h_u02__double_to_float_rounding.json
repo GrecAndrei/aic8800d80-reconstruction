@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_to_float_rounding",
+ "luna": "double_to_uint32",
+ "doc": "Converts a double-precision value to an unsigned 32-bit integer, truncating toward zero.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_to_uint32",
+   "probabilities": [
+    {
+     "value": "double_to_float_rounding",
+     "probability": 0.09
+    },
+    {
+     "value": "double_to_uint32",
+     "probability": 0.86
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.79
+  }
+ ],
+ "status": "ok"
+}

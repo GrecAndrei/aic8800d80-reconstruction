@@ -20,8 +20,8 @@ int wait_condition_status(int a1, volatile char *a2, unsigned int a3) {
         if ( a2[2] )
         {
           get_table_entry_info(a3 >> 8);
-          wlan_ioctl_handler_1(dword_13B41C, (void *)(v6));
-          hci_cmd_preprocess(a3, 0);
+          co_list_push_back(dword_13B41C, (void *)(v6));
+          ke_state_set(a3, 0);
         }
         else
         {
@@ -37,12 +37,12 @@ int wait_condition_status(int a1, volatile char *a2, unsigned int a3) {
           v11[1] = v10;
           rx_process_packet_1((int)v11);
           get_global_base(a3 >> 8);
-          hci_cmd_preprocess(a3, 1);
+          ke_state_set(a3, 1);
         }
       }
       else if ( **(volatile int16_t **)off_13B3FC < 0 )
       {
-        mmio_write_field(off_13B40C, (int)aMmBaAddCfmHand, 218);
+        log_warning(off_13B40C, (int)aMmBaAddCfmHand, 218);
       }
     }
     else
@@ -64,8 +64,8 @@ int wait_condition_status(int a1, volatile char *a2, unsigned int a3) {
           v12 | (4 * (uint8_t)v13[22]) | (2 * (uint8_t)v13[18]) | (*((volatile uint16_t *)v13 + 10) << 6),
           0x25u,
           0);
-        wlan_ioctl_handler_1(dword_13B420, (void *)(v13));
-        hci_cmd_preprocess(a3, 0);
+        co_list_push_back(dword_13B420, (void *)(v13));
+        ke_state_set(a3, 0);
       }
       else
       {
@@ -81,14 +81,14 @@ int wait_condition_status(int a1, volatile char *a2, unsigned int a3) {
         v14 = (*(volatile uint32_t *)0x40501010u);
         *((volatile uint32_t *)v13 + 2) = v14;
         get_global_base(a3 >> 8);
-        hci_cmd_preprocess(a3, 1);
+        ke_state_set(a3, 1);
       }
     }
     return 0;
   }
   if ( **(volatile int16_t **)off_13B3FC >= 0 )
     return 0;
-  mmio_write_field(off_13B40C, (int)aMmBaAddCfmHand, 109);
+  log_warning(off_13B40C, (int)aMmBaAddCfmHand, 109);
   return 0;
 }
 
@@ -111,7 +111,7 @@ int check_packet_type(int a1, volatile char *a2, unsigned int a3) {
     v6 = dword_13B4B4 + 32 * v5;
     if ( *(volatile uint8_t *)(v6 + 17) == 1 )
     {
-      v7 = bt_conn_get_role(*(volatile uint32_t *)(v6 + 28));
+      v7 = bt_count_entries_equal_2(*(volatile uint32_t *)(v6 + 28));
       v8 = *a2;
       v9 = a2[1];
       v10 = 4 - *(volatile uint8_t *)(v6 + 20) + v7;
@@ -140,7 +140,7 @@ int check_wait_status_1(int a1, int a2, unsigned int a3) {
       v4 = dword_13B4F4;
     else
       v4 = dword_13B4F0;
-    wlan_ioctl_handler_1(v4, (volatile uint32_t *)(dword_13B4EC + 32 * (a3 >> 8)));
+    co_list_push_back(v4, (volatile uint32_t *)(dword_13B4EC + 32 * (a3 >> 8)));
   }
   return 0;
 }
@@ -151,8 +151,8 @@ int check_wait_status_2(int a1, int a2, unsigned int a3) {
   if ( hci_cmd_handler(a3) == 2 )
   {
     get_table_entry_info(a3 >> 8);
-    wlan_ioctl_handler_1(dword_13B530, (volatile uint32_t *)(dword_13B52C + 32 * (a3 >> 8)));
-    hci_cmd_preprocess(a3, 0);
+    co_list_push_back(dword_13B530, (volatile uint32_t *)(dword_13B52C + 32 * (a3 >> 8)));
+    ke_state_set(a3, 0);
   }
   return 0;
 }
@@ -273,7 +273,7 @@ LABEL_4:
   else if ( a3 )
   {
     if ( **v10 < 0 )
-      mmio_write_field(dword_13B7B0, dword_13B7AC, 269);
+      log_warning(dword_13B7B0, dword_13B7AC, 269);
     v24 = 3;
   }
   else
@@ -302,9 +302,9 @@ unsigned int timer_expired(int a1) {
 
 
 
-// get_bt_state @ 0x13b7d0
+// process_bt_states @ 0x13b7d0
 /* luna: Clears and dispatches consecutive BT state-table entries marked 2, returning the number dispatched. */
-int get_bt_state(int a1) {
+int process_bt_states(int a1) {
   int state_entry; // r3
   int processed_count; // r6
   int ( *dispatch_callback)(int, int); // r2
@@ -364,14 +364,14 @@ int init_locks() {
     *(volatile uint8_t *)(v1 + 26) = i;
     if ( i > 0xF )
       break;
-    wlan_ioctl_handler_1((int)v0, (volatile uint32_t *)v1);
-    hci_cmd_preprocess((i << 8) & 0xFF00 | 8, 0);
+    co_list_push_back((int)v0, (volatile uint32_t *)v1);
+    ke_state_set((i << 8) & 0xFF00 | 8, 0);
 LABEL_3:
     v1 += 32;
   }
   *(volatile uint32_t *)(v1 + 28) = v2 + 268 * i;
-  wlan_ioctl_handler_1((int)(v0 + 6), (volatile uint32_t *)v1);
-  result = hci_cmd_preprocess((i << 8) & 0xFF00 | 8, 0);
+  co_list_push_back((int)(v0 + 6), (volatile uint32_t *)v1);
+  result = ke_state_set((i << 8) & 0xFF00 | 8, 0);
   if ( i != 31 )
     goto LABEL_3;
   return result;
@@ -545,8 +545,8 @@ int send_vendor_command_1(unsigned int a1) {
       goto LABEL_5;
 LABEL_7:
     wlan_ioctl_handler_3(dword_13BBA0, v8);
-    wlan_ioctl_handler_1(dword_13BBA4, a2);
-    return hci_cmd_preprocess(v1, 0);
+    co_list_push_back(dword_13BBA4, a2);
+    return ke_state_set(v1, 0);
   }
   v8 = (volatile uint32_t *)(dword_13BB90 + 32 * a1);
   *(volatile uint8_t *)(696 * v6 + 12 * v7 + dword_13BB94 + 452) = 33;
@@ -555,8 +555,8 @@ LABEL_7:
     goto LABEL_7;
 LABEL_5:
   wlan_ioctl_handler_3(dword_13BB98, v8);
-  wlan_ioctl_handler_1(dword_13BB9C, a2);
-  return hci_cmd_preprocess(v1, 0);
+  co_list_push_back(dword_13BB9C, a2);
+  return ke_state_set(v1, 0);
 }
 
 
@@ -584,7 +584,7 @@ int init_patch_table(int result) {
     {
       if ( *(volatile uint8_t *)(v2 + 16) == v4 )
       {
-        hci_cmd_preprocess((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
+        ke_state_set((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
         *(volatile uint8_t *)(v2 + 25) = 0;
         result = init_state_table(v4, v2, 2, 0, 0, 0x27u, (int)a7);
       }
@@ -665,14 +665,14 @@ int ke_event_schedule_1(int result) {
       if ( i > 15 )
       {
         wlan_ioctl_handler_3(v6, (volatile uint32_t *)v3);
-        wlan_ioctl_handler_1(dword_13BD54, (volatile uint32_t *)v3);
+        co_list_push_back(dword_13BD54, (volatile uint32_t *)v3);
       }
       else
       {
         wlan_ioctl_handler_3(v1, (volatile uint32_t *)v3);
-        wlan_ioctl_handler_1(v5, (volatile uint32_t *)v3);
+        co_list_push_back(v5, (volatile uint32_t *)v3);
       }
-      hci_cmd_preprocess((uint16_t)((uint16_t)i << 8) | 8, 4);
+      ke_state_set((uint16_t)((uint16_t)i << 8) | 8, 4);
       result = rf_set_frequency_1(v4, (uint16_t)i);
     }
     v3 += 32;
@@ -697,16 +697,16 @@ int ke_task_get(unsigned int a1) {
   if ( a1 <= 0xF )
   {
     wlan_ioctl_handler_3(dword_13BE30, (volatile uint32_t *)v2);
-    wlan_ioctl_handler_1(dword_13BE34, (volatile uint32_t *)v2);
+    co_list_push_back(dword_13BE34, (volatile uint32_t *)v2);
   }
   else
   {
     wlan_ioctl_handler_3(dword_13BE24, (volatile uint32_t *)v2);
-    wlan_ioctl_handler_1(dword_13BE28, (volatile uint32_t *)v2);
+    co_list_push_back(dword_13BE28, (volatile uint32_t *)v2);
   }
   v6 = (a1 << 8) & 0xFF00;
   v7 = (void *)(uintptr_t)(off_13BE2C);
-  hci_cmd_preprocess(v6 | 8, 4);
+  ke_state_set(v6 | 8, 4);
   *(volatile uint8_t *)(v1 + v5 + 25) = 0;
   return init_state_table(v3, v2, 2, 0, 0, 0x27u, (int)v7);
 }
@@ -789,7 +789,7 @@ int ke_event_handler_1(int a1, int a2, uint16_t a3) {
   v18 = (*(volatile uint32_t *)0x40501010u);
   *(volatile uint32_t *)(v15 + 444) = v18;
   ke_event_handler(0x2000, v17, 0x7D000u);
-  hci_cmd_preprocess(v17, 2);
+  ke_state_set(v17, 2);
   return 0;
 }
 
@@ -998,9 +998,9 @@ int rx_clear_packet(int a1) {
 
 
 
-// bt_conn_get_role @ 0x13c2c0
+// bt_count_entries_equal_2 @ 0x13c2c0
 /* luna: Counts the contiguous bytes starting at offset 6 that equal 2, using the byte at offset 263 as the number of bytes to scan. */
-int bt_conn_get_role(int a1) {
+int bt_count_entries_equal_2(int a1) {
   int entry_ptr; // r3
   int last_entry; // r1
   int result; // r0

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "le_connection_update",
+ "luna": "ap_start_request_handler",
+ "doc": "Processes an AP-start request by validating radio parameters, updating the selected VIF context, and returning a failure status when validation fails.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ap_start_request_handler",
+   "probabilities": [
+    {
+     "value": "le_connection_update",
+     "probability": 0.28
+    },
+    {
+     "value": "ap_start_request_handler",
+     "probability": 0.72
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.58
+  }
+ ],
+ "status": "ok"
+}

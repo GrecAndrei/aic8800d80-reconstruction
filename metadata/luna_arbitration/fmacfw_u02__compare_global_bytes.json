@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "compare_global_bytes",
+ "luna": "rf_xtal_cap_adjust",
+ "doc": "Moves the current crystal-capacitance setting one step toward its target and logs the adjustment.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_xtal_cap_adjust",
+   "probabilities": [
+    {
+     "value": "compare_global_bytes",
+     "probability": 0.1
+    },
+    {
+     "value": "rf_xtal_cap_adjust",
+     "probability": 0.89
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.83
+  }
+ ],
+ "status": "ok"
+}

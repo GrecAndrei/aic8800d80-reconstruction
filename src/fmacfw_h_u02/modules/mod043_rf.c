@@ -15,7 +15,7 @@ int is_phy_ready() {
     irq_disable_mmio_write((int)aKeStateGetTask_3, (int)aMmScanChannelS, 163);
   if ( (*(volatile uint8_t *)(v0 + 6 * v1 + 3) & 1) == 0 )
     get_fw_info();
-  hci_cmd_preprocess(2u, 3);
+  ke_state_set(2u, 3);
   return 0;
 }
 
@@ -81,7 +81,7 @@ int reset_global_config() {
   volatile uint32_t *v1; // r3
 
   memset((volatile int *)dword_12B058, 0, 0xCu);
-  result = hci_cmd_preprocess(2u, 0);
+  result = ke_state_set(2u, 0);
   v1 = (void *)(uintptr_t)(off_12B05C);
   *(volatile uint32_t *)off_12B05C = dword_12B060;
   v1[2] = (int)(uintptr_t)(v1 + 5);
@@ -150,14 +150,14 @@ LABEL_4:
         if ( v8 == 2484 )
         {
           *(volatile uint8_t *)(v6 + 2) = 14;
-          return hci_cmd_preprocess(2u, 2);
+          return ke_state_set(2u, 2);
         }
         v7 = (v7 & ~0xFFu) | ((uint8_t)((unsigned int)(((unsigned int)dword_12B130 * (uint64_t)(unsigned int)(v8 - 2407)) >> 32) >> 2) & 0xFFu);
       }
       *(volatile uint8_t *)(v6 + 2) = v7;
     }
   }
-  return hci_cmd_preprocess(2u, 2);
+  return ke_state_set(2u, 2);
 }
 
 
@@ -392,7 +392,7 @@ int rf_get_short_status() {
   int result; // r0
 
   if ( **(volatile int16_t **)off_12B448 < 0 && *(volatile uint32_t *)off_12B454 << 28 )
-    return unknown_12f2c8((int)aNxmacCurrentSt, (int)aHalMachwIdleIr, 105);
+    return log_assert_failure((int)aNxmacCurrentSt, (int)aHalMachwIdleIr, 105);
   if ( (*(volatile uint32_t *)off_12B44C & 0x80) != 0 )
   {
     v0 = (void *)(uintptr_t)(off_12B450);
@@ -448,22 +448,22 @@ unsigned int rf_irq_service(unsigned int result) {
     if ( result == 240 )
     {
       v21 = double_exp_check(*(volatile uint64_t *)&dword_12B680);
-      v22 = ((int (*)(uint64_t))double_to_float_rounding)(v21);
+      v22 = ((int (*)(uint64_t))double_to_uint32)(v21);
       v23 = (v23 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_12B6B8) << 32);
       *v1 = v4 & (v22 << 18) | *v1 & v5;
       v24 = (volatile unsigned int *)off_12B69C;
       v23 = (v23 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
       v25 = double_exp_check(v23);
-      *v24 = dword_12B6A0 & (((int (*)(uint64_t))double_to_float_rounding)(v25) << 20) | *v24 & 0xC00FFFFF;
+      *v24 = dword_12B6A0 & (((int (*)(uint64_t))double_to_uint32)(v25) << 20) | *v24 & 0xC00FFFFF;
     }
     else
     {
       v7 = signed_int_to_double(result);
-      v8 = ((uint64_t (*)())double_compare_common)(v7, *(volatile uint64_t *)&dword_12B678);
+      v8 = ((uint64_t (*)())double_multiply)(v7, *(volatile uint64_t *)&dword_12B678);
       v9 = ((int (*)(uint64_t))double_to_int)(v8);
       v10 = ((uint64_t (*)())float_to_double)(v9);
       v11 = double_exp_check(v10);
-      *v1 = v4 & (((int (*)(uint64_t))double_to_float_rounding)(v11) << 18) | *v1 & v5;
+      *v1 = v4 & (((int (*)(uint64_t))double_to_uint32)(v11) << 18) | *v1 & v5;
     }
     v12 = (volatile unsigned int *)off_12B69C;
     *(volatile uint32_t *)off_12B694 = dword_12B698 & ((v6 * (uint16_t)(*(volatile uint32_t *)off_12B694 >> 8) / v2) << 8)
@@ -517,7 +517,7 @@ int rf_status_check() {
   int v11; // r3
 
   if ( **(volatile int16_t **)off_12B73C < 0 && !(*(volatile uint32_t *)off_12B758 << 28) )
-    return unknown_12f2c8((int)aNxmacCurrentSt_0, (int)aHalMachwIdleRe, 213);
+    return log_assert_failure((int)aNxmacCurrentSt_0, (int)aHalMachwIdleRe, 213);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -801,7 +801,7 @@ unsigned int rf_set_power_off() {
   *v3 = v4;
   if ( *v5 < 0 && *(volatile uint32_t *)off_12BB74 << 28 )
   {
-    mmio_write_field(dword_12BB7C, dword_12BB78, 472);
+    log_warning(dword_12BB7C, dword_12BB78, 472);
     v4 = *v3;
   }
   *(volatile uint32_t *)off_12BB70 = v4 | v3[1];
@@ -1022,34 +1022,34 @@ LABEL_4:
   {
     if ( (v0 & 1) != 0 )
     {
-      return unknown_12f2c8((int)aTimerPendingHa_0, (int)aHalMachwAbsTim, 760);
+      return log_assert_failure((int)aTimerPendingHa_0, (int)aHalMachwAbsTim, 760);
     }
     else if ( (v0 & 2) != 0 )
     {
-      return unknown_12f2c8((int)aTimerPendingHa_5, (int)aHalMachwAbsTim, 761);
+      return log_assert_failure((int)aTimerPendingHa_5, (int)aHalMachwAbsTim, 761);
     }
     else if ( (v0 & 4) != 0 )
     {
-      return unknown_12f2c8((int)aTimerPendingHa_4, (int)aHalMachwAbsTim, 762);
+      return log_assert_failure((int)aTimerPendingHa_4, (int)aHalMachwAbsTim, 762);
     }
     else
     {
       result = v0 << 28;
       if ( (v0 & 8) != 0 )
       {
-        return unknown_12f2c8((int)aTimerPendingHa_3, (int)aHalMachwAbsTim, 763);
+        return log_assert_failure((int)aTimerPendingHa_3, (int)aHalMachwAbsTim, 763);
       }
       else if ( (v0 & 0x80) != 0 )
       {
-        return unknown_12f2c8((int)aTimerPendingHa_2, (int)aHalMachwAbsTim, 765);
+        return log_assert_failure((int)aTimerPendingHa_2, (int)aHalMachwAbsTim, 765);
       }
       else if ( (v0 & 0x40) != 0 )
       {
-        return unknown_12f2c8((int)aTimerPendingHa_1, (int)aHalMachwAbsTim, 767);
+        return log_assert_failure((int)aTimerPendingHa_1, (int)aHalMachwAbsTim, 767);
       }
       else if ( (v0 & 0x20) != 0 )
       {
-        return unknown_12f2c8((int)aTimerPendingHa, (int)aHalMachwAbsTim, 769);
+        return log_assert_failure((int)aTimerPendingHa, (int)aHalMachwAbsTim, 769);
       }
     }
   }
@@ -1086,59 +1086,59 @@ void rf_wait_event() {
   {
     if ( (pending_irq_bits & 0x400000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_0, (int)aHalMachwGenHan, 847);
+      log_assert_failure((int)aGenirqPendingN_0, (int)aHalMachwGenHan, 847);
     }
     else if ( (pending_irq_bits & 0x200000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_1, (int)aHalMachwGenHan, 848);
+      log_assert_failure((int)aGenirqPendingN_1, (int)aHalMachwGenHan, 848);
     }
     else if ( (pending_irq_bits & 0x40) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_2, (int)aHalMachwGenHan, 849);
+      log_assert_failure((int)aGenirqPendingN_2, (int)aHalMachwGenHan, 849);
     }
     else if ( (pending_irq_bits & 0x100) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_3, (int)aHalMachwGenHan, 850);
+      log_assert_failure((int)aGenirqPendingN_3, (int)aHalMachwGenHan, 850);
     }
     else if ( (pending_irq_bits & 0x1000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_4, (int)aHalMachwGenHan, 851);
+      log_assert_failure((int)aGenirqPendingN_4, (int)aHalMachwGenHan, 851);
     }
     else if ( (pending_irq_bits & 0x2000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_5, (int)aHalMachwGenHan, 852);
+      log_assert_failure((int)aGenirqPendingN_5, (int)aHalMachwGenHan, 852);
     }
     else if ( (pending_irq_bits & 0x4000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_6, (int)aHalMachwGenHan, 853);
+      log_assert_failure((int)aGenirqPendingN_6, (int)aHalMachwGenHan, 853);
     }
     else if ( (pending_irq_bits & 0x8000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_7, (int)aHalMachwGenHan, 854);
+      log_assert_failure((int)aGenirqPendingN_7, (int)aHalMachwGenHan, 854);
     }
     else if ( (pending_irq_bits & 0x10000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_8, (int)aHalMachwGenHan, 855);
+      log_assert_failure((int)aGenirqPendingN_8, (int)aHalMachwGenHan, 855);
     }
     else if ( (pending_irq_bits & 0x20000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_9, (int)aHalMachwGenHan, 856);
+      log_assert_failure((int)aGenirqPendingN_9, (int)aHalMachwGenHan, 856);
     }
     else if ( (pending_irq_bits & 0x1000000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_10, (int)aHalMachwGenHan, 857);
+      log_assert_failure((int)aGenirqPendingN_10, (int)aHalMachwGenHan, 857);
     }
     else if ( (pending_irq_bits & 0x2000000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_11, (int)aHalMachwGenHan, 858);
+      log_assert_failure((int)aGenirqPendingN_11, (int)aHalMachwGenHan, 858);
     }
     else if ( (pending_irq_bits & 0x100000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN_12, (int)aHalMachwGenHan, 859);
+      log_assert_failure((int)aGenirqPendingN_12, (int)aHalMachwGenHan, 859);
     }
     else if ( (pending_irq_bits & 0x8000000) != 0 )
     {
-      unknown_12f2c8((int)aGenirqPendingN, (int)aHalMachwGenHan, 860);
+      log_assert_failure((int)aGenirqPendingN, (int)aHalMachwGenHan, 860);
     }
   }
 }

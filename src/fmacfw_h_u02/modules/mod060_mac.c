@@ -7,7 +7,7 @@ int ke_msg_dispatch_1(int a1) {
   memcpy((void *)(uintptr_t)(a1), (void *)(uintptr_t)(v1[4]), 54);
   tx_process_jump(v1[4] - 12);
   v1[4] = a1;
-  return mac_dma_setup();
+  return sm_assoc_req_send();
 }
 
 
@@ -303,7 +303,7 @@ LABEL_31:
     {
       _frame.v55 = *(volatile uint32_t *)(dword_135E88 + 32 * v35 + 28);
       ((int (*)())call_callback)();
-      get_bt_state(_frame.v55);
+      process_bt_states(_frame.v55);
     }
     if ( (a3[1] & 0x40) != 0 && *(volatile uint8_t *)(_frame.v53 + 96) == 1 )
     {
@@ -359,7 +359,7 @@ int patch_table_read(int a1, volatile uint16_t *a2, int a3, int a4) {
     *(volatile uint32_t *)(station_ctx + 200) = v11;
     *(volatile uint8_t *)(station_ctx + 204) = v12;
     check_feature_flag(256, "param->basic_rates:%d\r\n", *((volatile uint8_t *)a2 + 2));
-    get_phy_status_byte(station_ctx);
+    set_rf_mode_from_status_bytes(station_ctx);
   }
   mac_write_header_word(7179, a4, a3);
   return 0;
@@ -389,7 +389,7 @@ int patch_code_load(int a1, volatile uint8_t *a2, int a3, int a4) {
     v6 = a3;
     if ( !v9 )
     {
-      bsscfg_get(*a2);
+      chan_ctxt_unlink(*a2);
       *(volatile uint8_t *)off_136004 = 0;
       v6 = a3;
       if ( (__get_CPSR() & 1) == 0 )
@@ -422,9 +422,9 @@ int patch_code_load(int a1, volatile uint8_t *a2, int a3, int a4) {
 }
 
 
-// rf_config_from_params @ 0x136014
+// apm_start_cac_req_handler @ 0x136014
 /* luna: Validates an AP start-CAC request against interface and radio state, then sends a confirmation with the resulting status. */
-int rf_config_from_params(int a1, volatile uint8_t *a2, int a3, int a4) {
+int apm_start_cac_req_handler(int a1, volatile uint8_t *a2, int a3, int a4) {
   uint16_t v5; // r6
   uint16_t v6; // r5
   int v7; // r2

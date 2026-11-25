@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "parse_decimal_string",
+ "luna": "handle_debug_config_command",
+ "doc": "Prints the current debug mask and module selector, or updates one from a hexadecimal argument selected by a decimal operation code.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "handle_debug_config_command",
+   "probabilities": [
+    {
+     "value": "parse_decimal_string",
+     "probability": 0.07
+    },
+    {
+     "value": "handle_debug_config_command",
+     "probability": 0.93
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.89
+  }
+ ],
+ "status": "ok"
+}

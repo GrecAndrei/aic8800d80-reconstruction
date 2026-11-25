@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_status_bit30",
+ "luna": "get_rf_status_bit30",
+ "doc": "Returns bit 30 of the RF status register at 0x1019B8.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_status_bit30",
+   "probabilities": [
+    {
+     "value": "rf_status_bit30",
+     "probability": 0.58
+    },
+    {
+     "value": "get_rf_status_bit30",
+     "probability": 0.42
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.37
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "irq_disable_mmio_write",
+ "luna": "report_assertion_and_wait",
+ "doc": "Disables interrupts, emits an ASSERT diagnostic with the expression, file, and line, then spins until a volatile word clears.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "report_assertion_and_wait",
+   "probabilities": [
+    {
+     "value": "irq_disable_mmio_write",
+     "probability": 0.2
+    },
+    {
+     "value": "report_assertion_and_wait",
+     "probability": 0.79
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.69
+  }
+ ],
+ "status": "ok"
+}

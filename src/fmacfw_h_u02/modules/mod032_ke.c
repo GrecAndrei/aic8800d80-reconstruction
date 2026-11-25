@@ -97,7 +97,7 @@ LABEL_20:
   if ( !a2[3] )
     goto LABEL_11;
 LABEL_23:
-  interrupt_dispatcher();
+  rf_peripheral_clock_init();
 LABEL_11:
   v9 = *a2;
   _frame.v16[1] = a2[2];
@@ -703,7 +703,7 @@ int mac_data_request(int a1, volatile uint8_t *a2, int a3, int a4) {
   char v9; // r6
   volatile uint8_t *v10; // r0
 
-  v7 = cfm_event_handler(a2, a4);
+  v7 = cfm_roc_event_handler(a2, a4);
   if ( a4 )
   {
     v9 = v7;
@@ -720,7 +720,7 @@ int mac_data_request(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 // bt_parse_colon @ 0x123588
 int bt_parse_colon(int a1, volatile uint8_t *a2, int a3, int a4) {
-  bsscfg_get(*a2);
+  chan_ctxt_unlink(*a2);
   mac_write_header_word(58, a4, a3);
   return 0;
 }
@@ -923,7 +923,7 @@ int parse_parameter(int a1, int a2, int a3, int a4) {
   ++*(volatile uint32_t *)off_12387C;
   rf_set_power_on();
   check_clock_status(v7, v8, v9);
-  unknown_handler_12c798();
+  tx_process_queued_packets();
   vendor_platform_init();
   v10 = alloc_shared_ctx();
   get_rf_state(v10);
@@ -941,7 +941,7 @@ int parse_parameter(int a1, int a2, int a3, int a4) {
     }
   }
   mac_write_header_word(1, a4, a3);
-  hci_cmd_preprocess(0, 0);
+  ke_state_set(0, 0);
   return 0;
 }
 

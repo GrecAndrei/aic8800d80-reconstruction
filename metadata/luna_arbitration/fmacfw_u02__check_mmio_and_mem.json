@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "check_mmio_and_mem",
+ "luna": "handle_sdio_interrupt",
+ "doc": "Processes pending SDIO interrupt status bits, acknowledges hardware sources, and dispatches corresponding events.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "handle_sdio_interrupt",
+   "probabilities": [
+    {
+     "value": "check_mmio_and_mem",
+     "probability": 0.04
+    },
+    {
+     "value": "handle_sdio_interrupt",
+     "probability": 0.96
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.94
+  }
+ ],
+ "status": "ok"
+}

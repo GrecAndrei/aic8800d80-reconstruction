@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_trace_channel",
+ "luna": "send_scan_idle_cancel_cfm",
+ "doc": "Sends a scan-idle-cancel confirmation containing the stored status and emits a feature-gated status trace.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "send_scan_idle_cancel_cfm",
+   "probabilities": [
+    {
+     "value": "rf_trace_channel",
+     "probability": 0.44
+    },
+    {
+     "value": "send_scan_idle_cancel_cfm",
+     "probability": 0.52
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.28
+  }
+ ],
+ "status": "ok"
+}

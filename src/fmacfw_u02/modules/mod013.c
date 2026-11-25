@@ -317,7 +317,7 @@ int chip_init_sequence() {
   int result; // r0
 
   queue_counters_equal();
-  kernel_event_wait();
+  tx_txdesc_init();
   v0 = configure_hardware_regs();
   init_buf_188290(v0);
   v1 = fw_magic_check(0);

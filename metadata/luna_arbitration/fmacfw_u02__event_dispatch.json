@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "event_dispatch",
+ "luna": "dbg_test_print",
+ "doc": "Filters optional high-bit debug category and severity prefixes against global settings, then forwards the remaining format string and arguments to the debug-buffer formatter.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "dbg_test_print",
+   "probabilities": [
+    {
+     "value": "event_dispatch",
+     "probability": 0.26
+    },
+    {
+     "value": "dbg_test_print",
+     "probability": 0.73
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

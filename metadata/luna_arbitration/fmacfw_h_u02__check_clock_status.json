@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "check_clock_status",
+ "luna": "check_mac_idle_state",
+ "doc": "Returns the supplied value when the MAC state is idle; otherwise emits the PHY-stop MAC-state error and returns the result of alloc_tx_event.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "check_mac_idle_state",
+   "probabilities": [
+    {
+     "value": "check_clock_status",
+     "probability": 0.23
+    },
+    {
+     "value": "check_mac_idle_state",
+     "probability": 0.76
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.64
+  }
+ ],
+ "status": "ok"
+}

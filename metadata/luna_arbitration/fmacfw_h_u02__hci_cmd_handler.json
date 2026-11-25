@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "hci_cmd_handler",
+ "luna": "hci_cmd_lookup_entry",
+ "doc": "Returns the 16-bit HCI command-table entry selected by the packed table and entry indices, performing status and bounds checks along the way.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "hci_cmd_lookup_entry",
+   "probabilities": [
+    {
+     "value": "hci_cmd_handler",
+     "probability": 0.26
+    },
+    {
+     "value": "hci_cmd_lookup_entry",
+     "probability": 0.74
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.61
+  }
+ ],
+ "status": "ok"
+}

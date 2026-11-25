@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "send_mcu_cmd_0x412",
+ "luna": "send_mcu_cmd_write_memory",
+ "doc": "Sends MCU command 0x412 to apply a masked write at the supplied address and report the resulting value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "send_mcu_cmd_write_memory",
+   "probabilities": [
+    {
+     "value": "send_mcu_cmd_0x412",
+     "probability": 0.35
+    },
+    {
+     "value": "send_mcu_cmd_write_memory",
+     "probability": 0.61
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.42
+  }
+ ],
+ "status": "ok"
+}

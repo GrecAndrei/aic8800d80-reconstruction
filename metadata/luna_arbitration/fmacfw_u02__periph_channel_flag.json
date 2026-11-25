@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "periph_channel_flag",
+ "luna": "periph_dma_submit",
+ "doc": "Queues a 4-byte-aligned buffer transfer on an available peripheral DMA channel, clipping its length to the configured maximum.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "periph_dma_submit",
+   "probabilities": [
+    {
+     "value": "periph_channel_flag",
+     "probability": 0.47
+    },
+    {
+     "value": "periph_dma_submit",
+     "probability": 0.52
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.28
+  }
+ ],
+ "status": "ok"
+}

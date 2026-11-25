@@ -49,7 +49,7 @@ uint64_t rx_process_packet_3(int a1, volatile uint16_t *a2, int a3, int a4, int 
   if ( a3 <= 23 )
   {
     if ( **(volatile int16_t **)off_13CD24 < 0 )
-      mmio_write_field(dword_13CD30, dword_13CD2C, 430);
+      log_warning(dword_13CD30, dword_13CD2C, 430);
     return 0;
   }
   _frame.v50 = *a2 & 0xC7FF;
@@ -1676,9 +1676,9 @@ LABEL_71:
 }
 
 
-// rx_get_length @ 0x13e090
+// rx_sort_entries_by_key @ 0x13e090
 /* luna: Bubble-sorts 12-byte RX entries and their parallel 32-bit keys in ascending order, using each entry’s byte-9 marker to break ties when adjacent keys a */
-int rx_get_length(int result, int a2) {
+int rx_sort_entries_by_key(int result, int a2) {
   unsigned int sort_limit; // r11
   int entries; // r9
   int scan_index; // r5
@@ -3135,7 +3135,7 @@ LABEL_10:
   *(volatile uint8_t *)(v18 + 13) = v8;
   v20[v7] = v8;
 LABEL_18:
-  rx_get_length(v4, (int)v20);
+  rx_sort_entries_by_key(v4, (int)v20);
   result = bt_get_conn_interval(v4, v20);
   *(volatile uint8_t *)(dword_13F26C + 696 * a1 + 350) |= 1u;
   return result;
@@ -3464,7 +3464,7 @@ LABEL_29:
   }
   while ( v22 > v18 );
 LABEL_18:
-  rx_get_length(a1, (int)_frame.v32);
+  rx_sort_entries_by_key(a1, (int)_frame.v32);
   bt_get_conn_interval(a1, _frame.v32);
   if ( !a2 )
   {

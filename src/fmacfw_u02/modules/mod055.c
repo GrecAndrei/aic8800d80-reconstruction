@@ -76,7 +76,7 @@ if ( bt_get_conn_by_handle((void *)(uintptr_t)((int)_frame.a2)) ) { bt_setup_con
       }
       *(volatile uint32_t *)(v11 + 12) = v15;
       ke_msg_send_2(v11);
-      rx_phy_status_parse(6u, 3);
+      ke_state_set(6u, 3);
     }
     v9 = *(volatile uint32_t *)(v1 + 48);
     v10 = v3 + 1320 * v2;

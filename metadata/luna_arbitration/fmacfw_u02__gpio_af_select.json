@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "gpio_af_select",
+ "luna": "configure_gpio_alternate_functions",
+ "doc": "Selects alternate-function modes for a fixed set of GPIO pins and writes a saved configuration value to another register.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "configure_gpio_alternate_functions",
+   "probabilities": [
+    {
+     "value": "gpio_af_select",
+     "probability": 0.39
+    },
+    {
+     "value": "configure_gpio_alternate_functions",
+     "probability": 0.56
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.34
+  }
+ ],
+ "status": "ok"
+}

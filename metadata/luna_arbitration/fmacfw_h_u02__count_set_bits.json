@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "count_set_bits",
+ "luna": "find_msb_index_12",
+ "doc": "Returns the index of the highest set bit in the low 12 bits, 12 for zero, or 255 when the input is nonzero but those bits are clear.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_msb_index_12",
+   "probabilities": [
+    {
+     "value": "count_set_bits",
+     "probability": 0.15
+    },
+    {
+     "value": "find_msb_index_12",
+     "probability": 0.79
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.69
+  }
+ ],
+ "status": "ok"
+}

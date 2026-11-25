@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "hw_rev_check",
+ "luna": "rf_set_tx_gain_map",
+ "doc": "Builds and writes the TX gain-map register value for the requested index, applying configured calibration and bypass encoding.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_set_tx_gain_map",
+   "probabilities": [
+    {
+     "value": "hw_rev_check",
+     "probability": 0.16
+    },
+    {
+     "value": "rf_set_tx_gain_map",
+     "probability": 0.8
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.7
+  }
+ ],
+ "status": "ok"
+}

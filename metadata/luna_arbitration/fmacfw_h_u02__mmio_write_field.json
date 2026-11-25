@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mmio_write_field",
+ "luna": "log_warning",
+ "doc": "Emits a warning identifying the function, source file, and line number.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "log_warning",
+   "probabilities": [
+    {
+     "value": "mmio_write_field",
+     "probability": 0.09
+    },
+    {
+     "value": "log_warning",
+     "probability": 0.9
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.85
+  }
+ ],
+ "status": "ok"
+}

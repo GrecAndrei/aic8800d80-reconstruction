@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mmio_write_cmd",
+ "luna": "mmio_pulse_command",
+ "doc": "Writes 17 to the configured MMIO register, waits for the timer to advance 10 ticks, clears the register, then waits another 10 ticks.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mmio_pulse_command",
+   "probabilities": [
+    {
+     "value": "mmio_write_cmd",
+     "probability": 0.22
+    },
+    {
+     "value": "mmio_pulse_command",
+     "probability": 0.77
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.66
+  }
+ ],
+ "status": "ok"
+}

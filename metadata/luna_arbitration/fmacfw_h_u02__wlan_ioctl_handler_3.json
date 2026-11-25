@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "wlan_ioctl_handler_3",
+ "luna": "list_remove",
+ "doc": "Unlinks the specified node from a head/tail singly linked list, updating the head or tail as needed.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "list_remove",
+   "probabilities": [
+    {
+     "value": "wlan_ioctl_handler_3",
+     "probability": 0.03
+    },
+    {
+     "value": "list_remove",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

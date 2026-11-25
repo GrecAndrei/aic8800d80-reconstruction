@@ -114,7 +114,7 @@ int is_state_three() {
     {
       mac_write_header_word(2050, v5, 2);
     }
-    hci_cmd_preprocess(2u, 0);
+    ke_state_set(2u, 0);
     return 0;
   }
   else

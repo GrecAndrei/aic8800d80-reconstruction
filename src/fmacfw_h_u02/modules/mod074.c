@@ -44,7 +44,7 @@ uint64_t double_exp_check(uint64_t a1) {
     }
     else if ( exponent_field == 2047 )
     {
-      return double_compare_eq(a1, a1);
+      return double_add(a1, a1);
     }
   }
   else
@@ -82,13 +82,13 @@ unsigned int float_to_int_convert(unsigned int a1) {
   if ( v1 > 22 )
   {
     if ( v3 >= 0x7F800000 )
-      return ((int (*)())float_compare)(a1, a1);
+      return ((int (*)())float_add)(a1, a1);
     return a1;
   }
   v4 = a1;
   if ( v1 < 0 )
   {
-    v8 = ((int (*)())float_compare)(a1, dword_1425E8);
+    v8 = ((int (*)())float_add)(a1, dword_1425E8);
     if ( double_cmplt(v8, 0) )
     {
       if ( (a1 & 0x80000000) == 0 )
@@ -101,7 +101,7 @@ unsigned int float_to_int_convert(unsigned int a1) {
   v5 = dword_1425E4 >> v1;
   if ( (a1 & (dword_1425E4 >> v1)) == 0 )
     return a1;
-  v6 = ((int (*)())float_compare)(a1, dword_1425E8);
+  v6 = ((int (*)())float_add)(a1, dword_1425E8);
   if ( !double_cmplt(v6, 0) )
     return a1;
   if ( (a1 & 0x80000000) != 0 )
@@ -114,7 +114,7 @@ unsigned int float_to_int_convert(unsigned int a1) {
 /* libmatch: 634 bytes identical to __aeabi_dsub (libgcc.a:_arm_addsubdf3.o); the library routine is linked */
 
 
-// double_compare_eq @ 0x1425fc
+// double_add @ 0x1425fc
 /* libmatch: 630 bytes identical to __aeabi_dadd (libgcc.a:_arm_addsubdf3.o); the library routine is linked */
 
 
@@ -130,11 +130,11 @@ unsigned int float_to_int_convert(unsigned int a1) {
 /* libmatch: 66 bytes identical to __aeabi_f2d (libgcc.a:_arm_addsubdf3.o); the library routine is linked */
 
 
-// double_to_float @ 0x1428fc
+// uint64_to_double @ 0x1428fc
 /* libmatch: 106 bytes identical to __aeabi_ul2d (libgcc.a:_arm_addsubdf3.o); the library routine is linked */
 
 
-// double_compare_common @ 0x142968
+// double_multiply @ 0x142968
 /* libmatch: 596 bytes identical to __aeabi_dmul (libgcc.a:_arm_muldf3.o); the library routine is linked */
 
 
@@ -142,7 +142,7 @@ unsigned int float_to_int_convert(unsigned int a1) {
 /* libmatch: interior fragment of __aeabi_dmul @ 0x142968 (libgcc.a:_arm_muldf3.o); dropped */
 
 
-// double_compare_core @ 0x142bbc
+// double_divide @ 0x142bbc
 /* libmatch: 464 bytes identical to __aeabi_ddiv (libgcc.a:_arm_muldivdf3.o); the library routine is linked */
 
 
@@ -186,7 +186,7 @@ unsigned int float_to_int_convert(unsigned int a1) {
 /* libmatch: 78 bytes identical to __aeabi_d2iz (libgcc.a:_arm_fixdfsi.o); the library routine is linked */
 
 
-// double_to_float_rounding @ 0x142eec
+// double_to_uint32 @ 0x142eec
 /* libmatch: 64 bytes identical to __aeabi_d2uiz (libgcc.a:_arm_fixunsdfsi.o); the library routine is linked */
 
 
@@ -194,7 +194,7 @@ unsigned int float_to_int_convert(unsigned int a1) {
 /* libmatch: 158 bytes identical to __aeabi_d2f (libgcc.a:_arm_truncdfsf2.o); the library routine is linked */
 
 
-// float_compare @ 0x142fd8
+// float_add @ 0x142fd8
 /* libmatch: 352 bytes identical to __aeabi_fadd (libgcc.a:_arm_addsubsf3.o); the library routine is linked */
 
 
@@ -206,7 +206,7 @@ unsigned int float_to_int_convert(unsigned int a1) {
 /* libmatch: 94 bytes identical to __cmpsf2 (libgcc.a:_arm_cmpsf2.o); the library routine is linked */
 
 
-// double_compare_swap @ 0x143258
+// float_compare_reverse_less_equal @ 0x143258
 /* libmatch: 24 bytes identical to __aeabi_cfrcmple (libgcc.a:_arm_cmpsf2.o); the library routine is linked */
 
 
@@ -1159,9 +1159,9 @@ LABEL_59:
 /* libmatch: 186 bytes identical to strcpy (libc.a:libc_a-strcpy.o); the library routine is linked */
 
 
-// memcpy_aligned @ 0x143d00
+// strlen @ 0x143d00
 /* luna: Returns the number of bytes before the first NUL terminator in the input string. */
-unsigned int memcpy_aligned(unsigned int a1) {
+unsigned int strlen(unsigned int a1) {
 uint32_t _R12;
 uint64_t _R2;
 uint64_t _R3;
@@ -1242,9 +1242,9 @@ _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(
 }
 
 
-// memcpy_fixed @ 0x143ddc
+// strncasecmp @ 0x143ddc
 /* luna: Compares at most max_len bytes of two strings case-insensitively, returning the byte difference at the first mismatch. */
-int memcpy_fixed(volatile uint8_t *a1, volatile uint8_t *a2, int a3) {
+int strncasecmp(volatile uint8_t *a1, volatile uint8_t *a2, int a3) {
   volatile uint8_t *left_cursor; // r5
   volatile uint8_t *left_end; // r7
   int byte_difference; // r3

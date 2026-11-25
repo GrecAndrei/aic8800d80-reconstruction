@@ -1,6 +1,6 @@
-// check_radio_state @ 0x102bc0
+// handle_spurious_interrupt @ 0x102bc0
 /* luna: Logs a spurious interrupt and clears the associated register when its signed status flag is set. */
-int check_radio_state() {
+int handle_spurious_interrupt() {
   int result; // r0
 
   result = event_dispatch("%s\r\n", aIntcSpurious);
@@ -538,9 +538,9 @@ volatile uint32_t *load_and_store_block() {
 
 
 
-// get_controller_state @ 0x1032e8
+// wait_timer_ticks @ 0x1032e8
 /* luna: Busy-waits until the hardware timer advances by the requested number of ticks, then returns that interval. */
-unsigned int get_controller_state(unsigned int result) {
+unsigned int wait_timer_ticks(unsigned int result) {
   volatile unsigned int start_count; // r1
   unsigned int elapsed_ticks; // r3
 
@@ -552,9 +552,9 @@ unsigned int get_controller_state(unsigned int result) {
 }
 
 
-// enable_radio_controller @ 0x1032fc
+// calibrate_mdll_duty_cycle @ 0x1032fc
 /* luna: Sweeps the MDLL feedback control to derive a duty setting and stores the result for the selected clock mode. */
-int enable_radio_controller(int a1) {
+int calibrate_mdll_duty_cycle(int a1) {
   volatile uint32_t *mdll_control_reg; // r6
   volatile uint32_t *mdll_trigger_reg; // r5
   int previous_feedback_state; // r7
@@ -845,7 +845,7 @@ LABEL_13:
   {
 LABEL_14:
     rf_enable_1();
-    rf_event_handler_alt();
+    rf_core_voltage_calibrate();
     rf_event_handler();
   }
 LABEL_17:
@@ -860,7 +860,7 @@ LABEL_17:
     v19 = 1;
     for ( i = 0; i != 3; ++i )
     {
-      v21 = copy_global_1672ec(i, *v17 + 3 * i);
+      v21 = rf_cmd_read_decode(i, *v17 + 3 * i);
       if ( v21 != 546 )
       {
         v18[1] |= 1u;
@@ -1035,9 +1035,9 @@ LABEL_17:
   peripheral_read_32(1, 0, 0x10u, *(volatile uint32_t *)off_103940);
   peripheral_read_32(1, 16, 0x10u, ((volatile uint32_t *)(uintptr_t)off_103944)[0]);
   rng_read_alt();
-  enable_radio_controller(1);
+  calibrate_mdll_duty_cycle(1);
   rng_read(0);
-  enable_radio_controller(0);
+  calibrate_mdll_duty_cycle(0);
   if ( (v9[98] & 4) != 0 )
   {
     v38 = (volatile int *)off_103948;
@@ -1693,9 +1693,9 @@ LABEL_9:
 
 
 
-// select_fuse_bank @ 0x1043d4
+// correct_iq_dc_offset @ 0x1043d4
 /* luna: Computes the mean signed 12-bit I/Q values across the selected 8192-sample buffer and subtracts those means from the samples in place. */
-int select_fuse_bank() {
+int correct_iq_dc_offset() {
   BOOL v0; // r1
   int min_i; // r2
   volatile int *iq_sample_buffer; // r4
@@ -1767,9 +1767,9 @@ int select_fuse_bank() {
 }
 
 
-// start_arm_boot @ 0x1044e0
+// dump_tone_type3 @ 0x1044e0
 /* luna: Configures and runs the hardware sequence for a type-3 tone dump, waits for completion, then restores and clears the associated control registers. */
-int start_arm_boot() {
+int dump_tone_type3() {
   volatile int *v0; // r1
   volatile uint32_t *tone_dump_control_reg; // r3
   int v2; // r0
@@ -1804,7 +1804,7 @@ int start_arm_boot() {
   *(volatile uint32_t *)off_1045C8 = 0;
   check_status_bits(1, aDumpFinish);
   *(volatile uint32_t *)off_1045B8 = saved_reg_value;
-  select_fuse_bank();
+  correct_iq_dc_offset();
   result = check_status_bits(1, "** dump tone typ3   r 00100000 %d**\n", 0x4000);
   v7 = (void *)(uintptr_t)(off_1045BC);
   v8 = (void *)(uintptr_t)(off_1045E4);

@@ -78,7 +78,7 @@ LABEL_7:
     mac_write_header_word(3, a4, a3);
   rf_write_reg();
   rf_status_check();
-  hci_cmd_preprocess(a3, 2);
+  ke_state_set(a3, 2);
 }
 
 
@@ -97,7 +97,7 @@ int list_find_entry(int a1, void ( **a2)(int), unsigned int a3) {
     if ( result != 2 )
     {
       rf_status_check();
-      hci_cmd_preprocess(a3, 2);
+      ke_state_set(a3, 2);
       return 2;
     }
   }
@@ -105,7 +105,7 @@ int list_find_entry(int a1, void ( **a2)(int), unsigned int a3) {
   {
     if ( **v3 < 0 && *(volatile uint32_t *)off_123AAC << 28 )
       irq_disable_mmio_write((int)aNxmacCurrentSt, (int)aMmForceIdleReq_0, 1594);
-    v7 = hci_cmd_preprocess(a3, 3);
+    v7 = ke_state_set(a3, 3);
     (*a2)(v7);
     return 0;
   }
@@ -149,7 +149,7 @@ LABEL_6:
   if ( result != 2 )
   {
     rf_status_check();
-    hci_cmd_preprocess(a3, 2);
+    ke_state_set(a3, 2);
     return 2;
   }
   return result;
@@ -404,7 +404,7 @@ LABEL_77:
 LABEL_71:
           v62 = *a2;
           if ( v62 <= 3 )
-            get_bss_by_index(v62);
+            unregister_vif_by_index(v62);
           if ( !*((volatile uint32_t *)off_1241D0 + 2) )
             rf_set_power_off();
           mac_write_header_word(9, a4, a3);
@@ -419,7 +419,7 @@ LABEL_69:
           *(volatile uint32_t *)off_124194 = *(volatile uint32_t *)a2;
           if ( v11 < 0 && *(volatile uint32_t *)off_1244F4 << 28 )
           {
-            mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_4, 472);
+            log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_4, 472);
             v61 = *(volatile uint32_t *)v13;
           }
           *(volatile uint32_t *)off_1241CC = v61 | *((volatile uint32_t *)v13 + 1);
@@ -516,7 +516,7 @@ LABEL_33:
               v33 = dword_124180 + 696 * *(volatile uint8_t *)(v29 + 116);
               v34 = (*(volatile uint32_t *)0x40501010u);
               v35 = (volatile uint32_t *)(_frame.v110 + 24 + v28);
-              mem_copy_util(v35, v34 + *(volatile uint32_t *)(v33 + 8));
+              mm_timer_set(v35, v34 + *(volatile uint32_t *)(v33 + 8));
               *(volatile uint16_t *)(v33 + 32) = *(volatile uint16_t *)a2;
               mac_clear_irq();
               check_feature_flag(
@@ -569,7 +569,7 @@ LABEL_120:
                 v77 = **v10;
                 *((volatile uint32_t *)v13 + 1) |= 0x10u;
                 if ( v77 < 0 && *(volatile uint32_t *)off_124838 << 28 )
-                  mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_4, 472);
+                  log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_4, 472);
                 *(volatile uint32_t *)off_124520 = *(volatile uint32_t *)v13 | *((volatile uint32_t *)v13 + 1);
                 v32 = a2[2];
                 goto LABEL_40;
@@ -662,7 +662,7 @@ LABEL_39:
                       *((volatile uint32_t *)v13 + 1) &= ~0x10u;
                       if ( v82 < 0 && *(volatile uint32_t *)off_124838 << 28 )
                       {
-                        mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_4, 472);
+                        log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_4, 472);
                         v83 = _frame.v107;
                       }
                       v84 = (void *)(uintptr_t)(off_124844);
@@ -799,7 +799,7 @@ LABEL_86:
                 *((volatile uint32_t *)v13 + 1) &= ~0x10u;
                 if ( v69 < 0 && *(volatile uint32_t *)off_124838 << 28 )
                 {
-                  mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_4, 472);
+                  log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_4, 472);
                   v70 = _frame.v106;
                 }
                 v71 = (void *)(uintptr_t)(off_124530);
@@ -832,7 +832,7 @@ LABEL_85:
             v89 = **v10;
             *((volatile uint32_t *)v13 + 1) |= 0x10u;
             if ( v89 < 0 && *(volatile uint32_t *)off_124838 << 28 )
-              mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_4, 472);
+              log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_4, 472);
             v90 = (void *)(uintptr_t)(off_124820);
             v91 = (void *)(uintptr_t)(off_12482C);
             *(volatile uint32_t *)off_124820 = *(volatile uint32_t *)v13 | *((volatile uint32_t *)v13 + 1);
@@ -925,7 +925,7 @@ LABEL_21:
     v14 = 2;
 LABEL_10:
     *(volatile uint32_t *)off_123E20 = (uint8_t)(16 * v13[19]);
-    hci_cmd_preprocess(a3, (uint8_t)v13[18]);
+    ke_state_set(a3, (uint8_t)v13[18]);
     return v14;
   }
   if ( (uint16_t)(v8 - 2) > 2u )
@@ -934,15 +934,15 @@ LABEL_10:
     *((volatile uint8_t *)off_123E24 + 19) = *(volatile uint8_t *)off_123E20 & 0xF;
     v12[18] = hci_cmd_handler(a3);
     rf_status_check();
-    hci_cmd_preprocess(a3, 2);
+    ke_state_set(a3, 2);
   }
   return 2;
 }
 
 
-// mmio_read_status @ 0x124848
+// set_txop_parameters @ 0x124848
 /* luna: Programs the BK, BE, VI, and VO TXOP values into the corresponding hardware registers and logs the settings. */
-int mmio_read_status(volatile uint16_t *a1) {
+int set_txop_parameters(volatile uint16_t *a1) {
   int preserve_mask; // r3
   volatile int *txop_registers; // r2
   int bk_txop; // r0
@@ -1142,7 +1142,7 @@ int cmd_dispatch(int a1, int a2, int a3, int a4) {
   {
     case 0:
       a3a = a3;
-      mmio_read_status((volatile uint16_t *)(a2 + 4));
+      set_txop_parameters((volatile uint16_t *)(a2 + 4));
       a3 = a3a;
       break;
     case 1:

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "radio_isr",
+ "luna": "radio_interrupt_handler",
+ "doc": "Processes masked radio interrupt status, runs the busy-flag path when bit 0x10 is set, dispatches encoded RF commands, and acknowledges the handled status.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "radio_interrupt_handler",
+   "probabilities": [
+    {
+     "value": "radio_isr",
+     "probability": 0.39
+    },
+    {
+     "value": "radio_interrupt_handler",
+     "probability": 0.6
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.4
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_hw_init_1",
+ "luna": "rf_hw_init",
+ "doc": "Initializes RF hardware registers, applies calibration offsets, and configures radio operating fields.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_hw_init",
+   "probabilities": [
+    {
+     "value": "rf_hw_init_1",
+     "probability": 0.15
+    },
+    {
+     "value": "rf_hw_init",
+     "probability": 0.85
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.77
+  }
+ ],
+ "status": "ok"
+}

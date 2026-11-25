@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_compare_swap",
+ "luna": "float_compare_reverse_less_equal",
+ "doc": "Compares two single-precision operands in reverse order and reports the result through ARM condition flags.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_compare_reverse_less_equal",
+   "probabilities": [
+    {
+     "value": "double_compare_swap",
+     "probability": 0.09
+    },
+    {
+     "value": "float_compare_reverse_less_equal",
+     "probability": 0.8
+    },
+    {
+     "value": "neither",
+     "probability": 0.11
+    }
+   ],
+   "confidence": 0.7
+  }
+ ],
+ "status": "ok"
+}

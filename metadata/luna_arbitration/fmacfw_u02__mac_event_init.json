@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "mac_event_init",
+ "luna": "rf_ana_power_cal_init",
+ "doc": "Initializes the analog-power calibration index list from the corresponding bits in the mask.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_ana_power_cal_init",
+   "probabilities": [
+    {
+     "value": "mac_event_init",
+     "probability": 0.35
+    },
+    {
+     "value": "rf_ana_power_cal_init",
+     "probability": 0.6
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.4
+  }
+ ],
+ "status": "ok"
+}

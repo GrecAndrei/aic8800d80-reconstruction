@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_compare_flags",
+ "luna": "double_compare",
+ "doc": "Returns the libgcc three-way comparison result for two double-precision operands.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_compare",
+   "probabilities": [
+    {
+     "value": "double_compare_flags",
+     "probability": 0.48
+    },
+    {
+     "value": "double_compare",
+     "probability": 0.5
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.25
+  }
+ ],
+ "status": "ok"
+}

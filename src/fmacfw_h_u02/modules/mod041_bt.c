@@ -202,7 +202,7 @@ int lll_conn_state_match(int a1, int a2, char a3, char a4, unsigned int a5, int 
     ++*(volatile uint8_t *)(v15 + 122);
   if ( a5 )
     *(volatile uint32_t *)(140 * v8 + 48 * v14 + v7 + 40) = 0x80000000 / a5 - 1;
-  mem_copy_util((void *)(uintptr_t)(v13), a7);
+  mm_timer_set((void *)(uintptr_t)(v13), a7);
   v21 = 140 * v8;
   *(volatile uint8_t *)(v7 + v21 + 48 * v14 + 16) = 1;
   util_get_state(*(volatile uint8_t *)(v21 + v7 + 113), 3);
@@ -383,7 +383,7 @@ LABEL_27:
           else if ( (int)(event_time - *((volatile uint32_t *)off_12A978 + 4) - 5000) >= 0 )
           {
             v22 = *(volatile uint8_t *)(v13 + 112);
-            mem_copy_util((void *)(uintptr_t)(a1), event_time);
+            mm_timer_set((void *)(uintptr_t)(a1), event_time);
             *(volatile uint8_t *)(a1 + 16) = v22;
             rsn_derive_key((int)conn_slot_ptr);
             result = rsn_parse_ie(conn_slot_ptr);
@@ -433,7 +433,7 @@ LABEL_35:
   if ( !v16 )
     goto LABEL_42;
 LABEL_36:
-  mem_copy_util((void *)(uintptr_t)(a1), event_time);
+  mm_timer_set((void *)(uintptr_t)(a1), event_time);
   *(volatile uint8_t *)(a1 + 16) = event_state;
   rsn_derive_key((int)conn_slot_ptr);
   result = rsn_parse_ie(conn_slot_ptr);
@@ -484,7 +484,7 @@ int lll_conn_rf_process(int result, int a2) {
       if ( v11 - 62 >= 0 )
       {
         *(volatile uint32_t *)(v8 + 88) = 0;
-        result = mem_copy_util((void *)(uintptr_t)(v9), result);
+        result = mm_timer_set((void *)(uintptr_t)(v9), result);
         v12 = *v2;
         v10 = 1;
         if ( !*v2 )
@@ -696,7 +696,7 @@ int get_dev_entry(int a1) {
   *(volatile uint8_t *)(a1 + 31) = *((volatile uint32_t *)off_12ACBC + 10) == *(volatile uint32_t *)(v1 + 1320 * v6 + 72);
   *(volatile uint32_t *)(a1 + 16) = 0;
   *(volatile uint32_t *)(a1 + 20) = 0;
-  return mem_copy_util((void *)(uintptr_t)(a1), v3 + 102400);
+  return mm_timer_set((void *)(uintptr_t)(a1), v3 + 102400);
 }
 
 

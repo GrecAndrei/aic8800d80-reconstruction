@@ -19,12 +19,12 @@ int ke_timer_tick_inc() {
   while ( timer_record_cursor != timer_state_base + 6336 );
   if ( next_tick >= (int)*(volatile uint32_t *)(timer_record_cursor + 148) )
   {
-    result = hci_cmd_preprocess(0xBu, 0);
+    result = ke_state_set(0xBu, 0);
     *(volatile uint32_t *)(timer_record_cursor + 144) = -1;
   }
   else
   {
-    hci_cmd_preprocess(0xBu, 4);
+    ke_state_set(0xBu, 4);
     return mac_write_header_word(11264, 11, 11);
   }
   return result;
@@ -88,7 +88,7 @@ LABEL_18:
   }
 LABEL_4:
   v4 = dword_141494;
-  hci_cmd_preprocess(0xBu, 2);
+  ke_state_set(0xBu, 2);
   v5 = v4 + 6336;
   clear_stats_buf((volatile uint32_t *)dword_14149C);
   do
@@ -104,7 +104,7 @@ LABEL_4:
     *(volatile uint8_t *)(v4 + 22) = 0;
     *(volatile uint16_t *)(v4 + 4) = 2;
     v4 += 528;
-    wlan_ioctl_handler_1(v5 + 136, v6);
+    co_list_push_back(v5 + 136, v6);
   }
   while ( v4 != v5 );
 LABEL_9:
@@ -176,7 +176,7 @@ int ke_timer_clear(int a1, int a2) {
   }
   else
   {
-    result = hci_cmd_preprocess(0xBu, 0);
+    result = ke_state_set(0xBu, 0);
     *(volatile uint32_t *)(dword_1415EC + 6480) = -1;
   }
   return result;

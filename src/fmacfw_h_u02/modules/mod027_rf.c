@@ -37,7 +37,7 @@ unsigned int rf_init(volatile int *a1) {
   *v10 = v11;
   if ( *v12 < 0 && *(volatile uint32_t *)off_1216E8 << 28 )
   {
-    mmio_write_field(dword_1216F0, dword_1216EC, 472);
+    log_warning(dword_1216F0, dword_1216EC, 472);
     v11 = *v10;
   }
   *(volatile uint32_t *)off_1216E4 = v11 | v10[1];
@@ -65,7 +65,7 @@ unsigned int rf_irq_enable() {
   *(volatile uint32_t *)off_121754 = v1;
   if ( v3 < 0 && *(volatile uint32_t *)off_121768 << 28 )
   {
-    mmio_write_field(dword_121770, dword_12176C, 472);
+    log_warning(dword_121770, dword_12176C, 472);
     v1 = *v2;
   }
   *(volatile uint32_t *)off_121758 = v1 | v2[1];
@@ -97,7 +97,7 @@ unsigned int rf_irq_disable_1() {
   *(volatile uint32_t *)off_1217DC = v1;
   if ( v3 < 0 && *(volatile uint32_t *)off_1217F0 << 28 )
   {
-    mmio_write_field(dword_1217F8, dword_1217F4, 472);
+    log_warning(dword_1217F8, dword_1217F4, 472);
     v1 = *v2;
   }
   *(volatile uint32_t *)off_1217E0 = v1 | v2[1];
@@ -185,7 +185,7 @@ int rf_is_ready(int a1) {
       {
         v19 = dword_121930;
         v1[10] = v4;
-        mem_copy_util((void *)(uintptr_t)(v19), v10 + 100);
+        mm_timer_set((void *)(uintptr_t)(v19), v10 + 100);
         goto LABEL_12;
       }
     }
@@ -196,7 +196,7 @@ int rf_is_ready(int a1) {
         v17 = v10 + v2 - v11;
         v18 = dword_121930;
         v1[10] = v4;
-        mem_copy_util((void *)(uintptr_t)(v18), v17);
+        mm_timer_set((void *)(uintptr_t)(v18), v17);
         goto LABEL_12;
       }
       if ( v3 + 100 > v2 - v9 )
@@ -204,7 +204,7 @@ int rf_is_ready(int a1) {
         v12 = v10 - v11;
         v13 = dword_121930;
         v1[10] = v4;
-        mem_copy_util((void *)(uintptr_t)(v13), v12);
+        mm_timer_set((void *)(uintptr_t)(v13), v12);
 LABEL_12:
         if ( *v5 )
         {
@@ -233,9 +233,9 @@ int ke_evt_poll() {
   if ( **(volatile int16_t **)off_12198C < 0 && hci_cmd_handler(0) != 3 )
     irq_disable_mmio_write((int)aKeStateGetTask_0, (int)aMmBackToHostId, 1785);
   if ( *((volatile uint8_t *)off_121990 + 31) && *((volatile uint8_t *)off_121994 + 18) + *((volatile uint8_t *)off_121994 + 17) <= 1 )
-    return hci_cmd_preprocess(0, 0);
+    return ke_state_set(0, 0);
   *(volatile uint32_t *)off_121998 = 48;
-  return hci_cmd_preprocess(0, 1);
+  return ke_state_set(0, 1);
 }
 
 
@@ -291,7 +291,7 @@ int ke_evt_handler() {
   *(volatile uint32_t *)off_121AB0 = 4;
   if ( v9 )
     critical_section_enter();
-  result = hci_cmd_preprocess(0, 3);
+  result = ke_state_set(0, 3);
   v11 = *v0;
   *((volatile uint16_t *)off_121AB4 + 9) = 0;
   if ( v11 )
@@ -342,7 +342,7 @@ int ke_evt_peek() {
       }
     }
   }
-  return hci_cmd_preprocess(0, 4);
+  return ke_state_set(0, 4);
 }
 
 
@@ -352,7 +352,7 @@ int check_config_flag() {
 
   result = hci_cmd_handler(0);
   if ( result == 4 )
-    return hci_cmd_preprocess(0, 1);
+    return ke_state_set(0, 1);
   return result;
 }
 
@@ -650,7 +650,7 @@ int rf_set_rx_mode(int a1, int a2) {
     *((volatile uint16_t *)off_121FD0 + 14) = 1793;
     v8[36] = 0;
     *((volatile uint32_t *)v8 + 5) = a1;
-    result = mem_copy_util(v9, v7 + 10000);
+    result = mm_timer_set(v9, v7 + 10000);
     *(volatile uint8_t *)(a1 + 115) = 0;
   }
   else

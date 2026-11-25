@@ -257,7 +257,7 @@ LABEL_16:
           if ( (v23 & 2) != 0 )
             *(volatile uint32_t *)(*(volatile uint32_t *)(v8 + 52) + 20) = *(volatile uint32_t *)(v8 + 4);
           *(volatile uint16_t *)(v8 + 8) = v23 | 0xF;
-          cmd_handler_a(v12 + 84 * a3 + 28, (volatile uint32_t *)v8);
+          co_list_push_back(v12 + 84 * a3 + 28, (volatile uint32_t *)v8);
           v24 = v12 + 84 * a3;
           v25 = *(volatile uint8_t *)(v24 + 80);
           *(volatile uint32_t *)(v24 + 44) = 0;
@@ -479,7 +479,7 @@ LABEL_7:
         *(volatile uint32_t *)(v5 + 20) = *(volatile uint32_t *)(v9 + 20);
       *(volatile uint8_t *)(v24 + 1) = v50 + v17;
       mem_word_load(v8);
-      cmd_handler_a(*(volatile uint32_t *)(v9 + 340), (volatile uint32_t *)v9);
+      co_list_push_back(*(volatile uint32_t *)(v9 + 340), (volatile uint32_t *)v9);
       v40 = *(volatile uint32_t *)(v7 + 76);
       *a2 = *(volatile uint32_t *)v7;
       *(volatile uint32_t *)(v40 + 20) = 0;
@@ -662,7 +662,7 @@ if ( *(volatile uint32_t *)(uintptr_t)(off_119E58) != *(volatile uint32_t *)off_
         v13[45] = v14;
         v13[46] = 0;
         v13[47] = v15;
-        result = cmd_handler_a(v6, (void *)(v13));
+        result = co_list_push_back(v6, (void *)(v13));
         ++v12;
         v11 += 90;
       }
@@ -700,7 +700,7 @@ volatile uint32_t *process_event_loop() {
       v7 = 0;
       do
       {
-        result = (volatile uint32_t *)cmd_handler_a((int)v0, (volatile uint32_t *)(*v2 + v6));
+        result = (volatile uint32_t *)co_list_push_back((int)v0, (volatile uint32_t *)(*v2 + v6));
         ++v7;
         v6 += 360;
       }
@@ -777,7 +777,7 @@ int rate_get_config(int a1) {
       *(volatile uint16_t *)(v3 + 82) |= 2u;
       set_table_callback_data(a1, v5);
     }
-    cmd_handler_a(*(volatile uint32_t *)(v4 + 340), (volatile uint32_t *)v4);
+    co_list_push_back(*(volatile uint32_t *)(v4 + 340), (volatile uint32_t *)v4);
   }
   else
   {
@@ -826,7 +826,7 @@ int rate_get_config(int a1) {
       *(volatile uint16_t *)(v4 + 8) = v15 | 5;
       set_table_callback_data(a1, v5);
     }
-    cmd_handler_a(v1 + 84 * a1 + 28, (volatile uint32_t *)v4);
+    co_list_push_back(v1 + 84 * a1 + 28, (volatile uint32_t *)v4);
   }
   v11 = v1 + 84 * a1;
   v12 = *(volatile uint8_t *)(v11 + 80);
@@ -1028,7 +1028,7 @@ int dec_retry_count(int result) {
   v1 = *(volatile uint8_t *)(result + 14) - 1;
   *(volatile uint8_t *)(result + 14) = v1;
   if ( !v1 )
-    return cmd_handler_a(*(volatile uint32_t *)(result + 340), (volatile uint32_t *)result);
+    return co_list_push_back(*(volatile uint32_t *)(result + 340), (volatile uint32_t *)result);
   return result;
 }
 

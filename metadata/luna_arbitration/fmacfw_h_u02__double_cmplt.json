@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_cmplt",
+ "luna": "double_less_than",
+ "doc": "Returns whether the first double-precision value is less than the second.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "neither",
+   "probabilities": [
+    {
+     "value": "double_cmplt",
+     "probability": 0.35
+    },
+    {
+     "value": "double_less_than",
+     "probability": 0.25
+    },
+    {
+     "value": "neither",
+     "probability": 0.4
+    }
+   ],
+   "confidence": 0.1
+  }
+ ],
+ "status": "ok"
+}

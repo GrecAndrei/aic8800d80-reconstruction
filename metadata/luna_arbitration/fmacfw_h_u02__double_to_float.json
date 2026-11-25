@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_to_float",
+ "luna": "uint64_to_double",
+ "doc": "Converts a 64-bit unsigned integer to a double-precision floating-point value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "uint64_to_double",
+   "probabilities": [
+    {
+     "value": "double_to_float",
+     "probability": 0.03
+    },
+    {
+     "value": "uint64_to_double",
+     "probability": 0.87
+    },
+    {
+     "value": "neither",
+     "probability": 0.1
+    }
+   ],
+   "confidence": 0.8
+  }
+ ],
+ "status": "ok"
+}

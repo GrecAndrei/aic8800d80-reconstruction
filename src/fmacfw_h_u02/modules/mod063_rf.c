@@ -127,9 +127,9 @@ int util_parse_command_char(int a1, volatile uint8_t *a2) {
 
 
 
-// radio_reg_config @ 0x137030
+// rf_cancel_scan @ 0x137030
 /* luna: Sends a scan-cancel request, processes the response, and logs the HCI command result. */
-int radio_reg_config() {
+int rf_cancel_scan() {
   int v0; // r0
   int cancel_status; // r0
 
@@ -491,13 +491,13 @@ int util_hex_convert(int a1) {
   *(volatile uint32_t *)v2 = 0;
   rx_process_packet_1((int)v5);
   *((volatile uint32_t *)off_13747C + 1) &= ~0x20u;
-  return hci_cmd_preprocess(4u, 0);
+  return ke_state_set(4u, 0);
 }
 
 
 // clear_shared_mem @ 0x137490
 int clear_shared_mem() {
-  hci_cmd_preprocess(4u, 0);
+  ke_state_set(4u, 0);
   return (int)memset((volatile int *)dword_1374AC, 0, 0xFC0u);
 }
 
@@ -916,7 +916,7 @@ LABEL_54:
     }
     goto LABEL_55;
   }
-  v45 = (int)test_arg2_one_12dd78((void *)(_frame.v140), _frame.a2);
+  v45 = (int)find_ht_operation_ie((void *)(_frame.v140), _frame.a2);
   if ( v45 )
   {
     v42 = *((volatile uint8_t *)a1 + 6);
@@ -1148,7 +1148,7 @@ LABEL_67:
     }
 LABEL_84:
     v64 = (const volatile char *)(v48 + 9);
-    if ( memcpy_aligned(v48 + 9) )
+    if ( strlen(v48 + 9) )
     {
       v63 = *(volatile uint8_t *)(v48 + 8);
       *(volatile uint8_t *)(v48 + v63 + 9) = 0;
@@ -1739,7 +1739,7 @@ int is_initialized_1() {
     *((volatile uint8_t *)off_138678 + 29) = 3;
     v17 = (*(volatile uint32_t *)0x40501010u);
     v2[5] = v16;
-    mem_copy_util(v2 + 3, v15 + v17);
+    mm_timer_set(v2 + 3, v15 + v17);
     *((volatile uint8_t *)v2 + 28) = 1;
     *v0 &= ~4u;
   }
@@ -1780,7 +1780,7 @@ int is_initialized_1() {
   *v11 = *v10;
   *v10 = (HIWORD(*v10) << 16) | 0x5DC;
   v2[1] |= 0x20u;
-  hci_cmd_preprocess(4u, 1);
+  ke_state_set(4u, 1);
   v12 = *(volatile char **)(*(volatile uint32_t *)v1 + 360);
   if ( v12 )
   {

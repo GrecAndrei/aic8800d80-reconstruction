@@ -29,9 +29,9 @@ LABEL_4:
 
 
 
-// scan_state_check @ 0x12287c
+// update_vif_dhcp_state @ 0x12287c
 /* luna: Stores a VIF's DHCP-acquired flag and IPv4 address, handles conditional ARP-offload and pending-state cleanup, and writes the command-98 response. */
-int scan_state_check(int a1, int a2, int a3, int a4) {
+int update_vif_dhcp_state(int a1, int a2, int a3, int a4) {
   int vif_table_base; // r9
   int vif_index; // r5
   int vif_state; // r8

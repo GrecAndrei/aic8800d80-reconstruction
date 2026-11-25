@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "crypto_start_operation",
+ "luna": "rf_calibrate_mdll_duty",
+ "doc": "Calibrates the MDLL duty setting for the selected 280- or 320-MHz operating point by sampling the RF status bit and stores the resulting duty value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_calibrate_mdll_duty",
+   "probabilities": [
+    {
+     "value": "crypto_start_operation",
+     "probability": 0.0
+    },
+    {
+     "value": "rf_calibrate_mdll_duty",
+     "probability": 1.0
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "status": "ok"
+}

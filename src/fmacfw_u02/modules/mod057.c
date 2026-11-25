@@ -26,7 +26,7 @@ int reset_controller_state() {
     branch_to_12cbc8((int)(uintptr_t)((volatile char *)(v0[5] - 12)));
   }
   memset((volatile int *)off_13446C, 0, 0x2Cu);
-  return rx_phy_status_parse(6u, 0);
+  return ke_state_set(6u, 0);
 }
 
 
@@ -160,7 +160,7 @@ LABEL_3:
   }
 LABEL_4:
   ke_msg_send_2(v6);
-  return rx_phy_status_parse(6u, 1);
+  return ke_state_set(6u, 1);
 }
 
 
@@ -203,7 +203,7 @@ int rx_packet_handler_3(int a1, int a2, int a3) {
       *((volatile uint16_t *)v4 + 1) = 257;
       v21 = dword_1346E0;
       v19[35594] = 0;
-      ke_task_create(6155, 6, v21);
+      ke_timer_set(6155, 6, v21);
       mmio_set_control_bit_26();
       return result;
     }
@@ -248,7 +248,7 @@ int rx_packet_handler_3(int a1, int a2, int a3) {
     *(volatile uint8_t *)(v9 + 3) |= 1u;
   v7[32] = a3;
   ke_msg_send_2(v9);
-  return rx_phy_status_parse(6u, 2);
+  return ke_state_set(6u, 2);
 }
 
 
@@ -303,7 +303,7 @@ int tx_packet_handler_1() {
     *(volatile uint8_t *)(v4 + 3) |= 1u;
   v1[32] = v2;
   ke_msg_send_2(v4);
-  return rx_phy_status_parse(6u, 2);
+  return ke_state_set(6u, 2);
 }
 
 
@@ -361,29 +361,29 @@ int bt_send_host_message(int a1) {
   rf_scan_chan(*(volatile uint8_t *)(a1 + 116));
   *v4 = 0;
   v4[1] = *(volatile uint8_t *)(a1 + 107);
-  cmd_handler_a(dword_134910, (volatile uint32_t *)v4 - 3);
+  co_list_push_back(dword_134910, (volatile uint32_t *)v4 - 3);
   if ( *(volatile uint8_t *)(a1 + 108) )
   {
     v13 = ke_msg_alloc(30, 0, 6, 4);
     *(volatile uint8_t *)(v13 + 2) = 0;
     *(volatile uint8_t *)(v13 + 3) = *(volatile uint8_t *)(a1 + 107);
-    cmd_handler_a(dword_134910, (volatile uint32_t *)(v13 - 12));
+    co_list_push_back(dword_134910, (volatile uint32_t *)(v13 - 12));
   }
   if ( *(volatile uint8_t *)(a1 + 116) != 255 )
   {
     v8 = (volatile uint8_t *)ke_msg_alloc(12, 0, 6, 1);
     *v8 = *(volatile uint8_t *)(a1 + 116);
-    cmd_handler_a(dword_134910, (volatile uint32_t *)v8 - 3);
+    co_list_push_back(dword_134910, (volatile uint32_t *)v8 - 3);
   }
   if ( *(volatile uint32_t *)(a1 + 72) )
   {
     v9 = (volatile uint8_t *)ke_msg_alloc(57, 0, 6, 1);
     *v9 = *(volatile uint8_t *)(a1 + 107);
-    cmd_handler_a(dword_134910, (volatile uint32_t *)v9 - 3);
+    co_list_push_back(dword_134910, (volatile uint32_t *)v9 - 3);
   }
   *v7 = 0;
   v7[1] = *(volatile uint8_t *)(a1 + 107);
-  v10 = cmd_handler_a(dword_134910, (volatile uint32_t *)v7 - 3);
+  v10 = co_list_push_back(dword_134910, (volatile uint32_t *)v7 - 3);
   return bt_is_controller_ready(v10, v11);
 }
 

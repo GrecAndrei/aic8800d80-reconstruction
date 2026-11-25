@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "is_time_before",
+ "luna": "time_before",
+ "doc": "Returns whether the 32-bit value at offset 12 in the first record precedes the second under signed modular comparison.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "is_time_before",
+   "probabilities": [
+    {
+     "value": "is_time_before",
+     "probability": 0.52
+    },
+    {
+     "value": "time_before",
+     "probability": 0.4
+    },
+    {
+     "value": "neither",
+     "probability": 0.08
+    }
+   ],
+   "confidence": 0.28
+  }
+ ],
+ "status": "ok"
+}

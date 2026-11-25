@@ -485,9 +485,9 @@ LABEL_6:
 }
 
 
-// unknown_12f2c8 @ 0x12f2c8
+// log_assert_failure @ 0x12f2c8
 /* luna: Emits an ASSERT diagnostic with the failed expression, source file, and line, then performs configured RF and interrupt cleanup. */
-int unknown_12f2c8(int a1, int a2, int a3) {
+int log_assert_failure(int a1, int a2, int a3) {
   volatile int *v3; // r4
   int result; // r0
   int v5; // r3
@@ -534,9 +534,9 @@ while ( *(volatile uint32_t *)(uintptr_t)(off_12F358) ) ;
 }
 
 
-// mmio_write_field @ 0x12f35c
+// log_warning @ 0x12f35c
 /* luna: Emits a warning identifying the function, source file, and line number. */
-int mmio_write_field(int a1, int a2, int a3) {
+int log_warning(int a1, int a2, int a3) {
   return alloc_tx_event("\x9BWARNING (%s) at %s:%d\n", (const volatile char *)a1, (const volatile char *)a2, a3 & 0xFFFFF);
 }
 
@@ -603,9 +603,9 @@ int phy_rate_map() {
 
 
 
-// state_check_0x182ba0 @ 0x12f3ec
+// rx_packet_dispatch_wrapper @ 0x12f3ec
 /* luna: Forwards the supplied pointer to `rx_packet_dispatch` and returns its result. */
-int state_check_0x182ba0(volatile uint16_t *a1) {
+int rx_packet_dispatch_wrapper(volatile uint16_t *a1) {
   return (int)(uintptr_t)(rx_packet_dispatch((int)(uintptr_t)(a1)));
 }
 
@@ -669,7 +669,7 @@ volatile int * deref_and_check(volatile int *result, int a2) {
         result = v3;
         if ( !v2[3] )
           break;
-        result = (volatile int *)wlan_ioctl_handler_1((int)v3, v2);
+        result = (volatile int *)co_list_push_back((int)v3, v2);
         v2 = (volatile uint32_t *)*v4;
         if ( !*v4 )
           return result;
@@ -703,7 +703,7 @@ int state_check_0x182ba0_b(int result) {
       v4 = (void *)(uintptr_t)(off_12F4A0);
       while ( !*(volatile uint32_t *)off_12F4A0 )
         ;
-      wlan_ioctl_handler_1(((volatile uint32_t *)(uintptr_t)off_12F4A4)[0] + 604, (volatile uint32_t *)v3 - 1);
+      co_list_push_back(((volatile uint32_t *)(uintptr_t)off_12F4A4)[0] + 604, (volatile uint32_t *)v3 - 1);
       *v4 = 1;
       rf_cmd_reset();
     }
@@ -763,9 +763,9 @@ int get_buffer_size() {
 
 
 
-// parse_rx_packet_header @ 0x12f51c
+// handle_console_backspace @ 0x12f51c
 /* luna: Erases the final input character, redrawing the remaining text with tab-stop-aware cursor handling when the erased character is a tab. */
-unsigned int parse_rx_packet_header(unsigned int a1, int a2, int a3) {
+unsigned int handle_console_backspace(unsigned int a1, int a2, int a3) {
   unsigned int last_char_ptr; // r7
   volatile int *column_ptr; // r5
   volatile uint8_t *erase_sequence; // r9
@@ -924,7 +924,7 @@ volatile uint32_t * split_on_dot(int a1, volatile uint32_t *a2, int a3) {
   if ( v5 )
     v6 = v5 - a1;
   else
-    v6 = memcpy_aligned(a1);
+    v6 = strlen(a1);
   if ( a3 )
   {
     v7 = 0;
@@ -937,12 +937,12 @@ volatile uint32_t * split_on_dot(int a1, volatile uint32_t *a2, int a3) {
         v10 = *v8;
         ++v9;
         v11 = v8;
-if ( !memcpy_fixed((void *)(uintptr_t)(a1), (void *)(uintptr_t)(*v8), v6) ) break;
+if ( !strncasecmp((void *)(uintptr_t)(a1), (void *)(uintptr_t)(*v8), v6) ) break;
         v8 += 4;
         if ( a3 == v9 )
           goto LABEL_9;
       }
-      if ( memcpy_aligned(v10) == v6 )
+      if ( strlen(v10) == v6 )
         return v11;
       a2 = v8;
       ++v7;
@@ -990,7 +990,7 @@ int lock_global_mutex(unsigned int a1, volatile uint8_t *a2, int a3) {
     if ( !a3 )
       goto LABEL_3;
 LABEL_11:
-    v11 = memcpy_aligned(a3);
+    v11 = strlen(a3);
     v12 = (volatile int *)off_12F804;
     v13 = (void *)(uintptr_t)(off_12F80C);
     *v3 = (int)a2;
@@ -1037,7 +1037,7 @@ LABEL_3:
           v16 = (unsigned int)a2;
           while ( 1 )
           {
-            v17 = (volatile uint8_t *)parse_rx_packet_header(v16, v15, v8);
+            v17 = (volatile uint8_t *)handle_console_backspace(v16, v15, v8);
             v18 = *v14;
             *v3 = (int)v17;
             v15 = (int)v17;
@@ -1068,7 +1068,7 @@ LABEL_3:
 LABEL_19:
     v20 = *v3;
     if ( *(volatile uint32_t *)off_12F80C )
-      v20 = parse_rx_packet_header((unsigned int)a2, v20, v8);
+      v20 = handle_console_backspace((unsigned int)a2, v20, v8);
     *v3 = v20;
     return -1;
   }
@@ -1096,9 +1096,9 @@ LABEL_7:
 
 
 
-// parse_uint_base @ 0x12f818
+// parse_int_base @ 0x12f818
 /* luna: Parses a signed integer using the requested base, with base zero selecting octal for a leading zero and decimal otherwise, accepts a valid `0x` prefix */
-int parse_uint_base(volatile uint8_t *a1, volatile uint32_t *a2, unsigned int a3) {
+int parse_int_base(volatile uint8_t *a1, volatile uint32_t *a2, unsigned int a3) {
   int current_char; // r5
   int is_negative; // r7
   int i; // r6
@@ -1197,7 +1197,7 @@ int is_two_char_string(int a1) {
   int v3; // r0
   int v5; // r3
 
-  v2 = memcpy_aligned(a1);
+  v2 = strlen(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;
@@ -1221,7 +1221,7 @@ int parse_hex_string(int a1, volatile uint32_t *a2) {
   int v8; // r0
   int a2a; // [sp+4h] [bp-4h]
 
-  v4 = parse_uint_base((volatile uint8_t *)a2[1], nullptr, 0x10u);
+  v4 = parse_int_base((volatile uint8_t *)a2[1], nullptr, 0x10u);
   if ( a1 <= 2 )
   {
     v5 = is_two_char_string(*a2);
@@ -1231,7 +1231,7 @@ LABEL_18:
     debug_printf("Unknown data size:%d\r\n", v5);
     return -1;
   }
-  a2a = parse_uint_base((volatile uint8_t *)a2[2], nullptr, 0);
+  a2a = parse_int_base((volatile uint8_t *)a2[2], nullptr, 0);
   v5 = is_two_char_string(*a2);
   if ( v5 < 0 )
     goto LABEL_18;
@@ -1267,9 +1267,9 @@ LABEL_3:
 }
 
 
-// parse_mac_string @ 0x12fa08
+// test_write_memory @ 0x12fa08
 /* luna: Parses a write width, hexadecimal address and value, and optional repeat count, then writes the value to successive addresses or invokes the patch hoo */
-int parse_mac_string(int a1, volatile uint32_t *a2) {
+int test_write_memory(int a1, volatile uint32_t *a2) {
   int width_bytes; // r10
   unsigned int address; // r4
   int value; // r6
@@ -1285,14 +1285,14 @@ int parse_mac_string(int a1, volatile uint32_t *a2) {
   }
   else
   {
-    address = parse_uint_base((volatile uint8_t *)a2[1], nullptr, 0x10u);
-    value = parse_uint_base((volatile uint8_t *)a2[2], nullptr, 0x10u);
+    address = parse_int_base((volatile uint8_t *)a2[1], nullptr, 0x10u);
+    value = parse_int_base((volatile uint8_t *)a2[2], nullptr, 0x10u);
     if ( a1 <= 3 )
     {
       writes_remaining = 0;
       goto LABEL_9;
     }
-    repeat_count = parse_uint_base((volatile uint8_t *)a2[3], nullptr, 0);
+    repeat_count = parse_int_base((volatile uint8_t *)a2[3], nullptr, 0);
     if ( repeat_count )
     {
       writes_remaining = repeat_count - 1;
@@ -1334,22 +1334,22 @@ LABEL_9:
 }
 
 
-// parse_decimal_string @ 0x12faf8
+// handle_debug_config_command @ 0x12faf8
 /* luna: Prints the current debug mask and module selector, or updates one from a hexadecimal argument selected by a decimal operation code. */
-int parse_decimal_string(int a1, int a2) {
+int handle_debug_config_command(int a1, int a2) {
   int operation_code; // r0
   uint16_t debug_mask; // r0
   int current_debug_module; // r0
   int debug_module; // r4
 
-  operation_code = parse_uint_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
+  operation_code = parse_int_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
   if ( operation_code )
   {
     if ( operation_code == 1 )
     {
       if ( a1 <= 2 )
         goto LABEL_5;
-      debug_mask = parse_uint_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
+      debug_mask = parse_int_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
       **(volatile uint16_t **)off_12FB8C = debug_mask;
       alloc_tx_event("cfg dbg_msk: 0x%x\n", debug_mask);
       return 0;
@@ -1362,7 +1362,7 @@ LABEL_5:
         alloc_tx_event(aInvalidArgs);
         return 0;
       }
-      debug_module = parse_uint_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
+      debug_module = parse_int_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
       alloc_tx_event("cfg dbg mod: %08X\n", debug_module);
       set_global_field0(debug_module);
       return 0;
@@ -1410,21 +1410,21 @@ int is_compact_mac_string(int a1, int a2) {
   struct __attribute__((packed)) { char a1a[4]; // [sp+8h] [bp-Ch] BYREF
   char v26; // [sp+Ch] [bp-8h]
   } _frame;
-  if ( memcpy_aligned(*(volatile uint32_t *)(a2 + 4)) != 12 || memcpy_aligned(*(volatile uint32_t *)(a2 + 8)) != 12 )
+  if ( strlen(*(volatile uint32_t *)(a2 + 4)) != 12 || strlen(*(volatile uint32_t *)(a2 + 8)) != 12 )
     return -2;
   v3 = *(volatile uint32_t *)(a2 + 4);
   memcpy(_frame.a1a, (volatile char *)(v3 + 8), 4u);
   *(volatile uint8_t *)(v3 + 8) = 0;
   _frame.v26 = 0;
-  mac_upper32 = parse_uint_base((volatile uint8_t *)v3, nullptr, 0x10u);
-  v5 = parse_uint_base((volatile uint8_t *)_frame.a1a, nullptr, 0x10u);
+  mac_upper32 = parse_int_base((volatile uint8_t *)v3, nullptr, 0x10u);
+  v5 = parse_int_base((volatile uint8_t *)_frame.a1a, nullptr, 0x10u);
   v6 = *(volatile uint32_t *)(a2 + 8);
   mac_lower16 = v5;
   memcpy(_frame.a1a, (volatile char *)(v6 + 8), 4u);
   *(volatile uint8_t *)(v6 + 8) = 0;
   _frame.v26 = 0;
-  bssid_upper32 = parse_uint_base((volatile uint8_t *)v6, nullptr, 0x10u);
-  v6 = (v6 & ~0xFFFFu) | ((uint16_t)(parse_uint_base((volatile uint8_t *)_frame.a1a, nullptr, 0x10u)) & 0xFFFFu);
+  bssid_upper32 = parse_int_base((volatile uint8_t *)v6, nullptr, 0x10u);
+  v6 = (v6 & ~0xFFFFu) | ((uint16_t)(parse_int_base((volatile uint8_t *)_frame.a1a, nullptr, 0x10u)) & 0xFFFFu);
   alloc_tx_event(aSetMonitor);
   v9 = (void *)(uintptr_t)(off_12FD18);
   v10 = (void *)(uintptr_t)(off_12FD1C);
@@ -1474,14 +1474,14 @@ int is_compact_mac_string(int a1, int a2) {
 }
 
 
-// parse_format_switch @ 0x12fd64
+// debug_severity_command @ 0x12fd64
 /* luna: Displays the current debug severity when no command is selected, or sets it to a validated index from 0 through 5. */
-int parse_format_switch(int a1, int a2) {
+int debug_severity_command(int a1, int a2) {
   int command; // r0
   int current_severity; // r0
   unsigned int severity_index; // r4
 
-  if ( a1 <= 1 || (command = parse_uint_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0)) == 0 )
+  if ( a1 <= 1 || (command = parse_int_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0)) == 0 )
   {
     current_severity = get_global_field4();
     alloc_tx_event("dbg sev: %d\n", current_severity);
@@ -1495,7 +1495,7 @@ int parse_format_switch(int a1, int a2) {
     }
     else
     {
-      severity_index = parse_uint_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0);
+      severity_index = parse_int_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0);
       if ( severity_index > 5 )
       {
         alloc_tx_event("invalid sev_idx:%d\n", severity_index);
@@ -1523,12 +1523,12 @@ int mode_dispatch(int a1, int a2) {
 
   if ( a1 == 1 )
   {
-    rf_tx_power_lookup();
+    rf_calibration_status_dump();
     return 0;
   }
   else
   {
-    v4 = parse_uint_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0);
+    v4 = parse_int_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0);
     v6 = v4;
     if ( v4 )
       v6 = 1;
@@ -1536,7 +1536,7 @@ int mode_dispatch(int a1, int a2) {
     if ( a1 > 2 )
     {
       v8 = (volatile int *)off_12FE50;
-      v4 = parse_uint_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0);
+      v4 = parse_int_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0);
       if ( v4 > 0x7D0 )
         v8[91] = v4;
     }
@@ -1582,10 +1582,10 @@ int debug_assert() {
   ++*(volatile uint32_t *)off_12FEBC;
   clear_stats_buf(v1);
   clear_stats_buf((volatile uint32_t *)dword_12FEC4);
-  wlan_ioctl_handler_1(dword_12FEC0, (volatile uint32_t *)dword_12FEC8);
-  wlan_ioctl_handler_1(dword_12FEC0, (volatile uint32_t *)dword_12FECC);
-  wlan_ioctl_handler_1(dword_12FEC0, (volatile uint32_t *)dword_12FED0);
-  result = wlan_ioctl_handler_1(dword_12FEC0, (volatile uint32_t *)dword_12FED4);
+  co_list_push_back(dword_12FEC0, (volatile uint32_t *)dword_12FEC8);
+  co_list_push_back(dword_12FEC0, (volatile uint32_t *)dword_12FECC);
+  co_list_push_back(dword_12FEC0, (volatile uint32_t *)dword_12FED0);
+  result = co_list_push_back(dword_12FEC0, (volatile uint32_t *)dword_12FED4);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -1626,7 +1626,7 @@ int lock_with_timeout(int a1) {
   {
     if ( v1 )
     {
-      if ( memcpy_aligned((unsigned int)asc_14B2A4) != v1
+      if ( strlen((unsigned int)asc_14B2A4) != v1
         || strcmp((unsigned int)asc_14B2A4, (volatile unsigned int *)dword_12FFF8) )
       {
         v4 = list_pop(dword_130004);
@@ -1634,7 +1634,7 @@ int lock_with_timeout(int a1) {
         if ( v4 )
         {
           strcpy((unsigned int)(v4 + 1), dword_12FFF8);
-          wlan_ioctl_handler_1(dword_130008, v5);
+          co_list_push_back(dword_130008, v5);
         }
         else
         {

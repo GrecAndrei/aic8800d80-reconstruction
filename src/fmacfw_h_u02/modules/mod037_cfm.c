@@ -115,7 +115,7 @@ LABEL_50:
     v40 = **(volatile int16_t **)off_127504;
     *((volatile uint32_t *)off_127508 + 1) |= 0x100040u;
     if ( v40 < 0 && *(volatile uint32_t *)off_127510 << 28 )
-      mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
+      log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
     v38 = 1;
     *(volatile uint32_t *)off_12750C = *v39 | v39[1];
     v15 = 1;
@@ -149,7 +149,7 @@ LABEL_38:
   v37 = **(volatile int16_t **)off_127504;
   *((volatile uint32_t *)off_127508 + 1) &= 0xFFEFFFBF;
   if ( v37 < 0 && *(volatile uint32_t *)off_127510 << 28 )
-    mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
+    log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
   *(volatile uint32_t *)off_12750C = *v36 | v36[1];
   v38 = 0;
 LABEL_48:
@@ -190,7 +190,7 @@ LABEL_26:
   *((volatile uint32_t *)off_127508 + 1) = v29;
   if ( v28 < 0 && *(volatile uint32_t *)off_127510 << 28 )
   {
-    mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
+    log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_2, 472);
     v29 = v27[1];
   }
   *(volatile uint32_t *)off_12750C = v29 | *v27;
@@ -330,7 +330,7 @@ LABEL_32:
   if ( v27 == 3 )
   {
     alloc_tx_event(aCbSetState, v22);
-    hci_cmd_preprocess(2u, 3);
+    ke_state_set(2u, 3);
     v27 = *(volatile uint8_t *)(v24 + 24);
   }
   if ( v27 <= 2 )
@@ -409,7 +409,7 @@ LABEL_6:
   if ( v12 )
     llc_conn_command((int)(uintptr_t)(v12));
 LABEL_14:
-  wlan_ioctl_handler_1(dword_12774C, v5);
+  co_list_push_back(dword_12774C, v5);
   v13 = v7[10];
   if ( *(volatile uint8_t *)(v13 + 24) > 2u )
     llc_state_reset(v13, 0);
@@ -430,7 +430,7 @@ LABEL_14:
     *(volatile uint32_t *)off_127758 = v19;
     if ( (int)(v16 - v17 - 64) >= 0 )
     {
-      result = mem_copy_util((volatile uint32_t *)dword_12776C, v16);
+      result = mm_timer_set((volatile uint32_t *)dword_12776C, v16);
       if ( *v15 )
       {
         v36 = *v15 - 1;
@@ -483,7 +483,7 @@ int llc_buf_advance(int a1) {
   char v3; // r3
   int v4; // r3
 
-  result = mem_copy_util((void *)(uintptr_t)(a1 + 24), *(volatile uint32_t *)(a1 + 36) + *(volatile uint32_t *)(a1 + 88));
+  result = mm_timer_set((void *)(uintptr_t)(a1 + 24), *(volatile uint32_t *)(a1 + 36) + *(volatile uint32_t *)(a1 + 88));
   v3 = *(volatile uint8_t *)(a1 + 85);
   *(volatile uint8_t *)(a1 + 85) = v3 & 0xDF;
   if ( (v3 & 1) != 0 )
@@ -600,7 +600,7 @@ int llc_env_init() {
     *((volatile uint8_t *)i + 27) = -1;
     if ( v2 <= 2 )
     {
-      wlan_ioctl_handler_1((int)v1, (void *)(i));
+      co_list_push_back((int)v1, (void *)(i));
       goto LABEL_4;
     }
     if ( v2 != 3 )
@@ -614,10 +614,10 @@ LABEL_4:
     goto LABEL_4;
   clear_stats_buf((volatile uint32_t *)dword_127970);
   clear_stats_buf((volatile uint32_t *)dword_127974);
-  wlan_ioctl_handler_1(dword_127970, (volatile uint32_t *)dword_127978);
-  wlan_ioctl_handler_1(dword_127970, (volatile uint32_t *)dword_12797C);
-  wlan_ioctl_handler_1(dword_127970, (volatile uint32_t *)dword_127980);
-  result = wlan_ioctl_handler_1(dword_127970, (volatile uint32_t *)dword_127984);
+  co_list_push_back(dword_127970, (volatile uint32_t *)dword_127978);
+  co_list_push_back(dword_127970, (volatile uint32_t *)dword_12797C);
+  co_list_push_back(dword_127970, (volatile uint32_t *)dword_127980);
+  result = co_list_push_back(dword_127970, (volatile uint32_t *)dword_127984);
   v5 = (void *)(uintptr_t)(off_127968);
   v6 = (void *)(uintptr_t)(off_12798C);
   *((volatile uint32_t *)off_127968 + 13) = off_127988;
@@ -655,9 +655,9 @@ int wifi_disable_get(volatile int16_t *a1, int a2, char a3) {
 
 
 
-// cfm_event_handler @ 0x127a1c
+// cfm_roc_event_handler @ 0x127a1c
 /* luna: Processes remain-on-channel events, updating ROC state, posting IPC notifications, and clearing associated radio state. */
-int cfm_event_handler(volatile uint8_t *a1, int a2) {
+int cfm_roc_event_handler(volatile uint8_t *a1, int a2) {
   volatile uint8_t *roc_context; // r7
   int event_status; // r5
   unsigned int roc_state; // r3
@@ -880,7 +880,7 @@ int wifi_disable_calc(int a1) {
   {
     v5 = 8 * a1;
   }
-  wlan_ioctl_handler_1(dword_127D50, (void *)(chan_ctx));
+  co_list_push_back(dword_127D50, (void *)(chan_ctx));
   v6 = chan_ctx_table + 4 * (v5 - a1);
   result = (int)memset(chan_ctx, 0, 0x1Cu);
   *(volatile uint16_t *)(v6 + 14) = 255;
@@ -1174,7 +1174,7 @@ LABEL_23:
               *(volatile uint32_t *)off_128154 = v18;
               if ( v17 - 64 >= 0 )
               {
-                result = mem_copy_util((void *)(uintptr_t)(dword_128148), v15);
+                result = mm_timer_set((void *)(uintptr_t)(dword_128148), v15);
                 if ( *v14 )
                 {
                   v7 = *v14 - 1;

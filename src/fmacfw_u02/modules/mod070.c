@@ -631,7 +631,7 @@ LABEL_6:
       *(volatile uint8_t *)(v9 + 22) = 0;
       *(volatile uint16_t *)(v9 + 4) = 2;
       v9 += 528;
-      cmd_handler_a(v8, v11);
+      co_list_push_back(v8, v11);
     }
     while ( v9 != v10 );
 LABEL_12:
@@ -645,14 +645,14 @@ LABEL_12:
         if ( *(volatile uint32_t *)(a1 + 92) )
           mmio_clear_register((int)aRmNoMoreMeasur, (int)aRmProcessBeaco, 1585);
       }
-      rx_phy_status_parse(0xBu, 2);
+      ke_state_set(0xBu, 2);
       return ble_ll_adv_sm_check(a1, 0);
     }
-    rx_phy_status_parse(0xBu, 3);
+    ke_state_set(0xBu, 3);
     if ( !ble_ll_adv_chk_active() )
       return ble_ll_adv_sm_check(a1, 0);
   }
-  rx_phy_status_parse(0xBu, 1);
+  ke_state_set(0xBu, 1);
   v14 = *(volatile uint32_t *)(a1 + 96);
   while ( 1 )
   {
@@ -694,7 +694,7 @@ int clear_197750_buffer() {
   int result; // r0
 
   v0 = (volatile int *)dword_140DC0;
-  rx_phy_status_parse(0xBu, 0);
+  ke_state_set(0xBu, 0);
   result = (int)memset(v0, 0, 0x1960u);
   v0[1620] = -1;
   return result;

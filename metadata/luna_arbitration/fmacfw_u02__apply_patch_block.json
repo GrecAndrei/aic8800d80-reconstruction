@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "apply_patch_block",
+ "luna": "fast_sqrt_approx",
+ "doc": "Computes a table-seeded, single-iteration Newton approximation of the square root of the input.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "fast_sqrt_approx",
+   "probabilities": [
+    {
+     "value": "apply_patch_block",
+     "probability": 0.24
+    },
+    {
+     "value": "fast_sqrt_approx",
+     "probability": 0.62
+    },
+    {
+     "value": "neither",
+     "probability": 0.14
+    }
+   ],
+   "confidence": 0.43
+  }
+ ],
+ "status": "ok"
+}

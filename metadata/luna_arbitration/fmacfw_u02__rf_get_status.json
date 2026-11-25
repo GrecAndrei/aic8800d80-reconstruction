@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_get_status",
+ "luna": "rf_check_mac_idle",
+ "doc": "Logs when the MAC state is non-idle; otherwise returns the first argument.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_check_mac_idle",
+   "probabilities": [
+    {
+     "value": "rf_get_status",
+     "probability": 0.44
+    },
+    {
+     "value": "rf_check_mac_idle",
+     "probability": 0.5
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.25
+  }
+ ],
+ "status": "ok"
+}

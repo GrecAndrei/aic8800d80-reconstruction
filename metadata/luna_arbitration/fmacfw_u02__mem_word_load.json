@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "mem_word_load",
+ "luna": "co_list_pop",
+ "doc": "Removes and returns the head node of a linked list, clearing the tail pointer when the list becomes empty.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mem_word_load",
+   "probabilities": [
+    {
+     "value": "mem_word_load",
+     "probability": 0.47
+    },
+    {
+     "value": "co_list_pop",
+     "probability": 0.44
+    },
+    {
+     "value": "neither",
+     "probability": 0.09
+    }
+   ],
+   "confidence": 0.2
+  }
+ ],
+ "status": "ok"
+}

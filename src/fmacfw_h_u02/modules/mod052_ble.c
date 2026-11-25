@@ -134,13 +134,13 @@ LABEL_6:
     ble_ll_conn_rx_update((int)v14, _frame.a2a, a1 + 248);
     goto LABEL_7;
   }
-  v14 = test_arg2_one_12dd78(v10, v12);
+  v14 = find_ht_operation_ie(v10, v12);
   if ( (v13[374] & 6) != 0 )
   {
     _frame.a2a = test_arg2_one_12ddb8(v10, v12);
     if ( !*(volatile uint8_t *)(a1 + 106) )
     {
-      v64 = test_arg2_one_12dae0(v10, v12);
+      v64 = find_tlv_0xc7_len1(v10, v12);
       if ( v64
         && (*(volatile uint32_t *)(dword_133454 + 696 * *(volatile uint8_t *)(a1 + 116) + 4) & 0x24) != 0
         && (v64[2] & 0x80u) == 0 )
@@ -205,7 +205,7 @@ LABEL_116:
   }
   ble_ll_conn_rx_update((int)v14, nullptr, a1 + 248);
 LABEL_7:
-  v15 = (volatile uint8_t *)(uint8_t)handle_ampdu_action((void *)(uintptr_t)((int)v10), v12, _frame.v75, a1 + 1212);
+  v15 = (volatile uint8_t *)(uint8_t)parse_channel_definition((void *)(uintptr_t)((int)v10), v12, _frame.v75, a1 + 1212);
   if ( v15 )
   {
     if ( *(volatile uint8_t *)(a1 + 106) )
@@ -859,7 +859,7 @@ int hci_opcode_check(int a1, int a2) {
     case 16:
     case 48:
       if ( hci_cmd_handler(6u) == 8 )
-        hci_send_vendor_cmd((void *)(uintptr_t)(a2));
+        mac_assoc_rsp_handler((void *)(uintptr_t)(a2));
       break;
     case 192:
     case 160:

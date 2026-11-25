@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "parse_uint_base",
+ "luna": "parse_int_base",
+ "doc": "Parses a signed integer using the requested base, with base zero selecting octal for a leading zero and decimal otherwise, accepts a valid `0x` prefix, and optionally stores the first unconsumed address.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "parse_int_base",
+   "probabilities": [
+    {
+     "value": "parse_uint_base",
+     "probability": 0.12
+    },
+    {
+     "value": "parse_int_base",
+     "probability": 0.88
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.82
+  }
+ ],
+ "status": "ok"
+}

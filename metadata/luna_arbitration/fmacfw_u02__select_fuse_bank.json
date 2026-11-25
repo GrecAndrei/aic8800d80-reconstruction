@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "select_fuse_bank",
+ "luna": "correct_iq_dc_offset",
+ "doc": "Computes the mean signed 12-bit I/Q values across the selected 8192-sample buffer and subtracts those means from the samples in place.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "correct_iq_dc_offset",
+   "probabilities": [
+    {
+     "value": "select_fuse_bank",
+     "probability": 0.02
+    },
+    {
+     "value": "correct_iq_dc_offset",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

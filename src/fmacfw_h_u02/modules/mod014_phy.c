@@ -91,7 +91,7 @@ LABEL_9:
                 {
                   v10 = *(volatile uint16_t *)(v6 + 8);
                   if ( **(volatile int16_t **)dword_11732C < 0 && (v10 & 0x20) == 0 )
-                    return unknown_12f2c8((int)aAggDescStatusA, (int)aTxlFrameExchan_0, 1262);
+                    return log_assert_failure((int)aAggDescStatusA, (int)aTxlFrameExchan_0, 1262);
                   goto LABEL_11;
                 }
               }
@@ -445,7 +445,7 @@ int phy_set_rate_power(int a1, int a2) {
   v10 = (volatile int *)off_11753C;
   ++*(volatile uint32_t *)off_11753C;
   btm_init_conn_entry(a1, a2);
-  wlan_ioctl_handler_1((int)(v4 + 12), (volatile uint32_t *)a1);
+  co_list_push_back((int)(v4 + 12), (volatile uint32_t *)a1);
   is_channel_index_valid(*(volatile uint8_t *)(a1 + 28), *(volatile uint8_t *)(a1 + 29), 0);
   if ( (*(volatile uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((volatile uint32_t *)off_117524 + 126);
@@ -546,7 +546,7 @@ int ke_msg_dispatch(int a1, int a2) {
       v30[2] = a1;
       v30[3] = a1;
     }
-    wlan_ioctl_handler_1((int)(v4 + 12), (volatile uint32_t *)a1);
+    co_list_push_back((int)(v4 + 12), (volatile uint32_t *)a1);
     v17 = *((volatile uint32_t *)off_117760 + 8);
     ++*((volatile uint32_t *)off_117748 + 126);
     if ( v17 )
@@ -668,7 +668,7 @@ int radio_event_handler(int result) {
   v1 = *(volatile uint32_t *)off_11788C;
   if ( (*(volatile uint32_t *)off_11788C & 0x1000) != 0 )
   {
-    result = ((int (*)())dma_clear_interrupt)(result, *(volatile uint32_t *)off_11788C << 19);
+    result = ((int (*)())dma_irq_handler)(result, *(volatile uint32_t *)off_11788C << 19);
     *(volatile uint32_t *)off_1178A0 = 4096;
   }
   v2 = dword_117890;
@@ -1018,9 +1018,9 @@ BOOL compare_short(int a1, int a2) {
 
 
 
-// check_cal_status @ 0x117bf0
+// send_tx_confirmation @ 0x117bf0
 /* luna: When the completion value is negative and the handler is in mode 2, packages the TX status and sequence number into a confirmation event and dispatche */
-int check_cal_status(int result, volatile uint32_t *a2) {
+int send_tx_confirmation(int result, volatile uint32_t *a2) {
   int v2; // r3
   int v3; // r2
   int v4; // r4
@@ -1103,7 +1103,7 @@ int check_cal_status(int result, volatile uint32_t *a2) {
             v19 = *a2 & 0xF;
             ++*(volatile uint32_t *)off_117D80;
             alloc_tx_event("cfms: %x, sn=%d, st=%d\r\n", v4, v18, v19);
-            wlan_ioctl_handler_1(dword_117D88, event_descriptor);
+            co_list_push_back(dword_117D88, event_descriptor);
             result = ((int (*)())rf_is_idle)();
             if ( *v17 )
             {
@@ -1167,7 +1167,7 @@ int register_handler(volatile uint32_t *a1, int a2, int a3) {
   v3 = a1[19];
   v5 = dword_117E04;
   *(volatile uint32_t *)(v3 + 4) = a2;
-  result = wlan_ioctl_handler_1(v5 + 8 * a3, a1);
+  result = co_list_push_back(v5 + 8 * a3, a1);
   if ( (a1[9] & 0x200000) == 0 )
     return irq_disable_global_2(((volatile uint32_t *)(uintptr_t)off_117E08)[a3]);
   return result;

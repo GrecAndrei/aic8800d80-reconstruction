@@ -97,7 +97,7 @@ int is_link_connected(int a1, int a2, int a3) {
   v4 = *((volatile uint16_t *)off_13182C + 4);
   if ( v4 != 255 )
     mac_write_header_word(5146, v4, a3);
-  hci_cmd_preprocess(a3, 0);
+  ke_state_set(a3, 0);
   return 0;
 }
 
@@ -111,7 +111,7 @@ int is_scan_active_1(int a1, int a2, int a3) {
   v4 = *((volatile uint16_t *)off_131884 + 4);
   if ( v4 != 255 )
     mac_write_header_word(5144, v4, a3);
-  hci_cmd_preprocess(a3, 0);
+  ke_state_set(a3, 0);
   return 0;
 }
 
@@ -166,7 +166,7 @@ LABEL_7:
     fallback_pdu_scan_state = *((volatile uint8_t *)controller_state + 376);
   *scan_control_pdu = fallback_pdu_scan_state;
   rx_process_packet_1((int)scan_control_pdu);
-  hci_cmd_preprocess(a3a, 1);
+  ke_state_set(a3a, 1);
   return 0;
 }
 
@@ -455,7 +455,7 @@ LABEL_19:
   *(volatile uint8_t *)(v27 + 688) = 1;
   v30 = (*(volatile uint32_t *)0x40501010u);
   _frame.v76 = v27;
-  mem_copy_util((volatile uint32_t *)(696 * v15 + 672 + dword_131CF0), dword_131D00 + v30);
+  mm_timer_set((volatile uint32_t *)(696 * v15 + 672 + dword_131CF0), dword_131D00 + v30);
   v5[2] = (uint8_t)_frame.result;
   if ( _frame.result )
   {
@@ -688,7 +688,7 @@ int process_hci_command(int a1, int a2, int a3, int a4) {
     v33 = (volatile uint8_t *)tx_send_pdu(49, 0, 5, 1);
     *v33 = v4[376];
     rx_process_packet_1((int)v33);
-    hci_cmd_preprocess(5u, 1);
+    ke_state_set(5u, 1);
   }
   return 0;
 }
@@ -736,7 +736,7 @@ int wait_for_event(int a1, volatile char *a2, int a3, int a4) {
       v11 = (v11 & ~0xFFu) | ((uint8_t)(*((volatile uint8_t *)v7 + 376)) & 0xFFu);
     *v10 = v11;
     rx_process_packet_1((int)v10);
-    hci_cmd_preprocess(5u, 1);
+    ke_state_set(5u, 1);
   }
   mac_write_header_word(5140, a4, a3);
   return 0;
@@ -777,7 +777,7 @@ int send_req_5(int a1, volatile uint8_t *a2, int a3, int a4) {
   v7[4] = a4;
   *v9 = v11 == 0;
   rx_process_packet_1((int)v9);
-  hci_cmd_preprocess(a3, 1);
+  ke_state_set(a3, 1);
   return 0;
 }
 
@@ -785,7 +785,7 @@ int send_req_5(int a1, volatile uint8_t *a2, int a3, int a4) {
 // vendor_platform_init @ 0x132088
 int vendor_platform_init() {
   memset((volatile int *)dword_1320B8, 0, 0x17Cu);
-  hci_cmd_preprocess(5u, 0);
+  ke_state_set(5u, 0);
   clear_shared_mem();
   reset_hci_control_block();
   ble_clear_state();
@@ -830,9 +830,9 @@ volatile char * is_adv_enabled(int a1, int a2) {
 
 
 
-// event_code_to_str @ 0x132104
+// find_channel_info @ 0x132104
 /* luna: Returns the channel-table entry for the requested 2.4- or 5-GHz channel, or NULL if no matching entry exists. */
-volatile char * event_code_to_str(volatile char *result, int a2) {
+volatile char * find_channel_info(volatile char *result, int a2) {
   int target_frequency_mhz; // r1
   volatile char *channel_entry; // r3
   volatile char *channel_table_end; // r4

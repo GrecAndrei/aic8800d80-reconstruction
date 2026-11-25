@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "bsscfg_index",
+ "luna": "bsscfg_link_chanctx",
+ "doc": "Attaches a BSS configuration to a channel context, updating reference state and notifying dependent channel and link subsystems.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "bsscfg_link_chanctx",
+   "probabilities": [
+    {
+     "value": "bsscfg_index",
+     "probability": 0.43
+    },
+    {
+     "value": "bsscfg_link_chanctx",
+     "probability": 0.56
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.34
+  }
+ ],
+ "status": "ok"
+}

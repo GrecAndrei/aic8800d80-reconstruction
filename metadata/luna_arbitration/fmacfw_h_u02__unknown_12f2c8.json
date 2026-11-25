@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "unknown_12f2c8",
+ "luna": "log_assert_failure",
+ "doc": "Emits an ASSERT diagnostic with the failed expression, source file, and line, then performs configured RF and interrupt cleanup.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "log_assert_failure",
+   "probabilities": [
+    {
+     "value": "unknown_12f2c8",
+     "probability": 0.04
+    },
+    {
+     "value": "log_assert_failure",
+     "probability": 0.95
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.93
+  }
+ ],
+ "status": "ok"
+}

@@ -661,7 +661,7 @@ LABEL_48:
     v48 = (volatile int *)off_10D9D8;
     v49 = dword_10D9DC;
     ++*(volatile uint32_t *)off_10D9D8;
-    wlan_ioctl_handler_1(v49, v2);
+    co_list_push_back(v49, v2);
     ((int (*)())rf_is_idle)();
     if ( *v48 )
     {
@@ -1018,8 +1018,8 @@ unsigned int hw_block_disable() {
     ;
   v1[7] = 1;
   v4 = unsigned_int_to_double(v1[4]);
-  v5 = ((uint64_t (*)())double_compare_common)(v4, *(volatile uint64_t *)&dword_10DE88);
-  v6 = ((uint64_t (*)())double_compare_core)(v5, *(volatile uint64_t *)&dword_10DE90);
+  v5 = ((uint64_t (*)())double_multiply)(v4, *(volatile uint64_t *)&dword_10DE88);
+  v6 = ((uint64_t (*)())double_divide)(v5, *(volatile uint64_t *)&dword_10DE90);
   v7 = ((uint64_t (*)())double_compare_neg)(v6, *(volatile uint64_t *)&dword_10DE98);
   return ((int (*)(uint64_t))double_to_int)(v7);
 }
@@ -1062,8 +1062,8 @@ unsigned int hw_poll_status() {
   v0 = (void *)(uintptr_t)(off_10DF68);
   *((volatile uint32_t *)off_10DF68 + 7) = 1;
   v1 = unsigned_int_to_double(v0[4]);
-  v2 = ((uint64_t (*)())double_compare_common)(v1, *(volatile uint64_t *)&dword_10DF50);
-  v3 = ((uint64_t (*)())double_compare_core)(v2, *(volatile uint64_t *)&dword_10DF58);
+  v2 = ((uint64_t (*)())double_multiply)(v1, *(volatile uint64_t *)&dword_10DF50);
+  v3 = ((uint64_t (*)())double_divide)(v2, *(volatile uint64_t *)&dword_10DF58);
   v4 = ((uint64_t (*)())double_compare_neg)(v3, *(volatile uint64_t *)&dword_10DF60);
   return ((int (*)(uint64_t))double_to_int)(v4);
 }
@@ -1106,8 +1106,8 @@ int hw_block_enable() {
     ;
   v0[7] = 1;
   v1 = unsigned_int_to_double(v0[4]);
-  v2 = ((uint64_t (*)())double_compare_common)(v1, *(volatile uint64_t *)&dword_10E070);
-  v3 = ((uint64_t (*)())double_compare_core)(v2, *(volatile uint64_t *)&dword_10E078);
+  v2 = ((uint64_t (*)())double_multiply)(v1, *(volatile uint64_t *)&dword_10E070);
+  v3 = ((uint64_t (*)())double_divide)(v2, *(volatile uint64_t *)&dword_10E078);
   v4 = ((uint64_t (*)())double_compare_neg)(v3, *(volatile uint64_t *)&dword_10E070);
   v5 = ((int (*)(uint64_t))double_to_int)(v4);
   rf_table_update(2);
@@ -1119,28 +1119,28 @@ int hw_block_enable() {
   v7 = v6[4];
   rf_table_update(3);
   v8 = unsigned_int_to_double(v7);
-  v9 = ((uint64_t (*)())double_compare_common)(v8, *(volatile uint64_t *)&dword_10E070);
-  v10 = ((uint64_t (*)())double_compare_core)(v9, *(volatile uint64_t *)&dword_10E078);
+  v9 = ((uint64_t (*)())double_multiply)(v8, *(volatile uint64_t *)&dword_10E070);
+  v10 = ((uint64_t (*)())double_divide)(v9, *(volatile uint64_t *)&dword_10E078);
   v11 = ((uint64_t (*)())double_compare_neg)(v10, *(volatile uint64_t *)&dword_10E070);
   v12 = ((int (*)(uint64_t))double_to_int)(v11);
   v13 = ((uint64_t (*)())float_to_double)(v12);
-  v14 = ((uint64_t (*)())double_compare_core)(v13, *(volatile uint64_t *)&dword_10E080);
+  v14 = ((uint64_t (*)())double_divide)(v13, *(volatile uint64_t *)&dword_10E080);
   v15 = (v15 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E094) << 32);
   v15 = (v15 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v16 = ((uint64_t (*)())double_compare_common)(v14, v15);
+  v16 = ((uint64_t (*)())double_multiply)(v14, v15);
   v17 = ((uint64_t (*)())float_to_double)(v5);
-  v18 = ((uint64_t (*)())double_compare_core)(v17, *(volatile uint64_t *)&dword_10E080);
+  v18 = ((uint64_t (*)())double_divide)(v17, *(volatile uint64_t *)&dword_10E080);
   v19 = (v19 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E098) << 32);
   v19 = (v19 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v20 = ((uint64_t (*)())double_compare_common)(v18, v19);
-  v21 = double_compare_eq(v16, v20);
+  v20 = ((uint64_t (*)())double_multiply)(v18, v19);
+  v21 = double_add(v16, v20);
   v22 = (v22 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E09C) << 32);
   v22 = (v22 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v23 = ((uint64_t (*)())double_compare_common)(v21, v22);
-  v24 = ((uint64_t (*)())double_compare_common)(v23, *(volatile uint64_t *)&dword_10E088);
+  v23 = ((uint64_t (*)())double_multiply)(v21, v22);
+  v24 = ((uint64_t (*)())double_multiply)(v23, *(volatile uint64_t *)&dword_10E088);
   v25 = (v25 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E0A0) << 32);
   v25 = (v25 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v26 = ((uint64_t (*)())double_compare_core)(v24, v25);
+  v26 = ((uint64_t (*)())double_divide)(v24, v25);
   return (int)COERCE_FLOAT(((int (*)(uint64_t))double_to_int)(v26));
 }
 
@@ -1169,22 +1169,22 @@ int hw_ctrl_set() {
     ;
   v0[7] = 1;
   v1 = unsigned_int_to_double(v0[4]);
-  v2 = ((uint64_t (*)())double_compare_common)(v1, *(volatile uint64_t *)&dword_10E130);
-  v3 = ((uint64_t (*)())double_compare_core)(v2, *(volatile uint64_t *)&dword_10E138);
+  v2 = ((uint64_t (*)())double_multiply)(v1, *(volatile uint64_t *)&dword_10E130);
+  v3 = ((uint64_t (*)())double_divide)(v2, *(volatile uint64_t *)&dword_10E138);
   v4 = ((uint64_t (*)())double_compare_neg)(v3, *(volatile uint64_t *)&dword_10E130);
   v5 = ((int (*)(uint64_t))double_to_int)(v4);
   v6 = ((uint64_t (*)())float_to_double)(v5);
-  v7 = ((uint64_t (*)())double_compare_core)(v6, *(volatile uint64_t *)&dword_10E140);
+  v7 = ((uint64_t (*)())double_divide)(v6, *(volatile uint64_t *)&dword_10E140);
   v8 = (v8 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E154) << 32);
   v8 = (v8 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v9 = ((uint64_t (*)())double_compare_common)(v7, v8);
+  v9 = ((uint64_t (*)())double_multiply)(v7, v8);
   v10 = (v10 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E158) << 32);
   v10 = (v10 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v11 = ((uint64_t (*)())double_compare_common)(v9, v10);
-  v12 = ((uint64_t (*)())double_compare_common)(v11, *(volatile uint64_t *)&dword_10E148);
+  v11 = ((uint64_t (*)())double_multiply)(v9, v10);
+  v12 = ((uint64_t (*)())double_multiply)(v11, *(volatile uint64_t *)&dword_10E148);
   v13 = (v13 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E15C) << 32);
   v13 = (v13 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v14 = ((uint64_t (*)())double_compare_core)(v12, v13);
+  v14 = ((uint64_t (*)())double_divide)(v12, v13);
   return (int)COERCE_FLOAT(((int (*)(uint64_t))double_to_int)(v14));
 }
 
@@ -1242,7 +1242,7 @@ int rf_hw_init() {
     ;
   v1[7] = 1;
   v2 = unsigned_int_to_double(v1[4]);
-  v3 = ((uint64_t (*)())double_compare_common)(v2, *(volatile uint64_t *)&dword_10E3D8);
+  v3 = ((uint64_t (*)())double_multiply)(v2, *(volatile uint64_t *)&dword_10E3D8);
   v4 = ((uint64_t (*)())double_compare_neg)(v3, *(volatile uint64_t *)&dword_10E3E0);
   v5 = ((int (*)(uint64_t))double_to_float_1)(v4);
   alloc_tx_event("Initial    Volt:  %d mV\n", v5);
@@ -1254,7 +1254,7 @@ int rf_hw_init() {
   if ( v8 > 49 )
   {
     v10 = signed_int_to_double(v8);
-    v11 = ((uint64_t (*)())double_compare_common)(v10, *(volatile uint64_t *)&dword_10E3E8);
+    v11 = ((uint64_t (*)())double_multiply)(v10, *(volatile uint64_t *)&dword_10E3E8);
     v12 = ((int (*)(uint64_t))double_to_float_1)(v11);
     v13 = v12;
     if ( v7 <= 0 )
@@ -1281,7 +1281,7 @@ int rf_hw_init() {
         ;
       v15[7] = 1;
       v16 = unsigned_int_to_double(v15[4]);
-      v17 = ((uint64_t (*)())double_compare_common)(v16, *(volatile uint64_t *)&dword_10E3D8);
+      v17 = ((uint64_t (*)())double_multiply)(v16, *(volatile uint64_t *)&dword_10E3D8);
       v18 = ((uint64_t (*)())double_compare_neg)(v17, *(volatile uint64_t *)&dword_10E3E0);
       v5 = ((int (*)(uint64_t))double_to_float_1)(v18);
       alloc_tx_event("step=%d, val=%d, volt=%d\n", v13, v14, v5);
@@ -1327,7 +1327,7 @@ LABEL_19:
       ;
     v21[7] = 1;
     v26 = unsigned_int_to_double(v21[4]);
-    v27 = ((uint64_t (*)())double_compare_common)(v26, *(volatile uint64_t *)&dword_10E3D8);
+    v27 = ((uint64_t (*)())double_multiply)(v26, *(volatile uint64_t *)&dword_10E3D8);
     v28 = ((uint64_t (*)())double_compare_neg)(v27, *(volatile uint64_t *)&dword_10E3E0);
     v37 = ((int (*)(uint64_t))double_to_float_1)(v28);
     alloc_tx_event("ofst=%d, val=%d, volt=%d\n", v25, v23, v37);
@@ -1354,7 +1354,7 @@ LABEL_28:
     ;
   v31[7] = 1;
   v32 = unsigned_int_to_double(v31[4]);
-  v33 = ((uint64_t (*)())double_compare_common)(v32, *(volatile uint64_t *)&dword_10E3D8);
+  v33 = ((uint64_t (*)())double_multiply)(v32, *(volatile uint64_t *)&dword_10E3D8);
   v34 = ((uint64_t (*)())double_compare_neg)(v33, *(volatile uint64_t *)&dword_10E3E0);
   v35 = ((int (*)(uint64_t))double_to_float_1)(v34);
   alloc_tx_event("Calibrated Volt:  %d mV\n", v35);
@@ -1419,8 +1419,8 @@ int rf_hw_init_alt() {
     ;
   v0[7] = 1;
   v3 = unsigned_int_to_double(v0[4]);
-  v4 = ((uint64_t (*)())double_compare_common)(v3, *(volatile uint64_t *)&dword_10E6B8);
-  v5 = ((uint64_t (*)())double_compare_core)(v4, *(volatile uint64_t *)&dword_10E6C0);
+  v4 = ((uint64_t (*)())double_multiply)(v3, *(volatile uint64_t *)&dword_10E6B8);
+  v5 = ((uint64_t (*)())double_divide)(v4, *(volatile uint64_t *)&dword_10E6C0);
   v6 = ((uint64_t (*)())double_compare_neg)(v5, *(volatile uint64_t *)&dword_10E6B8);
   v7 = ((int (*)(uint64_t))double_to_float_1)(v6);
   v8 = call_patch_hook_0() & 0x1F;
@@ -1444,7 +1444,7 @@ int rf_hw_init_alt() {
   else
   {
     v11 = signed_int_to_double(v10);
-    v12 = ((uint64_t (*)())double_compare_common)(v11, *(volatile uint64_t *)&dword_10E6C8);
+    v12 = ((uint64_t (*)())double_multiply)(v11, *(volatile uint64_t *)&dword_10E6C8);
     v13 = ((int (*)(uint64_t))double_to_float_1)(v12);
     v14 = v13;
     if ( v9 <= 0 )
@@ -1474,8 +1474,8 @@ int rf_hw_init_alt() {
       ;
     v16[7] = 1;
     v17 = unsigned_int_to_double(v16[4]);
-    v18 = ((uint64_t (*)())double_compare_common)(v17, *(volatile uint64_t *)&dword_10E6B8);
-    v19 = ((uint64_t (*)())double_compare_core)(v18, *(volatile uint64_t *)&dword_10E6C0);
+    v18 = ((uint64_t (*)())double_multiply)(v17, *(volatile uint64_t *)&dword_10E6B8);
+    v19 = ((uint64_t (*)())double_divide)(v18, *(volatile uint64_t *)&dword_10E6C0);
     v20 = ((uint64_t (*)())double_compare_neg)(v19, *(volatile uint64_t *)&dword_10E6B8);
     v7 = ((int (*)(uint64_t))double_to_float_1)(v20);
     alloc_tx_event("step=%d, val=%x, volt=%d\n", v14, v15, v7);
@@ -1504,8 +1504,8 @@ int rf_hw_init_alt() {
       ;
     v23[7] = 1;
     v27 = unsigned_int_to_double(v23[4]);
-    v28 = ((uint64_t (*)())double_compare_common)(v27, *(volatile uint64_t *)&dword_10E6B8);
-    v29 = ((uint64_t (*)())double_compare_core)(v28, *(volatile uint64_t *)&dword_10E6C0);
+    v28 = ((uint64_t (*)())double_multiply)(v27, *(volatile uint64_t *)&dword_10E6B8);
+    v29 = ((uint64_t (*)())double_divide)(v28, *(volatile uint64_t *)&dword_10E6C0);
     v30 = ((uint64_t (*)())double_compare_neg)(v29, *(volatile uint64_t *)&dword_10E6B8);
     v31 = ((int (*)(uint64_t))double_to_float_1)(v30);
     alloc_tx_event("ofst=%d, val=%x, volt=%d\n", v9, v24, v31);
@@ -1531,21 +1531,21 @@ LABEL_33:
     ;
   v34[7] = 1;
   v35 = unsigned_int_to_double(v34[4]);
-  v36 = ((uint64_t (*)())double_compare_common)(v35, *(volatile uint64_t *)&dword_10E6B8);
-  v37 = ((uint64_t (*)())double_compare_core)(v36, *(volatile uint64_t *)&dword_10E6C0);
+  v36 = ((uint64_t (*)())double_multiply)(v35, *(volatile uint64_t *)&dword_10E6B8);
+  v37 = ((uint64_t (*)())double_divide)(v36, *(volatile uint64_t *)&dword_10E6C0);
   v38 = ((uint64_t (*)())double_compare_neg)(v37, *(volatile uint64_t *)&dword_10E6B8);
   v39 = ((int (*)(uint64_t))double_to_float_1)(v38);
   debug_printf("Calib vcore Volt: %d mV\n", v39);
   result = ((volatile uint32_t *)(uintptr_t)off_10E6F8)[94];
   if ( result != 0x80000000 )
-    return timer_get_raw(result);
+    return sdio_set_phase_config(result);
   return result;
 }
 
 
-// gpio_mode_set @ 0x10e6fc
+// rf_pa_current_calibrate @ 0x10e6fc
 /* luna: Tunes the RF resistor and CGM codes toward the target PA current, returns the signed adjustment count, and stores the final CGM code through the outpu */
-int gpio_mode_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
+int rf_pa_current_calibrate(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
   unsigned int cgm_code; // r4
   volatile unsigned int *v4; // r6
   volatile unsigned int *v5; // r5
@@ -1783,7 +1783,7 @@ int rf_gpio_init(int a1) {
   *v7 |= 0x100000u;
   *v7 |= 0x200000u;
   *v7 |= 0x400000u;
-  result = gpio_mode_set(4u, 8u, (volatile unsigned int *)a1);
+  result = rf_pa_current_calibrate(4u, 8u, (volatile unsigned int *)a1);
   *v5 &= ~0x80000000;
   *v4 &= ~2u;
   *v7 = v10 & 0x80000 | *v7 & 0xFFF7FFFF;

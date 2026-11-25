@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "enable_radio_controller",
+ "luna": "calibrate_mdll_duty_cycle",
+ "doc": "Sweeps the MDLL feedback control to derive a duty setting and stores the result for the selected clock mode.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "calibrate_mdll_duty_cycle",
+   "probabilities": [
+    {
+     "value": "enable_radio_controller",
+     "probability": 0.03
+    },
+    {
+     "value": "calibrate_mdll_duty_cycle",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mmio_set_register_bit",
+ "luna": "set_mmio_bit7",
+ "doc": "Sets bit 7 in a fixed memory-mapped 32-bit register.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_mmio_bit7",
+   "probabilities": [
+    {
+     "value": "mmio_set_register_bit",
+     "probability": 0.34
+    },
+    {
+     "value": "set_mmio_bit7",
+     "probability": 0.65
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.48
+  }
+ ],
+ "status": "ok"
+}

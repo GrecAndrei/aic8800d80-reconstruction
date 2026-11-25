@@ -294,14 +294,14 @@ int conn_table_get(int a1, char a2) {
   v4 = 696 * *(volatile uint8_t *)(a1 + 29);
   *(volatile uint8_t *)(a1 + 27) = a2;
   *(volatile uint8_t *)(a1 + 97) = 1;
-  wlan_ioctl_handler_1(v4 + 572 + v2, (volatile uint32_t *)a1);
+  co_list_push_back(v4 + 572 + v2, (volatile uint32_t *)a1);
   return lookup_conn_params(a1, v2 + v4);
 }
 
 
-// rf_switch_case @ 0x116574
+// tx_queue_set_head @ 0x116574
 /* luna: Sets the hardware head pointer for the selected access-category TX queue and kicks that queue. */
-int rf_switch_case(int a1, int a2) {
+int tx_queue_set_head(int a1, int a2) {
   volatile uint32_t *v3; // r3
   volatile unsigned int v4; // r2
   volatile int *v5; // r0
@@ -357,7 +357,7 @@ LABEL_12:
         *v15 = 512;
         goto LABEL_4;
       }
-      result = unknown_12f2c8((int)aNxmacTxAc0Stat, (int)aTxlCntrlNewhea, 1919);
+      result = log_assert_failure((int)aNxmacTxAc0Stat, (int)aTxlCntrlNewhea, 1919);
       break;
     case 1:
       if ( ((*(volatile uint32_t *)off_116800 >> 8) & 3) != 2 )
@@ -379,7 +379,7 @@ LABEL_14:
         *v16 = 1024;
         goto LABEL_4;
       }
-      result = unknown_12f2c8((int)aNxmacTxAc1Stat, (int)aTxlCntrlNewhea, 1907);
+      result = log_assert_failure((int)aNxmacTxAc1Stat, (int)aTxlCntrlNewhea, 1907);
       break;
     case 2:
       if ( ((*(volatile uint32_t *)off_116800 >> 12) & 3) != 2 )
@@ -401,7 +401,7 @@ LABEL_16:
         *v17 = 2048;
         goto LABEL_4;
       }
-      result = unknown_12f2c8((int)aNxmacTxAc2Stat, (int)aTxlCntrlNewhea, 1895);
+      result = log_assert_failure((int)aNxmacTxAc2Stat, (int)aTxlCntrlNewhea, 1895);
       break;
     case 3:
       if ( (HIWORD(*(volatile uint32_t *)off_116800) & 3) != 2 )
@@ -423,7 +423,7 @@ LABEL_18:
         *v18 = 4096;
         goto LABEL_4;
       }
-      result = unknown_12f2c8((int)aNxmacTxAc3Stat, (int)aTxlCntrlNewhea, 1883);
+      result = log_assert_failure((int)aNxmacTxAc3Stat, (int)aTxlCntrlNewhea, 1883);
       break;
     case 4:
       if ( **(volatile int16_t **)off_116838 >= 0 || (*(volatile uint32_t *)off_116800 & 3) != 2 )
@@ -433,7 +433,7 @@ LABEL_18:
         *v19 = 256;
         goto LABEL_4;
       }
-      result = unknown_12f2c8((int)aNxmacTxBcnStat, (int)aTxlCntrlNewhea, 1871);
+      result = log_assert_failure((int)aNxmacTxBcnStat, (int)aTxlCntrlNewhea, 1871);
       break;
     case 5:
       if ( (HIBYTE(*(volatile uint32_t *)off_116800) & 3) != 2 )
@@ -455,7 +455,7 @@ LABEL_3:
         *v3 = 0x4000;
         goto LABEL_4;
       }
-      result = unknown_12f2c8((int)aNxmacTxHiState, (int)aTxlCntrlNewhea, 1931);
+      result = log_assert_failure((int)aNxmacTxHiState, (int)aTxlCntrlNewhea, 1931);
       break;
     default:
       if ( **(volatile int16_t **)off_116838 < 0 )
@@ -513,7 +513,7 @@ int phy_set_cfg(int result, int a2, int a3) {
     v6 = (volatile int *)(dword_116958 + 84 * a3);
   v7 = *v6;
   if ( **(volatile int16_t **)off_11695C < 0 && v7 == result )
-    return unknown_12f2c8((int)aPrevHdFirstThd, (int)aTxlFrameExchan, 1972);
+    return log_assert_failure((int)aPrevHdFirstThd, (int)aTxlFrameExchan, 1972);
   if ( v7 )
   {
     v8 = (void *)(uintptr_t)(off_116970);
@@ -541,7 +541,7 @@ int phy_set_cfg(int result, int a2, int a3) {
   }
   else
   {
-    result = rf_switch_case(v4, a3);
+    result = tx_queue_set_head(v4, a3);
     v9 = *(volatile uint8_t *)(*(volatile uint32_t *)off_116970 + 1);
   }
   if ( !v9 )

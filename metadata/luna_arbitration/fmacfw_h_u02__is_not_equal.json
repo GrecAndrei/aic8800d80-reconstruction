@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "is_not_equal",
+ "luna": "float_equal",
+ "doc": "Returns whether two single-precision floating-point values are equal.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_equal",
+   "probabilities": [
+    {
+     "value": "is_not_equal",
+     "probability": 0.38
+    },
+    {
+     "value": "float_equal",
+     "probability": 0.53
+    },
+    {
+     "value": "neither",
+     "probability": 0.09
+    }
+   ],
+   "confidence": 0.3
+  }
+ ],
+ "status": "ok"
+}

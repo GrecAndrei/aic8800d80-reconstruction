@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_calibration_proc",
+ "luna": "test_command_queue_process",
+ "doc": "Drains queued console commands, validates their argument counts against command descriptors, invokes the matching handlers, and releases each processed command buffer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "test_command_queue_process",
+   "probabilities": [
+    {
+     "value": "rf_calibration_proc",
+     "probability": 0.01
+    },
+    {
+     "value": "test_command_queue_process",
+     "probability": 0.99
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "status": "ok"
+}

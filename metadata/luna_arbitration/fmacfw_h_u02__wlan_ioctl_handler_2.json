@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "wlan_ioctl_handler_2",
+ "luna": "list_push",
+ "doc": "Prepends a node to a singly linked list and sets the tail when the list was empty.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "list_push",
+   "probabilities": [
+    {
+     "value": "wlan_ioctl_handler_2",
+     "probability": 0.19
+    },
+    {
+     "value": "list_push",
+     "probability": 0.77
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.66
+  }
+ ],
+ "status": "ok"
+}

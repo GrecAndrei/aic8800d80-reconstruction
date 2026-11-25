@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_read_status",
+ "luna": "wlan_usb_rx_dispatch",
+ "doc": "Validates received USB wireless frames and dispatches advertising reports or queues WLAN messages for ioctl handling.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "wlan_usb_rx_dispatch",
+   "probabilities": [
+    {
+     "value": "rf_read_status",
+     "probability": 0.22
+    },
+    {
+     "value": "wlan_usb_rx_dispatch",
+     "probability": 0.78
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.67
+  }
+ ],
+ "status": "ok"
+}

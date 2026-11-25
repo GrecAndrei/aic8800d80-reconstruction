@@ -8,7 +8,7 @@ int bt_feature_check_1() {
   else
   {
     if ( **(volatile int16_t **)off_140324 < 0 )
-      mmio_write_field(dword_14032C, dword_140328, 157);
+      log_warning(dword_14032C, dword_140328, 157);
     return 0;
   }
 }
@@ -25,7 +25,7 @@ int bt_feature_check_4() {
   else
   {
     if ( **(volatile int16_t **)off_140364 < 0 )
-      mmio_write_field(dword_14036C, dword_140368, 129);
+      log_warning(dword_14036C, dword_140368, 129);
     return 0;
   }
 }
@@ -300,7 +300,7 @@ volatile uint32_t * acl_tx_setup(int a1, int a2, int a3, int a4) {
               {
 LABEL_90:
                 if ( **(volatile int16_t **)off_140990 < 0 )
-                  mmio_write_field(dword_1409A0, dword_14099C, 1043);
+                  log_warning(dword_1409A0, dword_14099C, 1043);
               }
             }
             else if ( v35 <= 0xDu )
@@ -484,7 +484,7 @@ LABEL_14:
     while ( !bt_global_state_read() && v21 > 4 );
     v4 = v66;
     if ( **(volatile int16_t **)off_140724 < 0 && !v62 )
-      mmio_write_field(dword_140734, dword_14072C, 1298);
+      log_warning(dword_140734, dword_14072C, 1298);
     v14 = v62 + v64;
   }
   result = *(volatile uint32_t **)(v4 + 76);
@@ -632,7 +632,7 @@ LABEL_6:
       *(volatile uint8_t *)(v9 + 22) = 0;
       *(volatile uint16_t *)(v9 + 4) = 2;
       v9 += 528;
-      wlan_ioctl_handler_1(v8, v11);
+      co_list_push_back(v8, v11);
     }
     while ( v9 != v10 );
 LABEL_12:
@@ -646,18 +646,18 @@ LABEL_12:
         if ( *(volatile uint32_t *)(a1 + 92) )
           irq_disable_mmio_write((int)aRmNoMoreMeasur, (int)aRmProcessBeaco, 1585);
       }
-      hci_cmd_preprocess(0xBu, 2);
+      ke_state_set(0xBu, 2);
       return bt_ll_state_check(a1, 0);
     }
-    hci_cmd_preprocess(0xBu, 3);
+    ke_state_set(0xBu, 3);
     if ( !bt_global_state_read() )
       return bt_ll_state_check(a1, 0);
   }
-  hci_cmd_preprocess(0xBu, 1);
+  ke_state_set(0xBu, 1);
   v14 = *(volatile uint32_t *)(a1 + 96);
   while ( 1 )
   {
-    v16 = event_code_to_str((volatile char *)*(volatile uint8_t *)(a1 + 100), *(volatile uint8_t *)(v14 + a1 + 102));
+    v16 = find_channel_info((volatile char *)*(volatile uint8_t *)(a1 + 100), *(volatile uint8_t *)(v14 + a1 + 102));
     v17 = v16;
     if ( v16 )
     {
@@ -696,7 +696,7 @@ int clear_tx_buf() {
   int result; // r0
 
   tx_buffer = (volatile int *)dword_140C80;
-  hci_cmd_preprocess(0xBu, 0);
+  ke_state_set(0xBu, 0);
   result = (int)memset(tx_buffer, 0, 0x1960u);
   tx_buffer[1620] = -1;
   return result;

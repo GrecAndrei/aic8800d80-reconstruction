@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "mmio_set_flag",
+ "luna": "rf_process_calibration",
+ "doc": "Runs an RF calibration scan or buffer-staging path, optionally calibrates power and processes the result, then updates calibration control registers.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_process_calibration",
+   "probabilities": [
+    {
+     "value": "mmio_set_flag",
+     "probability": 0.48
+    },
+    {
+     "value": "rf_process_calibration",
+     "probability": 0.51
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.27
+  }
+ ],
+ "status": "ok"
+}

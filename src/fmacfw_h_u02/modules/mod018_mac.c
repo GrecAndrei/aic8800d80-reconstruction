@@ -498,11 +498,11 @@ int tx_status_check(int result, int a2) {
       v4 = *(volatile uint32_t *)(v3 + 20) & 0xFFFE3FFF | 0x4000;
       *(volatile uint32_t *)(result + 60) = 0;
       *(volatile uint32_t *)(v3 + 20) = v4;
-      return rf_switch_case(result, a2);
+      return tx_queue_set_head(result, a2);
     }
     else
     {
-      return unknown_12f2c8((int)aAThdStatusRetr, (int)aTxlAggCheckRts, 3371);
+      return log_assert_failure((int)aAThdStatusRetr, (int)aTxlAggCheckRts, 3371);
     }
   }
   return result;
@@ -524,7 +524,7 @@ int get_conn_env(int result) {
     v4 = result;
     *(volatile uint8_t *)(v2 + 14) = v3;
     if ( !v3 )
-      wlan_ioctl_handler_1(*(volatile uint32_t *)(v2 + 340), (volatile uint32_t *)v2);
+      co_list_push_back(*(volatile uint32_t *)(v2 + 340), (volatile uint32_t *)v2);
     *(volatile uint32_t *)(v1 + 84 * v4 + 40) = 0;
     return 84;
   }
@@ -605,7 +605,7 @@ int rx_packet_parse(volatile uint32_t *a1, int a2) {
     *(volatile uint32_t *)a2 = v29;
     if ( v30 < 0 )
     {
-      wlan_ioctl_handler_1(*(volatile uint32_t *)(v2 + 340), (volatile uint32_t *)v2);
+      co_list_push_back(*(volatile uint32_t *)(v2 + 340), (volatile uint32_t *)v2);
       return *(volatile uint32_t *)a2;
     }
     return v5;
@@ -748,7 +748,7 @@ LABEL_20:
   {
     v43 = dword_11AB04;
   }
-  wlan_ioctl_handler_1(*(volatile uint32_t *)(v12 + 340), (volatile uint32_t *)v12);
+  co_list_push_back(*(volatile uint32_t *)(v12 + 340), (volatile uint32_t *)v12);
 LABEL_41:
   v44 = 0;
   v45 = v43 + 84 * _frame.v52;

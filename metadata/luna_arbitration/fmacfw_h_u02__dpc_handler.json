@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "dpc_handler",
+ "luna": "mac_rx_dpc_handler",
+ "doc": "Decodes a pending received 802.11 frame into shared RX metadata, or services a Bluetooth RX request when no Wi-Fi frame is pending.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mac_rx_dpc_handler",
+   "probabilities": [
+    {
+     "value": "dpc_handler",
+     "probability": 0.1
+    },
+    {
+     "value": "mac_rx_dpc_handler",
+     "probability": 0.9
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.85
+  }
+ ],
+ "status": "ok"
+}

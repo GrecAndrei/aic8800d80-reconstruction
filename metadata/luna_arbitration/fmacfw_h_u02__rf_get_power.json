@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_get_power",
+ "luna": "log_rx_eapol_if_present",
+ "doc": "Computes the frame EtherType offset and emits an RX-EAPOL diagnostic when it finds 0x888E.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "log_rx_eapol_if_present",
+   "probabilities": [
+    {
+     "value": "rf_get_power",
+     "probability": 0.13
+    },
+    {
+     "value": "log_rx_eapol_if_present",
+     "probability": 0.81
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.72
+  }
+ ],
+ "status": "ok"
+}

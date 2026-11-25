@@ -467,13 +467,13 @@ LABEL_19:
     while ( v21 );
     goto LABEL_13;
   }
-  if ( (unsigned int)read_u32((volatile uint32_t **)dword_10DAF8) <= 4 )
+  if ( (unsigned int)list_count((volatile uint32_t **)dword_10DAF8) <= 4 )
   {
     if ( **(volatile uint8_t **)off_10DAEC == 2 )
     {
       if ( **v16 != 3 )
       {
-        if ( (unsigned int)read_u32((volatile uint32_t **)dword_10DAF8) > 4 )
+        if ( (unsigned int)list_count((volatile uint32_t **)dword_10DAF8) > 4 )
         {
           v57 = aOtherErr;
           v58 = (void *)(uintptr_t)(off_10DAE0);
@@ -659,7 +659,7 @@ LABEL_48:
     v48 = (volatile int *)off_10DB18;
     v49 = dword_10DB1C;
     ++*(volatile uint32_t *)off_10DB18;
-    cmd_handler_a(v49, v2);
+    co_list_push_back(v49, v2);
     check_init_flag();
     if ( *v48 )
     {
@@ -869,9 +869,9 @@ int gpio_configure_pin(int result, int a2, int a3) {
 
 
 
-// util_get_struct_offset @ 0x10de08
+// gpio_write_bit2_from_flag @ 0x10de08
 /* luna: Mirrors a global boolean control byte onto GPIO bit 2, setting the bit when the byte is nonzero and clearing it otherwise. */
-int util_get_struct_offset() {
+int gpio_write_bit2_from_flag() {
   if ( *((volatile uint8_t *)off_10DE1C + 369) )
     return gpio_set_bit(2);
   else
@@ -880,9 +880,9 @@ int util_get_struct_offset() {
 
 
 
-// util_get_struct_offset_alt @ 0x10de20
+// gpio_sync_pin1_with_flag @ 0x10de20
 /* luna: Drives GPIO pin 1 high when the global byte flag is nonzero and low otherwise. */
-int util_get_struct_offset_alt() {
+int gpio_sync_pin1_with_flag() {
   if ( *((volatile uint8_t *)off_10DE34 + 369) )
     return gpio_set_bit(1);
   else
@@ -1364,9 +1364,9 @@ LABEL_28:
 }
 
 
-// rf_event_handler_alt @ 0x10e560
+// rf_core_voltage_calibrate @ 0x10e560
 /* luna: Calibrates the RF core supply toward 840 mV by measuring its voltage and adjusting the trim code. */
-int rf_event_handler_alt() {
+int rf_core_voltage_calibrate() {
   volatile uint32_t *v0; // r1
   int v1; // r3
   int v2; // r2
@@ -1541,7 +1541,7 @@ LABEL_33:
   log_printf("Calib vcore Volt: %d mV\n", v39);
   result = ((volatile uint32_t *)(uintptr_t)off_10E838)[94];
   if ( result != 0x80000000 )
-    return read_random_from_mmio(result);
+    return set_sdio_phase_config(result);
   return result;
 }
 

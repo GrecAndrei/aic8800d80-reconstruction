@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "check_cal_status",
+ "luna": "send_tx_confirmation",
+ "doc": "When the completion value is negative and the handler is in mode 2, packages the TX status and sequence number into a confirmation event and dispatches it.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "send_tx_confirmation",
+   "probabilities": [
+    {
+     "value": "check_cal_status",
+     "probability": 0.17
+    },
+    {
+     "value": "send_tx_confirmation",
+     "probability": 0.82
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.73
+  }
+ ],
+ "status": "ok"
+}

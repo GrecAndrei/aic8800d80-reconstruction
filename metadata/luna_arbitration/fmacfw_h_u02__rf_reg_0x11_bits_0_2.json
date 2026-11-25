@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_reg_0x11_bits_0_2",
+ "luna": "rf_get_reg_0x11_bits_0_2",
+ "doc": "Returns bits 0\u20132 of RF register 0x11 using a ROM API call.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_get_reg_0x11_bits_0_2",
+   "probabilities": [
+    {
+     "value": "rf_reg_0x11_bits_0_2",
+     "probability": 0.32
+    },
+    {
+     "value": "rf_get_reg_0x11_bits_0_2",
+     "probability": 0.67
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.51
+  }
+ ],
+ "status": "ok"
+}

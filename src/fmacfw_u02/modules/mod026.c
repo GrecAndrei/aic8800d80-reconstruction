@@ -1141,16 +1141,16 @@ LABEL_43:
 // radio_is_ready @ 0x1210b4
 int radio_is_ready() {
   if ( rx_rate_field_parse(0) != 1 )
-    return rx_phy_status_parse(0, 0);
+    return ke_state_set(0, 0);
   *(volatile uint32_t *)off_1210E0 = 48;
-  return rx_phy_status_parse(0, 1);
+  return ke_state_set(0, 1);
 }
 
 
 // set_clock_divisor @ 0x1210e4
 int set_clock_divisor() {
   *(volatile uint32_t *)off_1210F4 = 48;
-  return rx_phy_status_parse(0, 1);
+  return ke_state_set(0, 1);
 }
 
 
@@ -1610,7 +1610,7 @@ volatile uint32_t * get_core_rev(int a1) {
 int delay_and_clear_flag() {
   unknown_func_12d14c(0x2000000);
   *((volatile uint32_t *)off_121784 + 1) &= ~4u;
-  return rx_phy_status_parse(0, 0);
+  return ke_state_set(0, 0);
 }
 
 

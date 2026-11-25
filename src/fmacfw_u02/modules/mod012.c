@@ -294,14 +294,14 @@ int phy_ctx_get_by_index(int a1, char a2) {
   v4 = 696 * *(volatile uint8_t *)(a1 + 29);
   *(volatile uint8_t *)(a1 + 27) = a2;
   *(volatile uint8_t *)(a1 + 97) = 1;
-  cmd_handler_a(v4 + 572 + v2, (volatile uint32_t *)a1);
+  co_list_push_back(v4 + 572 + v2, (volatile uint32_t *)a1);
   return tx_handle_pending_flag(a1, v2 + v4);
 }
 
 
-// radio_band_validate @ 0x1166b4
+// tx_queue_set_new_head @ 0x1166b4
 /* luna: Stores a new TX-list head for the selected access category and signals the corresponding hardware queue after checking its status. */
-int radio_band_validate(int a1, int a2) {
+int tx_queue_set_new_head(int a1, int a2) {
   volatile uint32_t *v3; // r3
   volatile unsigned int v4; // r2
   volatile int *v5; // r0
@@ -541,7 +541,7 @@ int radio_channel_validate(int result, int a2, int a3) {
   }
   else
   {
-    result = radio_band_validate(v4, a3);
+    result = tx_queue_set_new_head(v4, a3);
     v9 = *(volatile uint8_t *)(*(volatile uint32_t *)off_116AB0 + 1);
   }
   if ( !v9 )

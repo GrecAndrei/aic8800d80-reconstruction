@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_event_handler",
+ "luna": "rf_voltage_calibrate",
+ "doc": "Measures the RF voltage and iteratively adjusts its control setting toward a 1.4-V target.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_voltage_calibrate",
+   "probabilities": [
+    {
+     "value": "rf_event_handler",
+     "probability": 0.35
+    },
+    {
+     "value": "rf_voltage_calibrate",
+     "probability": 0.65
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.48
+  }
+ ],
+ "status": "ok"
+}

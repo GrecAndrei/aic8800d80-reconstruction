@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_reg_0x11_bits_6_8",
+ "luna": "rf_get_reg_0x11_bits_6_8",
+ "doc": "Returns bits 6\u20138 of RF register 0x11.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_reg_0x11_bits_6_8",
+   "probabilities": [
+    {
+     "value": "rf_reg_0x11_bits_6_8",
+     "probability": 0.52
+    },
+    {
+     "value": "rf_get_reg_0x11_bits_6_8",
+     "probability": 0.48
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.28
+  }
+ ],
+ "status": "ok"
+}

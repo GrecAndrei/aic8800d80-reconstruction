@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "start_arm_boot",
+ "luna": "dump_tone_type3",
+ "doc": "Configures and runs the hardware sequence for a type-3 tone dump, waits for completion, then restores and clears the associated control registers.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "dump_tone_type3",
+   "probabilities": [
+    {
+     "value": "start_arm_boot",
+     "probability": 0.04
+    },
+    {
+     "value": "dump_tone_type3",
+     "probability": 0.96
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.94
+  }
+ ],
+ "status": "ok"
+}

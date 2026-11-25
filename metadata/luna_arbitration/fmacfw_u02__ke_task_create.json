@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "ke_task_create",
+ "luna": "ke_timer_set",
+ "doc": "Creates or updates a kernel timer keyed by timer ID and task ID, reorders it by expiry time, and reschedules the timer event when the queue head changes.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_timer_set",
+   "probabilities": [
+    {
+     "value": "ke_task_create",
+     "probability": 0.16
+    },
+    {
+     "value": "ke_timer_set",
+     "probability": 0.83
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.74
+  }
+ ],
+ "status": "ok"
+}

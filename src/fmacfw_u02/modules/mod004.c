@@ -3028,7 +3028,7 @@ LABEL_80:
         {
           v129 = *(volatile uint16_t *)(HIDWORD(v102) + 2);
           v102 = (v102 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v102 >> 32) & 0xFFFFFFFFu) + (uint32_t)(2))) << 32;;
-          compare_memory_ranges(v129, v103, (int)_frame.v180);
+          rf_update_am_back_power_diff(v129, v103, (int)_frame.v180);
           v130 = HIDWORD(_frame.v183);
           *v128++ = _frame.v181;
           v102 = (v102 & ~0xFFFFFFFFull) | ((uint32_t)(v102 + 1) & 0xFFFFFFFFu);
@@ -3052,7 +3052,7 @@ LABEL_80:
         {
           v126 = *v125++;
           check_status_bits(1, "pwr_amp_back[1][%d]=%d ", HIDWORD(v102), v126);
-          compare_memory_ranges(v126, v104, (int)_frame.v180);
+          rf_update_am_back_power_diff(v126, v104, (int)_frame.v180);
           v127 = HIDWORD(_frame.v185);
           *(volatile float *)v102 = _frame.v181;
           v102 = (v102 & ~0xFFFFFFFFull) | ((uint32_t)(v102 + 4) & 0xFFFFFFFFu);
@@ -3077,7 +3077,7 @@ LABEL_80:
           v109 = (int16_t)*(volatile uint16_t *)HIDWORD(v102);
           v102 = (v102 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v102 >> 32) & 0xFFFFFFFFu) + (uint32_t)(2))) << 32;;
           check_status_bits(1, "pwr_amp_back[2][%d]=%d ", (uint32_t)v102, v109);
-          compare_memory_ranges(v109, v105, (int)_frame.v180);
+          rf_update_am_back_power_diff(v109, v105, (int)_frame.v180);
           v110 = HIDWORD(_frame.v185);
           *v108++ = _frame.v181;
           v102 = (v102 & ~0xFFFFFFFFull) | ((uint32_t)(v102 + 1) & 0xFFFFFFFFu);
@@ -3152,7 +3152,7 @@ LABEL_80:
             if ( _frame.v151 == v112 )
             {
               check_status_bits(1, aMinDiffCal);
-              compare_memory_ranges(_frame.v182, *(volatile uint8_t *)off_10BF70, (int)_frame.v180);
+              rf_update_am_back_power_diff(_frame.v182, *(volatile uint8_t *)off_10BF70, (int)_frame.v180);
               v111 = _frame.v181;
             }
           }
@@ -3174,7 +3174,7 @@ LABEL_108:
         }
         check_status_bits(1, aPwrReCal);
         rf_phy_regs_read_cal(*v119, (int)_frame.v180, _frame.a3a, 1, _frame.v167, 0, 0, 0);
-        compare_memory_ranges(_frame.v180[15], v103, (int)_frame.v180);
+        rf_update_am_back_power_diff(_frame.v180[15], v103, (int)_frame.v180);
         v121 = _frame.v181;
         check_status_bits(1, "pwr_th*100=%-5d pwr_act*100=%-5d ", 100 * v71, (int)(float)(_frame.v181 * v22));
         _frame.v169 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT((float)v71 - v121));
@@ -3728,7 +3728,7 @@ int memory_buffer_alloc(char a1) {
       v15 = dword_10CAC4;
       v16 = &v2[20 * v8];
       *((volatile uint32_t *)v16 + 1) = (int)(uintptr_t)((volatile char *)v12 + *(volatile uint32_t *)(uintptr_t)(off_10CAC0));
-      cmd_handler_a(v15, (void *)(v16));
+      co_list_push_back(v15, (void *)(v16));
       if ( !*(volatile uint32_t *)(v1 + 636) )
         goto LABEL_13;
     }
@@ -4159,8 +4159,8 @@ LABEL_59:
       }
     }
     v49 = v44;
-    v48 = read_u32((volatile uint32_t **)dword_10D188);
-    v47 = read_u32((volatile uint32_t **)dword_10D18C);
+    v48 = list_count((volatile uint32_t **)dword_10D188);
+    v47 = list_count((volatile uint32_t **)dword_10D18C);
     log_printf("err!!! ipc msg no buffer for usb in %d, free %d, %d\r\n", v48, v47, v49);
     return (void *)(uintptr_t)(branch_to_12cbc8((int)(uintptr_t)((volatile char *)a1)));
   }
@@ -4254,7 +4254,7 @@ LABEL_16:
       v25 = (volatile int *)off_10D0C4;
       v26 = dword_10D0C8;
       ++*(volatile uint32_t *)off_10D0C4;
-      cmd_handler_a(v26, v8);
+      co_list_push_back(v26, v8);
       check_init_flag();
       if ( *v25 )
       {
@@ -4281,7 +4281,7 @@ LABEL_16:
   v11 = (void *)(uintptr_t)(off_10D0AC);
   while ( !*(volatile uint32_t *)off_10D0AC )
     ;
-  cmd_handler_a(((volatile uint32_t *)(uintptr_t)off_10D0B0)[0] + 524, (volatile uint32_t *)(v5 - 4));
+  co_list_push_back(((volatile uint32_t *)(uintptr_t)off_10D0B0)[0] + 524, (volatile uint32_t *)(v5 - 4));
   v12 = (void *)(uintptr_t)(off_10D0B4);
   *v11 = 1;
   *v12 = 2;

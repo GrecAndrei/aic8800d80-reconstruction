@@ -59,7 +59,7 @@ int main_loop_check() {
     }
     else
     {
-      rx_phy_status_parse(6u, 0);
+      ke_state_set(6u, 0);
     }
     return 0;
   }
@@ -78,7 +78,7 @@ int main_loop_check() {
 LABEL_6:
           if ( (v2[15] & 1) != 0 )
           {
-            ke_task_create(6155, 6, dword_133BD4);
+            ke_timer_set(6155, 6, dword_133BD4);
             mmio_set_control_bit_26();
           }
         }

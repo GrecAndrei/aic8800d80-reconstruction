@@ -135,10 +135,10 @@ LABEL_6:
     scan_interval_update((int)v14, _frame.a2a, a1 + 248);
     goto LABEL_7;
   }
-  v14 = check_one_12deb8(v10, v12);
+  v14 = wlan_find_ht_operation_ie(v10, v12);
   if ( (v13[374] & 6) != 0 )
   {
-    check_one_12def8(v10, v12);
+    mac_find_vht_operation_ie(v10, v12);
     _frame.a2a = v56;
     if ( !*(volatile uint8_t *)(a1 + 106) )
     {

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "controller_init_pools",
+ "luna": "init_controller_pools",
+ "doc": "Clears the Bluetooth controller's pool entries and initializes each pool descriptor with its backing-storage pointers.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "init_controller_pools",
+   "probabilities": [
+    {
+     "value": "controller_init_pools",
+     "probability": 0.27
+    },
+    {
+     "value": "init_controller_pools",
+     "probability": 0.72
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.58
+  }
+ ],
+ "status": "ok"
+}

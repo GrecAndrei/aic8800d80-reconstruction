@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rx_packet_handler_1",
+ "luna": "buffer_pool_alloc",
+ "doc": "Allocates and removes a free buffer from a size-class pool large enough for the requested size, validating the freelist pointer against configured memory regions.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "buffer_pool_alloc",
+   "probabilities": [
+    {
+     "value": "rx_packet_handler_1",
+     "probability": 0.02
+    },
+    {
+     "value": "buffer_pool_alloc",
+     "probability": 0.98
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.97
+  }
+ ],
+ "status": "ok"
+}

@@ -73,7 +73,7 @@ LABEL_14:
     v11 = (void *)(uintptr_t)(off_11BE50);
     v0[2] = v2;
     v0[1] = v9;
-    return mem_copy_util(v11, v10 + 5000);
+    return mm_timer_set(v11, v10 + 5000);
   }
   return result;
 }
@@ -211,7 +211,7 @@ int tx_frame_send(int result) {
     {
       v30 = aHdrdescFrmlenH;
       v31 = 2509;
-      return unknown_12f2c8((int)v30, (int)aTxlHeTriggerPu, v31);
+      return log_assert_failure((int)v30, (int)aTxlHeTriggerPu, v31);
     }
   }
   if ( (v3 & 0x2000000) == 0 )
@@ -222,7 +222,7 @@ int tx_frame_send(int result) {
   {
     v30 = aKeyIdxHwMmSecD;
     v31 = 2522;
-    return unknown_12f2c8((int)v30, (int)aTxlHeTriggerPu, v31);
+    return log_assert_failure((int)v30, (int)aTxlHeTriggerPu, v31);
   }
   v8 = dword_11C174;
   v9 = (uint8_t)(v7 - 16);
@@ -524,7 +524,7 @@ int sdio_dma_config(int a1) {
   v2 = *((volatile uint32_t *)off_11C404 + 4);
   *((volatile uint32_t *)off_11C408 + 1) = dword_11C40C;
   v1[2] = a1;
-  return mem_copy_util(v1, v2 + 5000);
+  return mm_timer_set(v1, v2 + 5000);
 }
 
 

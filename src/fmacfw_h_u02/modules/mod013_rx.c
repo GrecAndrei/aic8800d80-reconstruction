@@ -286,7 +286,7 @@ int rx_packet_ready(int result) {
     {
       if ( (*(volatile uint32_t *)(v1 + 36) & 0x200000) == 0 )
       {
-        result = wait_for_state((volatile uint32_t *)result);
+        result = pkt_mem_free((volatile uint32_t *)result);
         *(volatile uint32_t *)(v1 + 72) = 0;
       }
     }
@@ -318,7 +318,7 @@ int system_init_seq() {
   int result; // r0
 
   compare_global_counters();
-  rssi_sample();
+  txdesc_pool_init();
   v0 = patch_enable();
   init_mac_global_0x188290(v0);
   v1 = verify_header_magic(0);

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_timer_toggle_start",
+ "luna": "check_rf_temperature",
+ "doc": "Reads and logs the current RF temperature, updates the cached value and triggers a check when it changes by more than four degrees, then compares calibration levels.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "check_rf_temperature",
+   "probabilities": [
+    {
+     "value": "rf_timer_toggle_start",
+     "probability": 0.2
+    },
+    {
+     "value": "check_rf_temperature",
+     "probability": 0.75
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.63
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "shared_call_check",
+ "luna": "flash_erase_main_forwarder",
+ "doc": "Forwards both arguments unchanged to flash_erase_main and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "flash_erase_main_forwarder",
+   "probabilities": [
+    {
+     "value": "shared_call_check",
+     "probability": 0.27
+    },
+    {
+     "value": "flash_erase_main_forwarder",
+     "probability": 0.71
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.56
+  }
+ ],
+ "status": "ok"
+}

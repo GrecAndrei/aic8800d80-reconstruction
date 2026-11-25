@@ -1434,7 +1434,7 @@ LABEL_25:
       v38 = (volatile int *)off_11E590;
       v39 = dword_11E580;
       ++*(volatile uint32_t *)off_11E590;
-      cmd_handler_a(v39, v6);
+      co_list_push_back(v39, v6);
       check_init_flag();
       if ( *v38 )
       {
@@ -1516,9 +1516,9 @@ LABEL_6:
       v16 = v15[14];
       *(volatile uint32_t *)(a1 + 8) = a6;
       if ( v16 )
-        return cmd_handler_a((int)(v15 + 14), (volatile uint32_t *)a1);
+        return co_list_push_back((int)(v15 + 14), (volatile uint32_t *)a1);
       else
-        return cmd_handler_a(dword_11E584, (volatile uint32_t *)a1);
+        return co_list_push_back(dword_11E584, (volatile uint32_t *)a1);
     }
 LABEL_2:
     if ( v11 == 1 )
@@ -1765,7 +1765,7 @@ LABEL_17:
             v22 = (volatile int *)off_11E854;
             v23 = dword_11E858;
             ++*(volatile uint32_t *)off_11E854;
-            cmd_handler_a(v23, v1);
+            co_list_push_back(v23, v1);
             check_init_flag();
             if ( *v22 )
             {
@@ -1909,7 +1909,7 @@ LABEL_41:
         v50 = (void *)(uintptr_t)(off_11EA78);
         while ( !*(volatile uint32_t *)off_11EA78 )
           ;
-        cmd_handler_a(((volatile uint32_t *)(uintptr_t)off_11EA7C)[0] + 620, (volatile uint32_t *)(v2 - 20));
+        co_list_push_back(((volatile uint32_t *)(uintptr_t)off_11EA7C)[0] + 620, (volatile uint32_t *)(v2 - 20));
         *v50 = 1;
         gpio_set_pin3();
         return get_connection_state(v8, _frame.a4_2[0]);
@@ -1946,7 +1946,7 @@ int llm_evt_queue_pop(int a1) {
     *(volatile uint32_t *)(a1 + 4) = 0;
     v3 = (volatile uint32_t *)a1;
     v4 = (int)v2 + 56;
-    return cmd_handler_a(v4, v3);
+    return co_list_push_back(v4, v3);
   }
   v4 = off_11EAF4;
   if ( *(volatile uint32_t *)off_11EAF4 )
@@ -1955,7 +1955,7 @@ int llm_evt_queue_pop(int a1) {
     *(volatile uint32_t *)(a1 + 4) = 0;
     *(volatile uint8_t *)(a1 + 16) = v5 | 1;
     v3 = (volatile uint32_t *)a1;
-    return cmd_handler_a(v4, v3);
+    return co_list_push_back(v4, v3);
   }
   return radio_get_status(a1);
 }

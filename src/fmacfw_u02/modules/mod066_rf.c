@@ -20,8 +20,8 @@ int adv_pdu_scan_req_handler(int a1, volatile char *a2, unsigned int a3) {
         if ( a2[2] )
         {
           rf_get_chan_state(a3 >> 8);
-          cmd_handler_a(dword_13B55C, (void *)(v6));
-          rx_phy_status_parse(a3, 0);
+          co_list_push_back(dword_13B55C, (void *)(v6));
+          ke_state_set(a3, 0);
         }
         else
         {
@@ -37,7 +37,7 @@ int adv_pdu_scan_req_handler(int a1, volatile char *a2, unsigned int a3) {
           v11[1] = v10;
           ke_msg_send_2((int)v11);
           rf_set_freq(a3 >> 8);
-          rx_phy_status_parse(a3, 1);
+          ke_state_set(a3, 1);
         }
       }
       else if ( **(volatile int16_t **)off_13B53C < 0 )
@@ -64,8 +64,8 @@ int adv_pdu_scan_req_handler(int a1, volatile char *a2, unsigned int a3) {
           v12 | (4 * (uint8_t)v13[22]) | (2 * (uint8_t)v13[18]) | (*((volatile uint16_t *)v13 + 10) << 6),
           0x25u,
           0);
-        cmd_handler_a(dword_13B560, (void *)(v13));
-        rx_phy_status_parse(a3, 0);
+        co_list_push_back(dword_13B560, (void *)(v13));
+        ke_state_set(a3, 0);
       }
       else
       {
@@ -81,7 +81,7 @@ int adv_pdu_scan_req_handler(int a1, volatile char *a2, unsigned int a3) {
         v14 = (*(volatile uint32_t *)0x40501010u);
         *((volatile uint32_t *)v13 + 2) = v14;
         rf_set_freq(a3 >> 8);
-        rx_phy_status_parse(a3, 1);
+        ke_state_set(a3, 1);
       }
     }
     return 0;
@@ -140,7 +140,7 @@ int adv_pdu_conn_req_check(int a1, int a2, unsigned int a3) {
       v4 = dword_13B634;
     else
       v4 = dword_13B630;
-    cmd_handler_a(v4, (volatile uint32_t *)(dword_13B62C + 32 * (a3 >> 8)));
+    co_list_push_back(v4, (volatile uint32_t *)(dword_13B62C + 32 * (a3 >> 8)));
   }
   return 0;
 }
@@ -151,8 +151,8 @@ int adv_pdu_type_handler(int a1, int a2, unsigned int a3) {
   if ( rx_rate_field_parse(a3) == 2 )
   {
     rf_get_chan_state(a3 >> 8);
-    cmd_handler_a(dword_13B670, (volatile uint32_t *)(dword_13B66C + 32 * (a3 >> 8)));
-    rx_phy_status_parse(a3, 0);
+    co_list_push_back(dword_13B670, (volatile uint32_t *)(dword_13B66C + 32 * (a3 >> 8)));
+    ke_state_set(a3, 0);
   }
   return 0;
 }
@@ -363,14 +363,14 @@ int ll_global_init() {
     *(volatile uint8_t *)(v1 + 26) = i;
     if ( i > 0xF )
       break;
-    cmd_handler_a((int)v0, (volatile uint32_t *)v1);
-    rx_phy_status_parse((i << 8) & 0xFF00 | 8, 0);
+    co_list_push_back((int)v0, (volatile uint32_t *)v1);
+    ke_state_set((i << 8) & 0xFF00 | 8, 0);
 LABEL_3:
     v1 += 32;
   }
   *(volatile uint32_t *)(v1 + 28) = v2 + 268 * i;
-  cmd_handler_a((int)(v0 + 6), (volatile uint32_t *)v1);
-  result = rx_phy_status_parse((i << 8) & 0xFF00 | 8, 0);
+  co_list_push_back((int)(v0 + 6), (volatile uint32_t *)v1);
+  result = ke_state_set((i << 8) & 0xFF00 | 8, 0);
   if ( i != 31 )
     goto LABEL_3;
   return result;
@@ -379,7 +379,7 @@ LABEL_3:
 
 // rf_set_freq @ 0x13ba0c
 int rf_set_freq(int16_t a1) {
-  return ke_task_create(8194, (uint16_t)(a1 << 8) | 8, 0x1F4000u);
+  return ke_timer_set(8194, (uint16_t)(a1 << 8) | 8, 0x1F4000u);
 }
 
 
@@ -544,8 +544,8 @@ int rf_set_channel_3(unsigned int a1) {
       goto LABEL_5;
 LABEL_7:
     cmd_handler_c(dword_13BCE0, v8);
-    cmd_handler_a(dword_13BCE4, a2);
-    return rx_phy_status_parse(v1, 0);
+    co_list_push_back(dword_13BCE4, a2);
+    return ke_state_set(v1, 0);
   }
   v8 = (volatile uint32_t *)(dword_13BCD0 + 32 * a1);
   *(volatile uint8_t *)(696 * v6 + 12 * v7 + dword_13BCD4 + 452) = 33;
@@ -554,8 +554,8 @@ LABEL_7:
     goto LABEL_7;
 LABEL_5:
   cmd_handler_c(dword_13BCD8, v8);
-  cmd_handler_a(dword_13BCDC, a2);
-  return rx_phy_status_parse(v1, 0);
+  co_list_push_back(dword_13BCDC, a2);
+  return ke_state_set(v1, 0);
 }
 
 
@@ -583,7 +583,7 @@ int rf_pll_calibrate(int result) {
     {
       if ( *(volatile uint8_t *)(v2 + 16) == v4 )
       {
-        rx_phy_status_parse((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
+        ke_state_set((uint16_t)(v5 + ((uint16_t)v1 << 7) - 256) | 8, 4);
         *(volatile uint8_t *)(v2 + 25) = 0;
         result = adv_set_params(v4, v2, 2, 0, 0, 0x27u, (int)a7);
       }
@@ -664,14 +664,14 @@ int rf_scan_chan(int result) {
       if ( i > 15 )
       {
         cmd_handler_c(v6, (volatile uint32_t *)v3);
-        cmd_handler_a(dword_13BE94, (volatile uint32_t *)v3);
+        co_list_push_back(dword_13BE94, (volatile uint32_t *)v3);
       }
       else
       {
         cmd_handler_c(v1, (volatile uint32_t *)v3);
-        cmd_handler_a(v5, (volatile uint32_t *)v3);
+        co_list_push_back(v5, (volatile uint32_t *)v3);
       }
-      rx_phy_status_parse((uint16_t)((uint16_t)i << 8) | 8, 4);
+      ke_state_set((uint16_t)((uint16_t)i << 8) | 8, 4);
       result = rf_phy_write(v4, (uint16_t)i);
     }
     v3 += 32;
@@ -696,16 +696,16 @@ int rf_get_chan_param_1(unsigned int a1) {
   if ( a1 <= 0xF )
   {
     cmd_handler_c(dword_13BF70, (volatile uint32_t *)v2);
-    cmd_handler_a(dword_13BF74, (volatile uint32_t *)v2);
+    co_list_push_back(dword_13BF74, (volatile uint32_t *)v2);
   }
   else
   {
     cmd_handler_c(dword_13BF64, (volatile uint32_t *)v2);
-    cmd_handler_a(dword_13BF68, (volatile uint32_t *)v2);
+    co_list_push_back(dword_13BF68, (volatile uint32_t *)v2);
   }
   v6 = (a1 << 8) & 0xFF00;
   v7 = (void *)(uintptr_t)(off_13BF6C);
-  rx_phy_status_parse(v6 | 8, 4);
+  ke_state_set(v6 | 8, 4);
   *(volatile uint8_t *)(v1 + v5 + 25) = 0;
   return adv_set_params(v3, v2, 2, 0, 0, 0x27u, (int)v7);
 }
@@ -787,8 +787,8 @@ int check_fw_state_byte(int a1, int a2, uint16_t a3) {
   adv_set_params(a1, v8, 0, 0, 0, 0, 0);
   v18 = (*(volatile uint32_t *)0x40501010u);
   *(volatile uint32_t *)(v15 + 444) = v18;
-  ke_task_create(0x2000, v17, 0x7D000u);
-  rx_phy_status_parse(v17, 2);
+  ke_timer_set(0x2000, v17, 0x7D000u);
+  ke_state_set(v17, 2);
   return 0;
 }
 

@@ -5070,17 +5070,17 @@ const char aIser[] = "ISER:\n";  /* @ 0x1472d4 */
 const char aIspr[] = "ISPR:\n";  /* @ 0x1472dc */
 const char aKeEvtGetEvtBit[] = "ke_evt_get() & evt_bit";  /* @ 0x147b1c */
 const char aKeFree[] = "ke_free";  /* @ 0x14a2ac */
-const char aKeStateGetDest[] = "ke_state_get(dest_id) == MM_IDLE";  /* @ 0x148e44 */
-const char aKeStateGetDest_0[] = "ke_state_get(dest_id) != MM_NO_IDLE";  /* @ 0x148e68 */
-const char aKeStateGetDest_1[] = "ke_state_get(dest_id) == ME_BUSY";  /* @ 0x14b7b8 */
-const char aKeStateGetTask[] = "ke_state_get(TASK_MM) != MM_NO_IDLE";  /* @ 0x148914 */
-const char aKeStateGetTask_0[] = "ke_state_get(TASK_MM) == MM_HOST_BYPASSED";  /* @ 0x1488e8 */
-const char aKeStateGetTask_1[] = "(ke_state_get(TASK_MM) != MM_HOST_BYPASSED) && (ke_state_get(TASK_MM) != MM_IDLE)";  /* @ 0x148948 */
-const char aKeStateGetTask_10[] = "ke_state_get(TASK_SM) == SM_JOINING";  /* @ 0x14bc4c */
-const char aKeStateGetTask_14[] = "(ke_state_get(TASK_APM) == APM_BSS_PARAM_SETTING) || (ke_state_get(TASK_APM) == APM_IDLE) || (ke_state_get(TASK_APM) == APM_STOPPING)";  /* @ 0x14c22c */
-const char aKeStateGetTask_2[] = "ke_state_get(TASK_SCAN) == SCAN_WAIT_BEACON_PROBE_RSP";  /* @ 0x1499ec */
-const char aKeStateGetTask_3[] = "ke_state_get(TASK_SCAN) == SCAN_WAIT_CHANNEL";  /* @ 0x149a34 */
-const char aKeStateGetTask_9[] = "(ke_state_get(TASK_SM) == SM_BSS_PARAM_SETTING) || (ke_state_get(TASK_SM) == SM_DISCONNECTING)";  /* @ 0x14bbdc */
+const char aKeStateGetDest[] = "usb_wlan_rx_pkt_free_list_init(dest_id) == MM_IDLE";  /* @ 0x148e44 */
+const char aKeStateGetDest_0[] = "usb_wlan_rx_pkt_free_list_init(dest_id) != MM_NO_IDLE";  /* @ 0x148e68 */
+const char aKeStateGetDest_1[] = "usb_wlan_rx_pkt_free_list_init(dest_id) == ME_BUSY";  /* @ 0x14b7b8 */
+const char aKeStateGetTask[] = "usb_wlan_rx_pkt_free_list_init(TASK_MM) != MM_NO_IDLE";  /* @ 0x148914 */
+const char aKeStateGetTask_0[] = "usb_wlan_rx_pkt_free_list_init(TASK_MM) == MM_HOST_BYPASSED";  /* @ 0x1488e8 */
+const char aKeStateGetTask_1[] = "(usb_wlan_rx_pkt_free_list_init(TASK_MM) != MM_HOST_BYPASSED) && (usb_wlan_rx_pkt_free_list_init(TASK_MM) != MM_IDLE)";  /* @ 0x148948 */
+const char aKeStateGetTask_10[] = "usb_wlan_rx_pkt_free_list_init(TASK_SM) == SM_JOINING";  /* @ 0x14bc4c */
+const char aKeStateGetTask_14[] = "(usb_wlan_rx_pkt_free_list_init(TASK_APM) == APM_BSS_PARAM_SETTING) || (usb_wlan_rx_pkt_free_list_init(TASK_APM) == APM_IDLE) || (usb_wlan_rx_pkt_free_list_init(TASK_APM) == APM_STOPPING)";  /* @ 0x14c22c */
+const char aKeStateGetTask_2[] = "usb_wlan_rx_pkt_free_list_init(TASK_SCAN) == SCAN_WAIT_BEACON_PROBE_RSP";  /* @ 0x1499ec */
+const char aKeStateGetTask_3[] = "usb_wlan_rx_pkt_free_list_init(TASK_SCAN) == SCAN_WAIT_CHANNEL";  /* @ 0x149a34 */
+const char aKeStateGetTask_9[] = "(usb_wlan_rx_pkt_free_list_init(TASK_SM) == SM_BSS_PARAM_SETTING) || (usb_wlan_rx_pkt_free_list_init(TASK_SM) == SM_DISCONNECTING)";  /* @ 0x14bbdc */
 const char aKeStateSet[] = "ke_state_set";  /* @ 0x14a458 */
 const char aKeStateidPtr[] = "ke_stateid_ptr";  /* @ 0x14a31c */
 const char aKeTaskLocal[] = "ke_task_local";  /* @ 0x14a220 */
@@ -5467,7 +5467,7 @@ int is_magic_value(unsigned int a1);
 volatile uint8_t * get_calibration_offsets(volatile uint8_t *result, volatile uint8_t *a2);
 int get_hw_clock_multiplier();
 unsigned int write_phy_config(uint8_t a1);
-int check_radio_state();
+int handle_spurious_interrupt();
 int install_isr();
 volatile int * set_wakeup_trigger(int a1);
 int set_wakeup_polarity(int result);
@@ -5477,8 +5477,8 @@ int call_transfer();
 int is_radio_busy();
 unsigned int get_radio_state(unsigned int result);
 volatile uint32_t *load_and_store_block();
-unsigned int get_controller_state(unsigned int result);
-int enable_radio_controller(int a1);
+unsigned int wait_timer_ticks(unsigned int result);
+int calibrate_mdll_duty_cycle(int a1);
 int init_radio_hw();
 int enable_pa();
 int configure_gpio_bits();
@@ -5491,22 +5491,22 @@ unsigned int mac_reset_control(int a1, int a2);
 volatile uint32_t *mac_hw_init();
 volatile unsigned int *mac_irq_disable();
 int get_next_sequence(int a1, int a2, volatile uint32_t *a3);
-int select_fuse_bank();
-int start_arm_boot();
+int correct_iq_dc_offset();
+int dump_tone_type3();
 int lookup_rate_entry(int a1, int a2, volatile uint32_t *a3);
 int handle_tx_descriptor(int a1, int a2, int a3);
 int alloc_buffer_by_flag(int a1, int a2, volatile uint32_t *a3);
 int rf_scan_init(int a1, int a2, int a3, int a4, int a5, int a6);
 unsigned int rf_calibrate_power(volatile int *a1, int a2, unsigned int a3, int a4, volatile uint64_t *a5);
 int mac_reset_disable(int a1, int a2, int a3, int a4);
-int compare_memory_ranges(int a1, int a2, int a3);
+int rf_update_am_back_power_diff(int a1, int a2, int a3);
 int adc_to_temp_scale(float a1, int a2, int a3);
 int rx_status_shift(int a1, float a2, volatile int *a3, int a4, int a5);
 int rx_packet_process(int a1, int a2, int a3, int a4, uint8_t a5, char a6, uint8_t a7, int a8, int a9);
 int mac_event_init(unsigned int a1, volatile uint32_t *a2);
 int mac_conn_event_init(unsigned int a1, int a2, int a3);
 volatile unsigned int * rf_phy_regs_snapshot(int a1, int a2, int a3, unsigned int a4, uint8_t a5, int a6);
-int timer_elapsed_compare(int a1, int a2, int a3, int a4, int a5);
+int rf_tx_gain_map_write(int a1, int a2, int a3, int a4, int a5);
 int memcpy_from_rodata(int a1, int a2);
 int runtime_helper_div(int a1, int a2, int a3);
 int rf_phy_regs_read_cal(unsigned int a1, int a2, volatile uint16_t *a3, int a4, int a5, int a6, int a7, int a8);
@@ -5527,7 +5527,7 @@ volatile int * div3_compute(volatile int *a1);
 int periph_clock_enable(int a1, volatile uint32_t *a2);
 int list_get_at(int a1, volatile int *a2, int a3);
 int read_status_high();
-int read_status_low();
+int rf_apply_loft_q_calibration();
 volatile uint32_t * periph_init_multi(int a1, volatile unsigned int *a2, int a3, unsigned int a4, unsigned int a5, int a6, uint16_t a7);
 volatile uint32_t * mmio_write_32(volatile uint32_t *result, volatile unsigned int *a2);
 int range_check_and_call(int result, int a2, volatile uint8_t *a3, volatile char *a4, volatile int *a5);
@@ -5590,8 +5590,8 @@ int gpio_set_bit(char a1);
 int gpio_clear_bit(char a1);
 BOOL gpio_read_bit(char a1);
 int gpio_configure_pin(int result, int a2, int a3);
-int util_get_struct_offset();
-int util_get_struct_offset_alt();
+int gpio_write_bit2_from_flag();
+int gpio_sync_pin1_with_flag();
 int ble_phy_decode(int a1);
 int gpio_init_sequence();
 int noop_success(void);
@@ -5604,7 +5604,7 @@ unsigned int rf_core_is_ready();
 int rf_core_enable();
 int rf_core_power_on();
 int rf_event_handler();
-int rf_event_handler_alt();
+int rf_core_voltage_calibrate();
 int rf_analog_ctrl_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3);
 int rf_control_field_set(int a1);
 int rf_hardware_init(int a1);
@@ -5632,11 +5632,11 @@ int rf_wait_ready();
 int os_task_init();
 int sys_command_40d();
 unsigned int hci_handle_command(volatile int *a1, int a2, unsigned int a3);
-volatile uint32_t * rx_packet_handler_1(int a1, unsigned int a2);
+volatile uint32_t * buffer_pool_alloc(int a1, unsigned int a2);
 int util_is_nonnull(int a1, volatile uint32_t *a2);
 BOOL check_controller_mode(unsigned int a1);
 int hci_send_command(int a1, int a2, int a3);
-volatile uint32_t * is_hci_initialized(char a1);
+volatile uint32_t * set_user_id(char a1);
 int is_controller_mode(volatile uint32_t *a1);
 int calculate_rf_power();
 volatile uint32_t *get_link_channel();
@@ -5650,7 +5650,7 @@ int is_page_scan_active();
 int is_sniff_mode(volatile uint32_t *a1);
 volatile uint32_t *is_hold_mode();
 int is_park_mode(volatile uint32_t *a1);
-int rf_pll_program(int result);
+int replenish_rxmsg_buffers(int result);
 int rf_bb_config(int a1, int a2);
 int call_110e24();
 int event_queue_init(int a1);
@@ -5661,8 +5661,8 @@ volatile uint32_t * pack_control_word(volatile uint32_t *result, int a2, int a3,
 int unknown_3(int a1);
 int mutex_lock(char a1, volatile char *a2, unsigned int a3, int a4);
 int get_status_flag();
-int read_random_from_mmio(int a1);
-int check_mmio_and_mem();
+int set_sdio_phase_config(int a1);
+int handle_sdio_interrupt();
 int mmio_sync();
 int mmio_sync_2();
 int table_lookup_entry(int a1);
@@ -5672,7 +5672,7 @@ int mmio_set_bit();
 int bt_cmd_handler(int result, int a2);
 volatile int * unknown_15(int a1, int a2, int a3);
 int unknown_16(int a1, int a2, int a3);
-int mmio_bank_read(int a1, int a2);
+int read_mmio_bank_bit21(int a1, int a2);
 volatile int * flash_erase_main(volatile int *result, unsigned int a2);
 volatile int * flash_erase_area(volatile int *result, unsigned int a2);
 volatile int * flash_write_data(volatile int *result, unsigned int a2);
@@ -5683,7 +5683,7 @@ int periph_channel_flag(int a1, int a2, unsigned int a3);
 int state_check_4_b(int a1);
 int global_copy_u16(int a1, int a2, unsigned int a3);
 int arg_store();
-int rf_init(uint64_t a1, volatile uint32_t *a2);
+int usb_ep0_send(uint64_t a1, volatile uint32_t *a2);
 int mmio_read_flag();
 int get_state_byte();
 int mmio_read_flag_b();
@@ -5692,7 +5692,7 @@ int undef_stub();
 int after_helper_call();
 int rx_counter_inc(int a1, volatile uint16_t *a2);
 volatile int *get_global_166e84();
-int read_periph_status(volatile uint8_t *a1, unsigned int a2, int a3);
+int process_usb_wlan_rx_frame(volatile uint8_t *a1, unsigned int a2, int a3);
 int irq_state_load(int a1);
 int irq_state_load_b(int a1, int a2);
 int ke_task_init(int a1, int a2);
@@ -5701,7 +5701,7 @@ int set_mode_flag(int a1, int a2, int a3);
 volatile int * is_single_channel(int a1);
 int lookup_channel_table(unsigned int a1);
 void read_state_flag(int a1, int a2, int a3, int a4);
-volatile uint32_t *ke_state_get();
+volatile uint32_t *usb_wlan_rx_pkt_free_list_init();
 int assert_fault(volatile uint32_t *a1);
 volatile uint32_t *ke_state_get_fast();
 volatile uint32_t *error_trap();
@@ -5737,7 +5737,7 @@ int call_hook_2();
 int rf_cmd6_read(volatile uint8_t *a1);
 int rf_cmd6_read_hi(volatile uint8_t *a1);
 int rf_cmd8_read(volatile uint32_t *a1, volatile unsigned int *a2);
-int copy_global_1672ec(int a1, int a2);
+int rf_cmd_read_decode(int a1, int a2);
 int copy_global_1672f8(int a1, int a2);
 int rf_cmd_a_write(char a1, volatile uint8_t *a2);
 int rf_cmd_b_write(char a1, volatile uint8_t *a2);
@@ -5763,10 +5763,10 @@ int ke_task_handler_large(int a1, int a2, unsigned int a3);
 int ke_event_send_0x400000(int a1);
 int patch_get_field(int a1);
 void patch_check_valid();
-void patch_check_magic();
+void patch_apply_if_magic_valid();
 void patch_check_region();
 int patch_get_state();
-int patch_copy_table();
+int dump_cortex_m_fault_context();
 void patch_init();
 void cli_parse_char(int a1);
 int event_reset();
@@ -5774,23 +5774,23 @@ int check_init_status();
 int check_nvic_irq_status(int a1, int a2);
 unsigned int peripheral_clock_enable_1();
 int system_init();
-volatile uint32_t * check_event_flag(int a1, int a2);
+volatile uint32_t * handle_reset_event(int a1, int a2);
 volatile uint8_t *gpio_read_input();
 void clear_rx_config(int result);
 void copy_global_data();
-int kernel_event_wait();
+int tx_txdesc_init();
 int kernel_event_get();
 int call_func_182588(volatile uint32_t *a1);
 int init_event_slot(int a1);
 volatile uint32_t * call_delayed_callback(int a1);
 int set_table_callback_data(int a1, int a2);
 int parse_control_packet(int result, int a2);
-volatile int * check_global_flag(int a1, int a2, int a3, int a4);
+volatile int * append_tkip_mic(int a1, int a2, int a3, int a4);
 int configure_hardware_regs();
 int dispatch_config_command(int result);
 int process_tx_packet(int a1, int a2);
 int phy_ctx_get_by_index(int a1, char a2);
-int radio_band_validate(int a1, int a2);
+int tx_queue_set_new_head(int a1, int a2);
 int radio_channel_validate(int result, int a2, int a3);
 int mac_flags_set(int a1, int a2, int a3, int a4);
 int dma_ring_init(int a1, int a2, char a3);
@@ -6010,7 +6010,7 @@ int lookup_connection_entry(int a1, int a2, int a3, int a4);
 int read_controller_info(int a1, int a2, int a3, int a4);
 int send_cmd_85(int a1, int a2, uint16_t a3, uint16_t a4);
 int send_cmd_88(int a1, volatile uint32_t *a2, uint16_t a3, uint16_t a4);
-int rf_calibration_init(int a1, int a2, int a3, int a4);
+int mm_set_resume_res(int a1, int a2, int a3, int a4);
 int rf_tx_start_cmd(int a1, volatile uint8_t *a2);
 int rf_tx_stop_cmd(int a1, volatile uint8_t *a2);
 int debug_byte_cb(int a1, volatile uint8_t *a2, int a3, uint16_t a4);
@@ -6194,7 +6194,7 @@ void rf_check_battery(int a1, int a2);
 int rf_temperature_comp(int result);
 BOOL rf_timer_comp(int a1, int a2);
 BOOL bt_id_match(int a1, unsigned int a2);
-int ke_task_create(int a1, int a2, unsigned int a3);
+int ke_timer_set(int a1, int a2, unsigned int a3);
 int ke_int_lock(int result, int a2);
 int ke_event_schedule();
 int ke_task_find(int a1, int a2);
@@ -6209,7 +6209,7 @@ volatile uint32_t *mmio_base_read();
 int pkt_buf_alloc(int a1);
 volatile uint32_t * tx_pkt_enqueue(volatile char *a1);
 int iterate_word_array(int a1, volatile int *a2, int a3);
-int rx_phy_status_parse(unsigned int a1, int a2);
+int ke_state_set(unsigned int a1, int a2);
 int rx_rate_field_parse(unsigned int a1);
 int rx_format_field_parse(int a1, unsigned int a2);
 volatile uint32_t *unknown_func_12cff4();
@@ -6221,12 +6221,12 @@ int unknown_func_12d14c(int a1);
 void tx_ring_peek();
 int assert_fail_record();
 volatile uint32_t * zero_8_bytes(volatile uint32_t *result);
-int cmd_handler_a(int result, volatile uint32_t *a2);
+int co_list_push_back(int result, volatile uint32_t *a2);
 int cmd_handler_b(int result, volatile uint32_t *a2);
 volatile uint32_t * mem_word_load(int a1);
 int cmd_handler_c(int result, volatile uint32_t *a2);
 BOOL mem_word_cmp(volatile uint32_t **a1, volatile uint32_t *a2);
-int read_u32(volatile uint32_t **a1);
+int list_count(volatile uint32_t **a1);
 int list_process(int result, volatile uint32_t *a2, int ( *a3)(volatile uint32_t *, volatile uint32_t *));
 volatile uint32_t * read_word(volatile uint32_t *result, volatile uint32_t **a2, volatile uint32_t *a3);
 volatile uint32_t * list_find_node(volatile uint32_t *result, volatile uint32_t *a2, volatile uint32_t *a3);
@@ -6266,8 +6266,8 @@ volatile uint8_t * sub_12DE10(volatile uint8_t *result, int a2);
 int get_default_antenna();
 volatile uint8_t * check_one_12de50(volatile uint8_t *result, int a2);
 volatile uint8_t * copy_config_data(volatile uint8_t *a1, int a2, volatile uint8_t *a3);
-volatile uint8_t * check_one_12deb8(volatile uint8_t *result, int a2);
-volatile uint8_t * check_one_12def8(volatile uint8_t *result, int a2);
+volatile uint8_t * wlan_find_ht_operation_ie(volatile uint8_t *result, int a2);
+volatile uint8_t * mac_find_vht_operation_ie(volatile uint8_t *result, int a2);
 volatile uint8_t * parse_frame_0x24(volatile uint8_t *a1, int a2, volatile uint8_t *a3);
 volatile uint8_t * parse_frame_0x26(volatile uint8_t *a1, int a2);
 volatile uint8_t * parse_frame_0x25(volatile uint8_t *a1, int a2);
@@ -6329,14 +6329,14 @@ int is_strlen_two(int a1);
 int parse_hex16(int a1, volatile uint32_t *a2);
 int parse_config_entry(int a1, volatile uint32_t *a2);
 int parse_hex10(int a1, int a2);
-int parse_hex12(int a1, int a2);
+int mac_monitor_set_addresses(int a1, int a2);
 int is_mode_one(int a1, int a2);
 int is_mode_one_v2(int a1, int a2);
 int call_handler();
 int find_by_index(int a1);
 int parse_large_ioctl(int a1, int a2);
 void read_mmio_reg();
-unsigned int compare_global_bytes();
+unsigned int rf_xtal_cap_adjust();
 int rf_calibrate_channel_power(int a1);
 int call_phy_op();
 int rf_get_bandwidth();
@@ -6346,7 +6346,7 @@ int rf_temperature_compensation();
 void rf_get_channel_calibration();
 int rf_enable_2();
 int rf_disable();
-int format_mac_address(volatile int *a1);
+int mac_append_ht_capabilities_ie(volatile int *a1);
 volatile char * format_bt_address(int a1);
 int format_hw_version(int a1);
 int chip_id_to_string(int a1);
@@ -6397,7 +6397,7 @@ int util_get_byte3(volatile uint8_t *a1);
 int util_zero_reg(int a1);
 int bit_test_loop(int a1);
 int util_init_outputs(int result, volatile uint32_t *a2, int a3, volatile uint16_t *a4, volatile int *a5, volatile int *a6, volatile char *a7);
-int is_valid_rate_code(char a1);
+int wlan_rate_code_to_index(char a1);
 int get_hw_rev();
 int get_phy_rev();
 int get_radio_rev();
@@ -6708,7 +6708,7 @@ uint32_t dword_10D644 = (uint32_t)(uintptr_t)&rf_tx_config;  /* ptr -> 0x12d5ad 
 uint32_t dword_10D768 = (uint32_t)(uintptr_t)&read_mmio_reg;  /* ptr -> 0x150289 */
 uint32_t dword_10DE04 = (uint32_t)(uintptr_t)&rf_get_int_status;  /* ptr -> 0x12dc41 */
 uint32_t dword_10DEF8 = (uint32_t)(uintptr_t)&ble_phy_decode;  /* ptr -> 0x12de39 */
-uint32_t dword_10DF08 = (uint32_t)(uintptr_t)&util_get_struct_offset_alt;  /* ptr -> 0x12de21 */
+uint32_t dword_10DF08 = (uint32_t)(uintptr_t)&gpio_sync_pin1_with_flag;  /* ptr -> 0x12de21 */
 uint32_t dword_10F29C = (uint32_t)(uintptr_t)&rf_update_rx_status;  /* ptr -> 0x12f199 */
 uint32_t dword_10F520 = (uint32_t)(uintptr_t)&update_config_bytes;  /* ptr -> 0x133c21, ascii "!<\x13\x00" */
 uint32_t dword_10F524 = (uint32_t)(uintptr_t)&bt_init_1;  /* ptr -> 0x133aa1 */
@@ -6742,12 +6742,12 @@ uint32_t dword_141D98 = (uint32_t)(uintptr_t)&timer_start;  /* ptr -> 0x161dd1 *
 int (*off_1001FC)() = (int (*)())&patch_check_region;  /* fn-ptr */
 uint32_t off_102CA0 = (uint32_t)(uintptr_t)&busy_flag_check;  /* ptr -> 0x12cae1 */
 uint32_t off_102CA4 = (uint32_t)(uintptr_t)&status_flag_poll;  /* ptr -> 0x12c985 */
-uint32_t off_10DF00 = (uint32_t)(uintptr_t)&util_get_struct_offset;  /* ptr -> 0x12de09 */
+uint32_t off_10DF00 = (uint32_t)(uintptr_t)&gpio_write_bit2_from_flag;  /* ptr -> 0x12de09 */
 uint32_t off_10F2A0 = (uint32_t)(uintptr_t)&rf_save_rssi;  /* ptr -> 0x12f181 */
 uint32_t off_10F534 = (uint32_t)(uintptr_t)&call_110e24;  /* ptr -> 0x130795 */
-uint32_t off_111018 = (uint32_t)(uintptr_t)&check_mmio_and_mem;  /* ptr -> 0x131391 */
+uint32_t off_111018 = (uint32_t)(uintptr_t)&handle_sdio_interrupt;  /* ptr -> 0x131391 */
 uint32_t off_111EDC = (uint32_t)(uintptr_t)&undef_stub;  /* ptr -> 0x132ced */
-uint32_t off_113288 = (uint32_t)(uintptr_t)&read_periph_status;  /* ptr -> 0x133105 */
+uint32_t off_113288 = (uint32_t)(uintptr_t)&process_usb_wlan_rx_frame;  /* ptr -> 0x133105 */
 uint32_t off_11361C = (uint32_t)(uintptr_t)&set_mode_flag;  /* ptr -> 0x133559, ascii "Y5\x13\x00" */
 uint32_t off_11870C = (uint32_t)(uintptr_t)&compare_uint16_field;  /* ptr -> 0x137d11 */
 uint32_t off_11890C = (uint32_t)(uintptr_t)&compare_uint16_field;  /* ptr -> 0x137d11 */

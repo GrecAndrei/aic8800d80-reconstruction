@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "store_rx_info",
+ "luna": "store_rx_metadata",
+ "doc": "Copies two 32-bit words and a trailing 16-bit field from an RX-info record into configured storage, then updates MAC header word 138.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "store_rx_metadata",
+   "probabilities": [
+    {
+     "value": "store_rx_info",
+     "probability": 0.49
+    },
+    {
+     "value": "store_rx_metadata",
+     "probability": 0.51
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.27
+  }
+ ],
+ "status": "ok"
+}

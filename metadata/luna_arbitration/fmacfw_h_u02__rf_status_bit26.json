@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_status_bit26",
+ "luna": "get_rf_status_bit26",
+ "doc": "Returns bit 26 of the RF status register.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_status_bit26",
+   "probabilities": [
+    {
+     "value": "rf_status_bit26",
+     "probability": 0.73
+    },
+    {
+     "value": "get_rf_status_bit26",
+     "probability": 0.27
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

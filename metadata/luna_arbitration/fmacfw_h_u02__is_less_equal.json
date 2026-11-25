@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "is_less_equal",
+ "luna": "float_cmple",
+ "doc": "Returns nonzero when the first single-precision floating-point value is less than or equal to the second.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_cmple",
+   "probabilities": [
+    {
+     "value": "is_less_equal",
+     "probability": 0.34
+    },
+    {
+     "value": "float_cmple",
+     "probability": 0.63
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.45
+  }
+ ],
+ "status": "ok"
+}

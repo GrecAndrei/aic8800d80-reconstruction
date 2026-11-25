@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "is_link_active",
+ "luna": "me_set_active_cfm",
+ "doc": "Handles the ME set-active confirmation path by validating the ME and link state and dispatching the corresponding follow-up message.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "me_set_active_cfm",
+   "probabilities": [
+    {
+     "value": "is_link_active",
+     "probability": 0.32
+    },
+    {
+     "value": "me_set_active_cfm",
+     "probability": 0.63
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.45
+  }
+ ],
+ "status": "ok"
+}

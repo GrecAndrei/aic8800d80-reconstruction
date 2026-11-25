@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "ipc_msg_process",
+ "luna": "ipc_configure_aggregation",
+ "doc": "Applies aggregation-disable settings from the IPC payload, initializes the selected patch table when requested, and writes the response header.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ipc_configure_aggregation",
+   "probabilities": [
+    {
+     "value": "ipc_msg_process",
+     "probability": 0.36
+    },
+    {
+     "value": "ipc_configure_aggregation",
+     "probability": 0.63
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.45
+  }
+ ],
+ "status": "ok"
+}

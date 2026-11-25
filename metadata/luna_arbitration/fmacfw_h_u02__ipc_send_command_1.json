@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "ipc_send_command_1",
+ "luna": "ipc_send_command",
+ "doc": "Stores the message identifier in the IPC slot selected by the message\u2019s byte-2 index, then writes the associated header fields to MAC header word 112.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ipc_send_command",
+   "probabilities": [
+    {
+     "value": "ipc_send_command_1",
+     "probability": 0.49
+    },
+    {
+     "value": "ipc_send_command",
+     "probability": 0.5
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.25
+  }
+ ],
+ "status": "ok"
+}

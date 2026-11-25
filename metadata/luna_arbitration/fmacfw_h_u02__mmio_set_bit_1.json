@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mmio_set_bit_1",
+ "luna": "mmio_set_bit",
+ "doc": "Sets the bit at the given index in a fixed memory-mapped register and returns the updated register value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mmio_set_bit_1",
+   "probabilities": [
+    {
+     "value": "mmio_set_bit_1",
+     "probability": 0.53
+    },
+    {
+     "value": "mmio_set_bit",
+     "probability": 0.47
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.3
+  }
+ ],
+ "status": "ok"
+}

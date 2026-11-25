@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "call_patch_1fc_arg2",
+ "luna": "call_patch_1fc_with_2",
+ "doc": "Calls the function pointer stored at address 0x1FC with argument 2 and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "call_patch_1fc_with_2",
+   "probabilities": [
+    {
+     "value": "call_patch_1fc_arg2",
+     "probability": 0.43
+    },
+    {
+     "value": "call_patch_1fc_with_2",
+     "probability": 0.57
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.35
+  }
+ ],
+ "status": "ok"
+}

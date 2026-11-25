@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "call_patch_hook_2",
+ "luna": "invoke_patch_hook_2",
+ "doc": "Calls the function pointer stored at memory-data address 0x1B8 and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "call_patch_hook_2",
+   "probabilities": [
+    {
+     "value": "call_patch_hook_2",
+     "probability": 0.55
+    },
+    {
+     "value": "invoke_patch_hook_2",
+     "probability": 0.45
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.33
+  }
+ ],
+ "status": "ok"
+}

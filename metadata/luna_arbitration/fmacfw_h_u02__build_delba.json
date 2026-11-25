@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "build_delba",
+ "luna": "build_delba_action_frame",
+ "doc": "Builds a DELBA action frame body containing the TID, initiator flag, and reason code.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "build_delba_action_frame",
+   "probabilities": [
+    {
+     "value": "build_delba",
+     "probability": 0.43
+    },
+    {
+     "value": "build_delba_action_frame",
+     "probability": 0.55
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.33
+  }
+ ],
+ "status": "ok"
+}

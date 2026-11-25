@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "unknown_func_12cff4",
+ "luna": "ke_msg_dispatch",
+ "doc": "Pops a queued kernel message, invokes its destination task handler, and applies the handler\u2019s message-retention result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_msg_dispatch",
+   "probabilities": [
+    {
+     "value": "unknown_func_12cff4",
+     "probability": 0.01
+    },
+    {
+     "value": "ke_msg_dispatch",
+     "probability": 0.99
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "status": "ok"
+}

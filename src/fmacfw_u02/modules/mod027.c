@@ -238,9 +238,9 @@ int get_shared_s16() {
   if ( **(volatile int16_t **)off_121ACC < 0 && rx_rate_field_parse(0) != 3 )
     mmio_clear_register((int)aKeStateGetTask_0, (int)aMmBackToHostId, 1785);
   if ( *((volatile uint8_t *)off_121AD0 + 31) && *((volatile uint8_t *)off_121AD4 + 18) + *((volatile uint8_t *)off_121AD4 + 17) <= 1 )
-    return rx_phy_status_parse(0, 0);
+    return ke_state_set(0, 0);
   *(volatile uint32_t *)off_121AD8 = 48;
-  return rx_phy_status_parse(0, 1);
+  return ke_state_set(0, 1);
 }
 
 
@@ -296,7 +296,7 @@ int shared_s16_worker() {
   *(volatile uint32_t *)off_121BF0 = 4;
   if ( v9 )
     func_117a24();
-  result = rx_phy_status_parse(0, 3);
+  result = ke_state_set(0, 3);
   v11 = *v0;
   *((volatile uint16_t *)off_121BF4 + 9) = 0;
   if ( v11 )
@@ -347,7 +347,7 @@ int shared_s16_check() {
       }
     }
   }
-  return rx_phy_status_parse(0, 4);
+  return ke_state_set(0, 4);
 }
 
 
@@ -357,7 +357,7 @@ int check_hw_state() {
 
   result = rx_rate_field_parse(0);
   if ( result == 4 )
-    return rx_phy_status_parse(0, 1);
+    return ke_state_set(0, 1);
   return result;
 }
 

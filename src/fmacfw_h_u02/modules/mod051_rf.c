@@ -34,7 +34,7 @@ int get_device_id(volatile uint8_t *a1) {
   {
 LABEL_9:
     if ( **(volatile int16_t **)off_1321D8 < 0 )
-      result = mmio_write_field(dword_1321E0, dword_1321DC, 141);
+      result = log_warning(dword_1321E0, dword_1321DC, 141);
     *((volatile uint16_t *)a1 + 4) = 15;
   }
   return result;
@@ -472,7 +472,7 @@ LABEL_6:
     }
     if ( v10 > 11 )
     {
-      mmio_write_field(v5, v4, 598);
+      log_warning(v5, v4, 598);
       v2 = *a1;
       goto LABEL_6;
     }
@@ -541,9 +541,9 @@ int rf_read_status_flags(int a1) {
 
 
 
-// get_phy_status_byte @ 0x13275c
+// set_rf_mode_from_status_bytes @ 0x13275c
 /* luna: Selects the largest 7-bit value in the context’s status-byte list, validates it, applies it as the RF mode, and clears the byte at offset 350. */
-int get_phy_status_byte(int a1) {
+int set_rf_mode_from_status_bytes(int a1) {
   int status_count; // r0
   int status_ptr; // r3
   int status_end; // r4
@@ -794,7 +794,7 @@ LABEL_24:
     v68 = v31;
     if ( BYTE1(((volatile uint32_t *)(uintptr_t)off_132AEC)[49]) && (v2[5] & 0x387F) != (v31 & 0x387F) )
     {
-      v32 = bt_packet_parser(
+      v32 = rf_get_tx_power(
               (v31 >> 11) & 7,
               v30 & 0x7F,
               (volatile uint8_t *)(*(volatile uint32_t *)(dword_132AF0 + 1320 * *(volatile uint8_t *)(a1 + 34) + 72) + 4));
@@ -841,7 +841,7 @@ LABEL_24:
       *v39++ = v46;
       if ( v43 )
       {
-        v58 = bt_packet_parser((v44 >> 11) & 7, v44 & 0x7F, (volatile uint8_t *)(*(volatile uint32_t *)(*(volatile uint32_t *)v63 + 72) + 4));
+        v58 = rf_get_tx_power((v44 >> 11) & 7, v44 & 0x7F, (volatile uint8_t *)(*(volatile uint32_t *)(*(volatile uint32_t *)v63 + 72) + 4));
         *(v39 - 1) = v46 | v58 | (v58 << 8);
       }
       else if ( **(volatile int16_t **)off_132AFC < 0 )

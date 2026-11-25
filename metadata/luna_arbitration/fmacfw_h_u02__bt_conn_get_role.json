@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "bt_conn_get_role",
+ "luna": "bt_count_entries_equal_2",
+ "doc": "Counts the contiguous bytes starting at offset 6 that equal 2, using the byte at offset 263 as the number of bytes to scan.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "bt_count_entries_equal_2",
+   "probabilities": [
+    {
+     "value": "bt_conn_get_role",
+     "probability": 0.13
+    },
+    {
+     "value": "bt_count_entries_equal_2",
+     "probability": 0.86
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.79
+  }
+ ],
+ "status": "ok"
+}

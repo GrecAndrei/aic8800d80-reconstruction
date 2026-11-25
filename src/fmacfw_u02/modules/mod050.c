@@ -97,7 +97,7 @@ int tx_path_check(int a1, int a2, int a3) {
   v4 = *((volatile uint16_t *)off_13196C + 4);
   if ( v4 != 255 )
     ke_msg_send_no_param(5146, v4, a3);
-  rx_phy_status_parse(a3, 0);
+  ke_state_set(a3, 0);
   return 0;
 }
 
@@ -111,7 +111,7 @@ int rx_path_check(int a1, int a2, int a3) {
   v4 = *((volatile uint16_t *)off_1319C4 + 4);
   if ( v4 != 255 )
     ke_msg_send_no_param(5144, v4, a3);
-  rx_phy_status_parse(a3, 0);
+  ke_state_set(a3, 0);
   return 0;
 }
 
@@ -165,7 +165,7 @@ LABEL_7:
     v14 = *((volatile uint8_t *)v5 + 376);
   *v12 = v14;
   ke_msg_send_2((int)v12);
-  rx_phy_status_parse(a3a, 1);
+  ke_state_set(a3a, 1);
   return 0;
 }
 
@@ -687,7 +687,7 @@ int bt_clear_flag(int a1, int a2, int a3, int a4) {
     v33 = (volatile uint8_t *)ke_msg_alloc(49, 0, 5, 1);
     *v33 = v4[376];
     ke_msg_send_2((int)v33);
-    rx_phy_status_parse(5u, 1);
+    ke_state_set(5u, 1);
   }
   return 0;
 }
@@ -735,7 +735,7 @@ int ke_state_is1(int a1, volatile char *a2, int a3, int a4) {
       v11 = (v11 & ~0xFFu) | ((uint8_t)(*((volatile uint8_t *)v7 + 376)) & 0xFFu);
     *v10 = v11;
     ke_msg_send_2((int)v10);
-    rx_phy_status_parse(5u, 1);
+    ke_state_set(5u, 1);
   }
   ke_msg_send_no_param(5140, a4, a3);
   return 0;
@@ -776,7 +776,7 @@ int ke_state_is2(int a1, volatile uint8_t *a2, int a3, int a4) {
   v7[4] = a4;
   *v9 = v11 == 0;
   ke_msg_send_2((int)v9);
-  rx_phy_status_parse(a3, 1);
+  ke_state_set(a3, 1);
   return 0;
 }
 
@@ -784,7 +784,7 @@ int ke_state_is2(int a1, volatile uint8_t *a2, int a3, int a4) {
 // ke_task_reset @ 0x1321c8
 int ke_task_reset() {
   memset((volatile int *)dword_1321F8, 0, 0x17Cu);
-  rx_phy_status_parse(5u, 0);
+  ke_state_set(5u, 0);
   clear_1924d0_buffer();
   bt_cmd_buf_clear();
   reset_controller_state();

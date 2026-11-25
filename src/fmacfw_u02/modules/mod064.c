@@ -32,7 +32,7 @@ int tx_power_lookup(int a1, uint16_t a2, int a3) {
   v9 = v5 + 16 * (v4 + v7);
   *(volatile uint32_t *)(v9 + 68) = a3;
   *(volatile uint16_t *)(v9 + 76) = a2;
-  cmd_handler_a(dword_138A64, v6);
+  co_list_push_back(dword_138A64, v6);
   v3[68] = v3[68]
          + 1
          - -64
@@ -49,7 +49,7 @@ int tx_power_set(int a1) {
   v1 = dword_138AA4;
   tx_power_lookup(0, 4, *(volatile uint32_t *)(a1 + 20));
   cmd_handler_c(v1, (volatile uint32_t *)a1);
-  cmd_handler_a(v1 - 8, (volatile uint32_t *)a1);
+  co_list_push_back(v1 - 8, (volatile uint32_t *)a1);
   return (int)load_and_process_r0((volatile int *)(v1 - 32), v3);
 }
 
@@ -528,7 +528,7 @@ LABEL_15:
     *((volatile uint64_t *)v10 + 2) = v17;
     *((volatile uint8_t *)v10 + 5) = *((volatile uint8_t *)v3 + 49);
     *((volatile uint16_t *)v10 + 6) = *(volatile uint16_t *)(a1 + 48);
-    cmd_handler_a(v18, v10);
+    co_list_push_back(v18, v10);
     goto LABEL_20;
   }
   v8 = *(volatile uint16_t *)off_139284 & 0x400;
@@ -600,7 +600,7 @@ LABEL_30:
       tx_power_lookup(0, v23, v10[5]);
       fault_handler((int)(uintptr_t)(v10 + 13));
       cmd_handler_c(dword_139294, v10);
-      cmd_handler_a(dword_139288, v10);
+      co_list_push_back(dword_139288, v10);
       goto LABEL_20;
     }
     goto LABEL_20;
@@ -1368,14 +1368,14 @@ void *bt_init_mod() {
   {
     v3 = (volatile uint32_t *)v1;
     v1 += 292;
-    cmd_handler_a((int)v0, v3);
+    co_list_push_back((int)v0, v3);
   }
   while ( v1 != v2 );
   zero_8_bytes((volatile uint32_t *)dword_139D74);
   zero_8_bytes((volatile uint32_t *)dword_139D78);
-  cmd_handler_a(dword_139D74, (volatile uint32_t *)dword_139D7C);
-  cmd_handler_a(dword_139D74, (volatile uint32_t *)dword_139D80);
-  cmd_handler_a(dword_139D74, (volatile uint32_t *)dword_139D84);
+  co_list_push_back(dword_139D74, (volatile uint32_t *)dword_139D7C);
+  co_list_push_back(dword_139D74, (volatile uint32_t *)dword_139D80);
+  co_list_push_back(dword_139D74, (volatile uint32_t *)dword_139D84);
   v4 = dword_139D8C;
   result = (void *)(uintptr_t)(off_139D90);
   *((volatile uint16_t *)off_139D88 + 51) = -1;
@@ -1904,7 +1904,7 @@ int tx_slot_get(int a1, int a2) {
   if ( **(volatile int16_t **)off_13A4A0 < 0 && !v3 )
     mmio_clear_register((int)aReordNull, (int)aRxuCntrlReordD, 3320);
   fault_handler((int)(uintptr_t)(v3 + 68));
-  result = cmd_handler_a(dword_13A4A4, v3);
+  result = co_list_push_back(dword_13A4A4, v3);
   *(volatile uint32_t *)(v2 + 408) = 0;
   return result;
 }

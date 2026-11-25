@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_cmple",
+ "luna": "double_less_equal",
+ "doc": "Returns whether the first double-precision value is less than or equal to the second.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "neither",
+   "probabilities": [
+    {
+     "value": "double_cmple",
+     "probability": 0.27
+    },
+    {
+     "value": "double_less_equal",
+     "probability": 0.23
+    },
+    {
+     "value": "neither",
+     "probability": 0.5
+    }
+   ],
+   "confidence": 0.25
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "cfm_event_handler",
+ "luna": "cfm_roc_event_handler",
+ "doc": "Processes remain-on-channel events, updating ROC state, posting IPC notifications, and clearing associated radio state.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "cfm_roc_event_handler",
+   "probabilities": [
+    {
+     "value": "cfm_event_handler",
+     "probability": 0.12
+    },
+    {
+     "value": "cfm_roc_event_handler",
+     "probability": 0.88
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.82
+  }
+ ],
+ "status": "ok"
+}

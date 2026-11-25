@@ -350,8 +350,8 @@ int util_init_outputs(int result, volatile uint32_t *a2, int a3, volatile uint16
 
 
 
-// is_valid_rate_code @ 0x1326f4
-int is_valid_rate_code(char a1) {
+// wlan_rate_code_to_index @ 0x1326f4
+int wlan_rate_code_to_index(char a1) {
   unsigned int v1; // r3
   int result; // r0
 
@@ -460,7 +460,7 @@ int bt_process_msg(volatile uint8_t *a1, int a2) {
     {
       if ( a2 && (v8[1] & 0x80u) == 0 )
         goto LABEL_6;
-      ((int (*)())is_valid_rate_code)();
+      ((int (*)())wlan_rate_code_to_index)();
       if ( **v3 < 0 )
         break;
       if ( v10 <= 11 )
@@ -577,7 +577,7 @@ LABEL_3:
   }
   while ( v3 != v4 );
 LABEL_7:
-  v8 = is_valid_rate_code(v5);
+  v8 = wlan_rate_code_to_index(v5);
   result = ble_ll_conn_set_phy(a1, v8);
   *(volatile uint8_t *)(a1 + 350) = 0;
   return result;

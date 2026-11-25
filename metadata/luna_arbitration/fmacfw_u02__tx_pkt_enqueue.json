@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "tx_pkt_enqueue",
+ "luna": "ke_free",
+ "doc": "Inserts the allocation preceding the supplied pointer into the kernel\u2019s address-ordered free list and coalesces adjacent blocks under interrupt protection.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_free",
+   "probabilities": [
+    {
+     "value": "tx_pkt_enqueue",
+     "probability": 0.38
+    },
+    {
+     "value": "ke_free",
+     "probability": 0.6
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.4
+  }
+ ],
+ "status": "ok"
+}

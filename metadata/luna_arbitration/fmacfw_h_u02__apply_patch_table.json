@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "apply_patch_table",
+ "luna": "dump_fault_context",
+ "doc": "Prints the saved Cortex-M register context and SCB fault status, then dumps 256 bytes of the captured stack.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "dump_fault_context",
+   "probabilities": [
+    {
+     "value": "apply_patch_table",
+     "probability": 0.13
+    },
+    {
+     "value": "dump_fault_context",
+     "probability": 0.84
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.76
+  }
+ ],
+ "status": "ok"
+}

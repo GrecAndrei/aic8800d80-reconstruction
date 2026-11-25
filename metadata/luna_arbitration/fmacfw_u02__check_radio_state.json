@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "check_radio_state",
+ "luna": "handle_spurious_interrupt",
+ "doc": "Logs a spurious interrupt and clears the associated register when its signed status flag is set.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "handle_spurious_interrupt",
+   "probabilities": [
+    {
+     "value": "check_radio_state",
+     "probability": 0.1
+    },
+    {
+     "value": "handle_spurious_interrupt",
+     "probability": 0.9
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.85
+  }
+ ],
+ "status": "ok"
+}

@@ -71,11 +71,11 @@ LABEL_4:
 LABEL_5:
     *(volatile float *)&v10 = (float)v8 / (float)v9;
     v11 = ((uint64_t (*)())float_to_double)(v10);
-    v12 = ((uint64_t (*)())double_compare_common)(v11, *(volatile uint64_t *)&dword_1046E8);
+    v12 = ((uint64_t (*)())double_multiply)(v11, *(volatile uint64_t *)&dword_1046E8);
     v13 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT((float)(*(volatile float *)&v10 - 1.0) * *(volatile float *)&v10));
-    v14 = ((uint64_t (*)())double_compare_common)(v11, *(volatile uint64_t *)&dword_1046F0);
-    v15 = double_compare_eq(v14, *(volatile uint64_t *)&dword_1046F8);
-    v16 = ((uint64_t (*)())double_compare_common)(v13, v15);
+    v14 = ((uint64_t (*)())double_multiply)(v11, *(volatile uint64_t *)&dword_1046F0);
+    v15 = double_add(v14, *(volatile uint64_t *)&dword_1046F8);
+    v16 = ((uint64_t (*)())double_multiply)(v13, v15);
     v17 = ((uint64_t (*)())double_compare_neg)(v12, v16);
     v18 = ((int (*)(uint64_t))double_to_int)(v17);
     v19 = ((uint64_t (*)())float_to_double)(v18);
@@ -88,11 +88,11 @@ LABEL_5:
 LABEL_11:
   *(volatile float *)&v24 = (float)v9 / (float)v8;
   v25 = ((uint64_t (*)())float_to_double)(v24);
-  v26 = ((uint64_t (*)())double_compare_common)(v25, *(volatile uint64_t *)&dword_1046E8);
+  v26 = ((uint64_t (*)())double_multiply)(v25, *(volatile uint64_t *)&dword_1046E8);
   v27 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT((float)(*(volatile float *)&v24 - 1.0) * *(volatile float *)&v24));
-  v28 = ((uint64_t (*)())double_compare_common)(v25, *(volatile uint64_t *)&dword_1046F0);
-  v29 = double_compare_eq(v28, *(volatile uint64_t *)&dword_1046F8);
-  v30 = ((uint64_t (*)())double_compare_common)(v27, v29);
+  v28 = ((uint64_t (*)())double_multiply)(v25, *(volatile uint64_t *)&dword_1046F0);
+  v29 = double_add(v28, *(volatile uint64_t *)&dword_1046F8);
+  v30 = ((uint64_t (*)())double_multiply)(v27, v29);
   v31 = ((uint64_t (*)())double_compare_neg)(v26, v30);
   result = ((int (*)(uint64_t))double_to_int)(v31);
   if ( v7 != 1 )
@@ -108,7 +108,7 @@ LABEL_12:
   if ( v6 != 1 )
   {
     v32 = ((uint64_t (*)())float_to_double)(result ^ 0x80000000);
-    v33 = double_compare_eq(v32, *(volatile uint64_t *)&dword_104708);
+    v33 = double_add(v32, *(volatile uint64_t *)&dword_104708);
     return ((int (*)(uint64_t))double_to_int)(v33);
   }
   return result;
@@ -498,7 +498,7 @@ LABEL_13:
   v45 = (volatile float *)a1;
   for ( j = 1; ; ++j )
   {
-    v48 = read_config_block((float)(v45[32] / v44) / 12.0);
+    v48 = fast_sqrtf((float)(v45[32] / v44) / 12.0);
     v49 = &_frame.a1a[4 * j];
     v45[32] = v48;
     if ( (unsigned int)(j - 1) > 1 )
@@ -609,19 +609,19 @@ unsigned int float_interp(volatile int *a1, int a2, unsigned int a3, int a4, vol
   v9 = (v9 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_104F9C) << 32);
   v10 = a5[2];
   v9 = (v9 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v11 = ((uint64_t (*)())double_compare_common)(v10, v9);
+  v11 = ((uint64_t (*)())double_multiply)(v10, v9);
   v12 = ((int (*)(uint64_t))double_to_float_1)(v11);
   v13 = (v13 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_104F9C) << 32);
   v14 = a5[1];
   v15 = v12;
   v13 = (v13 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v16 = ((uint64_t (*)())double_compare_common)(v14, v13);
+  v16 = ((uint64_t (*)())double_multiply)(v14, v13);
   v17 = ((int (*)(uint64_t))double_to_float_1)(v16);
   v18 = *a5;
   v19 = (v19 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_104F9C) << 32);
   v19 = (v19 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v20 = v17;
-  v21 = ((uint64_t (*)())double_compare_common)(*a5, v19);
+  v21 = ((uint64_t (*)())double_multiply)(*a5, v19);
   v22 = ((int (*)(uint64_t))double_to_float_1)(v21);
   v23 = a5[5];
   v71 = a5[4];
@@ -629,18 +629,18 @@ unsigned int float_interp(volatile int *a1, int a2, unsigned int a3, int a4, vol
   alloc_tx_event("x[0]*1000=%3d,x[1]*1000=%3d,x[2]*1000=%3d\n", v22, v20, v15);
   v24 = (v24 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_104F9C) << 32);
   v24 = (v24 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v25 = ((uint64_t (*)())double_compare_common)(v23, v24);
+  v25 = ((uint64_t (*)())double_multiply)(v23, v24);
   v26 = ((int (*)(uint64_t))double_to_float_1)(v25);
   v27 = (v27 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_104F9C) << 32);
   v28 = v26;
   v27 = (v27 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v29 = ((uint64_t (*)())double_compare_common)(v71, v27);
+  v29 = ((uint64_t (*)())double_multiply)(v71, v27);
   v30 = ((int (*)(uint64_t))double_to_float_1)(v29);
   v31 = v28;
   v32 = (v32 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_104F9C) << 32);
   v32 = (v32 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v33 = v30;
-  v34 = ((uint64_t (*)())double_compare_common)(v70, v32);
+  v34 = ((uint64_t (*)())double_multiply)(v70, v32);
   v35 = ((int (*)(uint64_t))double_to_float_1)(v34);
   alloc_tx_event("y[0]*1000=%3d,y[1]*1000=%3d,y[2]*1000=%3d\n", v35, v33, v31);
   v36 = v8 + 32;
@@ -661,32 +661,32 @@ else if ( ((int (*)())double_less_equal)(v10, v68) ) { v63 = v23;
       v39 = ((uint64_t (*)())double_compare_neg)(v68, v18);
       v40 = v38;
       v41 = v39;
-      v42 = ((uint64_t (*)())double_compare_common)(v70, v37);
+      v42 = ((uint64_t (*)())double_multiply)(v70, v37);
       v43 = v41;
-      v44 = ((uint64_t (*)())double_compare_common)(v42, v40);
+      v44 = ((uint64_t (*)())double_multiply)(v42, v40);
       v45 = ((uint64_t (*)())double_compare_neg)(v18, v14);
-      v46 = ((uint64_t (*)())double_compare_core)(v44, v45);
+      v46 = ((uint64_t (*)())double_divide)(v44, v45);
       v47 = ((uint64_t (*)())double_compare_neg)(v18, v10);
-      v48 = ((uint64_t (*)())double_compare_core)(v46, v47);
-      v49 = ((uint64_t (*)())double_compare_common)(v71, v43);
+      v48 = ((uint64_t (*)())double_divide)(v46, v47);
+      v49 = ((uint64_t (*)())double_multiply)(v71, v43);
       v50 = v48;
-      v51 = ((uint64_t (*)())double_compare_common)(v49, v40);
+      v51 = ((uint64_t (*)())double_multiply)(v49, v40);
       v52 = ((uint64_t (*)())double_compare_neg)(v14, v18);
-      v53 = ((uint64_t (*)())double_compare_core)(v51, v52);
+      v53 = ((uint64_t (*)())double_divide)(v51, v52);
       v54 = ((uint64_t (*)())double_compare_neg)(v14, v10);
-      v55 = ((uint64_t (*)())double_compare_core)(v53, v54);
-      v56 = double_compare_eq(v50, v55);
-      v57 = ((uint64_t (*)())double_compare_common)(v23, v43);
-      v58 = ((uint64_t (*)())double_compare_common)(v57, v37);
+      v55 = ((uint64_t (*)())double_divide)(v53, v54);
+      v56 = double_add(v50, v55);
+      v57 = ((uint64_t (*)())double_multiply)(v23, v43);
+      v58 = ((uint64_t (*)())double_multiply)(v57, v37);
       v59 = ((uint64_t (*)())double_compare_neg)(v10, v18);
-      v60 = ((uint64_t (*)())double_compare_core)(v58, v59);
+      v60 = ((uint64_t (*)())double_divide)(v58, v59);
       v61 = ((uint64_t (*)())double_compare_neg)(v10, v14);
-      v62 = ((uint64_t (*)())double_compare_core)(v60, v61);
-      v63 = double_compare_eq(v56, v62);
+      v62 = ((uint64_t (*)())double_divide)(v60, v61);
+      v63 = double_add(v56, v62);
     }
     v69 = v63;
     v64 = ((uint64_t (*)())float_to_double)(v8[63]);
-    v65 = ((uint64_t (*)())double_compare_common)(v64, v69);
+    v65 = ((uint64_t (*)())double_multiply)(v64, v69);
     result = ((int (*)(uint64_t))double_to_int)(v65);
     v8[31] = result;
   }
@@ -750,7 +750,7 @@ int min_or_max(int a1, int a2, int a3) {
   {
     v15 = signed_int_to_double(a1);
     v16 = signed_int_to_double(a2);
-    v17 = ((uint64_t (*)())double_compare_core)(v15, v16);
+    v17 = ((uint64_t (*)())double_divide)(v15, v16);
     v18 = ((int (*)(uint64_t))double_to_int)(v17);
     v13 = COERCE_FLOAT(log_float_converted(v18));
     v14 = 20.0;
@@ -760,7 +760,7 @@ int min_or_max(int a1, int a2, int a3) {
   {
     v9 = signed_int_to_double(a2);
     v10 = signed_int_to_double(a1);
-    v11 = ((uint64_t (*)())double_compare_core)(v9, v10);
+    v11 = ((uint64_t (*)())double_divide)(v9, v10);
     v12 = ((int (*)(uint64_t))double_to_int)(v11);
     v13 = COERCE_FLOAT(log_float_converted(v12));
     v14 = -20.0;
@@ -777,9 +777,9 @@ LABEL_4:
 }
 
 
-// div_by_20 @ 0x105118
+// rf_set_digital_power_from_delta @ 0x105118
 /* luna: Converts a power delta and base power into a digital power value, clamps it to 0x20–0xE8, stores it in the RF state, and reports analog-index limit wa */
-int div_by_20(float a1, int a2, int a3) {
+int rf_set_digital_power_from_delta(float a1, int a2, int a3) {
   float v6; // r0
   uint64_t v7; // r0
   uint64_t v8; // r0
@@ -1061,7 +1061,7 @@ int rf_calibrate_start( int a1, int a2, int a3, int a4, uint8_t a5, char a6, uin
       {
         v16 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT(v14));
         v17 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT(v15));
-        v18 = ((uint64_t (*)())double_compare_common)(v17, *(volatile uint64_t *)&dword_105550);
+        v18 = ((uint64_t (*)())double_multiply)(v17, *(volatile uint64_t *)&dword_105550);
 if ( ((int (*)())double_less_than)(v16, v18) ) { check_feature_flag(1, aWarningAmIsNot);
           v15 = *(v13 - 2);
         }
@@ -1083,7 +1083,7 @@ if ( ((int (*)())double_less_than)(v16, v18) ) { check_feature_flag(1, aWarningA
     do
     {
       v26 = signed_int_to_double(++v23);
-      v27 = ((uint64_t (*)())double_compare_core)(v26, v25);
+      v27 = ((uint64_t (*)())double_divide)(v26, v25);
       *(volatile uint32_t *)v24++ = ((int (*)(uint64_t))double_to_int)(v27);
       *v21++ = 1.0;
       *v22++ = v20;
@@ -1941,9 +1941,9 @@ LABEL_3:
 }
 
 
-// hw_rev_check @ 0x1062dc
+// rf_set_tx_gain_map @ 0x1062dc
 /* luna: Builds and writes the TX gain-map register value for the requested index, applying configured calibration and bypass encoding. */
-int hw_rev_check(int a1, int a2, int a3, int a4, int a5) {
+int rf_set_tx_gain_map(int a1, int a2, int a3, int a4, int a5) {
   int gain_code; // r4
   unsigned int register_value; // r4
   int encoded_field; // r8
@@ -1951,7 +1951,7 @@ int hw_rev_check(int a1, int a2, int a3, int a4, int a5) {
 
   if ( (int)*(volatile uint32_t *)(a4 + 132) <= a2 )
   {
-    div_by_20(*(volatile float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
+    rf_set_digital_power_from_delta(*(volatile float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
     gain_code = *(volatile uint8_t *)(a4 + 104);
   }
   else
@@ -2118,7 +2118,7 @@ int init_callbacks(int a1, int a2, int a3) {
   int v13; // r2
 
   v5 = signed_int_to_double(a2);
-  v6 = ((uint64_t (*)())double_compare_core)(v5, *(volatile uint64_t *)&dword_1064D8);
+  v6 = ((uint64_t (*)())double_divide)(v5, *(volatile uint64_t *)&dword_1064D8);
   v7 = a1 + 4 * a3;
   v8 = ((int (*)(uint64_t))double_to_int)(v6);
   v9 = *(volatile uint32_t *)(v7 + 140);
@@ -2622,7 +2622,7 @@ LABEL_19:
     *(volatile uint32_t *)(a2 + 164) = v37;
     *v35 = v35[3];
     ++v35;
-    hw_rev_check(a1, v36, a5, a2, a6);
+    rf_set_tx_gain_map(a1, v36, a5, a2, a6);
     *v31 &= ~0x200u;
     *v31 |= 0x200u;
     *v31 &= ~0x200u;
@@ -2644,7 +2644,7 @@ LABEL_19:
     {
       while ( 1 )
       {
-        hw_rev_check(a1, v41, a5, a2, a6);
+        rf_set_tx_gain_map(a1, v41, a5, a2, a6);
         v44 = *(volatile uint32_t *)(a2 + 124);
         *v42 &= ~0x200u;
         *v42 |= 0x200u;

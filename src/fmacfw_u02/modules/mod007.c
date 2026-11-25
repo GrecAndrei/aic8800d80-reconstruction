@@ -1,6 +1,6 @@
-// check_mmio_and_mem @ 0x111390
+// handle_sdio_interrupt @ 0x111390
 /* luna: Processes pending SDIO interrupt status bits, acknowledges hardware sources, and dispatches corresponding events. */
-int check_mmio_and_mem() {
+int handle_sdio_interrupt() {
   int interrupt_status; // r4
   volatile uint32_t *v1; // r0
   int v2; // r1
@@ -101,7 +101,7 @@ int check_mmio_and_mem() {
   }
   if ( (interrupt_status & 0x20) != 0 )
   {
-    read_random_from_mmio(*(volatile uint32_t *)off_111624);
+    set_sdio_phase_config(*(volatile uint32_t *)off_111624);
     *(volatile uint32_t *)off_111620 = 32;
   }
   if ( (interrupt_status & 0x4000) != 0 )
@@ -180,7 +180,7 @@ LABEL_12:
       v15 = (void *)(uintptr_t)(off_111654);
       *(volatile uint32_t *)off_111650 = v12;
       *v15 = 16;
-      cmd_handler_a(dword_111658, (void *)(&v4[4 * v14]));
+      co_list_push_back(dword_111658, (void *)(&v4[4 * v14]));
       unknown_func_12d104(256);
     }
     *(volatile uint32_t *)off_111620 = 1024;
@@ -211,7 +211,7 @@ LABEL_12:
       *((volatile uint32_t *)v40 + 410) = v38;
       v40[1644] = v37;
       v16[2433] = v17 + 1;
-      cmd_handler_a((int)(v16 + 2436), (volatile uint32_t *)v40 + 408);
+      co_list_push_back((int)(v16 + 2436), (volatile uint32_t *)v40 + 408);
       unknown_func_12d104(0x400000);
     }
     else
@@ -251,7 +251,7 @@ LABEL_12:
       v22[3072] = v34;
       *((volatile uint16_t *)v35 + 4) = *v36;
       v22[3074] = v23 + 1;
-      cmd_handler_a((int)(v22 + 3080), (void *)(v35));
+      co_list_push_back((int)(v22 + 3080), (void *)(v35));
       result = unknown_func_12d104(128);
     }
     else
@@ -292,7 +292,7 @@ LABEL_12:
       v33[1] = *v32;
       v28[8 * v31 + 1548] = *(volatile uint32_t *)off_11168C;
       *((volatile uint8_t *)v28 + 6162) = v29 + 1;
-      cmd_handler_a(dword_111690, v33);
+      co_list_push_back(dword_111690, v33);
       result = unknown_func_12d104(64);
     }
     else
@@ -671,9 +671,9 @@ LABEL_15:
 
 
 
-// mmio_bank_read @ 0x111d10
+// read_mmio_bank_bit21 @ 0x111d10
 /* luna: Selects one of two MMIO bases, reads the 32-bit register at the requested 32-byte bank index, and returns bit 21. */
-int mmio_bank_read(int a1, int a2) {
+int read_mmio_bank_bit21(int a1, int a2) {
   volatile uint32_t *v2; // r0
   int v4; // r0
 
@@ -1081,9 +1081,9 @@ int arg_store() {
 
 
 
-// rf_init @ 0x112228
+// usb_ep0_send @ 0x112228
 /* luna: Advances an EP0 control transfer by sending at most one 64-byte packet and tracking progress against the setup request length. */
-int rf_init(uint64_t a1, volatile uint32_t *a2) {
+int usb_ep0_send(uint64_t a1, volatile uint32_t *a2) {
   int v2; // r4
   volatile uint8_t *ep0_context; // r5
   void *v4; // r6
@@ -1362,7 +1362,7 @@ LABEL_66:
               }
               v40 = ep0_context[13];
             }
-            if ( mmio_bank_read(v14, v40) )
+            if ( read_mmio_bank_bit21(v14, v40) )
             {
               v31 = (void *)(uintptr_t)(off_112874);
               *(volatile uint16_t *)off_112874 = 1;
@@ -2003,7 +2003,7 @@ LABEL_3:
           }
           else if ( (v25 & 1) != 0 )
           {
-            rf_init(v3, (volatile uint32_t *)v10);
+            usb_ep0_send(v3, (volatile uint32_t *)v10);
           }
           goto LABEL_14;
         }
@@ -2061,7 +2061,7 @@ LABEL_14:
           else if ( (v24 & 0x29) != 0 )
           {
             v23 = (v23 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-            v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(rf_init(v23, (volatile uint32_t *)(v24 << 27))) & 0xFFFFFFFFu);
+            v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(usb_ep0_send(v23, (volatile uint32_t *)(v24 << 27))) & 0xFFFFFFFFu);
           }
           goto LABEL_19;
         }
@@ -2190,9 +2190,9 @@ volatile int *get_global_166e84() {
 }
 
 
-// read_periph_status @ 0x113104
+// process_usb_wlan_rx_frame @ 0x113104
 /* luna: Validates a USB WLAN receive frame and dispatches data frames or enqueues management messages for command handling. */
-int read_periph_status(volatile uint8_t *a1, unsigned int a2, int a3) {
+int process_usb_wlan_rx_frame(volatile uint8_t *a1, unsigned int a2, int a3) {
   volatile uint16_t *rx_packet_counter; // r7
   volatile uint8_t *v4; // r6
   volatile uint8_t *v5; // r4
@@ -2267,7 +2267,7 @@ int read_periph_status(volatile uint8_t *a1, unsigned int a2, int a3) {
           rx_message_slot[409] = (int)(uintptr_t)(a1 + 4);
           rx_message_slot[412] = declared_payload_len;
           rx_message_queue[2433] = queued_message_count + 1;
-          cmd_handler_a(command_context, rx_message_slot + 408);
+          co_list_push_back(command_context, rx_message_slot + 408);
           unknown_func_12d104(0x400000);
           return 1;
         }
@@ -2450,7 +2450,7 @@ int check_init_flag() {
   if ( *(volatile uint8_t *)off_113548 )
     return -99;
   v1 = (volatile int **)off_11354C;
-  v2 = read_u32((volatile uint32_t **)off_11354C);
+  v2 = list_count((volatile uint32_t **)off_11354C);
   v3 = (void *)(uintptr_t)(off_113554);
   *(volatile uint8_t *)off_113554 = v2;
   if ( v2 )
@@ -2532,7 +2532,7 @@ int set_mode_flag(int a1, int a2, int a3) {
           v9 = mem_word_load(v7);
           v10 = *(volatile uint32_t *)(v9[1] + 4);
           --*v5;
-          cmd_handler_a(v8, v9);
+          co_list_push_back(v8, v9);
           v11 = *(volatile uint8_t *)(v10 + 2) >> 4;
           if ( v11 )
             break;

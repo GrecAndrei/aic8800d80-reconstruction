@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rx_process_packet_1",
+ "luna": "ke_msg_dispatch",
+ "doc": "Routes a kernel message by destination task, sending low-numbered destinations through the WLAN ioctl handler and otherwise invoking the configured dispatcher.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_msg_dispatch",
+   "probabilities": [
+    {
+     "value": "rx_process_packet_1",
+     "probability": 0.13
+    },
+    {
+     "value": "ke_msg_dispatch",
+     "probability": 0.86
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.79
+  }
+ ],
+ "status": "ok"
+}

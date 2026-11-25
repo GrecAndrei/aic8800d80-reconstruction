@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rx_get_length",
+ "luna": "rx_sort_entries_by_key",
+ "doc": "Bubble-sorts 12-byte RX entries and their parallel 32-bit keys in ascending order, using each entry\u2019s byte-9 marker to break ties when adjacent keys are zero.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rx_sort_entries_by_key",
+   "probabilities": [
+    {
+     "value": "rx_get_length",
+     "probability": 0.1
+    },
+    {
+     "value": "rx_sort_entries_by_key",
+     "probability": 0.89
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.83
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "bt_is_ready",
+ "luna": "bt_conn_context_alloc",
+ "doc": "Allocates and initializes the first free one of two 140-byte Bluetooth connection contexts, returning its slot index or 0xFF if both are occupied.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "bt_conn_context_alloc",
+   "probabilities": [
+    {
+     "value": "bt_is_ready",
+     "probability": 0.17
+    },
+    {
+     "value": "bt_conn_context_alloc",
+     "probability": 0.79
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.69
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "kernel_event_wait",
+ "luna": "tx_txdesc_init",
+ "doc": "Initializes each transmit-descriptor slot, assigns its per-slot buffer, and invokes the slot setup handler.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "tx_txdesc_init",
+   "probabilities": [
+    {
+     "value": "kernel_event_wait",
+     "probability": 0.03
+    },
+    {
+     "value": "tx_txdesc_init",
+     "probability": 0.96
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.94
+  }
+ ],
+ "status": "ok"
+}

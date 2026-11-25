@@ -27,7 +27,7 @@ int ble_clear_state() {
     tx_process_jump((int)(uintptr_t)((volatile char *)(v0[5] - 12)));
   }
   memset((volatile int *)off_13432C, 0, 0x2Cu);
-  return hci_cmd_preprocess(6u, 0);
+  return ke_state_set(6u, 0);
 }
 
 
@@ -161,7 +161,7 @@ LABEL_3:
   }
 LABEL_4:
   rx_process_packet_1(v6);
-  return hci_cmd_preprocess(6u, 1);
+  return ke_state_set(6u, 1);
 }
 
 
@@ -249,7 +249,7 @@ int ble_parse_event(int a1, int a2, int a3) {
     *(volatile uint8_t *)(v9 + 3) |= 1u;
   v7[32] = a3;
   rx_process_packet_1(v9);
-  return hci_cmd_preprocess(6u, 2);
+  return ke_state_set(6u, 2);
 }
 
 
@@ -304,7 +304,7 @@ int ble_scan_config() {
     *(volatile uint8_t *)(v4 + 3) |= 1u;
   v1[32] = v2;
   rx_process_packet_1(v4);
-  return hci_cmd_preprocess(6u, 2);
+  return ke_state_set(6u, 2);
 }
 
 
@@ -362,29 +362,29 @@ int hci_send_cmd_1419(int a1) {
   ke_event_schedule_1(*(volatile uint8_t *)(a1 + 116));
   *v4 = 0;
   v4[1] = *(volatile uint8_t *)(a1 + 107);
-  wlan_ioctl_handler_1(dword_1347D0, (volatile uint32_t *)v4 - 3);
+  co_list_push_back(dword_1347D0, (volatile uint32_t *)v4 - 3);
   if ( *(volatile uint8_t *)(a1 + 108) )
   {
     v13 = tx_send_pdu(30, 0, 6, 4);
     *(volatile uint8_t *)(v13 + 2) = 0;
     *(volatile uint8_t *)(v13 + 3) = *(volatile uint8_t *)(a1 + 107);
-    wlan_ioctl_handler_1(dword_1347D0, (volatile uint32_t *)(v13 - 12));
+    co_list_push_back(dword_1347D0, (volatile uint32_t *)(v13 - 12));
   }
   if ( *(volatile uint8_t *)(a1 + 116) != 255 )
   {
     v8 = (volatile uint8_t *)tx_send_pdu(12, 0, 6, 1);
     *v8 = *(volatile uint8_t *)(a1 + 116);
-    wlan_ioctl_handler_1(dword_1347D0, (volatile uint32_t *)v8 - 3);
+    co_list_push_back(dword_1347D0, (volatile uint32_t *)v8 - 3);
   }
   if ( *(volatile uint32_t *)(a1 + 72) )
   {
     v9 = (volatile uint8_t *)tx_send_pdu(57, 0, 6, 1);
     *v9 = *(volatile uint8_t *)(a1 + 107);
-    wlan_ioctl_handler_1(dword_1347D0, (volatile uint32_t *)v9 - 3);
+    co_list_push_back(dword_1347D0, (volatile uint32_t *)v9 - 3);
   }
   *v7 = 0;
   v7[1] = *(volatile uint8_t *)(a1 + 107);
-  v10 = wlan_ioctl_handler_1(dword_1347D0, (volatile uint32_t *)v7 - 3);
+  v10 = co_list_push_back(dword_1347D0, (volatile uint32_t *)v7 - 3);
   return ble_reset_controller(v10, v11);
 }
 

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "get_mmio_state",
+ "luna": "list_contains_node",
+ "doc": "Returns 1 if the given node is present in the global singly linked list, and 0 otherwise.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "get_mmio_state",
+   "probabilities": [
+    {
+     "value": "get_mmio_state",
+     "probability": 0.47
+    },
+    {
+     "value": "list_contains_node",
+     "probability": 0.19
+    },
+    {
+     "value": "neither",
+     "probability": 0.34
+    }
+   ],
+   "confidence": 0.2
+  }
+ ],
+ "status": "ok"
+}

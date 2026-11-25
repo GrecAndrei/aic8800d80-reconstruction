@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mem_copy_util",
+ "luna": "mm_timer_set",
+ "doc": "Updates a timer\u2019s expiration, reorders it in the pending-timer list, and adjusts timer state when it becomes the earliest deadline.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mm_timer_set",
+   "probabilities": [
+    {
+     "value": "mem_copy_util",
+     "probability": 0.02
+    },
+    {
+     "value": "mm_timer_set",
+     "probability": 0.98
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.97
+  }
+ ],
+ "status": "ok"
+}

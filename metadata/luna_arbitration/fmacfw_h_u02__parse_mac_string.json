@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "parse_mac_string",
+ "luna": "test_write_memory",
+ "doc": "Parses a write width, hexadecimal address and value, and optional repeat count, then writes the value to successive addresses or invokes the patch hook for a special address window.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "test_write_memory",
+   "probabilities": [
+    {
+     "value": "parse_mac_string",
+     "probability": 0.18
+    },
+    {
+     "value": "test_write_memory",
+     "probability": 0.81
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.72
+  }
+ ],
+ "status": "ok"
+}

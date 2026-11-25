@@ -438,9 +438,9 @@ LABEL_17:
 
 
 
-// phy_set_channel_1 @ 0x13a9b4
+// phy_handle_txu_discard @ 0x13a9b4
 /* luna: Logs a TXU discard record, allocates a retransmission event when status bit 0 is set, and calls the registration routine inside a nested IRQ-safe crit */
-int phy_set_channel_1(int a1, int a2, int a3) {
+int phy_handle_txu_discard(int a1, int a2, int a3) {
   int discard_flags; // r3
   int v7; // r1
   volatile int *irq_lock_depth_ptr; // r5
@@ -544,21 +544,21 @@ int phy_txpower_calc(unsigned int a1, int a2) {
   } _frame;
   v2 = *(volatile uint8_t *)(a1 + 28);
   if ( v2 > 3 )
-    return phy_set_channel_1(a1, a2, 0x80000000);
+    return phy_handle_txu_discard(a1, a2, 0x80000000);
   v5 = *(volatile uint8_t *)(a1 + 29);
   if ( v5 == 255 )
   {
     if ( (*(volatile uint16_t *)(a1 + 30) & 8) == 0 )
     {
       alloc_tx_event(aDataStaInvalid);
-      return phy_set_channel_1(a1, a2, 0x80000000);
+      return phy_handle_txu_discard(a1, a2, 0x80000000);
     }
     goto LABEL_11;
   }
   v6 = dword_13AD6C;
   v7 = dword_13AD6C + 696 * v5;
   if ( !*(volatile uint8_t *)(v7 + 37) || *(volatile uint8_t *)(v7 + 48) )
-    return phy_set_channel_1(a1, a2, 0x80000000);
+    return phy_handle_txu_discard(a1, a2, 0x80000000);
   v9 = *(volatile uint16_t *)(a1 + 30);
   if ( (v9 & 8) != 0 )
   {
@@ -635,7 +635,7 @@ LABEL_22:
           goto LABEL_24;
         }
       }
-      v31 = bt_packet_parser(v21, v20, (volatile uint8_t *)(*(volatile uint32_t *)(v14 + 72) + 4));
+      v31 = rf_get_tx_power(v21, v20, (volatile uint8_t *)(*(volatile uint32_t *)(v14 + 72) + 4));
       *(volatile uint32_t *)(*(volatile uint32_t *)(a1 + 44) + 4 * v18 + 36) = v31 | (v31 << 8);
 LABEL_24:
       if ( ++v18 == 4 )
@@ -665,14 +665,14 @@ LABEL_24:
   {
 LABEL_9:
     check_feature_flag(32, "port filter:%d\r\n", v10);
-    return phy_set_channel_1(a1, a2, 0x80000000);
+    return phy_handle_txu_discard(a1, a2, 0x80000000);
   }
   v23 = dword_13AD7C;
   v24 = (volatile uint8_t *)(dword_13AD7C + 1320 * v2);
   if ( !v24[108] )
   {
     alloc_tx_event(aTxuVifInactive);
-    return phy_set_channel_1(a1, a2, 0x80000000);
+    return phy_handle_txu_discard(a1, a2, 0x80000000);
   }
   phy_reset(a1);
   v26 = v6 + 696 * *(volatile uint8_t *)(a1 + 29);
@@ -692,7 +692,7 @@ LABEL_31:
     *(volatile uint32_t *)(a1 + 44) = (int)(uintptr_t)(v28);
     if ( *((volatile uint8_t *)v29 + 197) )
     {
-      v37 = bt_packet_parser((v28[5] >> 11) & 7, v28[5] & 0x7F, (volatile uint8_t *)(*(volatile uint32_t *)(v27 + 72) + 4));
+      v37 = rf_get_tx_power((v28[5] >> 11) & 7, v28[5] & 0x7F, (volatile uint8_t *)(*(volatile uint32_t *)(v27 + 72) + 4));
       v30 = *(volatile uint16_t *)(a1 + 30);
       v28[9] = v37 | (v37 << 8);
     }
@@ -948,8 +948,8 @@ int parse_packet_header(int a1, int a2, unsigned int a3) {
       || *(volatile uint16_t *)(v6 + 3) )
     {
       get_table_entry_info(v7);
-      wlan_ioctl_handler_1(dword_13B21C, (volatile uint32_t *)(v10 + v12));
-      hci_cmd_preprocess(a3, 0);
+      co_list_push_back(dword_13B21C, (volatile uint32_t *)(v10 + v12));
+      ke_state_set(a3, 0);
       return 0;
     }
     if ( *(volatile uint16_t *)(v11 + 20) > v9 >> 6 )
@@ -966,7 +966,7 @@ LABEL_38:
         v28 = v7;
 LABEL_31:
         build_hci_event(v27, v28);
-        hci_cmd_preprocess(a3, 3);
+        ke_state_set(a3, 3);
         return 0;
       }
       v29 = (v29 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
@@ -980,17 +980,17 @@ LABEL_31:
     {
       if ( hci_cmd_handler(a3) == 1 || hci_cmd_handler(a3) == 3 )
       {
-        hci_cmd_preprocess(a3, 4);
+        ke_state_set(a3, 4);
         a4a = (volatile uint32_t *)(dword_13B228 + 32 * v7);
         if ( v7 > 0xF )
         {
           wlan_ioctl_handler_3(dword_13B234, (volatile uint32_t *)(dword_13B228 + 32 * v7));
-          wlan_ioctl_handler_1(dword_13B238, a4a);
+          co_list_push_back(dword_13B238, a4a);
         }
         else
         {
           wlan_ioctl_handler_3(dword_13B22C, (volatile uint32_t *)(dword_13B228 + 32 * v7));
-          wlan_ioctl_handler_1(dword_13B230, a4a);
+          co_list_push_back(dword_13B230, a4a);
         }
         rf_set_frequency_1(*(volatile uint8_t *)(a2 + 7), v7);
         return 0;
@@ -1057,9 +1057,9 @@ LABEL_31:
     }
     else
     {
-      hci_cmd_preprocess(a3, 4);
+      ke_state_set(a3, 4);
       wlan_ioctl_handler_3(dword_13B22C, (volatile uint32_t *)v31);
-      wlan_ioctl_handler_1(dword_13B230, (volatile uint32_t *)v31);
+      co_list_push_back(dword_13B230, (volatile uint32_t *)v31);
       rf_set_frequency_1(v16, v7);
       v17 = 37;
     }

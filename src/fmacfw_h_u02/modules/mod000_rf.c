@@ -855,9 +855,9 @@ volatile uint32_t * pmu_init(int a1) {
   pmu_field_reg = (volatile unsigned int *)off_100B78;
   pmu_control_reg = (volatile unsigned int *)off_100B7C;
   v2 = (v2 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v5 = ((uint64_t (*)())double_compare_core)(v1, v2);
+  v5 = ((uint64_t (*)())double_divide)(v1, v2);
   v6 = double_exp_check(v5);
-  v7 = ((int (*)(uint64_t))double_to_float_rounding)(v6);
+  v7 = ((int (*)(uint64_t))double_to_uint32)(v6);
   pmu_control_reg2 = (void *)(uintptr_t)(off_100B80);
   pmu_config_reg = (void *)(uintptr_t)(off_100B84);
   *pmu_field_reg = (uint16_t)(v7 << 8) | *pmu_field_reg & 0xFFFF00FF;
@@ -1822,7 +1822,7 @@ int bt_event_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
         {
           if ( **(volatile int16_t **)off_101C9C < 0 )
           {
-            mmio_write_field(off_101CA4, (int)aPhyGetRfGainId, 6857);
+            log_warning(off_101CA4, (int)aPhyGetRfGainId, 6857);
             v11 = v10;
           }
           v22 = v11;
@@ -1899,7 +1899,7 @@ int bt_event_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
     else
     {
       if ( **(volatile int16_t **)off_101C9C < 0 )
-        mmio_write_field(off_101CA4, (int)aPhyGetRfGainId, 6907);
+        log_warning(off_101CA4, (int)aPhyGetRfGainId, 6907);
       result = alloc_tx_event("invalid chan, band=%d, freq=%d\n", 1, v5);
       v21 = 15;
     }
@@ -1917,9 +1917,9 @@ int bt_event_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
 }
 
 
-// bt_packet_parser @ 0x101cac
+// rf_get_tx_power @ 0x101cac
 /* luna: Computes a rate- and channel-dependent transmit-power setting, applying the channel power limit when enabled. */
-int bt_packet_parser(unsigned int a1, signed int a2, volatile uint8_t *a3) {
+int rf_get_tx_power(unsigned int a1, signed int a2, volatile uint8_t *a3) {
   int v3; // r6
   unsigned int frequency_mhz; // r7
   int v5; // cc
@@ -2060,7 +2060,7 @@ LABEL_18:
     else
     {
       if ( **(volatile int16_t **)off_101E6C < 0 )
-        mmio_write_field(off_101E78, (int)aPhyGetTxpwrLev, 7022);
+        log_warning(off_101E78, (int)aPhyGetTxpwrLev, 7022);
       alloc_tx_event("invalid chan, band=%d, freq=%d\n", v3, frequency_mhz);
       maximum_channel_power = 15;
     }

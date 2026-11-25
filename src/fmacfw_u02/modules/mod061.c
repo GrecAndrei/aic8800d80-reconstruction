@@ -99,7 +99,7 @@ int bt_cmd_guard_alt() {
   else if ( rx_rate_field_parse(7u) == 3 )
   {
     ke_msg_send_no_param(7171, 13, 7);
-    rx_phy_status_parse(7u, 0);
+    ke_state_set(7u, 0);
   }
   return 0;
 }

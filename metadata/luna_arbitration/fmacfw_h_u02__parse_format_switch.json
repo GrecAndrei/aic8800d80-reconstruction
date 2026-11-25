@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "parse_format_switch",
+ "luna": "debug_severity_command",
+ "doc": "Displays the current debug severity when no command is selected, or sets it to a validated index from 0 through 5.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "debug_severity_command",
+   "probabilities": [
+    {
+     "value": "parse_format_switch",
+     "probability": 0.14
+    },
+    {
+     "value": "debug_severity_command",
+     "probability": 0.85
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.77
+  }
+ ],
+ "status": "ok"
+}

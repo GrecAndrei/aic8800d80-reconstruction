@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "is_chip_ready",
+ "luna": "set_user_id",
+ "doc": "Obtains and validates a buffer, writes the supplied user ID to the byte immediately preceding it, and returns the buffer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_user_id",
+   "probabilities": [
+    {
+     "value": "is_chip_ready",
+     "probability": 0.13
+    },
+    {
+     "value": "set_user_id",
+     "probability": 0.85
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.77
+  }
+ ],
+ "status": "ok"
+}

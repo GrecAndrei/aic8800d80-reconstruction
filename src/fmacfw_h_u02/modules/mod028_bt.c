@@ -483,7 +483,7 @@ volatile char * ll_get_state(volatile char *result) {
     if ( v1 != *((volatile uint32_t *)off_122730 + 8)
       || (v8 = (void *)(uintptr_t)(off_122738), *(volatile uint32_t *)(v1 + 36) = v3, !v8[189]) && **(volatile uint8_t **)off_12273C != 2 )
     {
-      mem_copy_util((void *)(uintptr_t)(v1 + 24), v3);
+      mm_timer_set((void *)(uintptr_t)(v1 + 24), v3);
     }
     mmio_reg_addr(v1);
     bt_scan_poll((void *)(uintptr_t)(v1), *(volatile uint32_t *)(v1 + 136) + v2);

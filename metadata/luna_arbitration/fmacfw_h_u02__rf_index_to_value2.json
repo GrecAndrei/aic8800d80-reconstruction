@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_index_to_value2",
+ "luna": "rf_table_value_by_index",
+ "doc": "Returns the 16-bit value at the specified index in a volatile RF lookup table.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_index_to_value2",
+   "probabilities": [
+    {
+     "value": "rf_index_to_value2",
+     "probability": 0.71
+    },
+    {
+     "value": "rf_table_value_by_index",
+     "probability": 0.28
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.56
+  }
+ ],
+ "status": "ok"
+}

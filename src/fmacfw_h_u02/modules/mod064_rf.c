@@ -17,7 +17,7 @@ int rf_lookup_tx_power(int a1, uint16_t a2, int a3) {
     v7 = 4 * v4;
     if ( *(volatile uint16_t *)(dword_138920 + 80 * v4 + 76) )
     {
-      unknown_12f2c8((int)aRxStatDescValS, (int)aRxuCntrlDescPr, 175);
+      log_assert_failure((int)aRxStatDescValS, (int)aRxuCntrlDescPr, 175);
       return 0;
     }
   }
@@ -32,7 +32,7 @@ int rf_lookup_tx_power(int a1, uint16_t a2, int a3) {
   v9 = v5 + 16 * (v4 + v7);
   *(volatile uint32_t *)(v9 + 68) = a3;
   *(volatile uint16_t *)(v9 + 76) = a2;
-  wlan_ioctl_handler_1(dword_138924, v6);
+  co_list_push_back(dword_138924, v6);
   v3[68] = v3[68]
          + 1
          - -64
@@ -49,14 +49,14 @@ int rf_set_tx_power(int a1) {
   v1 = dword_138964;
   rf_lookup_tx_power(0, 4, *(volatile uint32_t *)(a1 + 20));
   wlan_ioctl_handler_3(v1, (volatile uint32_t *)a1);
-  wlan_ioctl_handler_1(v1 - 8, (volatile uint32_t *)a1);
+  co_list_push_back(v1 - 8, (volatile uint32_t *)a1);
   return (int)deref_and_check((volatile int *)(v1 - 32), v3);
 }
 
 
-// parse_param_direction @ 0x138968
+// handle_arp_request @ 0x138968
 /* luna: Recognizes ARP frames and invokes the handler when a request targets the VIF's IPv4 address. */
-int parse_param_direction(volatile uint8_t *a1, volatile uint32_t *a2, int a3, int a4) {
+int handle_arp_request(volatile uint8_t *a1, volatile uint32_t *a2, int a3, int a4) {
   char v5; // r2
   int frame_offset; // r4
   volatile uint8_t *frame_base; // r3
@@ -148,7 +148,7 @@ LABEL_14:
         (uint16_t)a1[5],
         (uint16_t)a1[6],
         (uint16_t)a1[7]);
-      rf_config_lookup(v2 + v6, (int)(uintptr_t)((volatile char *)a1 + 10));
+      send_deauth_frame(v2 + v6, (int)(uintptr_t)((volatile char *)a1 + 10));
     }
   }
   return 0;
@@ -372,7 +372,7 @@ LABEL_11:
       v9 = (volatile uint32_t *)v9[1];
       if ( **v18 < 0 && !v9 )
       {
-        unknown_12f2c8((int)aPdNull, (int)aRxuCntrlMicChe, 963);
+        log_assert_failure((int)aPdNull, (int)aRxuCntrlMicChe, 963);
         return 0;
       }
       v17 = v9[2];
@@ -409,7 +409,7 @@ LABEL_19:
     v15 = 0;
     if ( **v19 < 0 && !v9 )
     {
-      unknown_12f2c8((int)aPdNull, (int)aRxuCntrlMicChe, 1005);
+      log_assert_failure((int)aPdNull, (int)aRxuCntrlMicChe, 1005);
       return 0;
     }
   }
@@ -518,7 +518,7 @@ LABEL_15:
     *((volatile uint16_t *)v10 + 5) = v13;
     v10[14] = (int)(uintptr_t)(v16);
     v10[15] = (int)(uintptr_t)(v10);
-    mem_copy_util(v10 + 13, v15 + 100000);
+    mm_timer_set(v10 + 13, v15 + 100000);
     if ( (v3[24] & 1) != 0 )
       rf_handle_command(a1, (int)(uintptr_t)(v10 + 7), 1, 0);
     *(volatile uint32_t *)(a1 + 96) &= ~0x20u;
@@ -529,7 +529,7 @@ LABEL_15:
     *((volatile uint64_t *)v10 + 2) = v17;
     *((volatile uint8_t *)v10 + 5) = *((volatile uint8_t *)v3 + 49);
     *((volatile uint16_t *)v10 + 6) = *(volatile uint16_t *)(a1 + 48);
-    wlan_ioctl_handler_1(v18, v10);
+    co_list_push_back(v18, v10);
     goto LABEL_20;
   }
   v8 = *(volatile uint16_t *)off_139144 & 0x400;
@@ -601,7 +601,7 @@ LABEL_30:
       rf_lookup_tx_power(0, v23, v10[5]);
       mem_set_util((int)(uintptr_t)(v10 + 13));
       wlan_ioctl_handler_3(dword_139154, v10);
-      wlan_ioctl_handler_1(dword_139148, v10);
+      co_list_push_back(dword_139148, v10);
       goto LABEL_20;
     }
     goto LABEL_20;
@@ -613,7 +613,7 @@ if ( !rf_handle_command(a1, (int)(uintptr_t)(a2a), 1, 1) ) return v9;
   }
   v20 = dword_139158 + 1320 * *((volatile uint8_t *)v3 + 10);
   if ( *(volatile uint8_t *)(v20 + 1227)
-    && parse_param_direction(
+    && handle_arp_request(
          (volatile uint8_t *)(v20 + 107),
          (volatile uint32_t *)(v20 + 1228),
          *(volatile uint32_t *)(*(volatile uint32_t *)(a1 + 28) + 8),
@@ -738,7 +738,7 @@ int rf_get_tx_power_cal(int a1, int a2) {
     goto LABEL_28;
   }
   v8 = dword_139440;
-  v17 = parse_param_direction((volatile uint8_t *)(v3 + 107), (volatile uint32_t *)(v3 + 1228), (int)(uintptr_t)(*(volatile char **)(*(volatile uint32_t *)(a1 + 28) + 8)), 1);
+  v17 = handle_arp_request((volatile uint8_t *)(v3 + 107), (volatile uint32_t *)(v3 + 1228), (int)(uintptr_t)(*(volatile char **)(*(volatile uint32_t *)(a1 + 28) + 8)), 1);
   v7 = *((volatile uint8_t *)v2 + 7);
   v9 = (uint16_t)v2[2];
   v10 = *(volatile uint32_t *)(v8 + 4 * (v7 + 174 * a2 + 102));
@@ -838,7 +838,7 @@ LABEL_10:
       v25 = *(volatile uint8_t *)(v10 + 11);
     }
     if ( v25 == 1 )
-      mem_copy_util((void *)(uintptr_t)(v10 + 272), *((volatile uint32_t *)off_13942C + 4) + 50000);
+      mm_timer_set((void *)(uintptr_t)(v10 + 272), *((volatile uint32_t *)off_13942C + 4) + 50000);
     goto LABEL_10;
   }
   return 0;
@@ -921,7 +921,7 @@ LABEL_12:
             if ( v40 != 255 )
             {
               v41 = dword_139950;
-              channel_switch_count = (uint8_t)handle_ampdu_action((void *)(uintptr_t)(action_body + 2), a2 - a3 - 2, _frame.v53, 1320 * v40 + 1212 + dword_139950);
+              channel_switch_count = (uint8_t)parse_channel_definition((void *)(uintptr_t)(action_body + 2), a2 - a3 - 2, _frame.v53, 1320 * v40 + 1212 + dword_139950);
               alloc_tx_event("csa count=%d, mode=%d!\n", channel_switch_count, _frame.v53[0]);
               if ( channel_switch_count )
               {
@@ -1121,7 +1121,7 @@ LABEL_33:
                   v49 = (volatile uint32_t *)dword_13996C;
                   *(volatile uint8_t *)dword_139968 = 1;
                   v50 = (*(volatile uint32_t *)0x40501010u) + 200000;
-                  mem_copy_util(v49, v50);
+                  mm_timer_set(v49, v50);
                 }
                 v47 = _frame.a3a;
               }
@@ -1138,7 +1138,7 @@ LABEL_33:
           {
             return 1;
           }
-          btm_chk_state(v21, (volatile char *)(a6 + 10));
+          send_probe_response(v21, (volatile char *)(a6 + 10));
           v13 = 0;
         }
 LABEL_38:
@@ -1309,7 +1309,7 @@ LABEL_31:
           if ( !_frame.v23 )
           {
             if ( **(volatile int16_t **)off_139BA4 < 0 && _frame.v19 << 30 )
-              mmio_write_field(dword_139BB0, dword_139BAC, 2608);
+              log_warning(dword_139BB0, dword_139BAC, 2608);
             v4 = _frame.v19;
             v13 = v10 - _frame.v19;
             v10 = (uint16_t)(v10 - _frame.v19);
@@ -1370,14 +1370,14 @@ void *wlc_init_hw() {
   {
     v3 = (volatile uint32_t *)v1;
     v1 += 292;
-    wlan_ioctl_handler_1((int)v0, v3);
+    co_list_push_back((int)v0, v3);
   }
   while ( v1 != v2 );
   clear_stats_buf((volatile uint32_t *)dword_139C34);
   clear_stats_buf((volatile uint32_t *)dword_139C38);
-  wlan_ioctl_handler_1(dword_139C34, (volatile uint32_t *)dword_139C3C);
-  wlan_ioctl_handler_1(dword_139C34, (volatile uint32_t *)dword_139C40);
-  wlan_ioctl_handler_1(dword_139C34, (volatile uint32_t *)dword_139C44);
+  co_list_push_back(dword_139C34, (volatile uint32_t *)dword_139C3C);
+  co_list_push_back(dword_139C34, (volatile uint32_t *)dword_139C40);
+  co_list_push_back(dword_139C34, (volatile uint32_t *)dword_139C44);
   v4 = dword_139C4C;
   result = (void *)(uintptr_t)(off_139C50);
   *((volatile uint16_t *)off_139C48 + 51) = -1;
@@ -1483,9 +1483,9 @@ int rf_set_power(volatile char *a1, char a2, int a3) {
 }
 
 
-// rf_get_power @ 0x139db8
+// log_rx_eapol_if_present @ 0x139db8
 /* luna: Computes the frame EtherType offset and emits an RX-EAPOL diagnostic when it finds 0x888E. */
-volatile char * rf_get_power(volatile char *a1, char a2, int a3) {
+volatile char * log_rx_eapol_if_present(volatile char *a1, char a2, int a3) {
   char v3; // r3
   volatile char *result; // r0
   char a1a[2]; // [sp+6h] [bp-2h] BYREF
@@ -1510,9 +1510,9 @@ volatile char * rf_get_power(volatile char *a1, char a2, int a3) {
 }
 
 
-// dpc_handler @ 0x139e1c
+// mac_rx_dpc_handler @ 0x139e1c
 /* luna: Decodes a pending received 802.11 frame into shared RX metadata, or services a Bluetooth RX request when no Wi-Fi frame is pending. */
-int dpc_handler(int a1) {
+int mac_rx_dpc_handler(int a1) {
   unsigned int context_flags; // r7
   int context; // r5
   int v3; // r3
@@ -1769,7 +1769,7 @@ LABEL_30:
     goto LABEL_30;
 LABEL_83:
   v52 = v16;
-  rf_get_power((volatile char *)rx_frame, context_flags, *(volatile uint16_t *)(context + 48));
+  log_rx_eapol_if_present((volatile char *)rx_frame, context_flags, *(volatile uint16_t *)(context + 48));
   v16 = v52;
   if ( *(volatile uint8_t *)(v15 + 696 * v52 + 669) > 1u || !v48 || (unsigned int)*(volatile uint8_t *)(v48 + 96) - 1 > 1 )
     goto LABEL_84;
@@ -1892,7 +1892,7 @@ int dma_tx_ring(int a1, int a2, int16_t a3) {
   v8[70] = (int)v8;
   v8[1] = v10;
   *(volatile uint32_t *)(entry_slot_address + 408) = (int)(uintptr_t)(v8);
-  mem_copy_util((void *)(uintptr_t)((int)(v8 + 68)), v10 + 50000);
+  mm_timer_set((void *)(uintptr_t)((int)(v8 + 68)), v10 + 50000);
   return 1;
 }
 
@@ -1909,7 +1909,7 @@ int dma_rx_ring(int a1, int a2) {
   if ( **(volatile int16_t **)off_13A360 < 0 && !v3 )
     irq_disable_mmio_write((int)aReordNull, (int)aRxuCntrlReordD, 3320);
   mem_set_util((int)(uintptr_t)(v3 + 68));
-  result = wlan_ioctl_handler_1(dword_13A364, v3);
+  result = co_list_push_back(dword_13A364, v3);
   *(volatile uint32_t *)(v2 + 408) = 0;
   return result;
 }

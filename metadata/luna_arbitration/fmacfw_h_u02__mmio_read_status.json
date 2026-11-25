@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "mmio_read_status",
+ "luna": "set_txop_parameters",
+ "doc": "Programs the BK, BE, VI, and VO TXOP values into the corresponding hardware registers and logs the settings.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_txop_parameters",
+   "probabilities": [
+    {
+     "value": "mmio_read_status",
+     "probability": 0.12
+    },
+    {
+     "value": "set_txop_parameters",
+     "probability": 0.88
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.82
+  }
+ ],
+ "status": "ok"
+}

@@ -98,7 +98,7 @@ int tx_path_status(int a1, int a2) {
 
 // free_buf_1882c0 @ 0x118ce0
 int free_buf_1882c0(volatile uint32_t *a1) {
-  cmd_handler_a(dword_118CF8, a1);
+  co_list_push_back(dword_118CF8, a1);
   return unknown_func_12d104(0x20000);
 }
 
@@ -110,7 +110,7 @@ int scan_control(int result, int a2) {
 
   v2 = result;
   if ( !*(volatile uint8_t *)(result + 96) )
-    result = cmd_handler_a(dword_118D24, (volatile uint32_t *)result);
+    result = co_list_push_back(dword_118D24, (volatile uint32_t *)result);
   if ( a2 )
   {
     v4 = *(int ( **)(uint32_t, uint32_t))(v2 + 88);
@@ -169,7 +169,7 @@ volatile uint32_t *tx_pool_init() {
     }
     else if ( !*((volatile uint8_t *)v5 + 96) )
     {
-      cmd_handler_a(dword_118DBC, v5);
+      co_list_push_back(dword_118DBC, v5);
     }
   }
   return result;

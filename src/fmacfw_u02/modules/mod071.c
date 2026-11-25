@@ -18,12 +18,12 @@ int ll_event_counter_inc() {
   while ( v2 != v0 + 6336 );
   if ( v1 >= (int)*(volatile uint32_t *)(v2 + 148) )
   {
-    result = rx_phy_status_parse(0xBu, 0);
+    result = ke_state_set(0xBu, 0);
     *(volatile uint32_t *)(v2 + 144) = -1;
   }
   else
   {
-    rx_phy_status_parse(0xBu, 4);
+    ke_state_set(0xBu, 4);
     return ke_msg_send_no_param(11264, 11, 11);
   }
   return result;
@@ -87,7 +87,7 @@ LABEL_18:
   }
 LABEL_4:
   v4 = dword_1415D4;
-  rx_phy_status_parse(0xBu, 2);
+  ke_state_set(0xBu, 2);
   v5 = v4 + 6336;
   zero_8_bytes((volatile uint32_t *)dword_1415DC);
   do
@@ -103,7 +103,7 @@ LABEL_4:
     *(volatile uint8_t *)(v4 + 22) = 0;
     *(volatile uint16_t *)(v4 + 4) = 2;
     v4 += 528;
-    cmd_handler_a(v5 + 136, v6);
+    co_list_push_back(v5 + 136, v6);
   }
   while ( v4 != v5 );
 LABEL_9:
@@ -174,7 +174,7 @@ int ll_event_remove(int a1, int a2) {
   }
   else
   {
-    result = rx_phy_status_parse(0xBu, 0);
+    result = ke_state_set(0xBu, 0);
     *(volatile uint32_t *)(dword_14172C + 6480) = -1;
   }
   return result;

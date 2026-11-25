@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "handle_addba_response",
+ "luna": "apply_country_ie_channel_power",
+ "doc": "Finds the country-information triplet covering the channel record\u2019s channel and stores that triplet\u2019s maximum transmit power in the record.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "apply_country_ie_channel_power",
+   "probabilities": [
+    {
+     "value": "handle_addba_response",
+     "probability": 0.13
+    },
+    {
+     "value": "apply_country_ie_channel_power",
+     "probability": 0.86
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.79
+  }
+ ],
+ "status": "ok"
+}

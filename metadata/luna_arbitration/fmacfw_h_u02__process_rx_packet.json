@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "process_rx_packet",
+ "luna": "process_rx_beacon",
+ "doc": "Processes a received 802.11 beacon by checking its advertised channel, hashing information elements while excluding the TIM element, and forwarding it for further handling.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "process_rx_beacon",
+   "probabilities": [
+    {
+     "value": "process_rx_packet",
+     "probability": 0.42
+    },
+    {
+     "value": "process_rx_beacon",
+     "probability": 0.56
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.34
+  }
+ ],
+ "status": "ok"
+}

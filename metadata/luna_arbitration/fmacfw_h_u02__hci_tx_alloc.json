@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "hci_tx_alloc",
+ "luna": "hci_tx_buffer_alloc",
+ "doc": "Allocates an aligned HCI transmit buffer by carving space from a suitable free-list block and recording the allocation size.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "hci_tx_buffer_alloc",
+   "probabilities": [
+    {
+     "value": "hci_tx_alloc",
+     "probability": 0.25
+    },
+    {
+     "value": "hci_tx_buffer_alloc",
+     "probability": 0.75
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.63
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "gpio_pad_ctrl_set",
+ "luna": "rf_pa_current_calibrate",
+ "doc": "Sweeps the RF PA control code to find the setting whose measured PA current is closest to the target, returning the selected code's offset from the initial setting.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_pa_current_calibrate",
+   "probabilities": [
+    {
+     "value": "gpio_pad_ctrl_set",
+     "probability": 0.11
+    },
+    {
+     "value": "rf_pa_current_calibrate",
+     "probability": 0.89
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.83
+  }
+ ],
+ "status": "ok"
+}

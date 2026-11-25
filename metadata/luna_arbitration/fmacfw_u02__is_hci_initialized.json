@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "is_hci_initialized",
+ "luna": "set_user_id",
+ "doc": "Obtains a controller buffer and stores the supplied user ID in the byte immediately preceding its payload, logging if the buffer is invalid.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_user_id",
+   "probabilities": [
+    {
+     "value": "is_hci_initialized",
+     "probability": 0.1
+    },
+    {
+     "value": "set_user_id",
+     "probability": 0.87
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.8
+  }
+ ],
+ "status": "ok"
+}

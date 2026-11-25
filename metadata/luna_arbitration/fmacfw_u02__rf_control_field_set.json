@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_control_field_set",
+ "luna": "rf_calibrate_pa_current",
+ "doc": "Adjusts the RF PA current-control field toward the configured target current and returns the field offset from its initial setting.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_control_field_set",
+   "probabilities": [
+    {
+     "value": "rf_control_field_set",
+     "probability": 0.58
+    },
+    {
+     "value": "rf_calibrate_pa_current",
+     "probability": 0.4
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.37
+  }
+ ],
+ "status": "ok"
+}

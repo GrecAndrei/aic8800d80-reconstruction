@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "copy_cal_data",
+ "luna": "report_spurious_interrupt",
+ "doc": "Logs an interrupt-controller spurious event and, if the global signed flag is negative, invokes the associated MMIO interrupt-disable operation.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "report_spurious_interrupt",
+   "probabilities": [
+    {
+     "value": "copy_cal_data",
+     "probability": 0.2
+    },
+    {
+     "value": "report_spurious_interrupt",
+     "probability": 0.75
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.63
+  }
+ ],
+ "status": "ok"
+}

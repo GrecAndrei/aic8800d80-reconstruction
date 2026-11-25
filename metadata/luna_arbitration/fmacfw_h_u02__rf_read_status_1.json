@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_read_status_1",
+ "luna": "usb_wlan_rx_pkt_free_list_init",
+ "doc": "Clears the USB WLAN RX packet free list and allocates and enqueues the configured number of packet buffers.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "usb_wlan_rx_pkt_free_list_init",
+   "probabilities": [
+    {
+     "value": "rf_read_status_1",
+     "probability": 0.14
+    },
+    {
+     "value": "usb_wlan_rx_pkt_free_list_init",
+     "probability": 0.84
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.76
+  }
+ ],
+ "status": "ok"
+}

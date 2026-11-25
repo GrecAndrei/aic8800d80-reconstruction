@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "write_rf_cal_data",
+ "luna": "write_rf_calibration_data",
+ "doc": "Copies two words from the first input and four from the second into six consecutive RF calibration storage words at a fixed address.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "write_rf_cal_data",
+   "probabilities": [
+    {
+     "value": "write_rf_cal_data",
+     "probability": 0.67
+    },
+    {
+     "value": "write_rf_calibration_data",
+     "probability": 0.32
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.51
+  }
+ ],
+ "status": "ok"
+}

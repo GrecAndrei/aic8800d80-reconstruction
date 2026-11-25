@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_config_from_params",
+ "luna": "apm_start_cac_req_handler",
+ "doc": "Validates an AP start-CAC request against interface and radio state, then sends a confirmation with the resulting status.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "apm_start_cac_req_handler",
+   "probabilities": [
+    {
+     "value": "rf_config_from_params",
+     "probability": 0.02
+    },
+    {
+     "value": "apm_start_cac_req_handler",
+     "probability": 0.98
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.97
+  }
+ ],
+ "status": "ok"
+}

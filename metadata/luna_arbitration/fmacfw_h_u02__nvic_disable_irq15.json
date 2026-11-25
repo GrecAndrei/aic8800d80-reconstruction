@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "nvic_disable_irq15",
+ "luna": "disable_irq15",
+ "doc": "Disables NVIC interrupt 15 and synchronizes the change with data and instruction barriers.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "nvic_disable_irq15",
+   "probabilities": [
+    {
+     "value": "nvic_disable_irq15",
+     "probability": 0.68
+    },
+    {
+     "value": "disable_irq15",
+     "probability": 0.31
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.52
+  }
+ ],
+ "status": "ok"
+}

@@ -1,6 +1,6 @@
-// rssi_sample @ 0x115e28
+// txdesc_pool_init @ 0x115e28
 /* luna: Clears and initializes the TX descriptor pool, assigning each descriptor its 80-byte backing buffer and passing it to the descriptor handler. */
-int rssi_sample() {
+int txdesc_pool_init() {
   volatile int **txdesc_array; // r5
   volatile uint32_t *tx_buffer_base_ptr; // r6
   volatile int *v2; // r0
@@ -35,7 +35,7 @@ int rssi_sample() {
   {
     descriptor_entry = &(*txdesc_array)[22 * descriptor_index];
     descriptor_entry[19] = *tx_buffer_base_ptr + 80 * descriptor_index;
-    result = wlan_ioctl_handler_1(v4, (void *)(descriptor_entry));
+    result = co_list_push_back(v4, (void *)(descriptor_entry));
     ++descriptor_index;
   }
   while ( *(volatile uint16_t *)(*(volatile uint32_t *)descriptor_config_ptr + 8) >= (unsigned int)descriptor_index );
@@ -59,7 +59,7 @@ int rssi_compare() {
 
 // set_string_0x182588 @ 0x115f04
 int set_string_0x182588(volatile uint32_t *a1) {
-  return wlan_ioctl_handler_1(dword_115F0C, a1);
+  return co_list_push_back(dword_115F0C, a1);
 }
 
 
@@ -94,7 +94,7 @@ volatile uint32_t * conn_handle_get(int a1) {
   result = *(volatile uint32_t **)(a1 + 72);
   if ( result )
   {
-    result = (volatile uint32_t *)wait_for_state(result);
+    result = (volatile uint32_t *)pkt_mem_free(result);
     *(volatile uint32_t *)(a1 + 72) = 0;
   }
   return result;

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_config_lookup",
+ "luna": "send_deauth_frame",
+ "doc": "Builds and submits an 802.11 deauthentication frame to the specified peer using reason code 7 and the interface MAC as the source and BSSID.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "send_deauth_frame",
+   "probabilities": [
+    {
+     "value": "rf_config_lookup",
+     "probability": 0.06
+    },
+    {
+     "value": "send_deauth_frame",
+     "probability": 0.9
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.85
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "read_status_low",
+ "luna": "rf_apply_loft_q_calibration",
+ "doc": "Reads the LOFT-Q calibration value, adds it to the RF register\u2019s low 12 bits, and sets the calibration update bit.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_apply_loft_q_calibration",
+   "probabilities": [
+    {
+     "value": "read_status_low",
+     "probability": 0.11
+    },
+    {
+     "value": "rf_apply_loft_q_calibration",
+     "probability": 0.86
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.79
+  }
+ ],
+ "status": "ok"
+}

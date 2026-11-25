@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "check_one_12dd08",
+ "luna": "wlan_find_ht_capabilities_ie",
+ "doc": "Scans an 802.11 information-element list and returns the HT Capabilities element (ID 45) only when its payload length is 26 bytes and it is in bounds.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "wlan_find_ht_capabilities_ie",
+   "probabilities": [
+    {
+     "value": "check_one_12dd08",
+     "probability": 0.26
+    },
+    {
+     "value": "wlan_find_ht_capabilities_ie",
+     "probability": 0.65
+    },
+    {
+     "value": "neither",
+     "probability": 0.09
+    }
+   ],
+   "confidence": 0.48
+  }
+ ],
+ "status": "ok"
+}

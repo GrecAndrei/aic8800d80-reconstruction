@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "get_controller_state",
+ "luna": "wait_timer_ticks",
+ "doc": "Busy-waits until the hardware timer advances by the requested number of ticks, then returns that interval.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "wait_timer_ticks",
+   "probabilities": [
+    {
+     "value": "get_controller_state",
+     "probability": 0.05
+    },
+    {
+     "value": "wait_timer_ticks",
+     "probability": 0.91
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.86
+  }
+ ],
+ "status": "ok"
+}

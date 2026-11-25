@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "btm_chk_state",
+ "luna": "send_probe_response",
+ "doc": "Builds and queues an 802.11 probe response for the AP vif addressed to the supplied destination MAC.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "send_probe_response",
+   "probabilities": [
+    {
+     "value": "btm_chk_state",
+     "probability": 0.01
+    },
+    {
+     "value": "send_probe_response",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

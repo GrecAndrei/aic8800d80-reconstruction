@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "wlan_wait_ready",
+ "luna": "wlan_configure_tx_queue",
+ "doc": "Configures a WLAN transmit queue and, when a queue buffer is provided, allocates and records its shared FIFO region.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "wlan_configure_tx_queue",
+   "probabilities": [
+    {
+     "value": "wlan_wait_ready",
+     "probability": 0.02
+    },
+    {
+     "value": "wlan_configure_tx_queue",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

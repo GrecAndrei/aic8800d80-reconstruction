@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "radio_band_validate",
+ "luna": "tx_queue_set_new_head",
+ "doc": "Stores a new TX-list head for the selected access category and signals the corresponding hardware queue after checking its status.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "tx_queue_set_new_head",
+   "probabilities": [
+    {
+     "value": "radio_band_validate",
+     "probability": 0.05
+    },
+    {
+     "value": "tx_queue_set_new_head",
+     "probability": 0.95
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.93
+  }
+ ],
+ "status": "ok"
+}

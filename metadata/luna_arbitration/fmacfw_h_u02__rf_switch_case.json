@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_switch_case",
+ "luna": "tx_queue_set_head",
+ "doc": "Sets the hardware head pointer for the selected access-category TX queue and kicks that queue.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "tx_queue_set_head",
+   "probabilities": [
+    {
+     "value": "rf_switch_case",
+     "probability": 0.17
+    },
+    {
+     "value": "tx_queue_set_head",
+     "probability": 0.83
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.74
+  }
+ ],
+ "status": "ok"
+}

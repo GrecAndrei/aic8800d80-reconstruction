@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "hci_send_vendor_cmd",
+ "luna": "mac_assoc_rsp_handler",
+ "doc": "Accumulates association-response payload fragments in shared state and dispatches the response when the status is zero.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mac_assoc_rsp_handler",
+   "probabilities": [
+    {
+     "value": "hci_send_vendor_cmd",
+     "probability": 0.06
+    },
+    {
+     "value": "mac_assoc_rsp_handler",
+     "probability": 0.94
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.91
+  }
+ ],
+ "status": "ok"
+}

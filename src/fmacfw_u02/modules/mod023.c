@@ -304,7 +304,7 @@ LABEL_5:
     {
       v8 = *(volatile uint32_t *)(v7 + 36);
       if ( v8 )
-        ((int (*)())radio_band_validate)(v8, v3, *(volatile uint8_t *)(v7 + 46), v7);
+        ((int (*)())tx_queue_set_new_head)(v8, v3, *(volatile uint8_t *)(v7 + 46), v7);
       v1[7 * v3 + 9] = 0;
     }
     v9 = (void *)(uintptr_t)(off_11CA74);
@@ -462,7 +462,7 @@ LABEL_25:
     {
       v19 = *((volatile uint32_t *)v18 + 9);
       if ( v19 )
-        radio_band_validate(v19, v2);
+        tx_queue_set_new_head(v19, v2);
       *(volatile uint32_t *)&v0[28 * v2 + 36] = 0;
     }
     v20 = (void *)(uintptr_t)(off_11CC68);

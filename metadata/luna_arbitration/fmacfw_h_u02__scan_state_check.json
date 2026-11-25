@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "scan_state_check",
+ "luna": "update_vif_dhcp_state",
+ "doc": "Stores a VIF's DHCP-acquired flag and IPv4 address, handles conditional ARP-offload and pending-state cleanup, and writes the command-98 response.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "update_vif_dhcp_state",
+   "probabilities": [
+    {
+     "value": "scan_state_check",
+     "probability": 0.11
+    },
+    {
+     "value": "update_vif_dhcp_state",
+     "probability": 0.89
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.83
+  }
+ ],
+ "status": "ok"
+}

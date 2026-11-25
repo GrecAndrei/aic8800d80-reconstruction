@@ -152,7 +152,7 @@ int ble_event_set() {
   do
   {
     llc_aes_ccm_setup(v0 - 624);
-    cmd_handler_a(v1, (volatile uint32_t *)(v0 - 624));
+    co_list_push_back(v1, (volatile uint32_t *)(v0 - 624));
     v3 = (volatile uint32_t *)(v0 - 40);
     do
     {
@@ -257,7 +257,7 @@ int ble_event_wait(volatile int *a1, volatile uint8_t *a2) {
     v35 = mem_word_load(dword_11F100);
     if ( !v35 )
     {
-      cmd_handler_a(dword_11F100, v6);
+      co_list_push_back(dword_11F100, v6);
       return 1;
     }
     v6[11] = (int)(uintptr_t)(v35);
@@ -340,7 +340,7 @@ int ble_event_wait(volatile int *a1, volatile uint8_t *a2) {
   while ( v6 + 27 != v18 );
   if ( (v21 & 0x10) != 0 )
     v6[1] |= 8u;
-  cmd_handler_a(v14 + v19 + 240, v6);
+  co_list_push_back(v14 + v19 + 240, v6);
   v6[145] = dword_11F120;
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -426,7 +426,7 @@ int llm_conn_calc_ptr(unsigned int a1, int a2, int a3, int a4) {
     {
 LABEL_7:
       llc_aes_ccm_setup(v14);
-      cmd_handler_a(dword_11F284, *(volatile uint32_t **)(v4 + 696 * a1 + 44));
+      co_list_push_back(dword_11F284, *(volatile uint32_t **)(v4 + 696 * a1 + 44));
       goto LABEL_8;
     }
     v18 = (volatile int *)off_11F27C;
@@ -455,7 +455,7 @@ LABEL_7:
     goto LABEL_7;
 LABEL_8:
   llc_aes_ccm_setup(v6);
-  cmd_handler_a(dword_11F284, (volatile uint32_t *)v6);
+  co_list_push_back(dword_11F284, (volatile uint32_t *)v6);
   result = get_phy_channel();
   if ( !result )
   {
@@ -841,7 +841,7 @@ int ble_sched_init() {
     *(volatile uint8_t *)(v1 + 110) = 127;
     v4 = (volatile uint32_t *)v1;
     v1 += 1320;
-    result = cmd_handler_a((int)v0, v4);
+    result = co_list_push_back((int)v0, v4);
   }
   while ( v1 != v3 );
   *((volatile uint8_t *)v0 + 16) = -1;
@@ -1096,7 +1096,7 @@ LABEL_11:
   }
   v27 = dword_11FB20;
   *a4 = *(volatile uint8_t *)(v18 + 107);
-  cmd_handler_a(v27, (volatile uint32_t *)v18);
+  co_list_push_back(v27, (volatile uint32_t *)v18);
   v28 = (volatile uint32_t *)(v18 + 1232);
   do
   {
@@ -1210,8 +1210,8 @@ int get_object_by_index(int a1) {
       if ( v3[318] || v3[308] )
       {
         v18 = (int)(v16 - 10);
-        v51 = read_u32(v16);
-        v19 = read_u32(v16 - 10);
+        v51 = list_count(v16);
+        v19 = list_count(v16 - 10);
         event_dispatch("vif unregister:%d, %d\n", v51, v19);
       }
       else
@@ -1248,7 +1248,7 @@ int get_object_by_index(int a1) {
     v5 = (volatile uint8_t *)v53;
     if ( *(volatile uint32_t *)(v2 + 1320 * a1 + 1312) )
     {
-      v22 = read_u32((volatile uint32_t **)(v50 + 1312 + v2));
+      v22 = list_count((volatile uint32_t **)(v50 + 1312 + v2));
       event_dispatch("vif unregister mgmt:%d\n", v22);
     }
     if ( (__get_CPSR() & 1) == 0 )
@@ -1415,7 +1415,7 @@ LABEL_9:
   *(volatile uint8_t *)(v9 + 109) = 127;
   *(volatile uint8_t *)(v9 + 110) = 127;
   check_status_bits(256, "%s:%d,%d,%d\r\n", aVifMgmtUnregis, v11, v47, v48);
-  return cmd_handler_a(off_11FEC8, (void *)(v3));
+  return co_list_push_back(off_11FEC8, (void *)(v3));
 }
 
 

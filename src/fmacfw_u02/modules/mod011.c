@@ -1,6 +1,6 @@
-// kernel_event_wait @ 0x115f68
+// tx_txdesc_init @ 0x115f68
 /* luna: Initializes each transmit-descriptor slot, assigns its per-slot buffer, and invokes the slot setup handler. */
-int kernel_event_wait() {
+int tx_txdesc_init() {
   volatile int **descriptor_array_ref; // r5
   volatile uint32_t *tx_buffer_base_ref; // r6
   volatile int *descriptor_array; // r0
@@ -35,7 +35,7 @@ int kernel_event_wait() {
   {
     descriptor_entry = &(*descriptor_array_ref)[22 * slot_index];
     descriptor_entry[19] = *tx_buffer_base_ref + 80 * slot_index;
-    result = cmd_handler_a(v4, (void *)(descriptor_entry));
+    result = co_list_push_back(v4, (void *)(descriptor_entry));
     ++slot_index;
   }
   while ( *(volatile uint16_t *)(*(volatile uint32_t *)tx_config_ref + 8) >= (unsigned int)slot_index );
@@ -59,7 +59,7 @@ int kernel_event_get() {
 
 // call_func_182588 @ 0x116044
 int call_func_182588(volatile uint32_t *a1) {
-  return cmd_handler_a(dword_11604C, a1);
+  return co_list_push_back(dword_11604C, a1);
 }
 
 
@@ -175,9 +175,9 @@ int parse_control_packet(int result, int a2) {
 
 
 
-// check_global_flag @ 0x116174
+// append_tkip_mic @ 0x116174
 /* luna: Computes and appends an 8-byte TKIP Michael MIC for the payload, or writes eight zero bytes when the global bypass flag is set. */
-volatile int * check_global_flag(int a1, int a2, int a3, int a4) {
+volatile int * append_tkip_mic(int a1, int a2, int a3, int a4) {
   volatile int *result; // r0
   volatile char *mic_bytes; // r4
   int mic_output_offset; // r5

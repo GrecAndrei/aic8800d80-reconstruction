@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "tx_irq_handler",
+ "luna": "buffer_pool_alloc",
+ "doc": "Removes and returns a free buffer from the first size class with sufficient capacity, validating the buffer address and guard pattern along the way.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "buffer_pool_alloc",
+   "probabilities": [
+    {
+     "value": "tx_irq_handler",
+     "probability": 0.14
+    },
+    {
+     "value": "buffer_pool_alloc",
+     "probability": 0.86
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.79
+  }
+ ],
+ "status": "ok"
+}

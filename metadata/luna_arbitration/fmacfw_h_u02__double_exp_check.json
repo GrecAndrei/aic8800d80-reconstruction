@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_exp_check",
+ "luna": "round_double",
+ "doc": "Rounds a binary64 value to the nearest integral value, with halfway cases rounded away from zero.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "round_double",
+   "probabilities": [
+    {
+     "value": "double_exp_check",
+     "probability": 0.37
+    },
+    {
+     "value": "round_double",
+     "probability": 0.61
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.42
+  }
+ ],
+ "status": "ok"
+}

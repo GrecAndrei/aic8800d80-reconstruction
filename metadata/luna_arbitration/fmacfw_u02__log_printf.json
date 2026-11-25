@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "log_printf",
+ "luna": "debug_printf",
+ "doc": "Forwards a variadic format string and its arguments to prepare_debug_buffer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "debug_printf",
+   "probabilities": [
+    {
+     "value": "log_printf",
+     "probability": 0.36
+    },
+    {
+     "value": "debug_printf",
+     "probability": 0.63
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.45
+  }
+ ],
+ "status": "ok"
+}

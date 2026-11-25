@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_compare_core",
+ "luna": "double_divide",
+ "doc": "Divides two IEEE-754 double-precision operands using the ARM EABI runtime implementation.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_divide",
+   "probabilities": [
+    {
+     "value": "double_compare_core",
+     "probability": 0.04
+    },
+    {
+     "value": "double_divide",
+     "probability": 0.85
+    },
+    {
+     "value": "neither",
+     "probability": 0.11
+    }
+   ],
+   "confidence": 0.77
+  }
+ ],
+ "status": "ok"
+}

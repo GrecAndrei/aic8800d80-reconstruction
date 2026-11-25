@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "memcpy_fixed",
+ "luna": "strncasecmp",
+ "doc": "Compares at most max_len bytes of two strings case-insensitively, returning the byte difference at the first mismatch.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "strncasecmp",
+   "probabilities": [
+    {
+     "value": "memcpy_fixed",
+     "probability": 0.05
+    },
+    {
+     "value": "strncasecmp",
+     "probability": 0.94
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.91
+  }
+ ],
+ "status": "ok"
+}

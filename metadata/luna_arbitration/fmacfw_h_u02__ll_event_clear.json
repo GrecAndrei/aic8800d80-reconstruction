@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "ll_event_clear",
+ "luna": "ll_event_reset",
+ "doc": "Resets the indexed Bluetooth link-layer event entry and clears its associated auxiliary state.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ll_event_clear",
+   "probabilities": [
+    {
+     "value": "ll_event_clear",
+     "probability": 0.61
+    },
+    {
+     "value": "ll_event_reset",
+     "probability": 0.38
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.42
+  }
+ ],
+ "status": "ok"
+}

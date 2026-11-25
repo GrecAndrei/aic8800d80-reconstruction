@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "phy_chan_set",
+ "luna": "phy_channel_configure",
+ "doc": "Configures the requested PHY channel by initializing its state, applying rate and TX-length settings, issuing the channel command, and initializing the DMA ring.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "phy_channel_configure",
+   "probabilities": [
+    {
+     "value": "phy_chan_set",
+     "probability": 0.47
+    },
+    {
+     "value": "phy_channel_configure",
+     "probability": 0.53
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.3
+  }
+ ],
+ "status": "ok"
+}

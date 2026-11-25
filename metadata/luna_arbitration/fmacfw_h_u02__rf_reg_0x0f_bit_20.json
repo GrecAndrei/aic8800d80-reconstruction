@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_reg_0x0f_bit_20",
+ "luna": "rf_reg_0x0f_get_bit_20",
+ "doc": "Returns bit 20 of RF register 0x0F using the ROM register accessor.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_reg_0x0f_get_bit_20",
+   "probabilities": [
+    {
+     "value": "rf_reg_0x0f_bit_20",
+     "probability": 0.33
+    },
+    {
+     "value": "rf_reg_0x0f_get_bit_20",
+     "probability": 0.66
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.49
+  }
+ ],
+ "status": "ok"
+}

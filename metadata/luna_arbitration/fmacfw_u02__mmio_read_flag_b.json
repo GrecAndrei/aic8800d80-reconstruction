@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "mmio_read_flag_b",
+ "luna": "mmio_read_u8",
+ "doc": "Reads and returns a byte from a fixed memory-mapped register address.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "mmio_read_u8",
+   "probabilities": [
+    {
+     "value": "mmio_read_flag_b",
+     "probability": 0.48
+    },
+    {
+     "value": "mmio_read_u8",
+     "probability": 0.51
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.27
+  }
+ ],
+ "status": "ok"
+}

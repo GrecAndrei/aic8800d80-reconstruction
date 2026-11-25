@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "ipc_mbox_write",
+ "luna": "ipc_mailbox_write",
+ "doc": "Writes the 32-bit value from the source pointer to the mailbox data register, then writes header word 114 using the supplied header arguments.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ipc_mbox_write",
+   "probabilities": [
+    {
+     "value": "ipc_mbox_write",
+     "probability": 0.86
+    },
+    {
+     "value": "ipc_mailbox_write",
+     "probability": 0.14
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.79
+  }
+ ],
+ "status": "ok"
+}

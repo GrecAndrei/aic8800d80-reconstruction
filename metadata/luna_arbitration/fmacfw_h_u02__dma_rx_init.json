@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "dma_rx_init",
+ "luna": "rf_filter_calibration_indices",
+ "doc": "Filters the requested calibration-index mask against a mode-specific analog-power-index range and records indices that require calibration.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_filter_calibration_indices",
+   "probabilities": [
+    {
+     "value": "dma_rx_init",
+     "probability": 0.36
+    },
+    {
+     "value": "rf_filter_calibration_indices",
+     "probability": 0.6
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.4
+  }
+ ],
+ "status": "ok"
+}

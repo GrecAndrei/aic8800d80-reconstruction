@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "send_mcu_cmd_0x401",
+ "luna": "test_read_memory",
+ "doc": "Reads a 32-bit value from the requested address and returns the address/value pair in a 0x401 PDU.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "test_read_memory",
+   "probabilities": [
+    {
+     "value": "send_mcu_cmd_0x401",
+     "probability": 0.48
+    },
+    {
+     "value": "test_read_memory",
+     "probability": 0.5
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.25
+  }
+ ],
+ "status": "ok"
+}

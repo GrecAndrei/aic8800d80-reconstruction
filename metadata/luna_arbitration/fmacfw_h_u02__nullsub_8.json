@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "nullsub_8",
+ "luna": "return_zero",
+ "doc": "Returns zero without performing any operation.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "return_zero",
+   "probabilities": [
+    {
+     "value": "nullsub_8",
+     "probability": 0.21
+    },
+    {
+     "value": "return_zero",
+     "probability": 0.78
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.67
+  }
+ ],
+ "status": "ok"
+}

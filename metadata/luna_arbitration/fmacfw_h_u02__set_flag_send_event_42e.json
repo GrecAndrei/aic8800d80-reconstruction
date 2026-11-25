@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "set_flag_send_event_42e",
+ "luna": "rf_xtal_cap_adjustment_tick",
+ "doc": "Marks the xtal-cap adjustment loop active, applies the configured target when the cached RF value differs, and schedules the next check.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_xtal_cap_adjustment_tick",
+   "probabilities": [
+    {
+     "value": "set_flag_send_event_42e",
+     "probability": 0.29
+    },
+    {
+     "value": "rf_xtal_cap_adjustment_tick",
+     "probability": 0.7
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.55
+  }
+ ],
+ "status": "ok"
+}

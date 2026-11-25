@@ -1,6 +1,6 @@
-// bsscfg_get @ 0x12847c
+// chan_ctxt_unlink @ 0x12847c
 /* luna: Detaches a BSS configuration from its channel context and updates the associated link and reference counts. */
-int bsscfg_get(int a1) {
+int chan_ctxt_unlink(int a1) {
   volatile int16_t **v1; // r9
   int bsscfg_table_base; // r8
   int bsscfg_offset; // r10
@@ -295,7 +295,7 @@ int bsscfg_index(int a1, int a2) {
       }
       while ( v24 != v23 );
     }
-    wlan_ioctl_handler_1(dword_12897C, chanctx);
+    co_list_push_back(dword_12897C, chanctx);
     if ( (v10[88] & 0xC) != 0 )
     {
       v22 = *((volatile uint32_t *)v10 + 8);
@@ -361,7 +361,7 @@ int bsscfg_current(int a1) {
   v2 = dword_1289E8 + 1320 * *((volatile uint8_t *)off_1289E4 + 16);
   if ( *(volatile uint32_t *)(v2 + 72) )
   {
-    bsscfg_get(*((volatile uint8_t *)off_1289E4 + 16));
+    chan_ctxt_unlink(*((volatile uint8_t *)off_1289E4 + 16));
   }
   else
   {
@@ -479,7 +479,7 @@ int hex_log(int a1, int a2) {
     v8 = dword_128B5C;
     *((volatile uint32_t *)v4 + 5) = a1;
     v4[29] = 4;
-    result = mem_copy_util((void *)(uintptr_t)(v8), v7 + v6);
+    result = mm_timer_set((void *)(uintptr_t)(v8), v7 + v6);
     *(volatile uint32_t *)(a1 + 4) |= 0x200u;
   }
   return result;
@@ -617,7 +617,7 @@ LABEL_18:
     v7 = *(volatile uint16_t *)(v6 + 54);
     v8 = dword_128D5C;
     v1[29] = 1;
-    mem_copy_util((void *)(uintptr_t)(v8), v7 + v5[4]);
+    mm_timer_set((void *)(uintptr_t)(v8), v7 + v5[4]);
     return;
   }
   if ( !**(volatile uint8_t **)off_128D4C || !*(volatile uint8_t *)(a1 + 108) )
@@ -795,7 +795,7 @@ unsigned int mfp_key_parse(unsigned int result, int a2, int a3) {
             v19 = dword_129034;
             v4[5] = a3;
             *((volatile uint8_t *)v4 + 29) = 5;
-            mem_copy_util((void *)(uintptr_t)(v19), v18 + v17);
+            mm_timer_set((void *)(uintptr_t)(v19), v18 + v17);
           }
         }
         else
@@ -832,7 +832,7 @@ unsigned int mfp_key_parse(unsigned int result, int a2, int a3) {
           v24 = v21[4];
           v4[5] = a3;
           *((volatile uint8_t *)v4 + 29) = 6;
-          return mem_copy_util((void *)(uintptr_t)(v23), v22 + v24);
+          return mm_timer_set((void *)(uintptr_t)(v23), v22 + v24);
         }
       }
       else
@@ -900,7 +900,7 @@ int mfp_key_disable(int result, int a2, int a3) {
         v15 = *(volatile uint16_t *)(v13 + 56);
         v3[5] = a3;
         *((volatile uint8_t *)v3 + 29) = 5;
-        result = mem_copy_util((void *)(uintptr_t)((int)(v3 + 3)), v15 + v14);
+        result = mm_timer_set((void *)(uintptr_t)((int)(v3 + 3)), v15 + v14);
         v7 = *(volatile uint32_t *)(a3 + 4);
         if ( !a2 )
           goto LABEL_6;
@@ -922,7 +922,7 @@ LABEL_8:
     v11 = *(volatile uint16_t *)(*(volatile uint32_t *)off_1290BC + 58);
     v3[5] = a3;
     *((volatile uint8_t *)v3 + 29) = 6;
-    return mem_copy_util((void *)(uintptr_t)(dword_1290C4), v11 + v10);
+    return mm_timer_set((void *)(uintptr_t)(dword_1290C4), v11 + v10);
   }
   return result;
 }
@@ -963,7 +963,7 @@ void mfp_get_active(volatile uint16_t *a1, int16_t a2, int a3) {
           v10 = *(volatile uint16_t *)(*(volatile uint32_t *)off_129188 + 56);
           *((volatile uint32_t *)v3 + 5) = a3;
           v3[29] = 5;
-          mem_copy_util((void *)(uintptr_t)(dword_129190), v10 + v9);
+          mm_timer_set((void *)(uintptr_t)(dword_129190), v10 + v9);
         }
       }
     }
@@ -977,7 +977,7 @@ void mfp_get_active(volatile uint16_t *a1, int16_t a2, int a3) {
       v7 = *(volatile uint16_t *)(*(volatile uint32_t *)off_129188 + 54);
       *((volatile uint32_t *)off_129180 + 5) = a3;
       v3[29] = 2;
-      mem_copy_util((void *)(uintptr_t)((int)(v3 + 12)), v7 + v6);
+      mm_timer_set((void *)(uintptr_t)((int)(v3 + 12)), v7 + v6);
       v8 = *(volatile uint32_t *)(a3 + 4);
       if ( (v4 & 0x2000) != 0 )
       {
@@ -1019,7 +1019,7 @@ void mfp_is_enabled(int a1) {
           v5 = *(volatile uint16_t *)(*(volatile uint32_t *)off_129238 + 54);
           *((volatile uint32_t *)off_12922C + 5) = v3;
           v1[29] = 3;
-          mem_copy_util((void *)(uintptr_t)((int)(v1 + 12)), v4 + v5);
+          mm_timer_set((void *)(uintptr_t)((int)(v1 + 12)), v4 + v5);
           if ( (*(volatile uint32_t *)off_129240 & 4) != 0 )
           {
             if ( *((volatile uint8_t *)off_129244 + 190) )

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "call_ptr_1b4",
+ "luna": "invoke_fn_1b4",
+ "doc": "Calls the zero-argument function pointer stored at address 0x1B4 and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "invoke_fn_1b4",
+   "probabilities": [
+    {
+     "value": "call_ptr_1b4",
+     "probability": 0.44
+    },
+    {
+     "value": "invoke_fn_1b4",
+     "probability": 0.54
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.31
+  }
+ ],
+ "status": "ok"
+}

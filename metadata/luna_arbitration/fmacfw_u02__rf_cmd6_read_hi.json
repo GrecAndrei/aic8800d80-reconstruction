@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_cmd6_read_hi",
+ "luna": "rf_cmd6_read_high_byte",
+ "doc": "Reads RF command 6, stores its highest nonzero response byte (or zero), and returns 0, 1, or 2 depending on which of the top two bytes was present.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_cmd6_read_hi",
+   "probabilities": [
+    {
+     "value": "rf_cmd6_read_hi",
+     "probability": 0.54
+    },
+    {
+     "value": "rf_cmd6_read_high_byte",
+     "probability": 0.4
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.31
+  }
+ ],
+ "status": "ok"
+}

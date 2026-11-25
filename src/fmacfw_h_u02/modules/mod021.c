@@ -48,7 +48,7 @@ LABEL_6:
       }
       if ( **v7 < 0 )
       {
-        return unknown_12f2c8(off_11B430, (int)aTxlHeMuEdcaSta, 684);
+        return log_assert_failure(off_11B430, (int)aTxlHeMuEdcaSta, 684);
       }
       else
       {

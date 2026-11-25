@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "util_check_arg",
+ "luna": "buffer_release",
+ "doc": "Validates a buffer against its pool context, decrements its reference count, and returns it to the pool when the count reaches zero.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "buffer_release",
+   "probabilities": [
+    {
+     "value": "util_check_arg",
+     "probability": 0.08
+    },
+    {
+     "value": "buffer_release",
+     "probability": 0.92
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.88
+  }
+ ],
+ "status": "ok"
+}

@@ -1,6 +1,6 @@
-// rf_calibration_proc @ 0x130030
+// test_command_queue_process @ 0x130030
 /* luna: Drains queued console commands, validates their argument counts against command descriptors, invokes the matching handlers, and releases each processe */
-int rf_calibration_proc(int a1, int a2) {
+int test_command_queue_process(int a1, int a2) {
   volatile int *lock_depth_ptr; // r6
   int v3; // r0
   int result; // r0
@@ -76,7 +76,7 @@ int rf_calibration_proc(int a1, int a2) {
       }
       v10 = dword_130138;
       ++*lock_depth_ptr;
-      wlan_ioctl_handler_1(v10, (volatile uint32_t *)queued_command);
+      co_list_push_back(v10, (volatile uint32_t *)queued_command);
       result = (int)list_pop(dword_130128);
       queued_command = result;
       if ( *lock_depth_ptr )
@@ -111,7 +111,7 @@ void mmio_register_access() {
       if ( lock_with_timeout(v1) > 0 )
       {
         if ( *(volatile uint8_t *)off_130180 )
-          ((int (*)())rf_calibration_proc)();
+          ((int (*)())test_command_queue_process)();
         return;
       }
     }
@@ -120,9 +120,9 @@ void mmio_register_access() {
 
 
 
-// compare_calibration_levels @ 0x130184
+// rf_step_xtal_cap_toward_target @ 0x130184
 /* luna: Moves the current XTAL capacitor value one step toward its target and logs the adjustment. */
-unsigned int compare_calibration_levels() {
+unsigned int rf_step_xtal_cap_toward_target() {
   volatile uint8_t *calibration_state; // r4
   unsigned int result; // r0
   unsigned int target_xtal_cap; // r3
@@ -204,9 +204,9 @@ int rf_power_adjust() {
 
 
 
-// rf_tx_power_lookup @ 0x130260
+// rf_calibration_status_dump @ 0x130260
 /* luna: Logs the current temperature-compensation, crystal-capacitance, RF offset, and RF control settings. */
-int rf_tx_power_lookup() {
+int rf_calibration_status_dump() {
   volatile uint8_t *calibration_state; // r4
   int settings_enabled; // r4
   int active_state; // r0
@@ -259,7 +259,7 @@ int check_frame_len(int a1) {
   rf_temp_compensation(v1);
   result = is_id_lt_10(9u, 4u);
   if ( result )
-    return rf_tx_power_lookup();
+    return rf_calibration_status_dump();
   return result;
 }
 
@@ -281,7 +281,7 @@ int rf_timer_toggle_start() {
     *((volatile uint8_t *)off_1303B4 + 3) = current_temperature;
     check_frame_len((char)current_temperature);
   }
-  return compare_calibration_levels();
+  return rf_step_xtal_cap_toward_target();
 }
 
 
@@ -1137,7 +1137,7 @@ volatile uint8_t * handle_addba_request(volatile uint8_t *a1, int a2, volatile u
       }
       while ( v9 != v8 );
     }
-    result = check_buf_range_12d79c(a1, a2, &v15);
+    result = find_extended_supported_rates_ie(a1, a2, &v15);
     if ( result )
     {
       v11 = result + 2;
@@ -1185,9 +1185,9 @@ volatile uint8_t * addba_request_ack(volatile uint8_t *a1, int a2, int a3) {
 
 
 
-// handle_addba_response @ 0x130d18
+// apply_country_ie_channel_power @ 0x130d18
 /* luna: Finds the country-information triplet covering the channel record’s channel and stores that triplet’s maximum transmit power in the record. */
-volatile uint8_t * handle_addba_response(volatile uint8_t *a1, int a2, int a3) {
+volatile uint8_t * apply_country_ie_channel_power(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
   int target_channel; // r5
   int v6; // r3
@@ -1288,9 +1288,9 @@ volatile uint8_t * delba_ack(volatile uint8_t *a1, int a2, int a3) {
 
 
 
-// handle_ampdu_action @ 0x130e10
+// parse_channel_definition @ 0x130e10
 /* luna: Parses a channel number and optional secondary-channel offset, then populates the output band and frequency fields. */
-int handle_ampdu_action(volatile uint8_t *a1, int a2, volatile uint8_t *a3, int a4) {
+int parse_channel_definition(volatile uint8_t *a1, int a2, volatile uint8_t *a3, int a4) {
   unsigned int v8; // r7
   unsigned int v9; // r0
   volatile uint8_t *v10; // r8
@@ -1724,7 +1724,7 @@ int hci_send_cmd(int a1, volatile uint8_t *a2, int a3, int a4) {
             v26 = (volatile uint32_t *)dword_1313B4;
             *((volatile uint32_t *)off_13139C + 5) = (int)(uintptr_t)(v23);
             v22[29] = 4;
-            mem_copy_util(v26, v25 + v24);
+            mm_timer_set(v26, v25 + v24);
             v23[1] |= 0x200u;
           }
         }
@@ -1752,7 +1752,7 @@ LABEL_21:
       v17 = *(volatile uint16_t *)(*(volatile uint32_t *)off_1313A4 + 54);
       v13[5] = v14;
       *((volatile uint8_t *)v13 + 29) = 4;
-      mem_copy_util(v13 + 3, v17 + v16);
+      mm_timer_set(v13 + 3, v17 + v16);
       *(volatile uint32_t *)(v14 + 4) |= 0x200u;
       mem_set_util((int)(uintptr_t)((volatile uint32_t *)(v14 + 24)));
     }

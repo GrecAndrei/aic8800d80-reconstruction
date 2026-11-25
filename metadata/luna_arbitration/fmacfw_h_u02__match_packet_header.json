@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "match_packet_header",
+ "luna": "packet_header_matches",
+ "doc": "Returns true when the 16-bit fields at offsets 4 and 6 match the high and low halves of the expected header, respectively.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "match_packet_header",
+   "probabilities": [
+    {
+     "value": "match_packet_header",
+     "probability": 0.57
+    },
+    {
+     "value": "packet_header_matches",
+     "probability": 0.43
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.35
+  }
+ ],
+ "status": "ok"
+}

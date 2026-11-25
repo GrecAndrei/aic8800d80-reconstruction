@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "int_abs",
+ "luna": "abs",
+ "doc": "Returns the absolute value of an integer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "int_abs",
+   "probabilities": [
+    {
+     "value": "int_abs",
+     "probability": 0.72
+    },
+    {
+     "value": "abs",
+     "probability": 0.26
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.58
+  }
+ ],
+ "status": "ok"
+}

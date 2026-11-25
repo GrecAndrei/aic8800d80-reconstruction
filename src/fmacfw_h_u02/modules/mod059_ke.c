@@ -152,7 +152,7 @@ int rf_chan_state_get(unsigned int a1) {
   *(volatile uint16_t *)(v9 + 38) = *(volatile uint16_t *)(v14 + 372);
   *(volatile uint32_t *)(v9 + 34) = v15;
   *(volatile uint32_t *)(v9 + 40) = bswap32(a1);
-  hci_cmd_preprocess(6u, 6);
+  ke_state_set(6u, 6);
   ke_event_handler(6154, 6, off_1357E4);
   return (int)rx_process_packet_1(v9);
 }
@@ -162,7 +162,7 @@ int rf_chan_state_get(unsigned int a1) {
 int ke_msg_send_1(int a1) {
   invalid_handler_12c5fc((int)(uintptr_t)((volatile char *)0x180A), 6);
   if ( !a1 )
-    return mac_dma_setup();
+    return sm_assoc_req_send();
   check_feature_flag(256, "ext auth st %x\n", a1);
   return assert_trace(a1);
 }
@@ -209,7 +209,7 @@ int ke_msg_alloc(char a1, int a2, unsigned int a3) {
     }
     while ( v10 != v11 );
   }
-  hci_cmd_preprocess(6u, 7);
+  ke_state_set(6u, 7);
   ke_event_handler(6154, 6, dword_1358B4);
   return (int)rx_process_packet_1(v9);
 }
@@ -231,7 +231,7 @@ int ke_msg_handler(volatile uint16_t *a1) {
     return assert_trace(v3);
   v5 = a1[6];
   if ( !a1[6] )
-    return mac_dma_setup();
+    return sm_assoc_req_send();
   if ( v5 != 1 )
   {
     if ( v5 == 2 )
@@ -242,7 +242,7 @@ int ke_msg_handler(volatile uint16_t *a1) {
   if ( v6 == 4 )
   {
     crypto_read_status(0xBB8u);
-    return mac_dma_setup();
+    return sm_assoc_req_send();
   }
   if ( v6 == 2 && *a1 > 0x22u )
     return ll_evt_schedule(3, (int)(a1 + 10));

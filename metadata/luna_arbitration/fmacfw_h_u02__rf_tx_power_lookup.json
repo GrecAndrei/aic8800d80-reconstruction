@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_tx_power_lookup",
+ "luna": "rf_calibration_status_dump",
+ "doc": "Logs the current temperature-compensation, crystal-capacitance, RF offset, and RF control settings.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_calibration_status_dump",
+   "probabilities": [
+    {
+     "value": "rf_tx_power_lookup",
+     "probability": 0.02
+    },
+    {
+     "value": "rf_calibration_status_dump",
+     "probability": 0.98
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.97
+  }
+ ],
+ "status": "ok"
+}

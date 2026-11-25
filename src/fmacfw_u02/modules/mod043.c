@@ -15,7 +15,7 @@ int ke_task_state_get_1() {
     mmio_clear_register((int)aKeStateGetTask_3, (int)aMmScanChannelS, 163);
   if ( (*(volatile uint8_t *)(v0 + 6 * v1 + 3) & 1) == 0 )
     controller_read_features();
-  rx_phy_status_parse(2u, 3);
+  ke_state_set(2u, 3);
   return 0;
 }
 
@@ -81,7 +81,7 @@ int rf_env_reset() {
   volatile uint32_t *v1; // r3
 
   memset((volatile int *)dword_12B198, 0, 0xCu);
-  result = rx_phy_status_parse(2u, 0);
+  result = ke_state_set(2u, 0);
   v1 = (void *)(uintptr_t)(off_12B19C);
   *(volatile uint32_t *)off_12B19C = dword_12B1A0;
   v1[2] = (int)(uintptr_t)(v1 + 5);
@@ -150,14 +150,14 @@ LABEL_4:
         if ( v8 == 2484 )
         {
           *(volatile uint8_t *)(v6 + 2) = 14;
-          return rx_phy_status_parse(2u, 2);
+          return ke_state_set(2u, 2);
         }
         v7 = (v7 & ~0xFFu) | ((uint8_t)((unsigned int)(((unsigned int)dword_12B270 * (uint64_t)(unsigned int)(v8 - 2407)) >> 32) >> 2) & 0xFFu);
       }
       *(volatile uint8_t *)(v6 + 2) = v7;
     }
   }
-  return rx_phy_status_parse(2u, 2);
+  return ke_state_set(2u, 2);
 }
 
 

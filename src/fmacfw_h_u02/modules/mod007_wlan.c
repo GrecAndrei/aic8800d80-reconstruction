@@ -52,7 +52,7 @@ int check_short_value() {
   v0 = *(volatile uint32_t *)off_1114D8;
   if ( **(volatile int16_t **)off_1114D4 < 0 && !v0 )
   {
-    mmio_write_field((int)aIntStatus0, (int)aSdioIsr, 39);
+    log_warning((int)aIntStatus0, (int)aSdioIsr, 39);
     goto LABEL_10;
   }
   if ( (v0 & 0x2000) != 0 )
@@ -100,7 +100,7 @@ int check_short_value() {
   }
   if ( (v0 & 0x20) != 0 )
   {
-    timer_get_raw(*(volatile uint32_t *)off_1114E4);
+    sdio_set_phase_config(*(volatile uint32_t *)off_1114E4);
     *(volatile uint32_t *)off_1114E0 = 32;
   }
   if ( (v0 & 0x4000) != 0 )
@@ -179,7 +179,7 @@ LABEL_12:
       v15 = (void *)(uintptr_t)(off_111514);
       *(volatile uint32_t *)off_111510 = v12;
       *v15 = 16;
-      wlan_ioctl_handler_1(dword_111518, (void *)(&v4[4 * v14]));
+      co_list_push_back(dword_111518, (void *)(&v4[4 * v14]));
       irq_disable_global_2(256);
     }
     *(volatile uint32_t *)off_1114E0 = 1024;
@@ -210,7 +210,7 @@ LABEL_12:
       *((volatile uint32_t *)v40 + 410) = v38;
       v40[1644] = v37;
       v16[2433] = v17 + 1;
-      wlan_ioctl_handler_1((int)(v16 + 2436), (volatile uint32_t *)v40 + 408);
+      co_list_push_back((int)(v16 + 2436), (volatile uint32_t *)v40 + 408);
       irq_disable_global_2(0x400000);
     }
     else
@@ -250,7 +250,7 @@ LABEL_12:
       v22[3072] = v34;
       *((volatile uint16_t *)v35 + 4) = *v36;
       v22[3074] = v23 + 1;
-      wlan_ioctl_handler_1((int)(v22 + 3080), (void *)(v35));
+      co_list_push_back((int)(v22 + 3080), (void *)(v35));
       result = irq_disable_global_2(128);
     }
     else
@@ -291,7 +291,7 @@ LABEL_12:
       v33[1] = *v32;
       v28[8 * v31 + 1548] = *(volatile uint32_t *)off_11154C;
       *((volatile uint8_t *)v28 + 6162) = v29 + 1;
-      wlan_ioctl_handler_1(dword_111550, v33);
+      co_list_push_back(dword_111550, v33);
       result = irq_disable_global_2(64);
     }
     else
@@ -751,9 +751,9 @@ volatile int * wlan_ctrl_check(volatile int *result, unsigned int a2) {
 
 
 
-// wlan_set_band @ 0x111c78
+// wlan_open @ 0x111c78
 /* luna: Validates and stores the WLAN configuration, initializes the interface hardware, enables interrupts, and optionally waits until the open state is reac */
-int wlan_set_band(int a1, int a2) {
+int wlan_open(int a1, int a2) {
   volatile uint8_t *wlan_state; // r6
   volatile int *v5; // r7
   volatile char *saved_config; // r0
@@ -828,9 +828,9 @@ int wlan_set_band(int a1, int a2) {
 }
 
 
-// wlan_wait_ready @ 0x111dbc
+// wlan_configure_tx_queue @ 0x111dbc
 /* luna: Configures a WLAN transmit queue and, when a queue buffer is provided, allocates and records its shared FIFO region. */
-int wlan_wait_ready(int result, int a2, int a3, unsigned int a4) {
+int wlan_configure_tx_queue(int result, int a2, int a3, unsigned int a4) {
   int v4; // r6
   unsigned int v7; // r11
   int fifo_allocation_size; // r7
@@ -2239,7 +2239,7 @@ int rf_read_status(volatile uint8_t *a1, unsigned int a2, int a3) {
       if ( a2 == declared_length || declared_length + 1 == a2 )
       {
         util_init_buffer();
-        adv_parse_report((int)(a1 + 4));
+        handle_rx_descriptor((int)(a1 + 4));
         irq_disable_global_2(512);
         return 1;
       }
@@ -2269,7 +2269,7 @@ int rf_read_status(volatile uint8_t *a1, unsigned int a2, int a3) {
           queue_entry[409] = (int)(uintptr_t)(a1 + 4);
           queue_entry[412] = declared_length;
           rx_queue_state[2433] = queued_count + 1;
-          wlan_ioctl_handler_1(v13, queue_entry + 408);
+          co_list_push_back(v13, queue_entry + 408);
           irq_disable_global_2(0x400000);
           return 1;
         }
@@ -2281,7 +2281,7 @@ int rf_read_status(volatile uint8_t *a1, unsigned int a2, int a3) {
       debug_printf("type err %X %X %d %d\r\n", *rx_event_count, frame_type, declared_length, a2);
     }
   }
-  wait_for_state((void *)(&a1[-*(volatile uint32_t *)off_113150]));
+  pkt_mem_free((void *)(&a1[-*(volatile uint32_t *)off_113150]));
   util_init_buffer();
   return 1;
 }
@@ -2320,7 +2320,7 @@ int bt_wait_ready(int a1) {
     v7 = *(volatile uint8_t *)(a1 + 8);
     if ( *(volatile uint8_t *)(a1 + 8) )
       v7 = 1;
-    v8 = wlan_set_band((int)asc_1532B0, v7);
+    v8 = wlan_open((int)asc_1532B0, v7);
     alloc_tx_event("open res:%d\n", v8);
   }
   while ( v8 );
@@ -2533,7 +2533,7 @@ int rf_set_state(int a1, int a2, int a3) {
           v9 = list_pop(v7);
           v10 = *(volatile uint32_t *)(v9[1] + 4);
           --*v5;
-          wlan_ioctl_handler_1(v8, v9);
+          co_list_push_back(v8, v9);
           v11 = *(volatile uint8_t *)(v10 + 2) >> 4;
           if ( v11 )
             break;
@@ -2544,7 +2544,7 @@ int rf_set_state(int a1, int a2, int a3) {
         }
         if ( v11 == 1 )
         {
-          wait_for_state((volatile uint32_t *)v10);
+          pkt_mem_free((volatile uint32_t *)v10);
         }
         else
         {

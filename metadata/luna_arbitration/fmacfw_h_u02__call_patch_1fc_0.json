@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "call_patch_1fc_0",
+ "luna": "call_patch_1fc",
+ "doc": "Invokes the function pointer stored at MEMD(0x1FC) with no arguments and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "call_patch_1fc_0",
+   "probabilities": [
+    {
+     "value": "call_patch_1fc_0",
+     "probability": 0.62
+    },
+    {
+     "value": "call_patch_1fc",
+     "probability": 0.38
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.43
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "phy_set_channel_1",
+ "luna": "phy_handle_txu_discard",
+ "doc": "Logs a TXU discard record, allocates a retransmission event when status bit 0 is set, and calls the registration routine inside a nested IRQ-safe critical section.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "phy_handle_txu_discard",
+   "probabilities": [
+    {
+     "value": "phy_set_channel_1",
+     "probability": 0.02
+    },
+    {
+     "value": "phy_handle_txu_discard",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

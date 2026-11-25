@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "init_all_chan_entries",
+ "luna": "lll_init_all_chan_entries",
+ "doc": "Initializes channel entries 0\u20133, then zeroes a 96-byte table in three-byte strides.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "init_all_chan_entries",
+   "probabilities": [
+    {
+     "value": "init_all_chan_entries",
+     "probability": 0.53
+    },
+    {
+     "value": "lll_init_all_chan_entries",
+     "probability": 0.41
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.3
+  }
+ ],
+ "status": "ok"
+}

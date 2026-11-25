@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "get_channel_entry_info",
+ "luna": "build_channel_entry_info",
+ "doc": "Serializes the connection sequence and status bytes plus up to three eligible channel entries into the output buffer, updating the sequence counter and output length fields.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "build_channel_entry_info",
+   "probabilities": [
+    {
+     "value": "get_channel_entry_info",
+     "probability": 0.38
+    },
+    {
+     "value": "build_channel_entry_info",
+     "probability": 0.61
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.42
+  }
+ ],
+ "status": "ok"
+}

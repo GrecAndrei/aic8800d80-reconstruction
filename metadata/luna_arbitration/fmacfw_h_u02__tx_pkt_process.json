@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "tx_pkt_process",
+ "luna": "heap_free_block",
+ "doc": "Returns an allocation to the address-ordered heap free list and coalesces it with contiguous neighboring blocks under interrupt-state protection.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "heap_free_block",
+   "probabilities": [
+    {
+     "value": "tx_pkt_process",
+     "probability": 0.12
+    },
+    {
+     "value": "heap_free_block",
+     "probability": 0.86
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.79
+  }
+ ],
+ "status": "ok"
+}

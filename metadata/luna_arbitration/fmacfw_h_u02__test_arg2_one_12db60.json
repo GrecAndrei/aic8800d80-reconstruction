@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "test_arg2_one_12db60",
+ "luna": "find_mobility_domain_ie",
+ "doc": "Scans a bounded information-element buffer for element ID 54 with length 3 and returns its address, or NULL if none is found.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_mobility_domain_ie",
+   "probabilities": [
+    {
+     "value": "test_arg2_one_12db60",
+     "probability": 0.33
+    },
+    {
+     "value": "find_mobility_domain_ie",
+     "probability": 0.66
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.49
+  }
+ ],
+ "status": "ok"
+}

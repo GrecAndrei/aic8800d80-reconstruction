@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "bt_crypto_permute",
+ "luna": "bt_aes_encrypt_block",
+ "doc": "Encrypts a 128-bit block in place using an expanded AES key schedule.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "bt_aes_encrypt_block",
+   "probabilities": [
+    {
+     "value": "bt_crypto_permute",
+     "probability": 0.47
+    },
+    {
+     "value": "bt_aes_encrypt_block",
+     "probability": 0.5
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.25
+  }
+ ],
+ "status": "ok"
+}

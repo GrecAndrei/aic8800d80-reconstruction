@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_init",
+ "luna": "usb_ep0_send",
+ "doc": "Advances an EP0 control transfer by sending at most one 64-byte packet and tracking progress against the setup request length.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "usb_ep0_send",
+   "probabilities": [
+    {
+     "value": "rf_init",
+     "probability": 0.03
+    },
+    {
+     "value": "usb_ep0_send",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

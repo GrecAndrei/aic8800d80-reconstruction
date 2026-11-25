@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "test_arg2_one_12da20",
+ "luna": "find_ds_parameter_set_ie",
+ "doc": "Scans a bounded information-element buffer for element ID 3 with a one-byte payload and returns its header or NULL.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_ds_parameter_set_ie",
+   "probabilities": [
+    {
+     "value": "test_arg2_one_12da20",
+     "probability": 0.32
+    },
+    {
+     "value": "find_ds_parameter_set_ie",
+     "probability": 0.62
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.43
+  }
+ ],
+ "status": "ok"
+}

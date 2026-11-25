@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_calibration_done",
+ "luna": "rf_is_calibration_done",
+ "doc": "Returns whether the RF calibration completion flag is set.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_calibration_done",
+   "probabilities": [
+    {
+     "value": "rf_calibration_done",
+     "probability": 0.56
+    },
+    {
+     "value": "rf_is_calibration_done",
+     "probability": 0.43
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.34
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "dma_clear_interrupt",
+ "luna": "dma_irq_handler",
+ "doc": "Acknowledges DMA interrupt sources and, for RX-completion events, processes the indicated channel\u2019s MPDU queue and updates per-channel state.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "dma_irq_handler",
+   "probabilities": [
+    {
+     "value": "dma_clear_interrupt",
+     "probability": 0.19
+    },
+    {
+     "value": "dma_irq_handler",
+     "probability": 0.81
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.72
+  }
+ ],
+ "status": "ok"
+}

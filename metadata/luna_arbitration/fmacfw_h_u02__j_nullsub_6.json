@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "j_nullsub_6",
+ "luna": "noop",
+ "doc": "Calls the null stub and returns its result without performing any additional work.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "noop",
+   "probabilities": [
+    {
+     "value": "j_nullsub_6",
+     "probability": 0.25
+    },
+    {
+     "value": "noop",
+     "probability": 0.74
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.61
+  }
+ ],
+ "status": "ok"
+}

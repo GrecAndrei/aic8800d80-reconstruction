@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_irq_disable_1",
+ "luna": "rf_irq_disable",
+ "doc": "Disables RF interrupt sources by clearing their enable bits and updating the associated interrupt-control registers.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_irq_disable",
+   "probabilities": [
+    {
+     "value": "rf_irq_disable_1",
+     "probability": 0.22
+    },
+    {
+     "value": "rf_irq_disable",
+     "probability": 0.77
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.66
+  }
+ ],
+ "status": "ok"
+}

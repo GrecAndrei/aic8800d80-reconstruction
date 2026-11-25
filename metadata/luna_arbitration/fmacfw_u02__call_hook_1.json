@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "call_hook_1",
+ "luna": "invoke_hook_1",
+ "doc": "Invokes the function pointer stored at address 0x1FC and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "invoke_hook_1",
+   "probabilities": [
+    {
+     "value": "call_hook_1",
+     "probability": 0.44
+    },
+    {
+     "value": "invoke_hook_1",
+     "probability": 0.56
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.34
+  }
+ ],
+ "status": "ok"
+}

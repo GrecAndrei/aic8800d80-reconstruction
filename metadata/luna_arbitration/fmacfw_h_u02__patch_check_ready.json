@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "patch_check_ready",
+ "luna": "patch_find_ready_buffer",
+ "doc": "Finds the first eligible patch record, stores the address of its indexed 1320-byte region, and returns whether a match was found.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "patch_find_ready_buffer",
+   "probabilities": [
+    {
+     "value": "patch_check_ready",
+     "probability": 0.4
+    },
+    {
+     "value": "patch_find_ready_buffer",
+     "probability": 0.56
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.34
+  }
+ ],
+ "status": "ok"
+}

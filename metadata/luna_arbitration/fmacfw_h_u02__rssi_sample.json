@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rssi_sample",
+ "luna": "txdesc_pool_init",
+ "doc": "Clears and initializes the TX descriptor pool, assigning each descriptor its 80-byte backing buffer and passing it to the descriptor handler.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "txdesc_pool_init",
+   "probabilities": [
+    {
+     "value": "rssi_sample",
+     "probability": 0.17
+    },
+    {
+     "value": "txdesc_pool_init",
+     "probability": 0.82
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.73
+  }
+ ],
+ "status": "ok"
+}

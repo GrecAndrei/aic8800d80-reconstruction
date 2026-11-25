@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "get_phy_status_byte",
+ "luna": "set_rf_mode_from_status_bytes",
+ "doc": "Selects the largest 7-bit value in the context\u2019s status-byte list, validates it, applies it as the RF mode, and clears the byte at offset 350.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_rf_mode_from_status_bytes",
+   "probabilities": [
+    {
+     "value": "get_phy_status_byte",
+     "probability": 0.05
+    },
+    {
+     "value": "set_rf_mode_from_status_bytes",
+     "probability": 0.95
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.93
+  }
+ ],
+ "status": "ok"
+}

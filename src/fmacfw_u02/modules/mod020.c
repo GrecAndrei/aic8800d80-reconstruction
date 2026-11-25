@@ -116,7 +116,7 @@ int get_slot_context(int result) {
       v6 = (int)&v1[7 * result];
       result = *(volatile uint32_t *)(v6 + 36);
       if ( result )
-        result = ((int (*)())radio_band_validate)(result, v4, v3, v6);
+        result = ((int (*)())tx_queue_set_new_head)(result, v4, v3, v6);
       v1[v5 - v4 + 9] = 0;
     }
   }

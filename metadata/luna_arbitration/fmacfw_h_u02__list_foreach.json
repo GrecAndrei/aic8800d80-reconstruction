@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "list_foreach",
+ "luna": "list_insert",
+ "doc": "Inserts a node before the first node accepted by the ordering predicate, or appends it if none is accepted.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "list_insert",
+   "probabilities": [
+    {
+     "value": "list_foreach",
+     "probability": 0.23
+    },
+    {
+     "value": "list_insert",
+     "probability": 0.73
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

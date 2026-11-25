@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "read_config_block",
+ "luna": "fast_sqrtf",
+ "doc": "Estimates the square root of a positive float using a table-derived initial guess and one Newton iteration.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "fast_sqrtf",
+   "probabilities": [
+    {
+     "value": "read_config_block",
+     "probability": 0.03
+    },
+    {
+     "value": "fast_sqrtf",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

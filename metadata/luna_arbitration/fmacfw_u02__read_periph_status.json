@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "read_periph_status",
+ "luna": "process_usb_wlan_rx_frame",
+ "doc": "Validates a USB WLAN receive frame and dispatches data frames or enqueues management messages for command handling.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "process_usb_wlan_rx_frame",
+   "probabilities": [
+    {
+     "value": "read_periph_status",
+     "probability": 0.14
+    },
+    {
+     "value": "process_usb_wlan_rx_frame",
+     "probability": 0.85
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.77
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "f32_process_block",
+ "luna": "rf_dpd_calibrate_tables",
+ "doc": "Runs calibration for each enabled RF DPD table, using the table's configured calibration count and skipping tables that do not require calibration.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_dpd_calibrate_tables",
+   "probabilities": [
+    {
+     "value": "f32_process_block",
+     "probability": 0.26
+    },
+    {
+     "value": "rf_dpd_calibrate_tables",
+     "probability": 0.73
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

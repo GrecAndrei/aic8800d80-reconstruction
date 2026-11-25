@@ -114,7 +114,7 @@ int get_status_flag_c5(int result, int a2) {
   if ( *((volatile uint8_t *)off_12C3E8 + 197) )
   {
     v2 = *(volatile uint32_t *)(*(volatile uint32_t *)(a2 + 76) + 48);
-    v3 = bt_packet_parser(
+    v3 = rf_get_tx_power(
            (*(volatile uint32_t *)(v2 + 20) >> 11) & 7,
            *(volatile uint32_t *)(v2 + 20) & 0x7F,
            (volatile uint8_t *)(*(volatile uint32_t *)(result + 72) + 4));
@@ -138,7 +138,7 @@ void get_alt_status_flag_c5(int a1, int a2, volatile uint8_t *a3) {
   if ( *((volatile uint8_t *)off_12C434 + 197) )
   {
     v3 = *(volatile uint32_t *)(*(volatile uint32_t *)(a2 + 76) + 48);
-    v4 = bt_packet_parser((*(volatile uint32_t *)(v3 + 20) >> 11) & 7, *(volatile uint32_t *)(v3 + 20) & 0x7F, a3);
+    v4 = rf_get_tx_power((*(volatile uint32_t *)(v3 + 20) >> 11) & 7, *(volatile uint32_t *)(v3 + 20) & 0x7F, a3);
     *(volatile uint32_t *)(v3 + 36) = v4 | (v4 << 8);
   }
   else if ( **(volatile int16_t **)off_12C438 < 0 )
@@ -253,7 +253,7 @@ int ke_event_handler(int a1, int a2, unsigned int a3) {
     if ( !v10 )
       goto LABEL_10;
 LABEL_15:
-    result = mem_copy_util((void *)(uintptr_t)(dword_12C5D8), *(volatile uint32_t *)(v10 + 8));
+    result = mm_timer_set((void *)(uintptr_t)(dword_12C5D8), *(volatile uint32_t *)(v10 + 8));
     goto LABEL_10;
   }
   if ( v8[5] == v10 )
@@ -304,7 +304,7 @@ int invalid_handler_12c5fc(int result, int a2) {
       v9 = (int)(v3 + 8);
       if ( v8 )
       {
-        mem_copy_util((void *)(uintptr_t)(v9), *(volatile uint32_t *)(v8 + 8));
+        mm_timer_set((void *)(uintptr_t)(v9), *(volatile uint32_t *)(v8 + 8));
         if ( **(volatile int16_t **)off_12C6A8 < 0 && (int)(*(volatile uint32_t *)(v8 + 8) - *((volatile uint32_t *)off_12C6AC + 4)) < 0 )
           irq_disable_mmio_write(dword_12C6B4, dword_12C6B0, 232);
       }
@@ -323,7 +323,7 @@ int invalid_handler_12c5fc(int result, int a2) {
         goto LABEL_8;
       }
     }
-    result = (int)(uintptr_t)(tx_pkt_process((void *)(uintptr_t)(v4)));
+    result = (int)(uintptr_t)(heap_free_block((void *)(uintptr_t)(v4)));
     v5 = *v2;
   }
 LABEL_8:
@@ -387,7 +387,7 @@ int rf_init_1() {
     v5 = *(volatile uint32_t *)(v12 + 8);
     if ( v5 - v3[4] - 50 >= 0 )
     {
-      result = mem_copy_util((void *)(uintptr_t)((int)v4), v5);
+      result = mm_timer_set((void *)(uintptr_t)((int)v4), v5);
       if ( *(volatile uint32_t *)(v12 + 8) - v3[4] >= 0 )
       {
         if ( *v1 )
@@ -418,7 +418,7 @@ int rf_init_1() {
       }
     }
     mac_write_header_word(*(volatile uint16_t *)(v7 + 4), *(volatile uint16_t *)(v7 + 6), 255);
-    tx_pkt_process((void *)(uintptr_t)(v8));
+    heap_free_block((void *)(uintptr_t)(v8));
   }
   if ( v13 )
   {
@@ -455,9 +455,9 @@ int rf_get_state_1(int a1, int a2) {
 
 
 
-// unknown_handler_12c798 @ 0x12c798
-/* luna: Drains the pending TX packet list and passes each popped packet to tx_pkt_process under interrupt protection. */
-int unknown_handler_12c798() {
+// tx_process_queued_packets @ 0x12c798
+/* luna: Drains the pending TX packet list and passes each popped packet to heap_free_block under interrupt protection. */
+int tx_process_queued_packets() {
   volatile int *tx_processing_depth_ptr; // r5
   int pending_tx_queue; // r4
   int result; // r0
@@ -478,7 +478,7 @@ int unknown_handler_12c798() {
     result = (int)(uintptr_t)(list_pop(pending_tx_queue));
     if ( !result )
       break;
-    tx_pkt_process((void *)(uintptr_t)(result));
+    heap_free_block((void *)(uintptr_t)(result));
   }
   if ( *tx_processing_depth_ptr )
   {
@@ -527,7 +527,7 @@ volatile uint32_t * rx_process_packet_1(int a1) {
   {
     if ( (uint8_t)destination_task_id <= 0xCu )
     {
-      wlan_ioctl_handler_1(dword_12C8BC, (volatile uint32_t *)(a1 - 12));
+      co_list_push_back(dword_12C8BC, (volatile uint32_t *)(a1 - 12));
       return (volatile uint32_t *)irq_disable_global_2(0x4000000);
     }
   }
@@ -543,9 +543,9 @@ volatile uint32_t * rx_process_packet_1(int a1) {
     destination_task_id);
   message = (volatile char *)(a1 - 12);
   if ( *(volatile uint8_t *)off_12C8CC )
-    return tx_pkt_process(message);
+    return heap_free_block(message);
   else
-    return (volatile uint32_t *)state_check_0x182ba0((void *)(message));
+    return (volatile uint32_t *)rx_packet_dispatch_wrapper((void *)(message));
 }
 
 
@@ -570,9 +570,9 @@ int nop_function(int a1, int16_t a2, int16_t a3, int16_t a4) {
 
 
 // tx_process_jump @ 0x12c8f8
-/* luna: Forwards the supplied packet context to `tx_pkt_process` and returns its result. */
+/* luna: Forwards the supplied packet context to `heap_free_block` and returns its result. */
 int tx_process_jump(int a1) {
-  return (int)(uintptr_t)(tx_pkt_process((void *)(uintptr_t)(a1)));
+  return (int)(uintptr_t)(heap_free_block((void *)(uintptr_t)(a1)));
 }
 
 
@@ -750,9 +750,9 @@ LABEL_14:
 
 
 
-// tx_pkt_process @ 0x12ca88
+// heap_free_block @ 0x12ca88
 /* luna: Returns an allocation to the address-ordered heap free list and coalesces it with contiguous neighboring blocks under interrupt-state protection. */
-volatile uint32_t * tx_pkt_process(volatile char *a1) {
+volatile uint32_t * heap_free_block(volatile char *a1) {
   volatile int16_t **v1; // r9
   volatile char *free_list_block; // r4
   int released_block_size; // r8
@@ -888,9 +888,9 @@ int list_node_count(int a1, volatile int *a2, int a3) {
 
 
 
-// hci_cmd_preprocess @ 0x12cbf4
+// ke_state_set @ 0x12cbf4
 /* luna: Updates the state of a task instance and dispatches queued messages for that task when the state changes. */
-int hci_cmd_preprocess(unsigned int a1, int a2) {
+int ke_state_set(unsigned int a1, int a2) {
   volatile int16_t **v2; // r7
   unsigned int task_instance; // r9
   int task_type; // r6
@@ -966,7 +966,7 @@ LABEL_3:
       dispatch_depth = (volatile int *)off_12CD20;
       v13 = dword_12CD24;
       ++*(volatile uint32_t *)off_12CD20;
-      wlan_ioctl_handler_1(v13, queued_message);
+      co_list_push_back(v13, queued_message);
       v14 = *dispatch_depth - 1;
       if ( *dispatch_depth )
       {
@@ -1152,7 +1152,7 @@ volatile uint32_t *irq_disable_global() {
         goto LABEL_12;
       if ( result == (volatile uint32_t *)2 )
       {
-        result = (volatile uint32_t *)wlan_ioctl_handler_1(dword_12CFB0, (void *)(v3));
+        result = (volatile uint32_t *)co_list_push_back(dword_12CFB0, (void *)(v3));
         goto LABEL_12;
       }
       if ( result )

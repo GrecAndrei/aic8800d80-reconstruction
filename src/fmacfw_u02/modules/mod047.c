@@ -274,7 +274,7 @@ int state_get_0x42e() {
   if ( v2 == 1 )
   {
     call_phy_op();
-    ke_task_create(1070, 1, dword_12F0C0);
+    ke_timer_set(1070, 1, dword_12F0C0);
     v0[1] = 2;
     return 0;
   }
@@ -283,7 +283,7 @@ int state_get_0x42e() {
     if ( v2 == 2 )
     {
       rf_temperature_compensation(v1);
-      ke_task_create(1070, 1, 1000 * *((volatile uint32_t *)off_12F0C4 + 91));
+      ke_timer_set(1070, 1, 1000 * *((volatile uint32_t *)off_12F0C4 + 91));
       v0[1] = 1;
     }
     return 0;
@@ -350,7 +350,7 @@ int msg_alloc_0x40e(int a1, volatile int *a2, int a3, int a4) {
       v10 = event_dispatch("delay %d\r\n", v9);
       if ( !v9 )
         read_state_flag_1(v10);
-      ke_task_create(1068, 1, v9 << 10);
+      ke_timer_set(1068, 1, v9 << 10);
       break;
     default:
       event_dispatch(aInvalidBootTyp);
@@ -661,7 +661,7 @@ volatile int * load_and_process_r0(volatile int *result, int a2) {
         result = v3;
         if ( !v2[3] )
           break;
-        result = (volatile int *)cmd_handler_a((int)v3, v2);
+        result = (volatile int *)co_list_push_back((int)v3, v2);
         v2 = (volatile uint32_t *)*v4;
         if ( !*v4 )
           return result;
@@ -695,7 +695,7 @@ int check_chip_mode(int result) {
       v4 = (void *)(uintptr_t)(off_12F5E0);
       while ( !*(volatile uint32_t *)off_12F5E0 )
         ;
-      cmd_handler_a(((volatile uint32_t *)(uintptr_t)off_12F5E4)[0] + 604, (volatile uint32_t *)v3 - 1);
+      co_list_push_back(((volatile uint32_t *)(uintptr_t)off_12F5E4)[0] + 604, (volatile uint32_t *)v3 - 1);
       *v4 = 1;
       gpio_set_pin7();
     }
@@ -1369,8 +1369,8 @@ LABEL_5:
 }
 
 
-// parse_hex12 @ 0x12fce4
-int parse_hex12(int a1, int a2) {
+// mac_monitor_set_addresses @ 0x12fce4
+int mac_monitor_set_addresses(int a1, int a2) {
   int v3; // r6
   unsigned int v4; // r6
   uint16_t v5; // r0
@@ -1566,10 +1566,10 @@ int call_handler() {
   ++*(volatile uint32_t *)off_12FFFC;
   zero_8_bytes(v1);
   zero_8_bytes((volatile uint32_t *)dword_130004);
-  cmd_handler_a(dword_130000, (volatile uint32_t *)dword_130008);
-  cmd_handler_a(dword_130000, (volatile uint32_t *)dword_13000C);
-  cmd_handler_a(dword_130000, (volatile uint32_t *)dword_130010);
-  result = cmd_handler_a(dword_130000, (volatile uint32_t *)dword_130014);
+  co_list_push_back(dword_130000, (volatile uint32_t *)dword_130008);
+  co_list_push_back(dword_130000, (volatile uint32_t *)dword_13000C);
+  co_list_push_back(dword_130000, (volatile uint32_t *)dword_130010);
+  result = co_list_push_back(dword_130000, (volatile uint32_t *)dword_130014);
   if ( *v0 )
   {
     v3 = *v0 - 1;
@@ -1617,7 +1617,7 @@ int find_by_index(int a1) {
         if ( v4 )
         {
           strcpy((unsigned int)(v4 + 1), dword_130138);
-          cmd_handler_a(dword_130148, v5);
+          co_list_push_back(dword_130148, v5);
         }
         else
         {

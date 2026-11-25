@@ -153,7 +153,7 @@ int controller_init_pools() {
   do
   {
     check_ll_event_queue(pool_entry - 624);
-    wlan_ioctl_handler_1(v1, (volatile uint32_t *)(pool_entry - 624));
+    co_list_push_back(v1, (volatile uint32_t *)(pool_entry - 624));
     v3 = (volatile uint32_t *)(pool_entry - 40);
     do
     {
@@ -258,7 +258,7 @@ int is_controller_active(volatile int *a1, volatile uint8_t *a2) {
     v35 = list_pop(dword_11EFC0);
     if ( !v35 )
     {
-      wlan_ioctl_handler_1(dword_11EFC0, v6);
+      co_list_push_back(dword_11EFC0, v6);
       return 1;
     }
     v6[11] = (int)(uintptr_t)(v35);
@@ -341,7 +341,7 @@ int is_controller_active(volatile int *a1, volatile uint8_t *a2) {
   while ( v6 + 27 != v18 );
   if ( (v21 & 0x10) != 0 )
     v6[1] |= 8u;
-  wlan_ioctl_handler_1(v14 + v19 + 240, v6);
+  co_list_push_back(v14 + v19 + 240, v6);
   v6[145] = dword_11EFE0;
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -427,7 +427,7 @@ int get_connection_tx_power(unsigned int a1, int a2, int a3, int a4) {
     {
 LABEL_7:
       check_ll_event_queue(v14);
-      wlan_ioctl_handler_1(dword_11F144, *(volatile uint32_t **)(v4 + 696 * a1 + 44));
+      co_list_push_back(dword_11F144, *(volatile uint32_t **)(v4 + 696 * a1 + 44));
       goto LABEL_8;
     }
     v18 = (volatile int *)off_11F13C;
@@ -456,7 +456,7 @@ LABEL_7:
     goto LABEL_7;
 LABEL_8:
   check_ll_event_queue(v6);
-  wlan_ioctl_handler_1(dword_11F144, (volatile uint32_t *)v6);
+  co_list_push_back(dword_11F144, (volatile uint32_t *)v6);
   result = get_rx_pdu();
   if ( !result )
   {
@@ -782,7 +782,7 @@ int is_tx_engine_busy(int result) {
             {
               if ( *(volatile uint32_t *)off_11F574 << 28 )
               {
-                mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
+                log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
                 v20 = v18[1];
               }
             }
@@ -842,7 +842,7 @@ int reset_controller_block() {
     *(volatile uint8_t *)(v1 + 110) = 127;
     v4 = (volatile uint32_t *)v1;
     v1 += 1320;
-    result = wlan_ioctl_handler_1((int)v0, v4);
+    result = co_list_push_back((int)v0, v4);
   }
   while ( v1 != v3 );
   *((volatile uint8_t *)v0 + 16) = -1;
@@ -1029,7 +1029,7 @@ LABEL_11:
       *(volatile uint32_t *)off_11F9D4 = dword_11FA0C;
       if ( v44 < 0 && *(volatile uint32_t *)off_11FA68 << 28 )
       {
-        mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
+        log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
         v43 = *v42;
       }
       v45 = *(volatile uint32_t *)(v41 + 72);
@@ -1075,7 +1075,7 @@ if ( ((int (*)())cfm_radio_check)(_frame.v57, &_frame.a2a, v47, v48) ) return 1;
     *((volatile uint32_t *)off_11F9D4 + 1) = v26;
     if ( v25 < 0 && *(volatile uint32_t *)off_11F9F8 << 28 )
     {
-      mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
+      log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
       v26 = v24[1];
       v23 = *(volatile uint8_t *)(v4 + 0x11) + *(volatile uint8_t *)(v4 + 0x12);
     }
@@ -1098,7 +1098,7 @@ if ( ((int (*)())cfm_radio_check)(_frame.v57, &_frame.a2a, v47, v48) ) return 1;
   }
   v27 = dword_11F9E0;
   *a4 = *(volatile uint8_t *)(v18 + 107);
-  wlan_ioctl_handler_1(v27, (volatile uint32_t *)v18);
+  co_list_push_back(v27, (volatile uint32_t *)v18);
   v28 = (volatile uint32_t *)(v18 + 1232);
   do
   {
@@ -1130,9 +1130,9 @@ if ( ((int (*)())cfm_radio_check)(_frame.v57, &_frame.a2a, v47, v48) ) return 1;
 }
 
 
-// get_bss_by_index @ 0x11fa78
+// unregister_vif_by_index @ 0x11fa78
 /* luna: Tears down the indexed virtual interface, clears its current-interface reference, and cleans up per-channel state. */
-int get_bss_by_index(int a1) {
+int unregister_vif_by_index(int a1) {
   int v2; // r6
   volatile int *vif_entry; // r8
   int v4; // r3
@@ -1311,7 +1311,7 @@ LABEL_6:
     v38 = *(volatile uint32_t *)(v37 + 72);
     *(volatile uint32_t *)(v37 + 4) &= ~0x80u;
     if ( v38 )
-      bsscfg_get(v36);
+      chan_ctxt_unlink(v36);
     v6 = (uint8_t)v5[18];
     if ( v5[18] )
     {
@@ -1329,7 +1329,7 @@ LABEL_6:
         v6 = *(volatile uint32_t *)off_11FEE0 & 0xF;
         if ( v6 )
         {
-          mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
+          log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
           v40 = *v39;
           v6 = (uint8_t)v5[18];
         }
@@ -1367,12 +1367,12 @@ LABEL_42:
       *(volatile uint32_t *)off_11FDC0 = v34 | *v26;
       goto LABEL_9;
     }
-    mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
+    log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
     v7 = (uint8_t)v5[17] + (uint8_t)v5[18];
     *(volatile uint32_t *)off_11FEDC = *v26 | v26[1];
     goto LABEL_7;
   }
-  mmio_write_field((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
+  log_warning((int)aNxmacCurrentSt, (int)aMmRxFilterSet_0, 472);
   v42 = (uint8_t)v5[18];
   v43 = (uint8_t)v5[17];
   v44 = (void *)(uintptr_t)(off_11FEF0);
@@ -1418,7 +1418,7 @@ LABEL_9:
   *(volatile uint8_t *)(v9 + 109) = 127;
   *(volatile uint8_t *)(v9 + 110) = 127;
   check_feature_flag(256, "%s:%d,%d,%d\r\n", aVifMgmtUnregis, v11, v47, v48);
-  return wlan_ioctl_handler_1(off_11FD88, (void *)(vif_entry));
+  return co_list_push_back(off_11FD88, (void *)(vif_entry));
 }
 
 

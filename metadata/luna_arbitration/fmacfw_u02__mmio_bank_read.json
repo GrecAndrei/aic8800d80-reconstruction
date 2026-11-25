@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "mmio_bank_read",
+ "luna": "read_mmio_bank_bit21",
+ "doc": "Selects one of two MMIO bases, reads the 32-bit register at the requested 32-byte bank index, and returns bit 21.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "read_mmio_bank_bit21",
+   "probabilities": [
+    {
+     "value": "mmio_bank_read",
+     "probability": 0.15
+    },
+    {
+     "value": "read_mmio_bank_bit21",
+     "probability": 0.84
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.76
+  }
+ ],
+ "status": "ok"
+}

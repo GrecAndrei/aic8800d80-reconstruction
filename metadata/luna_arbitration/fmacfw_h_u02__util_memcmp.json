@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "util_memcmp",
+ "luna": "bt_device_filter_match",
+ "doc": "Returns true if no filter is configured, its address criterion passes, and any configured name criterion matches the supplied length-prefixed name; a missing name buffer is treated as a pass.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "bt_device_filter_match",
+   "probabilities": [
+    {
+     "value": "util_memcmp",
+     "probability": 0.2
+    },
+    {
+     "value": "bt_device_filter_match",
+     "probability": 0.79
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.69
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_phy_init_1",
+ "luna": "rf_phy_init",
+ "doc": "Initializes RF/PHY control registers with startup defaults and applies configuration-dependent mode bits.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_phy_init",
+   "probabilities": [
+    {
+     "value": "rf_phy_init_1",
+     "probability": 0.12
+    },
+    {
+     "value": "rf_phy_init",
+     "probability": 0.88
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.82
+  }
+ ],
+ "status": "ok"
+}

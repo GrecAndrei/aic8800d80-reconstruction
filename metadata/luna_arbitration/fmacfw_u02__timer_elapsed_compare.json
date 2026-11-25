@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "timer_elapsed_compare",
+ "luna": "rf_tx_gain_map_write",
+ "doc": "Builds and writes the TX gain-map register value, applying optional per-index temperature scaling and table/index bypass encoding.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_tx_gain_map_write",
+   "probabilities": [
+    {
+     "value": "timer_elapsed_compare",
+     "probability": 0.01
+    },
+    {
+     "value": "rf_tx_gain_map_write",
+     "probability": 0.99
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "status": "ok"
+}

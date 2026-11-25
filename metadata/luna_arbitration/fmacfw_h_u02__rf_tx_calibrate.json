@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "rf_tx_calibrate",
+ "luna": "rf_tx_dpd_calibrate",
+ "doc": "Runs transmit DPD calibration for each enabled table using DMA-captured receive data and PHY measurements.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_tx_dpd_calibrate",
+   "probabilities": [
+    {
+     "value": "rf_tx_calibrate",
+     "probability": 0.31
+    },
+    {
+     "value": "rf_tx_dpd_calibrate",
+     "probability": 0.69
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.53
+  }
+ ],
+ "status": "ok"
+}

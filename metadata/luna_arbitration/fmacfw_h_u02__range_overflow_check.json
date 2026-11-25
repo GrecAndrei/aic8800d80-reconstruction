@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "range_overflow_check",
+ "luna": "find_extension_ie",
+ "doc": "Scans an 802.11 IE buffer for an extension IE with the requested extension ID and returns it with its encoded size.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_extension_ie",
+   "probabilities": [
+    {
+     "value": "range_overflow_check",
+     "probability": 0.33
+    },
+    {
+     "value": "find_extension_ie",
+     "probability": 0.61
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.42
+  }
+ ],
+ "status": "ok"
+}

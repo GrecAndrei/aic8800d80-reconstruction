@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rf_get_int_status",
+ "luna": "rf_dispatch_pending_interrupts",
+ "doc": "Processes pending RF interrupt bits 0\u20137 by acknowledging each bit and invoking its registered handler with encoded status flags.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_dispatch_pending_interrupts",
+   "probabilities": [
+    {
+     "value": "rf_get_int_status",
+     "probability": 0.21
+    },
+    {
+     "value": "rf_dispatch_pending_interrupts",
+     "probability": 0.77
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.66
+  }
+ ],
+ "status": "ok"
+}

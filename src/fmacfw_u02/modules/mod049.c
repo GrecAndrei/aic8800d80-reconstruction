@@ -138,7 +138,7 @@ int ke_wait_event(int a1, volatile int *a2, int16_t a3, int16_t a4) {
     *(volatile uint8_t *)v7 = *(volatile uint8_t *)(v10 + 24);
     if ( *((volatile uint8_t *)a2 + 10) )
     {
-      if ( read_u32((volatile uint32_t **)dword_131780) == 1 )
+      if ( list_count((volatile uint32_t **)dword_131780) == 1 )
       {
         v15 = ke_msg_alloc(59, 0, 5, 0xCu);
         *(volatile uint8_t *)v15 = *(volatile uint8_t *)(*(volatile uint32_t *)(v9 + 72) + 24);

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "ke_int_lock",
+ "luna": "ke_timer_clear",
+ "doc": "Cancels the kernel timer identified by its message ID and task ID, updating timer scheduling state under the interrupt lock.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_int_lock",
+   "probabilities": [
+    {
+     "value": "ke_int_lock",
+     "probability": 0.79
+    },
+    {
+     "value": "ke_timer_clear",
+     "probability": 0.2
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.69
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_compare_neg",
+ "luna": "double_subtract",
+ "doc": "Subtracts one IEEE-754 double-precision value from another using the ARM EABI helper.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_subtract",
+   "probabilities": [
+    {
+     "value": "double_compare_neg",
+     "probability": 0.05
+    },
+    {
+     "value": "double_subtract",
+     "probability": 0.75
+    },
+    {
+     "value": "neither",
+     "probability": 0.2
+    }
+   ],
+   "confidence": 0.63
+  }
+ ],
+ "status": "ok"
+}

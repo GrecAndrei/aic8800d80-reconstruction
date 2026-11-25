@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "test_arg2_one_12dae0",
+ "luna": "find_tlv_0xc7_len1",
+ "doc": "Scans a bounded TLV buffer for type 0xC7 with a one-byte payload and returns its record pointer if found.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_tlv_0xc7_len1",
+   "probabilities": [
+    {
+     "value": "test_arg2_one_12dae0",
+     "probability": 0.09
+    },
+    {
+     "value": "find_tlv_0xc7_len1",
+     "probability": 0.9
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.85
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "irq_combined_status",
+ "luna": "hal_machw_gen_handler",
+ "doc": "Reads and acknowledges enabled MAC hardware interrupt sources, dispatches selected handlers, and reports any unhandled pending bits.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "hal_machw_gen_handler",
+   "probabilities": [
+    {
+     "value": "irq_combined_status",
+     "probability": 0.41
+    },
+    {
+     "value": "hal_machw_gen_handler",
+     "probability": 0.58
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.37
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "double_compare",
+ "luna": "float_compare",
+ "doc": "Compares two single-precision floating-point values using the ARM libgcc comparison routine.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_compare",
+   "probabilities": [
+    {
+     "value": "double_compare",
+     "probability": 0.15
+    },
+    {
+     "value": "float_compare",
+     "probability": 0.67
+    },
+    {
+     "value": "neither",
+     "probability": 0.18
+    }
+   ],
+   "confidence": 0.51
+  }
+ ],
+ "status": "ok"
+}

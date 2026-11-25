@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "bt_packet_parser",
+ "luna": "rf_get_tx_power",
+ "doc": "Computes a rate- and channel-dependent transmit-power setting, applying the channel power limit when enabled.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_get_tx_power",
+   "probabilities": [
+    {
+     "value": "bt_packet_parser",
+     "probability": 0.01
+    },
+    {
+     "value": "rf_get_tx_power",
+     "probability": 0.98
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.97
+  }
+ ],
+ "status": "ok"
+}

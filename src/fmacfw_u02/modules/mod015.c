@@ -677,7 +677,7 @@ volatile uint32_t * rf_tx_setup(unsigned int a1, int a2, int a3) {
     {
       if ( **v3 < 0 && !a3 )
         mmio_clear_register((int)aRepushList, (int)aTxlCfmFlush, 1105);
-      cmd_handler_a(a3, v7);
+      co_list_push_back(a3, v7);
     }
     else
     {
@@ -807,7 +807,7 @@ int fw_magic_check(int a1) {
       v4[10] = 0;
       v4[15] = 0;
       v4[7] = (int)(uintptr_t)(v3 + 27);
-      cmd_handler_a(v7, (volatile uint32_t *)v2);
+      co_list_push_back(v7, (volatile uint32_t *)v2);
     }
     v2 += 100;
     v3 += 155;

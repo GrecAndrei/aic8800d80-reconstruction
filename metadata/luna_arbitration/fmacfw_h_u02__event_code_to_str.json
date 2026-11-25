@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_h_u02",
+ "fn": "event_code_to_str",
+ "luna": "find_channel_info",
+ "doc": "Returns the channel-table entry for the requested 2.4- or 5-GHz channel, or NULL if no matching entry exists.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_channel_info",
+   "probabilities": [
+    {
+     "value": "event_code_to_str",
+     "probability": 0.02
+    },
+    {
+     "value": "find_channel_info",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

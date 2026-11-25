@@ -410,7 +410,7 @@ BOOL radio_status_read(BOOL result) {
   if ( *(volatile uint8_t *)(result + 37) )
   {
     v3 = result;
-    mem_copy_util((void *)(uintptr_t)(off_11B0F8), *((volatile uint32_t *)off_11B0FC + 4) + 5000);
+    mm_timer_set((void *)(uintptr_t)(off_11B0F8), *((volatile uint32_t *)off_11B0FC + 4) + 5000);
     return btm_acl_get_state(*(volatile uint8_t *)(v3 + 35), 0, 2500, 37, 5u, 2u, 0, 0);
   }
   else
