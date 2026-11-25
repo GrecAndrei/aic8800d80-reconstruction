@@ -336,3 +336,23 @@ Tooling banked for the closer-corpus pass: tools/fingerprint_match.py
 tools/decisions_client.py. The realistic yield of source recovery is
 type/protocol-grade for the IPC layer plus isolated utility functions —
 not wholesale file recovery.
+
+## Track-4 verdict: IDA 9.5 migration is low-value for this corpus (2026-11-25)
+
+Measured raw-vs-raw across 1,275 paired functions (same ELF, same setup
+script, harness_v19/decompiled 9.3 output vs fresh 9.5 output):
+- goto count: 1,679 -> 1,621 (0.965x) — the headline switch/binary-tree
+  reassembly does NOT fire on this firmware's control flow
+- LABEL noise: 1,178 -> 1,134 (0.963x); switches: 74 -> 73 (0.986x — no
+  recovery improvement); lines: 0.981x
+- worst-case spot check (sub_140CBC): 65 -> 57 gotos — improvement exists
+  but is modest and localized
+
+Conclusion: the 1,655-goto structuring noise is inherent to the firmware's
+MMIO-heavy error-path control flow, not a decompiler-version artifact. The
+full 9.5 migration (defect re-census, repair-rule refitting, recompose) is
+DEPRIORITIZED — cost is high and the measured benefit is ~3.5% noise
+reduction. The 9.5 capability is banked at /home/alex/ida95_test (2.1GB
+database + full decompile) should a targeted need arise (e.g. bitfield
+recovery for struct synthesis). 9.4 notes checked: Swift ABI irrelevant,
+stkvars array detection mildly useful, nothing migration-changing.
