@@ -272,3 +272,37 @@ soft-float library. The VFP flags are kept as the more hardware-faithful
 artifact — the original firmware executes hardware VFP (vpush {d8} in its
 prologues) — with zero measured downside. Track 8 closed: no fidelity edge
 hinges on the softfp/VFP choice at current vector coverage.
+
+## Final-2 failure machine analysis (2026-11-25)
+After v16/v17 exactly two functions fail corpus-wide, both in lmacfw_rf.
+
+**osal_int_exit @ 0x1149fc** (bare_zero/boot_zero ram_differ @ 0x180564,
+orig r0=0 vs recon r0=0xffffffff, mmio matches): machine truth fully
+compared — the reconstruction is instruction-semantics-faithful: the primask
+test/disable-flag/counter++/callback/counter--/re-enable chain matches the
+original exactly, and the callback literal (off_114A3C -> sub_1383DC) is
+correctly materialized pointing at the recon's own relocated copy. The
+callback sub_1383DC MATCHES standalone in the same bare_zero vector — the
+divergence is composition-context-specific: in-context the recon's callback
+returns 0xffffffff and the interrupt-nesting counter is left mutated. The
+meter runs with spin_break OFF, so this is a genuine execution difference,
+not an emulator wait-loop artifact. Residual suspects: the primask interrupt
+state during the nested callback (the original executes real cpsid/cpsie;
+the reconstruction's __disable_irq is a stub) and the callback's delay-loop
+timing behavior in the nested context. Class: deep hardware-cascade
+divergence — the only one of its kind in the corpus.
+
+**rf_config_load @ 0x126764** (boot_neg mmio_differ only; r0 and RAM match):
+machine truth — a1 is validated in range [0,3] via SIGNED ble, so 0xffffffff
+passes the validation as -1 and is processed as a valid in-domain input: this
+is a genuine divergence, not invalid input. The failure is mmio-sequence-only
+— the RF register write sequence diverges while memory and return value
+converge. Class: RF-state cascade — a deep hardware-sequence divergence in
+negative-index processing.
+
+**Track-2 machine verdict**: the under-arity census is variadic noise, not
+defects — check_feature_flag's prologue `push {r1,r2,r3}` with stack-area
+readback is the classic varargs implementation pattern; the callee genuinely
+uses only r0 for the flag test (tst r0,r3), and r1-r3 are optional printf
+trace arguments. Calls with fewer than the composed prototype's arity are
+semantically correct — no repair needed.
