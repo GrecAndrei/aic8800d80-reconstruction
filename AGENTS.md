@@ -430,3 +430,26 @@ form; it is empirically working for the naming pipeline — do not "fix" it.
 - fwstruct subcommands: `bin/fwstruct` (or `cmd/fwstruct/main.go`)
 - src tree: `src/README.md`, `src/Makefile` (`make -C src check`)
 - Legacy v19 machinery (still the decompile engine): `harness_v19/README.md`
+
+## Luna batch pipeline (2026-11) — operational facts
+
+- **gpt-6-luna batch**: `tools/luna_batch.py` over `tools/codex_backend.py`
+  (Codex subscription backend). Batch corpus analysis output:
+  `metadata/luna_analysis/{fn}__{img}.json` — analysis is nested JSON inside
+  the top-level `text` field. Manifest: `tools/luna_manifest_analysis.py`
+  reads module slices post-demonolithize.
+- **Prompt caching on the subscription backend is REAL but conditional**
+  (measured 2026-11-25): requires (a) shared prefix past the 1,024-token
+  floor — tokens in hidden system content do NOT count, (b) stable
+  `prompt_cache_key` for server affinity, (c) byte-identical prefix. Verified:
+  2,176/2,415 tokens cached (90%). The batch mega-prefix in the manifest
+  generator is ~1,265 tokens. Do NOT shrink it below the floor.
+- **Fast mode** = `service_tier: "priority"` (the literal "fast" is
+  rejected); measured 1.63x speedup, free through Dec 31 2026.
+- **Application rules** in post-compose chain AFTER demonolithize:
+  luna_rename_apply.py (noise-only, high-confidence, collision-aware,
+  umbrella-prototype-aware) then luna_semantics_apply.py (docstrings
+  medium+, var renames high-confidence, collision-guarded per-function).
+- **Decisions API**: platform key in harness_v15/keys/openai_platform.json
+  (gitignored); client tools/decisions_client.py; choice values must be
+  objects not strings.
