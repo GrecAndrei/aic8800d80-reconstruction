@@ -1,13 +1,14 @@
 // adv_pdu_scan_req_handler @ 0x13b39c
+/* luna: Handles received BLE SCAN_REQ PDUs using the per-channel advertising context, dispatching the request or configuring the response path and updating RF */
 int adv_pdu_scan_req_handler(int a1, volatile char *a2, unsigned int a3) {
   volatile char *v6; // r8
   char v7; // r10
   volatile unsigned int v8; // r3
   char v9; // r5
   char v10; // r6
-  volatile char *v11; // r0
+  volatile char *scan_req_msg; // r0
   uint16_t v12; // r3
-  volatile char *v13; // r5
+  volatile char *channel_adv_context; // r5
   volatile unsigned int v14; // r3
 
   if ( rx_rate_field_parse(a3) == 3 )
@@ -31,11 +32,11 @@ int adv_pdu_scan_req_handler(int a1, volatile char *a2, unsigned int a3) {
           *((volatile uint32_t *)v6 + 2) = v8;
           v9 = *a2;
           v10 = a2[1];
-          v11 = (volatile char *)ke_msg_alloc(5131, 13, 5, 3);
-          v11[2] = v7 - 4;
-          *v11 = v9;
-          v11[1] = v10;
-          ke_msg_send_2((int)v11);
+          scan_req_msg = (volatile char *)ke_msg_alloc(5131, 13, 5, 3);
+          scan_req_msg[2] = v7 - 4;
+          *scan_req_msg = v9;
+          scan_req_msg[1] = v10;
+          ke_msg_send_2((int)scan_req_msg);
           rf_set_freq(a3 >> 8);
           ke_state_set(a3, 1);
         }
@@ -53,33 +54,33 @@ int adv_pdu_scan_req_handler(int a1, volatile char *a2, unsigned int a3) {
                                  + 1320
                                  * *(volatile uint8_t *)(dword_13B554 + 696 * *((volatile uint8_t *)off_13B540 + 16) + 34)
                                  + 106) == 0;
-      v13 = (volatile char *)off_13B540 + 32 * (a3 >> 8);
+      channel_adv_context = (volatile char *)off_13B540 + 32 * (a3 >> 8);
       if ( a2[2] )
       {
         adv_set_params(
-          (uint8_t)v13[16],
-          (int)v13,
+          (uint8_t)channel_adv_context[16],
+          (int)channel_adv_context,
           1,
-          (uint8_t)v13[23],
-          v12 | (4 * (uint8_t)v13[22]) | (2 * (uint8_t)v13[18]) | (*((volatile uint16_t *)v13 + 10) << 6),
+          (uint8_t)channel_adv_context[23],
+          v12 | (4 * (uint8_t)channel_adv_context[22]) | (2 * (uint8_t)channel_adv_context[18]) | (*((volatile uint16_t *)channel_adv_context + 10) << 6),
           0x25u,
           0);
-        co_list_push_back(dword_13B560, (void *)(v13));
+        co_list_push_back(dword_13B560, (void *)(channel_adv_context));
         ke_state_set(a3, 0);
       }
       else
       {
         adv_set_params(
-          (uint8_t)v13[16],
-          (int)v13,
+          (uint8_t)channel_adv_context[16],
+          (int)channel_adv_context,
           1,
-          (uint8_t)v13[23],
-          v12 | (4 * (uint8_t)v13[22]) | (2 * (uint8_t)v13[18]) | (*((volatile uint16_t *)v13 + 10) << 6),
+          (uint8_t)channel_adv_context[23],
+          v12 | (4 * (uint8_t)channel_adv_context[22]) | (2 * (uint8_t)channel_adv_context[18]) | (*((volatile uint16_t *)channel_adv_context + 10) << 6),
           (uint8_t)a2[2],
           (uint8_t)a2[2]);
         *(volatile uint8_t *)(696 * (uint8_t)*a2 + 12 * (uint8_t)a2[1] + dword_13B554 + 452) = BYTE1(a3);
         v14 = (*(volatile uint32_t *)0x40501010u);
-        *((volatile uint32_t *)v13 + 2) = v14;
+        *((volatile uint32_t *)channel_adv_context + 2) = v14;
         rf_set_freq(a3 >> 8);
         ke_state_set(a3, 1);
       }
@@ -1037,6 +1038,7 @@ int lookup_tx_power_limit(int a1, int a2) {
 
 
 // is_mgmt_action_frame @ 0x13c484
+/* luna: Classifies deauthentication, disassociation, and robust action management frames using the action category. */
 BOOL is_mgmt_action_frame(char a1, unsigned int a2) {
   int v2; // r3
 

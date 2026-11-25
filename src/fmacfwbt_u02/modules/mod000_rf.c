@@ -22,83 +22,84 @@ int start() {
 
 
 // memset @ 0x100200
+/* luna: Fills the destination with the low byte of the value, using aligned word stores for bulk data, and returns the original destination. */
 volatile int * memset(volatile int *result, uint8_t a2, unsigned int a3) {
-  unsigned int v3; // r4
-  volatile int *v4; // r3
-  int v6; // r5
-  volatile uint8_t *v7; // r2
-  volatile int *v8; // r2
-  int v9; // r6
-  volatile int *v10; // r4
+  unsigned int remaining_bytes; // r4
+  volatile int *dst_cursor; // r3
+  int repeated_fill_word; // r5
+  volatile uint8_t *bulk_store_cursor; // r2
+  volatile int *word_dst; // r2
+  int chunk_bytes; // r6
+  volatile int *tail_end; // r4
 
   if ( (uint32_t)result << 30 )
   {
-    v3 = a3 - 1;
+    remaining_bytes = a3 - 1;
     if ( !a3 )
       return result;
-    v4 = result;
+    dst_cursor = result;
     while ( 1 )
     {
-      *(volatile uint8_t *)v4 = a2;
-      v4 = (volatile int *)((volatile char *)v4 + 1);
-      if ( !((uint32_t)v4 << 30) )
+      *(volatile uint8_t *)dst_cursor = a2;
+      dst_cursor = (volatile int *)((volatile char *)dst_cursor + 1);
+      if ( !((uint32_t)dst_cursor << 30) )
         break;
-      if ( v3-- == 0 )
+      if ( remaining_bytes-- == 0 )
         return result;
     }
   }
   else
   {
-    v3 = a3;
-    v4 = result;
+    remaining_bytes = a3;
+    dst_cursor = result;
   }
-  if ( v3 > 3 )
+  if ( remaining_bytes > 3 )
   {
-    v6 = a2 | (a2 << 8) | ((a2 | (a2 << 8)) << 16);
-    if ( v3 <= 0xF )
+    repeated_fill_word = a2 | (a2 << 8) | ((a2 | (a2 << 8)) << 16);
+    if ( remaining_bytes <= 0xF )
     {
-      v8 = v4;
-      v9 = v3;
+      word_dst = dst_cursor;
+      chunk_bytes = remaining_bytes;
     }
     else
     {
-      v7 = (void *)(v4 + 4);
+      bulk_store_cursor = (void *)(dst_cursor + 4);
       do
       {
-        *((volatile uint32_t *)v7 - 4) = v6;
-        *((volatile uint32_t *)v7 - 3) = v6;
-        *((volatile uint32_t *)v7 - 2) = v6;
-        *((volatile uint32_t *)v7 - 1) = v6;
-        v7 += 16;
+        *((volatile uint32_t *)bulk_store_cursor - 4) = repeated_fill_word;
+        *((volatile uint32_t *)bulk_store_cursor - 3) = repeated_fill_word;
+        *((volatile uint32_t *)bulk_store_cursor - 2) = repeated_fill_word;
+        *((volatile uint32_t *)bulk_store_cursor - 1) = repeated_fill_word;
+        bulk_store_cursor += 16;
       }
-      while ( v7 != (volatile char *)v4 + ((v3 - 16) & 0xFFFFFFF0) + 32 );
-      v8 = &v4[4 * ((v3 - 16) >> 4) + 4];
-      v9 = v3 & 0xF;
-      if ( (v3 & 0xC) == 0 )
+      while ( bulk_store_cursor != (volatile char *)dst_cursor + ((remaining_bytes - 16) & 0xFFFFFFF0) + 32 );
+      word_dst = &dst_cursor[4 * ((remaining_bytes - 16) >> 4) + 4];
+      chunk_bytes = remaining_bytes & 0xF;
+      if ( (remaining_bytes & 0xC) == 0 )
       {
-        v3 &= 0xFu;
-        v4 = v8;
-        if ( !v9 )
+        remaining_bytes &= 0xFu;
+        dst_cursor = word_dst;
+        if ( !chunk_bytes )
           return result;
         goto LABEL_16;
       }
     }
-    v4 = (volatile int *)((volatile char *)v8 + ((v9 - 4) & 0xFFFFFFFC) + 4);
+    dst_cursor = (volatile int *)((volatile char *)word_dst + ((chunk_bytes - 4) & 0xFFFFFFFC) + 4);
     do
-      *v8++ = v6;
-    while ( v4 != v8 );
-    v3 = v9 & 3;
+      *word_dst++ = repeated_fill_word;
+    while ( dst_cursor != word_dst );
+    remaining_bytes = chunk_bytes & 3;
   }
-  if ( !v3 )
+  if ( !remaining_bytes )
     return result;
 LABEL_16:
-  v10 = (volatile int *)((volatile char *)v4 + v3);
+  tail_end = (volatile int *)((volatile char *)dst_cursor + remaining_bytes);
   do
   {
-    *(volatile uint8_t *)v4 = a2;
-    v4 = (volatile int *)((volatile char *)v4 + 1);
+    *(volatile uint8_t *)dst_cursor = a2;
+    dst_cursor = (volatile int *)((volatile char *)dst_cursor + 1);
   }
-  while ( v10 != v4 );
+  while ( tail_end != dst_cursor );
   return result;
 }
 
@@ -999,6 +1000,7 @@ volatile uint32_t *adc_read_ch1() {
 
 
 // rf_analog_enable @ 0x100e54
+/* luna: Powers up and configures the RF analog circuitry for the requested frequency and mode, applying band-dependent settings and initializing the radio. */
 int rf_analog_enable(unsigned int a1, int a2) {
   volatile uint32_t *v2; // r3
   volatile uint32_t *v3; // r2
@@ -1008,11 +1010,11 @@ int rf_analog_enable(unsigned int a1, int a2) {
   int v7; // r1
   volatile uint32_t *v8; // r1
   volatile uint32_t *v9; // r2
-  int v11; // r4
+  int band_profile_offset; // r4
   volatile unsigned int *v12; // r0
   int v13; // r2
   volatile unsigned int *v14; // r3
-  int v15; // r4
+  int band_profile_entry; // r4
   volatile unsigned int *v16; // r5
   int v17; // r1
   volatile uint32_t *v18; // r4
@@ -1061,24 +1063,24 @@ int rf_analog_enable(unsigned int a1, int a2) {
   radio_init(0, a1);
   if ( a1 > 0x98A )
   {
-    v11 = 6;
+    band_profile_offset = 6;
   }
   else if ( a1 <= 0x97B )
   {
-    v11 = 0;
+    band_profile_offset = 0;
   }
   else
   {
-    v11 = 3;
+    band_profile_offset = 3;
   }
   v12 = (volatile unsigned int *)off_1010DC;
   v13 = dword_1010E0;
   v14 = (volatile unsigned int *)off_1010E4;
-  *(volatile uint32_t *)off_1010DC = *(volatile uint32_t *)off_1010DC & 0xFE01FFFF | (*(volatile uint8_t *)(dword_1010E0 + v11) << 17);
-  v15 = v11 + v13;
+  *(volatile uint32_t *)off_1010DC = *(volatile uint32_t *)off_1010DC & 0xFE01FFFF | (*(volatile uint8_t *)(dword_1010E0 + band_profile_offset) << 17);
+  band_profile_entry = band_profile_offset + v13;
   v16 = (volatile unsigned int *)off_1010E8;
-  *v12 = *v12 & 0xFFFFFF00 | *(volatile uint8_t *)(v15 + 1);
-  v17 = *(volatile uint8_t *)(v15 + 2);
+  *v12 = *v12 & 0xFFFFFF00 | *(volatile uint8_t *)(band_profile_entry + 1);
+  v17 = *(volatile uint8_t *)(band_profile_entry + 2);
   v18 = (void *)(uintptr_t)(off_1010EC);
   *v14 = *v14 & 0xFFFFFF00 | v17;
   v19 = (volatile unsigned int *)off_1010C8;
@@ -1570,6 +1572,7 @@ int return_1000() {
 
 
 // return_one @ 0x101874
+/* luna: Returns the integer constant 1. */
 int return_one() {
   return 1;
 }
@@ -1577,6 +1580,7 @@ int return_one() {
 
 
 // sys_status_get_bit21 @ 0x101878
+/* luna: Returns bit 21 of the system status register. */
 int sys_status_get_bit21() {
   return (*(volatile uint32_t *)off_101884 >> 21) & 1;
 }
@@ -1602,6 +1606,7 @@ unsigned int rf_control_set_bit3(int a1) {
 
 
 // sys_status_get_bit26 @ 0x1018b4
+/* luna: Returns bit 26 of the system status register. */
 int sys_status_get_bit26() {
   return (*(volatile uint32_t *)off_1018C0 >> 26) & 1;
 }
@@ -1609,6 +1614,7 @@ int sys_status_get_bit26() {
 
 
 // sys_status_get_bit28 @ 0x1018c4
+/* luna: Returns bit 28 of the system status register. */
 int sys_status_get_bit28() {
   return (*(volatile uint32_t *)off_1018D0 >> 28) & 1;
 }
@@ -1616,6 +1622,7 @@ int sys_status_get_bit28() {
 
 
 // sys_status_get_bit30 @ 0x1018d4
+/* luna: Returns bit 30 of the system status register. */
 int sys_status_get_bit30() {
   return (*(volatile uint32_t *)off_1018E0 >> 30) & 1;
 }

@@ -33,12 +33,12 @@ VOCAB = [
 def strings_for_module(img, mi, mods):
     """Decode the printable strings inside the data symbols the module's
     functions reference — the assert/trace text is subsystem ground truth."""
-    text = open(f"src/{img}/modules/mod{mi:03d}.c").read() if mi < 100 else ""
-    if not text:
-        try:
-            text = open(glob.glob(f"src/{img}/modules/mod{mi:03d}*.c")[0]).read()
-        except IndexError:
-            return []
+    # post-labeling the files are modNNN_label.c — glob first, plain
+    # modNNN.c is just the unlabeled special case
+    matches = glob.glob(f"src/{img}/modules/mod{mi:03d}*.c")
+    if not matches:
+        return [], ""
+    text = open(matches[0]).read()
     return re.findall(r'(?m)^// (\S+) @', text), text
 
 
