@@ -1,4 +1,5 @@
 // ecc_point_mul @ 0x119368
+/* luna: Decodes the transmit rate encoding and selects the corresponding per-interface PHY parameters and handler. */
 unsigned int ecc_point_mul(int a1, int a2, int a3) {
   volatile int16_t **v3; // r10
   unsigned int v5; // r3
@@ -134,6 +135,7 @@ LABEL_5:
 
 
 // compare_device_state @ 0x1195a0
+/* luna: Validates a candidate device/link pairing and, when its state flags permit, associates the link record and updates BTM/ACL state. */
 int compare_device_state(int a1, int a2, int a3) {
   unsigned int v3; // r7
   int result; // r0
@@ -276,6 +278,7 @@ LABEL_16:
 
 
 // btm_is_link_active @ 0x119734
+/* luna: If the head packet matches the active link and fits the available buffer, removes it from the queue and links it into the active transmission state. */
 int btm_is_link_active(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
   volatile int *v5; // r4
   int v6; // r5
@@ -367,6 +370,7 @@ int btm_is_link_active(int a1, volatile int *a2, unsigned int a3, unsigned int a
 
 
 // btm_indirect_handler @ 0x119888
+/* luna: Moves eligible queued indirect data for a Bluetooth link into the transmit path after validating link state and buffer-capacity limits. */
 int btm_indirect_handler(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
   int v5; // r5
   int v7; // r4
@@ -572,6 +576,7 @@ LABEL_34:
 
 
 // align_alloc_size @ 0x119bec
+/* luna: Returns the number of additional 32-bit words needed beyond the 4-byte-aligned size at offset 24 plus four bytes to cover the requested size. */
 unsigned int align_alloc_size(int a1, unsigned int a2) {
   unsigned int v2; // r3
 
@@ -585,6 +590,7 @@ unsigned int align_alloc_size(int a1, unsigned int a2) {
 
 
 // compare_global_counters @ 0x119c0c
+/* luna: Synchronizes the BTM pool table, clears six entry pools, initializes each entry, and passes it with its pool context to the downstream handler. */
 int compare_global_counters() {
   volatile int *v0; // r3
   uint64_t v1; // kr00_8
@@ -676,6 +682,7 @@ if ( *(volatile uint32_t *)(uintptr_t)(off_119D18) != *(volatile uint32_t *)off_
 
 
 // init_mac_global_0x1882c8 @ 0x119d34
+/* luna: Clears six connection-group descriptors and invokes a handler for each fixed-stride record in their associated tables. */
 volatile uint32_t *init_mac_global_0x1882c8() {
   volatile uint32_t *v0; // r4
   volatile int *v1; // r7
@@ -715,6 +722,7 @@ volatile uint32_t *init_mac_global_0x1882c8() {
 
 
 // btm_get_conn_entry @ 0x119d88
+/* luna: Processes the indexed BTM connection entry, updating its link and ACL state and dispatching state-dependent event or PHY work. */
 int btm_get_conn_entry(int a1) {
   int v1; // r8
   int v2; // r3
@@ -837,6 +845,7 @@ int btm_get_conn_entry(int a1) {
 
 
 // btm_init_conn_entry @ 0x119f50
+/* luna: Initializes or updates the indexed Bluetooth connection entry using the supplied connection context and its scheduling metadata. */
 int btm_init_conn_entry(int a1, int a2) {
   int v2; // r7
   int v3; // r8
@@ -1022,6 +1031,7 @@ LABEL_17:
 
 
 // decrement_refcount @ 0x11a190
+/* luna: Decrements a connection entry's reference count and invokes its final-release handler when the count reaches zero. */
 int decrement_refcount(int result) {
   char v1; // r3
 

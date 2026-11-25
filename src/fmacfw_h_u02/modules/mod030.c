@@ -1,4 +1,5 @@
 // copy_config_data @ 0x1229e8
+/* luna: Copies 69 bytes from the supplied buffer into a global buffer, then writes a header word using the remaining arguments. */
 int copy_config_data(int a1, int a2, int a3, int a4) {
   memcpy((void *)(uintptr_t)(dword_122A04), (void *)(uintptr_t)(a2), 69);
   mac_write_header_word(120, a4, a3);
@@ -8,20 +9,21 @@ int copy_config_data(int a1, int a2, int a3, int a4) {
 
 
 // store_rx_info @ 0x122a08
+/* luna: Copies two 32-bit words and a trailing 16-bit field from an RX-info record into configured storage, then updates MAC header word 138. */
 int store_rx_info(int a1, volatile uint32_t *a2, int a3, int a4) {
-  int v4; // r0
+  int rx_info_word0; // r0
   volatile uint32_t *v5; // r5
-  int v6; // r4
-  int v7; // r1
+  int rx_info_dst; // r4
+  int rx_info_word1; // r1
 
-  v4 = *a2;
+  rx_info_word0 = *a2;
   v5 = a2;
-  v6 = dword_122A24;
-  v7 = a2[1];
+  rx_info_dst = dword_122A24;
+  rx_info_word1 = a2[1];
   v5 = (void *)(uintptr_t)(((uintptr_t)(v5) & ~0xFFFFu) | ((uint16_t)(*((volatile uint16_t *)v5 + 4)) & 0xFFFFu));
-  *(volatile uint32_t *)dword_122A24 = v4;
-  *(volatile uint32_t *)(v6 + 4) = v7;
-  *(volatile uint16_t *)(v6 + 8) = (uint16_t)v5;
+  *(volatile uint32_t *)dword_122A24 = rx_info_word0;
+  *(volatile uint32_t *)(rx_info_dst + 4) = rx_info_word1;
+  *(volatile uint16_t *)(rx_info_dst + 8) = (uint16_t)v5;
   mac_write_header_word(138, a4, a3);
   return 0;
 }
@@ -29,6 +31,7 @@ int store_rx_info(int a1, volatile uint32_t *a2, int a3, int a4) {
 
 
 // scan_validate @ 0x122a28
+/* luna: Copies the supplied scan configuration into shared state when it is enabled and global state permits the update, then writes the requested MAC header  */
 int scan_validate(int a1, volatile int *a2, int a3, int a4) {
   volatile char *v7; // r7
   volatile uint32_t *v8; // r3
@@ -65,6 +68,7 @@ int scan_validate(int a1, volatile int *a2, int a3, int a4) {
 
 
 // adv_state_check @ 0x122a80
+/* luna: Copies two bytes into the indexed MAC context, clears the following byte, conditionally disables MMIO interrupts when the mode is negative and the con */
 int adv_state_check(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v4; // r7
   int v6; // r4

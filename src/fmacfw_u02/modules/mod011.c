@@ -1,48 +1,50 @@
 // kernel_event_wait @ 0x115f68
+/* luna: Initializes each transmit-descriptor slot, assigns its per-slot buffer, and invokes the slot setup handler. */
 int kernel_event_wait() {
-  volatile int **v0; // r5
-  volatile uint32_t *v1; // r6
-  volatile int *v2; // r0
-  void *v3; // r8
+  volatile int **descriptor_array_ref; // r5
+  volatile uint32_t *tx_buffer_base_ref; // r6
+  volatile int *descriptor_array; // r0
+  void *tx_config_ref; // r8
   int v4; // r7
-  uint16_t v5; // r9
-  volatile int *v6; // r1
+  uint16_t slot_index; // r9
+  volatile int *descriptor_entry; // r1
   int result; // r0
 
-  v0 = (volatile int **)off_115FF0;
+  descriptor_array_ref = (volatile int **)off_115FF0;
   zero_8_bytes((volatile uint32_t *)dword_115FEC);
   if ( **(volatile int16_t **)off_115FF4 < 0 )
   {
-    v2 = *v0;
-    v1 = (void *)(uintptr_t)(off_115FF8);
-    if ( !*v0 || !*(volatile uint32_t *)off_115FF8 )
+    descriptor_array = *descriptor_array_ref;
+    tx_buffer_base_ref = (void *)(uintptr_t)(off_115FF8);
+    if ( !*descriptor_array_ref || !*(volatile uint32_t *)off_115FF8 )
     {
       mmio_clear_register((int)aTxdescArray0Tx, (int)aTxTxdescInit, 90);
-      v2 = *v0;
+      descriptor_array = *descriptor_array_ref;
     }
   }
   else
   {
-    v1 = (void *)(uintptr_t)(off_115FF8);
-    v2 = *v0;
+    tx_buffer_base_ref = (void *)(uintptr_t)(off_115FF8);
+    descriptor_array = *descriptor_array_ref;
   }
-  v3 = (void *)(uintptr_t)(off_116004);
+  tx_config_ref = (void *)(uintptr_t)(off_116004);
   v4 = dword_115FEC;
-  memset(v2, 0, 88 * *(volatile uint16_t *)(*(volatile uint32_t *)off_116004 + 8) + 88);
-  v5 = 0;
+  memset(descriptor_array, 0, 88 * *(volatile uint16_t *)(*(volatile uint32_t *)off_116004 + 8) + 88);
+  slot_index = 0;
   do
   {
-    v6 = &(*v0)[22 * v5];
-    v6[19] = *v1 + 80 * v5;
-    result = cmd_handler_a(v4, (void *)(v6));
-    ++v5;
+    descriptor_entry = &(*descriptor_array_ref)[22 * slot_index];
+    descriptor_entry[19] = *tx_buffer_base_ref + 80 * slot_index;
+    result = cmd_handler_a(v4, (void *)(descriptor_entry));
+    ++slot_index;
   }
-  while ( *(volatile uint16_t *)(*(volatile uint32_t *)v3 + 8) >= (unsigned int)v5 );
+  while ( *(volatile uint16_t *)(*(volatile uint32_t *)tx_config_ref + 8) >= (unsigned int)slot_index );
   return result;
 }
 
 
 // kernel_event_get @ 0x116008
+/* luna: Returns the current kernel event value and clears the associated register when no event is pending and the status flag is negative. */
 int kernel_event_get() {
   int v0; // r0
   int v1; // r4
@@ -57,12 +59,14 @@ int kernel_event_get() {
 
 
 // call_func_182588 @ 0x116044
+/* luna: Calls `cmd_handler_a` with a fixed context value and the supplied argument, returning its result. */
 int call_func_182588(volatile uint32_t *a1) {
   return cmd_handler_a(dword_11604C, a1);
 }
 
 
 // init_event_slot @ 0x116050
+/* luna: Initializes the indexed kernel-event slot, clears two associated table words, and returns the associated table address. */
 int init_event_slot(int a1) {
   int v1; // r1
   int v2; // r3
@@ -86,6 +90,7 @@ int init_event_slot(int a1) {
 
 
 // call_delayed_callback @ 0x11608c
+/* luna: Passes the nonzero value at offset 0x48 to is_controller_mode, clears the field, and returns the predicate result. */
 volatile uint32_t * call_delayed_callback(int a1) {
   volatile uint32_t *result; // r0
 
@@ -101,18 +106,19 @@ volatile uint32_t * call_delayed_callback(int a1) {
 
 
 // set_table_callback_data @ 0x1160a0
+/* luna: Appends a callback node to the list selected by `index + 22` and clears the node’s next link. */
 int set_table_callback_data(int a1, int a2) {
-  int v2; // r3
+  int table_base; // r3
   int result; // r0
   int v4; // r2
 
-  v2 = dword_1160C4;
+  table_base = dword_1160C4;
   result = a1 + 22;
   v4 = dword_1160C4 + 8 * result;
   if ( *(volatile uint32_t *)(v4 + 4) )
     v4 = *(volatile uint32_t *)(v4 + 8);
   *(volatile uint32_t *)(v4 + 4) = a2;
-  *(volatile uint32_t *)(v2 + 8 * result + 8) = a2;
+  *(volatile uint32_t *)(table_base + 8 * result + 8) = a2;
   *(volatile uint32_t *)(a2 + 4) = 0;
   return result;
 }
@@ -120,6 +126,7 @@ int set_table_callback_data(int a1, int a2) {
 
 
 // parse_control_packet @ 0x1160c8
+/* luna: Sets buffer address bounds and descriptor flags, then conditionally increments the counter for the selected slot. */
 int parse_control_packet(int result, int a2) {
   int v2; // r3
   int v3; // r8
@@ -174,34 +181,36 @@ int parse_control_packet(int result, int a2) {
 
 
 // check_global_flag @ 0x116174
+/* luna: Computes and appends an 8-byte TKIP Michael MIC for the payload, or writes eight zero bytes when the global bypass flag is set. */
 volatile int * check_global_flag(int a1, int a2, int a3, int a4) {
   volatile int *result; // r0
-  volatile char *v7; // r4
-  int v8; // r5
-  char v9; // t1
+  volatile char *mic_bytes; // r4
+  int mic_output_offset; // r5
+  char mic_byte; // t1
   struct __attribute__((packed)) { uint8_t v10[8]; // [sp+8h] [bp-14h] BYREF
   char v11; // [sp+10h] [bp-Ch] BYREF
   } _frame;
   if ( (**(volatile uint8_t **)off_1161D0 & 1) != 0 )
     return memset((volatile int *)(a3 + a4), 0, 8u);
-  v7 = _frame.v10;
+  mic_bytes = _frame.v10;
   crypto_load_args((int)(uintptr_t)(_frame.v10), (void *)(uintptr_t)(a2), a1 + 12, (void *)(uintptr_t)(a1 + 18), *(volatile uint8_t *)(a1 + 27));
   unaligned_read((void *)(_frame.v10), a3, a4);
   patch_handle_data((int)(uintptr_t)(_frame.v10));
-  v8 = a4 + a3;
+  mic_output_offset = a4 + a3;
   do
   {
-    result = (volatile int *)((uintptr_t)(v7) - (uintptr_t)(_frame.v10));
-    v9 = *v7++;
-    *((volatile uint8_t *)result + v8) = v9;
+    result = (volatile int *)((uintptr_t)(mic_bytes) - (uintptr_t)(_frame.v10));
+    mic_byte = *mic_bytes++;
+    *((volatile uint8_t *)result + mic_output_offset) = mic_byte;
   }
-  while ( v7 != &_frame.v11 );
+  while ( mic_bytes != &_frame.v11 );
   return result;
 }
 
 
 
 // configure_hardware_regs @ 0x1161d4
+/* luna: Initializes two fixed-size hardware configuration tables with RF- and clock-derived values and fixed defaults. */
 int configure_hardware_regs() {
   volatile int *v0; // r4
   int v1; // r8
@@ -280,6 +289,7 @@ int configure_hardware_regs() {
 
 
 // dispatch_config_command @ 0x1162bc
+/* luna: Maps command IDs 0–5 to one-hot configuration values and conditionally clears a hardware register for other IDs. */
 int dispatch_config_command(int result) {
   switch ( result )
   {

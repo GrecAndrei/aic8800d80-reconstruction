@@ -1,4 +1,5 @@
 // log_bt_event @ 0x1316e4
+/* luna: Builds and submits a Bluetooth event record containing a link context snapshot, or an empty record when no context exists. */
 int log_bt_event(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   int v5; // r0
   int v6; // r2
@@ -89,6 +90,7 @@ int log_bt_event(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
 
 
 // is_link_connected @ 0x1317e0
+/* luna: Checks controller state, conditionally adds the current identifier when available, and forwards the command to HCI preprocessing. */
 int is_link_connected(int a1, int a2, int a3) {
   int v4; // r1
 
@@ -103,6 +105,7 @@ int is_link_connected(int a1, int a2, int a3) {
 
 
 // is_scan_active_1 @ 0x131838
+/* luna: Performs command-state checks, optionally writes a configured header word, and invokes HCI command preprocessing. */
 int is_scan_active_1(int a1, int a2, int a3) {
   int v4; // r1
 
@@ -117,33 +120,34 @@ int is_scan_active_1(int a1, int a2, int a3) {
 
 
 // set_scan_enable @ 0x131890
+/* luna: Updates the selected scan-enable bit and either completes immediately or dispatches an internal control PDU when the overall scan-enabled state change */
 int set_scan_enable(int a1, volatile uint8_t *a2, int a3, int a4) {
-  volatile uint32_t *v5; // r5
-  int v6; // r7
-  int v8; // r0
-  int v9; // r0
-  int v10; // r3
-  volatile uint8_t *v12; // r0
-  int v13; // r3
-  char v14; // r3
+  volatile uint32_t *controller_state; // r5
+  int previous_scan_mask; // r7
+  int selected_scan_mode_bit; // r0
+  int updated_scan_mask; // r0
+  int hci_transition_path_enabled; // r3
+  volatile uint8_t *scan_control_pdu; // r0
+  int current_scan_mask; // r3
+  char fallback_pdu_scan_state; // r3
   int a3a; // [sp+4h] [bp-8h]
 
-  v5 = (void *)(uintptr_t)(off_13191C);
-  v6 = *((volatile uint32_t *)off_13191C + 1);
-  v8 = 1 << a2[1];
+  controller_state = (void *)(uintptr_t)(off_13191C);
+  previous_scan_mask = *((volatile uint32_t *)off_13191C + 1);
+  selected_scan_mode_bit = 1 << a2[1];
   if ( *a2 )
-    v9 = v8 | v6;
+    updated_scan_mask = selected_scan_mode_bit | previous_scan_mask;
   else
-    v9 = v6 & ~v8;
-  v10 = *((volatile uint8_t *)off_13191C + 375);
-  *((volatile uint32_t *)off_13191C + 1) = v9;
-  if ( !v10 )
+    updated_scan_mask = previous_scan_mask & ~selected_scan_mode_bit;
+  hci_transition_path_enabled = *((volatile uint8_t *)off_13191C + 375);
+  *((volatile uint32_t *)off_13191C + 1) = updated_scan_mask;
+  if ( !hci_transition_path_enabled )
     goto LABEL_7;
   a3a = a3;
   if ( hci_cmd_handler(5u) == 1 )
     return 2;
   a3 = a3a;
-  if ( (uint8_t)v6 )
+  if ( (uint8_t)previous_scan_mask )
   {
     if ( *a2 )
     {
@@ -156,21 +160,22 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  v12 = (volatile uint8_t *)tx_send_pdu(49, 0, a3a, 1);
-  v13 = v5[1];
-  *((volatile uint16_t *)v5 + 4) = a4;
-  if ( v13 )
-    v14 = 0;
+  scan_control_pdu = (volatile uint8_t *)tx_send_pdu(49, 0, a3a, 1);
+  current_scan_mask = controller_state[1];
+  *((volatile uint16_t *)controller_state + 4) = a4;
+  if ( current_scan_mask )
+    fallback_pdu_scan_state = 0;
   else
-    v14 = *((volatile uint8_t *)v5 + 376);
-  *v12 = v14;
-  rx_process_packet_1((int)v12);
+    fallback_pdu_scan_state = *((volatile uint8_t *)controller_state + 376);
+  *scan_control_pdu = fallback_pdu_scan_state;
+  rx_process_packet_1((int)scan_control_pdu);
   hci_cmd_preprocess(a3a, 1);
   return 0;
 }
 
 
 // util_log_trace @ 0x131920
+/* luna: Transmits a PDU and processes interrupt status and connection-specific state. */
 int util_log_trace(int a1, volatile int *a2, int a3, int a4) {
   volatile uint8_t *v5; // r4
   int v6; // r0
@@ -543,6 +548,7 @@ LABEL_24:
 
 
 // process_hci_command @ 0x131df8
+/* luna: Stages enabled RF parameter blocks into their firmware buffers and suppresses options 2 and 3 when RF register 0x0F bit 19 is set. */
 int process_hci_command(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v4; // r4
   int v8; // r1
@@ -694,6 +700,7 @@ int process_hci_command(int a1, int a2, int a3, int a4) {
 
 
 // get_conn_by_index @ 0x131f4c
+/* luna: Resets the indexed connection’s auxiliary region, dispatches its operation when the slot status is nonzero, or issues a fallback response otherwise. */
 int get_conn_by_index(int a1, volatile uint8_t *a2) {
   int v2; // r6
   int v4; // r0
@@ -711,6 +718,7 @@ int get_conn_by_index(int a1, volatile uint8_t *a2) {
 
 
 // wait_for_event @ 0x131f90
+/* luna: Checks the HCI command state, optionally synthesizes and processes a PDU from shared event state, then writes the supplied values to the MAC header. */
 int wait_for_event(int a1, volatile char *a2, int a3, int a4) {
   volatile uint16_t *v7; // r4
   char v8; // r3
@@ -743,6 +751,7 @@ int wait_for_event(int a1, volatile char *a2, int a3, int a4) {
 
 
 // send_req_5 @ 0x131ff4
+/* luna: Updates the active LE scan modes keyed by duplicate-filter setting and requests controller processing when the scan state changes. */
 int send_req_5(int a1, volatile uint8_t *a2, int a3, int a4) {
   volatile uint16_t *v7; // r7
   volatile int *v9; // r0
@@ -782,6 +791,7 @@ int send_req_5(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // vendor_platform_init @ 0x132088
+/* luna: Clears BLE platform state and initializes the HCI control block, locks, and transmit buffer. */
 int vendor_platform_init() {
   memset((volatile int *)dword_1320B8, 0, 0x17Cu);
   hci_cmd_preprocess(5u, 0);
@@ -794,6 +804,7 @@ int vendor_platform_init() {
 
 
 // is_adv_enabled @ 0x1320bc
+/* luna: Searches the selected counted table for a matching 16-bit event code and returns its entry, or null if no match exists. */
 volatile char * is_adv_enabled(int a1, int a2) {
   volatile char *result; // r0
   volatile char *v3; // r3
@@ -830,42 +841,43 @@ volatile char * is_adv_enabled(int a1, int a2) {
 
 
 // event_code_to_str @ 0x132104
+/* luna: Returns the channel-table entry for the requested 2.4- or 5-GHz channel, or NULL if no matching entry exists. */
 volatile char * event_code_to_str(volatile char *result, int a2) {
-  int v2; // r1
-  volatile char *v3; // r3
-  volatile char *v4; // r4
-  int v5; // r2
+  int target_frequency_mhz; // r1
+  volatile char *channel_entry; // r3
+  volatile char *channel_table_end; // r4
+  int entry_frequency_mhz; // r2
 
   if ( result )
   {
     if ( result != (volatile char *)1 || (uint8_t)(a2 - 1) > 0xB0u )
       return 0;
     result = (volatile char *)*((volatile uint8_t *)off_132174 + 371);
-    v2 = 5 * a2 + 5000;
-    v3 = (volatile char *)off_132174 + 202;
+    target_frequency_mhz = 5 * a2 + 5000;
+    channel_entry = (volatile char *)off_132174 + 202;
   }
   else
   {
     if ( (unsigned int)(a2 - 1) > 0xD )
       return result;
     if ( a2 == 14 )
-      v2 = 2484;
+      target_frequency_mhz = 2484;
     else
-      v2 = 5 * a2 + 2407;
+      target_frequency_mhz = 5 * a2 + 2407;
     result = (volatile char *)*((volatile uint8_t *)off_132174 + 370);
-    v3 = (volatile char *)off_132174 + 118;
+    channel_entry = (volatile char *)off_132174 + 118;
   }
   if ( result )
   {
-    v4 = &v3[6 * (uint32_t)result];
+    channel_table_end = &channel_entry[6 * (uint32_t)result];
     while ( 1 )
     {
-      v5 = *(volatile uint16_t *)v3;
-      result = v3;
-      v3 += 6;
-      if ( v5 == v2 )
+      entry_frequency_mhz = *(volatile uint16_t *)channel_entry;
+      result = channel_entry;
+      channel_entry += 6;
+      if ( entry_frequency_mhz == target_frequency_mhz )
         break;
-      if ( v3 == v4 )
+      if ( channel_entry == channel_table_end )
         return 0;
     }
   }

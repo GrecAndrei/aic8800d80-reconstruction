@@ -1,4 +1,5 @@
 // send_ke_message @ 0x11eb54
+/* luna: Allocates a 24-byte kernel message with fixed identifiers, copies the supplied parameters into it, and submits it for processing. */
 int send_ke_message(int a1) {
   int v2; // r0
   int v3; // r1
@@ -14,6 +15,7 @@ int send_ke_message(int a1) {
 
 
 // aes_ccm_init @ 0x11eb78
+/* luna: Drains words from a queue and forwards them to the kernel in batches of up to four while updating interrupt state. */
 int aes_ccm_init() {
   volatile uint32_t *v0; // r4
   volatile int *v1; // r5
@@ -80,6 +82,7 @@ int aes_ccm_init() {
 
 
 // read_hw_clock @ 0x11ec18
+/* luna: Reads a volatile hardware-register snapshot, passes it to a helper, and uses an alternate handler when the first word’s low nibble is 2. */
 volatile uint64_t *read_hw_clock() {
   volatile uint64_t *result; // r0
   struct __attribute__((packed)) { uint64_t v1; // [sp+4h] [bp-20h] BYREF
@@ -101,6 +104,7 @@ volatile uint64_t *read_hw_clock() {
 
 
 // check_ll_event_queue @ 0x11ec64
+/* luna: Releases every item on the object's pending list, clears its state, and restores queue-related sentinel values. */
 volatile int * check_ll_event_queue(int a1) {
   int v2; // r5
   int v3; // r0
@@ -129,31 +133,32 @@ volatile int * check_ll_event_queue(int a1) {
 
 
 // controller_init_pools @ 0x11ecb0
+/* luna: Clears the Bluetooth controller's pool entries and initializes each pool descriptor with its backing-storage pointers. */
 int controller_init_pools() {
-  int v0; // r5
+  int pool_entry; // r5
   int v1; // r7
-  volatile uint32_t *v2; // r6
+  volatile uint32_t *pool_entries_end; // r6
   volatile uint32_t *v3; // r4
   volatile uint32_t *v4; // r0
   int i; // r5
   volatile uint32_t *v6; // r4
   volatile uint32_t *v7; // r0
-  int v8; // r4
-  int v9; // r6
-  int v10; // r5
+  int controller_pool_base; // r4
+  int pool_storage_a; // r6
+  int pool_storage_b; // r5
   int v11; // r3
   int result; // r0
   int v13; // r3
 
-  v0 = dword_11EDAC;
+  pool_entry = dword_11EDAC;
   v1 = dword_11EDA8;
   clear_stats_buf((volatile uint32_t *)dword_11EDA8);
-  v2 = (volatile uint32_t *)(v0 + 22272);
+  pool_entries_end = (volatile uint32_t *)(pool_entry + 22272);
   do
   {
-    check_ll_event_queue(v0 - 624);
-    wlan_ioctl_handler_1(v1, (volatile uint32_t *)(v0 - 624));
-    v3 = (volatile uint32_t *)(v0 - 40);
+    check_ll_event_queue(pool_entry - 624);
+    wlan_ioctl_handler_1(v1, (volatile uint32_t *)(pool_entry - 624));
+    v3 = (volatile uint32_t *)(pool_entry - 40);
     do
     {
       clear_stats_buf(v3);
@@ -161,13 +166,13 @@ int controller_init_pools() {
       v3 += 2;
       clear_stats_buf(v4);
     }
-    while ( v3 != (volatile uint32_t *)v0 );
-    v0 = (int)(v3 + 174);
+    while ( v3 != (volatile uint32_t *)pool_entry );
+    pool_entry = (int)(v3 + 174);
   }
-  while ( v3 + 174 != v2 );
+  while ( v3 + 174 != pool_entries_end );
   for ( i = 2784; i != 3132; i += 87 )
   {
-    v6 = v2 - 10;
+    v6 = pool_entries_end - 10;
     do
     {
       clear_stats_buf(v6);
@@ -175,39 +180,40 @@ int controller_init_pools() {
       v6 += 2;
       clear_stats_buf(v7);
     }
-    while ( v6 != v2 );
-    v2 = v6 + 174;
+    while ( v6 != pool_entries_end );
+    pool_entries_end = v6 + 174;
   }
-  v8 = off_11EDB0;
-  v9 = dword_11EDB4;
-  v10 = dword_11EDB8;
+  controller_pool_base = off_11EDB0;
+  pool_storage_a = dword_11EDB4;
+  pool_storage_b = dword_11EDB8;
   check_ll_event_queue(off_11EDB0);
-  *(volatile uint32_t *)(v8 + 0x20) = 0x20000000;
-  *(volatile uint32_t *)(v8 + 0x150) = v9;
-  *(volatile uint32_t *)(v8 + 0xBC) = v10;
-  *(volatile uint8_t *)(v8 + 0x34) = 0;
-  check_ll_event_queue(v8 + 696);
-  *(volatile uint32_t *)(v8 + 0x408) = v9 + 64;
+  *(volatile uint32_t *)(controller_pool_base + 0x20) = 0x20000000;
+  *(volatile uint32_t *)(controller_pool_base + 0x150) = pool_storage_a;
+  *(volatile uint32_t *)(controller_pool_base + 0xBC) = pool_storage_b;
+  *(volatile uint8_t *)(controller_pool_base + 0x34) = 0;
+  check_ll_event_queue(controller_pool_base + 696);
+  *(volatile uint32_t *)(controller_pool_base + 0x408) = pool_storage_a + 64;
   v11 = dword_11EDBC;
-  *(volatile uint32_t *)(v8 + 0x374) = v10 + 1320;
-  *(volatile uint32_t *)(v8 + 0x2D8) = v11;
-  *(volatile uint8_t *)(v8 + 0x2EC) = 0;
-  check_ll_event_queue(v8 + 1392);
-  *(volatile uint32_t *)(v8 + 0x6C0) = v9 + 128;
-  *(volatile uint32_t *)(v8 + 0x590) = dword_11EDC0;
-  *(volatile uint8_t *)(v8 + 0x5A4) = 0;
-  *(volatile uint32_t *)(v8 + 0x62C) = v10 + 2640;
-  result = (int)(uintptr_t)(check_ll_event_queue(v8 + 2088));
+  *(volatile uint32_t *)(controller_pool_base + 0x374) = pool_storage_b + 1320;
+  *(volatile uint32_t *)(controller_pool_base + 0x2D8) = v11;
+  *(volatile uint8_t *)(controller_pool_base + 0x2EC) = 0;
+  check_ll_event_queue(controller_pool_base + 1392);
+  *(volatile uint32_t *)(controller_pool_base + 0x6C0) = pool_storage_a + 128;
+  *(volatile uint32_t *)(controller_pool_base + 0x590) = dword_11EDC0;
+  *(volatile uint8_t *)(controller_pool_base + 0x5A4) = 0;
+  *(volatile uint32_t *)(controller_pool_base + 0x62C) = pool_storage_b + 2640;
+  result = (int)(uintptr_t)(check_ll_event_queue(controller_pool_base + 2088));
   v13 = dword_11EDC4;
-  *(volatile uint8_t *)(v8 + 0x85C) = 0;
-  *(volatile uint32_t *)(v8 + 0x978) = v9 + 192;
-  *(volatile uint32_t *)(v8 + 0x8E4) = v10 + 3960;
-  *(volatile uint32_t *)(v8 + 0x848) = v13;
+  *(volatile uint8_t *)(controller_pool_base + 0x85C) = 0;
+  *(volatile uint32_t *)(controller_pool_base + 0x978) = pool_storage_a + 192;
+  *(volatile uint32_t *)(controller_pool_base + 0x8E4) = pool_storage_b + 3960;
+  *(volatile uint32_t *)(controller_pool_base + 0x848) = v13;
   return result;
 }
 
 
 // is_controller_active @ 0x11edc8
+/* luna: Allocates and initializes a station-management context from the free pool, optionally links a paired context, and writes the allocated context ID to t */
 int is_controller_active(volatile int *a1, volatile uint8_t *a2) {
   int v3; // r8
   volatile uint32_t *v5; // r0
@@ -378,6 +384,7 @@ int is_controller_active(volatile int *a1, volatile uint8_t *a2) {
 
 
 // get_connection_tx_power @ 0x11efec
+/* luna: Processes a controller connection’s link-layer work, clears its event markers, services associated queued work, and selects a radio action when no RX  */
 int get_connection_tx_power(unsigned int a1, int a2, int a3, int a4) {
   int v4; // r7
   int v5; // r8
@@ -482,6 +489,7 @@ LABEL_8:
 
 
 // set_connection_flag @ 0x11f158
+/* luna: Initializes an indexed link-layer connection context, clearing its control buffer and populating mode-dependent metadata from the supplied parameters. */
 int set_connection_flag(int a1, uint8_t a2) {
   int v2; // r4
   int v3; // r8
@@ -554,6 +562,7 @@ int set_connection_flag(int a1, uint8_t a2) {
 
 
 // reset_rx_control_fields @ 0x11f278
+/* luna: Sets the connection context’s control byte at offset 52 and clears the byte at offset 163 and word at offset 184. */
 int reset_rx_control_fields(int result) {
   *(volatile uint8_t *)(result + 52) = 1;
   *(volatile uint8_t *)(result + 163) = 0;
@@ -564,6 +573,7 @@ int reset_rx_control_fields(int result) {
 
 
 // is_ll_event_pending @ 0x11f28c
+/* luna: Processes and dispatches pending link-layer events until the queue is empty, a lock or state check fails, or the optional event limit is reached, then */
 int is_ll_event_pending(int a1, int a2, int a3) {
   int v3; // r10
   int v4; // r4
@@ -607,6 +617,7 @@ int is_ll_event_pending(int a1, int a2, int a3) {
 
 
 // build_tx_pdu_lists @ 0x11f308
+/* luna: Drains entries from the controller’s paired transmit queues, updates associated TX state when applicable, and submits each entry for PHY processing un */
 int build_tx_pdu_lists(int a1, int a2, int a3) {
   int v3; // r5
   int v7; // r10
@@ -675,6 +686,7 @@ LABEL_15:
 
 
 // is_tx_engine_busy @ 0x11f3b4
+/* luna: Handles a pending controller idle transition by clearing its request flag, updating shared state, and polling hardware handshakes with a timeout. */
 int is_tx_engine_busy(int result) {
   int v1; // r4
   volatile int *v2; // r2
@@ -800,6 +812,7 @@ int is_tx_engine_busy(int result) {
 
 
 // get_current_channel_1 @ 0x11f5b0
+/* luna: When the controller state gates are satisfied, writes a contiguous mask derived from the value at offset 118 into bits 8–15 of a control register, pro */
 void get_current_channel_1() {
   volatile uint8_t *v0; // r3
   unsigned int v1; // r2
@@ -816,6 +829,7 @@ void get_current_channel_1() {
 
 
 // reset_controller_block @ 0x11f5e4
+/* luna: Clears the global MAC state and reinitializes four per-BSS contexts with default values. */
 int reset_controller_block() {
   volatile uint32_t *v0; // r8
   int v1; // r4
@@ -850,6 +864,7 @@ int reset_controller_block() {
 
 
 // is_sleep_state_active @ 0x11f654
+/* luna: Checks each link context's event list and returns the pending status reported for the last event visited. */
 int is_sleep_state_active() {
   volatile uint32_t *i; // r5
   volatile uint32_t *j; // r4
@@ -866,6 +881,7 @@ int is_sleep_state_active() {
 
 
 // transmit_radio_packet @ 0x11f680
+/* luna: Recomputes the MAC-address match mask from registered entries and queues the requested address and P2P mode for the controller. */
 int transmit_radio_packet(int a1, int a2, int a3, volatile uint8_t *a4) {
   int v4; // r9
   volatile int **v5; // r4
@@ -1130,9 +1146,10 @@ if ( ((int (*)())cfm_radio_check)(_frame.v57, &_frame.a2a, v47, v48) ) return 1;
 
 
 // get_bss_by_index @ 0x11fa78
+/* luna: Tears down the indexed virtual interface, clears its current-interface reference, and cleans up per-channel state. */
 int get_bss_by_index(int a1) {
   int v2; // r6
-  volatile int *v3; // r8
+  volatile int *vif_entry; // r8
   int v4; // r3
   volatile uint8_t *v5; // r5
   int v6; // r2
@@ -1184,16 +1201,16 @@ int get_bss_by_index(int a1) {
   int v53; // [sp+1Ch] [bp-8h]
 
   v2 = dword_11FD7C;
-  v3 = (volatile int *)(dword_11FD7C + 1320 * a1);
+  vif_entry = (volatile int *)(dword_11FD7C + 1320 * a1);
   v50 = 1320 * a1;
-  wlan_ioctl_handler_3(dword_11FD80, (void *)(v3));
-  if ( *((volatile int **)off_11FD84 + 8) == v3 )
+  wlan_ioctl_handler_3(dword_11FD80, (void *)(vif_entry));
+  if ( *((volatile int **)off_11FD84 + 8) == vif_entry )
     *((volatile uint32_t *)off_11FD84 + 8) = 0;
   v4 = *(volatile uint8_t *)(v2 + 1320 * a1 + 106);
   if ( v4 == 2 )
   {
     v13 = (volatile int *)off_11FDC4;
-    v52 = v3;
+    v52 = vif_entry;
     v14 = dword_11FDA4 + 696 * (a1 + 32);
     v15 = dword_11FDA4 + 8 * (87 * (a1 + 32) + 78);
     v53 = off_11FD88;
@@ -1208,7 +1225,7 @@ int get_bss_by_index(int a1) {
         phy_dispatch((uint8_t)v17, a2 - 40, 0);
       if ( *(volatile uint32_t *)(v14 + 624) )
         phy_dispatch((uint8_t)v17, a2, 0);
-      if ( v3[318] || v3[308] )
+      if ( vif_entry[318] || vif_entry[308] )
       {
         v18 = (int)(v16 - 10);
         v51 = list_length(v16);
@@ -1241,11 +1258,11 @@ int get_bss_by_index(int a1) {
       ++v17;
       v14 += 8;
       v16 += 2;
-      v3 += 2;
+      vif_entry += 2;
       a2 += 8;
     }
     while ( v17 != 5 );
-    v3 = v52;
+    vif_entry = v52;
     v5 = (volatile uint8_t *)v53;
     if ( *(volatile uint32_t *)(v2 + 1320 * a1 + 1312) )
     {
@@ -1399,24 +1416,24 @@ LABEL_9:
     --v5[19];
   }
   init_chan_entry(*(volatile uint8_t *)(v2 + 1320 * a1 + 107));
-  if ( *((volatile int **)off_11FD90 + 4) == v3 )
+  if ( *((volatile int **)off_11FD90 + 4) == vif_entry )
     *((volatile uint32_t *)off_11FD90 + 4) = 0;
   *(volatile uint32_t *)off_11FD94 = 0;
   if ( (uint8_t)v5[18] + (uint8_t)v5[17] <= 1 )
     get_current_channel_1();
-  memset(v3, 0, 0x528u);
+  memset(vif_entry, 0, 0x528u);
   v48 = a1;
   v9 = v2 + 1320 * a1;
   v10 = (void *)(uintptr_t)(off_11FD98);
   v47 = (uint8_t)v5[18];
   v11 = v47 + (uint8_t)v5[17];
   *(volatile uint8_t *)(v9 + 106) = 5;
-  *(volatile uint32_t *)(v9 + 56) = (int)(uintptr_t)(v3);
+  *(volatile uint32_t *)(v9 + 56) = (int)(uintptr_t)(vif_entry);
   *(volatile uint32_t *)(v9 + 52) = (int)(uintptr_t)(v10);
   *(volatile uint8_t *)(v9 + 109) = 127;
   *(volatile uint8_t *)(v9 + 110) = 127;
   check_feature_flag(256, "%s:%d,%d,%d\r\n", aVifMgmtUnregis, v11, v47, v48);
-  return wlan_ioctl_handler_1(off_11FD88, (void *)(v3));
+  return wlan_ioctl_handler_1(off_11FD88, (void *)(vif_entry));
 }
 
 

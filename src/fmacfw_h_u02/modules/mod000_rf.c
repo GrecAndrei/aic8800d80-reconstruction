@@ -1,4 +1,5 @@
 // start @ 0x1001a8
+/* luna: Selects the normal or tagged alternate boot vector, installs its stack pointer, and transfers control to its entry point. */
 int start() {
   int v0; // r2
   int v1; // r3
@@ -22,89 +23,91 @@ int start() {
 
 
 // memset @ 0x100200
+/* luna: Fills the requested byte range with the specified byte value and returns the original destination pointer. */
 volatile int * memset(volatile int *result, uint8_t a2, unsigned int a3) {
-  unsigned int v3; // r4
-  volatile int *v4; // r3
-  int v6; // r5
-  volatile uint8_t *v7; // r2
-  volatile int *v8; // r2
-  int v9; // r6
-  volatile int *v10; // r4
+  unsigned int remaining_length; // r4
+  volatile int *current_destination; // r3
+  int fill_word; // r5
+  volatile uint8_t *bulk_store_pointer; // r2
+  volatile int *word_tail_pointer; // r2
+  int tail_length; // r6
+  volatile int *tail_end; // r4
 
   if ( (uint32_t)result << 30 )
   {
-    v3 = a3 - 1;
+    remaining_length = a3 - 1;
     if ( !a3 )
       return result;
-    v4 = result;
+    current_destination = result;
     while ( 1 )
     {
-      *(volatile uint8_t *)v4 = a2;
-      v4 = (volatile int *)((volatile char *)v4 + 1);
-      if ( !((uint32_t)v4 << 30) )
+      *(volatile uint8_t *)current_destination = a2;
+      current_destination = (volatile int *)((volatile char *)current_destination + 1);
+      if ( !((uint32_t)current_destination << 30) )
         break;
-      if ( v3-- == 0 )
+      if ( remaining_length-- == 0 )
         return result;
     }
   }
   else
   {
-    v3 = a3;
-    v4 = result;
+    remaining_length = a3;
+    current_destination = result;
   }
-  if ( v3 > 3 )
+  if ( remaining_length > 3 )
   {
-    v6 = a2 | (a2 << 8) | ((a2 | (a2 << 8)) << 16);
-    if ( v3 <= 0xF )
+    fill_word = a2 | (a2 << 8) | ((a2 | (a2 << 8)) << 16);
+    if ( remaining_length <= 0xF )
     {
-      v8 = v4;
-      v9 = v3;
+      word_tail_pointer = current_destination;
+      tail_length = remaining_length;
     }
     else
     {
-      v7 = (void *)(v4 + 4);
+      bulk_store_pointer = (void *)(current_destination + 4);
       do
       {
-        *((volatile uint32_t *)v7 - 4) = v6;
-        *((volatile uint32_t *)v7 - 3) = v6;
-        *((volatile uint32_t *)v7 - 2) = v6;
-        *((volatile uint32_t *)v7 - 1) = v6;
-        v7 += 16;
+        *((volatile uint32_t *)bulk_store_pointer - 4) = fill_word;
+        *((volatile uint32_t *)bulk_store_pointer - 3) = fill_word;
+        *((volatile uint32_t *)bulk_store_pointer - 2) = fill_word;
+        *((volatile uint32_t *)bulk_store_pointer - 1) = fill_word;
+        bulk_store_pointer += 16;
       }
-      while ( v7 != (volatile char *)v4 + ((v3 - 16) & 0xFFFFFFF0) + 32 );
-      v8 = &v4[4 * ((v3 - 16) >> 4) + 4];
-      v9 = v3 & 0xF;
-      if ( (v3 & 0xC) == 0 )
+      while ( bulk_store_pointer != (volatile char *)current_destination + ((remaining_length - 16) & 0xFFFFFFF0) + 32 );
+      word_tail_pointer = &current_destination[4 * ((remaining_length - 16) >> 4) + 4];
+      tail_length = remaining_length & 0xF;
+      if ( (remaining_length & 0xC) == 0 )
       {
-        v3 &= 0xFu;
-        v4 = v8;
-        if ( !v9 )
+        remaining_length &= 0xFu;
+        current_destination = word_tail_pointer;
+        if ( !tail_length )
           return result;
         goto LABEL_16;
       }
     }
-    v4 = (volatile int *)((volatile char *)v8 + ((v9 - 4) & 0xFFFFFFFC) + 4);
+    current_destination = (volatile int *)((volatile char *)word_tail_pointer + ((tail_length - 4) & 0xFFFFFFFC) + 4);
     do
-      *v8++ = v6;
-    while ( v4 != v8 );
-    v3 = v9 & 3;
+      *word_tail_pointer++ = fill_word;
+    while ( current_destination != word_tail_pointer );
+    remaining_length = tail_length & 3;
   }
-  if ( !v3 )
+  if ( !remaining_length )
     return result;
 LABEL_16:
-  v10 = (volatile int *)((volatile char *)v4 + v3);
+  tail_end = (volatile int *)((volatile char *)current_destination + remaining_length);
   do
   {
-    *(volatile uint8_t *)v4 = a2;
-    v4 = (volatile int *)((volatile char *)v4 + 1);
+    *(volatile uint8_t *)current_destination = a2;
+    current_destination = (volatile int *)((volatile char *)current_destination + 1);
   }
-  while ( v10 != v4 );
+  while ( tail_end != current_destination );
   return result;
 }
 
 
 
 // mac_event_handler @ 0x1002a0
+/* luna: Computes firmware memory-region boundaries from hardware configuration values and guards against the BSS allocation reaching the stack. */
 int mac_event_handler(int a1, int a2, int a3, int a4) {
   volatile uint8_t **v4; // r5
   int v5; // r7
@@ -249,6 +252,7 @@ int mac_event_handler(int a1, int a2, int a3, int a4) {
 
 
 // mac_state_init @ 0x100478
+/* luna: Initializes MAC-related globals and runtime flags, performs power, RX, and RF setup, and initializes low-level tables. */
 void mac_state_init() {
   volatile int *v0; // r4
   volatile uint32_t *v1; // r5
@@ -327,6 +331,7 @@ void mac_state_init() {
 
 
 // chip_identify @ 0x1005b0
+/* luna: Returns a chip-variant code derived from RF status and configuration-register bits for selectors 0–2, and returns zero for other selectors with a cond */
 int chip_identify(int a1) {
   unsigned int v2; // r6
   unsigned int v3; // r5
@@ -397,15 +402,16 @@ int chip_identify(int a1) {
 
 
 // mmio_read32 @ 0x100644
+/* luna: Busy-waits until the hardware counter reaches its current value plus the requested number of ticks, then returns that deadline. */
 int mmio_read32(int a1) {
   int result; // r0
-  int v3; // [sp+4h] [bp-8h]
+  int spin_count; // [sp+4h] [bp-8h]
 
   result = a1 + *((volatile uint32_t *)off_10066C + 4);
   do
   {
-    v3 = 32;
-    while ( v3-- )
+    spin_count = 32;
+    while ( spin_count-- )
       ;
   }
   while ( (int)(*((volatile uint32_t *)off_10066C + 4) - result) < 0 );
@@ -415,6 +421,7 @@ int mmio_read32(int a1) {
 
 
 // variant_update_cache @ 0x100670
+/* luna: Identifies the chip, updates the cached chip identifier if it changed, and returns the identifier. */
 int variant_update_cache(int a1) {
   int result; // r0
 
@@ -427,6 +434,7 @@ int variant_update_cache(int a1) {
 
 
 // hw_config_init @ 0x100688
+/* luna: Identifies the chip variant, clears the hardware-configuration cache, and seeds it from that variant’s table entry. */
 int hw_config_init() {
   volatile int *v0; // r4
   int v1; // r5
@@ -447,6 +455,7 @@ int hw_config_init() {
 
 
 // global_state_get_byte @ 0x1006cc
+/* luna: Reads one volatile byte from offset 1 of a fixed address. */
 int global_state_get_byte() {
   return *((volatile uint8_t *)off_1006D4 + 1);
 }
@@ -454,42 +463,44 @@ int global_state_get_byte() {
 
 
 // mmio_write_cmd @ 0x1006d8
+/* luna: Writes 17 to the configured MMIO register, waits for the timer to advance 10 ticks, clears the register, then waits another 10 ticks. */
 void mmio_write_cmd() {
-  volatile unsigned int v0; // r0
-  unsigned int v1; // r0
-  int v3; // r2
-  volatile unsigned int v4; // r1
-  unsigned int v5; // r1
-  int v7; // r3
-  int v8; // [sp+0h] [bp-Ch]
-  int v9; // [sp+4h] [bp-8h]
+  volatile unsigned int initial_timer; // r0
+  unsigned int first_deadline; // r0
+  int first_timer_delta; // r2
+  volatile unsigned int second_timer; // r1
+  unsigned int second_deadline; // r1
+  int second_timer_delta; // r3
+  int first_spin_count; // [sp+0h] [bp-Ch]
+  int second_spin_count; // [sp+4h] [bp-8h]
 
   *(volatile uint32_t *)dword_100728 = 17;
-  v0 = (*(volatile uint32_t *)0x40501010u);
-  v1 = v0 + 10;
+  initial_timer = (*(volatile uint32_t *)0x40501010u);
+  first_deadline = initial_timer + 10;
   do
   {
-    v8 = 32;
-    while ( v8-- )
+    first_spin_count = 32;
+    while ( first_spin_count-- )
       ;
-    v3 = (*(volatile uint32_t *)0x40501010u) - v1;
+    first_timer_delta = (*(volatile uint32_t *)0x40501010u) - first_deadline;
   }
-  while ( v3 < 0 );
+  while ( first_timer_delta < 0 );
   *(volatile uint32_t *)dword_100728 = 0;
-  v4 = (*(volatile uint32_t *)0x40501010u);
-  v5 = v4 + 10;
+  second_timer = (*(volatile uint32_t *)0x40501010u);
+  second_deadline = second_timer + 10;
   do
   {
-    v9 = 32;
-    while ( v9-- )
+    second_spin_count = 32;
+    while ( second_spin_count-- )
       ;
-    v7 = (*(volatile uint32_t *)0x40501010u) - v5;
+    second_timer_delta = (*(volatile uint32_t *)0x40501010u) - second_deadline;
   }
-  while ( v7 < 0 );
+  while ( second_timer_delta < 0 );
 }
 
 
 // mmio_set_bit @ 0x100730
+/* luna: Sets bit 16 in one MMIO register, clears another register, and sets bits 0 and 29 in a third before returning the cleared register address. */
 volatile uint32_t *mmio_set_bit() {
   volatile uint32_t *result; // r0
   volatile int *v1; // r2
@@ -505,6 +516,7 @@ volatile uint32_t *mmio_set_bit() {
 
 
 // mmio_clear_bit @ 0x10076c
+/* luna: Clears bit 16 in one MMIO register, writes 1 to another, and clears bit 0 while setting bits 30–31 in a third. */
 volatile uint32_t *mmio_clear_bit() {
   volatile uint32_t *result; // r0
   volatile unsigned int *v1; // r2
@@ -520,6 +532,7 @@ volatile uint32_t *mmio_clear_bit() {
 
 
 // memcpy_opt @ 0x1007a4
+/* luna: Copies three 32-word blocks; for mask-selected blocks, each word is replaced by the next cyclic word with its low byte adjusted, except words equal to */
 int memcpy_opt(int result, int a2, int a3, unsigned int a4) {
   int v4; // r8
   unsigned int v5; // r12
@@ -614,6 +627,7 @@ LABEL_17:
 
 
 // mmio_poll @ 0x100898
+/* luna: Selects an RF table address for the requested band and frequency, and writes a three-bit mask derived from the associated byte values. */
 int mmio_poll(int a1, unsigned int a2, volatile uint32_t *a3) {
   volatile char *v3; // r5
   int v4; // r7
@@ -713,6 +727,7 @@ int mmio_poll(int a1, unsigned int a2, volatile uint32_t *a3) {
 
 
 // sdio_irq_enable @ 0x1009a0
+/* luna: Polls the supplied MMIO condition, copies a fixed 96-byte block while bit 26 of a control register is set, then clears that bit. */
 int sdio_irq_enable(int a1, unsigned int a2) {
   volatile unsigned int *v2; // r5
   int v3; // r0
@@ -732,6 +747,7 @@ int sdio_irq_enable(int a1, unsigned int a2) {
 
 
 // sdio_irq_mask_enable @ 0x1009dc
+/* luna: Copies a configuration table to the RF control memory and applies 24 RF switch settings from paired input words. */
 int sdio_irq_mask_enable(int a1, int a2) {
   volatile unsigned int *v2; // r3
   int v3; // r7
@@ -800,6 +816,7 @@ int sdio_irq_mask_enable(int a1, int a2) {
 
 
 // pll_enable @ 0x100aa8
+/* luna: Sequences PLL-related MMIO control bits while copying an 8 KiB block from the configured source address to its destination. */
 int pll_enable() {
   volatile uint32_t *v0; // r2
   volatile int *v1; // r3
@@ -832,43 +849,45 @@ int pll_enable() {
 
 
 // pmu_init @ 0x100b14
+/* luna: Initializes PMU MMIO registers, encoding the supplied value into a register field and enabling several control bits. */
 volatile uint32_t * pmu_init(int a1) {
   uint64_t v1; // r0
   uint64_t v2; // r2
-  volatile unsigned int *v3; // r5
-  volatile unsigned int *v4; // r4
+  volatile unsigned int *pmu_field_reg; // r5
+  volatile unsigned int *pmu_control_reg; // r4
   uint64_t v5; // r0
   uint64_t v6; // r0
   uint16_t v7; // r0
-  volatile uint32_t *v8; // r2
-  volatile uint32_t *v9; // r1
+  volatile uint32_t *pmu_control_reg2; // r2
+  volatile uint32_t *pmu_config_reg; // r1
   volatile uint32_t *result; // r0
-  volatile uint8_t *v11; // r5
+  volatile uint8_t *pmu_enable_byte; // r5
 
   v1 = signed_int_to_double(a1);
   v2 = (v2 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_100B74) << 32);
-  v3 = (volatile unsigned int *)off_100B78;
-  v4 = (volatile unsigned int *)off_100B7C;
+  pmu_field_reg = (volatile unsigned int *)off_100B78;
+  pmu_control_reg = (volatile unsigned int *)off_100B7C;
   v2 = (v2 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v5 = ((uint64_t (*)())double_compare_core)(v1, v2);
   v6 = double_exp_check(v5);
   v7 = ((int (*)(uint64_t))double_to_float_rounding)(v6);
-  v8 = (void *)(uintptr_t)(off_100B80);
-  v9 = (void *)(uintptr_t)(off_100B84);
-  *v3 = (uint16_t)(v7 << 8) | *v3 & 0xFFFF00FF;
+  pmu_control_reg2 = (void *)(uintptr_t)(off_100B80);
+  pmu_config_reg = (void *)(uintptr_t)(off_100B84);
+  *pmu_field_reg = (uint16_t)(v7 << 8) | *pmu_field_reg & 0xFFFF00FF;
   result = (void *)(uintptr_t)(off_100B88);
-  v11 = (void *)(uintptr_t)(off_100B8C);
-  *v4 = *v4 & 0xFFFFF9FF | 0x200;
-  *v8 |= 0x40000000u;
-  *v8 |= 0x80000000;
-  *v9 = 4096;
+  pmu_enable_byte = (void *)(uintptr_t)(off_100B8C);
+  *pmu_control_reg = *pmu_control_reg & 0xFFFFF9FF | 0x200;
+  *pmu_control_reg2 |= 0x40000000u;
+  *pmu_control_reg2 |= 0x80000000;
+  *pmu_config_reg = 4096;
   *result |= 0x1000u;
-  *v11 = 1;
+  *pmu_enable_byte = 1;
   return result;
 }
 
 
 // radio_clock_disable @ 0x100b90
+/* luna: Clears radio-related clock and control bits in several MMIO registers and zeros a final control byte. */
 volatile uint32_t *radio_clock_disable() {
   volatile uint32_t *v0; // r3
   volatile uint32_t *result; // r0
@@ -891,6 +910,7 @@ volatile uint32_t *radio_clock_disable() {
 
 
 // save_and_call_handler @ 0x100be0
+/* luna: Selects an RF band and channel configuration while updating the associated radio clock, power, and tuning registers. */
 void save_and_call_handler(int a1, int a2, int a3, int a4, char a5) {
   volatile int *v5; // r8
   volatile uint32_t *v10; // r2
@@ -1037,6 +1057,7 @@ LABEL_9:
 
 
 // rf_config_read_a @ 0x100e24
+/* luna: Programs RF configuration-access registers and, when the input is zero and the prior control field is not 7, pulses an auxiliary register bit. */
 int rf_config_read_a(int result) {
   volatile unsigned int *v1; // r3
   volatile uint32_t *v2; // r1
@@ -1070,6 +1091,7 @@ int rf_config_read_a(int result) {
 
 
 // rf_config_read_b @ 0x100ee8
+/* luna: Programs the RF configuration read address and control bits, initiates the read sequence, and returns the associated MMIO register pointer. */
 volatile uint32_t *rf_config_read_b() {
   volatile unsigned int *v0; // r3
   volatile uint32_t *v1; // r1
@@ -1103,6 +1125,7 @@ volatile uint32_t *rf_config_read_b() {
 
 
 // arm_core_enable @ 0x100fac
+/* luna: Configures RF and PHY registers for the requested frequency, selecting a profile based on its frequency range. */
 int arm_core_enable(unsigned int a1, int a2) {
   volatile uint32_t *v2; // r3
   volatile uint32_t *v3; // r2
@@ -1231,6 +1254,7 @@ int arm_core_enable(unsigned int a1, int a2) {
 
 
 // mmio_ahb_gate_release_n_60 @ 0x101260
+/* luna: Applies RF-related MMIO setup and selects register settings based on the requested frequency in MHz. */
 volatile uint32_t * mmio_ahb_gate_release_n_60(unsigned int a1) {
   volatile uint32_t *v1; // r2
   volatile uint32_t *v2; // r5
@@ -1486,6 +1510,7 @@ LABEL_30:
 
 
 // is_scan_active @ 0x1016a8
+/* luna: Programs RF and modem control registers through MMIO to initialize the radio path. */
 int is_scan_active() {
   volatile uint32_t *v0; // r2
   volatile uint32_t *v1; // r0
@@ -1565,6 +1590,7 @@ int is_scan_active() {
 
 
 // mmio_wait_bit @ 0x101888
+/* luna: If bit 3 is set in the status register, reads the hardware clock and acknowledges the event. */
 int mmio_wait_bit(int result, int a2, int a3) {
   if ( (*(volatile uint32_t *)off_1018A0 & 8) != 0 )
   {
@@ -1577,6 +1603,7 @@ int mmio_wait_bit(int result, int a2, int a3) {
 
 
 // copy_hw_register @ 0x1018a8
+/* luna: Mirrors the RC status register, logs when bit 12 is clear, and otherwise clears bit 12 in a related register and disables IRQ 16. */
 int copy_hw_register() {
   volatile char *v0; // r2
   int v1; // r1
@@ -1592,18 +1619,20 @@ int copy_hw_register() {
 
 
 // read_mmio_pair @ 0x1018d8
+/* luna: Reads two fixed 32-bit MMIO locations into the caller-provided output pointers and returns the first output pointer. */
 volatile uint32_t * read_mmio_pair(volatile uint32_t *result, volatile uint32_t *a2) {
-  volatile uint32_t *v2; // r3
+  volatile uint32_t *second_register; // r3
 
-  v2 = (void *)(uintptr_t)(off_1018EC);
+  second_register = (void *)(uintptr_t)(off_1018EC);
   *result = *(volatile uint32_t *)off_1018E8;
-  *a2 = *v2;
+  *a2 = *second_register;
   return result;
 }
 
 
 
 // unknown_1018f0 @ 0x1018f0
+/* luna: Copies the stored 64-bit channel value to the output and logs an error when a nonzero radio ID is requested. */
 volatile uint64_t * unknown_1018f0(volatile uint64_t *result, int a2) {
   volatile uint64_t *v2; // r4
 
@@ -1622,6 +1651,7 @@ volatile uint64_t * unknown_1018f0(volatile uint64_t *result, int a2) {
 
 
 // check_clock_status @ 0x101924
+/* luna: Returns the supplied value when the MAC state is idle; otherwise emits the PHY-stop MAC-state error and returns the result of alloc_tx_event. */
 int check_clock_status(int a1, int a2, int a3) {
   if ( *(volatile uint32_t *)off_101938 << 28 )
     return alloc_tx_event("\x9B%s MAC state != IDLE\n", aPhyStop);
@@ -1630,6 +1660,7 @@ int check_clock_status(int a1, int a2, int a3) {
 
 
 // get_timeout_1000 @ 0x101944
+/* luna: Returns the fixed timeout value 1000. */
 int get_timeout_1000() {
   return 1000;
 }
@@ -1637,6 +1668,7 @@ int get_timeout_1000() {
 
 
 // return_true @ 0x10194c
+/* luna: Always returns 1. */
 int return_true() {
   return 1;
 }
@@ -1644,6 +1676,7 @@ int return_true() {
 
 
 // rf_status_bit21 @ 0x101950
+/* luna: Returns bit 21 of the RF status register. */
 int rf_status_bit21() {
   return (*(volatile uint32_t *)off_10195C >> 21) & 1;
 }
@@ -1651,6 +1684,7 @@ int rf_status_bit21() {
 
 
 // check_rf_ready @ 0x101960
+/* luna: Returns true when the RF MMIO value at off_101970 is greater than 1. */
 BOOL check_rf_ready() {
   return *(volatile uint32_t *)off_101970 > 1u;
 }
@@ -1658,6 +1692,7 @@ BOOL check_rf_ready() {
 
 
 // set_rf_control_bit @ 0x101974
+/* luna: Sets bit 3 of the RF control register to the low bit of the supplied value and returns the updated register value. */
 unsigned int set_rf_control_bit(int a1) {
   unsigned int result; // r0
 
@@ -1669,6 +1704,7 @@ unsigned int set_rf_control_bit(int a1) {
 
 
 // rf_status_bit26 @ 0x10198c
+/* luna: Returns bit 26 of the RF status register. */
 int rf_status_bit26() {
   return (*(volatile uint32_t *)off_101998 >> 26) & 1;
 }
@@ -1676,6 +1712,7 @@ int rf_status_bit26() {
 
 
 // rf_status_bit28 @ 0x10199c
+/* luna: Returns bit 28 of the RF status register. */
 int rf_status_bit28() {
   return (*(volatile uint32_t *)off_1019A8 >> 28) & 1;
 }
@@ -1683,6 +1720,7 @@ int rf_status_bit28() {
 
 
 // rf_status_bit30 @ 0x1019ac
+/* luna: Returns bit 30 of the RF status register at 0x1019B8. */
 int rf_status_bit30() {
   return (*(volatile uint32_t *)off_1019B8 >> 30) & 1;
 }
@@ -1690,6 +1728,7 @@ int rf_status_bit30() {
 
 
 // write_rf_cal_data @ 0x1019bc
+/* luna: Copies two words from the first input and four from the second into six consecutive RF calibration storage words at a fixed address. */
 volatile uint32_t * write_rf_cal_data(volatile uint32_t *result, volatile uint32_t *a2) {
   volatile uint32_t *v2; // r3
 
@@ -1706,18 +1745,19 @@ volatile uint32_t * write_rf_cal_data(volatile uint32_t *result, volatile uint32
 
 
 // set_rf_frequency @ 0x1019dc
+/* luna: Writes the requested 11-bit frequency value to an RF register and applies the associated register bit updates. */
 int set_rf_frequency(int16_t a1) {
-  int v1; // r4
+  int register_preserve_mask; // r4
   volatile uint32_t *v2; // r1
   volatile int *v3; // r2
   int result; // r0
 
-  v1 = dword_101A0C;
+  register_preserve_mask = dword_101A0C;
   v2 = (void *)(uintptr_t)(off_101A10);
   v3 = (volatile int *)off_101A14;
   result = a1 & 0x7FF;
   *(volatile uint32_t *)off_101A08 = *(volatile uint32_t *)off_101A08 & dword_101A0C | result;
-  *v2 &= v1;
+  *v2 &= register_preserve_mask;
   *v3 = ~(~((unsigned int)*v3 >> 11) << 11);
   return result;
 }
@@ -1725,6 +1765,7 @@ int set_rf_frequency(int16_t a1) {
 
 
 // get_rf_field_hi @ 0x101a18
+/* luna: Returns the RF high-field value encoded in bits 8–11 of the register, minus one. */
 int get_rf_field_hi() {
   return (uint8_t)((BYTE1(*(volatile uint32_t *)off_101A28) & 0xF) - 1);
 }
@@ -1732,6 +1773,7 @@ int get_rf_field_hi() {
 
 
 // get_rf_field_mid @ 0x101a2c
+/* luna: Reads an RF MMIO register, extracts bits 4–7, and returns the extracted value minus one. */
 int get_rf_field_mid() {
   return (uint8_t)(((uint8_t)*(volatile uint32_t *)off_101A3C >> 4) - 1);
 }
@@ -1739,6 +1781,7 @@ int get_rf_field_mid() {
 
 
 // get_rf_field_lo @ 0x101a40
+/* luna: Returns the low four bits of the RF field register minus one, truncated to 8 bits. */
 int get_rf_field_lo() {
   return (uint8_t)((*(volatile uint8_t *)off_101A50 & 0xF) - 1);
 }
@@ -1746,6 +1789,7 @@ int get_rf_field_lo() {
 
 
 // bt_event_handler @ 0x101a54
+/* luna: Computes two channel-dependent RF gain IDs, applying configured adjustments and any enabled gain cap. */
 int bt_event_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
   int result; // r0
   unsigned int v5; // r10
@@ -1898,35 +1942,36 @@ int bt_event_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
 
 
 // bt_packet_parser @ 0x101cac
+/* luna: Computes a rate- and channel-dependent transmit-power setting, applying the channel power limit when enabled. */
 int bt_packet_parser(unsigned int a1, signed int a2, volatile uint8_t *a3) {
   int v3; // r6
-  unsigned int v4; // r7
+  unsigned int frequency_mhz; // r7
   int v5; // cc
   volatile char *v6; // r0
   signed int v7; // r2
-  int v8; // r5
+  int power_level; // r5
   int v9; // r12
   int v10; // r4
   int v11; // r0
   char v12; // r8
-  unsigned int v13; // r4
+  unsigned int channel_power_offset; // r4
   unsigned int v14; // r0
   volatile char *v16; // r2
   signed int v17; // r0
   signed int v18; // r2
   int v19; // r12
   int v20; // r4
-  int v21; // r0
-  volatile char *v22; // r0
-  int v23; // r3
+  int frequency_bucket; // r0
+  volatile char *channel_info; // r0
+  int maximum_channel_power; // r3
 
   v3 = *a3;
-  v4 = *((volatile uint16_t *)a3 + 2);
+  frequency_mhz = *((volatile uint16_t *)a3 + 2);
   if ( !*a3 )
   {
     if ( a1 <= 1 )
     {
-      v8 = *((volatile char *)&((volatile uint32_t *)(uintptr_t)off_101E50)[49] + a2 + 2);
+      power_level = *((volatile char *)&((volatile uint32_t *)(uintptr_t)off_101E50)[49] + a2 + 2);
       if ( !a1 && (unsigned int)a2 <= 3 )
       {
         v9 = *a3;
@@ -1941,9 +1986,9 @@ int bt_packet_parser(unsigned int a1, signed int a2, volatile uint8_t *a3) {
       v6 = (volatile char *)off_101E50 + a2;
       v7 = 2;
       if ( v5 )
-        v8 = v6[220];
+        power_level = v6[220];
       else
-        v8 = v6[210];
+        power_level = v6[210];
     }
     if ( v7 < a2 )
       v9 = 3;
@@ -1954,11 +1999,11 @@ int bt_packet_parser(unsigned int a1, signed int a2, volatile uint8_t *a3) {
     else
       v10 = 2;
 LABEL_12:
-    if ( v4 <= 0x97B )
+    if ( frequency_mhz <= 0x97B )
     {
       v11 = 0;
     }
-    else if ( v4 > 0x994 )
+    else if ( frequency_mhz > 0x994 )
     {
       v11 = 2;
     }
@@ -1967,24 +2012,24 @@ LABEL_12:
       v11 = 1;
     }
     v12 = *(volatile uint8_t *)(*(volatile uint32_t *)asc_151888 + v11 + v9) + *(volatile uint8_t *)(dword_101E58 + v10 + 8) + *(volatile uint8_t *)off_101E5C;
-    v13 = v12;
+    channel_power_offset = v12;
     if ( LOBYTE(((volatile uint32_t *)(uintptr_t)off_101E50)[99]) )
-      v8 = (char)(*(volatile uint8_t *)(*(volatile uint32_t *)asc_151880 + v11) + v8);
+      power_level = (char)(*(volatile uint8_t *)(*(volatile uint32_t *)asc_151880 + v11) + power_level);
     goto LABEL_18;
   }
   v16 = (volatile char *)off_101E50 + a2;
   if ( a1 <= 1 )
   {
-    v8 = v16[232];
+    power_level = v16[232];
     v17 = 11;
     v18 = 7;
   }
   else
   {
     if ( a1 > 4 )
-      v8 = v16[254];
+      power_level = v16[254];
     else
-      v8 = v16[244];
+      power_level = v16[244];
     v17 = 7;
     v18 = 4;
   }
@@ -2004,57 +2049,58 @@ LABEL_12:
     else
       v20 = 2;
   }
-  if ( v4 > 0x1666 )
+  if ( frequency_mhz > 0x1666 )
   {
-    v21 = 5;
+    frequency_bucket = 5;
   }
-  else if ( v4 > 0x1616 )
+  else if ( frequency_mhz > 0x1616 )
   {
-    v21 = 4;
+    frequency_bucket = 4;
   }
-  else if ( v4 > 0x15C6 )
+  else if ( frequency_mhz > 0x15C6 )
   {
-    v21 = 3;
+    frequency_bucket = 3;
   }
-  else if ( v4 <= 0x1571 )
+  else if ( frequency_mhz <= 0x1571 )
   {
-    v21 = v4 > 0x1486;
+    frequency_bucket = frequency_mhz > 0x1486;
   }
   else
   {
-    v21 = 2;
+    frequency_bucket = 2;
   }
-  v12 = *(volatile uint8_t *)(*(volatile uint32_t *)a2_0 + v21 + v19) + *(volatile uint8_t *)(dword_101E58 + v20 + 11) + *(volatile uint8_t *)(off_101E5C + 1);
-  v13 = v12;
+  v12 = *(volatile uint8_t *)(*(volatile uint32_t *)a2_0 + frequency_bucket + v19) + *(volatile uint8_t *)(dword_101E58 + v20 + 11) + *(volatile uint8_t *)(off_101E5C + 1);
+  channel_power_offset = v12;
   if ( LOBYTE(((volatile uint32_t *)(uintptr_t)off_101E50)[99]) )
-    v8 = (char)(*(volatile uint8_t *)(*(volatile uint32_t *)asc_151884 + v21) + v8);
+    power_level = (char)(*(volatile uint8_t *)(*(volatile uint32_t *)asc_151884 + frequency_bucket) + power_level);
 LABEL_18:
   if ( (((volatile uint32_t *)(uintptr_t)off_101E50)[98] & 2) != 0 )
   {
-    v22 = is_adv_enabled(v3, v4);
-    if ( v22 )
+    channel_info = is_adv_enabled(v3, frequency_mhz);
+    if ( channel_info )
     {
-      v23 = v22[4];
+      maximum_channel_power = channel_info[4];
     }
     else
     {
       if ( **(volatile int16_t **)off_101E6C < 0 )
         mmio_write_field(off_101E78, (int)aPhyGetTxpwrLev, 7022);
-      alloc_tx_event("invalid chan, band=%d, freq=%d\n", v3, v4);
-      v23 = 15;
+      alloc_tx_event("invalid chan, band=%d, freq=%d\n", v3, frequency_mhz);
+      maximum_channel_power = 15;
     }
-    if ( v8 >= v23 )
-      v8 = (v8 & ~0xFFu) | ((uint8_t)(v23) & 0xFFu);
+    if ( power_level >= maximum_channel_power )
+      power_level = (power_level & ~0xFFu) | ((uint8_t)(maximum_channel_power) & 0xFFu);
   }
   if ( (v12 & 1) != 0 )
-    v14 = v13 - 1 + ((v13 - 1) >> 31);
+    v14 = channel_power_offset - 1 + ((channel_power_offset - 1) >> 31);
   else
-    v14 = v13 + (v13 >> 31);
-  return (char)((v14 >> 1) + v8);
+    v14 = channel_power_offset + (channel_power_offset >> 31);
+  return (char)((v14 >> 1) + power_level);
 }
 
 
 // set_clock_divider @ 0x101e7c
+/* luna: Programs two MMIO clock-control fields from the requested divider value and returns that value. */
 int set_clock_divider(int result) {
   volatile uint32_t *v1; // r2
   unsigned int v2; // r3

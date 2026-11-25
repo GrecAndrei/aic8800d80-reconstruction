@@ -1,4 +1,5 @@
 // bus_cmd52_write @ 0x129404
+/* luna: Builds and submits a key-installation PDU for the selected key entry, copying its metadata and key material when the entry is populated. */
 int bus_cmd52_write(int a1, int a2) {
   int v4; // r0
   int v5; // r3
@@ -31,6 +32,7 @@ int bus_cmd52_write(int a1, int a2) {
 
 
 // rsn_derive_key @ 0x129458
+/* luna: Scans three RSN timer records and computes the next eligible key-management deadline, accounting for recurring intervals. */
 int rsn_derive_key(int result) {
   int v1; // r12
   int v2; // r6
@@ -287,6 +289,7 @@ LABEL_32:
 
 
 // rsn_parse_ie @ 0x1296c4
+/* luna: Reconciles the requested power-save state with the current state and updates per-interface beacon timing accordingly. */
 volatile uint8_t * rsn_parse_ie(volatile uint8_t *result) {
   volatile uint8_t *v1; // r4
   int v2; // r9
@@ -616,6 +619,7 @@ LABEL_7:
 
 
 // key_install_check @ 0x129b20
+/* luna: Processes the context’s pending RSN information-element state, copies deferred data when present, and invokes the IE parser. */
 volatile uint8_t * key_install_check(volatile uint8_t *result) {
   int v1; // r3
   volatile uint8_t *v2; // r4

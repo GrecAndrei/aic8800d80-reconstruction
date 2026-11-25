@@ -1,48 +1,50 @@
 // rssi_sample @ 0x115e28
+/* luna: Clears and initializes the TX descriptor pool, assigning each descriptor its 80-byte backing buffer and passing it to the descriptor handler. */
 int rssi_sample() {
-  volatile int **v0; // r5
-  volatile uint32_t *v1; // r6
+  volatile int **txdesc_array; // r5
+  volatile uint32_t *tx_buffer_base_ptr; // r6
   volatile int *v2; // r0
-  void *v3; // r8
+  void *descriptor_config_ptr; // r8
   int v4; // r7
-  uint16_t v5; // r9
-  volatile int *v6; // r1
+  uint16_t descriptor_index; // r9
+  volatile int *descriptor_entry; // r1
   int result; // r0
 
-  v0 = (volatile int **)off_115EB0;
+  txdesc_array = (volatile int **)off_115EB0;
   clear_stats_buf((volatile uint32_t *)dword_115EAC);
   if ( **(volatile int16_t **)off_115EB4 < 0 )
   {
-    v2 = *v0;
-    v1 = (void *)(uintptr_t)(off_115EB8);
-    if ( !*v0 || !*(volatile uint32_t *)off_115EB8 )
+    v2 = *txdesc_array;
+    tx_buffer_base_ptr = (void *)(uintptr_t)(off_115EB8);
+    if ( !*txdesc_array || !*(volatile uint32_t *)off_115EB8 )
     {
       irq_disable_mmio_write((int)aTxdescArray0Tx, (int)aTxTxdescInit, 90);
-      v2 = *v0;
+      v2 = *txdesc_array;
     }
   }
   else
   {
-    v1 = (void *)(uintptr_t)(off_115EB8);
-    v2 = *v0;
+    tx_buffer_base_ptr = (void *)(uintptr_t)(off_115EB8);
+    v2 = *txdesc_array;
   }
-  v3 = (void *)(uintptr_t)(off_115EC4);
+  descriptor_config_ptr = (void *)(uintptr_t)(off_115EC4);
   v4 = dword_115EAC;
   memset(v2, 0, 88 * *(volatile uint16_t *)(*(volatile uint32_t *)off_115EC4 + 8) + 88);
-  v5 = 0;
+  descriptor_index = 0;
   do
   {
-    v6 = &(*v0)[22 * v5];
-    v6[19] = *v1 + 80 * v5;
-    result = wlan_ioctl_handler_1(v4, (void *)(v6));
-    ++v5;
+    descriptor_entry = &(*txdesc_array)[22 * descriptor_index];
+    descriptor_entry[19] = *tx_buffer_base_ptr + 80 * descriptor_index;
+    result = wlan_ioctl_handler_1(v4, (void *)(descriptor_entry));
+    ++descriptor_index;
   }
-  while ( *(volatile uint16_t *)(*(volatile uint32_t *)v3 + 8) >= (unsigned int)v5 );
+  while ( *(volatile uint16_t *)(*(volatile uint32_t *)descriptor_config_ptr + 8) >= (unsigned int)descriptor_index );
   return result;
 }
 
 
 // rssi_compare @ 0x115ec8
+/* luna: Pops an event from the pending list and disables its MMIO interrupt if the list is empty while the associated signed status is negative. */
 int rssi_compare() {
   int v0; // r0
   int v1; // r4
@@ -57,35 +59,38 @@ int rssi_compare() {
 
 
 // set_string_0x182588 @ 0x115f04
+/* luna: Forwards the set-string request to the WLAN ioctl handler using its fixed command identifier. */
 int set_string_0x182588(volatile uint32_t *a1) {
   return wlan_ioctl_handler_1(dword_115F0C, a1);
 }
 
 
 // ll_event_clear @ 0x115f10
+/* luna: Resets the indexed Bluetooth link-layer event entry and clears its associated auxiliary state. */
 int ll_event_clear(int a1) {
-  int v1; // r1
-  int v2; // r3
+  int event_storage_base; // r1
+  int event_record; // r3
   int result; // r0
 
-  v1 = dword_115F48;
-  v2 = dword_115F48 + 36 * a1;
-  *(volatile uint32_t *)v2 = 0;
-  result = v1 + 8 * (a1 + 22);
-  *(volatile uint32_t *)(v2 + 8) = 4978;
-  *(volatile uint32_t *)(v2 + 12) = -1;
+  event_storage_base = dword_115F48;
+  event_record = dword_115F48 + 36 * a1;
+  *(volatile uint32_t *)event_record = 0;
+  result = event_storage_base + 8 * (a1 + 22);
+  *(volatile uint32_t *)(event_record + 8) = 4978;
+  *(volatile uint32_t *)(event_record + 12) = -1;
   *(volatile uint32_t *)(result + 4) = 0;
   *(volatile uint32_t *)(result + 8) = 0;
-  *(volatile uint32_t *)(v2 + 4) = 0;
-  *(volatile uint8_t *)(v2 + 32) = 0;
-  *(volatile uint32_t *)(v2 + 20) = 0;
-  *(volatile uint32_t *)(v2 + 16) = -1;
+  *(volatile uint32_t *)(event_record + 4) = 0;
+  *(volatile uint8_t *)(event_record + 32) = 0;
+  *(volatile uint32_t *)(event_record + 20) = 0;
+  *(volatile uint32_t *)(event_record + 16) = -1;
   return result;
 }
 
 
 
 // conn_handle_get @ 0x115f4c
+/* luna: Waits on the object stored at context offset 72, clears that slot after the wait, and returns the wait result or null if no object was pending. */
 volatile uint32_t * conn_handle_get(int a1) {
   volatile uint32_t *result; // r0
 
@@ -101,18 +106,19 @@ volatile uint32_t * conn_handle_get(int a1) {
 
 
 // ll_event_lookup @ 0x115f60
+/* luna: Appends an event node to the FIFO for queue index `a1`, clears its next link, and returns the internal queue slot (`a1 + 22`). */
 int ll_event_lookup(int a1, int a2) {
-  int v2; // r3
+  int event_queue_table; // r3
   int result; // r0
-  int v4; // r2
+  int insertion_target; // r2
 
-  v2 = dword_115F84;
+  event_queue_table = dword_115F84;
   result = a1 + 22;
-  v4 = dword_115F84 + 8 * result;
-  if ( *(volatile uint32_t *)(v4 + 4) )
-    v4 = *(volatile uint32_t *)(v4 + 8);
-  *(volatile uint32_t *)(v4 + 4) = a2;
-  *(volatile uint32_t *)(v2 + 8 * result + 8) = a2;
+  insertion_target = dword_115F84 + 8 * result;
+  if ( *(volatile uint32_t *)(insertion_target + 4) )
+    insertion_target = *(volatile uint32_t *)(insertion_target + 8);
+  *(volatile uint32_t *)(insertion_target + 4) = a2;
+  *(volatile uint32_t *)(event_queue_table + 8 * result + 8) = a2;
   *(volatile uint32_t *)(a2 + 4) = 0;
   return result;
 }
@@ -120,6 +126,7 @@ int ll_event_lookup(int a1, int a2) {
 
 
 // rx_packet_process_1 @ 0x115f88
+/* luna: Prepares RX buffer bounds and descriptor flags, and conditionally increments an indexed receive counter based on the packet status word. */
 int rx_packet_process_1(int result, int a2) {
   int v2; // r3
   int v3; // r8
@@ -174,6 +181,7 @@ int rx_packet_process_1(int result, int a2) {
 
 
 // rf_channel_select @ 0x116034
+/* luna: Parses and normalizes a BLE packet into the destination buffer, or clears its first eight bytes when the mode bit is set. */
 volatile int * rf_channel_select(int a1, int a2, int a3, int a4) {
   volatile int *result; // r0
   volatile char *v7; // r4
@@ -202,6 +210,7 @@ volatile int * rf_channel_select(int a1, int a2, int a3, int a4) {
 
 
 // patch_enable @ 0x116094
+/* luna: Initializes two RF configuration tables using the current RF field value and clock prescaler. */
 int patch_enable() {
   volatile int *v0; // r4
   int v1; // r8
@@ -280,6 +289,7 @@ int patch_enable() {
 
 
 // adv_type_valid @ 0x11617c
+/* luna: Maps supported link-layer advertising types to hardware bit values and writes the value to a volatile register. */
 int adv_type_valid(int result) {
   switch ( result )
   {

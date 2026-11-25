@@ -1,10 +1,11 @@
 // is_initialized @ 0x117e0c
+/* luna: Pops a buffer from the selected transmit queue and prepares its BA-related descriptor metadata and frame header. */
 int is_initialized(int a1, int a2, int a3, int a4) {
-  int v4; // r2
-  volatile uint32_t *v6; // r0
+  int queue_index; // r2
+  volatile uint32_t *popped_buffer; // r0
   volatile int16_t *v7; // r1
-  int v8; // r4
-  unsigned int v9; // r2
+  int tx_buffer; // r4
+  unsigned int tx_descriptor_info; // r2
   int result; // r0
   int v11; // r1
   unsigned int v12; // r3
@@ -12,42 +13,42 @@ int is_initialized(int a1, int a2, int a3, int a4) {
 
   if ( *(volatile uint8_t *)off_117EF8 )
     return alloc_tx_event(aBaWarn, a2, a3, a4);
-  v4 = (v4 & ~0xFFFFu) | ((uint16_t)(*((volatile uint8_t *)off_117EFC + 190)) & 0xFFFFu);
+  queue_index = (queue_index & ~0xFFFFu) | ((uint16_t)(*((volatile uint8_t *)off_117EFC + 190)) & 0xFFFFu);
   if ( (*((volatile uint32_t *)off_117EFC + 52) & 1) == 0 )
-    v4 = (*(volatile uint32_t *)(a1 + 84) >> 11) & 3;
-  v6 = list_pop(dword_117F00 + 84 * (uint16_t)v4 + 28);
+    queue_index = (*(volatile uint32_t *)(a1 + 84) >> 11) & 3;
+  popped_buffer = list_pop(dword_117F00 + 84 * (uint16_t)queue_index + 28);
   v7 = *(volatile int16_t **)off_117F04;
-  v8 = (int)v6;
-  if ( **(volatile int16_t **)off_117F04 < 0 && !v6 )
+  tx_buffer = (int)popped_buffer;
+  if ( **(volatile int16_t **)off_117F04 < 0 && !popped_buffer )
     return unknown_12f2c8((int)aAggDescNull, (int)aTxlBaPush, 369);
-  v9 = *(volatile uint32_t *)(a1 + 84);
-  result = v9 << 6;
-  *(volatile uint16_t *)(v8 + 8) |= 0x20u;
-  if ( (v9 & 0x2000000) != 0 )
+  tx_descriptor_info = *(volatile uint32_t *)(a1 + 84);
+  result = tx_descriptor_info << 6;
+  *(volatile uint16_t *)(tx_buffer + 8) |= 0x20u;
+  if ( (tx_descriptor_info & 0x2000000) != 0 )
   {
-    result = (uint16_t)(v9 >> 15);
+    result = (uint16_t)(tx_descriptor_info >> 15);
     if ( *v7 < 0 && (result & 0x3F0) == 0 )
       return unknown_12f2c8((int)aKeyIdxHwMmSecD, (int)aTxlIsBaValid, 217);
-    if ( ((v9 >> 15) & 0x3FF) - 16 == *(volatile uint8_t *)(v8 + 12) )
+    if ( ((tx_descriptor_info >> 15) & 0x3FF) - 16 == *(volatile uint8_t *)(tx_buffer + 12) )
     {
       v11 = *(volatile uint32_t *)(*(volatile uint32_t *)(a1 + 28) + 8);
       v12 = *(volatile uint16_t *)(v11 + 16);
       result = v12 & 0x1E;
       if ( result == 22 )
       {
-        result = tx_frame_build(a1, v8);
+        result = tx_frame_build(a1, tx_buffer);
         if ( result )
           goto LABEL_17;
       }
-      else if ( (v9 & 0x200) == 0 )
+      else if ( (tx_descriptor_info & 0x200) == 0 )
       {
         v13 = *(volatile uint16_t *)(a1 + 48);
-        if ( (v13 == 52 || v13 == 28) && *(volatile uint8_t *)(v8 + 13) == v12 >> 12 )
+        if ( (v13 == 52 || v13 == 28) && *(volatile uint8_t *)(tx_buffer + 13) == v12 >> 12 )
         {
-          result = (int)memcpy((volatile char *)(v8 + 228), (volatile char *)(v11 + 18), 0x22u);
-          *(volatile uint32_t *)(v8 + 224) = v8 + 228;
+          result = (int)memcpy((volatile char *)(tx_buffer + 228), (volatile char *)(v11 + 18), 0x22u);
+          *(volatile uint32_t *)(tx_buffer + 224) = tx_buffer + 228;
 LABEL_17:
-          *(volatile uint16_t *)(v8 + 8) |= 0x40u;
+          *(volatile uint16_t *)(tx_buffer + 8) |= 0x40u;
         }
       }
     }
@@ -57,6 +58,7 @@ LABEL_17:
 
 
 // invoke_handler @ 0x117f1c
+/* luna: Invokes the registered data provider, wraps its returned buffer in a node, appends it to the transmit queue under IRQ protection, and signals pending  */
 volatile uint32_t *invoke_handler() {
   volatile uint32_t *result; // r0
   volatile uint32_t *v1; // r4
@@ -155,6 +157,7 @@ volatile uint32_t *invoke_handler() {
 
 
 // phy_calibrate_1 @ 0x117ffc
+/* luna: Processes pending transmit-confirmation entries for the selected queue while protecting shared queue state. */
 volatile uint32_t * phy_calibrate_1(int a1) {
   int v1; // s16
   int v2; // r4
@@ -641,6 +644,7 @@ LABEL_36:
 
 
 // phy_dispatch @ 0x118800
+/* luna: Drains a PHY work list, updates each item's descriptor status, and dispatches valid items according to whether the radio can be switched. */
 volatile uint32_t * phy_dispatch(unsigned int a1, int a2, int a3) {
   volatile int16_t **v3; // r8
   volatile uint32_t *v7; // r4
@@ -689,6 +693,7 @@ volatile uint32_t * phy_dispatch(unsigned int a1, int a2, int a3) {
 
 
 // mmio_write @ 0x1188b8
+/* luna: Drains queued PHY DMA entries, updates their associated control words, and allocates a DMA buffer when no entries remain. */
 int mmio_write(int a1, int a2) {
   volatile int16_t **v2; // r5
   int v3; // r7
@@ -741,6 +746,7 @@ LABEL_4:
 
 
 // zero_struct @ 0x11892c
+/* luna: Initializes a PHY-related context and auxiliary state words, then returns the payload address at offset 108 from the supplied base. */
 int zero_struct(int a1, int a2, volatile uint32_t *a3, volatile int *a4) {
   int v8; // r1
   int v9; // r2
@@ -765,6 +771,7 @@ int zero_struct(int a1, int a2, volatile uint32_t *a3, volatile int *a4) {
 
 
 // verify_header_magic @ 0x118970
+/* luna: Initializes PHY context entries and resets the associated shared PHY configuration state. */
 int verify_header_magic(int a1) {
   int v2; // r4
   volatile uint32_t *v3; // r6

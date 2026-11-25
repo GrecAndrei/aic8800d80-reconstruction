@@ -1,4 +1,5 @@
 // ke_msg_dispatch_1 @ 0x135940
+/* luna: Copies the saved TX-processing routine into the supplied buffer, updates the stored routine pointer, invokes the jump helper on the original entry reg */
 int ke_msg_dispatch_1(int a1) {
   volatile uint32_t *v1; // r5
 
@@ -13,6 +14,7 @@ int ke_msg_dispatch_1(int a1) {
 
 
 // mac_backoff_rand @ 0x135970
+/* luna: Validates a nested 4-byte-indexed layout in the buffer and returns the final 16-bit value, or null if a bounds check fails. */
 volatile uint8_t * mac_backoff_rand(volatile uint8_t *a1, int a2) {
   volatile uint8_t *result; // r0
   int v3; // r2
@@ -47,6 +49,7 @@ volatile uint8_t * mac_backoff_rand(volatile uint8_t *a1, int a2) {
 
 
 // rf_chan_pwr_calc @ 0x1359bc
+/* luna: Validates the active channel's frequency selection, then updates its channel-specific power-calibration state under the RF lock. */
 int rf_chan_pwr_calc(int a1, int a2, volatile char *a3) {
   int v3; // r10
   int v4; // r8
@@ -321,6 +324,7 @@ LABEL_31:
 
 
 // tx_desc_get @ 0x135e98
+/* luna: Copies the indexed transmit payload into its 512-byte buffer, records its length, and emits a two-byte completion message. */
 int tx_desc_get(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   uint16_t v5; // r7
   volatile uint8_t *v8; // r0
@@ -338,27 +342,28 @@ int tx_desc_get(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
 
 
 // patch_table_read @ 0x135ee4
+/* luna: Copies an AP basic-rate update into the indexed station context when its state is 2, refreshes PHY status, and emits the associated header word. */
 int patch_table_read(int a1, volatile uint16_t *a2, int a3, int a4) {
-  int v7; // r2
-  int v9; // r7
+  int station_idx; // r2
+  int station_ctx; // r7
   int v10; // r1
   int v11; // r2
   char v12; // r12
 
   check_feature_flag(256, "apm_update_basicrate:%d\r\n", *a2);
-  v7 = *a2;
-  if ( *(volatile uint8_t *)(dword_135F58 + 1320 * v7 + 106) == 2 )
+  station_idx = *a2;
+  if ( *(volatile uint8_t *)(dword_135F58 + 1320 * station_idx + 106) == 2 )
   {
-    v9 = dword_135F5C + 696 * (v7 + 32);
+    station_ctx = dword_135F5C + 696 * (station_idx + 32);
     v10 = *(volatile uint32_t *)(a2 + 3);
     v11 = *(volatile uint32_t *)(a2 + 5);
     v12 = *((volatile uint8_t *)a2 + 14);
-    *(volatile uint32_t *)(v9 + 192) = *(volatile uint32_t *)(a2 + 1);
-    *(volatile uint32_t *)(v9 + 196) = v10;
-    *(volatile uint32_t *)(v9 + 200) = v11;
-    *(volatile uint8_t *)(v9 + 204) = v12;
+    *(volatile uint32_t *)(station_ctx + 192) = *(volatile uint32_t *)(a2 + 1);
+    *(volatile uint32_t *)(station_ctx + 196) = v10;
+    *(volatile uint32_t *)(station_ctx + 200) = v11;
+    *(volatile uint8_t *)(station_ctx + 204) = v12;
     check_feature_flag(256, "param->basic_rates:%d\r\n", *((volatile uint8_t *)a2 + 2));
-    get_phy_status_byte(v9);
+    get_phy_status_byte(station_ctx);
   }
   mac_write_header_word(7179, a4, a3);
   return 0;
@@ -366,9 +371,10 @@ int patch_table_read(int a1, volatile uint16_t *a2, int a3, int a4) {
 
 
 // patch_code_load @ 0x135f64
+/* luna: Processes an APM stop-CAC request, conditionally updates the indexed interface state under IRQ protection, and writes a response header. */
 int patch_code_load(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v6; // r2
-  int v7; // r0
+  int interface_ctx; // r0
   int v9; // r0
   volatile uint32_t *v10; // r1
   volatile uint32_t *v11; // r4
@@ -380,8 +386,8 @@ int patch_code_load(int a1, volatile uint8_t *a2, int a3, int a4) {
 
   alloc_tx_event("%s\n", aApmStopCacReqH);
   v6 = a3;
-  v7 = dword_136000 + 1320 * *a2;
-  if ( *(volatile uint8_t *)(v7 + 106) == 2 && !*(volatile uint8_t *)(v7 + 108) )
+  interface_ctx = dword_136000 + 1320 * *a2;
+  if ( *(volatile uint8_t *)(interface_ctx + 106) == 2 && !*(volatile uint8_t *)(interface_ctx + 108) )
   {
     v9 = hci_cmd_handler(7u);
     v6 = a3;
@@ -421,18 +427,19 @@ int patch_code_load(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // rf_config_from_params @ 0x136014
+/* luna: Validates an AP start-CAC request against interface and radio state, then sends a confirmation with the resulting status. */
 int rf_config_from_params(int a1, volatile uint8_t *a2, int a3, int a4) {
   uint16_t v5; // r6
   uint16_t v6; // r5
   int v7; // r2
   int v8; // r3
-  int v9; // r1
-  char v10; // r7
+  int interface_context; // r1
+  char status; // r7
   volatile char *v11; // r0
   int v13; // r2
   int v14; // r3
   int v15; // r0
-  int v16; // r0
+  int interface_index; // r0
   int v17; // r1
   uint8_t a2a[5]; // [sp+7h] [bp-5h] BYREF
 
@@ -442,37 +449,37 @@ int rf_config_from_params(int a1, volatile uint8_t *a2, int a3, int a4) {
   v8 = *a2;
   a2a[0] = 0;
   alloc_tx_event("%s %x %d\n", aApmStartCacReq, v7, v8);
-  v9 = dword_1360B0 + 1320 * a2[10];
-  if ( *(volatile uint8_t *)(v9 + 106) == 2 )
+  interface_context = dword_1360B0 + 1320 * a2[10];
+  if ( *(volatile uint8_t *)(interface_context + 106) == 2 )
   {
-    if ( *(volatile uint8_t *)(v9 + 108) || hci_cmd_handler(7u) )
+    if ( *(volatile uint8_t *)(interface_context + 108) || hci_cmd_handler(7u) )
     {
-      v10 = 8;
+      status = 8;
     }
     else
     {
       v15 = ((int (*)())cfm_radio_check)(a2, a2a, v13, v14);
-      v10 = v15;
+      status = v15;
       if ( v15 )
       {
-        v10 = 1;
+        status = 1;
       }
       else
       {
-        v16 = a2[10];
+        interface_index = a2[10];
         v17 = a2a[0];
         *(volatile uint8_t *)off_1360B4 = 1;
-        bsscfg_index(v16, v17);
+        bsscfg_index(interface_index, v17);
         *((volatile uint32_t *)off_1360B8 + 1) |= 0x10u;
       }
     }
   }
   else
   {
-    v10 = 4;
+    status = 4;
   }
   v11 = (volatile char *)tx_send_pdu(7173, v6, v5, 2);
-  *v11 = v10;
+  *v11 = status;
   v11[1] = a2a[0];
   rx_process_packet_1((int)v11);
   return 0;

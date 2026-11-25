@@ -1,12 +1,13 @@
 // mem_copy_util @ 0x124bfc
+/* luna: Updates a timer’s expiration, reorders it in the pending-timer list, and adjusts timer state when it becomes the earliest deadline. */
 int mem_copy_util(volatile uint32_t *a1, int a2) {
-  volatile int *v4; // r7
+  volatile int *timer_lock_count_ptr; // r7
   volatile unsigned int *v5; // r2
   int v6; // r3
-  volatile uint32_t *v7; // r6
+  volatile uint32_t *timer_list_head_ptr; // r6
   void *v8; // r2
   int result; // r0
-  volatile uint32_t *v10; // r3
+  volatile uint32_t *first_timer_entry; // r3
   int v11; // r3
   int v12; // r2
   void *v13; // r2
@@ -18,7 +19,7 @@ int mem_copy_util(volatile uint32_t *a1, int a2) {
     __disable_irq();
     *(volatile uint32_t *)off_124CD0 = 1;
   }
-  v4 = (volatile int *)off_124CD4;
+  timer_lock_count_ptr = (volatile int *)off_124CD4;
   v5 = (void *)(uintptr_t)(off_124CD8);
   ++*(volatile uint32_t *)off_124CD4;
   v6 = *((volatile uint32_t *)v5 + 4);
@@ -28,15 +29,15 @@ int mem_copy_util(volatile uint32_t *a1, int a2) {
     if ( **(volatile int16_t **)off_124CE8 < 0 )
       irq_disable_mmio_write(off_124CF0, (int)aMmTimerSet, 131);
   }
-  v7 = (volatile uint32_t *)off_124CDC;
+  timer_list_head_ptr = (volatile uint32_t *)off_124CDC;
   if ( a1 == *(volatile uint32_t **)off_124CDC )
   {
     list_pop(off_124CDC);
     v13 = (void *)(uintptr_t)(off_124CE0);
     a1[3] = a2;
-    result = list_foreach((int)v7, a1, (int ( *)(volatile uint32_t *, volatile uint32_t *))v13);
-    v10 = (volatile uint32_t *)*v7;
-    if ( !*v7 )
+    result = list_foreach((int)timer_list_head_ptr, a1, (int ( *)(volatile uint32_t *, volatile uint32_t *))v13);
+    first_timer_entry = (volatile uint32_t *)*timer_list_head_ptr;
+    if ( !*timer_list_head_ptr )
     {
       *((volatile uint32_t *)off_124CD8 + 2) = 1024;
       goto LABEL_6;
@@ -46,20 +47,20 @@ int mem_copy_util(volatile uint32_t *a1, int a2) {
   wlan_ioctl_handler_3(off_124CDC, a1);
   v8 = (void *)(uintptr_t)(off_124CE0);
   a1[3] = a2;
-  result = list_foreach((int)v7, a1, (int ( *)(volatile uint32_t *, volatile uint32_t *))v8);
-  v10 = (volatile uint32_t *)*v7;
-  if ( a1 == (volatile uint32_t *)*v7 )
+  result = list_foreach((int)timer_list_head_ptr, a1, (int ( *)(volatile uint32_t *, volatile uint32_t *))v8);
+  first_timer_entry = (volatile uint32_t *)*timer_list_head_ptr;
+  if ( a1 == (volatile uint32_t *)*timer_list_head_ptr )
   {
 LABEL_14:
     v14 = (void *)(uintptr_t)(off_124CD8);
-    v15 = v10[3];
+    v15 = first_timer_entry[3];
     result = 0x40000;
     *((volatile uint32_t *)off_124CD8 + 2) = 0x40000;
     *((volatile uint32_t *)v14 + 12) = v15;
     *((volatile uint32_t *)v14 + 2) = 4;
   }
 LABEL_6:
-  if ( *v4 && (v11 = *v4 - 1, v12 = *(volatile uint32_t *)off_124CD0, (*v4 = v11) == 0) && v12 )
+  if ( *timer_lock_count_ptr && (v11 = *timer_lock_count_ptr - 1, v12 = *(volatile uint32_t *)off_124CD0, (*timer_lock_count_ptr = v11) == 0) && v12 )
   {
     __enable_irq();
     if ( (int)(a2 - *((volatile uint32_t *)off_124CD8 + 4)) < 0 )
@@ -74,6 +75,7 @@ LABEL_6:
 
 
 // mem_set_util @ 0x124cf4
+/* luna: Serializes access to a WLAN request queue, removes a matching queued request and updates control state, or forwards a nonmatching request to the WLAN  */
 int mem_set_util(int a1) {
   volatile int *v1; // r4
   void *v2; // r5
@@ -131,6 +133,7 @@ int mem_set_util(int a1) {
 
 
 // ble_irq_handler @ 0x124d64
+/* luna: Dispatches due BLE timer callbacks and arms the timer for the next queued deadline. */
 int ble_irq_handler() {
   volatile uint32_t *v0; // r7
   volatile int *v1; // r6
@@ -225,23 +228,24 @@ LABEL_17:
 
 
 // get_mmio_state @ 0x124e3c
+/* luna: Returns 1 if the given node is present in the global singly linked list, and 0 otherwise. */
 int get_mmio_state(volatile uint32_t *a1) {
-  volatile uint32_t *v1; // r3
+  volatile uint32_t *current; // r3
 
-  v1 = *(volatile uint32_t **)off_124E5C;
+  current = *(volatile uint32_t **)off_124E5C;
   if ( !*(volatile uint32_t *)off_124E5C )
-    return (int)v1;
-  if ( v1 != a1 )
+    return (int)current;
+  if ( current != a1 )
   {
     while ( 1 )
     {
-      v1 = (volatile uint32_t *)*v1;
-      if ( !v1 )
+      current = (volatile uint32_t *)*current;
+      if ( !current )
         break;
-      if ( a1 == v1 )
+      if ( a1 == current )
         return 1;
     }
-    return (int)v1;
+    return (int)current;
   }
   return 1;
 }
@@ -249,40 +253,41 @@ int get_mmio_state(volatile uint32_t *a1) {
 
 
 // mac_isr_check @ 0x124e60
+/* luna: Handles a station-probe completion, recording the hardware timestamp on success and reporting the station after ten consecutive failures. */
 int mac_isr_check(volatile uint8_t *a1, int a2) {
-  int v3; // r2
+  int failure_count; // r2
   int result; // r0
-  unsigned int v5; // r3
-  volatile unsigned int v6; // r2
-  volatile uint8_t *v7; // r0
-  int v8; // r6
+  unsigned int station_index; // r3
+  volatile unsigned int hardware_timestamp; // r2
+  volatile uint8_t *failure_report_pdu; // r0
+  int failure_report_pdu_address; // r6
 
   if ( (a2 & 0x800000) != 0 )
   {
     result = alloc_tx_event("%s: sta probe succ\n", aApmProbeStaCfm);
-    v5 = (uint8_t)a1[35];
+    station_index = (uint8_t)a1[35];
     a1[668] = 0;
-    if ( v5 <= 0x23 )
+    if ( station_index <= 0x23 )
     {
-      v6 = (*(volatile uint32_t *)0x40501010u);
-      *(volatile uint32_t *)(dword_124EF4 + 696 * v5 + 664) = v6;
+      hardware_timestamp = (*(volatile uint32_t *)0x40501010u);
+      *(volatile uint32_t *)(dword_124EF4 + 696 * station_index + 664) = hardware_timestamp;
       return 696;
     }
   }
   else
   {
-    v3 = (uint8_t)(a1[668] + 1);
-    a1[668] = v3;
-    result = alloc_tx_event("%s: sta probe fail:%d\n", aApmProbeStaCfm, v3);
+    failure_count = (uint8_t)(a1[668] + 1);
+    a1[668] = failure_count;
+    result = alloc_tx_event("%s: sta probe fail:%d\n", aApmProbeStaCfm, failure_count);
     if ( (uint8_t)a1[668] > 9u )
     {
-      v7 = (volatile uint8_t *)tx_send_pdu(125, 13, 0, 8);
-      *v7 = a1[35];
-      v7[1] = a1[34];
-      v8 = (int)v7;
+      failure_report_pdu = (volatile uint8_t *)tx_send_pdu(125, 13, 0, 8);
+      *failure_report_pdu = a1[35];
+      failure_report_pdu[1] = a1[34];
+      failure_report_pdu_address = (int)failure_report_pdu;
       a1[668] = 0;
-      memcpy(v7 + 2, a1 + 38, 6u);
-      return (int)rx_process_packet_1(v8);
+      memcpy(failure_report_pdu + 2, a1 + 38, 6u);
+      return (int)rx_process_packet_1(failure_report_pdu_address);
     }
   }
   return result;
@@ -290,6 +295,7 @@ int mac_isr_check(volatile uint8_t *a1, int a2) {
 
 
 // bt_config_check @ 0x124efc
+/* luna: Sets up the indexed Bluetooth configuration resources and validates the requested selector against the context’s stored channel/state value. */
 int bt_config_check(int a1, int a2) {
   int v4; // r5
 
@@ -320,6 +326,7 @@ int bt_config_check(int a1, int a2) {
 
 
 // rf_chan_table_update @ 0x124fb4
+/* luna: Marks each eligible channel identifier in the link's usage bitmap and updates the distinct-entry count and bitmap bounds. */
 int rf_chan_table_update(int result) {
   int v1; // r9
   int v2; // r2
@@ -461,6 +468,7 @@ LABEL_6:
 
 
 // rx_pkt_parse @ 0x125184
+/* luna: Updates a per-context receive-packet bitmap and recomputes its occupied range when packet entries are added or removed. */
 int rx_pkt_parse(volatile uint16_t *a1) {
   unsigned int v1; // r2
   int v2; // r3
@@ -639,6 +647,7 @@ LABEL_28:
 
 
 // tx_pkt_complete @ 0x1253d0
+/* luna: Completes a BLE link-layer TX event by updating per-connection length state and initializing transmit descriptor metadata. */
 int tx_pkt_complete(int a1, int a2) {
   volatile uint32_t *v3; // r5
   int v4; // r1
@@ -705,6 +714,7 @@ int tx_pkt_complete(int a1, int a2) {
 
 
 // tx_path_setup @ 0x1254a8
+/* luna: Prepares the link transmit state from the current RF channel data, updates per-link counters, and may submit a control PDU. */
 int tx_path_setup(int a1) {
   int v1; // r8
   volatile uint8_t *v2; // r5
@@ -810,6 +820,7 @@ int tx_path_setup(int a1) {
 
 
 // init_bt_global_0x190310 @ 0x1255f4
+/* luna: Clears the BT statistics storage and initializes four consecutive fixed packet-header objects. */
 int init_bt_global_0x190310() {
   int v0; // r5
   int v1; // r4
@@ -827,6 +838,7 @@ int init_bt_global_0x190310() {
 
 
 // rf_chan_load @ 0x125638
+/* luna: Initializes the transmit-channel bookkeeping and per-channel buffers for the slot selected by the object's channel index. */
 volatile int * rf_chan_load(int a1) {
   int v1; // r7
   int v2; // r9
@@ -914,6 +926,7 @@ volatile int * rf_chan_load(int a1) {
 
 
 // co_list_push @ 0x125764
+/* luna: Routes the receive buffer through the alternate queue path when the global state is set, otherwise passes it to the RX packet parser. */
 int co_list_push(int a1) {
   if ( *((volatile uint32_t *)off_12577C + 1) )
     return wlan_ioctl_handler_1((int)off_12577C + 12, (volatile uint32_t *)(a1 - 12));
@@ -923,6 +936,7 @@ int co_list_push(int a1) {
 
 
 // patch_check_enable @ 0x125780
+/* luna: Walks the peer list, sets up TX paths for eligible peers, and updates confirmation and security state subject to global gating flags. */
 void patch_check_enable() {
   int v0; // r4
   volatile uint8_t *v1; // r6
@@ -1017,6 +1031,7 @@ LABEL_6:
 
 
 // ipc_trace_send @ 0x1258a0
+/* luna: Completes the pending TX frame, copies its metadata into the TX context, and dispatches its buffer for further processing. */
 int ipc_trace_send(int a1) {
   volatile int *v1; // r5
   int v2; // r6
@@ -1048,6 +1063,7 @@ int ipc_trace_send(int a1) {
 
 
 // bt_task_init @ 0x125904
+/* luna: Copies the requested initialization payload from a task-selected 512-byte slot into the indexed task buffer, then passes the task environment to the I */
 int bt_task_init(int a1) {
   int v2; // r0
   volatile uint8_t *v3; // r2
@@ -1071,6 +1087,7 @@ int bt_task_init(int a1) {
 
 
 // ke_event_set @ 0x125958
+/* luna: Stores the supplied value in the BT task state, calling bt_task_init when the word at offset 4 is zero and otherwise setting the byte at offset 10. */
 int ke_event_set(int a1) {
   volatile uint8_t *v1; // r3
   int v2; // r2

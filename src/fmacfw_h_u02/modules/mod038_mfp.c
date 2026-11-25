@@ -1,16 +1,17 @@
 // bsscfg_get @ 0x12847c
+/* luna: Detaches a BSS configuration from its channel context and updates the associated link and reference counts. */
 int bsscfg_get(int a1) {
   volatile int16_t **v1; // r9
-  int v2; // r8
-  int v3; // r10
-  int v4; // r6
-  int v6; // r5
+  int bsscfg_table_base; // r8
+  int bsscfg_offset; // r10
+  int channel_context; // r6
+  int bsscfg; // r5
   volatile uint8_t *v7; // r7
   char v8; // r3
   int v9; // r3
   int v10; // r4
   int v11; // r3
-  int v12; // r5
+  int channel_context_refcount; // r5
   volatile uint8_t *v13; // r3
   int v14; // r0
   int v15; // r3
@@ -28,24 +29,24 @@ int bsscfg_get(int a1) {
   volatile char *v28; // r1
 
   v1 = (volatile int16_t **)off_128744;
-  v2 = dword_12873C;
-  v3 = 1320 * a1;
-  v4 = *(volatile uint32_t *)(dword_12873C + 1320 * a1 + 72);
-  if ( **(volatile int16_t **)off_128744 < 0 && !v4 )
+  bsscfg_table_base = dword_12873C;
+  bsscfg_offset = 1320 * a1;
+  channel_context = *(volatile uint32_t *)(dword_12873C + 1320 * a1 + 72);
+  if ( **(volatile int16_t **)off_128744 < 0 && !channel_context )
     irq_disable_mmio_write((int)aCtxtNull, (int)aChanCtxtUnlink, 3149);
-  v6 = v2 + 1320 * a1;
+  bsscfg = bsscfg_table_base + 1320 * a1;
   v7 = (volatile uint8_t *)off_128714;
   check_feature_flag(
     256,
     "chan unlink: %d,%d,%d,%d,%d\r\n",
-    *(volatile uint8_t *)(v4 + 25),
+    *(volatile uint8_t *)(channel_context + 25),
     *((volatile uint8_t *)off_128714 + 91),
     *((volatile uint8_t *)off_128714 + 90),
-    *(volatile uint8_t *)(v6 + 85),
-    *(volatile uint8_t *)(v4 + 16));
-  wlan_ioctl_handler_3((int)(v7 + 16), (volatile uint32_t *)(v3 + 76 + v2));
-  v8 = *(volatile uint8_t *)(v6 + 85);
-  *(volatile uint8_t *)(v6 + 85) = v8 & 0xFE;
+    *(volatile uint8_t *)(bsscfg + 85),
+    *(volatile uint8_t *)(channel_context + 16));
+  wlan_ioctl_handler_3((int)(v7 + 16), (volatile uint32_t *)(bsscfg_offset + 76 + bsscfg_table_base));
+  v8 = *(volatile uint8_t *)(bsscfg + 85);
+  *(volatile uint8_t *)(bsscfg + 85) = v8 & 0xFE;
   if ( (v8 & 2) != 0 )
   {
     v9 = (uint8_t)(v7[91] - 1);
@@ -56,21 +57,21 @@ int bsscfg_get(int a1) {
       llc_hw_reg_sync(*((volatile uint32_t *)v7 + 20));
     }
   }
-  v10 = v2 + 1320 * a1;
+  v10 = bsscfg_table_base + 1320 * a1;
   *(volatile uint8_t *)(v10 + 85) = 0;
   *(volatile uint32_t *)(v10 + 72) = 0;
-  v11 = *(volatile uint8_t *)(v4 + 16);
-  v12 = (uint8_t)(*(volatile uint8_t *)(v4 + 25) - 1);
-  *(volatile uint8_t *)(v4 + 25) = v12;
+  v11 = *(volatile uint8_t *)(channel_context + 16);
+  channel_context_refcount = (uint8_t)(*(volatile uint8_t *)(channel_context + 25) - 1);
+  *(volatile uint8_t *)(channel_context + 25) = channel_context_refcount;
   if ( v11 )
   {
-    if ( *(volatile uint8_t *)(v4 + 27) == *(volatile uint8_t *)(v10 + 107) )
+    if ( *(volatile uint8_t *)(channel_context + 27) == *(volatile uint8_t *)(v10 + 107) )
     {
-      scan_entry_lookup(v2 + v3);
-      v12 = *(volatile uint8_t *)(v4 + 25);
-      *(volatile uint8_t *)(v4 + 27) = -1;
-      if ( v12 )
-        return type_get(v4);
+      scan_entry_lookup(bsscfg_table_base + bsscfg_offset);
+      channel_context_refcount = *(volatile uint8_t *)(channel_context + 25);
+      *(volatile uint8_t *)(channel_context + 27) = -1;
+      if ( channel_context_refcount )
+        return type_get(channel_context);
     }
     else
     {
@@ -87,32 +88,32 @@ int bsscfg_get(int a1) {
         if ( (volatile uint8_t *)((volatile char *)off_12871C + 84) == v13 )
           goto LABEL_10;
       }
-      v24 = (volatile uint32_t *)(v2 + 1320 * v14);
-      if ( v24[18] == v4 )
+      v24 = (volatile uint32_t *)(bsscfg_table_base + 1320 * v14);
+      if ( v24[18] == channel_context )
       {
 LABEL_10:
-        if ( !v12 )
+        if ( !channel_context_refcount )
           goto LABEL_26;
-        return type_get(v4);
+        return type_get(channel_context);
       }
-      if ( v12 )
+      if ( channel_context_refcount )
       {
         rf_mode_setup(v24);
-        v12 = (v12 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(v4 + 25)) & 0xFFu);
-        if ( (uint8_t)v12 )
-          return type_get(v4);
+        channel_context_refcount = (channel_context_refcount & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(channel_context + 25)) & 0xFFu);
+        if ( (uint8_t)channel_context_refcount )
+          return type_get(channel_context);
       }
       else
       {
         scan_entry_lookup((int)v24);
-        v12 = *(volatile uint8_t *)(v4 + 25);
-        if ( *(volatile uint8_t *)(v4 + 25) )
-          return type_get(v4);
+        channel_context_refcount = *(volatile uint8_t *)(channel_context + 25);
+        if ( *(volatile uint8_t *)(channel_context + 25) )
+          return type_get(channel_context);
       }
     }
 LABEL_26:
-    wlan_ioctl_handler_3(dword_128730, (volatile uint32_t *)v4);
-    *(volatile uint8_t *)(v4 + 16) = v12;
+    wlan_ioctl_handler_3(dword_128730, (volatile uint32_t *)channel_context);
+    *(volatile uint8_t *)(channel_context + 16) = channel_context_refcount;
     v20 = *v1;
     v21 = (uint8_t)(v7[90] - 1);
     v7[90] = v21;
@@ -135,11 +136,11 @@ LABEL_26:
       if ( !*((volatile uint32_t *)v7 + 20) )
         llc_env_get();
     }
-    if ( *((volatile uint32_t *)v7 + 10) != v4 )
+    if ( *((volatile uint32_t *)v7 + 10) != channel_context )
     {
-      if ( *((volatile uint32_t *)v7 + 11) != v4 )
+      if ( *((volatile uint32_t *)v7 + 11) != channel_context )
         goto LABEL_30;
-      v25 = *(volatile uint8_t *)(v4 + 24);
+      v25 = *(volatile uint8_t *)(channel_context + 24);
       v26 = v25 + 1;
       if ( v25 == 2 )
       {
@@ -178,12 +179,12 @@ LABEL_57:
     if ( !v15 || (v16 = *((volatile uint32_t **)v7 + 11)) != nullptr )
     {
 LABEL_30:
-      if ( !*(volatile uint8_t *)(v4 + 25) )
+      if ( !*(volatile uint8_t *)(channel_context + 25) )
         goto LABEL_21;
-      return type_get(v4);
+      return type_get(channel_context);
     }
     alloc_tx_event(aUnlinkSwChan);
-    v17 = *(volatile uint8_t *)(v4 + 24);
+    v17 = *(volatile uint8_t *)(channel_context + 24);
     v18 = v17 + 1;
     if ( v17 == 2 )
     {
@@ -206,7 +207,7 @@ LABEL_30:
     {
 LABEL_19:
       llc_conn_command((int)(uintptr_t)(v16));
-      v12 = *(volatile uint8_t *)(v4 + 25);
+      channel_context_refcount = *(volatile uint8_t *)(channel_context + 25);
       goto LABEL_20;
     }
 LABEL_61:
@@ -214,26 +215,27 @@ LABEL_61:
     goto LABEL_19;
   }
 LABEL_20:
-  if ( v12 )
-    return type_get(v4);
+  if ( channel_context_refcount )
+    return type_get(channel_context);
 LABEL_21:
-  wifi_disable_calc(*(volatile uint8_t *)(v4 + 24));
-  return type_get(v4);
+  wifi_disable_calc(*(volatile uint8_t *)(channel_context + 24));
+  return type_get(channel_context);
 }
 
 
 // bsscfg_index @ 0x128748
+/* luna: Attaches a BSS configuration to a channel context, updating reference state and notifying dependent channel and link subsystems. */
 int bsscfg_index(int a1, int a2) {
   volatile int16_t **v2; // r10
   int v3; // r8
   int v4; // r7
-  volatile uint32_t *v7; // r6
+  volatile uint32_t *chanctx; // r6
   int v8; // r9
   int v9; // r1
   volatile uint8_t *v10; // r11
   int v11; // r3
   int v12; // r2
-  volatile uint8_t *v13; // r3
+  volatile uint8_t *bsscfg; // r3
   int v14; // r2
   int v15; // r3
   int v16; // r2
@@ -249,7 +251,7 @@ int bsscfg_index(int a1, int a2) {
   v2 = (volatile int16_t **)off_12898C;
   v3 = dword_128968;
   v4 = dword_12895C;
-  v7 = (volatile uint32_t *)(dword_128968 + 28 * a2);
+  chanctx = (volatile uint32_t *)(dword_128968 + 28 * a2);
   if ( **(volatile int16_t **)off_12898C >= 0
     || *(volatile uint32_t *)(dword_12895C + 1320 * a1 + 72)
     && (irq_disable_mmio_write((int)aVifChanCtxtNul_0, (int)aChanCtxtLink, 3061), **v2 >= 0) )
@@ -267,7 +269,7 @@ int bsscfg_index(int a1, int a2) {
   v11 = v4 + 1320 * a1;
   v12 = (uint8_t)(*(volatile uint8_t *)(v9 + 25) + 1);
   *(volatile uint8_t *)(v9 + 25) = v12;
-  *(volatile uint32_t *)(v11 + 72) = (int)(uintptr_t)(v7);
+  *(volatile uint32_t *)(v11 + 72) = (int)(uintptr_t)(chanctx);
   *(volatile uint8_t *)(v11 + 85) = 0;
   if ( v12 == 1 )
   {
@@ -293,7 +295,7 @@ int bsscfg_index(int a1, int a2) {
       }
       while ( v24 != v23 );
     }
-    wlan_ioctl_handler_1(dword_12897C, v7);
+    wlan_ioctl_handler_1(dword_12897C, chanctx);
     if ( (v10[88] & 0xC) != 0 )
     {
       v22 = *((volatile uint32_t *)v10 + 8);
@@ -302,25 +304,25 @@ int bsscfg_index(int a1, int a2) {
         irq_disable_mmio_write((int)aChSwitch, (int)aChanCtxtLink, 3097);
         v22 = 0;
       }
-      *(volatile uint32_t *)(v22 + 8) = (int)(uintptr_t)(v7);
+      *(volatile uint32_t *)(v22 + 8) = (int)(uintptr_t)(chanctx);
       v12 = *(volatile uint8_t *)(v3 + 4 * (v8 - a2) + 25);
     }
     else
     {
       if ( *((volatile uint32_t *)v10 + 11) )
-        *((volatile uint32_t *)v10 + 11) = (int)(uintptr_t)(v7);
+        *((volatile uint32_t *)v10 + 11) = (int)(uintptr_t)(chanctx);
       else
-        llc_conn_command((int)(uintptr_t)(v7));
+        llc_conn_command((int)(uintptr_t)(chanctx));
       v12 = *(volatile uint8_t *)(v3 + 4 * (v8 - a2) + 25);
     }
   }
   check_feature_flag(256, "chan link:%d,%d,%d,%d\r\n", v12, a2, (uint8_t)v10[90], (uint8_t)v10[91]);
-  v13 = (volatile uint8_t *)(v4 + 1320 * a1);
-  v14 = (uint8_t)v13[1224];
-  v13[86] = -1;
-  if ( v14 && *(volatile uint8_t *)(dword_128964 + 140 * (uint8_t)v13[1225] + 112) == 1 )
+  bsscfg = (volatile uint8_t *)(v4 + 1320 * a1);
+  v14 = (uint8_t)bsscfg[1224];
+  bsscfg[86] = -1;
+  if ( v14 && *(volatile uint8_t *)(dword_128964 + 140 * (uint8_t)bsscfg[1225] + 112) == 1 )
   {
-    v13[85] |= 0x10u;
+    bsscfg[85] |= 0x10u;
   }
   else
   {
@@ -337,11 +339,11 @@ int bsscfg_index(int a1, int a2) {
       if ( dword_128968 + 84 == v15 )
         goto LABEL_10;
     }
-    if ( *(volatile uint32_t **)(v4 + 1320 * v16 + 72) != v7 )
+    if ( *(volatile uint32_t **)(v4 + 1320 * v16 + 72) != chanctx )
       *(volatile uint8_t *)(v4 + 1320 * a1 + 85) |= 0x10u;
   }
 LABEL_10:
-  result = type_get((int)v7);
+  result = type_get((int)chanctx);
   v18 = *((volatile uint8_t *)off_12896C + 16);
   if ( v18 != a1 && v18 != 255 )
     return bsscfg_current(a2);
@@ -350,6 +352,7 @@ LABEL_10:
 
 
 // bsscfg_current @ 0x128994
+/* luna: Initializes the active interface's BSS configuration through a packet path when needed, then resolves its index using the supplied argument. */
 int bsscfg_current(int a1) {
   volatile uint8_t *v1; // r6
   int v2; // r4
@@ -374,6 +377,7 @@ int bsscfg_current(int a1) {
 
 
 // log_printf @ 0x1289ec
+/* luna: Processes a power-save link-loss tick, resetting its counter on the completion flag and applying timeout or cleanup handling otherwise. */
 int log_printf(int a1, int a2, int a3) {
   int v4; // r0
   int v5; // r1
@@ -429,6 +433,7 @@ int log_printf(int a1, int a2, int a3) {
 
 
 // wifi_disable_log @ 0x128aa0
+/* luna: After a nonzero logging result, clears shared MFP state and selected per-context flag bits. */
 int wifi_disable_log(int a1, int a2) {
   int result; // r0
   volatile uint8_t *v4; // r5
@@ -454,6 +459,7 @@ int wifi_disable_log(int a1, int a2) {
 
 
 // hex_log @ 0x128af8
+/* luna: Attempts to log the supplied packet and, when logging is enabled, updates the log context, copies associated frame data, and sets descriptor flag 0x20 */
 int hex_log(int a1, int a2) {
   int result; // r0
   volatile uint8_t *v4; // r3
@@ -486,6 +492,7 @@ int hex_log(int a1, int a2) {
 
 
 // log_message @ 0x128b60
+/* luna: Forwards a message to the logging backend and, on successful output, decrements a shared counter and writes a MAC header word when the counter expires */
 int log_message(int a1, int a2) {
   int result; // r0
   volatile uint16_t *v5; // r2
@@ -507,6 +514,7 @@ int log_message(int a1, int a2) {
 
 
 // sec_log_dbg @ 0x128bb0
+/* luna: Logs a PS-disable confirmation and, when the shared pending count reaches zero, clears eligible list-entry flags and sends completion message 50 to th */
 volatile uint16_t * sec_log_dbg(int a1, int a2) {
   volatile uint16_t *result; // r0
   volatile int *i; // r3
@@ -537,6 +545,7 @@ volatile uint16_t * sec_log_dbg(int a1, int a2) {
 
 
 // mfp_get_state @ 0x128c24
+/* luna: When the MFP state is enabled, resets its eligible-interface count and rebuilds it from linked interfaces whose valid channels are accepted by the PHY */
 void mfp_get_state() {
   volatile uint8_t *v0; // r5
   int v1; // r4
@@ -576,6 +585,7 @@ void mfp_get_state() {
 
 
 // mfp_check_rsn_cap @ 0x128c84
+/* luna: Checks RSN/MFP policy for a BSS configuration and updates the global MFP setup state, clearing configuration flags when protection is unavailable. */
 void mfp_check_rsn_cap(int a1) {
   volatile uint8_t *v1; // r5
   uint64_t v3; // r2
@@ -636,6 +646,7 @@ LABEL_18:
 
 
 // mfp_get_config @ 0x128d60
+/* luna: When the configuration guard is clear, clears bit 2 of a global config word and recounts linked BSS entries that pass the status checks and have a res */
 void mfp_get_config() {
   volatile uint8_t *v0; // r5
   volatile unsigned int *v1; // r1
@@ -676,22 +687,24 @@ void mfp_get_config() {
 
 
 // mfp_key_clear @ 0x128db8
+/* luna: Clears the MFP key state, reinitializes its runtime state, and restores its default pointer and flag. */
 int mfp_key_clear() {
-  volatile uint32_t *v0; // r4
-  volatile int *v1; // r0
+  volatile uint32_t *key_state; // r4
+  volatile int *cleared_state; // r0
   int result; // r0
 
-  v0 = (void *)(uintptr_t)(off_128DD4);
-  v1 = memset((volatile int *)off_128DD4, 0, 0x28u);
-  result = (int)(uintptr_t)(init_runtime_state(v1));
-  v0[4] = off_128DD8;
-  *((volatile uint8_t *)v0 + 28) = 1;
+  key_state = (void *)(uintptr_t)(off_128DD4);
+  cleared_state = memset((volatile int *)off_128DD4, 0, 0x28u);
+  result = (int)(uintptr_t)(init_runtime_state(cleared_state));
+  key_state[4] = off_128DD8;
+  *((volatile uint8_t *)key_state + 28) = 1;
   return result;
 }
 
 
 
 // mfp_key_get_status @ 0x128ddc
+/* luna: Returns nonzero when the status gate is active and the context and every linked-list entry have a zero status word. */
 int mfp_key_get_status() {
   volatile uint32_t *v0; // r4
   volatile uint32_t *v1; // r3
@@ -718,6 +731,7 @@ int mfp_key_get_status() {
 
 
 // mfp_key_update @ 0x128e18
+/* luna: Stores the requested MFP key index, clears a state byte, and dispatches the 0x800000 operation through a handler selected by the current state and fir */
 int mfp_key_update(int a1, uint16_t a2) {
   volatile uint8_t *v2; // r2
   volatile uint8_t *v3; // r3
@@ -737,6 +751,7 @@ int mfp_key_update(int a1, uint16_t a2) {
 
 
 // mfp_key_parse @ 0x128e4c
+/* luna: Checks a received frame against context-selected key bitmap bits and updates the associated MFP processing state. */
 unsigned int mfp_key_parse(unsigned int result, int a2, int a3) {
   int v3; // r3
   volatile uint32_t *v4; // r7
@@ -865,6 +880,7 @@ unsigned int mfp_key_parse(unsigned int result, int a2, int a3) {
 
 
 // mfp_key_disable @ 0x12903c
+/* luna: Updates the key’s control flags and stages MFP key data and event processing according to the result and follow-up mode. */
 int mfp_key_disable(int result, int a2, int a3) {
   volatile uint32_t *v3; // r6
   int v5; // r2
@@ -927,6 +943,7 @@ LABEL_8:
 
 
 // mfp_get_active @ 0x1290c8
+/* luna: When MFP is enabled, selects and caches the appropriate configuration for the supplied context while updating its protection flags. */
 void mfp_get_active(volatile uint16_t *a1, int16_t a2, int a3) {
   volatile uint8_t *v3; // r5
   uint16_t v4; // r6
@@ -993,6 +1010,7 @@ void mfp_get_active(volatile uint16_t *a1, int16_t a2, int a3) {
 
 
 // mfp_is_enabled @ 0x129194
+/* luna: Activates the MFP entry selected for a valid BSS context, records it as current, copies its associated data, and applies chip-specific setup. */
 void mfp_is_enabled(int a1) {
   volatile uint8_t *v1; // r2
   int v2; // r3
@@ -1040,6 +1058,7 @@ void mfp_is_enabled(int a1) {
 
 
 // chip_register_read @ 0x129254
+/* luna: Configures the hardware power-management registers for UPM entry according to the current power state and a register-derived timing value. */
 int chip_register_read() {
   volatile unsigned int *v0; // r12
   volatile int *v1; // r1
@@ -1113,6 +1132,7 @@ LABEL_6:
 
 
 // chip_register_set_bit @ 0x129388
+/* luna: Performs the PS UPM exit sequence by updating its control registers and conditionally clearing a power-save bit. */
 int chip_register_set_bit() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r1

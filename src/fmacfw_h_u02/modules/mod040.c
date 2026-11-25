@@ -1,4 +1,5 @@
 // sec_table_get @ 0x129b58
+/* luna: Computes the next strided security-table address from a supplied range, updates the cursor and remaining-entry state, and returns zero when no entry r */
 unsigned int sec_table_get(int a1, int a2, unsigned int a3, unsigned int a4) {
   unsigned int v4; // r6
   int v6; // r7
@@ -75,6 +76,7 @@ LABEL_14:
 
 
 // sec_table_lookup @ 0x129c28
+/* luna: Looks up a security-table entry, copies a nonzero result into the caller buffer, sets the byte at offset 16 to 1, and returns the result's low byte (o */
 int sec_table_lookup(int a1, int a2, unsigned int a3, unsigned int a4) {
   unsigned int v5; // r0
   uint8_t v6; // r4
@@ -91,6 +93,7 @@ int sec_table_lookup(int a1, int a2, unsigned int a3, unsigned int a4) {
 
 
 // sec_table_entry_count @ 0x129c48
+/* luna: Updates the indexed security-table record from an optional encoded security list, invalidating and reparsing cached RSN state when the list discrimina */
 int sec_table_entry_count(int result, int a2, unsigned int a3) {
   int v3; // r8
   int v4; // r9
@@ -222,6 +225,7 @@ LABEL_19:
 
 
 // rf_patch_init @ 0x129e04
+/* luna: Initializes security-table state by clearing one byte and setting two fields to the invalid sentinel value 0xFF. */
 volatile int *rf_patch_init() {
   volatile int *result; // r0
   volatile uint8_t *v1; // r3
@@ -236,15 +240,16 @@ volatile int *rf_patch_init() {
 
 
 // bt_is_ready @ 0x129e28
+/* luna: Allocates and initializes the first free one of two 140-byte Bluetooth connection contexts, returning its slot index or 0xFF if both are occupied. */
 int bt_is_ready(int a1, int a2) {
-  volatile char *v2; // r4
+  volatile char *context_table_base; // r4
   int v5; // r5
-  volatile char *v7; // r3
+  volatile char *slot_bytes; // r3
   int v8; // r1
   void *v9; // r0
-  int v10; // r8
+  int slot_index; // r8
   int v11; // r10
-  volatile int *v12; // r9
+  volatile int *slot_base; // r9
   int v13; // r2
   volatile uint8_t *v14; // r12
   int v15; // r0
@@ -252,65 +257,65 @@ int bt_is_ready(int a1, int a2) {
   int v17; // r4
   void *v18; // r1
 
-  v2 = (volatile char *)off_129EF8;
+  context_table_base = (volatile char *)off_129EF8;
   if ( *((volatile uint8_t *)off_129EF8 + 113) == 255 )
   {
     v5 = 0;
-    v10 = 0;
+    slot_index = 0;
     v11 = 48;
-    v12 = (volatile int *)off_129EF8;
+    slot_base = (volatile int *)off_129EF8;
   }
   else
   {
     if ( *((volatile uint8_t *)off_129EF8 + 253) != 255 )
       return 255;
     v5 = 1;
-    v10 = 1;
+    slot_index = 1;
     v11 = 188;
-    v12 = (volatile int *)((volatile char *)off_129EF8 + 140);
+    slot_base = (volatile int *)((volatile char *)off_129EF8 + 140);
   }
-  memset(v12, 0, 0x8Cu);
-  v7 = &v2[140 * v10];
-  v7[113] = a1;
-  v7[112] = a2;
+  memset(slot_base, 0, 0x8Cu);
+  slot_bytes = &context_table_base[140 * slot_index];
+  slot_bytes[113] = a1;
+  slot_bytes[112] = a2;
   if ( a2 == 1 )
   {
     v13 = dword_129F04;
     v14 = (void *)(uintptr_t)(off_129F08);
-    v7[66] = 1;
+    slot_bytes[66] = 1;
     v15 = v13 + 1320 * a1;
     v13 = (v13 & ~0xFFu) | ((uint8_t)(*v14) & 0xFFu);
     v16 = *(volatile uint32_t *)(v15 + 4);
-    v7[133] = 1;
-    *((volatile uint32_t *)v7 + 14) = (int)(uintptr_t)(&v2[v11]);
+    slot_bytes[133] = 1;
+    *((volatile uint32_t *)slot_bytes + 14) = (int)(uintptr_t)(&context_table_base[v11]);
     v17 = dword_129EFC;
     *(volatile uint32_t *)(v15 + 4) = v16 | 0x20;
     v18 = (void *)(uintptr_t)(off_129F00);
-    *((volatile uint32_t *)v7 + 2) = (int)(uintptr_t)(v12);
-    v7[17] = v5;
-    v7[65] = v5;
-    *((volatile uint32_t *)v7 + 26) = (int)(uintptr_t)(v12);
+    *((volatile uint32_t *)slot_bytes + 2) = (int)(uintptr_t)(slot_base);
+    slot_bytes[17] = v5;
+    slot_bytes[65] = v5;
+    *((volatile uint32_t *)slot_bytes + 26) = (int)(uintptr_t)(slot_base);
     *v14 = v13 + 1;
-    *((volatile uint32_t *)v7 + 1) = v17;
-    *((volatile uint32_t *)v7 + 13) = v17;
-    v7[18] = 0;
-    *((volatile uint32_t *)v7 + 25) = (int)(uintptr_t)(v18);
+    *((volatile uint32_t *)slot_bytes + 1) = v17;
+    *((volatile uint32_t *)slot_bytes + 13) = v17;
+    slot_bytes[18] = 0;
+    *((volatile uint32_t *)slot_bytes + 25) = (int)(uintptr_t)(v18);
   }
   else
   {
     v8 = dword_129EFC;
     v9 = (void *)(uintptr_t)(off_129F00);
-    *((volatile uint32_t *)v7 + 14) = (int)(uintptr_t)(&v2[v11]);
-    *((volatile uint32_t *)v7 + 2) = (int)(uintptr_t)(v12);
-    v7[17] = v5;
-    v7[65] = v5;
-    *((volatile uint32_t *)v7 + 26) = (int)(uintptr_t)(v12);
-    *((volatile uint32_t *)v7 + 1) = v8;
-    *((volatile uint32_t *)v7 + 13) = v8;
-    v7[18] = 0;
-    v7[66] = 1;
-    v7[133] = 1;
-    *((volatile uint32_t *)v7 + 25) = (int)(uintptr_t)(v9);
+    *((volatile uint32_t *)slot_bytes + 14) = (int)(uintptr_t)(&context_table_base[v11]);
+    *((volatile uint32_t *)slot_bytes + 2) = (int)(uintptr_t)(slot_base);
+    slot_bytes[17] = v5;
+    slot_bytes[65] = v5;
+    *((volatile uint32_t *)slot_bytes + 26) = (int)(uintptr_t)(slot_base);
+    *((volatile uint32_t *)slot_bytes + 1) = v8;
+    *((volatile uint32_t *)slot_bytes + 13) = v8;
+    slot_bytes[18] = 0;
+    slot_bytes[66] = 1;
+    slot_bytes[133] = 1;
+    *((volatile uint32_t *)slot_bytes + 25) = (int)(uintptr_t)(v9);
   }
   return v5;
 }
@@ -318,6 +323,7 @@ int bt_is_ready(int a1, int a2) {
 
 
 // bt_get_conn_role @ 0x129f0c
+/* luna: For a valid connection slot, decrements the global count when offset 112 is 1 and, when requested, marks offset 113 as invalid. */
 int bt_get_conn_role(int result, int a2) {
   int v2; // r2
   int v3; // r3
@@ -346,6 +352,7 @@ LABEL_4:
 
 
 // bt_scan_start @ 0x129f50
+/* luna: When the selected security context is enabled and parsing is not suppressed, clears its marked subrecords and transient state bytes, then calls `rsn_p */
 volatile uint8_t * bt_scan_start(volatile uint8_t *result, int a2) {
   int v2; // r5
   int v3; // r7
@@ -390,6 +397,7 @@ volatile uint8_t * bt_scan_start(volatile uint8_t *result, int a2) {
 
 
 // bt_get_conn_channel @ 0x129fec
+/* luna: Returns the channel byte stored in the connection entry for the given connection index. */
 int bt_get_conn_channel(int a1) {
   return *(volatile uint8_t *)(dword_129FFC + 140 * a1 + 133);
 }
@@ -397,6 +405,7 @@ int bt_get_conn_channel(int a1) {
 
 
 // rf_check_trim @ 0x12a000
+/* luna: Conditionally performs an IRQ/MMIO operation, reads the selected 140-byte trim record's words at offsets 128 and 124 into the output pointers, and ret */
 unsigned int rf_check_trim(int a1, volatile uint32_t *a2, volatile uint32_t *a3) {
   int v6; // r3
   int v7; // r0
@@ -413,6 +422,7 @@ unsigned int rf_check_trim(int a1, volatile uint32_t *a2, volatile uint32_t *a3)
 
 
 // rf_check_cal_state @ 0x12a058
+/* luna: Returns the indexed calibration result, combining the two result words in state 1, returning the primary word in state 2, and otherwise returning zero */
 int rf_check_cal_state(int a1, unsigned int a2) {
   volatile int16_t **v2; // r6
   int v5; // r2
@@ -477,6 +487,7 @@ LABEL_15:
 
 
 // bt_scan_poll @ 0x12a144
+/* luna: Processes a pending scan-result entry, copying buffered payload into the entry and invoking RSN IE parsing when appropriate. */
 volatile uint8_t * bt_scan_poll(volatile uint8_t *result, int a2) {
   int v2; // r2
   int v3; // r7
@@ -518,6 +529,7 @@ volatile uint8_t * bt_scan_poll(volatile uint8_t *result, int a2) {
 
 
 // bt_get_conn_ptr @ 0x12a1dc
+/* luna: Selects the connection record indexed by the caller's context, clears byte 134, and passes the record to the RSN IE parser. */
 volatile uint8_t * bt_get_conn_ptr(int a1) {
   volatile uint8_t *v1; // r0
 
@@ -529,20 +541,21 @@ volatile uint8_t * bt_get_conn_ptr(int a1) {
 
 
 // bt_scan_stop @ 0x12a204
+/* luna: Searches a received 802.11 management frame for a P2P vendor IE containing the Notice of Absence attribute and forwards that attribute to the NoA hand */
 unsigned int bt_scan_stop(volatile uint8_t *a1, int a2, int a3) {
-  unsigned int v3; // r4
+  unsigned int noa_attr; // r4
   unsigned int v5; // r0
-  int v8; // r7
-  volatile uint8_t *v9; // r3
-  unsigned int v10; // r7
-  int v11; // r5
-  int v12; // r2
+  int frame; // r7
+  volatile uint8_t *ie_cursor; // r3
+  unsigned int ies_end; // r7
+  int ie_length; // r5
+  int ie_id; // r2
   volatile uint8_t *v13; // r4
-  unsigned int v14; // r5
+  unsigned int attribute_end; // r5
 
-  v3 = (uint8_t)a1[1224];
+  noa_attr = (uint8_t)a1[1224];
   if ( !a1[1224] )
-    return v3;
+    return noa_attr;
   if ( !a1[106] )
   {
     v5 = (uint8_t)a1[1225];
@@ -551,45 +564,45 @@ unsigned int bt_scan_stop(volatile uint8_t *a1, int a2, int a3) {
       irq_disable_mmio_write(dword_12A2AC, dword_12A2B0, 1420);
       v5 = (uint8_t)a1[1225];
     }
-    v8 = *(volatile uint32_t *)(a2 + 8);
-    v9 = (volatile uint8_t *)(v8 + 36);
-    v10 = v8 + *(volatile uint16_t *)(a3 + 28);
-    if ( (unsigned int)v9 < v10 )
+    frame = *(volatile uint32_t *)(a2 + 8);
+    ie_cursor = (volatile uint8_t *)(frame + 36);
+    ies_end = frame + *(volatile uint16_t *)(a3 + 28);
+    if ( (unsigned int)ie_cursor < ies_end )
     {
       while ( 1 )
       {
-        v11 = v9[1];
-        v12 = *v9;
-        v13 = v9;
-        v9 += v11 + 2;
-        if ( v12 == 221 && v13[5] == 9 )
+        ie_length = ie_cursor[1];
+        ie_id = *ie_cursor;
+        v13 = ie_cursor;
+        ie_cursor += ie_length + 2;
+        if ( ie_id == 221 && v13[5] == 9 )
         {
-          v3 = (unsigned int)(v13 + 6);
-          v14 = v3 + (uint16_t)(v11 - 4);
-          if ( v3 < v14 )
+          noa_attr = (unsigned int)(v13 + 6);
+          attribute_end = noa_attr + (uint16_t)(ie_length - 4);
+          if ( noa_attr < attribute_end )
           {
-            while ( *(volatile uint8_t *)v3 != 12 )
+            while ( *(volatile uint8_t *)noa_attr != 12 )
             {
-              v3 += *(volatile uint16_t *)(v3 + 1) + 3;
-              if ( v14 <= v3 )
+              noa_attr += *(volatile uint16_t *)(noa_attr + 1) + 3;
+              if ( attribute_end <= noa_attr )
                 goto LABEL_6;
             }
-            if ( v3 )
+            if ( noa_attr )
               break;
           }
         }
 LABEL_6:
-        if ( v10 <= (unsigned int)v9 )
+        if ( ies_end <= (unsigned int)ie_cursor )
           goto LABEL_19;
       }
     }
     else
     {
 LABEL_19:
-      v3 = 0;
+      noa_attr = 0;
     }
-    sec_table_entry_count(v5, v3, *(volatile uint32_t *)(*(volatile uint32_t *)(*(volatile uint32_t *)(a3 + 8) + 8) + 24));
-    return v3;
+    sec_table_entry_count(v5, noa_attr, *(volatile uint32_t *)(*(volatile uint32_t *)(*(volatile uint32_t *)(a3 + 8) + 8) + 24));
+    return noa_attr;
   }
   return 0;
 }

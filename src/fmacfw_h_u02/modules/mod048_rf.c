@@ -1,17 +1,18 @@
 // rf_calibration_proc @ 0x130030
+/* luna: Drains queued console commands, validates their argument counts against command descriptors, invokes the matching handlers, and releases each processe */
 int rf_calibration_proc(int a1, int a2) {
-  volatile int *v2; // r6
+  volatile int *lock_depth_ptr; // r6
   int v3; // r0
   int result; // r0
-  int v5; // r4
+  int queued_command; // r4
   int v6; // r3
   int v7; // r2
-  volatile uint8_t **v8; // r7
-  int v9; // r5
+  volatile uint8_t **command_table; // r7
+  int argument_count; // r5
   int v10; // r0
   int v11; // r3
   int v12; // r2
-  volatile uint8_t **v13; // r0
+  volatile uint8_t **command_entry; // r0
   int v14; // r0
   volatile uint8_t *a1a[18]; // [sp+4h] [bp-48h] BYREF
 
@@ -20,16 +21,16 @@ int rf_calibration_proc(int a1, int a2) {
     __disable_irq();
     *(volatile uint32_t *)off_130120 = 1;
   }
-  v2 = (volatile int *)off_130124;
+  lock_depth_ptr = (volatile int *)off_130124;
   v3 = dword_130128;
   ++*(volatile uint32_t *)off_130124;
   result = (int)list_pop(v3);
-  v5 = result;
-  if ( *v2 )
+  queued_command = result;
+  if ( *lock_depth_ptr )
   {
-    v6 = *v2 - 1;
+    v6 = *lock_depth_ptr - 1;
     v7 = *(volatile uint32_t *)off_130120;
-    *v2 = v6;
+    *lock_depth_ptr = v6;
     if ( !v6 )
     {
       if ( v7 )
@@ -38,22 +39,22 @@ int rf_calibration_proc(int a1, int a2) {
   }
   if ( result )
   {
-    v8 = (volatile uint8_t **)off_13012C;
+    command_table = (volatile uint8_t **)off_13012C;
     do
     {
-      v9 = skip_leading_spaces((volatile uint8_t *)(v5 + 4), (int)a1a);
-      if ( v9 )
+      argument_count = skip_leading_spaces((volatile uint8_t *)(queued_command + 4), (int)a1a);
+      if ( argument_count )
       {
-        v13 = (void *)(split_on_dot((int)(uintptr_t)(a1a[0]), (void *)(v8), 7));
-        if ( v13 )
+        command_entry = (void *)(split_on_dot((int)(uintptr_t)(a1a[0]), (void *)(command_table), 7));
+        if ( command_entry )
         {
-          if ( *((volatile int16_t *)v13 + 5) < v9 || *((volatile int16_t *)v13 + 4) > v9 )
+          if ( *((volatile int16_t *)command_entry + 5) < argument_count || *((volatile int16_t *)command_entry + 4) > argument_count )
           {
-            debug_printf(aUsageSS, *v13, v13[1]);
+            debug_printf(aUsageSS, *command_entry, command_entry[1]);
           }
           else
           {
-            v14 = ((int ( *)(int, volatile uint8_t **))v13[3])(v9, a1a);
+            v14 = ((int ( *)(int, volatile uint8_t **))command_entry[3])(argument_count, a1a);
             if ( v14 )
               debug_printf("Command fail, ret=%d\r\n", v14);
           }
@@ -74,15 +75,15 @@ int rf_calibration_proc(int a1, int a2) {
         *(volatile uint32_t *)off_130120 = 1;
       }
       v10 = dword_130138;
-      ++*v2;
-      wlan_ioctl_handler_1(v10, (volatile uint32_t *)v5);
+      ++*lock_depth_ptr;
+      wlan_ioctl_handler_1(v10, (volatile uint32_t *)queued_command);
       result = (int)list_pop(dword_130128);
-      v5 = result;
-      if ( *v2 )
+      queued_command = result;
+      if ( *lock_depth_ptr )
       {
-        v11 = *v2 - 1;
+        v11 = *lock_depth_ptr - 1;
         v12 = *(volatile uint32_t *)off_130120;
-        *v2 = v11;
+        *lock_depth_ptr = v11;
         if ( !v11 )
         {
           if ( v12 )
@@ -97,6 +98,7 @@ int rf_calibration_proc(int a1, int a2) {
 
 
 // mmio_register_access @ 0x130148
+/* luna: Polls the radio status until its ready bit is set or a lock succeeds in state 4, invoking RF calibration when the calibration flag is nonzero. */
 void mmio_register_access() {
   volatile uint32_t *v0; // r4
   unsigned int v1; // r0
@@ -120,30 +122,32 @@ void mmio_register_access() {
 
 
 // compare_calibration_levels @ 0x130184
+/* luna: Moves the current XTAL capacitor value one step toward its target and logs the adjustment. */
 unsigned int compare_calibration_levels() {
-  volatile uint8_t *v0; // r4
+  volatile uint8_t *calibration_state; // r4
   unsigned int result; // r0
-  unsigned int v2; // r3
-  uint8_t v3; // r0
+  unsigned int target_xtal_cap; // r3
+  uint8_t adjusted_xtal_cap; // r0
 
-  v0 = (volatile uint8_t *)off_1301B0;
+  calibration_state = (volatile uint8_t *)off_1301B0;
   result = *((volatile uint8_t *)off_1301B0 + 6);
-  v2 = *((volatile uint8_t *)off_1301B0 + 5);
-  if ( result != v2 )
+  target_xtal_cap = *((volatile uint8_t *)off_1301B0 + 5);
+  if ( result != target_xtal_cap )
   {
-    if ( result >= v2 )
-      v3 = result - 1;
+    if ( result >= target_xtal_cap )
+      adjusted_xtal_cap = result - 1;
     else
-      v3 = result + 1;
-    *((volatile uint8_t *)off_1301B0 + 6) = v3;
-    padding_data(v3);
-    return alloc_tx_event("\x9D\x89""adjust xtal_cap: tgt=0x%x, cur=0x%x\n", v0[5], v0[6]);
+      adjusted_xtal_cap = result + 1;
+    *((volatile uint8_t *)off_1301B0 + 6) = adjusted_xtal_cap;
+    padding_data(adjusted_xtal_cap);
+    return alloc_tx_event("\x9D\x89""adjust xtal_cap: tgt=0x%x, cur=0x%x\n", calibration_state[5], calibration_state[6]);
   }
   return result;
 }
 
 
 // rf_temp_compensation @ 0x1301b8
+/* luna: Computes six calibration-table deltas between the requested level and the stored level, saves them in the RF state, and refreshes calibration values. */
 int rf_temp_compensation(int a1) {
   volatile uint8_t *v1; // r3
   int v2; // r2
@@ -186,6 +190,7 @@ int rf_temp_compensation(int a1) {
 
 
 // fw_version_get @ 0x130230
+/* luna: Calls the hardware block reset routine and returns its status. */
 int fw_version_get() {
   return hw_block_reset();
 }
@@ -193,6 +198,7 @@ int fw_version_get() {
 
 
 // rf_power_adjust @ 0x130234
+/* luna: Returns the cached signed RF status when valid, otherwise resets the hardware block and returns its polled status. */
 int rf_power_adjust() {
   if ( *((volatile uint8_t *)off_13025C + 1) )
     return *((volatile char *)off_13025C + 3);
@@ -203,36 +209,38 @@ int rf_power_adjust() {
 
 
 // rf_tx_power_lookup @ 0x130260
+/* luna: Logs the current temperature-compensation, crystal-capacitance, RF offset, and RF control settings. */
 int rf_tx_power_lookup() {
-  volatile uint8_t *v0; // r4
-  int v1; // r4
-  int v2; // r0
-  int v4; // [sp+14h] [bp-4h]
+  volatile uint8_t *calibration_state; // r4
+  int settings_enabled; // r4
+  int active_state; // r0
+  int timer_setting; // [sp+14h] [bp-4h]
 
-  v0 = (volatile uint8_t *)off_1302D8;
+  calibration_state = (volatile uint8_t *)off_1302D8;
   alloc_tx_event(
     "temp_comp: init=%d, en=%d, lvl_cal=%d, t_last=%d C\n",
     *(volatile char *)off_1302D8,
     *((volatile char *)off_1302D8 + 1),
     *((volatile char *)off_1302D8 + 2),
     *((volatile char *)off_1302D8 + 3));
-  alloc_tx_event("xtal_cap: cal=0x%x, tgt=0x%x, cur=0x%x\n", v0[4], v0[5], v0[6]);
+  alloc_tx_event("xtal_cap: cal=0x%x, tgt=0x%x, cur=0x%x\n", calibration_state[4], calibration_state[5], calibration_state[6]);
   alloc_tx_event(
     "ofst2x: 2G4=%d,%d,%d; 5G=%d,%d,%d\n",
-    (char)v0[8],
-    (char)v0[9],
-    (char)v0[10],
-    (char)v0[11],
-    (char)v0[12],
-    (char)v0[13]);
-  v1 = HIBYTE(((volatile uint32_t *)(uintptr_t)off_1302E8)[90]);
-  v4 = ((volatile uint32_t *)(uintptr_t)off_1302E8)[91];
-  v2 = rf_get_state_1(1070, 1);
-  return alloc_tx_event("settings: en=%d, tmr=%d, act=%d\n", v1, v4, v2);
+    (char)calibration_state[8],
+    (char)calibration_state[9],
+    (char)calibration_state[10],
+    (char)calibration_state[11],
+    (char)calibration_state[12],
+    (char)calibration_state[13]);
+  settings_enabled = HIBYTE(((volatile uint32_t *)(uintptr_t)off_1302E8)[90]);
+  timer_setting = ((volatile uint32_t *)(uintptr_t)off_1302E8)[91];
+  active_state = rf_get_state_1(1070, 1);
+  return alloc_tx_event("settings: en=%d, tmr=%d, act=%d\n", settings_enabled, timer_setting, active_state);
 }
 
 
 // check_frame_len @ 0x1302f0
+/* luna: Maps a temperature reading to a clamped compensation bucket, adjusts the configured TX-power level by the bucket’s calibration delta, and conditionall */
 int check_frame_len(int a1) {
   signed int v1; // r0
   int v2; // r3
@@ -263,25 +271,27 @@ int check_frame_len(int a1) {
 
 
 // rf_timer_toggle_start @ 0x130370
+/* luna: Reads and logs the current RF temperature, updates the cached value and triggers a check when it changes by more than four degrees, then compares cali */
 int rf_timer_toggle_start() {
-  int v0; // s15
-  int v1; // r3
+  int current_temperature; // s15
+  int temperature_delta; // r3
 
-  v0 = (int)COERCE_FLOAT(hw_poll_status());
-  alloc_tx_event("\x9D\x89t=%d C\n", v0);
-  v1 = (char)v0 - *((volatile char *)off_1303B4 + 3);
-  if ( v1 < 0 )
-    v1 = *((volatile char *)off_1303B4 + 3) - (char)v0;
-  if ( v1 > 4 )
+  current_temperature = (int)COERCE_FLOAT(hw_poll_status());
+  alloc_tx_event("\x9D\x89t=%d C\n", current_temperature);
+  temperature_delta = (char)current_temperature - *((volatile char *)off_1303B4 + 3);
+  if ( temperature_delta < 0 )
+    temperature_delta = *((volatile char *)off_1303B4 + 3) - (char)current_temperature;
+  if ( temperature_delta > 4 )
   {
-    *((volatile uint8_t *)off_1303B4 + 3) = v0;
-    check_frame_len((char)v0);
+    *((volatile uint8_t *)off_1303B4 + 3) = current_temperature;
+    check_frame_len((char)current_temperature);
   }
   return compare_calibration_levels();
 }
 
 
 // read_global_signed_flag @ 0x1303b8
+/* luna: Loads RF calibration values from the RF or SMC interface once, clamps them to supported ranges, and caches them with the current RF status. */
 void read_global_signed_flag(int a1, int a2) {
   volatile uint8_t *v2; // r4
   int v3; // r2
@@ -366,26 +376,27 @@ LABEL_7:
 
 
 // set_flag_send_event_42e @ 0x130474
+/* luna: Marks the xtal-cap adjustment loop active, applies the configured target when the cached RF value differs, and schedules the next check. */
 int set_flag_send_event_42e() {
-  volatile uint8_t *v0; // r4
+  volatile uint8_t *xtal_cap_state; // r4
   int result; // r0
-  int v2; // r0
+  int target_xtal_cap; // r0
   int v3; // r2
 
-  v0 = (void *)(uintptr_t)(off_1304CC);
+  xtal_cap_state = (void *)(uintptr_t)(off_1304CC);
   *((volatile uint8_t *)off_1304CC + 1) = 1;
   result = rf_get_state_1(1070, 1);
   if ( !result )
   {
     hw_block_reset();
-    v0[6] = rf_get_status();
+    xtal_cap_state[6] = rf_get_status();
     rf_timer_toggle_start();
-    v2 = (uint8_t)v0[5];
-    if ( (uint8_t)v0[6] != v2 )
+    target_xtal_cap = (uint8_t)xtal_cap_state[5];
+    if ( (uint8_t)xtal_cap_state[6] != target_xtal_cap )
     {
-      padding_data(v2);
-      v3 = (uint8_t)v0[5];
-      v0[6] = v3;
+      padding_data(target_xtal_cap);
+      v3 = (uint8_t)xtal_cap_state[5];
+      xtal_cap_state[6] = v3;
       alloc_tx_event("\x9D\x89""adjust xtal_cap: tgt=0x%x, cur=0x%x\n", v3, v3);
     }
     return ke_event_handler(1070, 1, 1000 * ((volatile uint32_t *)(uintptr_t)off_1304D0)[91]);
@@ -395,6 +406,7 @@ int set_flag_send_event_42e() {
 
 
 // clear_flag_send_event_42e @ 0x1304d8
+/* luna: Clears a flag byte, then invokes the invalid-state handler if the RF-state check for 0x42E returns nonzero. */
 int clear_flag_send_event_42e() {
   int result; // r0
 
@@ -408,6 +420,7 @@ int clear_flag_send_event_42e() {
 
 
 // write_dash_header @ 0x130500
+/* luna: Writes a 28-byte DASH header from template data, patches its control word, and advances the caller's output cursor by 28 bytes. */
 int write_dash_header(volatile int *a1) {
   volatile char *v1; // r4
   int16_t v2; // r3
@@ -457,6 +470,7 @@ int write_dash_header(volatile int *a1) {
 
 
 // write_hash_header @ 0x130580
+/* luna: Builds a hash-tagged test header with optional configuration- and rate-dependent fields, then advances the output buffer cursor. */
 volatile char * write_hash_header(int a1) {
   int v1; // r2
   volatile uint16_t *v2; // r5
@@ -549,32 +563,34 @@ volatile char * write_hash_header(int a1) {
 
 
 // write_bf_header @ 0x130658
+/* luna: Writes a 14-byte BF header and its template fields at the current output cursor, advances the cursor, and returns 14. */
 int write_bf_header(int a1) {
-  volatile uint32_t *v2; // r1
-  volatile uint16_t *v3; // r2
+  volatile uint32_t *header_template; // r1
+  volatile uint16_t *header_out; // r2
   int16_t v4; // r6
   int16_t v5; // r5
   int16_t v6; // r4
 
-  v2 = (void *)(uintptr_t)(off_130690);
+  header_template = (void *)(uintptr_t)(off_130690);
   **(volatile uint8_t **)a1 = -65;
   *(volatile uint8_t *)(*(volatile uint32_t *)a1 + 1) = 12;
-  *(volatile uint32_t *)(*(volatile uint32_t *)a1 + 2) = v2[12];
-  v3 = *(volatile uint16_t **)a1;
-  v4 = *((volatile uint16_t *)v2 + 26);
-  v5 = *((volatile uint16_t *)v2 + 27);
-  v6 = *((volatile uint16_t *)v2 + 28);
-  v3[6] = *((volatile uint16_t *)v2 + 29);
-  v3[3] = v4;
-  v3[4] = v5;
-  v3[5] = v6;
-  *(volatile uint32_t *)a1 = (int)(uintptr_t)(v3 + 7);
+  *(volatile uint32_t *)(*(volatile uint32_t *)a1 + 2) = header_template[12];
+  header_out = *(volatile uint16_t **)a1;
+  v4 = *((volatile uint16_t *)header_template + 26);
+  v5 = *((volatile uint16_t *)header_template + 27);
+  v6 = *((volatile uint16_t *)header_template + 28);
+  header_out[6] = *((volatile uint16_t *)header_template + 29);
+  header_out[3] = v4;
+  header_out[4] = v5;
+  header_out[5] = v6;
+  *(volatile uint32_t *)a1 = (int)(uintptr_t)(header_out + 7);
   return 14;
 }
 
 
 
 // write_f5p_header @ 0x130694
+/* luna: Writes the seven-byte `F5p\0\0\0\0` header at the output cursor, advances the cursor, and returns 7. */
 int write_f5p_header(int a1) {
   **(volatile uint8_t **)a1 = 70;
   *(volatile uint8_t *)(*(volatile uint32_t *)a1 + 1) = 5;
@@ -590,6 +606,7 @@ int write_f5p_header(int a1) {
 
 
 // store_four_halfwords @ 0x1306c4
+/* luna: Writes three 16-bit header fields and, when a payload is supplied, appends the 0x8010 marker and 128 payload bytes, returning the number of bytes writ */
 int store_four_halfwords(int a1, int16_t a2, int16_t a3, int16_t a4, volatile char *a5) {
   volatile char *v5; // r2
   volatile uint8_t *v6; // r3
@@ -616,6 +633,7 @@ int store_four_halfwords(int a1, int16_t a2, int16_t a3, int16_t a4, volatile ch
 
 
 // store_half_return_two @ 0x1306f8
+/* luna: Writes a 16-bit value to the destination and returns the number of bytes written (2). */
 int store_half_return_two(volatile uint16_t *a1, int16_t a2) {
   *a1 = a2;
   return 2;
@@ -624,6 +642,7 @@ int store_half_return_two(volatile uint16_t *a1, int16_t a2) {
 
 
 // ampdu_negotiate_params @ 0x130700
+/* luna: Builds an AMPDU negotiation parameter block from PHY configuration, station flags, optional parameters, and per-link settings. */
 int ampdu_negotiate_params(volatile uint8_t *a1, int a2, volatile uint16_t *a3, int a4, volatile uint32_t *a5, volatile uint16_t *a6, int a7) {
   int v8; // r5
   int16_t v9; // r7
@@ -1028,19 +1047,20 @@ LABEL_17:
 
 
 // build_addba_request @ 0x130bd4
+/* luna: Serializes a 9-byte 802.11 ADDBA Request action body from block-ack parameters and returns its length. */
 int build_addba_request(int a1, int a2) {
-  int16_t v2; // r3
-  int16_t v3; // r4
-  int16_t v4; // r2
+  int16_t tid; // r3
+  int16_t ba_policy; // r4
+  int16_t buffer_size; // r2
 
   *(volatile uint8_t *)a1 = 3;
   *(volatile uint8_t *)(a1 + 1) = 0;
   *(volatile uint8_t *)(a1 + 2) = *(volatile uint8_t *)(a2 + 23);
-  v2 = *(volatile uint8_t *)(a2 + 22);
-  v3 = *(volatile uint8_t *)(a2 + 18);
-  v4 = *(volatile uint16_t *)(a2 + 20);
+  tid = *(volatile uint8_t *)(a2 + 22);
+  ba_policy = *(volatile uint8_t *)(a2 + 18);
+  buffer_size = *(volatile uint16_t *)(a2 + 20);
   *(volatile uint16_t *)(a1 + 5) = *(volatile uint16_t *)(a2 + 14);
-  *(volatile uint16_t *)(a1 + 3) = (4 * v2) | (2 * v3) | (v4 << 6);
+  *(volatile uint16_t *)(a1 + 3) = (4 * tid) | (2 * ba_policy) | (buffer_size << 6);
   *(volatile uint16_t *)(a1 + 7) = 16 * *(volatile uint16_t *)(a2 + 12);
   return 9;
 }
@@ -1048,6 +1068,7 @@ int build_addba_request(int a1, int a2) {
 
 
 // build_addba_response @ 0x130c0c
+/* luna: Serializes a 9-byte ADDBA response action body, applying the configured BA policy and copying the agreement timeout only on success. */
 int build_addba_response(int a1, int a2, int16_t a3, char a4, int16_t a5) {
   volatile uint8_t *v5; // r4
 
@@ -1074,26 +1095,28 @@ int build_addba_response(int a1, int a2, int16_t a3, char a4, int16_t a5) {
 
 
 // build_delba @ 0x130c50
+/* luna: Builds a DELBA action frame body containing the TID, initiator flag, and reason code. */
 int build_delba(int a1, int a2, int16_t a3) {
-  int16_t v3; // r3
-  int v4; // r1
-  int16_t v5; // r3
+  int16_t tid; // r3
+  int initiator_flag; // r1
+  int16_t delba_parameters; // r3
 
   *(volatile uint8_t *)a1 = 3;
   *(volatile uint8_t *)(a1 + 1) = 2;
-  v3 = *(volatile uint8_t *)(a2 + 22);
-  v4 = *(volatile uint8_t *)(a2 + 17);
+  tid = *(volatile uint8_t *)(a2 + 22);
+  initiator_flag = *(volatile uint8_t *)(a2 + 17);
   *(volatile uint16_t *)(a1 + 4) = a3;
-  v5 = v3 << 12;
-  if ( v4 == 1 )
-    v5 |= 0x800u;
-  *(volatile uint16_t *)(a1 + 2) = v5;
+  delba_parameters = tid << 12;
+  if ( initiator_flag == 1 )
+    delba_parameters |= 0x800u;
+  *(volatile uint16_t *)(a1 + 2) = delba_parameters;
   return 6;
 }
 
 
 
 // handle_addba_request @ 0x130c78
+/* luna: Copies qualifying bytes from two validated ranges into the output list and stores the copied count in output[0]. */
 volatile uint8_t * handle_addba_request(volatile uint8_t *a1, int a2, volatile uint8_t *a3) {
   volatile uint8_t *result; // r0
   int v7; // r4
@@ -1162,6 +1185,7 @@ volatile uint8_t * handle_addba_request(volatile uint8_t *a1, int a2, volatile u
 
 
 // addba_request_ack @ 0x130d04
+/* luna: Copies byte 2 of the lookup result, or zero if no result is found, to the caller’s byte at offset 216 and returns that value. */
 volatile uint8_t * addba_request_ack(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
 
@@ -1175,33 +1199,34 @@ volatile uint8_t * addba_request_ack(volatile uint8_t *a1, int a2, int a3) {
 
 
 // handle_addba_response @ 0x130d18
+/* luna: Finds the country-information triplet covering the channel record’s channel and stores that triplet’s maximum transmit power in the record. */
 volatile uint8_t * handle_addba_response(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
-  int v5; // r5
+  int target_channel; // r5
   int v6; // r3
-  char v7; // r6
-  int v8; // r2
-  int v9; // r3
-  int v10; // r1
+  char channel_step; // r6
+  int triplet_offset; // r2
+  int candidate_channel; // r3
+  int channel_index; // r1
   int v11; // zf
   uint8_t v12[5]; // [sp+7h] [bp-5h] BYREF
 
   result = check_buf_range_12d818(a1, a2, v12);
   if ( result )
   {
-    v5 = *(volatile uint8_t *)(a3 + 164);
+    target_channel = *(volatile uint8_t *)(a3 + 164);
     if ( *(volatile uint8_t *)(a3 + 164) )
     {
-      if ( v5 == 1 && (uint16_t)(*(volatile uint16_t *)(a3 + 166) - 5005) <= 0x370u )
+      if ( target_channel == 1 && (uint16_t)(*(volatile uint16_t *)(a3 + 166) - 5005) <= 0x370u )
       {
-        v5 = (uint8_t)((unsigned int)(((unsigned int)dword_130DE4
+        target_channel = (uint8_t)((unsigned int)(((unsigned int)dword_130DE4
                                              * (uint64_t)((unsigned int)*(volatile uint16_t *)(a3 + 166) - 5000)) >> 32) >> 2);
-        v7 = 4;
+        channel_step = 4;
       }
       else
       {
-        v5 = 0;
-        v7 = 4;
+        target_channel = 0;
+        channel_step = 4;
       }
     }
     else
@@ -1209,46 +1234,46 @@ volatile uint8_t * handle_addba_response(volatile uint8_t *a1, int a2, int a3) {
       v6 = *(volatile uint16_t *)(a3 + 166);
       if ( (unsigned int)(v6 - 2412) > 0x48 )
       {
-        v7 = 1;
+        channel_step = 1;
       }
       else
       {
-        v5 = v6 == 2484
+        target_channel = v6 == 2484
            ? 14
            : (uint8_t)((unsigned int)(((unsigned int)dword_130DE4 * (uint64_t)(unsigned int)(v6 - 2407)) >> 32) >> 2);
-        v7 = 1;
+        channel_step = 1;
       }
     }
     v12[0] += 2;
     if ( v12[0] > 7u )
     {
-      v8 = 5;
+      triplet_offset = 5;
       do
       {
-        v9 = (uint8_t)result[v8];
-        if ( result[v8 + 1] )
+        candidate_channel = (uint8_t)result[triplet_offset];
+        if ( result[triplet_offset + 1] )
         {
-          if ( v9 == v5 )
+          if ( candidate_channel == target_channel )
           {
 LABEL_7:
-            *(volatile uint8_t *)(a3 + 172) = result[v8 + 2];
+            *(volatile uint8_t *)(a3 + 172) = result[triplet_offset + 2];
             return result;
           }
-          v10 = 0;
+          channel_index = 0;
           while ( 1 )
           {
-            v11 = v10 == (uint8_t)(result[v8 + 1] - 1);
-            v9 = (uint8_t)(v9 + v7);
-            ++v10;
+            v11 = channel_index == (uint8_t)(result[triplet_offset + 1] - 1);
+            candidate_channel = (uint8_t)(candidate_channel + channel_step);
+            ++channel_index;
             if ( v11 )
               break;
-            if ( v9 == v5 )
+            if ( candidate_channel == target_channel )
               goto LABEL_7;
           }
         }
-        v8 = (uint8_t)(v8 + 3);
+        triplet_offset = (uint8_t)(triplet_offset + 3);
       }
-      while ( v12[0] > v8 + 2 );
+      while ( v12[0] > triplet_offset + 2 );
     }
   }
   return result;
@@ -1257,6 +1282,7 @@ LABEL_7:
 
 
 // delba_ack @ 0x130de8
+/* luna: Looks up a block-ack agreement and copies its 16-bit and 8-bit fields to the destination, clearing both fields if no entry is found. */
 volatile uint8_t * delba_ack(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
 
@@ -1277,6 +1303,7 @@ volatile uint8_t * delba_ack(volatile uint8_t *a1, int a2, int a3) {
 
 
 // handle_ampdu_action @ 0x130e10
+/* luna: Parses a channel number and optional secondary-channel offset, then populates the output band and frequency fields. */
 int handle_ampdu_action(volatile uint8_t *a1, int a2, volatile uint8_t *a3, int a4) {
   unsigned int v8; // r7
   unsigned int v9; // r0
@@ -1284,10 +1311,10 @@ int handle_ampdu_action(volatile uint8_t *a1, int a2, volatile uint8_t *a3, int 
   volatile uint8_t *v11; // r9
   volatile uint8_t *v12; // r0
   int v13; // r5
-  unsigned int v14; // r3
+  unsigned int channel_number; // r3
   unsigned int v15; // r2
-  int16_t v16; // r3
-  int v18; // r2
+  int16_t channel_frequency_mhz; // r3
+  int secondary_offset_mode; // r2
   int v19; // [sp+7h] [bp-1h] BYREF
 
   v8 = (unsigned int)check_buf_range_12d8f8(a1, a2);
@@ -1311,23 +1338,23 @@ int handle_ampdu_action(volatile uint8_t *a1, int a2, volatile uint8_t *a3, int 
   {
     v13 = *(volatile uint8_t *)(v8 + 4);
     *a3 = *(volatile uint8_t *)(v8 + 2);
-    v14 = *(volatile uint8_t *)(v8 + 3);
+    channel_number = *(volatile uint8_t *)(v8 + 3);
   }
   else
   {
     v13 = (uint8_t)v10[5];
     *a3 = v10[2];
-    v14 = (uint8_t)v10[4];
+    channel_number = (uint8_t)v10[4];
   }
   if ( !v13 )
     v13 = 2;
-  *(volatile uint8_t *)a4 = v14 > 0xE;
-  v15 = v14 - 1;
-  if ( v14 > 0xE )
+  *(volatile uint8_t *)a4 = channel_number > 0xE;
+  v15 = channel_number - 1;
+  if ( channel_number > 0xE )
   {
     if ( (uint8_t)v15 <= 0xB0u )
     {
-      v16 = 5 * v14 + 5000;
+      channel_frequency_mhz = 5 * channel_number + 5000;
       goto LABEL_17;
     }
     goto LABEL_23;
@@ -1335,29 +1362,29 @@ int handle_ampdu_action(volatile uint8_t *a1, int a2, volatile uint8_t *a3, int 
   if ( v15 > 0xD )
   {
 LABEL_23:
-    v16 = 0;
+    channel_frequency_mhz = 0;
     goto LABEL_17;
   }
-  if ( v14 == 14 )
-    v16 = 2484;
+  if ( channel_number == 14 )
+    channel_frequency_mhz = 2484;
   else
-    v16 = 5 * v14 + 2407;
+    channel_frequency_mhz = 5 * channel_number + 2407;
 LABEL_17:
-  *(volatile uint16_t *)(a4 + 2) = v16;
-  *(volatile uint16_t *)(a4 + 4) = v16;
+  *(volatile uint16_t *)(a4 + 2) = channel_frequency_mhz;
+  *(volatile uint16_t *)(a4 + 4) = channel_frequency_mhz;
   *(volatile uint8_t *)(a4 + 1) = 0;
   *(volatile uint16_t *)(a4 + 6) = 0;
   if ( v11 )
   {
-    v18 = (uint8_t)v11[2];
-    if ( v18 == 1 )
+    secondary_offset_mode = (uint8_t)v11[2];
+    if ( secondary_offset_mode == 1 )
     {
-      *(volatile uint16_t *)(a4 + 4) = v16 + 10;
+      *(volatile uint16_t *)(a4 + 4) = channel_frequency_mhz + 10;
       *(volatile uint8_t *)(a4 + 1) = 1;
     }
-    else if ( v18 == 3 )
+    else if ( secondary_offset_mode == 3 )
     {
-      *(volatile uint16_t *)(a4 + 4) = v16 - 10;
+      *(volatile uint16_t *)(a4 + 4) = channel_frequency_mhz - 10;
       *(volatile uint8_t *)(a4 + 1) = 1;
       if ( !v12 )
         goto LABEL_21;
@@ -1376,6 +1403,7 @@ LABEL_21:
 
 
 // ampdu_action_complete @ 0x130f1c
+/* luna: Looks up a rate-table record, refreshes the cached rate parameters when its low-nibble ID changes, and reports the refresh through `changed`; on looku */
 volatile uint8_t * ampdu_action_complete(volatile uint8_t *a1, int a2, int a3, volatile uint8_t *a4) {
   volatile uint8_t *result; // r0
   uint8_t v7; // r2
@@ -1420,6 +1448,7 @@ volatile uint8_t * ampdu_action_complete(volatile uint8_t *a1, int a2, int a3, v
 
 
 // table_read_le16 @ 0x130fc0
+/* luna: Looks up a record using the supplied key, copies selected fields into the output buffer, and returns whether the record was found. */
 int table_read_le16(volatile uint8_t *a1, int a2, int a3) {
   int result; // r0
   int v5; // r3
@@ -1451,6 +1480,7 @@ int table_read_le16(volatile uint8_t *a1, int a2, int a3) {
 
 
 // table_read_caps @ 0x131008
+/* luna: Looks up a table record, copies its 32-bit and four 16-bit values to the output buffer, and returns 1 when a record is found. */
 volatile uint8_t * table_read_caps(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
   int16_t v5; // r1
@@ -1484,6 +1514,7 @@ volatile uint8_t * table_read_caps(volatile uint8_t *a1, int a2, int a3) {
 
 
 // rate_info_query @ 0x131044
+/* luna: Looks up a rate-info record, copies its fixed fields to the caller buffer, and copies optional 16-bit fields when their flags are set and the record i */
 int rate_info_query(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *v4; // r0
   unsigned int v5; // r6
@@ -1557,6 +1588,7 @@ LABEL_8:
 
 
 // get_hw_timestamp @ 0x1310f0
+/* luna: Looks up a timestamp value in the supplied data and stores it at offset 220 of the destination, using 0x80000000 when no value is found. */
 volatile uint8_t * get_hw_timestamp(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
   char v5; // [sp+7h] [bp-1h] BYREF
@@ -1572,6 +1604,7 @@ volatile uint8_t * get_hw_timestamp(volatile uint8_t *a1, int a2, int a3) {
 
 
 // get_adv_report @ 0x131118
+/* luna: Returns whether a report is available, refreshing the cached payload and setting the change flag only when the report tag's low nibble differs from th */
 int get_adv_report(volatile uint8_t *a1, int a2, int a3, volatile uint8_t *a4) {
   int result; // r0
   char v7; // r2
@@ -1611,6 +1644,7 @@ int get_adv_report(volatile uint8_t *a1, int a2, int a3, volatile uint8_t *a4) {
 
 
 // decode_adv_type @ 0x131170
+/* luna: Searches the input buffer for an advertising record, extracts two 3-bit fields from byte 3 of the match, and writes fallback values if no match is fou */
 volatile uint8_t * decode_adv_type(volatile uint8_t *a1, int a2, volatile uint8_t *a3) {
   volatile uint8_t *result; // r0
   unsigned int v5; // r3
@@ -1634,6 +1668,7 @@ volatile uint8_t * decode_adv_type(volatile uint8_t *a1, int a2, volatile uint8_
 
 
 // hci_send_cmd @ 0x131198
+/* luna: Applies the requested low-power mode and filter setting to firmware state and hardware. */
 int hci_send_cmd(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v7; // r1
   volatile int *v8; // r3

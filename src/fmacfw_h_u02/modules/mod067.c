@@ -1,4 +1,5 @@
 // rx_process_packet_3 @ 0x13caac
+/* luna: Authenticates and decrypts an 802.11 receive frame using the AES key in the security context. */
 uint64_t rx_process_packet_3(int a1, volatile uint16_t *a2, int a3, int a4, int a5) {
   volatile char *v9; // r6
   int v10; // r5
@@ -224,6 +225,7 @@ LABEL_25:
 
 
 // bt_parse_ll_header @ 0x13cd38
+/* luna: Selects or advances the LL-header index using connection-specific bounds and eligibility bitmaps. */
 unsigned int bt_parse_ll_header(int a1, unsigned int a2) {
   unsigned int v2; // r2
   int v3; // nf
@@ -340,6 +342,7 @@ LABEL_29:
 
 
 // bt_get_conn_interval @ 0x13ceb0
+/* luna: Scans the connection entries, updates a scheduling flag, and computes the interval using the selected entry and timing values. */
 int bt_get_conn_interval(int result, volatile uint32_t *a2) {
   unsigned int v2; // r6
   int v3; // r7
@@ -584,6 +587,7 @@ LABEL_47:
 
 
 // bt_validate_ll_control @ 0x13d11c
+/* luna: Returns whether a packed link-layer control descriptor satisfies the connection context's bitmask and per-field range restrictions. */
 int bt_validate_ll_control(int a1, unsigned int a2) {
   int result; // r0
   int v3; // r2
@@ -749,6 +753,7 @@ LABEL_5:
 
 
 // mac_clear_flag_and_check @ 0x13d33c
+/* luna: Clears bit 2 of the state flags, then restores it when the count, indexed-record status, or selected-record checks meet their thresholds, returning wh */
 int mac_clear_flag_and_check(int a1) {
   char v1; // r5
   unsigned int v2; // r3
@@ -820,6 +825,7 @@ LABEL_10:
 
 
 // mac_parse_fcf @ 0x13d40c
+/* luna: Adjusts an encoded MAC transmit-rate selector to a supported rate, using configured fallback settings when needed. */
 int mac_parse_fcf(int a1, unsigned int a2) {
   int v4; // r5
   int16_t v5; // r0
@@ -939,6 +945,7 @@ LABEL_13:
 
 
 // tx_prepare @ 0x13d554
+/* luna: Selects a hash-determined allowed transmit-rate setting from the configuration and packs the selected mode and flags into a 16-bit rate code. */
 int tx_prepare(int a1) {
   int v2; // r0
   int v3; // r1
@@ -1227,6 +1234,7 @@ LABEL_40:
 
 
 // phy_validate_rate_params @ 0x13d950
+/* luna: Validates a packed rate entry against the current PHY mode and capability limits, reporting unsupported combinations through the firmware error path. */
 int phy_validate_rate_params(int a1, int a2) {
   unsigned int v2; // r4
   unsigned int v3; // r2
@@ -1677,65 +1685,66 @@ LABEL_71:
 
 
 // rx_get_length @ 0x13e090
+/* luna: Bubble-sorts 12-byte RX entries and their parallel 32-bit keys in ascending order, using each entry’s byte-9 marker to break ties when adjacent keys a */
 int rx_get_length(int result, int a2) {
-  unsigned int v2; // r11
-  int v4; // r9
-  int v5; // r5
+  unsigned int sort_limit; // r11
+  int entries; // r9
+  int scan_index; // r5
   int v6; // r7
-  volatile uint32_t *v7; // r4
-  unsigned int v8; // r6
-  unsigned int v9; // r1
+  volatile uint32_t *key_cursor; // r4
+  unsigned int entry_cursor; // r6
+  unsigned int last_swap_index; // r1
   int64_t v10; // r2
   unsigned int v11; // t1
   int64_t v12; // kr00_8
-  uint8_t v13[52]; // [sp+4h] [bp-34h] BYREF
+  uint8_t entry_temp[52]; // [sp+4h] [bp-34h] BYREF
 
   if ( *(volatile uint16_t *)(result + 184) )
   {
-    v2 = (uint16_t)(*(volatile uint16_t *)(result + 184) - 1);
-    v4 = result + 16;
-    if ( v2 > 1 )
+    sort_limit = (uint16_t)(*(volatile uint16_t *)(result + 184) - 1);
+    entries = result + 16;
+    if ( sort_limit > 1 )
     {
       do
       {
-        v5 = 1;
+        scan_index = 1;
         v6 = 1;
-        v7 = (volatile uint32_t *)(a2 + 4);
-        v8 = v4;
-        v9 = 0;
+        key_cursor = (volatile uint32_t *)(a2 + 4);
+        entry_cursor = entries;
+        last_swap_index = 0;
         do
         {
           while ( 1 )
           {
-            v10 = (v10 & ~0xFFFFFFFFull) | ((uint32_t)(*v7) & 0xFFFFFFFFu);
-            v11 = v7[1];
-            ++v7;
+            v10 = (v10 & ~0xFFFFFFFFull) | ((uint32_t)(*key_cursor) & 0xFFFFFFFFu);
+            v11 = key_cursor[1];
+            ++key_cursor;
             v10 = (v10 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v11) << 32);
-            if ( (unsigned int)v10 > v11 || !v10 && !*(volatile uint8_t *)(v8 + 9) && *(volatile uint8_t *)(v8 + 21) == 1 )
+            if ( (unsigned int)v10 > v11 || !v10 && !*(volatile uint8_t *)(entry_cursor + 9) && *(volatile uint8_t *)(entry_cursor + 21) == 1 )
               break;
-            v6 = (uint16_t)++v5;
-            v8 += 12;
-            if ( (uint16_t)v5 >= v2 )
+            v6 = (uint16_t)++scan_index;
+            entry_cursor += 12;
+            if ( (uint16_t)scan_index >= sort_limit )
               goto LABEL_10;
           }
-          memmove((unsigned int)v13, v8, 0xCu);
-          memmove(v8, v8 + 12, 0xCu);
-          result = memmove(v8 + 12, (unsigned int)v13, 0xCu);
-          ++v5;
-          v12 = *(volatile uint64_t *)(v7 - 1);
-          v9 = v6;
-          v6 = (uint16_t)v5;
-          *(v7 - 1) = HIDWORD(v12);
-          *v7 = v12;
-          v8 += 12;
+          memmove((unsigned int)entry_temp, entry_cursor, 0xCu);
+          memmove(entry_cursor, entry_cursor + 12, 0xCu);
+          result = memmove(entry_cursor + 12, (unsigned int)entry_temp, 0xCu);
+          ++scan_index;
+          v12 = *(volatile uint64_t *)(key_cursor - 1);
+          last_swap_index = v6;
+          v6 = (uint16_t)scan_index;
+          *(key_cursor - 1) = HIDWORD(v12);
+          *key_cursor = v12;
+          entry_cursor += 12;
         }
-        while ( (uint16_t)v5 < v2 );
+        while ( (uint16_t)scan_index < sort_limit );
 LABEL_10:
-        if ( !v9 )
+        if ( !last_swap_index )
           break;
-        v2 = v9;
+        sort_limit = last_swap_index;
       }
-      while ( v9 > 1 );
+      while ( last_swap_index > 1 );
     }
   }
   return result;
@@ -1743,6 +1752,7 @@ LABEL_10:
 
 
 // util_read_halfword @ 0x13e130
+/* luna: When the denominator at offset 0 is nonzero, initializes or updates the averaged ratio at offset 4 and resets the zero-denominator counter; otherwise, */
 volatile uint16_t * util_read_halfword(volatile uint16_t *result) {
   unsigned int v1; // r3
   int v2; // r1
@@ -1781,6 +1791,7 @@ volatile uint16_t * util_read_halfword(volatile uint16_t *result) {
 
 
 // mac_is_state_5b @ 0x13e180
+/* luna: Encodes the RX PHY format and its rate-related fields into the firmware's packed rate identifier. */
 int mac_is_state_5b(volatile uint8_t *a1) {
   int result; // r0
   unsigned int v2; // r3
@@ -1834,6 +1845,7 @@ LABEL_15:
 
 
 // rx_process @ 0x13e1e8
+/* luna: Processes Bluetooth RX records by decoding packet-format-specific control words and validating candidate LL control commands. */
 int rx_process(int a1) {
   int v1; // r4
   int v3; // r8
@@ -1985,6 +1997,7 @@ LABEL_25:
 
 
 // rx_check_pending @ 0x13e3a0
+/* luna: Reconciles RX slot cursors with the recorded sequence when pending is set, otherwise reads the current slot and clears per-slot status words. */
 int rx_check_pending(int a1) {
   char v1; // r6
   int v2; // r5
@@ -2075,6 +2088,7 @@ LABEL_7:
 
 
 // mac_handle_command @ 0x13e494
+/* luna: Processes a MAC command for the indexed context, clearing bit 13 of the frame-control word and applying context-dependent interrupt gating. */
 unsigned int mac_handle_command(int a1, unsigned int a2, unsigned int a3, int a4, int a5) {
   unsigned int result; // r0
   int v8; // r1
@@ -2517,6 +2531,7 @@ LABEL_21:
 
 
 // rf_check_irq @ 0x13e9a0
+/* luna: Checks the status word for either trigger flag and dispatches the encoded command range to the MAC command handler when set. */
 unsigned int rf_check_irq(unsigned int result) {
   unsigned int v1; // r2
 
@@ -2529,6 +2544,7 @@ unsigned int rf_check_irq(unsigned int result) {
 
 
 // mac_call_command @ 0x13e9cc
+/* luna: Calls mac_handle_command with the unsigned difference a2 - a3, a fixed mode value of 1, and forwards a1 and a4. */
 unsigned int mac_call_command(int a1, unsigned int a2, int a3, int a4) {
   return mac_handle_command(a1, a2, a2 - a3, 1, a4);
 }
@@ -2536,6 +2552,7 @@ unsigned int mac_call_command(int a1, unsigned int a2, int a3, int a4) {
 
 
 // mac_extract_fcf @ 0x13e9e0
+/* luna: Decodes the PHY rate and format fields in a descriptor and returns the corresponding table-derived rate value. */
 unsigned int mac_extract_fcf(int a1) {
   unsigned int v1; // r3
   int v2; // r1
@@ -2603,6 +2620,7 @@ LABEL_7:
 
 
 // rf_check_flag @ 0x13eb30
+/* luna: Honors channel-selection guards and countdowns, then selects an eligible channel from the configured range when dynamic selection is enabled. */
 int rf_check_flag(int a1) {
   char v1; // r3
   int result; // r0
@@ -2955,6 +2973,7 @@ LABEL_24:
 
 
 // phy_get_channel_config @ 0x13ef7c
+/* luna: Processes the context stored in an indexed MAC entry and sets that entry’s bit 0 after RX and interval handling. */
 int phy_get_channel_config(int a1) {
   volatile int16_t **v1; // r7
   int v2; // r6
@@ -2998,6 +3017,7 @@ LABEL_3:
 
 
 // phy_get_channel_data @ 0x13f03c
+/* luna: Updates the cached channel parameters and either marks the PHY state or applies the channel configuration when they change. */
 int phy_get_channel_data(int a1, unsigned int a2, unsigned int a3) {
   volatile int16_t **v3; // r8
   int v4; // r3
@@ -3034,6 +3054,7 @@ int phy_get_channel_data(int a1, unsigned int a2, unsigned int a3) {
 
 
 // phy_set_channel_2 @ 0x13f104
+/* luna: Stores the interface’s channel setting and, when nonzero, refreshes associated channel-entry metadata and dependent receive and connection parameters. */
 int phy_set_channel_2(int a1, int a2) {
   int result; // r0
   unsigned int v4; // r11
@@ -3143,27 +3164,29 @@ LABEL_18:
 
 
 // rf_set_mode @ 0x13f278
+/* luna: Writes the requested mode and applicable 0x400 configuration flag to four consecutive RF control registers. */
 int rf_set_mode(int result, unsigned int a2) {
   int v2; // r2
-  volatile uint32_t *v3; // r4
-  int v4; // r3
+  volatile uint32_t *rf_registers; // r4
+  int control_word; // r3
 
   if ( a2 > 3 )
     v2 = 0;
   else
     v2 = *(volatile uint16_t *)(result + 348) & 0x400;
-  v3 = *(volatile uint32_t **)(result + 336);
-  v4 = v2 | a2 | 0x20000000;
-  v3[5] = v4;
-  v3[6] = v4;
-  v3[7] = v4;
-  v3[8] = v4;
+  rf_registers = *(volatile uint32_t **)(result + 336);
+  control_word = v2 | a2 | 0x20000000;
+  rf_registers[5] = control_word;
+  rf_registers[6] = control_word;
+  rf_registers[7] = control_word;
+  rf_registers[8] = control_word;
   return result;
 }
 
 
 
 // rx_validate_fcf @ 0x13f2a4
+/* luna: Validates an RX frame-control value against receiver policy and delegates applicable cases to link-layer control validation. */
 BOOL rx_validate_fcf(volatile uint8_t *a1, unsigned int a2) {
   unsigned int v2; // r3
   unsigned int v3; // r2
@@ -3254,6 +3277,7 @@ LABEL_21:
 
 
 // util_find_magic @ 0x13f370
+/* luna: Computes a scaled metric from an indexed MAC record using an FCF-derived value and optionally applies a lookup-table correction. */
 unsigned int util_find_magic(int a1, int a2, int a3) {
   int v3; // r1
   int v4; // r3
@@ -3346,6 +3370,7 @@ LABEL_7:
 
 
 // l2c_ccb_prepare @ 0x13f490
+/* luna: Updates per-slot RX bookkeeping, clears transient state, and checks for pending RX work. */
 int l2c_ccb_prepare(int a1, int a2) {
   volatile uint16_t *v2; // r5
   volatile uint16_t *v3; // r9

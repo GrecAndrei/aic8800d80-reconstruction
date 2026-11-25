@@ -1,4 +1,5 @@
 // ke_send_msg_6a @ 0x122be8
+/* luna: Sends the 0x6A PDU, resolves crystal-cap trims from efuse or user overrides, and applies the associated RF calibration values. */
 int ke_send_msg_6a(int a1, volatile int *a2, uint16_t a3, uint16_t a4) {
   int v5; // r4
   int v6; // r3
@@ -123,45 +124,47 @@ LABEL_11:
 
 
 // ke_send_msg_74 @ 0x122df0
+/* luna: Reads the device's six-byte MAC address from the RF or SMC source and sends it in a response packet. */
 int ke_send_msg_74(int a1, int a2, uint16_t a3, uint16_t a4) {
-  volatile uint8_t *v4; // r4
-  uint16_t v5; // r3
-  unsigned int v6; // r2
+  volatile uint8_t *response_payload; // r4
+  uint16_t mac_bytes_0_1; // r3
+  unsigned int mac_bytes_2_5; // r2
   struct __attribute__((packed)) { unsigned int v8; // [sp+0h] [bp-14h] BYREF
   unsigned int a2a; // [sp+4h] [bp-10h] BYREF
   unsigned int v10[3]; // [sp+8h] [bp-Ch] BYREF
   } _frame;
   _frame.v8 = 0;
   _frame.a2a = 0;
-  v4 = (volatile uint8_t *)tx_send_pdu(116, a4, a3, 6);
+  response_payload = (volatile uint8_t *)tx_send_pdu(116, a4, a3, 6);
   if ( (*(volatile uint32_t *)off_122E68 & 0x2000000) != 0 )
   {
     rf_cmd_8_write((void *)(&_frame.v8), &_frame.a2a);
-    v6 = _frame.v8;
-    v5 = _frame.a2a;
+    mac_bytes_2_5 = _frame.v8;
+    mac_bytes_0_1 = _frame.a2a;
   }
   else
   {
     memset((void *)(_frame.v10), 0, 6);
     send_smc_cmd_0x400000((int)_frame.v10);
-    v5 = __rev16(LOWORD(_frame.v10[0]));
-    v6 = bswap32(*(volatile unsigned int *)((volatile char *)_frame.v10 + 2));
-    _frame.v8 = v6;
-    _frame.a2a = v5;
+    mac_bytes_0_1 = __rev16(LOWORD(_frame.v10[0]));
+    mac_bytes_2_5 = bswap32(*(volatile unsigned int *)((volatile char *)_frame.v10 + 2));
+    _frame.v8 = mac_bytes_2_5;
+    _frame.a2a = mac_bytes_0_1;
   }
-  v4[1] = v5;
-  v4[5] = v6;
-  *v4 = HIBYTE(v5);
-  v4[3] = BYTE2(v6);
-  v4[2] = HIBYTE(v6);
-  v4[4] = BYTE1(v6);
-  alloc_tx_event(aGetMacaddrXX, HIBYTE(v5), (uint8_t)v6, HIBYTE(v6), _frame.v8, _frame.a2a);
-  rx_process_packet_1((int)v4);
+  response_payload[1] = mac_bytes_0_1;
+  response_payload[5] = mac_bytes_2_5;
+  *response_payload = HIBYTE(mac_bytes_0_1);
+  response_payload[3] = BYTE2(mac_bytes_2_5);
+  response_payload[2] = HIBYTE(mac_bytes_2_5);
+  response_payload[4] = BYTE1(mac_bytes_2_5);
+  alloc_tx_event(aGetMacaddrXX, HIBYTE(mac_bytes_0_1), (uint8_t)mac_bytes_2_5, HIBYTE(mac_bytes_2_5), _frame.v8, _frame.a2a);
+  rx_process_packet_1((int)response_payload);
   return 0;
 }
 
 
 // ke_send_msg_7c @ 0x122e70
+/* luna: Builds and submits message 0x7C with vendor information and a cached radio-mode flag while updating state for a driver start or stop. */
 int ke_send_msg_7c(int a1, volatile uint8_t *a2, uint16_t a3, uint16_t a4) {
   volatile uint8_t *v5; // r5
   int v6; // r2
@@ -222,6 +225,7 @@ int ke_send_msg_7c(int a1, volatile uint8_t *a2, uint16_t a3, uint16_t a4) {
 
 
 // rf_calib_table_lookup @ 0x122f40
+/* luna: Caches the request word in a context-indexed table, applies selector-specific overrides when enabled, and writes MAC header word 27. */
 int rf_calib_table_lookup(int a1, int a2, int a3, int a4) {
   unsigned int v4; // r4
   int v5; // r6
@@ -296,6 +300,7 @@ int rf_calib_table_lookup(int a1, int a2, int a3, int a4) {
 
 
 // ke_send_msg_81 @ 0x12301c
+/* luna: Builds a type-0x81 PDU containing the fixed 36-byte template and submits it to the receive-packet processor. */
 int ke_send_msg_81(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v4; // r4
   int v5; // r1
@@ -315,6 +320,7 @@ int ke_send_msg_81(int a1, int a2, int a3, int a4) {
 
 
 // ke_send_msg_85 @ 0x123054
+/* luna: Sends a confirmation containing the Wi-Fi disable state derived from the inverted bit 16 of a register value. */
 int ke_send_msg_85(int a1, int a2, uint16_t a3, uint16_t a4) {
   volatile uint8_t *v4; // r4
   unsigned int v5; // r0
@@ -331,6 +337,7 @@ int ke_send_msg_85(int a1, int a2, uint16_t a3, uint16_t a4) {
 
 
 // ke_send_msg_88 @ 0x123094
+/* luna: Dispatches firmware control opcodes for BCMC TIM ignore, thermal-compensation control, and extended flags, then passes the response PDU to packet proc */
 int ke_send_msg_88(int a1, volatile uint32_t *a2, uint16_t a3, uint16_t a4) {
   int v5; // r6
   int v6; // r0
@@ -427,6 +434,7 @@ LABEL_3:
 
 
 // bt_patch_apply @ 0x1231b0
+/* luna: Processes an MM resume-response buffer by iterating its listed sub-message IDs, locating recognized payloads, and skipping unknown IDs. */
 int bt_patch_apply(int a1, int a2, int a3, int a4) {
   int v6; // r8
   int v7; // r9
@@ -605,6 +613,7 @@ LABEL_9:
 
 
 // ke_send_msg_54 @ 0x12343c
+/* luna: Builds and dispatches a connection-PHY response, marking it failed for an invalid or inactive connection and selecting the PHY getter from the request */
 int ke_send_msg_54(int a1, volatile uint8_t *a2) {
   volatile uint8_t *v3; // r0
   volatile uint8_t *v4; // r4
@@ -632,6 +641,7 @@ LABEL_5:
 
 
 // parse_subframe_header @ 0x123490
+/* luna: Builds an RX-processing request and adjusts its enable byte using connection timing-match or readiness checks. */
 int parse_subframe_header(int a1, volatile uint8_t *a2) {
   volatile uint8_t *v3; // r0
   volatile uint8_t *v4; // r4
@@ -674,6 +684,7 @@ LABEL_6:
 
 
 // util_read_u8 @ 0x123528
+/* luna: Reads one byte from the input buffer and passes it with the 16-bit argument to the MFP key update routine. */
 int util_read_u8(int a1, volatile uint8_t *a2, int a3, uint16_t a4) {
   mfp_key_update(*a2, a4);
   return 0;
@@ -681,6 +692,7 @@ int util_read_u8(int a1, volatile uint8_t *a2, int a3, uint16_t a4) {
 
 
 // ke_msg_send @ 0x123538
+/* luna: Pushes the supplied item onto a kernel list and returns success. */
 int ke_msg_send(int a1, int a2) {
   co_list_push(a2);
   return 1;
@@ -689,6 +701,7 @@ int ke_msg_send(int a1, int a2) {
 
 
 // ke_event_schedule @ 0x123544
+/* luna: Sets the kernel event identified by the second argument and returns 1. */
 int ke_event_schedule(int a1, int a2) {
   ke_event_set(a2);
   return 1;
@@ -697,6 +710,7 @@ int ke_event_schedule(int a1, int a2) {
 
 
 // mac_data_request @ 0x123550
+/* luna: Runs the confirmation-event handler and, if a4 is nonzero, submits a three-byte response containing a2[0], the handler result, and the fixed value 4. */
 int mac_data_request(int a1, volatile uint8_t *a2, int a3, int a4) {
   char v7; // r0
   char v9; // r6
@@ -718,6 +732,7 @@ int mac_data_request(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // bt_parse_colon @ 0x123588
+/* luna: Looks up the BSS configuration identified by `*a2`, writes `a4` and `a3` to MAC header-word slot 58, and returns zero. */
 int bt_parse_colon(int a1, volatile uint8_t *a2, int a3, int a4) {
   bsscfg_get(*a2);
   mac_write_header_word(58, a4, a3);
@@ -727,6 +742,7 @@ int bt_parse_colon(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // rx_parse_hdr @ 0x1235a8
+/* luna: Checks the requested link and PHY transmit-power state, updates associated state when available, and sends a result response. */
 int rx_parse_hdr(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v5; // r6
   int v6; // r0
@@ -781,6 +797,7 @@ LABEL_4:
 
 
 // bt_parse_cr @ 0x123640
+/* luna: Sets the hop channel from the supplied byte and writes the supplied values to MAC header word 13. */
 int bt_parse_cr(int a1, volatile uint8_t *a2, int a3, int a4) {
   ll_channel_hop(*a2);
   mac_write_header_word(13, a4, a3);
@@ -790,6 +807,7 @@ int bt_parse_cr(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // rf_get_status_1 @ 0x123660
+/* luna: Reads an RF selector byte, conditionally checks it against a configured limit, invokes the RF version routine, and writes MAC header word 39. */
 int rf_get_status_1(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v7; // r0
 
@@ -810,6 +828,7 @@ LABEL_3:
 
 
 // ke_mem_alloc @ 0x1236b4
+/* luna: Builds and sends a response for a received BLE Link Layer control PDU, invoking its parser only when packet conditions and the opcode-specific enable  */
 int ke_mem_alloc(int a1, volatile uint8_t *a2, int a3, int a4) {
   volatile uint8_t *v5; // r0
   volatile int16_t **v6; // r6
@@ -863,6 +882,7 @@ LABEL_4:
 
 
 // trace_printf @ 0x123780
+/* luna: Updates a byte in the indexed instance context and allocates and sends a two-byte kernel message with ID 47. */
 int trace_printf(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v4; // r5
   int v6; // r0
@@ -881,6 +901,7 @@ int trace_printf(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // mem_copy_log @ 0x1237c0
+/* luna: Passes the supplied byte buffer to the global configuration setter, then issues command 110 with the two forwarded arguments. */
 int mem_copy_log(int a1, volatile uint8_t *a2, int a3, int a4) {
   set_global_config_bytes(a2);
   mac_write_header_word(110, a4, a3);
@@ -890,6 +911,7 @@ int mem_copy_log(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // mem_setup_log @ 0x1237e0
+/* luna: Aligns the supplied descriptor, checks the MU-EDCA feature flag, and writes the provided word at header offset 108. */
 int mem_setup_log(int a1, int a2, int a3, int a4) {
   rx_buf_align_desc(a2);
   check_feature_flag(256, aSetMuEdca);
@@ -899,6 +921,7 @@ int mem_setup_log(int a1, int a2, int a3, int a4) {
 
 
 // parse_parameter @ 0x12380c
+/* luna: Initializes the RF and platform context under an IRQ-protected nesting guard, restores saved global state, and performs final MAC/HCI setup calls. */
 int parse_parameter(int a1, int a2, int a3, int a4) {
   volatile int *v4; // r4
   volatile uint32_t *v5; // r5

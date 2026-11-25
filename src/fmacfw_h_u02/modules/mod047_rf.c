@@ -1,4 +1,5 @@
 // radio_init @ 0x12ebb8
+/* luna: Queues a USB-off TX event, invokes a handler with selector 0x42F, and clears bit 1 in a global state word. */
 int radio_init() {
   alloc_tx_event(aUsbOff);
   invalid_handler_12c5fc((int)(uintptr_t)((volatile char *)0x42F), 1);
@@ -8,6 +9,7 @@ int radio_init() {
 
 
 // pdu_alloc_410 @ 0x12ebe0
+/* luna: Prepares the 0x410 boot-NPC PDU, applies the request value to the slot selected by selector 1 or 2, and passes the cleared buffer to the RX processor. */
 int pdu_alloc_410(int a1, int a2, int a3, int a4) {
   int v5; // r0
   int v6; // r1
@@ -53,6 +55,7 @@ LABEL_5:
 
 
 // pdu_alloc_40a @ 0x12ec6c
+/* luna: Creates a zero-filled 12-byte PDU for opcode 0x40A, passes it to the packet processor, and returns zero. */
 int pdu_alloc_40a(int a1, int a2, int16_t a3, int16_t a4) {
   volatile uint32_t *v4; // r0
 
@@ -67,6 +70,7 @@ int pdu_alloc_40a(int a1, int a2, int16_t a3, int16_t a4) {
 
 
 // pdu_alloc_424 @ 0x12ec8c
+/* luna: Copies the supplied packet into a 0x424 PDU, capped at 1024 bytes, allocates a TX event, and submits the PDU to RX packet processing. */
 int pdu_alloc_424(int a1, volatile char **a2, int a3, int a4) {
   int v5; // r0
   volatile char *v6; // r1
@@ -89,6 +93,7 @@ int pdu_alloc_424(int a1, volatile char **a2, int a3, int a4) {
 
 
 // pdu_alloc_40c @ 0x12ecd4
+/* luna: Copies the request’s inline payload to its destination, queues an event describing the written range, and submits the allocated PDU for processing. */
 int pdu_alloc_40c(int a1, volatile uint32_t *a2, int a3, int a4) {
   volatile uint32_t *v5; // r5
   volatile char *v6; // r0
@@ -112,15 +117,16 @@ int pdu_alloc_40c(int a1, volatile uint32_t *a2, int a3, int a4) {
 
 
 // send_mcu_cmd_0x412 @ 0x12ed2c
+/* luna: Sends MCU command 0x412 to apply a masked write at the supplied address and report the resulting value. */
 int send_mcu_cmd_0x412(int a1, volatile uint32_t *a2, int a3, int a4) {
   volatile uint64_t *v5; // r0
-  int v6; // r5
-  volatile uint32_t *v7; // r0
+  int tx_payload; // r5
+  volatile uint32_t *target_address; // r0
   uint64_t v8; // r2
-  int v9; // r0
+  int result_value; // r0
 
   v5 = (volatile uint64_t *)tx_send_pdu(1042, a4, a3, 8);
-  v6 = (int)v5;
+  tx_payload = (int)v5;
   if ( (unsigned int)**(volatile uint8_t **)off_12EDE0 - 1 <= 1 )
   {
     v8 = (v8 & ~0xFFFFFFFFull) | ((uint32_t)(*a2) & 0xFFFFFFFFu);
@@ -129,34 +135,34 @@ int send_mcu_cmd_0x412(int a1, volatile uint32_t *a2, int a3, int a4) {
       *(volatile uint32_t *)v8 ^= (a2[2] ^ *(volatile uint32_t *)v8) & a2[1];
       v8 = (v8 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(a2[2]) << 32);
       v8 = (v8 & ~0xFFFFFFFFull) | ((uint32_t)(*a2) & 0xFFFFFFFFu);
-      v9 = HIDWORD(v8);
-      *(volatile uint64_t *)v6 = v8;
+      result_value = HIDWORD(v8);
+      *(volatile uint64_t *)tx_payload = v8;
     }
     else
     {
       v8 = (v8 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(a2[2]) << 32);
       *v5 = v8;
-      v9 = HIDWORD(v8);
+      result_value = HIDWORD(v8);
     }
   }
   else
   {
-    v7 = (volatile uint32_t *)*a2;
+    target_address = (volatile uint32_t *)*a2;
     if ( ((*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      mmio_rmw32((int)v7, a2[2], a2[1], 1);
-      v9 = mmio_read32_1(*a2, 1);
+      mmio_rmw32((int)target_address, a2[2], a2[1], 1);
+      result_value = mmio_read32_1(*a2, 1);
       v8 = (v8 & ~0xFFFFFFFFull) | ((uint32_t)(*a2) & 0xFFFFFFFFu);
     }
     else
     {
-      *v7 ^= (a2[2] ^ *v7) & a2[1];
+      *target_address ^= (a2[2] ^ *target_address) & a2[1];
       v8 = (v8 & ~0xFFFFFFFFull) | ((uint32_t)(*a2) & 0xFFFFFFFFu);
-      v9 = *(volatile uint32_t *)*a2;
+      result_value = *(volatile uint32_t *)*a2;
     }
-    *(volatile uint32_t *)(v6 + 4) = v9;
+    *(volatile uint32_t *)(tx_payload + 4) = result_value;
     v8 = (v8 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(a2[2]) << 32);
-    *(volatile uint32_t *)v6 = v8;
+    *(volatile uint32_t *)tx_payload = v8;
   }
   alloc_tx_event(
     "\x9D\x81""DBG: Writing memory with mask:0x%08x, data:0x%08x / %d: [0x%08x] = 0x%08x / %d\n",
@@ -164,44 +170,46 @@ int send_mcu_cmd_0x412(int a1, volatile uint32_t *a2, int a3, int a4) {
     HIDWORD(v8),
     HIDWORD(v8),
     (uint32_t)v8,
-    v9,
-    v9);
-  rx_process_packet_1(v6);
+    result_value,
+    result_value);
+  rx_process_packet_1(tx_payload);
   return 0;
 }
 
 
 // send_mcu_cmd_0x401 @ 0x12edec
+/* luna: Reads a 32-bit value from the requested address and returns the address/value pair in a 0x401 PDU. */
 int send_mcu_cmd_0x401(int a1, volatile uint32_t *a2, int a3, int a4) {
-  int v5; // r0
-  volatile int *v6; // r1
-  volatile int **v7; // r4
-  int v8; // r3
-  int v10; // r0
+  int response_pdu; // r0
+  volatile int *address; // r1
+  volatile int **response_payload; // r4
+  int read_value; // r3
+  int mmio_value; // r0
 
-  v5 = tx_send_pdu(1025, a4, a3, 8);
-  v6 = (volatile int *)*a2;
-  v7 = (volatile int **)v5;
+  response_pdu = tx_send_pdu(1025, a4, a3, 8);
+  address = (volatile int *)*a2;
+  response_payload = (volatile int **)response_pdu;
   if ( ((*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
   {
-    v10 = mmio_read32_1(*a2, 1);
-    v6 = (volatile int *)*a2;
-    v7[1] = (volatile int *)v10;
-    v8 = v10;
+    mmio_value = mmio_read32_1(*a2, 1);
+    address = (volatile int *)*a2;
+    response_payload[1] = (volatile int *)mmio_value;
+    read_value = mmio_value;
   }
   else
   {
-    v8 = *v6;
-    *(volatile uint32_t *)(v5 + 4) = *v6;
+    read_value = *address;
+    *(volatile uint32_t *)(response_pdu + 4) = *address;
   }
-  *v7 = v6;
-  alloc_tx_event("\x9D\x81""DBG: Reading memory: [0x%08x] = 0x%08x / %d\n", v6, v8, v8);
-  rx_process_packet_1((int)v7);
+  *response_payload = address;
+  alloc_tx_event("\x9D\x81""DBG: Reading memory: [0x%08x] = 0x%08x / %d\n", address, read_value, read_value);
+  rx_process_packet_1((int)response_payload);
   return 0;
 }
 
 
 // bt_global_op_0x16acb4 @ 0x12ee38
+/* luna: Sets the Bluetooth debug severity filter and updates the associated MAC header word. */
 int bt_global_op_0x16acb4(int a1, volatile uint32_t *a2, int a3, int a4) {
   alloc_tx_event("\x9D\x81""DBG: Setting severity filter: 0x%08x\n", *a2);
   *((volatile uint32_t *)off_12EE68 + 1) = *a2;
@@ -211,6 +219,7 @@ int bt_global_op_0x16acb4(int a1, volatile uint32_t *a2, int a3, int a4) {
 
 
 // bt_global_op_0x16acdc @ 0x12ee6c
+/* luna: Stores the requested Bluetooth module filter and writes the corresponding response header. */
 int bt_global_op_0x16acdc(int a1, volatile uint32_t *a2, int a3, int a4) {
   alloc_tx_event("\x9D\x81""DBG: Setting module filter: 0x%08x\n", *a2);
   *(volatile uint32_t *)off_12EE9C = *a2;
@@ -220,49 +229,51 @@ int bt_global_op_0x16acdc(int a1, volatile uint32_t *a2, int a3, int a4) {
 
 
 // send_mcu_cmd_0x403 @ 0x12eea0
+/* luna: Builds and dispatches MCU command 0x403 for a memory write, including the reported value or readback in its payload. */
 int send_mcu_cmd_0x403(int a1, volatile uint32_t *a2, int a3, int a4) {
   volatile int *v5; // r0
-  volatile int *v6; // r5
-  volatile uint32_t *v7; // r0
-  int v8; // r3
-  int v9; // r0
-  int v10; // r2
+  volatile int *command_payload; // r5
+  volatile uint32_t *target_address_ptr; // r0
+  int memory_address; // r3
+  int reported_value; // r0
+  int write_value; // r2
 
   v5 = (volatile int *)tx_send_pdu(1027, a4, a3, 8);
-  v6 = v5;
+  command_payload = v5;
   if ( (unsigned int)**(volatile uint8_t **)off_12EF18 - 1 <= 1 )
   {
-    v10 = a2[1];
-    v8 = *a2;
+    write_value = a2[1];
+    memory_address = *a2;
     *(volatile uint64_t *)v5 = *(volatile uint64_t *)a2;
-    v9 = v10;
+    reported_value = write_value;
   }
   else
   {
-    v7 = (volatile uint32_t *)*a2;
+    target_address_ptr = (volatile uint32_t *)*a2;
     if ( ((*a2 >> 20) & 0xFFFFFDFF) == 0x500 )
     {
-      mmio_read32_variant((int)v7, a2[1], 1);
-      v9 = mmio_read32_1(*a2, 1);
-      v8 = *a2;
+      mmio_read32_variant((int)target_address_ptr, a2[1], 1);
+      reported_value = mmio_read32_1(*a2, 1);
+      memory_address = *a2;
     }
     else
     {
-      *v7 = a2[1];
-      v8 = *a2;
-      v9 = *(volatile uint32_t *)*a2;
+      *target_address_ptr = a2[1];
+      memory_address = *a2;
+      reported_value = *(volatile uint32_t *)*a2;
     }
-    v6[1] = v9;
-    v10 = a2[1];
-    *v6 = v8;
+    command_payload[1] = reported_value;
+    write_value = a2[1];
+    *command_payload = memory_address;
   }
-  alloc_tx_event("\x9D\x81""DBG: Writing memory with 0x%08x / %d: [0x%08x] = 0x%08x / %d\n", v10, v10, v8, v9, v9);
-  rx_process_packet_1((int)v6);
+  alloc_tx_event("\x9D\x81""DBG: Writing memory with 0x%08x / %d: [0x%08x] = 0x%08x / %d\n", write_value, write_value, memory_address, reported_value, reported_value);
+  rx_process_packet_1((int)command_payload);
   return 0;
 }
 
 
 // bt_coex_check_state @ 0x12ef20
+/* luna: Alternates between firmware-version and RF-timer actions, rescheduling event 1070 after each phase. */
 int bt_coex_check_state() {
   volatile uint8_t *v0; // r5
   int v1; // r0
@@ -293,6 +304,7 @@ int bt_coex_check_state() {
 
 
 // event_sync @ 0x12ef88
+/* luna: Gets the PHY state, calls the RF frequency setter, and then enters an infinite loop. */
 void event_sync() {
   int v0; // r0
   int v1; // r1
@@ -307,6 +319,7 @@ void event_sync() {
 
 
 // send_event_42d @ 0x12ef94
+/* luna: Reports a WLAN flow-control timeout by creating a transmit event and synchronizing event 0x42D. */
 void send_event_42d() {
   volatile char *v0; // r0
 
@@ -317,6 +330,7 @@ void send_event_42d() {
 
 
 // send_event_42c @ 0x12efb0
+/* luna: Queues the reboot transmit event, synchronizes event 0x42C in mode 1, and passes the returned value to event_sync. */
 void send_event_42c() {
   volatile char *v0; // r0
 
@@ -327,6 +341,7 @@ void send_event_42c() {
 
 
 // send_mcu_cmd_0x40e @ 0x12efcc
+/* luna: Handles the 0x40E boot-mode test request, logs the selected mode, schedules a requested delay when applicable, and finalizes the response packet. */
 int send_mcu_cmd_0x40e(int a1, volatile int *a2, int a3, int a4) {
   int v5; // r0
   int v6; // r3
@@ -364,14 +379,15 @@ int send_mcu_cmd_0x40e(int a1, volatile int *a2, int a3, int a4) {
 
 
 // sub_12F054 @ 0x12f054
+/* luna: Logs TX queue pointers and status, selects a pending packet from the hardware status bits, and dumps its descriptor and packet data. */
 int sub_12F054() {
   volatile uint32_t *v0; // r4
-  volatile uint32_t *v1; // r10
-  volatile uint32_t *v2; // r6
-  volatile uint32_t *v3; // r7
-  volatile uint32_t *v4; // r8
-  volatile uint32_t *v5; // r9
-  volatile uint32_t *v6; // r5
+  volatile uint32_t *tx_list_cptr_reg; // r10
+  volatile uint32_t *ac0_sptr_reg; // r6
+  volatile uint32_t *ac1_sptr_reg; // r7
+  volatile uint32_t *ac2_sptr_reg; // r8
+  volatile uint32_t *ac3_sptr_reg; // r9
+  volatile uint32_t *hiq_sptr_reg; // r5
   int v7; // r0
   int v8; // r3
   volatile uint32_t *v9; // r7
@@ -381,20 +397,20 @@ int sub_12F054() {
   volatile uint32_t **v14; // r3
 
   v0 = (void *)(uintptr_t)(off_12F21C);
-  v1 = (void *)(uintptr_t)(off_12F2B8);
-  v2 = (void *)(uintptr_t)(off_12F220);
-  v3 = (void *)(uintptr_t)(off_12F224);
-  v4 = (void *)(uintptr_t)(off_12F2BC);
-  v5 = (void *)(uintptr_t)(off_12F2C0);
-  v6 = (void *)(uintptr_t)(off_12F228);
+  tx_list_cptr_reg = (void *)(uintptr_t)(off_12F2B8);
+  ac0_sptr_reg = (void *)(uintptr_t)(off_12F220);
+  ac1_sptr_reg = (void *)(uintptr_t)(off_12F224);
+  ac2_sptr_reg = (void *)(uintptr_t)(off_12F2BC);
+  ac3_sptr_reg = (void *)(uintptr_t)(off_12F2C0);
+  hiq_sptr_reg = (void *)(uintptr_t)(off_12F228);
   alloc_tx_event("\x9B""current state is %d\r\n", *(volatile uint32_t *)off_12F214 & 0xF);
   alloc_tx_event("\x9B""40328188=%08x, 4032818c=%x\r\n", *v0, *(volatile uint32_t *)off_12F22C);
-  alloc_tx_event("txlist cptr 40128540=%08x \r\n", *v1);
-  alloc_tx_event("ac0 sptr 40328528=%08x \r\n", *v2);
-  alloc_tx_event("ac1 sptr 4032852c=%08x \r\n", *v3);
-  alloc_tx_event("ac2 sptr 40328530=%08x \r\n", *v4);
-  alloc_tx_event("ac3 sptr 40328534=%08x \r\n", *v5);
-  alloc_tx_event("hiq sptr 4032853c=%08x \r\n", *v6);
+  alloc_tx_event("txlist cptr 40128540=%08x \r\n", *tx_list_cptr_reg);
+  alloc_tx_event("ac0 sptr 40328528=%08x \r\n", *ac0_sptr_reg);
+  alloc_tx_event("ac1 sptr 4032852c=%08x \r\n", *ac1_sptr_reg);
+  alloc_tx_event("ac2 sptr 40328530=%08x \r\n", *ac2_sptr_reg);
+  alloc_tx_event("ac3 sptr 40328534=%08x \r\n", *ac3_sptr_reg);
+  alloc_tx_event("hiq sptr 4032853c=%08x \r\n", *hiq_sptr_reg);
   alloc_tx_event(
     "\x9B""ac0header=%08x, ac1header=%08x, ac2header=%08x, ac3header=%08x, hiqheader=%x\r\n",
     *(volatile uint32_t *)off_12F24C,
@@ -402,14 +418,14 @@ int sub_12F054() {
     *(volatile uint32_t *)off_12F254,
     *(volatile uint32_t *)off_12F258,
     *(volatile uint32_t *)off_12F2C4);
-  alloc_tx_event("\x9Bstatus of 0x40328528=%08x\r\n", *(volatile uint32_t *)(*v2 + 60));
-  alloc_tx_event("\x9Bstatus of 0x4032852c=%08x\r\n", *(volatile uint32_t *)(*v3 + 60));
-  alloc_tx_event("\x9Bstatus of 0x40328530=%08x\r\n", *(volatile uint32_t *)(*v4 + 60));
-  alloc_tx_event("\x9Bstatus of 0x40328534=%08x\r\n", *(volatile uint32_t *)(*v5 + 60));
-  alloc_tx_event("\x9Bstatus of 0x4032853c=%08x\r\n", *(volatile uint32_t *)(*v6 + 60));
+  alloc_tx_event("\x9Bstatus of 0x40328528=%08x\r\n", *(volatile uint32_t *)(*ac0_sptr_reg + 60));
+  alloc_tx_event("\x9Bstatus of 0x4032852c=%08x\r\n", *(volatile uint32_t *)(*ac1_sptr_reg + 60));
+  alloc_tx_event("\x9Bstatus of 0x40328530=%08x\r\n", *(volatile uint32_t *)(*ac2_sptr_reg + 60));
+  alloc_tx_event("\x9Bstatus of 0x40328534=%08x\r\n", *(volatile uint32_t *)(*ac3_sptr_reg + 60));
+  alloc_tx_event("\x9Bstatus of 0x4032853c=%08x\r\n", *(volatile uint32_t *)(*hiq_sptr_reg + 60));
   if ( (*v0 & 0x2000000) != 0 )
   {
-    v0 = (volatile uint32_t *)*v6;
+    v0 = (volatile uint32_t *)*hiq_sptr_reg;
   }
   else if ( (*v0 & 0x200000) != 0 )
   {
@@ -417,19 +433,19 @@ int sub_12F054() {
   }
   else if ( (*v0 & 0x20) != 0 )
   {
-    v0 = (volatile uint32_t *)*v2;
+    v0 = (volatile uint32_t *)*ac0_sptr_reg;
   }
   else if ( (*v0 & 0x200) != 0 )
   {
-    v0 = (volatile uint32_t *)*v3;
+    v0 = (volatile uint32_t *)*ac1_sptr_reg;
   }
   else if ( (*v0 & 0x2000) != 0 )
   {
-    v0 = (volatile uint32_t *)*v4;
+    v0 = (volatile uint32_t *)*ac2_sptr_reg;
   }
   else if ( (*v0 & 0x20000) != 0 )
   {
-    v0 = (volatile uint32_t *)*v5;
+    v0 = (volatile uint32_t *)*ac3_sptr_reg;
   }
   else
   {
@@ -438,7 +454,7 @@ int sub_12F054() {
     if ( (*v0 & 2) != 0 )
       v14 = (volatile uint32_t **)dword_12F2B4;
     else
-      v0 = (volatile uint32_t *)*v1;
+      v0 = (volatile uint32_t *)*tx_list_cptr_reg;
     if ( v13 )
       v0 = *v14;
   }
@@ -483,6 +499,7 @@ LABEL_6:
 
 
 // unknown_12f2c8 @ 0x12f2c8
+/* luna: Emits an ASSERT diagnostic with the failed expression, source file, and line, then performs configured RF and interrupt cleanup. */
 int unknown_12f2c8(int a1, int a2, int a3) {
   volatile int *v3; // r4
   int result; // r0
@@ -518,6 +535,7 @@ int unknown_12f2c8(int a1, int a2, int a3) {
 
 
 // irq_disable_mmio_write @ 0x12f32c
+/* luna: Disables interrupts, emits an ASSERT diagnostic with the expression, file, and line, then spins until a volatile word clears. */
 int irq_disable_mmio_write(int a1, int a2, int a3) {
   int result; // r0
 
@@ -530,6 +548,7 @@ while ( *(volatile uint32_t *)(uintptr_t)(off_12F358) ) ;
 
 
 // mmio_write_field @ 0x12f35c
+/* luna: Emits a warning identifying the function, source file, and line number. */
 int mmio_write_field(int a1, int a2, int a3) {
   return alloc_tx_event("\x9BWARNING (%s) at %s:%d\n", (const volatile char *)a1, (const volatile char *)a2, a3 & 0xFFFFF);
 }
@@ -566,6 +585,7 @@ void unknown_12f378() {
 
 
 // lock_init_0x18274c @ 0x12f3a8
+/* luna: Initializes the global 8-byte lock state to 0x00000002FFFFFFFF and returns its address. */
 volatile int *lock_init_0x18274c() {
   volatile uint64_t *v0; // r4
   volatile int *result; // r0
@@ -579,6 +599,7 @@ volatile int *lock_init_0x18274c() {
 
 
 // timer_init_0x1922d4 @ 0x12f3c8
+/* luna: Zero-initializes the global test-statistics state and clears its embedded statistics buffer. */
 int timer_init_0x1922d4() {
   int v0; // r4
 
@@ -591,6 +612,7 @@ int timer_init_0x1922d4() {
 
 
 // phy_rate_map @ 0x12f3e8
+/* luna: Returns the result of the event-flag check. */
 int phy_rate_map() {
   return check_event_flag();
 }
@@ -598,6 +620,7 @@ int phy_rate_map() {
 
 
 // state_check_0x182ba0 @ 0x12f3ec
+/* luna: Forwards the supplied pointer to `rx_packet_dispatch` and returns its result. */
 int state_check_0x182ba0(volatile uint16_t *a1) {
   return (int)(uintptr_t)(rx_packet_dispatch((int)(uintptr_t)(a1)));
 }
@@ -612,6 +635,7 @@ int phy_mode_check() {
 
 
 // j_nullsub_6 @ 0x12f3f4
+/* luna: Calls the null stub and returns its result without performing any additional work. */
 int j_nullsub_6(void) {
   return nullsub_6();
 }
@@ -619,6 +643,7 @@ int j_nullsub_6(void) {
 
 
 // phy_mode_check_1 @ 0x12f3f8
+/* luna: Returns zero only when the mode byte is 3 and the context word at offset 612 is zero, writing 32 to the associated status globals along the way. */
 int phy_mode_check_1() {
   int result; // r0
 
@@ -635,6 +660,7 @@ int phy_mode_check_1() {
 
 
 // list_foreach_1 @ 0x12f410
+/* luna: Forwards the call to the event handler and returns its result. */
 int list_foreach_1() {
   return invoke_event_handler();
 }
@@ -642,6 +668,7 @@ int list_foreach_1() {
 
 
 // deref_and_check @ 0x12f414
+/* luna: Drains a linked list, dispatching entries with a nonzero field at offset 12 and otherwise clearing the associated object's 16-bit field at offset 8. */
 volatile int * deref_and_check(volatile int *result, int a2) {
   volatile uint32_t *v2; // r4
   volatile int *v3; // r6
@@ -677,6 +704,7 @@ volatile int * deref_and_check(volatile int *result, int a2) {
 
 
 // state_check_0x182ba0_b @ 0x12f448
+/* luna: In state 3, tags and copies a 28-byte RF-test message into an alternate buffer, waits for the ioctl handshake, forwards it, and resets RF command stat */
 int state_check_0x182ba0_b(int result) {
   int v1; // r4
   volatile char *v2; // r0
@@ -709,6 +737,7 @@ int state_check_0x182ba0_b(int result) {
 
 
 // return_fail @ 0x12f4ac
+/* luna: Requests an RX buffer using a zero allocation argument and returns the allocator's result. */
 int return_fail() {
   return alloc_rx_buffer(0);
 }
@@ -716,6 +745,7 @@ int return_fail() {
 
 
 // unknown_12f4b4 @ 0x12f4b4
+/* luna: Calls the string setter within a nesting-aware IRQ guard, decrements the indexed byte counter for indices 0–4, and decrements a global counter before  */
 int unknown_12f4b4(unsigned int a1, int a2) {
   volatile int *v3; // r5
   int result; // r0
@@ -749,6 +779,7 @@ int unknown_12f4b4(unsigned int a1, int a2) {
 
 
 // get_buffer_size @ 0x12f514
+/* luna: Returns the fixed buffer size of 1024 bytes. */
 int get_buffer_size() {
   return 1024;
 }
@@ -756,52 +787,53 @@ int get_buffer_size() {
 
 
 // parse_rx_packet_header @ 0x12f51c
+/* luna: Erases the final input character, redrawing the remaining text with tab-stop-aware cursor handling when the erased character is a tab. */
 unsigned int parse_rx_packet_header(unsigned int a1, int a2, int a3) {
-  unsigned int v3; // r7
-  volatile int *v4; // r5
-  volatile uint8_t *v8; // r9
-  int v9; // r3
-  int v10; // r8
-  volatile uint8_t *v11; // r4
-  volatile uint8_t *v12; // r6
-  int v13; // t1
+  unsigned int last_char_ptr; // r7
+  volatile int *column_ptr; // r5
+  volatile uint8_t *erase_sequence; // r9
+  int column; // r3
+  int tab_fill_table; // r8
+  volatile uint8_t *redraw_ptr; // r4
+  volatile uint8_t *redraw_last_ptr; // r6
+  int current_char; // t1
 
-  v3 = a2 - 1;
+  last_char_ptr = a2 - 1;
   if ( *(volatile uint8_t *)(a2 - 1) == 9 )
   {
-    v4 = (volatile int *)off_12F5AC;
+    column_ptr = (volatile int *)off_12F5AC;
     if ( a3 < (int)*(volatile uint32_t *)off_12F5AC )
     {
-      v8 = (volatile uint8_t *)dword_12F5B4;
+      erase_sequence = (volatile uint8_t *)dword_12F5B4;
       do
       {
-        radio_tx_write_string(v8);
-        v9 = *v4 - 1;
-        *v4 = v9;
+        radio_tx_write_string(erase_sequence);
+        column = *column_ptr - 1;
+        *column_ptr = column;
       }
-      while ( v9 > a3 );
+      while ( column > a3 );
     }
-    if ( v3 > a1 )
+    if ( last_char_ptr > a1 )
     {
-      v10 = dword_12F5B8;
-      v11 = (volatile uint8_t *)(a1 - 1);
-      v12 = (volatile uint8_t *)(a2 - 2);
+      tab_fill_table = dword_12F5B8;
+      redraw_ptr = (volatile uint8_t *)(a1 - 1);
+      redraw_last_ptr = (volatile uint8_t *)(a2 - 2);
       do
       {
         while ( 1 )
         {
-          v13 = *++v11;
-          if ( v13 == 9 )
+          current_char = *++redraw_ptr;
+          if ( current_char == 9 )
             break;
-          ++*v4;
-          radio_tx_write_byte(*v11);
-          if ( v11 == v12 )
+          ++*column_ptr;
+          radio_tx_write_byte(*redraw_ptr);
+          if ( redraw_ptr == redraw_last_ptr )
             goto LABEL_10;
         }
-        radio_tx_write_string((volatile uint8_t *)((*v4 & 7) + v10));
-        *v4 = (*v4 & 0xFFFFFFF8) + 8;
+        radio_tx_write_string((volatile uint8_t *)((*column_ptr & 7) + tab_fill_table));
+        *column_ptr = (*column_ptr & 0xFFFFFFF8) + 8;
       }
-      while ( v11 != v12 );
+      while ( redraw_ptr != redraw_last_ptr );
     }
   }
   else
@@ -811,15 +843,16 @@ unsigned int parse_rx_packet_header(unsigned int a1, int a2, int a3) {
   }
 LABEL_10:
   --*(volatile uint32_t *)off_12F5B0;
-  return v3;
+  return last_char_ptr;
 }
 
 
 
 // skip_leading_spaces @ 0x12f5bc
+/* luna: Destructively splits a mutable argument string on spaces and tabs into a pointer array, removing double-quote delimiters for quoted tokens and limitin */
 int skip_leading_spaces(volatile uint8_t *a1, int a2) {
-  int v2; // r4
-  volatile uint8_t *v4; // r0
+  int token_count; // r4
+  volatile uint8_t *scan_ptr; // r0
   int v5; // r2
   int v6; // t1
   int v7; // r3
@@ -830,14 +863,14 @@ int skip_leading_spaces(volatile uint8_t *a1, int a2) {
   int v13; // r3
   int v14; // t1
 
-  v2 = 0;
+  token_count = 0;
   while ( 1 )
   {
     do
     {
       do
       {
-        v4 = a1;
+        scan_ptr = a1;
         v6 = *a1++;
         v5 = v6;
       }
@@ -846,42 +879,42 @@ int skip_leading_spaces(volatile uint8_t *a1, int a2) {
     while ( v5 == 9 );
     if ( !v5 )
     {
-      *(volatile uint32_t *)(a2 + 4 * v2) = 0;
-      return v2;
+      *(volatile uint32_t *)(a2 + 4 * token_count) = 0;
+      return token_count;
     }
     if ( v5 == 34 )
       break;
-    *(volatile uint32_t *)(a2 + 4 * v2) = (int)(uintptr_t)(v4);
-    v7 = *v4;
-    v8 = v2 + 1;
-    v9 = v2 + 1;
-    if ( !*v4 )
+    *(volatile uint32_t *)(a2 + 4 * token_count) = (int)(uintptr_t)(scan_ptr);
+    v7 = *scan_ptr;
+    v8 = token_count + 1;
+    v9 = token_count + 1;
+    if ( !*scan_ptr )
       goto LABEL_20;
     while ( v7 != 32 && v7 != 9 )
     {
-      v10 = *++v4;
+      v10 = *++scan_ptr;
       v7 = v10;
       if ( !v10 )
         goto LABEL_20;
     }
 LABEL_11:
-    if ( !*v4 )
+    if ( !*scan_ptr )
       goto LABEL_20;
-    *v4 = 0;
-    a1 = v4 + 1;
-    v2 = v9;
+    *scan_ptr = 0;
+    a1 = scan_ptr + 1;
+    token_count = v9;
     if ( v9 == 16 )
     {
       radio_tx_write_string((volatile uint8_t *)dword_12F644);
       return 16;
     }
   }
-  v12 = v4 + 1;
-  *(volatile uint32_t *)(a2 + 4 * v2) = (int)(uintptr_t)(v4 + 1);
-  v13 = v4[1];
-  v8 = v2 + 1;
-  v9 = v2 + 1;
-  if ( v4[1] )
+  v12 = scan_ptr + 1;
+  *(volatile uint32_t *)(a2 + 4 * token_count) = (int)(uintptr_t)(scan_ptr + 1);
+  v13 = scan_ptr[1];
+  v8 = token_count + 1;
+  v9 = token_count + 1;
+  if ( scan_ptr[1] )
   {
     while ( v13 != 34 )
     {
@@ -890,7 +923,7 @@ LABEL_11:
       if ( !v14 )
         goto LABEL_20;
     }
-    v4 = v12;
+    scan_ptr = v12;
     goto LABEL_11;
   }
 LABEL_20:
@@ -901,6 +934,7 @@ LABEL_20:
 
 
 // split_on_dot @ 0x12f648
+/* luna: Finds an entry whose name exactly matches the input segment before the first dot, or returns the sole entry whose name begins with that segment. */
 volatile uint32_t * split_on_dot(int a1, volatile uint32_t *a2, int a3) {
   int v5; // r0
   int v6; // r11
@@ -949,6 +983,7 @@ LABEL_9:
 
 
 // lock_global_mutex @ 0x12f6d0
+/* luna: Processes a console keystroke, updating the input line and returning its completion or cancellation status. */
 int lock_global_mutex(unsigned int a1, volatile uint8_t *a2, int a3) {
   volatile int *v3; // r6
   char v4; // r4
@@ -1086,27 +1121,28 @@ LABEL_7:
 
 
 // parse_uint_base @ 0x12f818
+/* luna: Parses a signed integer using the requested base, with base zero selecting octal for a leading zero and decimal otherwise, accepts a valid `0x` prefix */
 int parse_uint_base(volatile uint8_t *a1, volatile uint32_t *a2, unsigned int a3) {
-  int v3; // r5
-  int v4; // r7
+  int current_char; // r5
+  int is_negative; // r7
   int i; // r6
-  unsigned int v6; // r3
-  int v8; // t1
+  unsigned int digit_value; // r3
+  int next_char; // t1
   int v9; // r3
   int v10; // r3
 
-  v3 = *a1;
-  if ( v3 == 48 )
+  current_char = *a1;
+  if ( current_char == 48 )
   {
-    v3 = a1[1];
-    if ( (unsigned int)(v3 - 65) > 0x19 )
+    current_char = a1[1];
+    if ( (unsigned int)(current_char - 65) > 0x19 )
       v9 = a1[1];
     else
-      v9 = (uint8_t)(v3 + 32);
+      v9 = (uint8_t)(current_char + 32);
     if ( v9 == 120 && ((v10 = a1[2], (unsigned int)(v10 - 48) <= 9) || (v10 & 0xFFFFFFDF) - 65 <= 5) )
     {
       a1 += 2;
-      v3 = v10;
+      current_char = v10;
       a3 = 16;
     }
     else
@@ -1115,11 +1151,11 @@ int parse_uint_base(volatile uint8_t *a1, volatile uint32_t *a2, unsigned int a3
       if ( !a3 )
       {
         a3 = 8;
-        if ( v3 != 45 )
+        if ( current_char != 45 )
           goto LABEL_5;
 LABEL_25:
-        v4 = 1;
-        v3 = *++a1;
+        is_negative = 1;
+        current_char = *++a1;
         goto LABEL_6;
       }
     }
@@ -1128,29 +1164,29 @@ LABEL_25:
   {
     a3 = 10;
   }
-  if ( v3 == 45 )
+  if ( current_char == 45 )
     goto LABEL_25;
 LABEL_5:
-  v4 = 0;
+  is_negative = 0;
 LABEL_6:
-  for ( i = 0; ; i = v6 + i * a3 )
+  for ( i = 0; ; i = digit_value + i * a3 )
   {
-    v6 = v3 - 48;
-    if ( (uint8_t)(v3 - 48) > 9u )
+    digit_value = current_char - 48;
+    if ( (uint8_t)(current_char - 48) > 9u )
     {
-      if ( (v3 & 0xFFFFFFDF) - 65 > 5 )
+      if ( (current_char & 0xFFFFFFDF) - 65 > 5 )
         break;
-      if ( (unsigned int)(v3 - 97) > 0x19 )
-        v6 = v3 - 55;
+      if ( (unsigned int)(current_char - 97) > 0x19 )
+        digit_value = current_char - 55;
       else
-        v6 = (uint8_t)(v3 - 32) - 55;
+        digit_value = (uint8_t)(current_char - 32) - 55;
     }
-    if ( a3 <= v6 )
+    if ( a3 <= digit_value )
       break;
-    v8 = *++a1;
-    v3 = v8;
+    next_char = *++a1;
+    current_char = next_char;
   }
-  if ( v4 )
+  if ( is_negative )
     i = -i;
   if ( a2 )
     *a2 = (int)(uintptr_t)(a1);
@@ -1160,6 +1196,7 @@ LABEL_6:
 
 
 // setup_global_table @ 0x12f8c4
+/* luna: Logs the two string fields of each populated entry in the global table. */
 int setup_global_table() {
   unsigned int v0; // r4
   unsigned int v1; // r5
@@ -1180,6 +1217,7 @@ int setup_global_table() {
 
 
 // is_two_char_string @ 0x12f8ec
+/* luna: Returns 1 for a trailing `.b`, 2 for `.h`, 4 when no qualifying suffix is present, and -1 for another suffix after a nonempty prefix. */
 int is_two_char_string(int a1) {
   int v2; // r0
   int v3; // r0
@@ -1202,6 +1240,7 @@ int is_two_char_string(int a1) {
 
 
 // parse_hex_string @ 0x12f920
+/* luna: Parses a test memory-access command and either prints a volatile read of the requested width or forwards the supplied value to the packet-parameter ha */
 int parse_hex_string(int a1, volatile uint32_t *a2) {
   unsigned int v4; // r5
   int v5; // r0
@@ -1256,65 +1295,66 @@ LABEL_3:
 
 
 // parse_mac_string @ 0x12fa08
+/* luna: Parses a write width, hexadecimal address and value, and optional repeat count, then writes the value to successive addresses or invokes the patch hoo */
 int parse_mac_string(int a1, volatile uint32_t *a2) {
-  int v4; // r10
-  unsigned int v5; // r4
-  int v6; // r6
-  int v7; // r5
-  unsigned int v8; // r4
-  int v10; // r0
+  int width_bytes; // r10
+  unsigned int address; // r4
+  int value; // r6
+  int writes_remaining; // r5
+  unsigned int aligned_address; // r4
+  int repeat_count; // r0
 
-  v4 = is_two_char_string(*a2);
-  if ( v4 < 0 )
+  width_bytes = is_two_char_string(*a2);
+  if ( width_bytes < 0 )
   {
-    debug_printf("Unknown data size:%d\r\n", v4);
+    debug_printf("Unknown data size:%d\r\n", width_bytes);
     return -1;
   }
   else
   {
-    v5 = parse_uint_base((volatile uint8_t *)a2[1], nullptr, 0x10u);
-    v6 = parse_uint_base((volatile uint8_t *)a2[2], nullptr, 0x10u);
+    address = parse_uint_base((volatile uint8_t *)a2[1], nullptr, 0x10u);
+    value = parse_uint_base((volatile uint8_t *)a2[2], nullptr, 0x10u);
     if ( a1 <= 3 )
     {
-      v7 = 0;
+      writes_remaining = 0;
       goto LABEL_9;
     }
-    v10 = parse_uint_base((volatile uint8_t *)a2[3], nullptr, 0);
-    if ( v10 )
+    repeat_count = parse_uint_base((volatile uint8_t *)a2[3], nullptr, 0);
+    if ( repeat_count )
     {
-      v7 = v10 - 1;
+      writes_remaining = repeat_count - 1;
       do
       {
 LABEL_9:
-        while ( ((v5 >> 20) & 0xFFFFFDFF) == 0x500 )
+        while ( ((address >> 20) & 0xFFFFFDFF) == 0x500 )
         {
-          v8 = v5 & 0xFFFFFFFC;
-          debug_printf("[0x%08X] = 0x%08lX\r\n", v8, v6);
-          --v7;
+          aligned_address = address & 0xFFFFFFFC;
+          debug_printf("[0x%08X] = 0x%08lX\r\n", aligned_address, value);
+          --writes_remaining;
           call_patch_hook_1();
-          v5 = v8 + v4;
-          if ( v7 == -1 )
+          address = aligned_address + width_bytes;
+          if ( writes_remaining == -1 )
             return 0;
         }
-        switch ( v4 )
+        switch ( width_bytes )
         {
           case 4:
-            debug_printf("[0x%08lX] = 0x%08lX\r\n", v5, v6);
-            *(volatile uint32_t *)v5 = v6;
+            debug_printf("[0x%08lX] = 0x%08lX\r\n", address, value);
+            *(volatile uint32_t *)address = value;
             break;
           case 2:
-            debug_printf("[0x%08lX] = 0x%04X\r\n", v5, (uint16_t)v6);
-            *(volatile uint16_t *)v5 = v6;
+            debug_printf("[0x%08lX] = 0x%04X\r\n", address, (uint16_t)value);
+            *(volatile uint16_t *)address = value;
             break;
           case 1:
-            debug_printf("[0x%08lX] = 0x%02X\r\n", v5, (uint8_t)v6);
-            *(volatile uint8_t *)v5 = v6;
+            debug_printf("[0x%08lX] = 0x%02X\r\n", address, (uint8_t)value);
+            *(volatile uint8_t *)address = value;
             break;
         }
-        --v7;
-        v5 += v4;
+        --writes_remaining;
+        address += width_bytes;
       }
-      while ( v7 != -1 );
+      while ( writes_remaining != -1 );
     }
     return 0;
   }
@@ -1322,25 +1362,26 @@ LABEL_9:
 
 
 // parse_decimal_string @ 0x12faf8
+/* luna: Prints the current debug mask and module selector, or updates one from a hexadecimal argument selected by a decimal operation code. */
 int parse_decimal_string(int a1, int a2) {
-  int v4; // r0
-  uint16_t v6; // r0
-  int v7; // r0
-  int v8; // r4
+  int operation_code; // r0
+  uint16_t debug_mask; // r0
+  int current_debug_module; // r0
+  int debug_module; // r4
 
-  v4 = parse_uint_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
-  if ( v4 )
+  operation_code = parse_uint_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
+  if ( operation_code )
   {
-    if ( v4 == 1 )
+    if ( operation_code == 1 )
     {
       if ( a1 <= 2 )
         goto LABEL_5;
-      v6 = parse_uint_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
-      **(volatile uint16_t **)off_12FB8C = v6;
-      alloc_tx_event("cfg dbg_msk: 0x%x\n", v6);
+      debug_mask = parse_uint_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
+      **(volatile uint16_t **)off_12FB8C = debug_mask;
+      alloc_tx_event("cfg dbg_msk: 0x%x\n", debug_mask);
       return 0;
     }
-    else if ( v4 == 2 )
+    else if ( operation_code == 2 )
     {
       if ( a1 <= 2 )
       {
@@ -1348,35 +1389,36 @@ LABEL_5:
         alloc_tx_event(aInvalidArgs);
         return 0;
       }
-      v8 = parse_uint_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
-      alloc_tx_event("cfg dbg mod: %08X\n", v8);
-      set_global_field0(v8);
+      debug_module = parse_uint_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
+      alloc_tx_event("cfg dbg mod: %08X\n", debug_module);
+      set_global_field0(debug_module);
       return 0;
     }
     else
     {
-      alloc_tx_event("invalid func: %d\n", v4);
+      alloc_tx_event("invalid func: %d\n", operation_code);
       return 0;
     }
   }
   else
   {
     alloc_tx_event("cur dbg_msk: 0x%x\n", **(volatile uint16_t **)off_12FB8C);
-    v7 = get_global_field0();
-    alloc_tx_event("dbg mod: %08X\n", v7);
+    current_debug_module = get_global_field0();
+    alloc_tx_event("dbg mod: %08X\n", current_debug_module);
     return 0;
   }
 }
 
 
 // is_compact_mac_string @ 0x12fba4
+/* luna: Validates 12-digit hexadecimal MAC and BSSID strings, programs the monitor address state, and logs the selected addresses. */
 int is_compact_mac_string(int a1, int a2) {
   int v3; // r6
-  unsigned int v4; // r6
+  unsigned int mac_upper32; // r6
   uint16_t v5; // r0
   int v6; // r5
-  uint16_t v7; // r7
-  unsigned int v8; // r8
+  uint16_t mac_lower16; // r7
+  unsigned int bssid_upper32; // r8
   volatile uint32_t *v9; // r0
   volatile uint32_t *v10; // r1
   volatile uint32_t *v11; // r12
@@ -1401,14 +1443,14 @@ int is_compact_mac_string(int a1, int a2) {
   memcpy(_frame.a1a, (volatile char *)(v3 + 8), 4u);
   *(volatile uint8_t *)(v3 + 8) = 0;
   _frame.v26 = 0;
-  v4 = parse_uint_base((volatile uint8_t *)v3, nullptr, 0x10u);
+  mac_upper32 = parse_uint_base((volatile uint8_t *)v3, nullptr, 0x10u);
   v5 = parse_uint_base((volatile uint8_t *)_frame.a1a, nullptr, 0x10u);
   v6 = *(volatile uint32_t *)(a2 + 8);
-  v7 = v5;
+  mac_lower16 = v5;
   memcpy(_frame.a1a, (volatile char *)(v6 + 8), 4u);
   *(volatile uint8_t *)(v6 + 8) = 0;
   _frame.v26 = 0;
-  v8 = parse_uint_base((volatile uint8_t *)v6, nullptr, 0x10u);
+  bssid_upper32 = parse_uint_base((volatile uint8_t *)v6, nullptr, 0x10u);
   v6 = (v6 & ~0xFFFFu) | ((uint16_t)(parse_uint_base((volatile uint8_t *)_frame.a1a, nullptr, 0x10u)) & 0xFFFFu);
   alloc_tx_event(aSetMonitor);
   v9 = (void *)(uintptr_t)(off_12FD18);
@@ -1439,10 +1481,10 @@ int is_compact_mac_string(int a1, int a2) {
   *v15 = -1;
   *v16 = -1;
   *v17 = -1;
-  *v18 = bswap32(v4);
+  *v18 = bswap32(mac_upper32);
   v18 += 4;
-  *(volatile uint32_t *)off_12FD34 = __rev16(v7);
-  v19 = bswap32(v8);
+  *(volatile uint32_t *)off_12FD34 = __rev16(mac_lower16);
+  v19 = bswap32(bssid_upper32);
   *v18 = v19;
   v20 = (volatile char *)off_12FD38;
   *(volatile uint32_t *)off_12FD38 = __rev16((uint16_t)v6);
@@ -1454,24 +1496,25 @@ int is_compact_mac_string(int a1, int a2) {
   *(volatile uint32_t *)&v20[-148] = 7;
   *(volatile uint32_t *)&v20[-148] = v23;
   *v21 = v22;
-  alloc_tx_event("set mon: mac=%08x%04x, bssid=%08x%04x\n", v4, v7, v8, (uint16_t)v6);
+  alloc_tx_event("set mon: mac=%08x%04x, bssid=%08x%04x\n", mac_upper32, mac_lower16, bssid_upper32, (uint16_t)v6);
   return 0;
 }
 
 
 // parse_format_switch @ 0x12fd64
+/* luna: Displays the current debug severity when no command is selected, or sets it to a validated index from 0 through 5. */
 int parse_format_switch(int a1, int a2) {
-  int v4; // r0
-  int v5; // r0
-  unsigned int v7; // r4
+  int command; // r0
+  int current_severity; // r0
+  unsigned int severity_index; // r4
 
-  if ( a1 <= 1 || (v4 = parse_uint_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0)) == 0 )
+  if ( a1 <= 1 || (command = parse_uint_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0)) == 0 )
   {
-    v5 = get_global_field4();
-    alloc_tx_event("dbg sev: %d\n", v5);
+    current_severity = get_global_field4();
+    alloc_tx_event("dbg sev: %d\n", current_severity);
     return 0;
   }
-  if ( v4 == 1 )
+  if ( command == 1 )
   {
     if ( a1 == 2 )
     {
@@ -1479,15 +1522,15 @@ int parse_format_switch(int a1, int a2) {
     }
     else
     {
-      v7 = parse_uint_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0);
-      if ( v7 > 5 )
+      severity_index = parse_uint_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0);
+      if ( severity_index > 5 )
       {
-        alloc_tx_event("invalid sev_idx:%d\n", v7);
+        alloc_tx_event("invalid sev_idx:%d\n", severity_index);
       }
       else
       {
-        alloc_tx_event("Cfg dbg sev: %d\n", v7);
-        set_global_field4(v7);
+        alloc_tx_event("Cfg dbg sev: %d\n", severity_index);
+        set_global_field4(severity_index);
       }
     }
     return 0;
@@ -1498,6 +1541,7 @@ int parse_format_switch(int a1, int a2) {
 
 
 // mode_dispatch @ 0x12fde0
+/* luna: Parses temperature-compensation enable and optional period values, updates shared RF state and signals changes, or invokes the transmit-power lookup w */
 int mode_dispatch(int a1, int a2) {
   unsigned int v4; // r0
   int v5; // r1
@@ -1548,6 +1592,7 @@ int mode_dispatch(int a1, int a2) {
 
 
 // debug_assert @ 0x12fe58
+/* luna: Checks system readiness, enters a nested IRQ-protected section, clears two statistics buffers, and dispatches four WLAN ioctl handlers. */
 int debug_assert() {
   volatile int *v0; // r4
   volatile uint32_t *v1; // r0
@@ -1586,6 +1631,7 @@ int debug_assert() {
 
 
 // lock_with_timeout @ 0x12fed8
+/* luna: Processes a command-like string, forwarding non-`aic` input to a queued handler and dumping CPU stack state while updating a diagnostic flag for the ` */
 int lock_with_timeout(int a1) {
   int v1; // r0
   int v2; // r4

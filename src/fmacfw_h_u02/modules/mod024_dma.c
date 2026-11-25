@@ -1,4 +1,5 @@
 // tx_80211_frame @ 0x11d1e0
+/* luna: Handles an incoming 802.11 frame by validating its receive metadata and resolving key state indicated by the RX status. */
 BOOL tx_80211_frame(int a1) {
   volatile int16_t **v1; // r10
   int v2; // r8
@@ -311,6 +312,7 @@ LABEL_36:
 
 
 // seq_num_increment @ 0x11d670
+/* luna: Increments the byte-sized sequence counter at state offset 10 and resets it to zero when it exceeds the limit at offset 11, invoking a rollover hook. */
 int seq_num_increment() {
   volatile uint8_t *v0; // r4
   unsigned int v1; // r2
@@ -332,6 +334,7 @@ int seq_num_increment() {
 
 
 // seq_num_read @ 0x11d694
+/* luna: Promotes the pending sequence byte at state offset 11 into offset 10 and clears bit 8 of the associated control register. */
 int seq_num_read() {
   volatile uint8_t *v0; // r4
   volatile unsigned int *v1; // r2
@@ -351,6 +354,7 @@ int seq_num_read() {
 
 
 // dma_poll_status @ 0x11d6bc
+/* luna: Sets up DMA rings, clears the shared statistics buffer, stores the derived PHY mode in two global bytes, and returns the result of WLAN hardware initi */
 int dma_poll_status() {
   volatile uint8_t *v0; // r4
   int v1; // r0
@@ -374,6 +378,7 @@ int nullsub_4(void) {
 
 
 // tail_call_0x12cfc4_0x200000 @ 0x11d6e8
+/* luna: Disables the global interrupt source selected by mask 0x200000 and returns the helper's result. */
 int tail_call_0x12cfc4_0x200000() {
   return irq_disable_global_2(0x200000);
 }
@@ -381,6 +386,7 @@ int tail_call_0x12cfc4_0x200000() {
 
 
 // dma_ring_alloc_0 @ 0x11d6f0
+/* luna: Drains queued DMA events, invokes their callbacks with nested interrupt protection, and signals when ring indices indicate pending work. */
 int dma_ring_alloc_0() {
   volatile uint16_t *v0; // r5
   int v1; // r4
@@ -448,6 +454,7 @@ int dma_ring_alloc_0() {
 
 
 // dma_ring_alloc_1 @ 0x11d7ac
+/* luna: Drains queued DMA completion records, invokes eligible callbacks with IRQ protection, and services pending host-buffer recovery. */
 int dma_ring_alloc_1() {
   volatile int *v0; // r5
   int v1; // r4
@@ -517,6 +524,7 @@ int dma_ring_alloc_1() {
 
 
 // dma_ring_alloc_2 @ 0x11d864
+/* luna: Drains the deferred DMA work list, invokes each item's callback, calls phy_rate_get for its associated handle, and services a pending host-buffer-reco */
 int dma_ring_alloc_2() {
   volatile int *v0; // r6
   int v1; // r4
@@ -589,6 +597,7 @@ int dma_ring_alloc_2() {
 
 
 // dma_ring_init @ 0x11d930
+/* luna: Polls firmware-provided RX buffers, dispatches packets, replenishes DMA ring entries, and completes matching queued callbacks. */
 int dma_ring_init(int a1) {
   volatile uint32_t *v1; // r7
   volatile int *v2; // r9
@@ -704,6 +713,7 @@ LABEL_22:
 
 
 // rx_packet_handler @ 0x11dacc
+/* luna: Enqueues an RX packet as one or more buffer segments, advancing to linked buffers when the packet exceeds the current buffer. */
 int rx_packet_handler(volatile int *a1, int a2, volatile uint16_t *a3) {
   volatile uint8_t *v3; // r7
   int v4; // r6
@@ -816,6 +826,7 @@ LABEL_10:
 
 
 // rx_packet_process_2 @ 0x11dc04
+/* luna: Builds linked TX DMA descriptors for packet data across source buffers and updates the caller's buffer cursor and offset. */
 volatile uint32_t * rx_packet_process_2(volatile uint32_t *a1, int a2, volatile uint16_t *a3) {
   volatile int *v3; // r7
   int v4; // r10
@@ -915,6 +926,7 @@ LABEL_16:
 
 
 // rx_packet_parse_1 @ 0x11dd24
+/* luna: Consumes a byte range from the RX ring, advances its buffer and offset cursor across wraparound, and links per-slot DMA descriptors when DMA-chain mod */
 volatile uint32_t * rx_packet_parse_1(volatile uint32_t *a1, unsigned int a2, int a3, volatile uint32_t *a4, int a5) {
   volatile uint8_t **v5; // r9
   volatile uint32_t *v6; // r7
@@ -1006,35 +1018,36 @@ volatile uint32_t * rx_packet_parse_1(volatile uint32_t *a1, unsigned int a2, in
 
 
 // ble_get_rssi @ 0x11de3c
+/* luna: Walks the RX descriptor chain until status bit 0 is set, updates the DMA cursor and wrap state, and returns the previous cursor value. */
 int ble_get_rssi(int a1, int a2) {
   int result; // r0
-  unsigned int v3; // r3
-  volatile uint32_t *v4; // r1
-  int v5; // r2
+  unsigned int next_cursor; // r3
+  volatile uint32_t *ring_state; // r1
+  int cursor_wrap_state; // r2
   int v6; // cf
-  unsigned int v7; // r2
+  unsigned int wrap_bit; // r2
 
   if ( !a2 )
   {
-    v3 = a1 + 160;
+    next_cursor = a1 + 160;
     goto LABEL_9;
   }
   if ( (*(volatile uint16_t *)(a2 + 16) & 1) != 0 )
   {
 LABEL_8:
-    v3 = (*(volatile uint32_t *)(a2 + 12) & 0xFFFFFFFC) + 4;
+    next_cursor = (*(volatile uint32_t *)(a2 + 12) & 0xFFFFFFFC) + 4;
 LABEL_9:
-    v4 = (void *)(uintptr_t)(off_11DEAC);
-    v5 = *((volatile uint32_t *)off_11DEAC + 2);
-    if ( *((volatile uint32_t *)off_11DEAC + 1) == v3 )
-      v3 = *(volatile uint32_t *)off_11DEAC;
-    *(volatile uint32_t *)(a1 + 152) = v3;
-    result = v5 & 0x7FFFFFFF;
-    v6 = v3 >= (v5 & 0x7FFFFFFFu);
-    v7 = v5 & 0x80000000;
+    ring_state = (void *)(uintptr_t)(off_11DEAC);
+    cursor_wrap_state = *((volatile uint32_t *)off_11DEAC + 2);
+    if ( *((volatile uint32_t *)off_11DEAC + 1) == next_cursor )
+      next_cursor = *(volatile uint32_t *)off_11DEAC;
+    *(volatile uint32_t *)(a1 + 152) = next_cursor;
+    result = cursor_wrap_state & 0x7FFFFFFF;
+    v6 = next_cursor >= (cursor_wrap_state & 0x7FFFFFFFu);
+    wrap_bit = cursor_wrap_state & 0x80000000;
     if ( !v6 )
-      v7 += 0x80000000;
-    v4[2] = v3 | v7;
+      wrap_bit += 0x80000000;
+    ring_state[2] = next_cursor | wrap_bit;
     return result;
   }
   while ( 1 )
@@ -1049,6 +1062,7 @@ LABEL_9:
 
 
 // dma_ring_setup @ 0x11deb0
+/* luna: Initializes two DMA ring buffer ranges from configured base/length pairs and programs the associated control word while preserving bit 19. */
 int dma_ring_setup() {
   volatile int *v0; // r2
   int v1; // r0
@@ -1101,20 +1115,22 @@ int dma_ring_setup() {
 
 
 // mmio_reg_update @ 0x11df40
+/* luna: Sets or clears bit 10 in one MMIO register and bit 19 in another according to bit 0 of the input, returning the updated second register value. */
 unsigned int mmio_reg_update(int a1) {
-  volatile unsigned int *v1; // r1
+  volatile unsigned int *second_register; // r1
   unsigned int result; // r0
 
-  v1 = (volatile unsigned int *)off_11DF70;
+  second_register = (volatile unsigned int *)off_11DF70;
   *(volatile uint32_t *)off_11DF6C = (a1 << 10) & 0x400 | *(volatile uint32_t *)off_11DF6C & 0xFFFFFBFF;
-  result = (a1 << 19) & 0x80000 | *v1 & 0xFFF7FFFF;
-  *v1 = result;
+  result = (a1 << 19) & 0x80000 | *second_register & 0xFFF7FFFF;
+  *second_register = result;
   return result;
 }
 
 
 
 // phy_rate_get @ 0x11df74
+/* luna: Updates the selected global sequence counter, toggling its high-order epoch bit when the new 31-bit value wraps below the previous value. */
 int phy_rate_get(int result) {
   unsigned int v1; // r3
   unsigned int v2; // r2
@@ -1141,6 +1157,7 @@ int phy_rate_get(int result) {
 
 
 // capability_get @ 0x11dfc0
+/* luna: Handles eligible RX data frames, advances the associated DMA-ring pointer, and returns the PHY-rate result. */
 int capability_get(int a1) {
   int v1; // r4
   int v2; // r2
@@ -1209,6 +1226,7 @@ int capability_get(int a1) {
 
 
 // ptr_is_null @ 0x11e090
+/* luna: Copies a requested range from linked buffer segments into a contiguous destination, applying the initial source offset only to the first segment. */
 int ptr_is_null(int result, int a2, int a3, int a4) {
   int v4; // r7
   volatile int16_t **v5; // r10
@@ -1279,6 +1297,7 @@ int ptr_is_null(int result, int a2, int a3, int a4) {
 
 
 // op_mode_get @ 0x11e130
+/* luna: Appends a descriptor to the active transmit batch, tracks its accumulated counters, and submits and clears the batch when the configured threshold is  */
 int op_mode_get(int a1) {
   volatile uint32_t *v1; // r4
   int result; // r0
@@ -1314,6 +1333,7 @@ int op_mode_get(int a1) {
 
 
 // tx_packet_start @ 0x11e188
+/* luna: Queues the packet buffer in a DMA ring slot, records its descriptor metadata, and updates the interrupt-safe queue state. */
 int tx_packet_start(int a1, int a2, int a3, uint16_t a4, int a5, int a6) {
   volatile uint32_t *v6; // r8
   volatile uint8_t **v7; // r7
@@ -1555,6 +1575,7 @@ LABEL_2:
 
 
 // tx_packet_complete @ 0x11e4c4
+/* luna: Processes transmit completion state and BLE-specific RSSI and no-buffer handling. */
 int tx_packet_complete(int a1) {
   volatile uint32_t *v1; // r8
   int v2; // r10
@@ -1931,6 +1952,7 @@ LABEL_41:
 
 
 // tx_packet_kick @ 0x11e960
+/* luna: Calls the RSSI helper, marks the request, and dispatches it through the first configured WLAN handler, falling back to the PHY-rate helper when neithe */
 int tx_packet_kick(int a1) {
   void *v2; // r0
   volatile uint32_t *v3; // r1
@@ -1961,6 +1983,7 @@ int tx_packet_kick(int a1) {
 
 
 // check_fw_rom_signature @ 0x11e9b8
+/* luna: Returns zero when the DMA pointer matches its reference; otherwise, wraps pointers within 0x9F bytes of the ring end to the start while toggling the h */
 unsigned int check_fw_rom_signature() {
   int v0; // r3
   unsigned int result; // r0
@@ -1986,6 +2009,7 @@ unsigned int check_fw_rom_signature() {
 
 
 // read_chip_revision @ 0x11e9f4
+/* luna: Adjusts a transmit packet's stored length according to its encoded format and initializes its completion metadata. */
 int read_chip_revision(int result) {
   int v1; // r4
   int16_t v2; // r2
@@ -2028,6 +2052,7 @@ int read_chip_revision(int result) {
 
 
 // disable_watchdog @ 0x11ea84
+/* luna: Clears the watchdog control bit, masks its interrupt source, and waits for RF-register completion when required. */
 int disable_watchdog() {
   volatile uint32_t *v0; // r2
   int result; // r0
@@ -2044,6 +2069,7 @@ int disable_watchdog() {
 
 
 // check_hw_fw_status @ 0x11eabc
+/* luna: Processes pending RXBUF2 ring entries until the consumer cursor reaches the producer cursor, wrapping at the ring boundary. */
 void check_hw_fw_status() {
   volatile uint32_t *v0; // r5
   volatile uint32_t *v1; // r6

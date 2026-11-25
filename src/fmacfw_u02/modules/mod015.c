@@ -1,4 +1,5 @@
 // init_flag_check @ 0x117f4c
+/* luna: Updates a TX block-ack descriptor for a frame, validating the matching entry and caching its header when applicable. */
 int init_flag_check(int a1, int a2, int a3, int a4) {
   int v4; // r2
   volatile uint32_t *v6; // r0
@@ -57,6 +58,7 @@ LABEL_17:
 
 
 // invoke_callback_1 @ 0x11805c
+/* luna: Obtains a callback-produced payload, wraps it in a queue entry, and appends it to the SDIO transmit work queue with interrupt-safe synchronization. */
 volatile uint32_t *invoke_callback_1() {
   volatile uint32_t *result; // r0
   volatile uint32_t *v1; // r4
@@ -641,6 +643,7 @@ LABEL_36:
 
 
 // rf_tx_setup @ 0x118940
+/* luna: Processes queued BLE link-layer transmit items, prepares their hardware control word, and dispatches eligible connection PDUs. */
 volatile uint32_t * rf_tx_setup(unsigned int a1, int a2, int a3) {
   volatile int16_t **v3; // r8
   volatile uint32_t *v7; // r4
@@ -689,6 +692,7 @@ volatile uint32_t * rf_tx_setup(unsigned int a1, int a2, int a3) {
 
 
 // rf_pll_lock @ 0x1189f8
+/* luna: Processes queued transmit buffers and descriptor state, releases buffers with no outstanding references, and invokes transmit-pool initialization when */
 int rf_pll_lock(int a1, int a2) {
   volatile int16_t **v2; // r5
   int v3; // r7
@@ -741,6 +745,7 @@ LABEL_4:
 
 
 // ll_event_init @ 0x118a6c
+/* luna: Initializes an event-control block, links it to the supplied context and auxiliary descriptor, clears selected descriptor fields, and returns the cont */
 int ll_event_init(int a1, int a2, volatile uint32_t *a3, volatile int *a4) {
   int v8; // r1
   int v9; // r2
@@ -765,6 +770,7 @@ int ll_event_init(int a1, int a2, volatile uint32_t *a3, volatile int *a4) {
 
 
 // fw_magic_check @ 0x118ab0
+/* luna: Initializes a set of four RF contexts and configures two associated timing structures, optionally skipping contexts already marked active. */
 int fw_magic_check(int a1) {
   int v2; // r4
   volatile uint32_t *v3; // r6

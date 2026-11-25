@@ -1,4 +1,5 @@
 // rx_queue_process @ 0x11bda0
+/* luna: Reinitializes the Wi-Fi core while preserving selected queue metadata and restoring saved runtime state when requested. */
 int rx_queue_process() {
   volatile uint32_t *v0; // r4
   int v1; // r6
@@ -81,6 +82,7 @@ LABEL_14:
 
 
 // tx_frame_build @ 0x11be6c
+/* luna: Scans the received frame body for a station-configured record and reports a match, copying payload-bearing records into the caller's output buffer. */
 int tx_frame_build(int a1, int a2) {
   int v2; // r2
   int v3; // r5
@@ -160,6 +162,7 @@ LABEL_9:
 
 
 // tx_frame_send @ 0x11bf3c
+/* luna: Processes a TX descriptor, with specialized validation and per-user setup for HE trigger-based uplink frames. */
 int tx_frame_send(int result) {
   volatile uint32_t *v1; // r2
   volatile int16_t *v2; // r1
@@ -319,6 +322,7 @@ LABEL_18:
 
 
 // run_with_busy_flag @ 0x11c1b4
+/* luna: Sets the global busy flag while checking hardware/firmware status, clears it, and then checks the mode flag. */
 void run_with_busy_flag(int a1) {
   volatile uint8_t *v1; // r4
 
@@ -332,6 +336,7 @@ void run_with_busy_flag(int a1) {
 
 
 // read_int_status @ 0x11c1d0
+/* luna: Gates the hardware-counter result on a configuration bit and RF status, stores the result or zero in a status slot, and sets control-register bit 7 wh */
 int read_int_status() {
   int result; // r0
   int v1; // r4
@@ -356,6 +361,7 @@ int read_int_status() {
 
 
 // mmio_set_register_bit @ 0x11c210
+/* luna: Sets bit 7 in a fixed memory-mapped 32-bit register. */
 void mmio_set_register_bit() {
   *(volatile uint32_t *)off_11C21C |= 0x80u;
 }
@@ -363,12 +369,14 @@ void mmio_set_register_bit() {
 
 
 // nullsub_8 @ 0x11c220
+/* luna: Returns zero without performing any operation. */
 int nullsub_8(void) {
   return 0;
 }
 
 
 // get_frame_info @ 0x11c224
+/* luna: Returns the global frame-info value when the auxiliary descriptor's bit 9 is set; otherwise it returns the stored value for a nonnegative status field */
 int get_frame_info(int a1, int a2) {
   int v2; // r3
 
@@ -383,6 +391,7 @@ int get_frame_info(int a1, int a2) {
 
 
 // phy_rate_to_index @ 0x11c254
+/* luna: Decodes the PHY rate word in an RX descriptor, returns its rate-table index, and fills related output values. */
 unsigned int phy_rate_to_index(int a1, int a2, volatile uint32_t *a3, volatile uint32_t *a4, volatile uint32_t *a5, volatile int *a6) {
   unsigned int v6; // r4
   int v7; // r8
@@ -448,6 +457,7 @@ LABEL_3:
 
 
 // rx_buf_align_desc @ 0x11c350
+/* luna: Consumes four packed RX descriptor words, writes encoded fields to four 28-byte-stride records while merging an optional masked per-record value, then */
 int rx_buf_align_desc(int a1) {
   volatile uint8_t *v1; // r6
   int v2; // r7
@@ -484,6 +494,7 @@ int rx_buf_align_desc(int a1) {
 
 
 // set_global_config_bytes @ 0x11c3a4
+/* luna: Copies the first two bytes of the source buffer into global configuration offsets 164 and 165, then returns the source pointer. */
 volatile uint8_t * set_global_config_bytes(volatile uint8_t *result) {
   volatile uint8_t *v1; // r3
 
@@ -496,6 +507,7 @@ volatile uint8_t * set_global_config_bytes(volatile uint8_t *result) {
 
 
 // channel_table_lookup @ 0x11c3b8
+/* luna: For an eligible indexed entry, conditionally stores the supplied value, sets its update marker, and returns the value unchanged. */
 int channel_table_lookup(int result, int a2) {
   int v2; // r2
   int v3; // r3
@@ -514,6 +526,7 @@ int channel_table_lookup(int result, int a2) {
 
 
 // sdio_dma_config @ 0x11c3e8
+/* luna: Writes a fixed word and the caller-provided value into a control block, then invokes the memory-copy helper with an address 5000 bytes beyond a config */
 int sdio_dma_config(int a1) {
   volatile uint32_t *v1; // r3
   int v2; // r1
@@ -528,6 +541,7 @@ int sdio_dma_config(int a1) {
 
 
 // sta_rate_limit_check @ 0x11c410
+/* luna: Dispatches to the packet-type handler with the station's configured rate unless that rate is 1023 or global mode equals 2. */
 volatile unsigned int * sta_rate_limit_check(volatile unsigned int *result) {
   int v1; // r2
 
@@ -540,6 +554,7 @@ volatile unsigned int * sta_rate_limit_check(volatile unsigned int *result) {
 
 
 // sta_rate_status_check @ 0x11c448
+/* luna: If the indexed station has a valid rate-status value and the global mode is not 2, passes each of four packet entries in the supplied context to rx_pa */
 volatile unsigned int * sta_rate_status_check(volatile unsigned int *result) {
   int v1; // r2
   int v2; // r5

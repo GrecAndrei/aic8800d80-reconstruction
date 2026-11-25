@@ -1,4 +1,5 @@
 // ble_rx_process @ 0x134950
+/* luna: Builds a BLE RX packet context from current link metadata, adjusts packet length according to connection state, and returns the security-check result. */
 int ble_rx_process() {
   int v0; // r6
   int16_t v1; // r7
@@ -93,6 +94,7 @@ int ble_rx_process() {
 
 
 // lld_evt_get_current @ 0x134a90
+/* luna: Packages and dispatches diagnostic snapshots for the active BLE link-layer event, including RX results and optional RF status. */
 int lld_evt_get_current() {
   int v0; // r10
   int v1; // r5
@@ -191,6 +193,7 @@ int lld_evt_get_current() {
 
 
 // ke_timer_set @ 0x134c4c
+/* luna: Caches a station-disconnect request, logs its reason and TX count, then dispatches according to the host-init flag. */
 int ke_timer_set(int a1, int a2, int a3) {
   volatile uint32_t *v3; // r5
 
@@ -214,6 +217,7 @@ int ke_timer_set(int a1, int a2, int a3) {
 
 
 // ctrl_isr_dispatch @ 0x134cb0
+/* luna: Dispatches to BLE receive processing when the control flag at offset 4 is set, otherwise loads BLE defaults. */
 int ctrl_isr_dispatch() {
   if ( *((volatile uint8_t *)off_134CC0 + 4) )
     return ble_rx_process();
@@ -224,6 +228,7 @@ int ctrl_isr_dispatch() {
 
 
 // assert_trace @ 0x134cc4
+/* luna: Builds and dispatches a connection indication event using the station context and updates related connection state. */
 int assert_trace(int a1) {
   int v1; // lr
   volatile uint32_t *v3; // r5
@@ -407,6 +412,7 @@ LABEL_10:
 
 
 // acl_rx_process @ 0x134f90
+/* luna: Filters an ACL transmit confirmation by HCI state and status, invoking the security check for eligible confirmations and marking the input object's st */
 int acl_rx_process(int a1, int a2) {
   int v2; // r5
   volatile uint8_t *v3; // r7
@@ -450,6 +456,7 @@ LABEL_5:
 
 
 // ll_evt_schedule @ 0x135028
+/* luna: Builds a per-connection transmit descriptor and copies an authentication payload into the BLE link-layer event buffer. */
 int ll_evt_schedule(int a1, int a2) {
   volatile uint8_t *v2; // r7
   int v3; // r5
@@ -585,17 +592,18 @@ LABEL_5:
 
 
 // mac_dma_setup @ 0x135224
+/* luna: Prepares a station association-request transmission by filling per-link parameters and negotiating AMPDU settings. */
 int mac_dma_setup() {
   int v0; // r8
   int v1; // r9
-  int v2; // r6
-  volatile uint8_t *v3; // r4
+  int link_idx; // r6
+  volatile uint8_t *link_ctx; // r4
   int v4; // r11
   int v5; // r0
   volatile uint32_t *v6; // r4
   volatile uint8_t *v7; // r7
   int v8; // r10
-  int v9; // r5
+  int assoc_req_info; // r5
   uint16_t v10; // r3
   volatile uint16_t *v11; // r2
   int v12; // r1
@@ -623,14 +631,14 @@ int mac_dma_setup() {
   } _frame;
   v0 = dword_135420;
   v1 = *((volatile uint32_t *)off_1353F4 + 4);
-  v2 = *(volatile uint8_t *)(v1 + 61);
-  v3 = (volatile uint8_t *)(dword_135420 + 1320 * v2);
-  v4 = v3[116];
+  link_idx = *(volatile uint8_t *)(v1 + 61);
+  link_ctx = (volatile uint8_t *)(dword_135420 + 1320 * link_idx);
+  v4 = link_ctx[116];
   check_feature_flag(256, "%s\r\n", aSmAssocReqSend);
-  if ( !v3[1224] )
+  if ( !link_ctx[1224] )
   {
-    v5 = v3[412];
-    if ( v3[412] )
+    v5 = link_ctx[412];
+    if ( link_ctx[412] )
       v5 = 1;
     v6 = lock_acquire(v5, 512);
     if ( v6 )
@@ -642,10 +650,10 @@ int mac_dma_setup() {
     return assert_trace(1);
 LABEL_5:
   v7 = (void *)(uintptr_t)(off_1353F4);
-  _frame.a3 = 1320 * v2;
+  _frame.a3 = 1320 * link_idx;
   v8 = *((volatile uint32_t *)off_1353F4 + 5);
-  get_status_flag_c5(v0 + 1320 * v2, (int)v6);
-  v9 = v6[18];
+  get_status_flag_c5(v0 + 1320 * link_idx, (int)v6);
+  assoc_req_info = v6[18];
   v10 = (uint8_t)v7[33];
   if ( v7[33] )
   {
@@ -657,29 +665,29 @@ LABEL_5:
     v11 = nullptr;
   }
   v12 = dword_135400;
-  *(volatile uint16_t *)(v9 + 108) = v10;
+  *(volatile uint16_t *)(assoc_req_info + 108) = v10;
   v13 = v12 + 696 * v4;
   v14 = *(volatile uint32_t *)(v13 + 38);
   v13 += 38;
   v15 = *(volatile uint32_t *)v13;
   v16 = *((volatile uint16_t *)off_135404 + 254);
-  *(volatile uint32_t *)(v9 + 112) = v14;
-  v17 = v0 + 1320 * v2;
-  *(volatile uint16_t *)(v9 + 116) = *(volatile uint16_t *)(v13 + 4);
+  *(volatile uint32_t *)(assoc_req_info + 112) = v14;
+  v17 = v0 + 1320 * link_idx;
+  *(volatile uint16_t *)(assoc_req_info + 116) = *(volatile uint16_t *)(v13 + 4);
   v18 = *(volatile uint16_t *)(v13 + 4);
-  *(volatile uint32_t *)(v9 + 118) = *(volatile uint32_t *)(v17 + 100);
-  *(volatile uint16_t *)(v9 + 122) = *(volatile uint16_t *)(v17 + 104);
+  *(volatile uint32_t *)(assoc_req_info + 118) = *(volatile uint32_t *)(v17 + 100);
+  *(volatile uint16_t *)(assoc_req_info + 122) = *(volatile uint16_t *)(v17 + 104);
   ++v16;
   v19 = (void *)(uintptr_t)(off_135404);
-  *(volatile uint32_t *)(v9 + 124) = v15;
-  *(volatile uint16_t *)(v9 + 128) = v18;
-  *(volatile uint8_t *)(v9 + 110) = 0;
-  *(volatile uint8_t *)(v9 + 111) = 0;
+  *(volatile uint32_t *)(assoc_req_info + 124) = v15;
+  *(volatile uint16_t *)(assoc_req_info + 128) = v18;
+  *(volatile uint8_t *)(assoc_req_info + 110) = 0;
+  *(volatile uint8_t *)(assoc_req_info + 111) = 0;
   v15 = (v15 & ~0xFFFFu) | ((uint16_t)(16 * v16) & 0xFFFFu);
   v19[254] = v16;
   v20 = *(volatile uint8_t *)(v17 + 107);
-  *(volatile uint16_t *)(v9 + 130) = v15;
-  v21 = ampdu_negotiate_params((volatile uint8_t *)(v9 + 132), _frame.a3 + 248 + v0, v11, v20, (void *)(&_frame.a5), &_frame.a6, v1);
+  *(volatile uint16_t *)(assoc_req_info + 130) = v15;
+  v21 = ampdu_negotiate_params((volatile uint8_t *)(assoc_req_info + 132), _frame.a3 + 248 + v0, v11, v20, (void *)(&_frame.a5), &_frame.a6, v1);
   *((volatile uint8_t *)v6 + 28) = *(volatile uint8_t *)(v17 + 107);
   v22 = (volatile uint32_t *)v6[19];
   *((volatile uint8_t *)v6 + 29) = *(volatile uint8_t *)(v17 + 116);
@@ -723,6 +731,7 @@ LABEL_5:
 
 
 // mmio_write_sequence @ 0x135424
+/* luna: Queues a channel-configuration request containing the supplied 16-bit value and a selector from the radio context, then triggers follow-up processing. */
 int mmio_write_sequence(uint16_t a1) {
   int v2; // r5
   int v3; // r0
@@ -738,63 +747,65 @@ int mmio_write_sequence(uint16_t a1) {
 
 
 // hci_send_vendor_cmd @ 0x135458
+/* luna: Accumulates association-response payload fragments in shared state and dispatches the response when the status is zero. */
 int hci_send_vendor_cmd(volatile char *a1) {
-  int v2; // r8
-  unsigned int v3; // r1
-  int v4; // r6
-  int v5; // r3
-  int v6; // r1
-  volatile char *v7; // r4
-  int v8; // r12
+  int assoc_rsp_state; // r8
+  unsigned int fragment_length; // r1
+  int status; // r6
+  int buffered_length; // r3
+  int copy_length; // r1
+  volatile char *payload_source; // r4
+  int payload_destination; // r12
   volatile char *v9; // r3
   char v10; // t1
 
-  v2 = *((volatile uint32_t *)off_135514 + 5);
+  assoc_rsp_state = *((volatile uint32_t *)off_135514 + 5);
   invalid_handler_12c5fc((int)(uintptr_t)((volatile char *)0x180A), 6);
-  v3 = *(volatile uint16_t *)a1;
-  v4 = *((volatile uint16_t *)a1 + 7);
-  if ( v3 <= 5 )
+  fragment_length = *(volatile uint16_t *)a1;
+  status = *((volatile uint16_t *)a1 + 7);
+  if ( fragment_length <= 5 )
   {
-    *(volatile uint16_t *)(v2 + 16) = 0;
-    check_feature_flag(256, "assoc_rsp_handler:%d\r\n", v4);
-    if ( !v4 )
+    *(volatile uint16_t *)(assoc_rsp_state + 16) = 0;
+    check_feature_flag(256, "assoc_rsp_handler:%d\r\n", status);
+    if ( !status )
       return mmio_write_sequence(*((volatile uint16_t *)a1 + 8) & 0x3FFF);
   }
   else
   {
-    v5 = *(volatile uint16_t *)(v2 + 14);
-    v6 = (uint16_t)(v3 - 6);
-    v7 = a1 + 18;
-    if ( v6 + v5 > 800 )
+    buffered_length = *(volatile uint16_t *)(assoc_rsp_state + 14);
+    copy_length = (uint16_t)(fragment_length - 6);
+    payload_source = a1 + 18;
+    if ( copy_length + buffered_length > 800 )
     {
       if ( **(volatile int16_t **)off_135518 < 0 )
       {
         mmio_write_field(off_135524, (int)aSmAssocRspHand, 1236);
-        v5 = *(volatile uint16_t *)(v2 + 14);
+        buffered_length = *(volatile uint16_t *)(assoc_rsp_state + 14);
       }
-      v6 = (uint16_t)(800 - v5);
+      copy_length = (uint16_t)(800 - buffered_length);
     }
-    v8 = v2 + 20 + v5;
-    if ( v6 )
+    payload_destination = assoc_rsp_state + 20 + buffered_length;
+    if ( copy_length )
     {
       do
       {
-        v9 = v7 - 18;
-        v10 = *v7++;
-        *(volatile uint8_t *)(v9 - a1 + v8) = v10;
+        v9 = payload_source - 18;
+        v10 = *payload_source++;
+        *(volatile uint8_t *)(v9 - a1 + payload_destination) = v10;
       }
-      while ( v7 != &a1[v6 + 18] );
+      while ( payload_source != &a1[copy_length + 18] );
     }
-    *(volatile uint16_t *)(v2 + 16) = v6;
-    check_feature_flag(256, "assoc_rsp_handler:%d\r\n", v4);
-    if ( !v4 )
+    *(volatile uint16_t *)(assoc_rsp_state + 16) = copy_length;
+    check_feature_flag(256, "assoc_rsp_handler:%d\r\n", status);
+    if ( !status )
       return mmio_write_sequence(*((volatile uint16_t *)a1 + 8) & 0x3FFF);
   }
-  return assert_trace(v4);
+  return assert_trace(status);
 }
 
 
 // mac_proc_bss_color_change @ 0x135528
+/* luna: Processes a BSS color change request, rejecting unsupported modes or mismatched colors and scheduling a timer when the corresponding color entry is ac */
 int mac_proc_bss_color_change(int a1) {
   int v2; // r6
   int result; // r0

@@ -601,6 +601,7 @@ LABEL_52:
 
 
 // pll_clock_config @ 0x1028b0
+/* luna: Programs the PLL control registers, waits for each busy operation to complete, and then invokes TX calibration. */
 int pll_clock_config() {
   volatile int *v0; // r3
   volatile int *v1; // r2
@@ -634,6 +635,7 @@ int pll_clock_config() {
 
 
 // set_rf_channel @ 0x102934
+/* luna: Sets up the PLL and clock, then writes nine supplied words and two fixed values to the RF configuration block. */
 void set_rf_channel(volatile int *a1) {
   int v2; // r0
   int v3; // r1
@@ -676,6 +678,7 @@ void set_rf_channel(volatile int *a1) {
 
 
 // check_boot_flag @ 0x102970
+/* luna: Applies the requested channel on radio 0 when it differs from cached state or firmware state forces a refresh, then saves the request. */
 int check_boot_flag(volatile uint16_t *a1, int a2) {
   volatile uint8_t *v3; // r0
   int v4; // r1
@@ -730,6 +733,7 @@ LABEL_5:
 
 
 // rf_read_cal_values @ 0x102a24
+/* luna: Enables the configured SDIO interrupt, then calls `compute_byte_delta` for each linked-list entry whose byte at offset 108 is nonzero, returning the l */
 int rf_read_cal_values() {
   int result; // r0
   volatile int *i; // r4
@@ -751,6 +755,7 @@ int rf_read_cal_values() {
 
 
 // check_magic_value @ 0x102a5c
+/* luna: Maps an RF frequency value to one of six calibration groups using fixed threshold ranges. */
 int check_magic_value(unsigned int a1) {
   if ( a1 > 0x1666 )
     return 5;
@@ -766,6 +771,7 @@ int check_magic_value(unsigned int a1) {
 
 
 // get_calibration_offsets @ 0x102a9c
+/* luna: Copies two RF calibration bytes from the firmware data block into the supplied output locations and returns the first output pointer. */
 volatile uint8_t * get_calibration_offsets(volatile uint8_t *result, volatile uint8_t *a2) {
   volatile uint8_t *v2; // r3
 
@@ -778,6 +784,7 @@ volatile uint8_t * get_calibration_offsets(volatile uint8_t *result, volatile ui
 
 
 // get_clock_prescaler @ 0x102ab0
+/* luna: Returns the prescaler value computed as a low-bit mask whose width is encoded in bits 4–7 of the register byte. */
 int get_clock_prescaler() {
   return (uint8_t)((1 << ((uint8_t)*(volatile uint32_t *)off_102ACC >> 4)) - 1);
 }
@@ -785,6 +792,7 @@ int get_clock_prescaler() {
 
 
 // rf_reg_write_byte @ 0x102ad0
+/* luna: Updates the low byte and bits 12–19 of two RF registers from the supplied byte and its byte-width value minus three, then returns the updated second r */
 unsigned int rf_reg_write_byte(uint8_t a1) {
   volatile unsigned int *v1; // r1
   volatile unsigned int *v2; // r2

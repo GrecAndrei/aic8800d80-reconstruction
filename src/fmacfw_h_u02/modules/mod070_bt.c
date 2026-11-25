@@ -1,4 +1,5 @@
 // bt_feature_check_1 @ 0x1402f0
+/* luna: Runs the kernel timer check when `hci_cmd_handler(0x0B)` returns 1; otherwise, writes 157 to an MMIO field if the referenced signed state is negative. */
 int bt_feature_check_1() {
   if ( hci_cmd_handler(0xBu) == 1 )
   {
@@ -16,6 +17,7 @@ int bt_feature_check_1() {
 
 
 // bt_feature_check_4 @ 0x140330
+/* luna: Calls handler 0x0B and, unless it returns 4, writes 129 to an MMIO field when a referenced signed value is negative. */
 int bt_feature_check_4() {
   if ( hci_cmd_handler(0xBu) == 4 )
   {
@@ -33,6 +35,7 @@ int bt_feature_check_4() {
 
 
 // find_ll_item @ 0x140370
+/* luna: Checks whether the LL opcode, or the secondary code selected by opcode 0xFF, is allowed by the configured lists; returns true when both lists are empt */
 int find_ll_item(int a1, int a2, int a3) {
   int v3; // r3
   int v4; // r4
@@ -95,6 +98,7 @@ LABEL_5:
 
 
 // bt_global_state_read @ 0x1403d0
+/* luna: Returns true when the global state pointer is null, or when HCI state 0xB is 3 and the pointed-to state word is zero. */
 BOOL bt_global_state_read() {
   int v0; // r5
 
@@ -109,6 +113,7 @@ BOOL bt_global_state_read() {
 
 
 // acl_tx_setup @ 0x140400
+/* luna: Initializes the per-link ACL transmit buffer from Bluetooth state and prepares its frame data. */
 volatile uint32_t * acl_tx_setup(int a1, int a2, int a3, int a4) {
   int v4; // r11
   int v5; // r0
@@ -497,6 +502,7 @@ LABEL_14:
 
 
 // bt_ll_state_check @ 0x1409a4
+/* luna: Builds an ACL transmit buffer for the current link and runs ACL setup and security processing, returning the original input if the link is invalid or  */
 int bt_ll_state_check(int result, int a2) {
   int v2; // r6
   unsigned int v3; // r4
@@ -535,9 +541,10 @@ int bt_ll_state_check(int result, int a2) {
 
 
 // util_memcmp @ 0x140a38
+/* luna: Returns true if no filter is configured, its address criterion passes, and any configured name criterion matches the supplied length-prefixed name; a  */
 int util_memcmp(volatile uint16_t *a1, int a2, int a3) {
   int result; // r0
-  int v6; // r2
+  int filter_name_len; // r2
   volatile uint8_t *v7; // r0
   volatile char *v8; // r5
   struct __attribute__((packed)) { uint8_t v9; // [sp+4h] [bp-34h] BYREF
@@ -551,7 +558,7 @@ int util_memcmp(volatile uint16_t *a1, int a2, int a3) {
     && *(volatile uint16_t *)(a3 + 54) == a1[1]
     && *(volatile uint16_t *)(a3 + 56) == a1[2] )
   {
-    v6 = *(volatile uint8_t *)(a3 + 58);
+    filter_name_len = *(volatile uint8_t *)(a3 + 58);
     if ( !*(volatile uint8_t *)(a3 + 58) )
       return 1;
     if ( !a2 )
@@ -567,7 +574,7 @@ int util_memcmp(volatile uint16_t *a1, int a2, int a3) {
       ++v7;
     }
     while ( v7 != (volatile uint8_t *)v8 );
-    return _frame.v9 == v6 && !memcmp(a3 + 59, (int)(uintptr_t)(&_frame.v10), v6);
+    return _frame.v9 == filter_name_len && !memcmp(a3 + 59, (int)(uintptr_t)(&_frame.v10), filter_name_len);
   }
   return result;
 }
@@ -575,6 +582,7 @@ int util_memcmp(volatile uint16_t *a1, int a2, int a3) {
 
 
 // bt_event_dispatch @ 0x140aac
+/* luna: Advances Bluetooth event processing, handles matching work records, and transmits the next enabled event notification. */
 int bt_event_dispatch(int a1, int a2) {
   int v3; // r5
   int v4; // r7
@@ -689,19 +697,21 @@ LABEL_12:
 
 
 // clear_tx_buf @ 0x140c5c
+/* luna: Runs HCI command preprocessing for 0x0B, zeroes the Bluetooth transmit buffer, and sets its trailing 32-bit sentinel to -1. */
 int clear_tx_buf() {
-  volatile int *v0; // r4
+  volatile int *tx_buffer; // r4
   int result; // r0
 
-  v0 = (volatile int *)dword_140C80;
+  tx_buffer = (volatile int *)dword_140C80;
   hci_cmd_preprocess(0xBu, 0);
-  result = (int)memset(v0, 0, 0x1960u);
-  v0[1620] = -1;
+  result = (int)memset(tx_buffer, 0, 0x1960u);
+  tx_buffer[1620] = -1;
   return result;
 }
 
 
 // bt_msg_build @ 0x140c84
+/* luna: Temporarily overrides the two-byte field at context offset 6488, calls bt_ll_state_check with a stack descriptor, and restores the original field. */
 int bt_msg_build(char a1, char a2, char a3, int a4, char a5) {
   int v5; // r4
   int16_t v6; // r6

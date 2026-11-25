@@ -1,4 +1,5 @@
 // mmio_ring_init @ 0x123884
+/* luna: Builds a status PDU from MMIO snapshots and RF state bits, then passes it to the packet processor. */
 int mmio_ring_init(int a1, int a2, int a3, int a4) {
   int v4; // r0
   volatile uint32_t *v5; // r5
@@ -49,6 +50,7 @@ LABEL_3:
 
 
 // list_check_first @ 0x123954
+/* luna: Programs the RF from the supplied channel configuration, waits for hardware readiness, and performs channel-dependent MAC and command post-processing. */
 void list_check_first(int a1, int a2, int a3, int a4) {
   volatile int16_t **v4; // r8
   int v5; // r0
@@ -83,6 +85,7 @@ LABEL_7:
 
 
 // list_find_entry @ 0x123a28
+/* luna: Classifies and preprocesses a command, invoking the callback when the command is accepted. */
 int list_find_entry(int a1, void ( **a2)(int), unsigned int a3) {
   volatile int16_t **v3; // r5
   int result; // r0
@@ -114,6 +117,7 @@ int list_find_entry(int a1, void ( **a2)(int), unsigned int a3) {
 
 
 // classify_command @ 0x123ab4
+/* luna: Routes a command by its HCI class, applying RF and MAC updates on the direct path and returning 2 for special or preprocessed cases. */
 int classify_command(int a1, volatile uint8_t *a2, unsigned int a3, int a4) {
   int v7; // r2
   volatile uint16_t *v8; // r5
@@ -941,34 +945,35 @@ LABEL_10:
 
 
 // mmio_read_status @ 0x124848
+/* luna: Programs the BK, BE, VI, and VO TXOP values into the corresponding hardware registers and logs the settings. */
 int mmio_read_status(volatile uint16_t *a1) {
-  int v1; // r3
-  volatile int *v2; // r2
-  int v4; // r0
+  int preserve_mask; // r3
+  volatile int *txop_registers; // r2
+  int bk_txop; // r0
   volatile int *v5; // r5
   volatile int *v6; // r7
-  int v7; // r6
-  int v8; // r1
-  int v9; // r5
+  int vi_txop; // r6
+  int be_txop; // r1
+  int vo_txop; // r5
   volatile int *v10; // r0
 
-  v1 = dword_1248D0;
-  v2 = *(volatile int **)off_1248CC;
-  v4 = *a1;
+  preserve_mask = dword_1248D0;
+  txop_registers = *(volatile int **)off_1248CC;
+  bk_txop = *a1;
   v5 = (volatile int *)off_1248D4;
   v6 = (volatile int *)off_1248D8;
-  v7 = a1[2];
-  *v2 = **(volatile uint32_t **)off_1248CC & dword_1248D0 | (v4 << 12);
-  *v5 = *v5 & v1 | (v4 << 12);
-  v8 = a1[1];
-  v2[1] = v2[1] & v1 | (v8 << 12);
-  v9 = a1[3];
-  *v6 = *v6 & v1 | (v8 << 12);
-  v2[2] = v2[2] & v1 | (v7 << 12);
+  vi_txop = a1[2];
+  *txop_registers = **(volatile uint32_t **)off_1248CC & dword_1248D0 | (bk_txop << 12);
+  *v5 = *v5 & preserve_mask | (bk_txop << 12);
+  be_txop = a1[1];
+  txop_registers[1] = txop_registers[1] & preserve_mask | (be_txop << 12);
+  vo_txop = a1[3];
+  *v6 = *v6 & preserve_mask | (be_txop << 12);
+  txop_registers[2] = txop_registers[2] & preserve_mask | (vi_txop << 12);
   v10 = (volatile int *)off_1248DC;
-  v6[1] = v6[1] & v1 | (v7 << 12);
-  v2[3] = v2[3] & v1 | (v9 << 12);
-  *v10 = v1 & *v10 | (v9 << 12);
+  v6[1] = v6[1] & preserve_mask | (vi_txop << 12);
+  txop_registers[3] = txop_registers[3] & preserve_mask | (vo_txop << 12);
+  *v10 = preserve_mask & *v10 | (vo_txop << 12);
   get_mac_ver();
   alloc_tx_event("set txop: bk:%x,be:%x,vi:%x,vo:%x\n", *a1, a1[1], a1[2], a1[3]);
   return 0;
@@ -976,6 +981,7 @@ int mmio_read_status(volatile uint16_t *a1) {
 
 
 // scan_param_update @ 0x1248e4
+/* luna: Updates an indexed scan-parameter record, mirrors its nonzero words into active hardware slots, and applies the associated control fields. */
 int scan_param_update(volatile uint8_t *a1) {
   volatile int *v1; // r3
   int v2; // r4
@@ -1064,6 +1070,7 @@ int scan_param_update(volatile uint8_t *a1) {
 
 
 // mmio_read_byte @ 0x1249fc
+/* luna: Writes six byte parameters to designated MMIO registers, scaling the first three by a register-derived byte, then allocates a vendor-timestamp TX even */
 int mmio_read_byte(volatile uint8_t *a1) {
   int v1; // r1
   int v3; // r3
@@ -1107,6 +1114,7 @@ int mmio_read_byte(volatile uint8_t *a1) {
 
 
 // check_flag_bit @ 0x124ad4
+/* luna: Applies fields from a five-byte vendor CCA parameter block to MMIO and then invokes packet-parameter processing. */
 int check_flag_bit(volatile uint8_t *a1) {
   int v1; // r3
 
@@ -1129,6 +1137,7 @@ int check_flag_bit(volatile uint8_t *a1) {
 
 
 // cmd_dispatch @ 0x124b74
+/* luna: Dispatches recognized vendor command opcodes using the request payload, then writes a command-response header. */
 int cmd_dispatch(int a1, int a2, int a3, int a4) {
   int v6; // r1
   int a3a; // [sp+4h] [bp-4h]
@@ -1175,6 +1184,7 @@ int cmd_dispatch(int a1, int a2, int a3, int a4) {
 
 
 // is_time_before @ 0x124be4
+/* luna: Returns whether the 32-bit value at offset 12 in the first record precedes the second under signed modular comparison. */
 unsigned int is_time_before(int a1, int a2) {
   return (unsigned int)(*(volatile uint32_t *)(a1 + 12) - *(volatile uint32_t *)(a2 + 12)) >> 31;
 }
@@ -1182,6 +1192,7 @@ unsigned int is_time_before(int a1, int a2) {
 
 
 // deinit_global_0x18fb00 @ 0x124bf0
+/* luna: Clears the statistics buffer referenced by the global pointer and returns the callee's result. */
 int deinit_global_0x18fb00() {
   return (int)(uintptr_t)(clear_stats_buf((void *)(uintptr_t)(dword_124BF8)));
 }

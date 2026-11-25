@@ -1,4 +1,5 @@
 // rf_lookup_tx_power @ 0x138890
+/* luna: Stores a TX-power lookup request in the next queue slot, dispatches it, and returns the slot address or zero if the guarded slot is busy. */
 int rf_lookup_tx_power(int a1, uint16_t a2, int a3) {
   volatile uint8_t *v3; // r5
   int v4; // r4
@@ -42,6 +43,7 @@ int rf_lookup_tx_power(int a1, uint16_t a2, int a3) {
 
 
 // rf_set_tx_power @ 0x138934
+/* luna: Uses the request field at offset 20 for a transmit-power lookup, dispatches two command handlers, and returns a context check result. */
 int rf_set_tx_power(int a1) {
   int v1; // r5
   int v3; // r1
@@ -55,41 +57,42 @@ int rf_set_tx_power(int a1) {
 
 
 // parse_param_direction @ 0x138968
+/* luna: Recognizes ARP frames and invokes the handler when a request targets the VIF's IPv4 address. */
 int parse_param_direction(volatile uint8_t *a1, volatile uint32_t *a2, int a3, int a4) {
   char v5; // r2
-  int v6; // r4
-  volatile uint8_t *v7; // r3
+  int frame_offset; // r4
+  volatile uint8_t *frame_base; // r3
   int v10; // r7
-  int v12; // r9
-  int v13; // r7
+  int arp_opcode; // r9
+  int target_ipv4_addr; // r7
 
   v5 = *(volatile uint8_t *)(a3 + 1);
-  v6 = a4;
+  frame_offset = a4;
   if ( a4 )
-    v6 = 2;
+    frame_offset = 2;
   if ( (v5 & 0x40) != 0 )
-    v6 = (uint8_t)(v6 + 8);
-  v7 = (volatile uint8_t *)(a3 + v6);
-  if ( *(volatile uint8_t *)(a3 + v6 + 30) != 8 )
+    frame_offset = (uint8_t)(frame_offset + 8);
+  frame_base = (volatile uint8_t *)(a3 + frame_offset);
+  if ( *(volatile uint8_t *)(a3 + frame_offset + 30) != 8 )
     return 0;
-  if ( v7[31] != 6 )
+  if ( frame_base[31] != 6 )
     return 0;
-  v10 = (uint8_t)v7[38];
-  if ( v7[38] )
+  v10 = (uint8_t)frame_base[38];
+  if ( frame_base[38] )
     return 0;
-  v12 = (uint8_t)v7[39];
-  if ( v12 == 1 )
+  arp_opcode = (uint8_t)frame_base[39];
+  if ( arp_opcode == 1 )
   {
-    v13 = ((uint8_t)v7[58] << 16)
-        | ((uint8_t)v7[59] << 24)
-        | (uint8_t)v7[56]
-        | ((uint8_t)v7[57] << 8);
-    check_feature_flag(128, "rx arpreq: ip=%x. vif ip=%x\r\n", v13, *a2);
-    if ( v13 == *a2 )
-      rf_chan_pwr_calc(*a1, (int)(uintptr_t)((volatile char *)(v6 + 40 + a3)), (volatile char *)a3);
+    target_ipv4_addr = ((uint8_t)frame_base[58] << 16)
+        | ((uint8_t)frame_base[59] << 24)
+        | (uint8_t)frame_base[56]
+        | ((uint8_t)frame_base[57] << 8);
+    check_feature_flag(128, "rx arpreq: ip=%x. vif ip=%x\r\n", target_ipv4_addr, *a2);
+    if ( target_ipv4_addr == *a2 )
+      rf_chan_pwr_calc(*a1, (int)(uintptr_t)((volatile char *)(frame_offset + 40 + a3)), (volatile char *)a3);
     return 1;
   }
-  else if ( v12 == 2 )
+  else if ( arp_opcode == 2 )
   {
     check_feature_flag(128, aRxArpresp);
   }
@@ -98,6 +101,7 @@ int parse_param_direction(volatile uint8_t *a1, volatile uint32_t *a2, int a3, i
 
 
 // rf_is_calibrated @ 0x138ab4
+/* luna: For qualifying received frames, finds the matching interface, checks the transmitter against its peer list, and routes an unknown peer to deauthentica */
 int rf_is_calibrated(volatile uint16_t *a1) {
   int v2; // r7
   int v3; // r5
@@ -155,6 +159,7 @@ LABEL_14:
 
 
 // rf_get_channel_freq @ 0x138b74
+/* luna: Merges RF configuration bits into the request control word, completes the associated TX packet, and returns the TX-power lookup result. */
 volatile uint32_t * rf_get_channel_freq(int a1, int16_t a2) {
   volatile uint32_t *v2; // r6
   int16_t v4; // r5
@@ -193,6 +198,7 @@ LABEL_4:
 
 
 // bt_handle_rx_request @ 0x138bd8
+/* luna: Updates the TX request control word using RF configuration, completes the packet, and returns the looked-up transmit-power value. */
 volatile uint32_t * bt_handle_rx_request(int a1, int16_t a2) {
   void *v2; // r6
   int16_t v4; // r5
@@ -253,6 +259,7 @@ LABEL_7:
 
 
 // rf_handle_command @ 0x138c64
+/* luna: Optionally parses Bluetooth packet metadata and copies the received payload into the RF receive buffer, wrapping at its end. */
 int rf_handle_command(unsigned int a1, int a2, int a3, int a4) {
   volatile uint32_t *v4; // r8
   unsigned int v5; // r4
@@ -453,6 +460,7 @@ LABEL_36:
 
 
 // bt_send_packet @ 0x138ea4
+/* luna: Initializes or reuses an RF packet descriptor, applies RF command and channel settings, and submits it through the WLAN queue handler. */
 int bt_send_packet(int a1, int a2, int a3) {
   volatile uint16_t *v3; // r6
   char v5; // r5
@@ -626,6 +634,7 @@ if ( !rf_handle_command(a1, (int)(uintptr_t)(a2a), 1, 1) ) return v9;
 
 
 // short_delay @ 0x139168
+/* luna: Advances the 64-slot ring by the requested count, clears nonzero entries encountered and decrements the pending count, then returns the entry for the  */
 int short_delay(int result, unsigned int a2) {
   uint16_t v2; // r2
   char v3; // r7
@@ -668,6 +677,7 @@ int short_delay(int result, unsigned int a2) {
 
 
 // rf_lookup_rate_table @ 0x1391b4
+/* luna: Looks up the rate-table entry selected by the descriptor and, on a forward 12-bit sequence mismatch, delays before returning the table-check helper's  */
 volatile uint32_t ** rf_lookup_rate_table(int a1, int a2) {
   volatile uint32_t **result; // r0
   unsigned int v3; // r2
@@ -697,6 +707,7 @@ volatile uint32_t ** rf_lookup_rate_table(int a1, int a2) {
 
 
 // rf_get_tx_power_cal @ 0x139200
+/* luna: Processes a power-calibration record, updates its sequence and ring-buffer state, and recalculates RF power when applicable. */
 int rf_get_tx_power_cal(int a1, int a2) {
   volatile uint16_t *v2; // r6
   int v3; // r7
@@ -846,13 +857,14 @@ LABEL_10:
 
 
 // bt_parse_rx_packet @ 0x139444
+/* luna: Dispatches received 802.11 action frames by category and records channel-switch announcements for the associated station. */
 int bt_parse_rx_packet(uint16_t a1, int a2, int a3, int a4, volatile uint8_t *a5, int a6, volatile uint16_t *a7, volatile uint8_t *a8) {
-  int v9; // r12
+  int station_id; // r12
   unsigned int v11; // r5
   int v12; // r8
   int v13; // r4
-  int v15; // r5
-  unsigned int v16; // r0
+  int action_body; // r5
+  unsigned int frame_subtype; // r0
   int v17; // r5
   volatile int *v18; // r3
   int v19; // r3
@@ -875,11 +887,11 @@ int bt_parse_rx_packet(uint16_t a1, int a2, int a3, int a4, volatile uint8_t *a5
   uint16_t v36; // r0
   volatile uint8_t *v37; // r8
   int v38; // r3
-  int v39; // r9
+  int action_code; // r9
   int v40; // r4
   unsigned int v41; // r10
-  int v42; // r7
-  volatile uint8_t *v43; // r9
+  int channel_switch_count; // r7
+  volatile uint8_t *station_context; // r9
   unsigned int v44; // r4
   unsigned int v45; // r10
   int v46; // r0
@@ -890,46 +902,46 @@ int bt_parse_rx_packet(uint16_t a1, int a2, int a3, int a4, volatile uint8_t *a5
   struct __attribute__((packed)) { uint8_t a3a; // [sp+Eh] [bp-6h] BYREF
   uint8_t v53[5]; // [sp+Fh] [bp-5h] BYREF
   } _frame;
-  v9 = (uint8_t)*a5;
-  if ( v9 == 255 )
+  station_id = (uint8_t)*a5;
+  if ( station_id == 255 )
   {
-    v16 = a1 & 0xFC;
-    if ( v16 == 176 )
+    frame_subtype = a1 & 0xFC;
+    if ( frame_subtype == 176 )
     {
       is_phy_ver_6();
       return 1;
     }
-    if ( v16 > 0xB0 )
+    if ( frame_subtype > 0xB0 )
     {
-      if ( v16 != 208 )
+      if ( frame_subtype != 208 )
         return 1;
 LABEL_12:
-      v15 = a6 + a3;
+      action_body = a6 + a3;
       if ( a4 == 255 )
         return 1;
       switch ( *(volatile uint8_t *)(a6 + a3) )
       {
         case 0:
-          v39 = *(volatile uint8_t *)(v15 + 1);
-          alloc_tx_event("rx spectrum action: action code=%d\n", v39);
-          v37 = (volatile uint8_t *)(v15 + 1);
-          if ( v39 == 4 )
+          action_code = *(volatile uint8_t *)(action_body + 1);
+          alloc_tx_event("rx spectrum action: action code=%d\n", action_code);
+          v37 = (volatile uint8_t *)(action_body + 1);
+          if ( action_code == 4 )
           {
             v40 = (uint8_t)*a5;
             if ( v40 != 255 )
             {
               v41 = dword_139950;
-              v42 = (uint8_t)handle_ampdu_action((void *)(uintptr_t)(v15 + 2), a2 - a3 - 2, _frame.v53, 1320 * v40 + 1212 + dword_139950);
-              alloc_tx_event("csa count=%d, mode=%d!\n", v42, _frame.v53[0]);
-              if ( v42 )
+              channel_switch_count = (uint8_t)handle_ampdu_action((void *)(uintptr_t)(action_body + 2), a2 - a3 - 2, _frame.v53, 1320 * v40 + 1212 + dword_139950);
+              alloc_tx_event("csa count=%d, mode=%d!\n", channel_switch_count, _frame.v53[0]);
+              if ( channel_switch_count )
               {
-                v43 = (volatile uint8_t *)(1320 * v40 + v41);
-                if ( !v43[106] )
+                station_context = (volatile uint8_t *)(1320 * v40 + v41);
+                if ( !station_context[106] )
                 {
-                  if ( !v43[146] && v43[148] && _frame.v53[0] == 1 )
-                    send_hci_event(v43[107], 0);
+                  if ( !station_context[146] && station_context[148] && _frame.v53[0] == 1 )
+                    send_hci_event(station_context[107], 0);
                   v44 = v41 + 1320 * v40;
-                  *(volatile uint8_t *)(v44 + 146) = v42;
+                  *(volatile uint8_t *)(v44 + 146) = channel_switch_count;
                   *(volatile uint8_t *)(v44 + 148) = 1;
                 }
               }
@@ -937,8 +949,8 @@ LABEL_12:
           }
           goto LABEL_65;
         case 3:
-          v36 = dispatch_command(a4, (volatile uint16_t *)v15, *(volatile uint8_t *)(v15 + 1));
-          v9 = v36;
+          v36 = dispatch_command(a4, (volatile uint16_t *)action_body, *(volatile uint8_t *)(action_body + 1));
+          station_id = v36;
           if ( v36 != 33 )
           {
             v30 = (char)v36 << 8;
@@ -949,17 +961,17 @@ LABEL_12:
           return 0;
         case 5:
           v31 = dword_139718;
-          if ( *(volatile uint8_t *)(dword_139718 + 1320 * v9 + 106) == 2
-            || (v32 = *(volatile uint8_t *)(v15 + 1), v33 = (volatile uint8_t *)(v15 + 1), *(volatile uint8_t *)(v15 + 1)) )
+          if ( *(volatile uint8_t *)(dword_139718 + 1320 * station_id + 106) == 2
+            || (v32 = *(volatile uint8_t *)(action_body + 1), v33 = (volatile uint8_t *)(action_body + 1), *(volatile uint8_t *)(action_body + 1)) )
           {
             v13 = 1;
 LABEL_84:
-            if ( v9 == 255 )
+            if ( station_id == 255 )
               goto LABEL_88;
-            v33 = (volatile uint8_t *)(v15 + 1);
-            if ( *(volatile uint8_t *)(dword_139950 + 1320 * v9 + 106) )
+            v33 = (volatile uint8_t *)(action_body + 1);
+            if ( *(volatile uint8_t *)(dword_139950 + 1320 * station_id + 106) )
               goto LABEL_46;
-            v9 = 255;
+            station_id = 255;
           }
           else
           {
@@ -975,11 +987,11 @@ LABEL_84:
             v13 = *(volatile uint8_t *)(v35 + 106);
             if ( *(volatile uint8_t *)(v35 + 106) )
             {
-              v9 = v32;
+              station_id = v32;
               v13 = 1;
               goto LABEL_48;
             }
-            v9 = *(volatile uint8_t *)(v35 + 106);
+            station_id = *(volatile uint8_t *)(v35 + 106);
           }
           if ( (unsigned int)*v33 - 6 > 1 )
           {
@@ -993,15 +1005,15 @@ LABEL_50:
           *a7 |= v30;
           return v13;
         case 7:
-          v13 = *(volatile uint8_t *)(v15 + 1);
-          if ( *(volatile uint8_t *)(v15 + 1) )
+          v13 = *(volatile uint8_t *)(action_body + 1);
+          if ( *(volatile uint8_t *)(action_body + 1) )
           {
             if ( v13 != 1 )
               goto LABEL_46;
             if ( (*(volatile uint32_t *)(dword_139730 + 696 * a4 + 4) & 2) != 0 )
             {
-              v13 = *(volatile uint8_t *)(v15 + 2) & 1;
-              if ( (*(volatile uint8_t *)(v15 + 2) & 1) != 0 )
+              v13 = *(volatile uint8_t *)(action_body + 2) & 1;
+              if ( (*(volatile uint8_t *)(action_body + 2) & 1) != 0 )
               {
                 ((int (*)())ble_ll_conn_get)(a4, 0xFFu, 0);
                 v13 = 0;
@@ -1010,17 +1022,17 @@ LABEL_50:
               {
                 ((int (*)())ble_ll_conn_get)(a4, 0xFFu, 0xFFu);
               }
-              v9 = 255;
+              station_id = 255;
               goto LABEL_47;
             }
           }
           else if ( (*(volatile uint32_t *)(dword_139960 + 696 * a4 + 4) & 2) != 0 )
           {
-            v48 = *(volatile uint8_t *)(v15 + 2);
+            v48 = *(volatile uint8_t *)(action_body + 2);
             if ( v48 <= 1 )
             {
               ((int (*)())ble_ll_conn_get)(a4, v48, 0xFFu);
-              v9 = 255;
+              station_id = 255;
               goto LABEL_47;
             }
           }
@@ -1028,21 +1040,21 @@ LABEL_50:
         case 8:
           if ( a2 - a3 <= 3 )
             goto LABEL_69;
-          if ( v9 == 255 )
+          if ( station_id == 255 )
             goto LABEL_88;
-          v13 = *(volatile uint8_t *)(v15 + 1) | *(volatile uint8_t *)(dword_139950 + 1320 * v9 + 106);
+          v13 = *(volatile uint8_t *)(action_body + 1) | *(volatile uint8_t *)(dword_139950 + 1320 * station_id + 106);
           if ( v13 )
             goto LABEL_46;
           *a7 = 6;
           v30 = 0;
           goto LABEL_50;
         case 0x15:
-          v37 = (volatile uint8_t *)(v15 + 1);
+          v37 = (volatile uint8_t *)(action_body + 1);
 LABEL_65:
           v38 = *v37;
           if ( v38 == 1 )
           {
-            write_rf_cal_data((volatile uint32_t *)(v15 + 2), (volatile uint32_t *)(v15 + 10));
+            write_rf_cal_data((volatile uint32_t *)(action_body + 2), (volatile uint32_t *)(action_body + 10));
           }
           else
           {
@@ -1050,28 +1062,28 @@ LABEL_65:
             {
 LABEL_46:
               v13 = 1;
-              v9 = 255;
+              station_id = 255;
               goto LABEL_47;
             }
-            if ( (*(volatile uint32_t *)(dword_139730 + 696 * a4 + 4) & 0x24) != 0 && *(volatile char *)(v15 + 2) >= 0 )
+            if ( (*(volatile uint32_t *)(dword_139730 + 696 * a4 + 4) & 0x24) != 0 && *(volatile char *)(action_body + 2) >= 0 )
             {
-              ((int (*)())ble_ll_conn_get)(a4, *(volatile uint8_t *)(v15 + 2) & 3, *(volatile uint8_t *)(v15 + 2) >> 4);
+              ((int (*)())ble_ll_conn_get)(a4, *(volatile uint8_t *)(action_body + 2) & 3, *(volatile uint8_t *)(action_body + 2) >> 4);
               v13 = 0;
-              v9 = 255;
+              station_id = 255;
 LABEL_47:
               if ( *a7 == 255 )
                 return v13;
 LABEL_48:
-              v30 = (uint16_t)v9 << 8;
+              v30 = (uint16_t)station_id << 8;
 LABEL_49:
-              if ( **(volatile int16_t **)dword_13972C < 0 && v9 == 255 )
+              if ( **(volatile int16_t **)dword_13972C < 0 && station_id == 255 )
                 irq_disable_mmio_write((int)aTaskIdx0xff, (int)aRxuMgtRouteAct, 2326);
               goto LABEL_50;
             }
           }
 LABEL_69:
           v13 = 0;
-          v9 = 255;
+          station_id = 255;
           goto LABEL_47;
         case 0x16:
           v13 = 0;
@@ -1080,7 +1092,7 @@ LABEL_69:
           goto LABEL_46;
       }
     }
-    if ( v16 == 64 )
+    if ( frame_subtype == 64 )
     {
 LABEL_33:
       if ( !*(volatile uint8_t *)(dword_139720 + 0x12) )
@@ -1145,14 +1157,14 @@ LABEL_38:
           return v13;
       }
     }
-    if ( v16 != 128 )
+    if ( frame_subtype != 128 )
       return 1;
     v17 = 0;
   }
   else
   {
     v11 = a1 & 0xFC;
-    v12 = *(volatile uint8_t *)(dword_139718 + 1320 * v9 + 106);
+    v12 = *(volatile uint8_t *)(dword_139718 + 1320 * station_id + 106);
     if ( v11 != 128 )
     {
       if ( (a1 & 0xFCu) <= 0x80 )
@@ -1194,7 +1206,7 @@ LABEL_19:
       }
       return 1;
     }
-    v17 = dword_139718 + 1320 * v9;
+    v17 = dword_139718 + 1320 * station_id;
   }
   if ( hci_cmd_handler(4u) == 1 )
   {
@@ -1214,6 +1226,7 @@ LABEL_19:
 
 
 // rf_process_packet @ 0x139970
+/* luna: Filters unfragmented received Wi-Fi frames, resolves their peer context, and routes Bluetooth-recognized packets through the BT connection and RX pars */
 int rf_process_packet(int a1, int a2) {
   int v2; // r7
   volatile int16_t *v3; // r9
@@ -1350,6 +1363,7 @@ LABEL_31:
 
 
 // wlc_init_hw @ 0x139bb4
+/* luna: Initializes associated global work structures and seeds a 192-entry RF packet-buffer descriptor pool. */
 void *wlc_init_hw() {
   volatile uint32_t *v0; // r6
   int v1; // r4
@@ -1395,6 +1409,7 @@ void *wlc_init_hw() {
 
 
 // rf_set_power @ 0x139c54
+/* luna: Parses an 802.11 data frame’s LLC/IP payload to filter selected multicast and discovery traffic, rate-limiting IPv6 router advertisements per interfac */
 int rf_set_power(volatile char *a1, char a2, int a3) {
   char v4; // r3
   int v6; // r4
@@ -1482,6 +1497,7 @@ int rf_set_power(volatile char *a1, char a2, int a3) {
 
 
 // rf_get_power @ 0x139db8
+/* luna: Computes the frame EtherType offset and emits an RX-EAPOL diagnostic when it finds 0x888E. */
 volatile char * rf_get_power(volatile char *a1, char a2, int a3) {
   char v3; // r3
   volatile char *result; // r0
@@ -1508,20 +1524,21 @@ volatile char * rf_get_power(volatile char *a1, char a2, int a3) {
 
 
 // dpc_handler @ 0x139e1c
+/* luna: Decodes a pending received 802.11 frame into shared RX metadata, or services a Bluetooth RX request when no Wi-Fi frame is pending. */
 int dpc_handler(int a1) {
-  unsigned int v1; // r7
-  int v2; // r5
+  unsigned int context_flags; // r7
+  int context; // r5
   int v3; // r3
-  volatile uint8_t *v4; // r4
-  int v5; // r6
+  volatile uint8_t *rx_info; // r4
+  int handled; // r6
   int v6; // r1
-  volatile uint8_t *v8; // r6
-  uint16_t v9; // r8
-  uint16_t v10; // r3
-  int v11; // r11
-  int v12; // r9
-  char v13; // r3
-  uint16_t v14; // r3
+  volatile uint8_t *rx_frame; // r6
+  uint16_t frame_control; // r8
+  uint16_t sequence_control; // r3
+  int ds_direction_bits; // r11
+  int frame_type_subtype; // r9
+  char mac_header_length; // r3
+  uint16_t current_frame_control; // r3
   int v15; // r10
   int v16; // r3
   int v17; // r1
@@ -1540,7 +1557,7 @@ int dpc_handler(int a1) {
   volatile uint16_t *v30; // r1
   volatile uint8_t *v31; // r9
   int v32; // r0
-  uint16_t v33; // r3
+  uint16_t qos_control; // r3
   char v34; // r0
   int v35; // r1
   int v36; // r0
@@ -1562,174 +1579,174 @@ int dpc_handler(int a1) {
   int v52; // [sp+4h] [bp-8h]
   int v53; // [sp+4h] [bp-8h]
 
-  v1 = *(volatile uint32_t *)(a1 + 84);
-  v2 = a1;
-  if ( (v1 & 0x2000) == 0 )
+  context_flags = *(volatile uint32_t *)(a1 + 84);
+  context = a1;
+  if ( (context_flags & 0x2000) == 0 )
   {
     v3 = *((volatile uint8_t *)off_13A0F8 + 16);
     if ( v3 != 255 )
     {
-      v4 = (void *)(uintptr_t)(off_13A0FC);
+      rx_info = (void *)(uintptr_t)(off_13A0FC);
 LABEL_4:
-      v4[10] = v3;
-      bt_handle_rx_request(v2, 128);
-      v5 = 1;
+      rx_info[10] = v3;
+      bt_handle_rx_request(context, 128);
+      handled = 1;
       goto LABEL_5;
     }
 LABEL_35:
-    v5 = 0;
+    handled = 0;
     goto LABEL_5;
   }
-  v4 = (void *)(uintptr_t)(off_13A0FC);
-  v8 = *(volatile uint8_t **)(*(volatile uint32_t *)(a1 + 28) + 8);
-  v9 = *(volatile uint16_t *)v8;
-  *(volatile uint16_t *)off_13A0FC = *(volatile uint16_t *)v8;
+  rx_info = (void *)(uintptr_t)(off_13A0FC);
+  rx_frame = *(volatile uint8_t **)(*(volatile uint32_t *)(a1 + 28) + 8);
+  frame_control = *(volatile uint16_t *)rx_frame;
+  *(volatile uint16_t *)off_13A0FC = *(volatile uint16_t *)rx_frame;
   *(volatile uint32_t *)(a1 + 96) = 0;
-  v4[9] = -1;
-  v4[10] = -1;
-  v10 = *((volatile uint16_t *)v8 + 11);
-  *((volatile uint16_t *)v4 + 1) = v10;
-  v4[48] = 0;
-  *((volatile uint16_t *)v4 + 2) = v10 >> 4;
-  v4[6] = v10 & 0xF;
-  if ( (v9 & 0x88) == 0x88 )
+  rx_info[9] = -1;
+  rx_info[10] = -1;
+  sequence_control = *((volatile uint16_t *)rx_frame + 11);
+  *((volatile uint16_t *)rx_info + 1) = sequence_control;
+  rx_info[48] = 0;
+  *((volatile uint16_t *)rx_info + 2) = sequence_control >> 4;
+  rx_info[6] = sequence_control & 0xF;
+  if ( (frame_control & 0x88) == 0x88 )
   {
-    v11 = v9 & 0x300;
-    if ( v11 == 768 )
-      v33 = *((volatile uint16_t *)v8 + 15);
+    ds_direction_bits = frame_control & 0x300;
+    if ( ds_direction_bits == 768 )
+      qos_control = *((volatile uint16_t *)rx_frame + 15);
     else
-      v33 = *((volatile uint16_t *)v8 + 12);
-    v4[7] = v33 & 7;
+      qos_control = *((volatile uint16_t *)rx_frame + 12);
+    rx_info[7] = qos_control & 7;
   }
   else
   {
-    v4[7] = 0;
-    v11 = v9 & 0x300;
+    rx_info[7] = 0;
+    ds_direction_bits = frame_control & 0x300;
   }
-  v12 = v9 & 0xFC;
-  if ( v11 == 768 )
-    v13 = 30;
+  frame_type_subtype = frame_control & 0xFC;
+  if ( ds_direction_bits == 768 )
+    mac_header_length = 30;
   else
-    v13 = 24;
-  if ( v12 == 136 )
-    v13 += 2;
-  if ( v9 < 0 )
-    v13 += 4;
-  v4[8] = v13;
-  if ( (v8[4] & 1) != 0 )
-    v4[48] = 8;
-  if ( (v9 & 0x100) != 0 )
+    mac_header_length = 24;
+  if ( frame_type_subtype == 136 )
+    mac_header_length += 2;
+  if ( frame_control < 0 )
+    mac_header_length += 4;
+  rx_info[8] = mac_header_length;
+  if ( (rx_frame[4] & 1) != 0 )
+    rx_info[48] = 8;
+  if ( (frame_control & 0x100) != 0 )
   {
-    *((volatile uint16_t *)v4 + 18) = *((volatile uint16_t *)v8 + 8);
-    *((volatile uint16_t *)v4 + 19) = *((volatile uint16_t *)v8 + 9);
-    *((volatile uint16_t *)v4 + 20) = *((volatile uint16_t *)v8 + 10);
-    v14 = *(volatile uint16_t *)v8;
-    if ( (*(volatile uint16_t *)v8 & 0x200) != 0 )
+    *((volatile uint16_t *)rx_info + 18) = *((volatile uint16_t *)rx_frame + 8);
+    *((volatile uint16_t *)rx_info + 19) = *((volatile uint16_t *)rx_frame + 9);
+    *((volatile uint16_t *)rx_info + 20) = *((volatile uint16_t *)rx_frame + 10);
+    current_frame_control = *(volatile uint16_t *)rx_frame;
+    if ( (*(volatile uint16_t *)rx_frame & 0x200) != 0 )
     {
 LABEL_19:
-      if ( (v14 & 0x100) != 0 )
+      if ( (current_frame_control & 0x100) != 0 )
       {
-        *((volatile uint16_t *)v4 + 21) = *((volatile uint16_t *)v8 + 12);
-        *((volatile uint16_t *)v4 + 22) = *((volatile uint16_t *)v8 + 13);
-        *((volatile uint16_t *)v4 + 23) = *((volatile uint16_t *)v8 + 14);
+        *((volatile uint16_t *)rx_info + 21) = *((volatile uint16_t *)rx_frame + 12);
+        *((volatile uint16_t *)rx_info + 22) = *((volatile uint16_t *)rx_frame + 13);
+        *((volatile uint16_t *)rx_info + 23) = *((volatile uint16_t *)rx_frame + 14);
       }
       else
       {
-        *((volatile uint16_t *)v4 + 21) = *((volatile uint16_t *)v8 + 8);
-        *((volatile uint16_t *)v4 + 22) = *((volatile uint16_t *)v8 + 9);
-        *((volatile uint16_t *)v4 + 23) = *((volatile uint16_t *)v8 + 10);
+        *((volatile uint16_t *)rx_info + 21) = *((volatile uint16_t *)rx_frame + 8);
+        *((volatile uint16_t *)rx_info + 22) = *((volatile uint16_t *)rx_frame + 9);
+        *((volatile uint16_t *)rx_info + 23) = *((volatile uint16_t *)rx_frame + 10);
       }
-      if ( (v1 & 0x2000000) != 0 )
+      if ( (context_flags & 0x2000000) != 0 )
         goto LABEL_22;
 LABEL_38:
-      if ( v4[115]
-        && (v1 & 0x200) == 0
-        && *((volatile uint16_t *)v4 + 54) == *((volatile uint16_t *)v8 + 5)
-        && *((volatile uint16_t *)v4 + 55) == *((volatile uint16_t *)v8 + 6)
-        && *((volatile uint16_t *)v4 + 56) == *((volatile uint16_t *)v8 + 7) )
+      if ( rx_info[115]
+        && (context_flags & 0x200) == 0
+        && *((volatile uint16_t *)rx_info + 54) == *((volatile uint16_t *)rx_frame + 5)
+        && *((volatile uint16_t *)rx_info + 55) == *((volatile uint16_t *)rx_frame + 6)
+        && *((volatile uint16_t *)rx_info + 56) == *((volatile uint16_t *)rx_frame + 7) )
       {
-        v4[114] = (*(volatile uint16_t *)v8 & 0x1400) == 4096;
+        rx_info[114] = (*(volatile uint16_t *)rx_frame & 0x1400) == 4096;
       }
-      if ( (v9 & 0xC) != 0 )
+      if ( (frame_control & 0xC) != 0 )
         goto LABEL_56;
-      v29 = *((volatile uint16_t *)v8 + 11);
-      if ( (*(volatile uint16_t *)v8 & 0x800) != 0 )
+      v29 = *((volatile uint16_t *)rx_frame + 11);
+      if ( (*(volatile uint16_t *)rx_frame & 0x800) != 0 )
       {
         v30 = (volatile uint16_t *)off_13A2A4;
-        v31 = v8 + 10;
-        if ( *((volatile uint16_t *)v4 + 51) == v29 )
+        v31 = rx_frame + 10;
+        if ( *((volatile uint16_t *)rx_info + 51) == v29 )
         {
           v49 = off_13A2A4;
-          if ( !memcmp((unsigned int)(v8 + 10), off_13A2A4, 6u) )
+          if ( !memcmp((unsigned int)(rx_frame + 10), off_13A2A4, 6u) )
             goto LABEL_34;
-          v9 = *(volatile uint16_t *)v4;
-          v29 = (v29 & ~0xFFFFu) | ((uint16_t)(*((volatile uint16_t *)v8 + 11)) & 0xFFFFu);
+          frame_control = *(volatile uint16_t *)rx_info;
+          v29 = (v29 & ~0xFFFFu) | ((uint16_t)(*((volatile uint16_t *)rx_frame + 11)) & 0xFFFFu);
           v30 = (volatile uint16_t *)v49;
         }
       }
       else
       {
         v30 = (void *)(uintptr_t)(off_13A108);
-        v31 = v8 + 10;
+        v31 = rx_frame + 10;
       }
       v32 = *(volatile uint32_t *)v31;
       v30[2] = *((volatile uint16_t *)v31 + 2);
-      *((volatile uint16_t *)v4 + 51) = v29;
-      *((volatile uint32_t *)v4 + 24) = v32;
-      if ( (v9 & 0x4000) != 0 && ((v1 & 0x7C) != 4 || !rf_validate_rate((int)v8, v1)) )
+      *((volatile uint16_t *)rx_info + 51) = v29;
+      *((volatile uint32_t *)rx_info + 24) = v32;
+      if ( (frame_control & 0x4000) != 0 && ((context_flags & 0x7C) != 4 || !rf_validate_rate((int)rx_frame, context_flags)) )
 LABEL_56:
-        v5 = rf_is_calibrated((void *)(v8));
+        handled = rf_is_calibrated((void *)(rx_frame));
       else
-        v5 = rf_process_packet(v2, 255);
+        handled = rf_process_packet(context, 255);
       goto LABEL_57;
     }
   }
   else
   {
-    *((volatile uint16_t *)v4 + 18) = *((volatile uint16_t *)v8 + 2);
-    *((volatile uint16_t *)v4 + 19) = *((volatile uint16_t *)v8 + 3);
-    *((volatile uint16_t *)v4 + 20) = *((volatile uint16_t *)v8 + 4);
-    v14 = *(volatile uint16_t *)v8;
-    if ( (*(volatile uint16_t *)v8 & 0x200) != 0 )
+    *((volatile uint16_t *)rx_info + 18) = *((volatile uint16_t *)rx_frame + 2);
+    *((volatile uint16_t *)rx_info + 19) = *((volatile uint16_t *)rx_frame + 3);
+    *((volatile uint16_t *)rx_info + 20) = *((volatile uint16_t *)rx_frame + 4);
+    current_frame_control = *(volatile uint16_t *)rx_frame;
+    if ( (*(volatile uint16_t *)rx_frame & 0x200) != 0 )
       goto LABEL_19;
   }
-  *((volatile uint16_t *)v4 + 21) = *((volatile uint16_t *)v8 + 5);
-  *((volatile uint16_t *)v4 + 22) = *((volatile uint16_t *)v8 + 6);
-  *((volatile uint16_t *)v4 + 23) = *((volatile uint16_t *)v8 + 7);
-  if ( (v1 & 0x2000000) == 0 )
+  *((volatile uint16_t *)rx_info + 21) = *((volatile uint16_t *)rx_frame + 5);
+  *((volatile uint16_t *)rx_info + 22) = *((volatile uint16_t *)rx_frame + 6);
+  *((volatile uint16_t *)rx_info + 23) = *((volatile uint16_t *)rx_frame + 7);
+  if ( (context_flags & 0x2000000) == 0 )
     goto LABEL_38;
 LABEL_22:
   v15 = dword_13A110;
-  v16 = (uint8_t)((v1 >> 15) - 16);
+  v16 = (uint8_t)((context_flags >> 15) - 16);
   v17 = dword_13A110 + 696 * v16;
   if ( !*(volatile uint8_t *)(v17 + 37) )
     goto LABEL_34;
   v19 = *(volatile uint8_t *)(v18 + 34);
   v20 = dword_13A104;
   v21 = *(volatile uint32_t *)(v18 + 184);
-  v4[9] = v16;
-  *((volatile uint32_t *)v4 + 6) = v1;
+  rx_info[9] = v16;
+  *((volatile uint32_t *)rx_info + 6) = context_flags;
   v22 = *(volatile uint8_t *)(v20 + 1320 * v19 + 106);
-  v4[10] = v19;
+  rx_info[10] = v19;
   v48 = v21;
-  if ( v22 != 2 || (v4[36] & 1) != 0 )
+  if ( v22 != 2 || (rx_info[36] & 1) != 0 )
   {
-    v23 = v9;
+    v23 = frame_control;
   }
   else
   {
     v34 = rf_write_frequency((volatile int *)dword_13A10C);
-    v23 = *(volatile uint16_t *)v4;
-    v16 = (uint8_t)((v1 >> 15) - 16);
+    v23 = *(volatile uint16_t *)rx_info;
+    v16 = (uint8_t)((context_flags >> 15) - 16);
     v20 = dword_13A104;
-    v4[11] = v34;
+    rx_info[11] = v34;
   }
-  if ( v11 == 768 )
-    *(volatile uint32_t *)(v2 + 96) |= 4u;
+  if ( ds_direction_bits == 768 )
+    *(volatile uint32_t *)(context + 96) |= 4u;
   if ( (v23 & 0x4000) != 0 )
   {
     v51 = v16;
-    a1 = rf_validate_rate((int)v8, *((volatile uint32_t *)v4 + 6));
+    a1 = rf_validate_rate((int)rx_frame, *((volatile uint32_t *)rx_info + 6));
     v16 = v51;
     v20 = dword_13A2A8;
     if ( !a1 )
@@ -1738,13 +1755,13 @@ LABEL_22:
   v24 = (volatile uint8_t **)off_13A114;
   if ( **(volatile uint8_t **)off_13A114 == 1 && !LOBYTE(((volatile uint32_t *)(uintptr_t)off_13A2AC)[103]) )
   {
-    v39 = v9 & 0xC;
+    v39 = frame_control & 0xC;
     if ( v39 == 8 )
     {
-      if ( !*(volatile uint8_t *)(v20 + 1320 * (uint8_t)v4[10] + 106) )
+      if ( !*(volatile uint8_t *)(v20 + 1320 * (uint8_t)rx_info[10] + 106) )
       {
         v53 = v16;
-        a1 = rf_set_power((volatile char *)v8, v1, v16);
+        a1 = rf_set_power((volatile char *)rx_frame, context_flags, v16);
         v16 = v53;
         if ( !a1 )
           goto LABEL_34;
@@ -1760,46 +1777,46 @@ LABEL_30:
     }
     goto LABEL_72;
   }
-  v25 = v9 & 0xC;
+  v25 = frame_control & 0xC;
   if ( v25 != 8 )
     goto LABEL_30;
 LABEL_83:
   v52 = v16;
-  rf_get_power((volatile char *)v8, v1, *(volatile uint16_t *)(v2 + 48));
+  rf_get_power((volatile char *)rx_frame, context_flags, *(volatile uint16_t *)(context + 48));
   v16 = v52;
   if ( *(volatile uint8_t *)(v15 + 696 * v52 + 669) > 1u || !v48 || (unsigned int)*(volatile uint8_t *)(v48 + 96) - 1 > 1 )
     goto LABEL_84;
   v45 = 8;
 LABEL_72:
-  if ( (v9 & 0x4000) != 0 && (v4[36] & 1) == 0 )
+  if ( (frame_control & 0x4000) != 0 && (rx_info[36] & 1) == 0 )
     *(volatile uint8_t *)(v15 + 696 * v16 + 669) = 2;
 LABEL_31:
   if ( v26 == 4 )
   {
-    if ( v12 == 132 )
-      rf_lookup_rate_table(v16, (int)v8);
+    if ( frame_type_subtype == 132 )
+      rf_lookup_rate_table(v16, (int)rx_frame);
     goto LABEL_34;
   }
   if ( v27 != 8 )
   {
     if ( v28 )
       goto LABEL_34;
-    if ( (v9 & 0x800) != 0 )
+    if ( (frame_control & 0x800) != 0 )
     {
-      v35 = *((volatile uint16_t *)v4 + 1);
+      v35 = *((volatile uint16_t *)rx_info + 1);
       if ( *(volatile uint16_t *)(v15 + 696 * v16 + 552) == v35 )
         goto LABEL_34;
     }
     else
     {
-      v44 = *((volatile uint16_t *)v4 + 1);
+      v44 = *((volatile uint16_t *)rx_info + 1);
     }
-    v36 = (uint8_t)v4[48] << 30;
+    v36 = (uint8_t)rx_info[48] << 30;
     *(volatile uint16_t *)(v15 + 696 * v16 + 552) = v37;
     if ( v36 < 0 )
     {
-      v38 = *((volatile uint32_t *)v4 + 8);
-      *(volatile uint64_t *)&a1 = *((volatile uint64_t *)v4 + 2);
+      v38 = *((volatile uint32_t *)rx_info + 8);
+      *(volatile uint64_t *)&a1 = *((volatile uint64_t *)rx_info + 2);
       if ( *(volatile uint64_t *)(v38 + 64) >= *(volatile uint64_t *)&a1 )
       {
         alloc_tx_event(aPnCheckFiltere);
@@ -1807,7 +1824,7 @@ LABEL_31:
       }
       *(volatile uint64_t *)(v38 + 64) = *(volatile uint64_t *)&a1;
     }
-    if ( **v24 == 1 && *v8 == 128 && !v8[1] )
+    if ( **v24 == 1 && *rx_frame == 128 && !rx_frame[1] )
     {
 LABEL_34:
       v3 = *((volatile uint8_t *)off_13A0F8 + 16);
@@ -1815,78 +1832,79 @@ LABEL_34:
         goto LABEL_4;
       goto LABEL_35;
     }
-    v5 = rf_process_packet(v2, (uint8_t)v4[9]);
+    handled = rf_process_packet(context, (uint8_t)rx_info[9]);
     goto LABEL_57;
   }
 LABEL_84:
-  if ( (v9 & 0x40) != 0 )
+  if ( (frame_control & 0x40) != 0 )
     goto LABEL_34;
-  if ( (v9 & 0x80) != 0 )
+  if ( (frame_control & 0x80) != 0 )
   {
     v40 = 1;
-    if ( (v4[48] & 8) == 0 )
+    if ( (rx_info[48] & 8) == 0 )
     {
       v50 = v16;
-      v47 = ll_get_tx_power_alt(v16, (uint8_t)v4[7]);
+      v47 = ll_get_tx_power_alt(v16, (uint8_t)rx_info[7]);
       v16 = v50;
       v40 = 1;
       if ( v47 )
       {
-        v5 = rf_get_tx_power_cal(v2, v50);
+        handled = rf_get_tx_power_cal(context, v50);
         goto LABEL_57;
       }
     }
-    v46 = (volatile uint16_t *)(v15 + 2 * ((uint8_t)v4[7] + 277 + 348 * v16));
+    v46 = (volatile uint16_t *)(v15 + 2 * ((uint8_t)rx_info[7] + 277 + 348 * v16));
   }
   else
   {
     v40 = 0;
     v46 = (volatile uint16_t *)(v15 + 696 * v16 + 552);
   }
-  v41 = *((volatile uint16_t *)v4 + 1);
-  if ( (v9 & 0x800) != 0 && (uint16_t)*v46 == v42 )
+  v41 = *((volatile uint16_t *)rx_info + 1);
+  if ( (frame_control & 0x800) != 0 && (uint16_t)*v46 == v42 )
     goto LABEL_34;
   *v46 = v43;
-  v5 = bt_send_packet(v2, v16, v40);
+  handled = bt_send_packet(context, v16, v40);
 LABEL_57:
   v3 = *((volatile uint8_t *)off_13A0F8 + 16);
-  if ( v3 != 255 && !v5 )
+  if ( v3 != 255 && !handled )
     goto LABEL_4;
 LABEL_5:
   deref_and_check((volatile int *)dword_13A100, v6);
-  return v5;
+  return handled;
 }
 
 
 // dma_tx_ring @ 0x13a2b4
+/* luna: Allocates and initializes a TX DMA entry for the requested ring index, returning 0 if its slot is occupied or the entry pool is empty. */
 int dma_tx_ring(int a1, int a2, int16_t a3) {
-  int v3; // r4
-  char v5; // r5
-  volatile int *v7; // r0
+  int entry_slot_address; // r4
+  char ring_index_byte; // r5
+  volatile int *tx_entry; // r0
   volatile int *v8; // r6
   volatile uint32_t *v9; // r3
   int v10; // r3
   int v11; // r2
 
-  v3 = a1 + 4 * a2;
-  if ( *(volatile uint32_t *)(v3 + 408) )
+  entry_slot_address = a1 + 4 * a2;
+  if ( *(volatile uint32_t *)(entry_slot_address + 408) )
     return 0;
-  v5 = a2;
-  v7 = (void *)(list_pop(dword_13A314));
-  v8 = v7;
-  if ( !v7 )
+  ring_index_byte = a2;
+  tx_entry = (void *)(list_pop(dword_13A314));
+  v8 = tx_entry;
+  if ( !tx_entry )
     return 0;
-  memset(v7, 0, 0x124u);
+  memset(tx_entry, 0, 0x124u);
   v9 = (void *)(uintptr_t)(off_13A318);
   *((volatile uint8_t *)v8 + 10) = a3 & 0x3F;
-  *((volatile uint8_t *)v8 + 12) = v5;
+  *((volatile uint8_t *)v8 + 12) = ring_index_byte;
   v10 = v9[4];
   v11 = dword_13A31C;
   *((volatile uint16_t *)v8 + 4) = a3;
   v8[69] = v11;
   v8[70] = (int)v8;
   v8[1] = v10;
-  *(volatile uint32_t *)(v3 + 408) = (int)(uintptr_t)(v8);
+  *(volatile uint32_t *)(entry_slot_address + 408) = (int)(uintptr_t)(v8);
   mem_copy_util((void *)(uintptr_t)((int)(v8 + 68)), v10 + 50000);
   return 1;
 }
@@ -1894,6 +1912,7 @@ int dma_tx_ring(int a1, int a2, int16_t a3) {
 
 
 // dma_rx_ring @ 0x13a320
+/* luna: Processes the reorder entry stored in the selected RX context and clears its slot after dispatch. */
 int dma_rx_ring(int a1, int a2) {
   int v2; // r4
   volatile uint32_t *v3; // r5
@@ -1911,6 +1930,7 @@ int dma_rx_ring(int a1, int a2) {
 
 
 // set_mac_addr @ 0x13a370
+/* luna: Stores the supplied six-byte MAC address in global state once, marking the state initialized afterward. */
 volatile uint16_t * set_mac_addr(volatile uint16_t *result) {
   volatile uint16_t *v1; // r3
 
@@ -1928,6 +1948,7 @@ volatile uint16_t * set_mac_addr(volatile uint16_t *result) {
 
 
 // get_clear_intr @ 0x13a398
+/* luna: Reads the interrupt status byte and clears the status register by writing zero to the same address. */
 int get_clear_intr() {
   int result; // r0
 
@@ -1947,6 +1968,7 @@ volatile uint32_t **alloc_dma_buf_1() {
 
 
 // is_rate_valid @ 0x13a3c4
+/* luna: Returns whether the selected rate-table entry has a zero value in its 16-bit field at offset 76. */
 BOOL is_rate_valid() {
   return *(volatile uint16_t *)(dword_13A3E4 + 80 * *((volatile uint8_t *)off_13A3E0 + 68) + 76) == 0;
 }

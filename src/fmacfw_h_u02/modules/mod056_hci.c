@@ -1,4 +1,5 @@
 // hci_process_acl @ 0x133fd4
+/* luna: On a successful connection indication, refreshes the indexed HCI connection record from lower-layer state, copying fields selected by lower-layer flag */
 int hci_process_acl(int a1, volatile uint8_t *a2) {
   int v3; // r5
   int v4; // r8
@@ -210,6 +211,7 @@ LABEL_20:
 
 
 // hci_send_test_command @ 0x134228
+/* luna: Allocates an HCI TX event, submits a fixed six-byte command from address 0x180B, and clears a state byte. */
 int hci_send_test_command() {
   int result; // r0
 
@@ -221,6 +223,7 @@ int hci_send_test_command() {
 
 
 // unknown_func_13424c @ 0x13424c
+/* luna: Processes pending HCI test-command or BLE scan work under a nested interrupt guard, then posts the coexistence timeout event. */
 int unknown_func_13424c() {
   volatile int *v0; // r4
   volatile uint8_t *v1; // r2

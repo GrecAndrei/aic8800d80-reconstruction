@@ -1,4 +1,5 @@
 // rf_is_sleep @ 0x1134e0
+/* luna: Returns the RF data pointer for an index, preparing the index-1 record in a scratch buffer and applying an optional patched value. */
 volatile uint32_t * rf_is_sleep(int a1) {
   volatile uint32_t *result; // r0
   volatile uint32_t *v2; // r4
@@ -39,6 +40,7 @@ volatile uint32_t * rf_is_sleep(int a1) {
 
 
 // get_handler_by_index @ 0x113564
+/* luna: Returns the handler-table entry at the given index, or zero when the index exceeds 7. */
 int get_handler_by_index(unsigned int a1) {
   if ( a1 > 7 )
     return 0;
@@ -49,6 +51,7 @@ int get_handler_by_index(unsigned int a1) {
 
 
 // rf_get_flag @ 0x113578
+/* luna: Obtains the RX buffer and checks its configured state, disabling global IRQ handling if the buffer is missing or the state persists through five retri */
 void rf_get_flag(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v4; // r5
   volatile uint16_t *v5; // r2
@@ -152,47 +155,49 @@ void rf_get_flag(int a1, int a2, int a3, int a4) {
 
 
 // rf_read_status_1 @ 0x1136d4
+/* luna: Clears the USB WLAN RX packet free list and allocates and enqueues the configured number of packet buffers. */
 volatile uint32_t *rf_read_status_1() {
-  void *v0; // r7
+  void *rx_config; // r7
   volatile uint32_t *result; // r0
   volatile int *v2; // r9
-  volatile uint16_t *v3; // r6
+  volatile uint16_t *allocated_packet_count; // r6
   int v4; // r8
   volatile int16_t **v5; // r10
-  int16_t v6; // r5
+  int16_t packet_index; // r5
   unsigned int v7; // r1
-  volatile uint32_t *v8; // r4
+  volatile uint32_t *rx_packet_buffer; // r4
 
-  v0 = (void *)(uintptr_t)(off_113750);
+  rx_config = (void *)(uintptr_t)(off_113750);
   result = clear_stats_buf((volatile uint32_t *)dword_113754);
-  if ( *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8) )
+  if ( *(volatile uint16_t *)(*(volatile uint32_t *)rx_config + 8) )
   {
     v2 = (volatile int *)off_113764;
-    v3 = (void *)(uintptr_t)(off_113758);
+    allocated_packet_count = (void *)(uintptr_t)(off_113758);
     v4 = dword_113768;
     v5 = (volatile int16_t **)off_113770;
-    v6 = 0;
+    packet_index = 0;
     do
     {
-      v8 = tx_irq_handler(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
-      if ( !v8 )
+      rx_packet_buffer = tx_irq_handler(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
+      if ( !rx_packet_buffer )
       {
-        alloc_tx_event("usb_wlan_rx_pkt_free_list_init alloc fail: %d\n", v6);
+        alloc_tx_event("usb_wlan_rx_pkt_free_list_init alloc fail: %d\n", packet_index);
         if ( **v5 < 0 )
           irq_disable_mmio_write(off_113760, (int)aUsbWlanRxPktFr_0, 495);
       }
-      result = (volatile uint32_t *)wlan_ioctl_handler_1(dword_113754, v8);
-      v7 = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8);
-      ++v6;
-      ++*v3;
+      result = (volatile uint32_t *)wlan_ioctl_handler_1(dword_113754, rx_packet_buffer);
+      v7 = *(volatile uint16_t *)(*(volatile uint32_t *)rx_config + 8);
+      ++packet_index;
+      ++*allocated_packet_count;
     }
-    while ( v7 > v6 );
+    while ( v7 > packet_index );
   }
   return result;
 }
 
 
 // util_call_raw @ 0x1137c4
+/* luna: Calls the WLAN handler with the supplied argument under nested IRQ protection, then performs RF recovery when the post-call threshold is reached. */
 int util_call_raw(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -248,6 +253,7 @@ int util_call_raw(volatile uint32_t *a1) {
 
 
 // rf_read_channel @ 0x113888
+/* luna: Clears the shared statistics buffer, then processes one callback result for each configured sample. */
 volatile uint32_t *rf_read_channel() {
   void *v0; // r5
   volatile uint32_t *result; // r0
@@ -276,6 +282,7 @@ volatile uint32_t *rf_read_channel() {
 
 
 // util_call_void @ 0x1138c8
+/* luna: Pops and returns an item from the global list while maintaining a nest-aware interrupt critical section. */
 int util_call_void() {
   volatile int *v0; // r4
   int v1; // r0
@@ -309,30 +316,31 @@ int util_call_void() {
 
 
 // util_call_arg @ 0x113908
+/* luna: Calls the WLAN handler with the supplied argument and stored context inside a nesting-counted IRQ critical section. */
 int util_call_arg(volatile uint32_t *a1) {
-  volatile int *v2; // r4
-  int v3; // r0
+  volatile int *call_nesting_counter; // r4
+  int handler_context; // r0
   int result; // r0
-  int v5; // r3
-  int v6; // r2
+  int remaining_call_count; // r3
+  int irq_disabled_by_wrapper; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_113940 = 1;
   }
-  v2 = (volatile int *)off_113944;
-  v3 = dword_113948;
+  call_nesting_counter = (volatile int *)off_113944;
+  handler_context = dword_113948;
   ++*(volatile uint32_t *)off_113944;
-  result = wlan_ioctl_handler_1(v3, a1);
-  if ( *v2 )
+  result = wlan_ioctl_handler_1(handler_context, a1);
+  if ( *call_nesting_counter )
   {
-    v5 = *v2 - 1;
-    v6 = *(volatile uint32_t *)off_113940;
-    *v2 = v5;
-    if ( !v5 )
+    remaining_call_count = *call_nesting_counter - 1;
+    irq_disabled_by_wrapper = *(volatile uint32_t *)off_113940;
+    *call_nesting_counter = remaining_call_count;
+    if ( !remaining_call_count )
     {
-      if ( v6 )
+      if ( irq_disabled_by_wrapper )
         __enable_irq();
     }
   }
@@ -341,6 +349,7 @@ int util_call_arg(volatile uint32_t *a1) {
 
 
 // rf_calibration_done @ 0x11394c
+/* luna: Returns whether the RF calibration completion flag is set. */
 BOOL rf_calibration_done() {
   return *((volatile uint8_t *)off_11395C + 8) == 1;
 }
@@ -348,6 +357,7 @@ BOOL rf_calibration_done() {
 
 
 // init_bt_stack @ 0x113960
+/* luna: Waits for Bluetooth readiness, then allocates the host USB start event. */
 int init_bt_stack() {
   bt_wait_ready(off_113974);
   alloc_tx_event(aHostUsbStart);
@@ -356,6 +366,7 @@ int init_bt_stack() {
 
 
 // rf_save_regs @ 0x11397c
+/* luna: Initializes the host-interface work buffers and applies the configured USB IN aggregation count, defaulting it to 10 when unset. */
 int rf_save_regs(int a1) {
   void *v1; // r5
   volatile uint32_t *v2; // r1
@@ -448,6 +459,7 @@ int rf_save_regs(int a1) {
 
 
 // rf_load_calibration @ 0x113ae0
+/* luna: Saves the RF register state, then copies two stored calibration bytes into RF configuration locations. */
 int rf_load_calibration(int a1) {
   volatile uint8_t *v1; // r2
   char v2; // r3
@@ -463,22 +475,23 @@ int rf_load_calibration(int a1) {
 
 
 // adv_parse_report @ 0x113b08
+/* luna: Validates an incoming Wi-Fi RX descriptor, copies it into an available host descriptor, updates per-peer/TID byte accounting, and dispatches it to the */
 int adv_parse_report(int a1) {
-  unsigned int v1; // r3
-  int v2; // r7
+  unsigned int peer_id; // r3
+  int vif_id; // r7
   int v4; // r8
-  unsigned int v5; // r6
-  volatile uint32_t *v6; // r4
+  unsigned int rx_queue_id; // r6
+  volatile uint32_t *rx_descriptor; // r4
   int v7; // r1
   int16_t v8; // r3
   int16_t v9; // r2
   int v10; // r3
-  unsigned int v11; // r3
-  unsigned int v12; // r2
+  unsigned int descriptor_peer_id; // r3
+  unsigned int tid; // r2
 
-  v1 = *(volatile uint8_t *)(a1 + 25);
-  v2 = *(volatile uint8_t *)(a1 + 24);
-  if ( v1 <= 0x1F && !*(volatile uint8_t *)(dword_113C48 + 696 * v1 + 37) )
+  peer_id = *(volatile uint8_t *)(a1 + 25);
+  vif_id = *(volatile uint8_t *)(a1 + 24);
+  if ( peer_id <= 0x1F && !*(volatile uint8_t *)(dword_113C48 + 696 * peer_id + 37) )
   {
     alloc_tx_event(aPktDiscardSinc);
     return wait_for_state((volatile uint32_t *)(a1 - *(volatile uint32_t *)(uintptr_t)(off_113C54) - 4));
@@ -486,58 +499,59 @@ int adv_parse_report(int a1) {
   v4 = dword_113C6C;
   if ( (*(volatile uint16_t *)(a1 + 26) & 8) == 0 )
   {
-    if ( *(volatile uint8_t *)(dword_113C6C + 1320 * v2 + 108) )
+    if ( *(volatile uint8_t *)(dword_113C6C + 1320 * vif_id + 108) )
     {
-      v5 = *(volatile uint8_t *)(a1 + 22);
-      if ( **(volatile int16_t **)off_113C4C < 0 && v5 > 4 )
+      rx_queue_id = *(volatile uint8_t *)(a1 + 22);
+      if ( **(volatile int16_t **)off_113C4C < 0 && rx_queue_id > 4 )
         irq_disable_mmio_write((int)aAcNxTxqCnt_0, (int)aHandleUsbRx, 926);
-      v6 = (void *)(uintptr_t)(rssi_compare());
-      if ( v6 )
+      rx_descriptor = (void *)(uintptr_t)(rssi_compare());
+      if ( rx_descriptor )
         goto LABEL_7;
 LABEL_13:
-      debug_printf(" host rx: dscr used = %d\r\n", *(volatile uint8_t *)(dword_113C50 + v5));
+      debug_printf(" host rx: dscr used = %d\r\n", *(volatile uint8_t *)(dword_113C50 + rx_queue_id));
       while ( 1 )
         ;
     }
     return wait_for_state((volatile uint32_t *)(a1 - *(volatile uint32_t *)(uintptr_t)(off_113C54) - 4));
   }
-  v5 = 3;
-  v6 = (void *)(uintptr_t)(rssi_compare());
-  if ( !v6 )
+  rx_queue_id = 3;
+  rx_descriptor = (void *)(uintptr_t)(rssi_compare());
+  if ( !rx_descriptor )
     goto LABEL_13;
 LABEL_7:
-  v7 = v6[19];
-  v8 = *((volatile uint16_t *)v6 + 15) & 0xFFFE;
-  ++*(volatile uint8_t *)(dword_113C50 + v5);
-  *((volatile uint16_t *)v6 + 15) = v8;
-  v6[17] = 0;
+  v7 = rx_descriptor[19];
+  v8 = *((volatile uint16_t *)rx_descriptor + 15) & 0xFFFE;
+  ++*(volatile uint8_t *)(dword_113C50 + rx_queue_id);
+  *((volatile uint16_t *)rx_descriptor + 15) = v8;
+  rx_descriptor[17] = 0;
   *(volatile uint32_t *)(v7 + 4) = 0;
   *(volatile uint32_t *)(v7 + 72) = 0;
-  v6[11] = 0;
-  memcpy((volatile char *)v6 + 4, (volatile char *)a1, 0x1Cu);
-  v9 = *((volatile uint16_t *)v6 + 15);
+  rx_descriptor[11] = 0;
+  memcpy((volatile char *)rx_descriptor + 4, (volatile char *)a1, 0x1Cu);
+  v9 = *((volatile uint16_t *)rx_descriptor + 15);
   v10 = *(volatile uint32_t *)(uintptr_t)(off_113C54);
-  *((volatile uint16_t *)v6 + 3) = 0;
-  v6[18] = a1 - v10 - 4;
-  *((volatile uint8_t *)v6 + 66) = 0;
-  v6[9] = 0;
-  v6[21] = 0;
-  *((volatile uint16_t *)v6 + 41) = 0;
-  *((volatile uint16_t *)v6 + 15) = v9 & 0xFFFD;
+  *((volatile uint16_t *)rx_descriptor + 3) = 0;
+  rx_descriptor[18] = a1 - v10 - 4;
+  *((volatile uint8_t *)rx_descriptor + 66) = 0;
+  rx_descriptor[9] = 0;
+  rx_descriptor[21] = 0;
+  *((volatile uint16_t *)rx_descriptor + 41) = 0;
+  *((volatile uint16_t *)rx_descriptor + 15) = v9 & 0xFFFD;
   if ( (v9 & 8) != 0 )
-    return wlan_ioctl_handler_1(v4 + 1320 * v2 + 1312, v6);
-  v11 = *((volatile uint8_t *)v6 + 29);
-  if ( v11 <= 0x1F )
+    return wlan_ioctl_handler_1(v4 + 1320 * vif_id + 1312, rx_descriptor);
+  descriptor_peer_id = *((volatile uint8_t *)rx_descriptor + 29);
+  if ( descriptor_peer_id <= 0x1F )
   {
-    v12 = *((volatile uint8_t *)v6 + 27);
-    if ( v12 <= 8 )
-      *(volatile uint32_t *)(dword_113C58 + 4 * (9 * v11 + v12 + 2062)) += *((volatile uint16_t *)v6 + 2);
+    tid = *((volatile uint8_t *)rx_descriptor + 27);
+    if ( tid <= 8 )
+      *(volatile uint32_t *)(dword_113C58 + 4 * (9 * descriptor_peer_id + tid + 2062)) += *((volatile uint16_t *)rx_descriptor + 2);
   }
-  return wlan_ioctl_handler_1(v4 + 8 * (v5 + 165 * v2 + 154), v6);
+  return wlan_ioctl_handler_1(v4 + 8 * (rx_queue_id + 165 * vif_id + 154), rx_descriptor);
 }
 
 
 // util_call_deep @ 0x113f18
+/* luna: Runs the mask-128 IRQ operation inside a nesting-aware critical section and restores interrupts when the outermost call exits. */
 int util_call_deep() {
   volatile int *v0; // r4
   int result; // r0
@@ -570,6 +584,7 @@ int util_call_deep() {
 
 
 // util_init_buffer @ 0x113fc4
+/* luna: Calls rf_get_flag only when the byte-sized global flag at 0x113FD0 is clear. */
 void util_init_buffer() {
   if ( !*(volatile uint8_t *)off_113FD0 )
     ((int (*)())rf_get_flag)();
@@ -578,6 +593,7 @@ void util_init_buffer() {
 
 
 // invoke_callback @ 0x113fd4
+/* luna: Retrieves a WLAN data buffer through a configured callback, checks its state, and waits for the state condition if the check fails. */
 int invoke_callback() {
   int v0; // r0
   volatile uint32_t *v1; // r4
@@ -598,6 +614,7 @@ int invoke_callback() {
 
 
 // set_config_field @ 0x114028
+/* luna: Allocates a host-ready transmit event, then invokes and returns the callback result. */
 int set_config_field() {
   alloc_tx_event(aHostReady);
   return invoke_callback();
@@ -605,6 +622,7 @@ int set_config_field() {
 
 
 // check_global_value @ 0x114088
+/* luna: Logs whether the supplied function name matches a recognized USB-transfer handler and schedules a configured delayed event when enabled. */
 int check_global_value(int a1) {
   int result; // r0
   int v2; // r2
@@ -631,6 +649,7 @@ LABEL_4:
 
 
 // rf_power_down @ 0x1140f4
+/* luna: Initializes two context buffers, then creates and submits one 0x6B8-byte record to the first buffer for each configured entry. */
 volatile uint32_t *rf_power_down() {
   volatile int *v0; // r5
   void *v1; // r7
@@ -660,6 +679,7 @@ volatile uint32_t *rf_power_down() {
 
 
 // assert_fail @ 0x11414c
+/* luna: Waits for a shared readiness flag, calls the handler with the context at offset 628, and restores IRQs when the outermost guarded call exits. */
 int assert_fail(volatile uint32_t *a1) {
   volatile int *v1; // r5
   volatile uint32_t *v2; // r4
@@ -695,6 +715,7 @@ int assert_fail(volatile uint32_t *a1) {
 
 
 // load_bt_config @ 0x1141a4
+/* luna: Checks feature flag 256 using the host-IPC-start label, then returns 1. */
 int load_bt_config() {
   check_feature_flag(256, aHostIpcStart);
   return 1;
@@ -702,6 +723,7 @@ int load_bt_config() {
 
 
 // state_init @ 0x1141b8
+/* luna: Stores the argument in an RF state slot, clears several associated state words and a halfword, and returns 1. */
 int state_init(int a1) {
   volatile uint32_t *v1; // r2
   volatile uint16_t *v2; // r1
@@ -721,6 +743,7 @@ int state_init(int a1) {
 
 
 // get_config_a @ 0x114410
+/* luna: Allocates and returns a transmit event associated with the error low-power-level key. */
 int get_config_a() {
   return alloc_tx_event(aErrorLpLevelPo_1);
 }

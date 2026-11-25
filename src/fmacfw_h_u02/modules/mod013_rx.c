@@ -1,4 +1,5 @@
 // mac_update_flags @ 0x116974
+/* luna: Prepares a transmit MAC frame by updating interface protection state and assigning a sequence number to frames without a station-specific sequence con */
 int mac_update_flags(int a1, int a2, int a3, int a4) {
   int v5; // r6
   int result; // r0
@@ -125,17 +126,18 @@ LABEL_4:
 
 
 // rx_process_packet @ 0x116b0c
+/* luna: Processes a received-packet descriptor, copies applicable RX and station metadata into its result context, and dispatches packet handling. */
 int rx_process_packet(int a1, int a2, char a3) {
-  int v4; // r0
-  int v5; // r8
-  int v8; // r3
+  int rx_flags; // r0
+  int rx_result; // r8
+  int packet_status; // r3
   int v9; // r4
   volatile uint32_t *v10; // r2
-  volatile int *v12; // r3
+  volatile int *rx_status_words; // r3
   int v13; // r5
   volatile int *v14; // r4
   int v15; // t1
-  int v16; // r4
+  int station_record; // r4
   int v17; // r5
   unsigned int v18; // r1
   int v19; // r2
@@ -150,40 +152,40 @@ int rx_process_packet(int a1, int a2, char a3) {
   unsigned int v28; // r2
   volatile int *v29; // [sp+4h] [bp-4h]
 
-  v4 = *(volatile uint32_t *)(a1 + 36);
-  v5 = *(volatile uint32_t *)(a1 + 72);
-  if ( (v4 & 0x200000) == 0 || (v4 & 0x380000) == 0x280000 )
+  rx_flags = *(volatile uint32_t *)(a1 + 36);
+  rx_result = *(volatile uint32_t *)(a1 + 72);
+  if ( (rx_flags & 0x200000) == 0 || (rx_flags & 0x380000) == 0x280000 )
   {
-    v12 = *(volatile int **)(a1 + 44);
-    v13 = v5 + 40;
-    v14 = v12;
+    rx_status_words = *(volatile int **)(a1 + 44);
+    v13 = rx_result + 40;
+    v14 = rx_status_words;
     do
     {
       v15 = *v14++;
       *(volatile uint32_t *)(v13 + 4) = v15;
       v13 += 4;
     }
-    while ( v14 != v12 + 16 );
+    while ( v14 != rx_status_words + 16 );
     if ( (*(volatile uint16_t *)(a1 + 30) & 0x2000) != 0 )
     {
-      v16 = *(volatile uint32_t *)(dword_116CF4 + 696 * *(volatile uint8_t *)(a1 + 29) + 340);
-      if ( **(volatile int16_t **)off_116CF0 >= 0 || v16 )
+      station_record = *(volatile uint32_t *)(dword_116CF4 + 696 * *(volatile uint8_t *)(a1 + 29) + 340);
+      if ( **(volatile int16_t **)off_116CF0 >= 0 || station_record )
       {
-        v17 = v5;
+        v17 = rx_result;
       }
       else
       {
-        v29 = v12;
+        v29 = rx_status_words;
         irq_disable_mmio_write((int)aRcSsNull, (int)aRcGetStaStats, 475);
         v17 = *(volatile uint32_t *)(a1 + 72);
-        v12 = v29;
+        rx_status_words = v29;
       }
-      v18 = *(volatile uint32_t *)(v16 + 156);
-      *(volatile uint32_t *)(v5 + 68) = v12[5];
-      v19 = *(volatile uint32_t *)(v16 + 160);
-      *(volatile uint32_t *)(v5 + 84) = v12[9];
-      *(volatile uint32_t *)(v5 + 64) = v18;
-      *(volatile uint32_t *)(v5 + 80) = v19;
+      v18 = *(volatile uint32_t *)(station_record + 156);
+      *(volatile uint32_t *)(rx_result + 68) = rx_status_words[5];
+      v19 = *(volatile uint32_t *)(station_record + 160);
+      *(volatile uint32_t *)(rx_result + 84) = rx_status_words[9];
+      *(volatile uint32_t *)(rx_result + 64) = v18;
+      *(volatile uint32_t *)(rx_result + 80) = v19;
       if ( ((v18 >> 11) & 5) == 5 )
       {
         v25 = v19 & 0xFFFCFFFF;
@@ -192,24 +194,24 @@ int rx_process_packet(int a1, int a2, char a3) {
         else
           v26 = 0x10000;
         v27 = v25 | v26;
-        if ( *(volatile uint8_t *)(v16 + 165) )
+        if ( *(volatile uint8_t *)(station_record + 165) )
           v28 = v27 | 0x40000;
         else
           v28 = v27 & 0xFFFBFFFF;
-        *(volatile uint32_t *)(v5 + 80) = v28;
+        *(volatile uint32_t *)(rx_result + 80) = v28;
       }
-      if ( (v12[15] & 4) == 0 )
-        *(volatile uint32_t *)(v5 + 48) &= 0xFFFFFE7F;
-      v5 = v17;
+      if ( (rx_status_words[15] & 4) == 0 )
+        *(volatile uint32_t *)(rx_result + 48) &= 0xFFFFFE7F;
+      rx_result = v17;
     }
   }
-  *(volatile uint8_t *)(v5 + 36) = a3;
+  *(volatile uint8_t *)(rx_result + 36) = a3;
   rx_packet_process_1(a1, a2);
   if ( *(volatile uint16_t *)(a1 + 24) == 36488 )
     alloc_tx_event("txl :%x, len=%d\r\n", 36488, *(volatile uint32_t *)(*(volatile uint32_t *)(a1 + 76) + 36));
-  v8 = *(volatile uint32_t *)(a1 + 8);
+  packet_status = *(volatile uint32_t *)(a1 + 8);
   v9 = *(volatile uint32_t *)(a1 + 72);
-  if ( v8 >= 0 || (v20 = *(volatile uint16_t *)(a1 + 24), *(volatile uint32_t *)(a1 + 84) = v8, v20 != 36488) )
+  if ( packet_status >= 0 || (v20 = *(volatile uint16_t *)(a1 + 24), *(volatile uint32_t *)(a1 + 84) = packet_status, v20 != 36488) )
   {
     if ( hci_cmd_handler(6u) == 6 )
       goto LABEL_24;
@@ -274,6 +276,7 @@ LABEL_8:
 
 
 // rx_packet_ready @ 0x116d10
+/* luna: For an enabled RX context with a non-null state pointer, waits on that state and clears the pointer unless flag bit 21 is set, returning the wait resu */
 int rx_packet_ready(int result) {
   int v1; // r4
 
@@ -296,6 +299,7 @@ int rx_packet_ready(int result) {
 
 
 // size_to_class @ 0x116d30
+/* luna: Maps a size to class 2 when it is at most 0x2000, or class 4 when it is larger. */
 int size_to_class(unsigned int a1) {
   if ( a1 > 0x2000 )
     return 4;
@@ -306,6 +310,7 @@ int size_to_class(unsigned int a1) {
 
 
 // system_init_seq @ 0x116d3c
+/* luna: Initializes the Wi-Fi core and resets the global RX state table, clearing both stats buffers in each of five entries and the trailing stats buffer. */
 int system_init_seq() {
   int v0; // r0
   int v1; // r0
@@ -352,6 +357,7 @@ int system_init_seq() {
 
 
 // phy_lock @ 0x116dbc
+/* luna: Returns whether PHY work may proceed, subject to global and CFM gates and, when enabled in the context, a nonzero BT channel for the associated connec */
 BOOL phy_lock(int a1) {
   if ( *((volatile uint8_t *)off_116DF0 + 510) )
     return 0;
@@ -364,6 +370,7 @@ if ( !((int (*)())cfm_call_ops)() ) return 0;
 
 
 // mmio_modify_bit @ 0x116df4
+/* luna: Releases the indexed PHY hardware lock by clearing its software lock bit and waiting for the corresponding MMIO status to clear. */
 int mmio_modify_bit(int result) {
   int v1; // r3
   int v2; // r6

@@ -1,12 +1,13 @@
 // le_connection_update @ 0x136338
+/* luna: Processes an AP-start request by validating radio parameters, updating the selected VIF context, and returning a failure status when validation fails. */
 int le_connection_update(int a1, int a2, int a3, int a4) {
-  int v4; // r8
+  int vif_context_base; // r8
   uint16_t v6; // r7
   uint16_t v7; // r9
-  int v8; // r6
-  int v9; // r5
-  char v10; // r5
-  volatile char *v11; // r0
+  int vif_index; // r6
+  int vif_context; // r5
+  char status_code; // r5
+  volatile char *response_pdu; // r0
   char v13; // r2
   int16_t v14; // r3
   int v15; // r3
@@ -25,33 +26,33 @@ int le_connection_update(int a1, int a2, int a3, int a4) {
   int v28; // [sp+8h] [bp-Ch]
   uint16_t v29; // [sp+Ch] [bp-8h]
   } _frame;
-  v4 = dword_136520;
+  vif_context_base = dword_136520;
   v6 = a3;
   v7 = a4;
   check_feature_flag(256, "ap start:%d, radar=%d\r\n", *(volatile uint32_t *)(a2 + 20), BYTE1(((volatile uint32_t *)(uintptr_t)off_1364FC)[103]));
-  v8 = *(volatile uint8_t *)(a2 + 51);
-  v9 = v4 + 1320 * v8;
-  if ( *(volatile uint8_t *)(v9 + 106) != 2 )
+  vif_index = *(volatile uint8_t *)(a2 + 51);
+  vif_context = vif_context_base + 1320 * vif_index;
+  if ( *(volatile uint8_t *)(vif_context + 106) != 2 )
   {
-    v10 = 4;
+    status_code = 4;
 LABEL_3:
-    v11 = (volatile char *)tx_send_pdu(7169, v7, v6, 4);
-    *v11 = v10;
-    v11[1] = *(volatile uint8_t *)(a2 + 51);
-    rx_process_packet_1((int)v11);
+    response_pdu = (volatile char *)tx_send_pdu(7169, v7, v6, 4);
+    *response_pdu = status_code;
+    response_pdu[1] = *(volatile uint8_t *)(a2 + 51);
+    rx_process_packet_1((int)response_pdu);
     return 0;
   }
   if ( hci_cmd_handler(7u) )
   {
-    v10 = 8;
+    status_code = 8;
     goto LABEL_3;
   }
-  if ( *(volatile uint8_t *)(v9 + 108) )
+  if ( *(volatile uint8_t *)(vif_context + 108) )
   {
-    v10 = 9;
+    status_code = 9;
     goto LABEL_3;
   }
-  if ( **(volatile int16_t **)off_136504 < 0 && *(volatile uint32_t *)(v9 + 72) )
+  if ( **(volatile int16_t **)off_136504 < 0 && *(volatile uint32_t *)(vif_context + 72) )
     irq_disable_mmio_write((int)aVifChanCtxtNul_0, (int)aApmStartReqHan, 105);
   v13 = *(volatile uint8_t *)(a2 + 28);
   _frame.a1a = (_frame.a1a & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(a2 + 16)) & 0xFFu);
@@ -67,38 +68,38 @@ LABEL_3:
   *(volatile uint32_t *)off_136524 = a2;
   _frame.v29 = (_frame.v29 & ~0xFFu) | ((uint8_t)(v17) & 0xFFu);
   _frame.v29 = (_frame.v29 & ~0xFF00u) | (((uint8_t)(v18) & 0xFFu) << 8);
-if ( ((int (*)())cfm_radio_check)((volatile uint8_t *)&_frame.a1a, &_frame.a2a, v17, v18) ) { v10 = 1;
+if ( ((int (*)())cfm_radio_check)((volatile uint8_t *)&_frame.a1a, &_frame.a2a, v17, v18) ) { status_code = 1;
     goto LABEL_3;
   }
   v19 = _frame.v28;
   v20 = _frame.v29;
-  v21 = v4 + 1320 * v8;
+  v21 = vif_context_base + 1320 * vif_index;
   *(volatile uint32_t *)(v21 + 412) = _frame.a1a;
   *(volatile uint32_t *)(v21 + 416) = v19;
   *(volatile uint8_t *)(v21 + 464) = 0;
   *(volatile uint16_t *)(v21 + 420) = v20;
   compute_byte_delta(v21);
   if ( BYTE1(_frame.a1a) == 2 )
-    check_non_null((volatile int *)(v4 + 1320 * v8), 1, 0);
+    check_non_null((volatile int *)(vif_context_base + 1320 * vif_index), 1, 0);
   bsscfg_index(*(volatile uint8_t *)(a2 + 51), _frame.a2a);
   if ( *((volatile uint8_t *)off_136510 + 18) + *((volatile uint8_t *)off_136510 + 17) == 1
-    && !*(volatile uint8_t *)(v4 + 1320 * v8 + 1224) )
+    && !*(volatile uint8_t *)(vif_context_base + 1320 * vif_index + 1224) )
   {
     *(volatile uint8_t *)off_13651C = 0;
     rf_rate_code_check();
   }
   if ( !*(volatile uint8_t *)(a2 + 16) )
   {
-    v25 = handle_rx_packet((volatile uint8_t *)(1320 * v8 + 424 + v4), 1) & 0xF;
+    v25 = handle_rx_packet((volatile uint8_t *)(1320 * vif_index + 424 + vif_context_base), 1) & 0xF;
     if ( v25 )
-      *(volatile uint8_t *)(v4 + 1320 * v8 + 461) = 31 - __clz(v25);
+      *(volatile uint8_t *)(vif_context_base + 1320 * vif_index + 461) = 31 - __clz(v25);
     else
-      *(volatile uint8_t *)(v4 + 1320 * v8 + 461) = 1;
+      *(volatile uint8_t *)(vif_context_base + 1320 * vif_index + 461) = 1;
   }
   send_hci_event_1();
   if ( !*(volatile uint32_t *)off_136514 )
   {
-    v22 = v4 + 1320 * v8;
+    v22 = vif_context_base + 1320 * vif_index;
     v23 = *(volatile uint16_t *)(v22 + 416);
     if ( v23 <= 0x1387 )
       bt_set_address(v23 | (*(volatile uint8_t *)(v22 + 413) << 16) | 0x80000000);
@@ -112,6 +113,7 @@ if ( ((int (*)())cfm_radio_check)((volatile uint8_t *)&_frame.a1a, &_frame.a2a, 
 
 
 // is_hci_ready @ 0x136528
+/* luna: When the referenced signed state is negative and the control flag is set, performs a guarded MMIO write, then returns the stats-buffer pointer. */
 volatile uint32_t *is_hci_ready() {
   if ( **(volatile int16_t **)off_13655C >= 0 || !*((volatile uint32_t *)off_136564 + 1) )
     return clear_stats_buf((volatile uint32_t *)dword_136560);
@@ -122,6 +124,7 @@ volatile uint32_t *is_hci_ready() {
 
 
 // is_ble_connected @ 0x136570
+/* luna: When the request guard fields match, toggles the shared RF power state, initializing the PMU and recording the request on activation or disabling the  */
 volatile uint32_t * is_ble_connected(volatile uint32_t *result) {
   volatile uint32_t *v1; // r4
   volatile uint32_t *v2; // r6
@@ -156,22 +159,24 @@ volatile uint32_t * is_ble_connected(volatile uint32_t *result) {
 
 
 // reset_hci_control_block @ 0x1365c0
+/* luna: Clears and reinitializes the global HCI control block, then preprocesses HCI command 7. */
 int reset_hci_control_block() {
-  volatile uint8_t *v0; // r4
+  volatile uint8_t *hci_control_block; // r4
   void *v1; // r3
 
-  v0 = (void *)(uintptr_t)(off_1365EC);
+  hci_control_block = (void *)(uintptr_t)(off_1365EC);
   memset((volatile int *)off_1365EC, 0, 0x24u);
   v1 = (void *)(uintptr_t)(off_1365F0);
-  v0[15] = 3;
-  *((volatile uint32_t *)v0 + 4) = 20000;
-  *((volatile uint32_t *)v0 + 6) = (int)(uintptr_t)(v1);
-  v0[12] = 0;
+  hci_control_block[15] = 3;
+  *((volatile uint32_t *)hci_control_block + 4) = 20000;
+  *((volatile uint32_t *)hci_control_block + 6) = (int)(uintptr_t)(v1);
+  hci_control_block[12] = 0;
   return hci_cmd_preprocess(7u, 0);
 }
 
 
 // send_vendor_hci_command @ 0x1365f4
+/* luna: Queues a vendor HCI PDU for the selected link, initializing additional per-link RF state when the command selector is zero. */
 int send_vendor_hci_command(int a1) {
   volatile uint32_t *v1; // r8
   int v3; // r6
@@ -239,6 +244,7 @@ int send_vendor_hci_command(int a1) {
 
 
 // acquire_lock_check_state @ 0x1366e0
+/* luna: Pops an RX buffer, conditionally disables an MMIO interrupt when the state is negative and no buffer is available, then passes the buffer payload to t */
 int acquire_lock_check_state() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r4
@@ -253,6 +259,7 @@ int acquire_lock_check_state() {
 
 
 // send_hci_event_1 @ 0x136724
+/* luna: Queues several HCI notifications for the current connection, updates its state flags, and preprocesses the pending HCI command. */
 int send_hci_event_1() {
   int v0; // r11
   int v1; // r4
@@ -313,6 +320,7 @@ int send_hci_event_1() {
 
 
 // send_hci_command @ 0x13684c
+/* luna: Builds an HCI PDU from the saved command data, passes it through the packet processor, and invokes preprocessing for command 7, subcommand 2. */
 int send_hci_command() {
   int v0; // r4
   int v1; // r0
@@ -334,6 +342,7 @@ int send_hci_command() {
 
 
 // send_ble_hci_command @ 0x13688c
+/* luna: Sends per-link control messages, selects radio parameters from another eligible link, and performs link-specific low-power cleanup. */
 int send_ble_hci_command(int a1) {
   volatile uint8_t *v2; // r6
   int v3; // r0
@@ -413,6 +422,7 @@ LABEL_6:
 
 
 // get_connection_state @ 0x1369c8
+/* luna: Returns 0 only when the indexed context and connection records meet their state checks and the connection record’s low two flag bits are clear, settin */
 int get_connection_state(int a1) {
   unsigned int v1; // r3
   int v2; // r2
@@ -438,6 +448,7 @@ int get_connection_state(int a1) {
 
 
 // lookup_conn_params @ 0x136a28
+/* luna: Checks the input record against per-connection parameter bits, records one-time handling flags, and submits a connection-related PDU when the selected */
 int lookup_conn_params(int result, int a2) {
   int v3; // r3
   int v4; // r0
@@ -471,6 +482,7 @@ LABEL_5:
 
 
 // handle_acl_packet @ 0x136a90
+/* luna: Selects and removes an eligible ACL queue entry, updates queue bookkeeping, and signals when no further eligible entry remains. */
 volatile int ** handle_acl_packet(int a1, int a2, volatile uint32_t *a3) {
   int v3; // r7
   int v5; // r2
@@ -564,6 +576,7 @@ LABEL_20:
 
 
 // rf_get_rate_table_index @ 0x136bd4
+/* luna: Checks a connection’s pending rate-event flags and emits a control PDU when the handled flags leave none pending. */
 int rf_get_rate_table_index(int result, int a2) {
   int v2; // r4
   char v3; // r1
@@ -595,14 +608,15 @@ int rf_get_rate_table_index(int result, int a2) {
 
 
 // rf_config_lookup @ 0x136c2c
+/* luna: Builds and submits an 802.11 deauthentication frame to the specified peer using reason code 7 and the interface MAC as the source and BSSID. */
 int rf_config_lookup(int a1, int a2) {
   int v2; // r3
   int v5; // r3
   int result; // r0
-  int v7; // r5
-  int v8; // r6
+  int tx_packet; // r5
+  int frame_buffer; // r6
   volatile uint16_t *v9; // r2
-  int16_t v10; // r3
+  int16_t sequence_number; // r3
   int16_t v11; // r1
   int v12; // r0
   int v13; // r0
@@ -616,38 +630,38 @@ int rf_config_lookup(int a1, int a2) {
     if ( **(volatile int16_t **)off_136D24 >= 0 || v5 != 2 )
     {
       result = (int)(uintptr_t)(lock_acquire((v5 | *(volatile uint8_t *)(a1 + 1224)) != 0, 512));
-      v7 = result;
+      tx_packet = result;
       if ( !result )
         return result;
 LABEL_4:
       get_status_flag_c5(a1, result);
-      v8 = *(volatile uint32_t *)(v7 + 72);
-      *(volatile uint8_t *)(v8 + 108) = -64;
-      *(volatile uint8_t *)(v8 + 109) = 0;
-      *(volatile uint8_t *)(v8 + 110) = 0;
-      *(volatile uint8_t *)(v8 + 111) = 0;
-      memcpy((void *)(uintptr_t)(v8 + 112), (void *)(uintptr_t)(a2), 6);
+      frame_buffer = *(volatile uint32_t *)(tx_packet + 72);
+      *(volatile uint8_t *)(frame_buffer + 108) = -64;
+      *(volatile uint8_t *)(frame_buffer + 109) = 0;
+      *(volatile uint8_t *)(frame_buffer + 110) = 0;
+      *(volatile uint8_t *)(frame_buffer + 111) = 0;
+      memcpy((void *)(uintptr_t)(frame_buffer + 112), (void *)(uintptr_t)(a2), 6);
       v9 = (void *)(uintptr_t)(off_136D28);
-      v10 = *((volatile uint16_t *)off_136D28 + 254);
+      sequence_number = *((volatile uint16_t *)off_136D28 + 254);
       v11 = *(volatile uint16_t *)(a1 + 104);
-      *(volatile uint32_t *)(v8 + 118) = *(volatile uint32_t *)(a1 + 100);
-      ++v10;
+      *(volatile uint32_t *)(frame_buffer + 118) = *(volatile uint32_t *)(a1 + 100);
+      ++sequence_number;
       v12 = *(volatile uint32_t *)(a1 + 100);
-      *(volatile uint16_t *)(v8 + 122) = v11;
-      *(volatile uint32_t *)(v8 + 124) = v12;
-      *(volatile uint16_t *)(v8 + 128) = v11;
-      v9[254] = v10;
-      *(volatile uint16_t *)(v8 + 130) = 16 * v10;
-      *(volatile uint32_t *)(v7 + 88) = 0;
-      *(volatile uint32_t *)(v7 + 92) = a1;
-      *(volatile uint8_t *)(v7 + 28) = *(volatile uint8_t *)(a1 + 107);
-      *(volatile uint8_t *)(v7 + 29) = -1;
-      v13 = store_half_return_two((volatile uint16_t *)(v8 + 132), 7);
-      v14 = *(volatile uint32_t *)(v7 + 76);
+      *(volatile uint16_t *)(frame_buffer + 122) = v11;
+      *(volatile uint32_t *)(frame_buffer + 124) = v12;
+      *(volatile uint16_t *)(frame_buffer + 128) = v11;
+      v9[254] = sequence_number;
+      *(volatile uint16_t *)(frame_buffer + 130) = 16 * sequence_number;
+      *(volatile uint32_t *)(tx_packet + 88) = 0;
+      *(volatile uint32_t *)(tx_packet + 92) = a1;
+      *(volatile uint8_t *)(tx_packet + 28) = *(volatile uint8_t *)(a1 + 107);
+      *(volatile uint8_t *)(tx_packet + 29) = -1;
+      v13 = store_half_return_two((volatile uint16_t *)(frame_buffer + 132), 7);
+      v14 = *(volatile uint32_t *)(tx_packet + 76);
       v15 = (v15 & ~0xFFFFFFFFull) | ((uint32_t)(*(volatile uint32_t *)(v14 + 28) + 23 + v13) & 0xFFFFFFFFu);
       v15 = (v15 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v13 + 28) << 32);
       *(volatile uint64_t *)(v14 + 32) = v15;
-      return sec_check(v7, 5);
+      return sec_check(tx_packet, 5);
     }
     goto LABEL_6;
   }
@@ -655,7 +669,7 @@ LABEL_4:
 LABEL_6:
     irq_disable_mmio_write(dword_136D30, dword_136D2C, 520);
   result = (int)(uintptr_t)(lock_acquire(1, 512));
-  v7 = result;
+  tx_packet = result;
   if ( result )
     goto LABEL_4;
   return result;
@@ -664,6 +678,7 @@ LABEL_6:
 
 
 // rf_rate_code_check @ 0x136d34
+/* luna: Marks AP low-power entry and allocates the corresponding AP_LP_ENTER transmit event. */
 int rf_rate_code_check() {
   *(volatile uint8_t *)off_136D40 = 1;
   return alloc_tx_event(aApLpEnter);
@@ -671,6 +686,7 @@ int rf_rate_code_check() {
 
 
 // rf_rate_code_check_alt @ 0x136d48
+/* luna: Clears a byte-sized state flag and allocates a TX event for AP low-power exit. */
 int rf_rate_code_check_alt() {
   *(volatile uint8_t *)off_136D54 = 0;
   return alloc_tx_event(aApLpExit);
@@ -678,12 +694,13 @@ int rf_rate_code_check_alt() {
 
 
 // rf_trace_tx_power @ 0x136d5c
+/* luna: Sends the 60-byte transmit-power trace record selected by the first byte of `a2`, or an empty trace packet when that index is out of range. */
 int rf_trace_tx_power(int a1, volatile uint8_t *a2, int a3, int16_t a4) {
-  volatile uint16_t *v4; // r4
-  volatile uint8_t *v6; // r0
-  volatile uint32_t *v7; // r6
-  unsigned int v8; // r2
-  volatile int *v10; // r4
+  volatile uint16_t *trace_table; // r4
+  volatile uint8_t *trace_packet; // r0
+  volatile uint32_t *trace_payload; // r6
+  unsigned int record_index; // r2
+  volatile int *record_words; // r4
   int v11; // r0
   int v12; // r1
   int v13; // r2
@@ -699,51 +716,51 @@ int rf_trace_tx_power(int a1, volatile uint8_t *a2, int a3, int16_t a4) {
   int v23; // r1
   int v24; // r2
 
-  v4 = (void *)(uintptr_t)(off_136DB8);
-  v6 = (volatile uint8_t *)tx_send_pdu(4102, a4, 4, 0x3Cu);
-  v7 = (void *)(v6);
-  if ( v4[2] && (v8 = *a2, (uint16_t)v4[2] > v8) )
+  trace_table = (void *)(uintptr_t)(off_136DB8);
+  trace_packet = (volatile uint8_t *)tx_send_pdu(4102, a4, 4, 0x3Cu);
+  trace_payload = (void *)(trace_packet);
+  if ( trace_table[2] && (record_index = *a2, (uint16_t)trace_table[2] > record_index) )
   {
-    v10 = (volatile int *)&v4[30 * v8 + 4];
-    v11 = *v10;
-    v12 = v10[1];
-    v13 = v10[2];
-    v14 = v10[3];
-    v10 += 4;
-    *v7 = v11;
-    v7[1] = v12;
-    v7[2] = v13;
-    v7[3] = v14;
-    v15 = *v10;
-    v16 = v10[1];
-    v17 = v10[2];
-    v18 = v10[3];
-    v10 += 4;
-    v7[4] = v15;
-    v7[5] = v16;
-    v7[6] = v17;
-    v7[7] = v18;
-    v19 = *v10;
-    v20 = v10[1];
-    v21 = v10[2];
-    v22 = v10[3];
-    v10 += 4;
-    v7[8] = v19;
-    v7[9] = v20;
-    v7[10] = v21;
-    v7[11] = v22;
-    v23 = v10[1];
-    v24 = v10[2];
-    v7[12] = *v10;
-    v7[13] = v23;
-    v7[14] = v24;
-    rx_process_packet_1((int)v7);
+    record_words = (volatile int *)&trace_table[30 * record_index + 4];
+    v11 = *record_words;
+    v12 = record_words[1];
+    v13 = record_words[2];
+    v14 = record_words[3];
+    record_words += 4;
+    *trace_payload = v11;
+    trace_payload[1] = v12;
+    trace_payload[2] = v13;
+    trace_payload[3] = v14;
+    v15 = *record_words;
+    v16 = record_words[1];
+    v17 = record_words[2];
+    v18 = record_words[3];
+    record_words += 4;
+    trace_payload[4] = v15;
+    trace_payload[5] = v16;
+    trace_payload[6] = v17;
+    trace_payload[7] = v18;
+    v19 = *record_words;
+    v20 = record_words[1];
+    v21 = record_words[2];
+    v22 = record_words[3];
+    record_words += 4;
+    trace_payload[8] = v19;
+    trace_payload[9] = v20;
+    trace_payload[10] = v21;
+    trace_payload[11] = v22;
+    v23 = record_words[1];
+    v24 = record_words[2];
+    trace_payload[12] = *record_words;
+    trace_payload[13] = v23;
+    trace_payload[14] = v24;
+    rx_process_packet_1((int)trace_payload);
     return 0;
   }
   else
   {
-    *v6 = 0;
-    rx_process_packet_1((int)v6);
+    *trace_packet = 0;
+    rx_process_packet_1((int)trace_packet);
     return 0;
   }
 }
@@ -751,6 +768,7 @@ int rf_trace_tx_power(int a1, volatile uint8_t *a2, int a3, int16_t a4) {
 
 
 // rf_trace_lo_offset @ 0x136dbc
+/* luna: Sends a four-byte RF trace payload for the LO offset and processes the resulting packet. */
 int rf_trace_lo_offset(int a1, int a2, int a3, int a4) {
   int v4; // r0
 
@@ -762,32 +780,35 @@ int rf_trace_lo_offset(int a1, int a2, int a3, int a4) {
 
 
 // rf_trace_channel @ 0x136de0
+/* luna: Sends a scan-idle-cancel confirmation containing the stored status and emits a feature-gated status trace. */
 int rf_trace_channel() {
   volatile uint16_t *v0; // r4
-  int v1; // r0
+  int pdu; // r0
 
   v0 = (volatile uint16_t *)off_136E08;
-  v1 = tx_send_pdu(4107, *((volatile uint16_t *)off_136E08 + 1924), 4, 1);
-  rx_process_packet_1(v1);
+  pdu = tx_send_pdu(4107, *((volatile uint16_t *)off_136E08 + 1924), 4, 1);
+  rx_process_packet_1(pdu);
   check_feature_flag(8, "scan idle cancel cfm %d\r\n", v0[1924]);
   return 0;
 }
 
 
 // rf_trace_rate_set @ 0x136e10
+/* luna: Builds and submits an RF trace rate-set message using the rate code from the supplied configuration. */
 int rf_trace_rate_set(int a1, int a2, int a3, int a4) {
-  volatile uint8_t *v5; // r4
+  volatile uint8_t *trace_message; // r4
 
-  v5 = (volatile uint8_t *)tx_send_pdu(4104, a4, 4, 2);
+  trace_message = (volatile uint8_t *)tx_send_pdu(4104, a4, 4, 2);
   check_feature_flag(8, aScanuScanningV);
-  *v5 = 1;
-  v5[1] = *(volatile uint8_t *)(a2 + 2);
-  rx_process_packet_1((int)v5);
+  *trace_message = 1;
+  trace_message[1] = *(volatile uint8_t *)(a2 + 2);
+  rx_process_packet_1((int)trace_message);
   return 0;
 }
 
 
 // rf_calibration_meas @ 0x136e44
+/* luna: Emits a feature-flagged SCANU request trace using the supplied value and a 16-bit global value, then returns 2. */
 int rf_calibration_meas(int a1, int a2, int a3, int a4) {
   check_feature_flag(8, "scanning scanu req:%d,%d\n", a4, *((volatile uint16_t *)off_136E5C + 1924));
   return 2;
@@ -795,6 +816,7 @@ int rf_calibration_meas(int a1, int a2, int a3, int a4) {
 
 
 // rf_trace_rate_set2 @ 0x136e64
+/* luna: Copies the supplied trace-rate payload into the shared buffer, builds a response PDU, and submits it for processing. */
 int rf_trace_rate_set2(int a1, volatile char *a2, int a3, int a4) {
   volatile uint8_t *v5; // r4
   volatile char *v6; // r0

@@ -1,4 +1,5 @@
 // rf_table_lookup_1 @ 0x12c218
+/* luna: Pops one entry from the per-index RF callback queue, invokes its callback when present, and acknowledges the corresponding hardware slot. */
 int rf_table_lookup_1(int a1) {
   int v1; // r5
   volatile int *v3; // r7
@@ -52,6 +53,7 @@ LABEL_8:
 
 
 // rf_clock_enable_1 @ 0x12c2e8
+/* luna: Clears bit 0 of the RF clock-control register and returns the result of disabling global IRQ mask 0x400. */
 int rf_clock_enable_1() {
   *(volatile uint32_t *)(dword_12C300 + 4680) &= ~1u;
   return irq_disable_global_2(1024);
@@ -60,6 +62,7 @@ int rf_clock_enable_1() {
 
 
 // mmio_clear_bit_2 @ 0x12c304
+/* luna: Clears bit 0 of the MMIO register at the base plus 0x12C8, then disables interrupt mask 0x40000000. */
 int mmio_clear_bit_2() {
   *(volatile uint32_t *)(dword_12C31C + 4808) &= ~1u;
   return irq_disable_global_2(0x40000000);
@@ -68,6 +71,7 @@ int mmio_clear_bit_2() {
 
 
 // call_stack_helper @ 0x12c344
+/* luna: Passes the input byte to the BT event handler, writes its two output bytes into a volatile register while preserving other bits, and returns the handl */
 int call_stack_helper(char a1) {
   int result; // r0
   volatile unsigned int *v2; // r2
@@ -86,6 +90,7 @@ int call_stack_helper(char a1) {
 
 
 // get_calibration_value @ 0x12c388
+/* luna: Returns the byte at offset 0x6D, using a global fallback when the stored byte is 0x7F, and optionally reports the stored and effective values. */
 int get_calibration_value(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
   int v3; // r3
   int result; // r0
@@ -107,6 +112,7 @@ int get_calibration_value(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
 
 
 // get_status_flag_c5 @ 0x12c3a8
+/* luna: When BT packet parsing is enabled, parses the packet described by the nested receive context and stores the result in its status field; otherwise, it  */
 int get_status_flag_c5(int result, int a2) {
   int v2; // r4
   int v3; // r0
@@ -131,6 +137,7 @@ int get_status_flag_c5(int result, int a2) {
 
 
 // get_alt_status_flag_c5 @ 0x12c3f8
+/* luna: When the alternate BT parsing flag is enabled, parses packet fields from the nested context and stores the parser result in both bytes of its status w */
 void get_alt_status_flag_c5(int a1, int a2, volatile uint8_t *a3) {
   int v3; // r4
   int v4; // r0
@@ -150,6 +157,7 @@ void get_alt_status_flag_c5(int a1, int a2, volatile uint8_t *a3) {
 
 
 // compute_byte_delta @ 0x12c444
+/* luna: Computes and stores a signed-byte delta from fields at offsets 420 and 464, applies the offset-110 limit or sentinel behavior, flags linked entries wh */
 int compute_byte_delta(int result) {
   volatile int *i; // r3
   int v2; // r2
@@ -179,6 +187,7 @@ int compute_byte_delta(int result) {
 
 
 // is_delta_within_300m @ 0x12c470
+/* luna: Returns whether the unsigned difference between the 32-bit values at offset 8 in the two objects exceeds a fixed threshold. */
 BOOL is_delta_within_300m(int a1, int a2) {
   return *(volatile uint32_t *)(a1 + 8) - *(volatile uint32_t *)(a2 + 8) > (unsigned int)dword_12C484;
 }
@@ -186,6 +195,7 @@ BOOL is_delta_within_300m(int a1, int a2) {
 
 
 // match_packet_header @ 0x12c488
+/* luna: Returns true when the 16-bit fields at offsets 4 and 6 match the high and low halves of the expected header, respectively. */
 BOOL match_packet_header(int a1, unsigned int a2) {
   return *(volatile uint16_t *)(a1 + 4) == HIWORD(a2) && *(volatile uint16_t *)(a1 + 6) == (uint16_t)a2;
 }
@@ -193,6 +203,7 @@ BOOL match_packet_header(int a1, unsigned int a2) {
 
 
 // ke_event_handler @ 0x12c4a4
+/* luna: Stores a computed timestamp for a keyed RX record, dispatches the record through a list callback, and updates the active timestamp under IRQ protectio */
 int ke_event_handler(int a1, int a2, unsigned int a3) {
   volatile int16_t **v3; // r11
   volatile int *v7; // r8
@@ -274,6 +285,7 @@ LABEL_10:
 
 
 // invalid_handler_12c5fc @ 0x12c5fc
+/* luna: Matches the incoming packet’s two header fields against the queued transaction, advances the transmit queue on a match, and otherwise reads and proces */
 int invalid_handler_12c5fc(int result, int a2) {
   volatile int *v2; // r5
   volatile uint32_t *v3; // r6
@@ -343,6 +355,7 @@ LABEL_8:
 
 
 // rf_init_1 @ 0x12c6b8
+/* luna: Processes pending transmit work under the shared interrupt lock, staging an active item or popping and submitting queued packets. */
 int rf_init_1() {
   volatile uint32_t *v0; // r7
   volatile int *v1; // r5
@@ -437,6 +450,7 @@ LABEL_15:
 
 
 // rf_get_state_1 @ 0x12c774
+/* luna: Returns whether the global linked list contains an entry whose two 16-bit keys match the supplied values. */
 int rf_get_state_1(int a1, int a2) {
   volatile int **v2; // r3
 
@@ -455,37 +469,38 @@ int rf_get_state_1(int a1, int a2) {
 
 
 // unknown_handler_12c798 @ 0x12c798
+/* luna: Drains the pending TX packet list and passes each popped packet to tx_pkt_process under interrupt protection. */
 int unknown_handler_12c798() {
-  volatile int *v0; // r5
-  int v1; // r4
+  volatile int *tx_processing_depth_ptr; // r5
+  int pending_tx_queue; // r4
   int result; // r0
-  int v3; // r3
-  int v4; // r2
+  int remaining_processing_depth; // r3
+  int restore_irq_enabled; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_12C7E0 = 1;
   }
-  v0 = (volatile int *)off_12C7E4;
-  v1 = dword_12C7E8;
+  tx_processing_depth_ptr = (volatile int *)off_12C7E4;
+  pending_tx_queue = dword_12C7E8;
   ++*(volatile uint32_t *)off_12C7E4;
   irq_disable_global_3(0x10000000);
   while ( 1 )
   {
-    result = (int)(uintptr_t)(list_pop(v1));
+    result = (int)(uintptr_t)(list_pop(pending_tx_queue));
     if ( !result )
       break;
     tx_pkt_process((void *)(uintptr_t)(result));
   }
-  if ( *v0 )
+  if ( *tx_processing_depth_ptr )
   {
-    v3 = *v0 - 1;
-    v4 = *(volatile uint32_t *)off_12C7E0;
-    *v0 = v3;
-    if ( !v3 )
+    remaining_processing_depth = *tx_processing_depth_ptr - 1;
+    restore_irq_enabled = *(volatile uint32_t *)off_12C7E0;
+    *tx_processing_depth_ptr = remaining_processing_depth;
+    if ( !remaining_processing_depth )
     {
-      if ( v4 )
+      if ( restore_irq_enabled )
         __enable_irq();
     }
   }
@@ -495,6 +510,7 @@ int unknown_handler_12c798() {
 
 
 // tx_send_pdu @ 0x12c7ec
+/* luna: Allocates a zero-filled HCI transmit buffer with a 12-byte metadata prefix, stores the supplied header fields and payload length, and returns the payl */
 int tx_send_pdu(int16_t a1, int16_t a2, int16_t a3, unsigned int a4) {
   int v8; // r0
   int v9; // r4
@@ -515,14 +531,15 @@ int tx_send_pdu(int16_t a1, int16_t a2, int16_t a3, unsigned int a4) {
 
 
 // rx_process_packet_1 @ 0x12c84c
+/* luna: Routes a kernel message by destination task, sending low-numbered destinations through the WLAN ioctl handler and otherwise invoking the configured di */
 volatile uint32_t * rx_process_packet_1(int a1) {
-  int v1; // r3
-  volatile char *v4; // r0
+  int destination_task_id; // r3
+  volatile char *message; // r0
 
-  v1 = *(volatile uint16_t *)(a1 - 6);
-  if ( **(volatile int16_t **)off_12C8B8 >= 0 || (uint8_t)v1 <= 0xEu )
+  destination_task_id = *(volatile uint16_t *)(a1 - 6);
+  if ( **(volatile int16_t **)off_12C8B8 >= 0 || (uint8_t)destination_task_id <= 0xEu )
   {
-    if ( (uint8_t)v1 <= 0xCu )
+    if ( (uint8_t)destination_task_id <= 0xCu )
     {
       wlan_ioctl_handler_1(dword_12C8BC, (volatile uint32_t *)(a1 - 12));
       return (volatile uint32_t *)irq_disable_global_2(0x4000000);
@@ -531,22 +548,23 @@ volatile uint32_t * rx_process_packet_1(int a1) {
   else
   {
     irq_disable_mmio_write((int)aIdTaskMax, (int)aKeTaskLocal, 183);
-    v1 = *(volatile uint16_t *)(a1 - 6);
+    destination_task_id = *(volatile uint16_t *)(a1 - 6);
   }
   alloc_tx_event(
     "\x9D\x80""Dispatching msg:%x from tsk:%x to tsk:%x\n",
     *(volatile uint16_t *)(a1 - 8),
     *(volatile uint16_t *)(a1 - 4),
-    v1);
-  v4 = (volatile char *)(a1 - 12);
+    destination_task_id);
+  message = (volatile char *)(a1 - 12);
   if ( *(volatile uint8_t *)off_12C8CC )
-    return tx_pkt_process(v4);
+    return tx_pkt_process(message);
   else
-    return (volatile uint32_t *)state_check_0x182ba0((void *)(v4));
+    return (volatile uint32_t *)state_check_0x182ba0((void *)(message));
 }
 
 
 // mac_write_header_word @ 0x12c8d0
+/* luna: Sends a PDU with a zero-valued final argument and passes the result to the packet processor. */
 int mac_write_header_word(int16_t a1, int16_t a2, int16_t a3) {
   int v3; // r0
 
@@ -557,6 +575,7 @@ int mac_write_header_word(int16_t a1, int16_t a2, int16_t a3) {
 
 
 // nop_function @ 0x12c8e0
+/* luna: Writes three caller-supplied 16-bit values into slots immediately before the packet pointer, then invokes the RX packet processor. */
 int nop_function(int a1, int16_t a2, int16_t a3, int16_t a4) {
   *(volatile uint16_t *)(a1 - 8) = a2;
   *(volatile uint16_t *)(a1 - 6) = a3;
@@ -567,6 +586,7 @@ int nop_function(int a1, int16_t a2, int16_t a3, int16_t a4) {
 
 
 // tx_process_jump @ 0x12c8f8
+/* luna: Forwards the supplied packet context to `tx_pkt_process` and returns its result. */
 int tx_process_jump(int a1) {
   return (int)(uintptr_t)(tx_pkt_process((void *)(uintptr_t)(a1)));
 }
@@ -574,49 +594,51 @@ int tx_process_jump(int a1) {
 
 
 // rx_read_buffer @ 0x12c8fc
+/* luna: Searches the queue for the first node accepted by the predicate, unlinks it, and returns it, or returns NULL if no node matches. */
 volatile uint32_t * rx_read_buffer(int a1, int ( *a2)(volatile uint32_t *, int), int a3) {
-  volatile uint32_t *v3; // r4
-  volatile uint32_t *v7; // r8
+  volatile uint32_t *current_node; // r4
+  volatile uint32_t *previous_node; // r8
   int i; // r0
-  int v9; // r3
+  int next_node; // r3
 
-  v3 = *(volatile uint32_t **)a1;
+  current_node = *(volatile uint32_t **)a1;
   if ( !*(volatile uint32_t *)a1 )
     return 0;
-  v7 = 0;
-  for ( i = a2(v3, a3); ; i = a2(v3, a3) )
+  previous_node = 0;
+  for ( i = a2(current_node, a3); ; i = a2(current_node, a3) )
   {
-    v9 = *v3;
+    next_node = *current_node;
     if ( i )
       break;
-    v7 = v3;
-    if ( !v9 )
+    previous_node = current_node;
+    if ( !next_node )
       return 0;
-    v3 = (volatile uint32_t *)*v3;
+    current_node = (volatile uint32_t *)*current_node;
   }
-  if ( v7 )
+  if ( previous_node )
   {
-    *v7 = v9;
-    if ( *v3 )
+    *previous_node = next_node;
+    if ( *current_node )
     {
 LABEL_8:
-      *v3 = 0;
-      return v3;
+      *current_node = 0;
+      return current_node;
     }
   }
   else
   {
-    *(volatile uint32_t *)a1 = v9;
-    if ( v9 )
+    *(volatile uint32_t *)a1 = next_node;
+    if ( next_node )
       goto LABEL_8;
   }
-  *(volatile uint32_t *)(a1 + 4) = (int)(uintptr_t)(v7);
-  return v3;
+  *(volatile uint32_t *)(a1 + 4) = (int)(uintptr_t)(previous_node);
+  return current_node;
 }
 
 
 
 // patch_alignment @ 0x12c954
+/* luna: Initializes an aligned patch entry with a relative offset to a fixed target while preserving the prior IRQ-protection state. */
 volatile uint32_t *patch_alignment() {
   volatile uint32_t *result; // r0
   volatile uint32_t *v1; // r2
@@ -656,26 +678,27 @@ volatile uint32_t *patch_alignment() {
 
 
 // hci_tx_alloc @ 0x12c9a0
+/* luna: Allocates an aligned HCI transmit buffer by carving space from a suitable free-list block and recording the allocation size. */
 int hci_tx_alloc(int a1) {
   volatile int16_t **v1; // r7
-  unsigned int v2; // r4
-  unsigned int v3; // r6
-  volatile uint32_t *v4; // r3
+  unsigned int aligned_request_size; // r4
+  unsigned int allocation_size_with_header; // r6
+  volatile uint32_t *free_block; // r3
   volatile int *v5; // r5
   int v6; // r12
-  volatile uint32_t *v7; // r1
-  unsigned int v8; // r2
+  volatile uint32_t *best_fit_block; // r1
+  unsigned int free_block_size; // r2
   volatile uint32_t *v9; // r2
-  unsigned int v10; // r3
+  unsigned int remaining_block_size; // r3
   int result; // r0
   int v12; // r2
 
   v1 = (volatile int16_t **)off_12CA6C;
-  v2 = (a1 + 3) & 0xFFFFFFFC;
-  v3 = v2 + 4;
-  if ( **(volatile int16_t **)off_12CA6C < 0 && v3 <= 7 )
+  aligned_request_size = (a1 + 3) & 0xFFFFFFFC;
+  allocation_size_with_header = aligned_request_size + 4;
+  if ( **(volatile int16_t **)off_12CA6C < 0 && allocation_size_with_header <= 7 )
     irq_disable_mmio_write(dword_12CA84, dword_12CA7C, 132);
-  v4 = *((volatile uint32_t **)off_12CA70 + 7);
+  free_block = *((volatile uint32_t **)off_12CA70 + 7);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
@@ -684,35 +707,35 @@ int hci_tx_alloc(int a1) {
   v5 = (volatile int *)off_12CA78;
   v6 = *(volatile uint32_t *)off_12CA78 + 1;
   *(volatile uint32_t *)off_12CA78 = v6;
-  if ( v4 )
+  if ( free_block )
   {
-    v7 = 0;
+    best_fit_block = 0;
     while ( 1 )
     {
       while ( 1 )
       {
-        v8 = v4[1];
-        if ( v8 >= v2 + 12 )
+        free_block_size = free_block[1];
+        if ( free_block_size >= aligned_request_size + 12 )
           break;
 LABEL_8:
-        v4 = (volatile uint32_t *)*v4;
-        if ( !v4 )
+        free_block = (volatile uint32_t *)*free_block;
+        if ( !free_block )
           goto LABEL_12;
       }
-      if ( v7 )
+      if ( best_fit_block )
       {
-        if ( v8 < v7[1] )
-          v7 = v4;
+        if ( free_block_size < best_fit_block[1] )
+          best_fit_block = free_block;
         goto LABEL_8;
       }
-      v7 = v4;
-      v4 = (volatile uint32_t *)*v4;
-      if ( !v4 )
+      best_fit_block = free_block;
+      free_block = (volatile uint32_t *)*free_block;
+      if ( !free_block )
       {
 LABEL_12:
-        if ( **v1 < 0 && !v7 )
+        if ( **v1 < 0 && !best_fit_block )
           goto LABEL_20;
-        v9 = v7;
+        v9 = best_fit_block;
         goto LABEL_14;
       }
     }
@@ -723,12 +746,12 @@ LABEL_20:
   irq_disable_mmio_write(dword_12CA80, dword_12CA7C, 160);
   v9 = 0;
   v6 = *v5;
-  v7 = 0;
+  best_fit_block = 0;
 LABEL_14:
-  v10 = v7[1] - v3;
-  v7[1] = v10;
-  result = (int)v9 + v10 + 4;
-  *(volatile uint32_t *)((volatile char *)v9 + v10) = v3;
+  remaining_block_size = best_fit_block[1] - allocation_size_with_header;
+  best_fit_block[1] = remaining_block_size;
+  result = (int)v9 + remaining_block_size + 4;
+  *(volatile uint32_t *)((volatile char *)v9 + remaining_block_size) = allocation_size_with_header;
   if ( v6 )
   {
     v12 = *(volatile uint32_t *)off_12CA74;
@@ -745,28 +768,29 @@ LABEL_14:
 
 
 // tx_pkt_process @ 0x12ca88
+/* luna: Returns an allocation to the address-ordered heap free list and coalesces it with contiguous neighboring blocks under interrupt-state protection. */
 volatile uint32_t * tx_pkt_process(volatile char *a1) {
   volatile int16_t **v1; // r9
-  volatile char *v2; // r4
-  int v3; // r8
-  volatile char *v5; // r5
+  volatile char *free_list_block; // r4
+  int released_block_size; // r8
+  volatile char *released_block_header; // r5
   volatile uint32_t *result; // r0
-  int v7; // r12
-  int v8; // r7
-  int v9; // r3
-  volatile uint32_t *v10; // r1
-  volatile int *v11; // r3
-  int v12; // r3
-  int v13; // r3
-  volatile char *v14; // r2
-  int v15; // r1
+  int saved_critical_section_depth; // r12
+  int incremented_critical_section_depth; // r7
+  int free_list_block_size; // r3
+  volatile uint32_t *previous_free_list_block; // r1
+  volatile int *irq_restore_flag_ptr; // r3
+  int irq_restore_flag; // r3
+  int merged_block_size; // r3
+  volatile char *next_free_list_block; // r2
+  int next_free_list_block_size; // r1
   uint64_t v16; // r2
 
   v1 = (volatile int16_t **)off_12CB84;
-  v2 = *((volatile char **)off_12CB6C + 7);
-  v3 = *((volatile uint32_t *)a1 - 1);
-  v5 = a1 - 4;
-  if ( **(volatile int16_t **)off_12CB84 < 0 && a1 <= v2 )
+  free_list_block = *((volatile char **)off_12CB6C + 7);
+  released_block_size = *((volatile uint32_t *)a1 - 1);
+  released_block_header = a1 - 4;
+  if ( **(volatile int16_t **)off_12CB84 < 0 && a1 <= free_list_block )
     irq_disable_mmio_write(dword_12CB7C, dword_12CB78, 220);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -774,71 +798,71 @@ volatile uint32_t * tx_pkt_process(volatile char *a1) {
     *(volatile uint32_t *)off_12CB70 = 1;
   }
   result = (void *)(uintptr_t)(off_12CB74);
-  v7 = *(volatile uint32_t *)off_12CB74;
-  v8 = *(volatile uint32_t *)off_12CB74 + 1;
-  *(volatile uint32_t *)off_12CB74 = v8;
-  if ( !v2 )
+  saved_critical_section_depth = *(volatile uint32_t *)off_12CB74;
+  incremented_critical_section_depth = *(volatile uint32_t *)off_12CB74 + 1;
+  *(volatile uint32_t *)off_12CB74 = incremented_critical_section_depth;
+  if ( !free_list_block )
   {
-    MEMD(0) = (int)(uintptr_t)(v5);
+    MEMD(0) = (int)(uintptr_t)(released_block_header);
     __und(0xFFu);
   }
-  v9 = *((volatile uint32_t *)v2 + 1);
-  if ( &v2[v9] != v5 )
+  free_list_block_size = *((volatile uint32_t *)free_list_block + 1);
+  if ( &free_list_block[free_list_block_size] != released_block_header )
   {
-    if ( v2 > v5 )
+    if ( free_list_block > released_block_header )
     {
       if ( **v1 < 0 )
         irq_disable_mmio_write(dword_12CB80, dword_12CB78, 247);
-      MEMD(0) = (int)(uintptr_t)(v5);
+      MEMD(0) = (int)(uintptr_t)(released_block_header);
       __und(0xFFu);
     }
     while ( 1 )
     {
-      v10 = (void *)(v2);
-      v2 = *(volatile char **)v2;
-      if ( !v2 )
+      previous_free_list_block = (void *)(free_list_block);
+      free_list_block = *(volatile char **)free_list_block;
+      if ( !free_list_block )
         break;
-      v9 = *((volatile uint32_t *)v2 + 1);
-      if ( &v2[v9] == v5 )
+      free_list_block_size = *((volatile uint32_t *)free_list_block + 1);
+      if ( &free_list_block[free_list_block_size] == released_block_header )
         goto LABEL_20;
-      if ( v2 > v5 )
+      if ( free_list_block > released_block_header )
       {
-        *v10 = (int)(uintptr_t)(v5);
-        if ( v2 == &v5[v3] )
+        *previous_free_list_block = (int)(uintptr_t)(released_block_header);
+        if ( free_list_block == &released_block_header[released_block_size] )
         {
-          *((volatile uint32_t *)a1 - 1) = *(volatile uint32_t *)v2;
-          *(volatile uint32_t *)a1 = &v2[v9] - v5;
+          *((volatile uint32_t *)a1 - 1) = *(volatile uint32_t *)free_list_block;
+          *(volatile uint32_t *)a1 = &free_list_block[free_list_block_size] - released_block_header;
           goto LABEL_13;
         }
 LABEL_12:
-        *((volatile uint32_t *)a1 - 1) = (int)(uintptr_t)(v2);
-        *(volatile uint32_t *)a1 = v3;
+        *((volatile uint32_t *)a1 - 1) = (int)(uintptr_t)(free_list_block);
+        *(volatile uint32_t *)a1 = released_block_size;
         goto LABEL_13;
       }
     }
-    *v10 = (int)(uintptr_t)(v5);
+    *previous_free_list_block = (int)(uintptr_t)(released_block_header);
     goto LABEL_12;
   }
 LABEL_20:
-  v13 = v9 + v3;
-  v14 = *(volatile char **)v2;
-  *((volatile uint32_t *)v2 + 1) = v13;
-  if ( v14 == &v2[v13] )
+  merged_block_size = free_list_block_size + released_block_size;
+  next_free_list_block = *(volatile char **)free_list_block;
+  *((volatile uint32_t *)free_list_block + 1) = merged_block_size;
+  if ( next_free_list_block == &free_list_block[merged_block_size] )
   {
-    v15 = *((volatile uint32_t *)v14 + 1);
-    v16 = (v16 & ~0xFFFFFFFFull) | ((uint32_t)(*(volatile uint32_t *)v14) & 0xFFFFFFFFu);
-    v16 = (v16 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v13 + v15) << 32);
-    *(volatile uint64_t *)v2 = v16;
+    next_free_list_block_size = *((volatile uint32_t *)next_free_list_block + 1);
+    v16 = (v16 & ~0xFFFFFFFFull) | ((uint32_t)(*(volatile uint32_t *)next_free_list_block) & 0xFFFFFFFFu);
+    v16 = (v16 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(merged_block_size + next_free_list_block_size) << 32);
+    *(volatile uint64_t *)free_list_block = v16;
   }
 LABEL_13:
-  if ( v8 )
+  if ( incremented_critical_section_depth )
   {
-    v11 = (volatile int *)off_12CB70;
-    *result = v7;
-    v12 = *v11;
-    if ( !v7 )
+    irq_restore_flag_ptr = (volatile int *)off_12CB70;
+    *result = saved_critical_section_depth;
+    irq_restore_flag = *irq_restore_flag_ptr;
+    if ( !saved_critical_section_depth )
     {
-      if ( v12 )
+      if ( irq_restore_flag )
         __enable_irq();
     }
   }
@@ -848,6 +872,7 @@ LABEL_13:
 
 
 // list_node_count @ 0x12cb94
+/* luna: Searches a fixed-stride table backward for a matching 16-bit key and returns its associated 32-bit value, reloading that value with interrupts disable */
 int list_node_count(int a1, volatile int *a2, int a3) {
   int v3; // r3
   int v5; // r2
@@ -882,25 +907,26 @@ int list_node_count(int a1, volatile int *a2, int a3) {
 
 
 // hci_cmd_preprocess @ 0x12cbf4
+/* luna: Updates the state of a task instance and dispatches queued messages for that task when the state changes. */
 int hci_cmd_preprocess(unsigned int a1, int a2) {
   volatile int16_t **v2; // r7
-  unsigned int v5; // r9
-  int v6; // r6
-  volatile uint16_t *v7; // r9
+  unsigned int task_instance; // r9
+  int task_type; // r6
+  volatile uint16_t *task_state_slot; // r9
   int result; // r0
   int ( *v9)(volatile uint32_t *, int); // r8
   int v10; // r7
-  volatile int *v11; // r6
-  volatile int *v12; // r5
+  volatile int *irq_reenable_pending; // r6
+  volatile int *dispatch_depth; // r5
   int v13; // r0
   int v14; // r3
   int v15; // r2
-  volatile uint32_t *v16; // r1
-  volatile int *v17; // r6
+  volatile uint32_t *queued_message; // r1
+  volatile int *task_descriptor; // r6
 
   v2 = (volatile int16_t **)off_12CD0C;
-  v5 = a1 >> 8;
-  v6 = (uint8_t)a1;
+  task_instance = a1 >> 8;
+  task_type = (uint8_t)a1;
   if ( **(volatile int16_t **)off_12CD0C >= 0 )
     goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
@@ -909,10 +935,10 @@ int hci_cmd_preprocess(unsigned int a1, int a2) {
     if ( **v2 >= 0 )
     {
 LABEL_2:
-      v7 = (volatile uint16_t *)(((volatile uint32_t *)(uintptr_t)off_12CD10)[4 * v6 + 2] + 2 * v5);
+      task_state_slot = (volatile uint16_t *)(((volatile uint32_t *)(uintptr_t)off_12CD10)[4 * task_type + 2] + 2 * task_instance);
       goto LABEL_3;
     }
-    if ( v6 != 14 )
+    if ( task_type != 14 )
       irq_disable_mmio_write((int)aIdTaskMax, (int)aKeTaskLocal_0, 183);
   }
   else if ( (uint8_t)a1 != 13 )
@@ -923,47 +949,47 @@ LABEL_2:
   if ( **v2 >= 0 )
     goto LABEL_2;
 LABEL_16:
-  v17 = (void *)(&((volatile uint32_t *)(uintptr_t)off_12CD10)[4 * v6]);
-  if ( *((volatile uint16_t *)v17 + 7) > v5 )
+  task_descriptor = (void *)(&((volatile uint32_t *)(uintptr_t)off_12CD10)[4 * task_type]);
+  if ( *((volatile uint16_t *)task_descriptor + 7) > task_instance )
   {
-    v7 = (volatile uint16_t *)(v17[2] + 2 * v5);
-    if ( v7 )
+    task_state_slot = (volatile uint16_t *)(task_descriptor[2] + 2 * task_instance);
+    if ( task_state_slot )
       goto LABEL_3;
     goto LABEL_18;
   }
   irq_disable_mmio_write((int)aIdxTaskDescTyp, (int)aKeStateSet, 175);
-  v7 = (volatile uint16_t *)(v17[2] + 2 * v5);
-  if ( **v2 < 0 && !v7 )
+  task_state_slot = (volatile uint16_t *)(task_descriptor[2] + 2 * task_instance);
+  if ( **v2 < 0 && !task_state_slot )
 LABEL_18:
     irq_disable_mmio_write((int)aKeStateidPtr, (int)aKeStateSet, 180);
 LABEL_3:
   result = alloc_tx_event("\x80\x9Dset tsk:%x:%x\n", a1, a2);
-  if ( (uint16_t)*v7 != a2 )
+  if ( (uint16_t)*task_state_slot != a2 )
   {
     v9 = (int ( *)(volatile uint32_t *, int))off_12CD44;
     v10 = dword_12CD18;
-    v11 = (volatile int *)off_12CD1C;
-    *v7 = a2;
+    irq_reenable_pending = (volatile int *)off_12CD1C;
+    *task_state_slot = a2;
     while ( 1 )
     {
       result = (int)rx_read_buffer(v10, v9, a1);
-      v16 = (volatile uint32_t *)result;
+      queued_message = (volatile uint32_t *)result;
       if ( !result )
         break;
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
-        *v11 = 1;
+        *irq_reenable_pending = 1;
       }
-      v12 = (volatile int *)off_12CD20;
+      dispatch_depth = (volatile int *)off_12CD20;
       v13 = dword_12CD24;
       ++*(volatile uint32_t *)off_12CD20;
-      wlan_ioctl_handler_1(v13, v16);
-      v14 = *v12 - 1;
-      if ( *v12 )
+      wlan_ioctl_handler_1(v13, queued_message);
+      v14 = *dispatch_depth - 1;
+      if ( *dispatch_depth )
       {
-        v15 = *v11;
-        *v12 = v14;
+        v15 = *irq_reenable_pending;
+        *dispatch_depth = v14;
         if ( !v14 )
         {
           if ( v15 )
@@ -978,17 +1004,18 @@ LABEL_3:
 
 
 // hci_cmd_handler @ 0x12cd48
+/* luna: Returns the 16-bit HCI command-table entry selected by the packed table and entry indices, performing status and bounds checks along the way. */
 int hci_cmd_handler(unsigned int a1) {
   volatile int16_t **v1; // r5
-  unsigned int v2; // r6
-  int v3; // r4
-  int v4; // r5
-  int v5; // r4
-  int v7; // r3
+  unsigned int entry_index; // r6
+  int table_index; // r4
+  int command_table; // r5
+  int row_offset; // r4
+  int row_address; // r3
 
   v1 = (volatile int16_t **)off_12CDCC;
-  v2 = a1 >> 8;
-  v3 = (uint8_t)a1;
+  entry_index = a1 >> 8;
+  table_index = (uint8_t)a1;
   if ( **(volatile int16_t **)off_12CDCC >= 0 )
     goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
@@ -997,11 +1024,11 @@ int hci_cmd_handler(unsigned int a1) {
     if ( **v1 >= 0 )
     {
 LABEL_2:
-      v4 = dword_12CDD0;
-      v5 = 16 * v3;
-      return *(volatile uint16_t *)(*(volatile uint32_t *)(v4 + v5 + 8) + 2 * v2);
+      command_table = dword_12CDD0;
+      row_offset = 16 * table_index;
+      return *(volatile uint16_t *)(*(volatile uint32_t *)(command_table + row_offset + 8) + 2 * entry_index);
     }
-    if ( v3 != 14 )
+    if ( table_index != 14 )
       irq_disable_mmio_write(dword_12CDE4, dword_12CDE0, 183);
   }
   else if ( (uint8_t)a1 != 13 )
@@ -1012,34 +1039,35 @@ LABEL_2:
   if ( **v1 >= 0 )
     goto LABEL_2;
 LABEL_6:
-  v4 = dword_12CDD0;
-  v7 = dword_12CDD0 + 16 * v3;
-  v5 = 16 * v3;
-  if ( *(volatile uint16_t *)(v7 + 14) > v2 )
-    return *(volatile uint16_t *)(*(volatile uint32_t *)(v4 + v5 + 8) + 2 * v2);
+  command_table = dword_12CDD0;
+  row_address = dword_12CDD0 + 16 * table_index;
+  row_offset = 16 * table_index;
+  if ( *(volatile uint16_t *)(row_address + 14) > entry_index )
+    return *(volatile uint16_t *)(*(volatile uint32_t *)(command_table + row_offset + 8) + 2 * entry_index);
   irq_disable_mmio_write(dword_12CDD8, dword_12CDD4, 212);
-  return *(volatile uint16_t *)(*(volatile uint32_t *)(v4 + v5 + 8) + 2 * v2);
+  return *(volatile uint16_t *)(*(volatile uint32_t *)(command_table + row_offset + 8) + 2 * entry_index);
 }
 
 
 
 // hci_event_handler @ 0x12cdec
+/* luna: Looks up the handler list for an HCI event and optional subevent, falls back to the event-wide list when needed, and returns the selected list’s node  */
 int hci_event_handler(int a1, unsigned int a2) {
   volatile int16_t **v2; // r4
-  int v4; // r7
-  unsigned int v5; // r5
-  int v6; // r4
-  int v7; // r7
+  int event_code; // r7
+  unsigned int subevent_code; // r5
+  int event_table; // r4
+  int event_entry_offset; // r7
   int v8; // r1
-  int v9; // r4
-  int v10; // r1
+  int event_entry; // r4
+  int subevent_handler_list; // r1
   int result; // r0
-  int v12; // r1
+  int fallback_handler_list; // r1
   int v13; // r3
 
   v2 = (volatile int16_t **)off_12CE94;
-  v4 = (uint8_t)a2;
-  v5 = a2 >> 8;
+  event_code = (uint8_t)a2;
+  subevent_code = a2 >> 8;
   if ( **(volatile int16_t **)off_12CE94 >= 0 )
     goto LABEL_2;
   if ( (uint8_t)a2 > 0xDu )
@@ -1048,11 +1076,11 @@ int hci_event_handler(int a1, unsigned int a2) {
     if ( **v2 >= 0 )
     {
 LABEL_2:
-      v6 = dword_12CE98;
-      v7 = 16 * v4;
+      event_table = dword_12CE98;
+      event_entry_offset = 16 * event_code;
       goto LABEL_3;
     }
-    if ( v4 != 14 )
+    if ( event_code != 14 )
       irq_disable_mmio_write(dword_12CEAC, dword_12CEA8, 183);
   }
   else if ( (uint8_t)a2 != 13 )
@@ -1063,21 +1091,21 @@ LABEL_2:
   if ( **v2 >= 0 )
     goto LABEL_2;
 LABEL_10:
-  v6 = dword_12CE98;
-  v13 = dword_12CE98 + 16 * v4;
-  v7 = 16 * v4;
-  if ( *(volatile uint16_t *)(v13 + 14) <= v5 )
+  event_table = dword_12CE98;
+  v13 = dword_12CE98 + 16 * event_code;
+  event_entry_offset = 16 * event_code;
+  if ( *(volatile uint16_t *)(v13 + 14) <= subevent_code )
     irq_disable_mmio_write(dword_12CEA0, dword_12CE9C, 269);
 LABEL_3:
-  v8 = *(volatile uint32_t *)(v6 + v7);
-  v9 = v6 + v7;
+  v8 = *(volatile uint32_t *)(event_table + event_entry_offset);
+  event_entry = event_table + event_entry_offset;
   if ( !v8
-    || (v10 = v8 + 8 * *(volatile uint16_t *)(*(volatile uint32_t *)(v9 + 8) + 2 * v5),
-        (result = list_node_count(a1, (volatile int *)v10, *(volatile uint16_t *)(v10 + 4))) == 0) )
+    || (subevent_handler_list = v8 + 8 * *(volatile uint16_t *)(*(volatile uint32_t *)(event_entry + 8) + 2 * subevent_code),
+        (result = list_node_count(a1, (volatile int *)subevent_handler_list, *(volatile uint16_t *)(subevent_handler_list + 4))) == 0) )
   {
-    v12 = *(volatile uint32_t *)(v9 + 4);
-    if ( v12 )
-      return list_node_count(a1, (volatile int *)v12, *(volatile uint16_t *)(v12 + 4));
+    fallback_handler_list = *(volatile uint32_t *)(event_entry + 4);
+    if ( fallback_handler_list )
+      return list_node_count(a1, (volatile int *)fallback_handler_list, *(volatile uint16_t *)(fallback_handler_list + 4));
     else
       return 0;
   }
@@ -1087,6 +1115,7 @@ LABEL_3:
 
 
 // irq_disable_global @ 0x12ceb4
+/* luna: Pops one kernel message, dispatches it to the destination task’s handler, and processes the handler’s message status before checking for pending sched */
 volatile uint32_t *irq_disable_global() {
   volatile int *v0; // r5
   int v1; // r0
@@ -1192,6 +1221,7 @@ LABEL_12:
 
 
 // return_zero @ 0x12cfbc
+/* luna: Returns the constant value zero. */
 int return_zero() {
   return 0;
 }
@@ -1199,6 +1229,7 @@ int return_zero() {
 
 
 // return_two @ 0x12cfc0
+/* luna: Returns the constant integer value 2. */
 int return_two() {
   return 2;
 }
@@ -1206,6 +1237,7 @@ int return_two() {
 
 
 // irq_disable_global_2 @ 0x12cfc4
+/* luna: ORs the supplied mask into a shared flag word inside an IRQ-protected critical section and returns the updated word. */
 int irq_disable_global_2(int a1) {
   volatile uint32_t *v1; // r2
   volatile int *v2; // r5
@@ -1251,6 +1283,7 @@ int set_mmio_base() {
 
 
 // irq_disable_global_3 @ 0x12d00c
+/* luna: Clears the selected bits from a shared IRQ-related flag word during an interrupt-protected update and returns the updated word. */
 int irq_disable_global_3(int a1) {
   volatile uint32_t *v1; // r2
   volatile int *v2; // r5
@@ -1289,6 +1322,7 @@ int irq_disable_global_3(int a1) {
 
 
 // process_event_queue @ 0x12d050
+/* luna: Dispatches pending kernel events in most-significant-bit order by calling each registered handler with its stored parameter. */
 void process_event_queue() {
   volatile unsigned int *v0; // r6
   unsigned int v1; // r4
@@ -1343,6 +1377,7 @@ LABEL_5:
 
 
 // update_modulation_mode @ 0x12d0d0
+/* luna: Clears several words in a state block, stores the result of patch_alignment() and a related address, then calls irq_disable_global_3(-1). */
 int update_modulation_mode() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r3
@@ -1365,6 +1400,7 @@ int update_modulation_mode() {
 
 
 // clear_stats_buf @ 0x12d100
+/* luna: Zeros the two 32-bit words in the supplied buffer and returns the same pointer. */
 volatile uint32_t * clear_stats_buf(volatile uint32_t *result) {
   *result = 0;
   result[1] = 0;

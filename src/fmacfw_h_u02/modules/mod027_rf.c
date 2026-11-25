@@ -1,4 +1,5 @@
 // rf_init @ 0x121648
+/* luna: Initializes RF control and configuration registers from the supplied settings, conditionally applies a calibration field, and commits the final regist */
 unsigned int rf_init(volatile int *a1) {
   volatile uint32_t *v1; // r3
   volatile uint32_t *v2; // r7
@@ -6,8 +7,8 @@ unsigned int rf_init(volatile int *a1) {
   volatile uint32_t *v4; // r1
   volatile uint32_t *v5; // r6
   volatile uint32_t *v6; // r5
-  int v7; // r7
-  int v8; // r0
+  int rf_config_word; // r7
+  int rf_config_halfword; // r0
   volatile int16_t **v9; // r0
   volatile int *v10; // r4
   int v11; // r2
@@ -22,12 +23,12 @@ unsigned int rf_init(volatile int *a1) {
   *(volatile uint32_t *)off_1216C0 &= ~2u;
   *v1 |= 1u;
   *v2 = 768;
-  v7 = *a1;
-  v8 = *((volatile uint16_t *)a1 + 2);
+  rf_config_word = *a1;
+  rf_config_halfword = *((volatile uint16_t *)a1 + 2);
   *v5 = 0;
   *v6 = 0;
-  *v3 = v7;
-  *v4 = v8;
+  *v3 = rf_config_word;
+  *v4 = rf_config_halfword;
   v9 = (volatile int16_t **)off_1216D8;
   v10 = (volatile int *)off_1216DC;
   v11 = dword_1216E0;
@@ -46,6 +47,7 @@ unsigned int rf_init(volatile int *a1) {
 
 
 // rf_irq_enable @ 0x1216f4
+/* luna: Enables the RF interrupt path by configuring interrupt-related MMIO registers and conditionally updating an RF field based on status. */
 unsigned int rf_irq_enable() {
   volatile int16_t **v0; // r0
   int v1; // r3
@@ -78,6 +80,7 @@ unsigned int rf_irq_enable() {
 
 
 // rf_irq_disable_1 @ 0x121774
+/* luna: Disables RF interrupt sources by clearing their enable bits and updating the associated interrupt-control registers. */
 unsigned int rf_irq_disable_1() {
   volatile int16_t **v0; // r0
   int v1; // r3
@@ -108,6 +111,7 @@ unsigned int rf_irq_disable_1() {
 
 
 // ll_get_tx_power @ 0x1217fc
+/* luna: Returns whether the indexed transmit-power entry differs from the 0x21 sentinel value. */
 BOOL ll_get_tx_power(int a1, int a2) {
   return *(volatile uint8_t *)(696 * a1 + 12 * a2 + dword_12181C + 453) != 33;
 }
@@ -115,6 +119,7 @@ BOOL ll_get_tx_power(int a1, int a2) {
 
 
 // ll_get_tx_power_alt @ 0x121820
+/* luna: Returns whether the selected byte at offset 452 in the indexed 12-byte entry differs from the sentinel value 33. */
 BOOL ll_get_tx_power_alt(int a1, int a2) {
   return *(volatile uint8_t *)(696 * a1 + 12 * a2 + dword_121840 + 452) != 33;
 }
@@ -122,6 +127,7 @@ BOOL ll_get_tx_power_alt(int a1, int a2) {
 
 
 // rf_is_ready @ 0x121844
+/* luna: Accepts one signed RF-buffer request, clamps it to half the configured capacity, and attempts a ring-buffer copy or falls back to shared-packet alloca */
 int rf_is_ready(int a1) {
   volatile uint32_t *v1; // r2
   unsigned int v2; // r3
@@ -226,6 +232,7 @@ LABEL_12:
 
 
 // ke_evt_poll @ 0x121934
+/* luna: Polls the event state and invokes the HCI preprocessor in mode 0 when the gated counters sum to at most one, otherwise stores 48 and invokes mode 1. */
 int ke_evt_poll() {
   if ( **(volatile int16_t **)off_12198C < 0 && hci_cmd_handler(0) != 3 )
     irq_disable_mmio_write((int)aKeStateGetTask_0, (int)aMmBackToHostId, 1785);
@@ -237,6 +244,7 @@ int ke_evt_poll() {
 
 
 // ke_evt_handler @ 0x1219a4
+/* luna: Synchronizes pending kernel/HCI work with radio interrupts, then runs HCI preprocessing while balancing nested IRQ masking. */
 int ke_evt_handler() {
   volatile int *v0; // r8
   volatile int *v1; // r4
@@ -307,6 +315,7 @@ int ke_evt_handler() {
 
 
 // ke_evt_peek @ 0x121ac8
+/* luna: Peeks at the kernel event state, performing associated no-idle and nested IRQ bookkeeping before returning the event-query result. */
 int ke_evt_peek() {
   volatile int *v1; // r4
   int v2; // r3
@@ -344,6 +353,7 @@ int ke_evt_peek() {
 
 
 // check_config_flag @ 0x121b7c
+/* luna: Calls the HCI command handler with argument 0 and, if it returns 4, returns the result of preprocessing arguments 0 and 1; otherwise returns the handl */
 int check_config_flag() {
   int result; // r0
 
@@ -355,6 +365,7 @@ int check_config_flag() {
 
 
 // ke_send_msg @ 0x121b98
+/* luna: Checks controller availability, prepares TX settings for the selected and linked descriptors, and caches per-link TX metadata or performs a guarded RF */
 int ke_send_msg(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
   int v6; // r4
   int v8; // r5
@@ -397,6 +408,7 @@ int ke_send_msg(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
 
 
 // ll_channel_hop @ 0x121c44
+/* luna: Processes a link-layer channel-hop event by dispatching per-slot PHY work and handling timed peer-link notifications. */
 int ll_channel_hop(int a1) {
   int v1; // r5
   int v2; // r7
@@ -600,6 +612,7 @@ int ll_channel_hop(int a1) {
 
 
 // rf_read_reg @ 0x121ed4
+/* luna: Copies the request byte at offset 107 into command PDU 67 and passes the PDU to the receive-side processor. */
 int rf_read_reg(int a1) {
   volatile uint8_t *v2; // r0
 
@@ -611,6 +624,7 @@ int rf_read_reg(int a1) {
 
 
 // rf_set_channel_2 @ 0x121ef4
+/* luna: If bit 23 of the second argument is set, clears the byte at offset 0x80 from the first argument and returns that argument; otherwise checks the beacon */
 int rf_set_channel_2(int result, int a2, int a3) {
   int v3; // r4
 
@@ -629,6 +643,7 @@ int rf_set_channel_2(int result, int a2, int a3) {
 
 
 // rf_set_rx_mode @ 0x121f1c
+/* luna: Initializes receive-mode state when bit 23 is set; otherwise advances the link-loss polling counter and handles the relevant RF or Bluetooth state. */
 int rf_set_rx_mode(int a1, int a2) {
   int v3; // r3
   int v4; // r2
@@ -682,6 +697,7 @@ int rf_set_rx_mode(int a1, int a2) {
 
 
 // set_rf_tx_power_compensation @ 0x121fe4
+/* luna: Stores the requested transmit-power value and sends a notification when it crosses a configured hysteresis band. */
 int set_rf_tx_power_compensation(volatile uint8_t *a1, int a2) {
   int v2; // r3
   int result; // r0

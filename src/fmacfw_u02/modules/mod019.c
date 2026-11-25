@@ -1,4 +1,5 @@
 // dispatch_command @ 0x11ac74
+/* luna: Selects a pending receive entry, parses its packet buffer, and links a successfully parsed frame into the configured receive queue. */
 int dispatch_command(int result) {
   volatile uint32_t *v1; // r5
   volatile int16_t **v2; // r6
@@ -147,6 +148,7 @@ LABEL_13:
 
 
 // process_tx_request @ 0x11ae30
+/* luna: Checks the request buffer size, applies an optional four-byte header adjustment, and lazily allocates a context before invoking its indexed handler. */
 int process_tx_request(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
   int v5; // r7
   volatile uint32_t *v6; // r10
@@ -330,6 +332,7 @@ LABEL_41:
 
 
 // check_packet_type @ 0x11b0d0
+/* luna: Consults a lookup table for the encoded packet parameters and conditionally rewrites descriptor flags when the scaled table value is below a supplied  */
 volatile unsigned int * check_packet_type(volatile unsigned int *result, unsigned int a2, int a3) {
   unsigned int v3; // r3
   int v4; // r4
@@ -367,6 +370,7 @@ volatile unsigned int * check_packet_type(volatile unsigned int *result, unsigne
 
 
 // lookup_table_u16_1 @ 0x11b190
+/* luna: Returns the 16-bit entry at the given index in a global lookup table. */
 int lookup_table_u16_1(int a1) {
   return *(volatile uint16_t *)(dword_11B198 + 2 * a1);
 }
@@ -374,6 +378,7 @@ int lookup_table_u16_1(int a1) {
 
 
 // lookup_table_u16_alt @ 0x11b19c
+/* luna: Returns the 16-bit table entry at the supplied index. */
 int lookup_table_u16_alt(int a1) {
   return *(volatile uint16_t *)(dword_11B1A4 + 2 * a1);
 }
@@ -381,6 +386,7 @@ int lookup_table_u16_alt(int a1) {
 
 
 // get_connection_by_index @ 0x11b1a8
+/* luna: Decrements the indexed record's byte counter, then dispatches a handler when the object's 16-bit flag is set or frees the object otherwise. */
 int get_connection_by_index(int a1, int a2) {
   int v4; // r5
   int v5; // r8

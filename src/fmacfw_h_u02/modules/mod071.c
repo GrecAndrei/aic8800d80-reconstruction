@@ -1,25 +1,26 @@
 // ke_timer_tick_inc @ 0x141344
+/* luna: Advances the kernel timer counter, clamps a 16-bit field in each of twelve timer records to 1, and performs threshold-dependent HCI/MAC processing. */
 int ke_timer_tick_inc() {
-  int v0; // r3
-  int v1; // r0
-  int v2; // r4
+  int timer_state_base; // r3
+  int next_tick; // r0
+  int timer_record_cursor; // r4
   int result; // r0
 
-  v0 = dword_14139C;
-  v1 = *(volatile uint32_t *)(dword_14139C + 6480) + 1;
-  *(volatile uint32_t *)(dword_14139C + 6480) = v1;
-  v2 = v0;
+  timer_state_base = dword_14139C;
+  next_tick = *(volatile uint32_t *)(dword_14139C + 6480) + 1;
+  *(volatile uint32_t *)(dword_14139C + 6480) = next_tick;
+  timer_record_cursor = timer_state_base;
   do
   {
-    if ( *(volatile uint16_t *)(v2 + 4) > 1u )
-      *(volatile uint16_t *)(v2 + 4) = 1;
-    v2 += 528;
+    if ( *(volatile uint16_t *)(timer_record_cursor + 4) > 1u )
+      *(volatile uint16_t *)(timer_record_cursor + 4) = 1;
+    timer_record_cursor += 528;
   }
-  while ( v2 != v0 + 6336 );
-  if ( v1 >= (int)*(volatile uint32_t *)(v2 + 148) )
+  while ( timer_record_cursor != timer_state_base + 6336 );
+  if ( next_tick >= (int)*(volatile uint32_t *)(timer_record_cursor + 148) )
   {
     result = hci_cmd_preprocess(0xBu, 0);
-    *(volatile uint32_t *)(v2 + 144) = -1;
+    *(volatile uint32_t *)(timer_record_cursor + 144) = -1;
   }
   else
   {
@@ -31,6 +32,7 @@ int ke_timer_tick_inc() {
 
 
 // ke_timer_get_time @ 0x1413a0
+/* luna: Validates the active request state, dispatches deferred events, processes matching queued entries, and then rechecks link-layer state. */
 void ke_timer_get_time() {
   volatile int16_t **v0; // r6
   int v1; // r3
@@ -112,35 +114,36 @@ LABEL_9:
 
 
 // ke_timer_check @ 0x1414ac
+/* luna: Checks the current kernel timer entry and dispatches its event when the entry is eligible. */
 int ke_timer_check() {
   volatile int16_t **v0; // r8
-  int v1; // r5
-  int v2; // r4
+  int timer_env; // r5
+  int timer_index; // r4
   int v3; // r6
-  int v4; // r7
+  int timer_entry; // r7
   int result; // r0
 
   v0 = (volatile int16_t **)off_14157C;
-  v1 = dword_141568;
-  v2 = *(volatile uint32_t *)(dword_141568 + 6480);
-  if ( **(volatile int16_t **)off_14157C >= 0 || v2 < 0 && (result = irq_disable_mmio_write(dword_141578, dword_14156C, 1734), **v0 >= 0) )
+  timer_env = dword_141568;
+  timer_index = *(volatile uint32_t *)(dword_141568 + 6480);
+  if ( **(volatile int16_t **)off_14157C >= 0 || timer_index < 0 && (result = irq_disable_mmio_write(dword_141578, dword_14156C, 1734), **v0 >= 0) )
   {
-    v3 = 16 * v2;
-    if ( *(volatile uint8_t *)(v1 + 136 * v2 + 6339) > 1u )
+    v3 = 16 * timer_index;
+    if ( *(volatile uint8_t *)(timer_env + 136 * timer_index + 6339) > 1u )
       return result;
-    return bt_event_dispatch(v1 + 8 * (v2 + v3) + 6336, 0);
+    return bt_event_dispatch(timer_env + 8 * (timer_index + v3) + 6336, 0);
   }
-  v4 = v1 + 136 * v2;
-  v3 = 16 * v2;
-  if ( *(volatile uint8_t *)(v4 + 6338) == 5 )
+  timer_entry = timer_env + 136 * timer_index;
+  v3 = 16 * timer_index;
+  if ( *(volatile uint8_t *)(timer_entry + 6338) == 5 )
   {
-    if ( *(volatile uint8_t *)(v4 + 6339) <= 1u )
-      return bt_event_dispatch(v1 + 8 * (v2 + v3) + 6336, 0);
+    if ( *(volatile uint8_t *)(timer_entry + 6339) <= 1u )
+      return bt_event_dispatch(timer_env + 8 * (timer_index + v3) + 6336, 0);
     return irq_disable_mmio_write(dword_141574, dword_14156C, 1744);
   }
   result = irq_disable_mmio_write(dword_141570, dword_14156C, 1735);
-  if ( *(volatile uint8_t *)(v4 + 6339) <= 1u )
-    return bt_event_dispatch(v1 + 8 * (v2 + v3) + 6336, 0);
+  if ( *(volatile uint8_t *)(timer_entry + 6339) <= 1u )
+    return bt_event_dispatch(timer_env + 8 * (timer_index + v3) + 6336, 0);
   if ( **v0 < 0 )
     return irq_disable_mmio_write(dword_141574, dword_14156C, 1744);
   return result;
@@ -149,6 +152,7 @@ int ke_timer_check() {
 
 
 // ke_timer_clear @ 0x141580
+/* luna: Selects a Bluetooth ACL TX/security path or preprocesses command 0x0B and invalidates the saved ACL-context index when the request flag is clear. */
 int ke_timer_clear(int a1, int a2) {
   int v2; // r4
   int v4; // r6
@@ -182,6 +186,7 @@ int ke_timer_clear(int a1, int a2) {
 
 
 // ke_timer_set_1 @ 0x1415f0
+/* luna: Looks up a timer record by its 16-bit key tuple or selects an eligible slot for the timer update. */
 volatile int * ke_timer_set_1(int a1, int a2, int a3, int a4, char a5, char a6, char a7) {
   int v7; // r7
   int v9; // r0

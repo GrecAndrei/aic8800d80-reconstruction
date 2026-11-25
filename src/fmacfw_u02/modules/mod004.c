@@ -1,4 +1,5 @@
 // mmio_write_32 @ 0x1092c8
+/* luna: Writes command 2 to the peripheral, waits for status bit 0 to assert (confirming it remains set when initially clear), then stores the signed 15-bit u */
 volatile uint32_t * mmio_write_32(volatile uint32_t *result, volatile unsigned int *a2) {
   int v2; // r3
   int v3; // r3
@@ -51,6 +52,7 @@ volatile uint32_t * mmio_write_32(volatile uint32_t *result, volatile unsigned i
 
 
 // range_check_and_call @ 0x1094f8
+/* luna: Updates RF calibration adjustment values from signed measurements and records the branch state for the special selector value. */
 int range_check_and_call(int result, int a2, volatile uint8_t *a3, volatile char *a4, volatile int *a5) {
   unsigned int v5; // r3
   uint64_t v6; // kr00_8
@@ -280,6 +282,7 @@ LABEL_7:
 
 
 // or_nonzero @ 0x109518
+/* luna: Inserts a value into a descending-order array, shifting larger entries right and appending it if no insertion point is found within the existing count */
 int or_nonzero(uint64_t a1, int a2, volatile uint32_t *a3) {
   uint8_t v3; // r5
   volatile uint32_t *v4; // r6
@@ -332,6 +335,7 @@ LABEL_12:
 
 
 // sub_10957c @ 0x10957c
+/* luna: Processes an RF sample curve by identifying threshold-qualified descending intervals and deriving a piecewise-linear result. */
 int sub_10957c(unsigned int a1, int a2, volatile int *a3) {
   int v3; // r12
   int v4; // r4
@@ -490,6 +494,7 @@ LABEL_14:
 
 
 // f32_compare @ 0x109760
+/* luna: Compares the pairwise ordering of two three-float arrays, returning 2 on an ordering conflict and otherwise 1 only when all values in the second array */
 int f32_compare(volatile float *a1, volatile float *a2) {
   float v2; // s15
   float v3; // s14
@@ -516,6 +521,7 @@ int f32_compare(volatile float *a1, volatile float *a2) {
 
 
 // ptr_is_null @ 0x109878
+/* luna: Filters a six-element RF sample array, recording negative entries in an invalidity mask and correcting inconsistent readings; returns 0x80 when the co */
 int ptr_is_null(int a1, volatile int16_t *a2) {
   unsigned int v2; // r2
   volatile int16_t *v3; // r8
@@ -801,6 +807,7 @@ LABEL_65:
 
 
 // f32_pair_compare @ 0x109b30
+/* luna: Fits a least-squares line to three paired float samples, flags degenerate or near-zero slopes, and records the sample range and rounded zero-crossing  */
 int f32_pair_compare(unsigned int a1, volatile float *a2, volatile float *a3, int a4) {
   float v4; // s13
   float v5; // s14
@@ -925,6 +932,7 @@ LABEL_11:
 
 
 // struct_load @ 0x109db4
+/* luna: Compares two three-float vectors, then evaluates selected paired samples using a multiplier and additive offset from the context. */
 int struct_load(int a1, volatile float *a2, int a3, int a4) {
   int v8; // r1
   int v9; // r2
@@ -1118,6 +1126,7 @@ LABEL_18:
 
 
 // mmio_set_flag @ 0x109ff0
+/* luna: Runs an RF calibration scan or buffer-staging path, optionally calibrates power and processes the result, then updates calibration control registers. */
 int mmio_set_flag( int a1, volatile int *a2, int a3, int a4, int a5, uint8_t a6, int a7, int a8, int a9, int a10, int a11) {
   volatile uint32_t *v11; // r4
   uint8_t v15; // r10
@@ -1209,13 +1218,14 @@ int mmio_set_flag( int a1, volatile int *a2, int a3, int a4, int a5, uint8_t a6,
 
 
 // f32_process_block @ 0x10a138
+/* luna: Runs calibration for each enabled RF DPD table, using the table's configured calibration count and skipping tables that do not require calibration. */
 int f32_process_block( volatile uint32_t *a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11) {
   volatile uint32_t *v11; // r10
   int v13; // r1
   int v14; // r2
   float v15; // s20
-  int v17; // r7
-  unsigned int v19; // r3
+  int table_index; // r7
+  unsigned int table_config; // r3
   int v20; // r11
   unsigned int v21; // r0
   volatile char *v22; // r7
@@ -1248,7 +1258,7 @@ int f32_process_block( volatile uint32_t *a1, int a2, int a3, int a4, int a5, in
   float v49; // [sp+254h] [bp+214h]
   float v50; // [sp+258h] [bp+218h]
   char v51; // [sp+25Ch] [bp+21Ch] BYREF
-  char _pad14[95]; int v52; // [sp+2BCh] [bp+27Ch]
+  char _pad14[95]; int calibration_count; // [sp+2BCh] [bp+27Ch]
   char _pad15[12]; unsigned int v53; // [sp+2CCh] [bp+28Ch]
   uint8_t v54[1204]; // [sp+2D0h] [bp+290h] BYREF
   } _frame;
@@ -1264,32 +1274,32 @@ int f32_process_block( volatile uint32_t *a1, int a2, int a3, int a4, int a5, in
   _frame.v44 = (volatile unsigned int *)(a2 - 4);
   _frame.v40 = 1;
   _frame.v43 = (volatile int *)(a5 + 4 * a4);
-  v17 = 0;
+  table_index = 0;
   while ( 2 )
   {
-    v19 = _frame.v44[1];
+    table_config = _frame.v44[1];
     ++_frame.v44;
-    v20 = (uint8_t)v17;
-    if ( !v19 )
+    v20 = (uint8_t)table_index;
+    if ( !table_config )
     {
-      check_status_bits(1, "===========table[%d]===========\n", v17);
-      check_status_bits(1, "table %d dont need cal.\n", v17);
+      check_status_bits(1, "===========table[%d]===========\n", table_index);
+      check_status_bits(1, "table %d dont need cal.\n", table_index);
       goto LABEL_28;
     }
-    if ( !a4 && v17 == 1 )
+    if ( !a4 && table_index == 1 )
     {
       check_status_bits(1, a24gTable1DontN);
       goto LABEL_29;
     }
-    check_status_bits(1, "===========table[%d]===========\n", v17);
+    check_status_bits(1, "===========table[%d]===========\n", table_index);
     v21 = *_frame.v44;
-    _frame.v52 = 0;
+    _frame.calibration_count = 0;
     mac_conn_event_init(v21, (int)_frame.a2a, a4);
-    check_status_bits(1, "table %d cal %d times.\n", v17, _frame.v52);
+    check_status_bits(1, "table %d cal %d times.\n", table_index, _frame.calibration_count);
     _frame.v38 = *_frame.v42;
-    if ( _frame.v52 <= 0 )
+    if ( _frame.calibration_count <= 0 )
       goto LABEL_27;
-    _frame.a1a = v17;
+    _frame.a1a = table_index;
     _frame.v39 = 0;
     v22 = &_frame.v51;
     do
@@ -1433,20 +1443,20 @@ if ( v23 <= 8 && v27 > v26 && (v33 = ((uint64_t (*)())float_to_double)(v32), ((i
 LABEL_24:
       _frame.v38 &= *(volatile uint32_t *)v22;
       v34 = *_frame.v43 & _frame.v40;
-      v35 = _frame.v52 <= ++_frame.v39;
+      v35 = _frame.calibration_count <= ++_frame.v39;
       *_frame.v42 = _frame.v38;
       v22 += 4;
       *_frame.v43 = v34;
     }
     while ( !v35 );
-    v17 = _frame.a1a;
+    table_index = _frame.a1a;
 LABEL_27:
     *_frame.v44 = *_frame.v44 & 0xFFFEFFFF | (_frame.v38 << 16);
 LABEL_28:
     if ( v20 != 2 )
     {
 LABEL_29:
-      ++v17;
+      ++table_index;
       ++_frame.v42;
       continue;
     }
@@ -1464,6 +1474,7 @@ LABEL_29:
 
 
 // dispatch_cmd @ 0x10a764
+/* luna: Evaluates gain-fit candidates and returns the selected candidate code, logging a fit failure when the extended search finds none. */
 int dispatch_cmd(int a1, unsigned int a2, volatile uint8_t *a3, volatile int *a4) {
   volatile uint8_t *v6; // r6
   volatile uint8_t *v7; // r9
@@ -1648,6 +1659,7 @@ LABEL_22:
 
 
 // periph_init_2 @ 0x10a9a8
+/* luna: Configures RF control registers using the supplied initialization parameters. */
 int periph_init_2(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uint8_t a5, char a6) {
   unsigned int v8; // s17
   int v9; // r3
@@ -1941,6 +1953,7 @@ LABEL_28:
 
 
 // periph_base_setup @ 0x10b010
+/* luna: Runs the RF LOFT calibration sequence while temporarily clearing a control bit and disabling the wakeup trigger. */
 int periph_base_setup(int a1, volatile uint8_t *a2, int a3) {
   int v3; // r9
   int v4; // r10
@@ -2301,6 +2314,7 @@ LABEL_15:
 
 
 // boot_init @ 0x10b430
+/* luna: Initializes the RF hardware and configures its operating parameters. */
 int boot_init(int a1, int a2, int a3, int a4, volatile uint16_t *a5, int a6, int a7) {
   int v7; // s26
   int v8; // r8
@@ -3269,6 +3283,7 @@ LABEL_15:
 
 
 // rx_header_decode @ 0x10c360
+/* luna: Initializes RF calibration state from the supplied configuration and programs derived calibration values into hardware. */
 volatile unsigned int * rx_header_decode(volatile unsigned int *result, int a2, int a3, int a4) {
   unsigned int v4; // r6
   int v7; // r7
@@ -3443,6 +3458,7 @@ LABEL_3:
 
 
 // rx_packet_init @ 0x10c5ec
+/* luna: Runs the packet handler and RX-header decoder, then conditionally writes through the supplied pointer to a peripheral address selected by the mode. */
 int rx_packet_init(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6) {
   int result; // r0
   int v10; // r0
@@ -3462,6 +3478,7 @@ int rx_packet_init(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6) {
 
 
 // peripheral_clock_enable @ 0x10c638
+/* luna: Powers up the RF clock source, programs the PLL from the reference-clock value, waits for readiness, and enables the required RF clock gates. */
 int peripheral_clock_enable() {
   volatile int *v0; // r2
   volatile unsigned int *v1; // r1
@@ -3501,6 +3518,7 @@ int peripheral_clock_enable() {
 
 
 // peripheral_config_write @ 0x10c6fc
+/* luna: Writes a fixed set of configuration values to memory-mapped peripheral registers and returns 0x5355. */
 int peripheral_config_write() {
   volatile int *v0; // r2
   volatile int *v1; // r0
@@ -3561,6 +3579,7 @@ int peripheral_config_write() {
 
 
 // gpio_write @ 0x10c830
+/* luna: Enables the peripheral clock and applies the peripheral configuration, returning its status. */
 int gpio_write() {
   peripheral_clock_enable();
   return peripheral_config_write();
@@ -3569,37 +3588,39 @@ int gpio_write() {
 
 
 // gpio_af_select @ 0x10c840
+/* luna: Selects alternate-function modes for a fixed set of GPIO pins and writes a saved configuration value to another register. */
 volatile int *gpio_af_select() {
-  volatile unsigned int *v0; // r3
-  volatile unsigned int *v1; // r2
+  volatile unsigned int *gpio_mux_reg0; // r3
+  volatile unsigned int *gpio_mux_reg1; // r2
   volatile int *result; // r0
-  int v3; // r4
+  int config_value; // r4
 
-  v0 = (volatile unsigned int *)off_10C8E8;
-  v1 = (volatile unsigned int *)off_10C8EC;
+  gpio_mux_reg0 = (volatile unsigned int *)off_10C8E8;
+  gpio_mux_reg1 = (volatile unsigned int *)off_10C8EC;
   result = (volatile int *)off_10C8F0;
   *(volatile uint32_t *)off_10C8E8 = *(volatile uint32_t *)off_10C8E8 & 0xFFFFFFFC | 2;
-  v3 = dword_10C8F4;
-  *v0 = *v0 & 0xFFFFFFF3 | 8;
-  *v0 = *v0 & 0xFFFFFCFF | 0x200;
-  *v0 = *v0 & 0xFFFFF3FF | 0x800;
-  *v0 = *v0 & 0xFFFFCFFF | 0x2000;
-  *v1 = *v1 & 0xFCFFFFFF | 0x2000000;
-  *v1 = *v1 & 0xF3FFFFFF | 0x8000000;
-  *v1 = *v1 & 0xCFFFFFFF | 0x20000000;
-  *v1 = *v1 & 0x3FFFFFFF | 0x80000000;
-  *v0 |= 0x30000u;
-  *v0 |= 0xC0000u;
-  *v0 |= 0x300000u;
-  *v0 |= 0xC00000u;
-  *v0 |= 0x3000000u;
-  *result = v3;
+  config_value = dword_10C8F4;
+  *gpio_mux_reg0 = *gpio_mux_reg0 & 0xFFFFFFF3 | 8;
+  *gpio_mux_reg0 = *gpio_mux_reg0 & 0xFFFFFCFF | 0x200;
+  *gpio_mux_reg0 = *gpio_mux_reg0 & 0xFFFFF3FF | 0x800;
+  *gpio_mux_reg0 = *gpio_mux_reg0 & 0xFFFFCFFF | 0x2000;
+  *gpio_mux_reg1 = *gpio_mux_reg1 & 0xFCFFFFFF | 0x2000000;
+  *gpio_mux_reg1 = *gpio_mux_reg1 & 0xF3FFFFFF | 0x8000000;
+  *gpio_mux_reg1 = *gpio_mux_reg1 & 0xCFFFFFFF | 0x20000000;
+  *gpio_mux_reg1 = *gpio_mux_reg1 & 0x3FFFFFFF | 0x80000000;
+  *gpio_mux_reg0 |= 0x30000u;
+  *gpio_mux_reg0 |= 0xC0000u;
+  *gpio_mux_reg0 |= 0x300000u;
+  *gpio_mux_reg0 |= 0xC00000u;
+  *gpio_mux_reg0 |= 0x3000000u;
+  *result = config_value;
   return result;
 }
 
 
 
 // zero_buffer_range @ 0x10c8f8
+/* luna: Clears firmware buffers, optionally initializes a shared region under a status-bit handshake, stores a source word in that region, and then selects a  */
 volatile int *zero_buffer_range() {
   int v0; // r4
   int v1; // zf
@@ -3632,6 +3653,7 @@ volatile int *zero_buffer_range() {
 
 
 // status_flag_poll @ 0x10c984
+/* luna: When any bits in the 0x1F00 mask are set, calls a helper with 2048, copies the masked value to two locations, and conditionally sets a byte flag and a */
 int status_flag_poll() {
   int v0; // r4
   int result; // r0
@@ -3660,6 +3682,7 @@ int status_flag_poll() {
 
 
 // memory_buffer_alloc @ 0x10c9cc
+/* luna: Fills the RX buffer queue up to its configured count and signals the requested controller channel. */
 int memory_buffer_alloc(char a1) {
   int v1; // r5
   volatile uint8_t *v2; // r11
@@ -3739,6 +3762,7 @@ LABEL_13:
 
 
 // busy_flag_check @ 0x10cae0
+/* luna: Processes latched RF status bits, acknowledges handled events, and updates related state. */
 int busy_flag_check() {
   int v0; // r4
   int result; // r0
@@ -3803,6 +3827,7 @@ LABEL_16:
 
 
 // controller_status_read @ 0x10cbe4
+/* luna: Blocks until the shared flag is set, acknowledges it, and returns 20 or a controller-field value plus 20, clearing an MMIO register when the signed st */
 int controller_status_read() {
   volatile uint32_t *v0; // r4
   int v1; // r0
@@ -3834,6 +3859,7 @@ int controller_status_read() {
 
 
 // controller_config_read @ 0x10cc50
+/* luna: Waits for the configuration-ready flag, then returns the loaded configuration value advanced by four bytes when the configuration entry is present, or */
 int controller_config_read() {
   volatile uint32_t *v0; // r4
   int result; // r0
@@ -3859,12 +3885,14 @@ int controller_config_read() {
 
 
 // nullsub_6 @ 0x10cc84
+/* luna: Stub function that performs no operation and returns zero. */
 int nullsub_6(void) {
   return 0;
 }
 
 
 // gpio_set_pin3 @ 0x10cc88
+/* luna: Sets GPIO pin 3 by writing the value 8 to its control register. */
 void gpio_set_pin3() {
   *(volatile uint32_t *)off_10CC90 = 8;
 }
@@ -3872,6 +3900,7 @@ void gpio_set_pin3() {
 
 
 // gpio_set_pin8 @ 0x10cc94
+/* luna: Writes 0x100 to the GPIO register, asserting the output associated with pin 8. */
 void gpio_set_pin8() {
   *(volatile uint32_t *)off_10CCA0 = 256;
 }
@@ -3879,6 +3908,7 @@ void gpio_set_pin8() {
 
 
 // gpio_set_pin7 @ 0x10cca4
+/* luna: Writes the 0x80 mask to the GPIO register associated with pin 7. */
 void gpio_set_pin7() {
   *(volatile uint32_t *)off_10CCAC = 128;
 }
@@ -3886,6 +3916,7 @@ void gpio_set_pin7() {
 
 
 // scan_report_alloc @ 0x10ccb0
+/* luna: Allocates and queues a message carrying the scan-report payload, stamping the report counter when the reporting state is 3. */
 int scan_report_alloc(volatile uint16_t *a1) {
   volatile int16_t **v2; // r7
   int v3; // r0
@@ -3955,6 +3986,7 @@ int scan_report_alloc(volatile uint16_t *a1) {
 
 
 // interrupt_wait @ 0x10cd94
+/* luna: Acknowledges each pending status event and passes its associated report data to scan_report_alloc, then invokes a fixed-argument helper and writes a f */
 int interrupt_wait() {
   volatile uint32_t *v0; // r4
   volatile int *v1; // r7
@@ -3983,6 +4015,7 @@ int interrupt_wait() {
 
 
 // rx_state_process @ 0x10cdd4
+/* luna: Processes an RX state event and obtains and initializes a packet buffer from the supplied descriptor when required. */
 volatile uint32_t * rx_state_process(int a1) {
   volatile uint8_t **v1; // r7
   volatile uint8_t *v2; // r2
@@ -4327,6 +4360,7 @@ int dma_reset_regs() {
 
 
 // callback_post @ 0x10d1fc
+/* luna: Logs a channel-notification value, stores it in the shared notification slot, and sets the pending flag. */
 int callback_post(int a1) {
   int result; // r0
   volatile uint32_t *v3; // r3
@@ -4340,6 +4374,7 @@ int callback_post(int a1) {
 
 
 // mmio_set_control_bit_25 @ 0x10d224
+/* luna: Writes the bit-25 mask (0x02000000) to a memory-mapped control register. */
 void mmio_set_control_bit_25() {
   *(volatile uint32_t *)off_10D230 = 0x2000000;
 }
@@ -4347,6 +4382,7 @@ void mmio_set_control_bit_25() {
 
 
 // mmio_set_control_bit_26 @ 0x10d234
+/* luna: Writes the bit-26 mask (0x04000000) to the MMIO register at off_10D240. */
 void mmio_set_control_bit_26() {
   *(volatile uint32_t *)off_10D240 = 0x4000000;
 }
@@ -4354,6 +4390,7 @@ void mmio_set_control_bit_26() {
 
 
 // rf_read_status_bit @ 0x10d304
+/* luna: Checks RF status and mode bits, triggers a status request when required, waits up to 2000 timer units for status flags, and returns the selected statu */
 int rf_read_status_bit() {
   int v0; // r4
   volatile char *v2; // r2
@@ -4399,6 +4436,7 @@ LABEL_10:
 
 
 // check_arg_one @ 0x10d3ac
+/* luna: Writes the bit-18 or bit-19 mask for input values 1 or 2, conditionally clears a separate MMIO register when the signed status is negative, and always */
 int check_arg_one(int result) {
   if ( result == 1 )
   {
@@ -4419,6 +4457,7 @@ int check_arg_one(int result) {
 
 
 // clear_global_182aac @ 0x10d404
+/* luna: Zeros the 0x38-byte buffer referenced by a global value and returns the buffer address. */
 volatile int *clear_global_182aac() {
   return memset((volatile int *)dword_10D410, 0, 0x38u);
 }

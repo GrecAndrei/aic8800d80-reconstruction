@@ -1,4 +1,5 @@
 // mmio_rmw32 @ 0x10ee2c
+/* luna: Runs the RF callback inside a nest-aware interrupt-masked section, optionally waiting for a shared flag before the callback and setting it afterward. */
 int mmio_rmw32(int a1, int a2, int a3, int a4) {
   volatile int *v4; // r5
   volatile uint32_t *v5; // r4
@@ -42,6 +43,7 @@ int mmio_rmw32(int a1, int a2, int a3, int a4) {
 
 
 // rf_set_channel_1 @ 0x10ee80
+/* luna: Programs the RF channel value and updates the associated MMIO control bits. */
 int rf_set_channel_1(int a1) {
   event_dispatch("Reboot:%x\n", a1);
   mmio_rmw32(dword_10EECC, 196608, dword_10EEC8, 1);
@@ -52,6 +54,7 @@ int rf_set_channel_1(int a1) {
 
 
 // rf_set_frequency @ 0x10eed8
+/* luna: Programs RF frequency-related register fields from the supplied value and sets a control bit. */
 int rf_set_frequency(int a1) {
   mmio_rmw32(dword_10EF0C, 196608, dword_10EF08, 1);
   mmio_write32(dword_10EF10, a1 << 15, 1);
@@ -61,6 +64,7 @@ int rf_set_frequency(int a1) {
 
 
 // mmio_write_70001408 @ 0x10ef14
+/* luna: Performs a fixed read-modify-write on RF MMIO register 0x70001408 with arguments 0, 2, and 1. */
 int mmio_write_70001408() {
   return mmio_rmw32(dword_10EF20, 0, 2, 1);
 }
@@ -68,6 +72,7 @@ int mmio_write_70001408() {
 
 
 // rf_get_rssi @ 0x10ef24
+/* luna: Reads the RSSI field from an MMIO register and returns bits 11–15 of its low 16 bits. */
 int rf_get_rssi() {
   return (uint16_t)mmio_read32(dword_10EF34, 1) >> 11;
 }
@@ -75,6 +80,7 @@ int rf_get_rssi() {
 
 
 // rf_get_state @ 0x10ef38
+/* luna: Writes the supplied state value into bits 11–15 of the RF register and returns the resulting register value. */
 int rf_get_state(int a1) {
   return mmio_rmw32(dword_10EF4C, (a1 << 11) & 0xF800, 63488, 1);
 }
@@ -82,6 +88,7 @@ int rf_get_state(int a1) {
 
 
 // rf_enable_1 @ 0x10ef50
+/* luna: Initializes the RF control registers and applies additional configuration when the RF mode flag is enabled. */
 int rf_enable_1() {
   int result; // r0
 
@@ -127,6 +134,7 @@ int rf_enable_1() {
 
 
 // rf_save_rssi @ 0x10f180
+/* luna: Applies PHY configuration 0xC2 and initializes the associated RSSI byte to -62. */
 unsigned int rf_save_rssi() {
   unsigned int result; // r0
 
@@ -138,6 +146,7 @@ unsigned int rf_save_rssi() {
 
 
 // rf_update_rx_status @ 0x10f198
+/* luna: Computes and applies a bounded RX-related PHY adjustment, then clears or schedules the associated RF worker based on the adjustment threshold. */
 int rf_update_rx_status() {
   volatile uint8_t *v0; // r6
   int v1; // r5
@@ -167,6 +176,7 @@ int rf_update_rx_status() {
 
 
 // rf_copy_stats @ 0x10f204
+/* luna: Copies a 24-byte radio configuration block into runtime storage, initializes radio hardware and interrupt handling, and clears a buffer when the selec */
 int rf_copy_stats() {
   int v0; // r2
   uint64_t v1; // kr00_8
@@ -199,6 +209,7 @@ int rf_copy_stats() {
 
 
 // bt_get_state @ 0x10f25c
+/* luna: Clears the output block’s first byte when the RF state flag is set; otherwise populates the block with defaults and returns 1752. */
 int bt_get_state() {
   volatile uint8_t *v0; // r3
   int result; // r0
@@ -253,6 +264,7 @@ int tx_send_packet() {
 
 
 // rf_timer_init @ 0x10f3b0
+/* luna: Clears RF runtime state and buffers, then initializes each 16-byte entry in a 0x800-byte table. */
 uint64_t rf_timer_init() {
   volatile uint16_t *v0; // r5
   volatile int *v1; // r4
@@ -305,6 +317,7 @@ uint64_t rf_timer_init() {
 
 
 // rf_wait_ready @ 0x10f458
+/* luna: Sends a packet, initializes the RF timer, and invokes the callback pair configured for the current state. */
 int rf_wait_ready() {
   volatile uint8_t **v0; // r4
   int v1; // r3
@@ -394,6 +407,7 @@ int rf_wait_ready() {
 
 
 // os_task_init @ 0x10f550
+/* luna: Runs the Bluetooth link-layer worker loop, dispatching pending interrupt work, connection events, and packet descriptors. */
 int os_task_init() {
   int result; // r0
   volatile int *v1; // r9
@@ -616,6 +630,7 @@ LABEL_4:
 
 
 // sys_command_40d @ 0x10f90c
+/* luna: Allocates and sends message 0x40D with an 8-byte payload from task 13 to task 1, returning the send helper's result. */
 int sys_command_40d() {
   int v0; // r0
 
@@ -626,6 +641,7 @@ int sys_command_40d() {
 
 
 // hci_handle_command @ 0x10f924
+/* luna: Aligns the supplied buffer and initializes its nonempty segment records and buffer metadata, returning the original base address. */
 unsigned int hci_handle_command(volatile int *a1, int a2, unsigned int a3) {
   unsigned int result; // r0
   unsigned int v6; // r2
@@ -787,17 +803,18 @@ LABEL_6:
 
 
 // rx_packet_handler_1 @ 0x10fb28
+/* luna: Allocates and removes a free buffer from a size-class pool large enough for the requested size, validating the freelist pointer against configured mem */
 volatile uint32_t * rx_packet_handler_1(int a1, unsigned int a2) {
-  unsigned int v2; // r6
+  unsigned int pool_count; // r6
   volatile uint32_t *v3; // r5
-  volatile uint16_t *v4; // r4
-  unsigned int v5; // r3
+  volatile uint16_t *pool_descriptor; // r4
+  unsigned int pool_index; // r3
   volatile int *v6; // r6
-  int v7; // r3
+  int free_block_count; // r3
   int v8; // r2
   volatile unsigned int *v9; // r7
   unsigned int v10; // r2
-  int v11; // r1
+  int buffer_guard_byte; // r1
   int v12; // r3
   int v13; // r2
   uint16_t v14; // r3
@@ -808,7 +825,7 @@ volatile uint32_t * rx_packet_handler_1(int a1, unsigned int a2) {
   int v20; // r3
   int v21; // r2
 
-  v2 = *(volatile uint8_t *)(a1 + 8);
+  pool_count = *(volatile uint8_t *)(a1 + 8);
   if ( !*(volatile uint8_t *)(a1 + 8) )
   {
 LABEL_57:
@@ -821,25 +838,25 @@ LABEL_57:
     log_printf(aMemmgrerrSubpo, a2);
     return v3;
   }
-  v4 = *(volatile uint16_t **)(a1 + 12);
-  v5 = 1;
-  while ( v4[2] < a2 )
+  pool_descriptor = *(volatile uint16_t **)(a1 + 12);
+  pool_index = 1;
+  while ( pool_descriptor[2] < a2 )
   {
-    if ( v2 <= v5 )
+    if ( pool_count <= pool_index )
       goto LABEL_11;
-    v4 = (volatile uint16_t *)&v3[3 * v5];
+    pool_descriptor = (volatile uint16_t *)&v3[3 * pool_index];
 LABEL_7:
-    v5 = (uint8_t)(v5 + 1);
+    pool_index = (uint8_t)(pool_index + 1);
   }
-  if ( *v4 )
+  if ( *pool_descriptor )
     goto LABEL_12;
-  if ( v2 > v5 )
+  if ( pool_count > pool_index )
   {
-    v4 = (volatile uint16_t *)&v3[3 * v5];
+    pool_descriptor = (volatile uint16_t *)&v3[3 * pool_index];
     goto LABEL_7;
   }
 LABEL_11:
-  if ( v2 == v5 )
+  if ( pool_count == pool_index )
     goto LABEL_57;
 LABEL_12:
   if ( (__get_CPSR() & 1) == 0 )
@@ -848,11 +865,11 @@ LABEL_12:
     *(volatile uint32_t *)off_10FCB4 = 1;
   }
   v6 = (volatile int *)off_10FCB8;
-  v7 = *v4;
+  free_block_count = *pool_descriptor;
   v3 = *(volatile uint32_t **)off_10FCB8;
   v8 = *(volatile uint32_t *)off_10FCB8 + 1;
   *(volatile uint32_t *)off_10FCB8 = v8;
-  if ( !v7 )
+  if ( !free_block_count )
   {
     if ( v8 )
     {
@@ -868,32 +885,32 @@ LABEL_12:
     return nullptr;
   }
   v9 = (volatile unsigned int *)off_10FCBC;
-  v3 = *((volatile uint32_t **)v4 + 2);
+  v3 = *((volatile uint32_t **)pool_descriptor + 2);
   v10 = *(volatile uint32_t *)off_10FCBC;
   if ( *(volatile uint32_t *)off_10FCBC <= (unsigned int)v3 && (unsigned int)v3 <= *((volatile uint32_t *)off_10FCBC + 1) + v10
     || (unsigned int)v3 >= *(volatile uint32_t *)off_10FCC0
     && (unsigned int)v3 <= *(volatile uint32_t *)off_10FCC0 + *((volatile uint32_t *)off_10FCC0 + 1) )
   {
-    *((volatile uint32_t *)v4 + 2) = *v3;
-    *v4 = v7 - 1;
+    *((volatile uint32_t *)pool_descriptor + 2) = *v3;
+    *pool_descriptor = free_block_count - 1;
     if ( v10 <= (unsigned int)v3 )
       goto LABEL_18;
   }
   else
   {
-    log_printf("get_next_buffer_addr: Invalid buffer passed: %x\n", *((volatile uint32_t *)v4 + 2));
+    log_printf("get_next_buffer_addr: Invalid buffer passed: %x\n", *((volatile uint32_t *)pool_descriptor + 2));
     v10 = *v9;
-    v14 = *v4 - 1;
+    v14 = *pool_descriptor - 1;
     v15 = *v9 > (unsigned int)v3;
-    *((volatile uint32_t *)v4 + 2) = 0;
-    *v4 = v14;
+    *((volatile uint32_t *)pool_descriptor + 2) = 0;
+    *pool_descriptor = v14;
     if ( !v15 )
     {
 LABEL_18:
       if ( v9[1] + v10 >= (unsigned int)v3 )
       {
-        v11 = *((volatile uint8_t *)v3 - 3);
-        if ( v11 == 85 )
+        buffer_guard_byte = *((volatile uint8_t *)v3 - 3);
+        if ( buffer_guard_byte == 85 )
           goto LABEL_20;
         goto LABEL_45;
       }
@@ -903,11 +920,11 @@ LABEL_18:
   if ( *(volatile uint32_t *)off_10FCC0 > (unsigned int)v3 || *((volatile uint32_t *)off_10FCC0 + 1) + v16 < (unsigned int)v3 )
   {
     log_printf("get_pattern: Invalid buffer passed: %x\n", v3);
-    v11 = 0;
+    buffer_guard_byte = 0;
     goto LABEL_45;
   }
-  v11 = *((volatile uint8_t *)v3 - 3);
-  if ( v11 != 85 )
+  buffer_guard_byte = *((volatile uint8_t *)v3 - 3);
+  if ( buffer_guard_byte != 85 )
   {
 LABEL_45:
     if ( *v6 )
@@ -921,7 +938,7 @@ LABEL_45:
           __enable_irq();
       }
     }
-    log_printf("SwEr:AllcErrPtrn : %d, buffer: 0x%x\n\r", v11, v3);
+    log_printf("SwEr:AllcErrPtrn : %d, buffer: 0x%x\n\r", buffer_guard_byte, v3);
     return nullptr;
   }
   if ( v10 > (unsigned int)v3 )
@@ -968,6 +985,7 @@ LABEL_43:
 
 
 // util_is_nonnull @ 0x10fce0
+/* luna: Validates a buffer against the supplied pool, decrements its reference count, and performs pool bookkeeping when the count reaches zero. */
 int util_is_nonnull(int a1, volatile uint32_t *a2) {
   volatile unsigned int *v4; // r7
   unsigned int v5; // r6
@@ -1172,6 +1190,7 @@ LABEL_39:
 
 
 // check_controller_mode @ 0x10ff34
+/* luna: Returns true when the address falls inclusively within either of two configured base-plus-length ranges. */
 BOOL check_controller_mode(unsigned int a1) {
   if ( *(volatile uint32_t *)off_10FF64 <= a1 && a1 <= *(volatile uint32_t *)off_10FF64 + *((volatile uint32_t *)off_10FF64 + 1) )
     return 1;
@@ -1183,6 +1202,7 @@ BOOL check_controller_mode(unsigned int a1) {
 
 
 // hci_send_command @ 0x10ff6c
+/* luna: Stores two supplied words in a fixed request block, invokes the HCI command handler with the supplied command identifier and 0x20 argument, initialize */
 int hci_send_command(int a1, int a2, int a3) {
   volatile uint32_t *v3; // r3
   volatile uint32_t *v4; // r3
@@ -1208,6 +1228,7 @@ int hci_send_command(int a1, int a2, int a3) {
 
 
 // is_hci_initialized @ 0x10ffbc
+/* luna: Obtains a controller buffer and stores the supplied user ID in the byte immediately preceding its payload, logging if the buffer is invalid. */
 volatile uint32_t * is_hci_initialized(char a1) {
   volatile uint32_t *v2; // r4
 
@@ -1228,6 +1249,7 @@ volatile uint32_t * is_hci_initialized(char a1) {
 
 
 // is_controller_mode @ 0x110008
+/* luna: Returns a buffer's native pool identifier using its preceding metadata byte and the active controller mode, with a user-ID fallback for unrecognized b */
 int is_controller_mode(volatile uint32_t *a1) {
   int result; // r0
   int v3; // r2
@@ -1293,6 +1315,7 @@ LABEL_11:
 
 
 // calculate_rf_power @ 0x110100
+/* luna: Builds an RF-power command from controller state, submits it through the HCI command path, and returns the final command result. */
 int calculate_rf_power() {
   void *v0; // r4
   int v1; // r3
@@ -1329,6 +1352,7 @@ int calculate_rf_power() {
 
 
 // get_link_channel @ 0x11018c
+/* luna: Clears an 8-byte scratch area, processes each pending receive item through the command handler, and returns the final handler result. */
 volatile uint32_t *get_link_channel() {
   void *v0; // r8
   volatile uint32_t *result; // r0
@@ -1362,6 +1386,7 @@ volatile uint32_t *get_link_channel() {
 
 
 // get_link_rate @ 0x1101e4
+/* luna: Initializes the link-rate result buffer and processes one 12-byte response for each entry indicated by the active link descriptor. */
 volatile uint32_t *get_link_rate() {
   void *v0; // r5
   volatile uint32_t *result; // r0
@@ -1390,6 +1415,7 @@ volatile uint32_t *get_link_rate() {
 
 
 // get_modulation_type @ 0x110224
+/* luna: Clears an eight-byte result buffer and processes one value from offset 0x6B8 for each entry indicated by the associated 16-bit count. */
 volatile uint32_t *get_modulation_type() {
   void *v0; // r8
   volatile uint32_t *result; // r0
@@ -1423,6 +1449,7 @@ volatile uint32_t *get_modulation_type() {
 
 
 // get_link_tx_power @ 0x11027c
+/* luna: Clears the shared 8-byte result buffer and runs the receive/command-handler sequence once for each pending entry, returning the final handler result. */
 volatile uint32_t *get_link_tx_power() {
   void *v0; // r5
   volatile uint32_t *result; // r0
@@ -1451,6 +1478,7 @@ volatile uint32_t *get_link_tx_power() {
 
 
 // is_scan_enabled @ 0x1102bc
+/* luna: Returns the shared scan-state word after reading it under the IRQ-nesting lock. */
 volatile uint32_t *is_scan_enabled() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1483,6 +1511,7 @@ volatile uint32_t *is_scan_enabled() {
 
 
 // is_inquiry_enabled @ 0x1102fc
+/* luna: Queries whether Bluetooth inquiry is enabled through the command-state handler while preserving the IRQ state across nested access. */
 int is_inquiry_enabled(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1515,6 +1544,7 @@ int is_inquiry_enabled(volatile uint32_t *a1) {
 
 
 // is_connected_flag @ 0x110390
+/* luna: Queries the Bluetooth connection-state flag through the shared command handler while protecting the call with an interrupt-safe critical section. */
 int is_connected_flag(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1550,6 +1580,7 @@ int is_connected_flag(volatile uint32_t *a1) {
 
 
 // is_page_scan_active @ 0x1103e0
+/* luna: Returns whether Bluetooth page scanning is active, reading the state within an IRQ-safe critical section. */
 int is_page_scan_active() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1585,6 +1616,7 @@ int is_page_scan_active() {
 
 
 // is_sniff_mode @ 0x110430
+/* luna: Dispatches the sniff-mode query through the command handler while preserving interrupt state across nested critical sections. */
 int is_sniff_mode(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1620,6 +1652,7 @@ int is_sniff_mode(volatile uint32_t *a1) {
 
 
 // is_hold_mode @ 0x110480
+/* luna: Reads the hold-mode state through the shared word accessor while balancing the nested interrupt-disable state. */
 volatile uint32_t *is_hold_mode() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1652,6 +1685,7 @@ volatile uint32_t *is_hold_mode() {
 
 
 // is_park_mode @ 0x1104c0
+/* luna: Queries whether the Bluetooth link is in park mode through the serialized command interface. */
 int is_park_mode(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1684,16 +1718,17 @@ int is_park_mode(volatile uint32_t *a1) {
 
 
 // rf_pll_program @ 0x110504
+/* luna: Allocates RX message buffers and descriptors, links them onto the receive queue, and notifies the hardware until the context has more than one buffer. */
 int rf_pll_program(int result) {
-  volatile uint32_t *v1; // r4
-  unsigned int v2; // r3
+  volatile uint32_t *rx_doorbell_register; // r4
+  unsigned int buffer_count; // r3
   volatile int *v3; // r6
-  volatile uint32_t *v4; // r9
+  volatile uint32_t *rx_queue_head; // r9
   volatile uint32_t *v5; // r8
-  int v6; // r5
+  int rx_context; // r5
   volatile int *v7; // r7
-  volatile uint32_t *v8; // r10
-  volatile uint32_t *v9; // r0
+  volatile uint32_t *rx_buffer; // r10
+  volatile uint32_t *rx_descriptor; // r0
   volatile uint32_t *v10; // r11
   int v11; // r1
   int v12; // r2
@@ -1702,37 +1737,37 @@ int rf_pll_program(int result) {
   int v15; // r2
   int v16; // r3
 
-  v1 = (void *)(uintptr_t)(off_110608);
-  v2 = *(volatile uint16_t *)(result + 28);
+  rx_doorbell_register = (void *)(uintptr_t)(off_110608);
+  buffer_count = *(volatile uint16_t *)(result + 28);
   v3 = (volatile int *)off_11060C;
-  v4 = (void *)(uintptr_t)(off_110634);
+  rx_queue_head = (void *)(uintptr_t)(off_110634);
   v5 = (void *)(uintptr_t)(off_110638);
-  v6 = result;
+  rx_context = result;
 LABEL_2:
   v7 = (volatile int *)off_110610;
-  while ( v2 <= 1 )
+  while ( buffer_count <= 1 )
   {
-    v8 = (void *)(uintptr_t)(is_page_scan_active());
-    if ( !v8 )
+    rx_buffer = (void *)(uintptr_t)(is_page_scan_active());
+    if ( !rx_buffer )
     {
       result = log_printf("rep: no rxmsg buffer, %d\r\n", *(volatile uint32_t *)off_110628);
-      if ( *(volatile uint16_t *)(v6 + 28) > 1u )
+      if ( *(volatile uint16_t *)(rx_context + 28) > 1u )
         return result;
       return unknown_func_12d104(32);
     }
-    v9 = is_scan_enabled();
-    v10 = v9;
-    if ( !v9 )
+    rx_descriptor = is_scan_enabled();
+    v10 = rx_descriptor;
+    if ( !rx_descriptor )
     {
       log_printf(aRepRxmsgNoDesc);
-      result = is_sniff_mode(v8);
-      if ( *(volatile uint16_t *)(v6 + 28) > 1u )
+      result = is_sniff_mode(rx_buffer);
+      if ( *(volatile uint16_t *)(rx_context + 28) > 1u )
         return result;
       return unknown_func_12d104(32);
     }
-    *v9 = (int)(uintptr_t)(v8);
-    v9[1] = 0;
-    v9[2] = 0;
+    *rx_descriptor = (int)(uintptr_t)(rx_buffer);
+    rx_descriptor[1] = 0;
+    rx_descriptor[2] = 0;
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -1740,15 +1775,15 @@ LABEL_2:
     }
     v11 = *v7 + 1;
     *v7 = v11;
-    *v1 = 1024;
-    while ( (*v1 & 0x800) != 0 )
+    *rx_doorbell_register = 1024;
+    while ( (*rx_doorbell_register & 0x800) != 0 )
       ;
     if ( (uint8_t)*v3 )
     {
-      v16 = *(volatile uint32_t *)(v6 + 20);
+      v16 = *(volatile uint32_t *)(rx_context + 20);
       if ( v16 )
       {
-        *(volatile uint32_t *)(v16 + 4) = (int)(uintptr_t)(v9);
+        *(volatile uint32_t *)(v16 + 4) = (int)(uintptr_t)(rx_descriptor);
       }
       else
       {
@@ -1758,19 +1793,19 @@ LABEL_2:
     }
     else
     {
-      if ( **(volatile int16_t **)off_110618 < 0 && *v4 )
+      if ( **(volatile int16_t **)off_110618 < 0 && *rx_queue_head )
       {
         mmio_clear_register((int)aSdioFunc1H2dFr, (int)aSdioReplenishR, 261);
         v11 = *v7;
       }
-      *v4 = (int)(uintptr_t)(v10);
+      *rx_queue_head = (int)(uintptr_t)(v10);
     }
     v12 = *v3;
-    v13 = *(volatile uint16_t *)(v6 + 28);
-    *(volatile uint32_t *)(v6 + 20) = (int)(uintptr_t)(v10);
-    v2 = (uint16_t)(v13 + 1);
+    v13 = *(volatile uint16_t *)(rx_context + 28);
+    *(volatile uint32_t *)(rx_context + 20) = (int)(uintptr_t)(v10);
+    buffer_count = (uint16_t)(v13 + 1);
     result = 1024;
-    *(volatile uint16_t *)(v6 + 28) = v2;
+    *(volatile uint16_t *)(rx_context + 28) = buffer_count;
     *v3 = (uint8_t)(v12 + 1);
     *v5 = 1024;
     if ( v11 )
@@ -1783,7 +1818,7 @@ LABEL_2:
         if ( v15 )
         {
           __enable_irq();
-          v2 = *(volatile uint16_t *)(v6 + 28);
+          buffer_count = *(volatile uint16_t *)(rx_context + 28);
         }
       }
       goto LABEL_2;
@@ -1794,6 +1829,7 @@ LABEL_2:
 
 
 // rf_bb_config @ 0x11063c
+/* luna: Programs the RF parameters and allocates and posts buffers until the configured replenishment count is reached. */
 int rf_bb_config(int a1, int a2) {
   volatile uint32_t *v2; // r4
   volatile int *v3; // r7
@@ -1912,6 +1948,7 @@ int call_110e24() {
 
 
 // event_queue_init @ 0x1107a0
+/* luna: Resets two RF configuration blocks, stores the supplied value in the first block, and passes both blocks to the baseband configurator. */
 int event_queue_init(int a1) {
   volatile uint32_t *v1; // r2
   volatile uint32_t *v2; // r1
@@ -1941,6 +1978,7 @@ int event_queue_init(int a1) {
 
 
 // bt_scheduler_run @ 0x110c60
+/* luna: Processes queued timed work items, waiting for MAC transmission at accumulated intervals while invoking the inquiry-state helper and maintaining IRQ-s */
 int bt_scheduler_run() {
   volatile uint32_t *v0; // r8
   volatile int *v1; // r7
@@ -2050,6 +2088,7 @@ LABEL_14:
 
 
 // mmio_write_config @ 0x110e24
+/* luna: Initializes the SDIO device interface, configures its MMIO registers, and waits for the host CMD5 and I/O-enable handshakes. */
 int mmio_write_config() {
   volatile uint32_t *v0; // r3
   volatile uint32_t *v1; // r1
@@ -2169,6 +2208,7 @@ int mmio_write_config() {
 
 
 // unknown_1 @ 0x11101c
+/* luna: Serializes an RF control update, handles a configured GPIO or worker transition, and writes the supplied values to control registers. */
 int unknown_1(int a1, int a2, int a3) {
   volatile int *v6; // r9
   volatile uint8_t *v7; // r3
@@ -2267,6 +2307,7 @@ LABEL_4:
 
 
 // pack_control_word @ 0x11113c
+/* luna: Fills a three-word RF control block, preserving masked bits in the third word while inserting a 16-bit field and a bit-31 flag. */
 volatile uint32_t * pack_control_word(volatile uint32_t *result, int a2, int a3, uint16_t a4, int a5) {
   result[2] = dword_111158 & result[2] | a4 | (a5 << 31);
   *result = a2;
@@ -2277,6 +2318,7 @@ volatile uint32_t * pack_control_word(volatile uint32_t *result, int a2, int a3,
 
 
 // unknown_3 @ 0x11115c
+/* luna: Appends a command node to the RF queue, updates its bookkeeping, and signals the queue for processing. */
 int unknown_3(int a1) {
   volatile int *v2; // r5
   volatile uint8_t *v3; // r3
@@ -2370,6 +2412,7 @@ LABEL_4:
 
 
 // mutex_lock @ 0x111270
+/* luna: Builds a length- and type-prefixed RF message in an allocated packet and submits it through the active send configuration. */
 int mutex_lock(char a1, volatile char *a2, unsigned int a3, int a4) {
   volatile uint32_t *v7; // r0
   volatile uint32_t *v8; // r4
@@ -2405,6 +2448,7 @@ int mutex_lock(char a1, volatile char *a2, unsigned int a3, int a4) {
 
 
 // get_status_flag @ 0x1112f4
+/* luna: Returns 1 if the byte referenced by off_111304 is nonzero; otherwise returns the byte referenced by off_111308. */
 int get_status_flag() {
   if ( *(volatile uint8_t *)off_111304 )
     return 1;
@@ -2415,29 +2459,30 @@ int get_status_flag() {
 
 
 // read_random_from_mmio @ 0x11130c
+/* luna: Programs the SDIO phase configuration from the argument’s low 22 bits using a bit-22-selected register-write sequence, then logs the configured value. */
 int read_random_from_mmio(int a1) {
-  volatile int *v1; // r3
-  int v2; // r2
-  int v3; // r1
-  int v4; // r1
+  volatile int *sdio_phase_reg; // r3
+  int phase_value; // r2
+  int current_phase; // r1
+  int phase_write_value; // r1
 
-  v1 = (volatile int *)off_111388;
-  v2 = a1 & 0x3FFFFF;
-  v3 = *(volatile uint32_t *)off_111388 & 0x3FFFFF;
+  sdio_phase_reg = (volatile int *)off_111388;
+  phase_value = a1 & 0x3FFFFF;
+  current_phase = *(volatile uint32_t *)off_111388 & 0x3FFFFF;
   if ( (a1 & 0x400000) != 0 )
   {
-    *(volatile uint32_t *)off_111388 = v3 | 0x800000;
-    *v1 = v3;
-    *v1 = v2;
-    v4 = v2 | 0x800000;
+    *(volatile uint32_t *)off_111388 = current_phase | 0x800000;
+    *sdio_phase_reg = current_phase;
+    *sdio_phase_reg = phase_value;
+    phase_write_value = phase_value | 0x800000;
   }
   else
   {
-    *(volatile uint32_t *)off_111388 = v3 | 0x400000;
-    v4 = v2 | 0x400000;
+    *(volatile uint32_t *)off_111388 = current_phase | 0x400000;
+    phase_write_value = phase_value | 0x400000;
   }
-  *v1 = v4;
-  *v1 = v2 | 0xC00000;
+  *sdio_phase_reg = phase_write_value;
+  *sdio_phase_reg = phase_value | 0xC00000;
   return log_printf("sdio pahse cfg %x\n", *(volatile uint32_t *)off_111388 & 0x3FFFFF);
 }
 

@@ -1,4 +1,5 @@
 // parse_adv_report_1 @ 0x141b40
+/* luna: Copies and decodes fields from a raw advertising receive record into the output report, including header-derived flags and scaled measurement values. */
 int parse_adv_report_1(volatile uint16_t *a1, unsigned int a2, unsigned int a3, volatile int16_t *a4) {
   unsigned int v4; // r5
   int16_t v5; // r6
@@ -61,6 +62,7 @@ int parse_adv_report_1(volatile uint16_t *a1, unsigned int a2, unsigned int a3, 
 
 
 // get_ll_conn_ctx @ 0x141c0c
+/* luna: Computes an RF-buffer location from event timing and the LL context index, stores a global word in the caller's context, and copies the selected data  */
 int get_ll_conn_ctx(int a1, int a2) {
   int v3; // r5
   int v4; // r0
@@ -79,6 +81,7 @@ int get_ll_conn_ctx(int a1, int a2) {
 
 
 // send_rf_cmd @ 0x141c5c
+/* luna: Constructs an eight-byte link-layer command packet from the supplied opcode and context fields, then passes it to the packet-processing routine. */
 int send_rf_cmd(char a1, int a2) {
   int v4; // r0
   int16_t v5; // r2
@@ -95,6 +98,7 @@ int send_rf_cmd(char a1, int a2) {
 
 
 // read_rf_timer @ 0x141c90
+/* luna: Accumulates the entry's elapsed interval, copies a timer snapshot into it, and marks the associated link context and tracking bitmap. */
 int read_rf_timer(int a1) {
   int v1; // r2
   int v3; // r3
@@ -132,6 +136,7 @@ int read_rf_timer(int a1) {
 
 
 // handle_ll_event @ 0x141d08
+/* luna: Clears pending link-layer event state and advances the scheduled event timestamp by whole intervals until it meets the RF delay guard. */
 volatile uint8_t * handle_ll_event(int a1) {
   int v2; // r5
   int16_t v3; // r3
@@ -173,6 +178,7 @@ volatile uint8_t * handle_ll_event(int a1) {
 
 
 // update_ll_flags @ 0x141d94
+/* luna: If context flags include 0x08, sets 0x40 and calls handle_ll_event only when the global gate is set and the original flags include 0x01; then it invok */
 int update_ll_flags(int a1) {
   int16_t v1; // r3
   volatile uint8_t *v3; // r1
@@ -201,6 +207,7 @@ int update_ll_flags(int a1) {
 
 
 // queue_ipc_msg @ 0x141e00
+/* luna: Builds a fixed-format BLE scan report from the supplied record and enqueues it through the ACL-backed output context. */
 int queue_ipc_msg(int a1, int a2, int a3, int a4) {
   int v6; // r0
   int v7; // r1
@@ -242,6 +249,7 @@ int queue_ipc_msg(int a1, int a2, int a3, int a4) {
 
 
 // get_acl_ctx @ 0x141ea0
+/* luna: Sets up an ACL receive context, writes the supplied byte into its RX buffer, updates buffer metadata, and returns the security-check result. */
 int get_acl_ctx(int a1, int a2, char a3) {
   int result; // r0
   uint16_t v5; // r3
@@ -268,6 +276,7 @@ int get_acl_ctx(int a1, int a2, char a3) {
 
 
 // clear_ll_flag @ 0x141ef8
+/* luna: Updates the LL context, clears bit 0 of its 16-bit flags and the byte at offset 2, then decrements a global byte counter. */
 int clear_ll_flag(int a1) {
   int result; // r0
   volatile uint8_t *v3; // r2
@@ -285,6 +294,7 @@ int clear_ll_flag(int a1) {
 
 
 // scan_slot_init @ 0x141f1c
+/* luna: Returns the first active scan-table entry matching the three supplied fields, or 0 if none of the eight entries match. */
 int scan_slot_init(int a1, int a2, int a3) {
   int v3; // r4
   int v4; // r3
@@ -310,6 +320,7 @@ int scan_slot_init(int a1, int a2, int a3) {
 
 
 // init_runtime_state @ 0x141f60
+/* luna: Clears three bytes of state and initializes eight ACL context entries, restoring each entry’s self-reference at offset 60. */
 volatile int *init_runtime_state() {
   volatile int *v0; // r4
   volatile int *v1; // r5
@@ -331,6 +342,7 @@ volatile int *init_runtime_state() {
 
 
 // bt_data_process @ 0x141f90
+/* luna: Processes qualifying BLE scan RX packets, parsing advertising data into a report entry and submitting it through the RF command path. */
 unsigned int bt_data_process(unsigned int result) {
   int v1; // r1
   int v2; // r2
@@ -512,6 +524,7 @@ unsigned int bt_data_process(unsigned int result) {
 
 
 // adv_type_validate @ 0x1421f8
+/* luna: Checks whether an incoming advertising event qualifies, matches its key bytes against active scan slots, and forwards qualifying slots to the LL event */
 int adv_type_validate(int result, int16_t a2, volatile uint16_t *a3) {
   volatile uint8_t *v3; // r6
   int16_t v4; // r2
@@ -590,6 +603,7 @@ LABEL_13:
 
 
 // scan_state_dispatch @ 0x1422a4
+/* luna: Updates scan and link-layer state for the indexed connection, then sends the resulting status byte. */
 int scan_state_dispatch(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   int v6; // r7
   int v8; // r11
@@ -659,6 +673,7 @@ LABEL_8:
 
 
 // ll_conn_process @ 0x142378
+/* luna: Processes a received BLE advertising-side request, queues its metadata when the link context and channel are eligible, and submits the associated pack */
 int ll_conn_process(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   int v4; // r8
   int v5; // r9

@@ -1,4 +1,5 @@
 // check_radio_state @ 0x11b100
+/* luna: Scans scheduler slots in descending order, returning an active queued item or initializing the first eligible link-layer transmission. */
 int check_radio_state(volatile int *a1) {
   volatile uint16_t *v1; // r6
   int v2; // r3
@@ -95,6 +96,7 @@ LABEL_4:
 
 
 // get_sched_item @ 0x11b228
+/* luna: Clears the indexed pending flag and, when the radio-state guard permits, dispatches and clears the entry's stored action. */
 int get_sched_item(int result) {
   volatile uint32_t *v1; // r6
   volatile char *v2; // r3
@@ -126,6 +128,7 @@ int get_sched_item(int result) {
 
 
 // invalid_instruction_trap @ 0x11b278
+/* luna: Processes one indexed scheduler entry under IRQ protection, advancing its countdown and fetching a new item when an update or expiration requires it. */
 int invalid_instruction_trap(int a1) {
   unsigned int CPSR; // r3
   int result; // r0

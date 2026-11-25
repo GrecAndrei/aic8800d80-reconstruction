@@ -1,4 +1,5 @@
 // get_bss_by_channel @ 0x11fef8
+/* luna: Initializes a BSS table entry from the supplied descriptor, prepares its type-specific payload, and marks it active for the given channel. */
 uint64_t get_bss_by_channel(volatile uint8_t *a1, char a2) {
   int v3; // r6
   int v4; // r8
@@ -68,6 +69,7 @@ LABEL_3:
 
 
 // get_sta_by_idx @ 0x12004c
+/* luna: Clears the selected station-slot marker and reselects any matching cursor from the first marked slot in its range, or clears the cursor if none remain */
 int get_sta_by_idx(int result, int a2) {
   int v2; // r4
   int v3; // r3
@@ -116,6 +118,7 @@ int get_sta_by_idx(int result, int a2) {
 
 
 // get_hw_tsf @ 0x1200d4
+/* luna: Iterates the list rooted at offset 240 and invokes the LL-event-pending check for each entry. */
 int get_hw_tsf(int result) {
   volatile uint32_t *v1; // r4
   int v2; // r5
@@ -137,6 +140,7 @@ int get_hw_tsf(int result) {
 
 
 // mmio_reg_addr @ 0x1200f0
+/* luna: Copies data from the address at the global base plus 0x2710 into the context field at offset 48. */
 int mmio_reg_addr(int a1) {
   return mem_copy_util((void *)(uintptr_t)(a1 + 48), *((volatile uint32_t *)off_120100 + 4) + 10000);
 }
@@ -144,6 +148,7 @@ int mmio_reg_addr(int a1) {
 
 
 // get_sys_state @ 0x120104
+/* luna: When the global hardware-state gate is active and the object’s word at offset 4 is zero, passes its offset-48 member to mem_set_util and returns the T */
 int get_sys_state(int result) {
   int v1; // r4
 
@@ -162,6 +167,7 @@ int get_sys_state(int result) {
 
 
 // set_bss_cap @ 0x120130
+/* luna: Stores the supplied BSS cap and recomputes normalized cap values for linked entries using the minimum cap. */
 int set_bss_cap(int result, unsigned int a2) {
   volatile uint32_t *v2; // r5
   volatile uint8_t *v3; // r3
@@ -225,6 +231,7 @@ int set_bss_cap(int result, unsigned int a2) {
 
 
 // alloc_ctrl_block @ 0x1201d4
+/* luna: Applies a requested radio configuration, updates per-context state on success, and sends a status confirmation. */
 int alloc_ctrl_block(int a1) {
   volatile uint8_t *v2; // r5
   int v3; // r0
@@ -282,6 +289,7 @@ int alloc_ctrl_block(int a1) {
 
 
 // check_hw_counters @ 0x1202b4
+/* luna: Returns the control-block pointer when exactly one of two global flags is set and the block's byte at offset 0x6A is clear; otherwise returns NULL. */
 int check_hw_counters() {
   int result; // r0
 
@@ -296,6 +304,7 @@ int check_hw_counters() {
 
 
 // mac_clear_irq @ 0x1202d8
+/* luna: Clears a 32-bit MAC control value and queries the current channel when the bytes at offsets 17 and 18 sum to at most one. */
 void mac_clear_irq() {
   int v0; // r3
 
@@ -308,6 +317,7 @@ void mac_clear_irq() {
 
 
 // reset_drv_flag @ 0x1202f8
+/* luna: Traverses the global entry list, counts nodes whose bytes at offsets 106, 108, and 1224 are respectively zero, nonzero, and zero, and sets the output  */
 int reset_drv_flag(volatile uint8_t *a1) {
   volatile uint32_t *v1; // r3
   volatile int *v2; // r3
@@ -353,6 +363,7 @@ LABEL_10:
 
 
 // alloc_shared_packet @ 0x12034c
+/* luna: Builds a fixed-type message containing the supplied 32-bit value and submits it to the packet processor. */
 int alloc_shared_packet(int a1) {
   volatile uint32_t *v2; // r0
 
@@ -364,6 +375,7 @@ int alloc_shared_packet(int a1) {
 
 
 // get_mac_ver @ 0x120368
+/* luna: Extracts revision values from four version registers, substitutes 150 for values outside 1–150, caches them in shared revision slots (duplicating the  */
 int get_mac_ver() {
   int result; // r0
   volatile uint32_t *v1; // r1
@@ -412,6 +424,7 @@ int get_mac_ver() {
 
 
 // init_fw_config @ 0x120408
+/* luna: Zeroes and seeds the global firmware configuration block, performs a conditional MMIO update, then records the MAC-version state. */
 int init_fw_config() {
   volatile uint8_t *v0; // r4
   int v1; // r3
@@ -442,6 +455,7 @@ int init_fw_config() {
 
 
 // rf_phy_init_1 @ 0x12047c
+/* luna: Initializes RF/PHY control registers with startup defaults and applies configuration-dependent mode bits. */
 volatile uint32_t *rf_phy_init_1() {
   volatile int *v0; // r4
   volatile int *v1; // r5
@@ -452,8 +466,8 @@ volatile uint32_t *rf_phy_init_1() {
   volatile unsigned int *v6; // r1
   volatile unsigned int *v7; // r3
   int v8; // r4
-  int v9; // r3
-  char v10; // r2
+  int rf_config; // r3
+  char rf_config_flags; // r2
   int v11; // zf
   int v12; // r2
   unsigned int v13; // r2
@@ -485,13 +499,13 @@ volatile uint32_t *rf_phy_init_1() {
   *v1 = *v1 & v8 | 0x5DC;
   v5[1] = v5[1] & v8 | 0xBB8;
   *(v6 - 205) = *(v6 - 205) & 0xFFFF00FF | 0xDA00;
-  v9 = *v2;
-  v10 = *(volatile uint8_t *)(*v2 + 2);
-  if ( (v10 & 0x10) != 0 )
+  rf_config = *v2;
+  rf_config_flags = *(volatile uint8_t *)(*v2 + 2);
+  if ( (rf_config_flags & 0x10) != 0 )
     v5[16] &= ~0x80000000;
   else
     *(volatile uint32_t *)off_1205DC |= 0x80000000;
-  v11 = (v10 & 1) == 0;
+  v11 = (rf_config_flags & 1) == 0;
   v12 = *(volatile uint32_t *)off_1205B4;
   if ( v11 )
     v13 = v12 & 0xFFFBFFFF;
@@ -500,7 +514,7 @@ volatile uint32_t *rf_phy_init_1() {
   *(volatile uint32_t *)off_1205B4 = v13;
   v14 = (void *)(uintptr_t)(off_1205B8);
   *(volatile uint32_t *)off_1205B8 = dword_1205BC;
-  if ( *(volatile uint8_t *)(v9 + 1) )
+  if ( *(volatile uint8_t *)(rf_config + 1) )
     *(v14 - 215) |= 0x40u;
   v15 = (void *)(uintptr_t)(off_1205C4);
   v16 = (void *)(uintptr_t)(off_1205C8);
@@ -521,6 +535,7 @@ volatile uint32_t *rf_phy_init_1() {
 
 
 // get_rf_state @ 0x1205e0
+/* luna: Initializes RF, controller, channel and security, LLC, and Bluetooth state before returning the result of RF PHY initialization. */
 volatile uint32_t *get_rf_state() {
   volatile uint8_t *v0; // r4
   volatile int *v1; // r0
@@ -559,6 +574,7 @@ volatile uint32_t *get_rf_state() {
 
 
 // check_non_null @ 0x12063c
+/* luna: Unless bypassed by its first mode argument, scans the global linked list excluding the input entry for one with a nonzero byte at offset 108 and bytes */
 volatile int * check_non_null(volatile int *result, int a2, int a3) {
   volatile int *v3; // r3
   volatile unsigned int *v4; // r3
@@ -622,6 +638,7 @@ LABEL_4:
 
 
 // rx_packet_proc @ 0x120700
+/* luna: Uses the received beacon's TSF, interval, and RX timing metadata to derive beacon timing, falling back to a default duration if the MAC airtime measur */
 int rx_packet_proc(int a1, int a2, int a3, int a4, int a5, int a6) {
   unsigned int v8; // r9
   int v9; // r3
@@ -828,6 +845,7 @@ if ( *((volatile uint32_t *)off_120A30 + 8) != a4 || (v42 = (void *)(uintptr_t)(
 
 
 // alloc_rx_buf_pool @ 0x120a90
+/* luna: Consumes pending Wi-Fi control flags and updates channel timing and MAC receive-filter configuration. */
 int alloc_rx_buf_pool() {
   unsigned int v0; // r10
   int v1; // r8
@@ -1139,6 +1157,7 @@ LABEL_43:
 
 
 // is_band_5g @ 0x120f74
+/* luna: Checks a helper result, writes 48 to a global word when it is 1, and passes the corresponding status to the preprocessing helper. */
 int is_band_5g() {
   if ( hci_cmd_handler(0) != 1 )
     return hci_cmd_preprocess(0, 0);
@@ -1155,6 +1174,7 @@ int rf_write_reg() {
 
 
 // ke_timer_handler @ 0x120fb8
+/* luna: Processes AP beacon intervals, advances the DTIM countdown, and schedules the next TBTT using the hardware timer. */
 void ke_timer_handler() {
   unsigned int v0; // r6
   int v1; // r4
@@ -1335,6 +1355,7 @@ LABEL_26:
 
 
 // jump_0x12abc8 @ 0x1211fc
+/* luna: Returns the ACL flag value for the supplied argument. */
 int jump_0x12abc8(int a1) {
   return get_acl_flag(a1);
 }
@@ -1342,6 +1363,7 @@ int jump_0x12abc8(int a1) {
 
 
 // ll_tx_setup @ 0x121200
+/* luna: Loads per-connection parameters into the link-layer hardware and issues the transmit-context setup command. */
 int ll_tx_setup(int a1, int a2) {
   int v2; // r6
   volatile uint32_t *v3; // r3
@@ -1403,12 +1425,13 @@ int ll_tx_setup(int a1, int a2) {
 
 
 // ll_parse_pdu @ 0x1212d8
+/* luna: Installs a pairwise or group Wi-Fi key and updates the associated hardware key state. */
 int ll_parse_pdu(volatile char *a1, int a2, int a3, int a4) {
-  unsigned int v4; // r7
-  int v5; // r5
-  int v7; // r6
+  unsigned int sta_idx_or_group_marker; // r7
+  int key_index; // r5
+  int key_table_slot; // r6
   volatile uint32_t *v8; // r2
-  volatile uint16_t *v9; // r7
+  volatile uint16_t *sta_key_entry; // r7
   volatile uint32_t *v10; // r3
   volatile uint8_t *v11; // r3
   volatile uint32_t *v12; // r3
@@ -1425,36 +1448,36 @@ int ll_parse_pdu(volatile char *a1, int a2, int a3, int a4) {
   volatile uint32_t *v24; // r3
   int v25; // r5
 
-  v4 = (uint8_t)a1[1];
-  v5 = (uint8_t)a1[41];
-  if ( v4 == 255 )
+  sta_idx_or_group_marker = (uint8_t)a1[1];
+  key_index = (uint8_t)a1[41];
+  if ( sta_idx_or_group_marker == 255 )
   {
     if ( a1[40] == 5 )
     {
-      v25 = HIBYTE(*(volatile uint32_t *)off_121528) - 3 + (uint8_t)*a1 + 2 * v5;
-      v7 = (uint8_t)v25;
+      v25 = HIBYTE(*(volatile uint32_t *)off_121528) - 3 + (uint8_t)*a1 + 2 * key_index;
+      key_table_slot = (uint8_t)v25;
       get_bss_by_channel((volatile uint8_t *)a1, v25);
-      return v7;
+      return key_table_slot;
     }
     v18 = *a1;
     v19 = (void *)(uintptr_t)(off_121500);
     *(volatile uint32_t *)off_1214FC = -1;
     *v19 = -1;
-    v7 = (uint8_t)(v18 + 4 * v5);
+    key_table_slot = (uint8_t)(v18 + 4 * key_index);
     check_feature_flag(256, "add gtk:%d,%d\r\n", (uint8_t)a1[41], (uint8_t)a1[40]);
-    get_bss_by_channel((volatile uint8_t *)a1, v7);
+    get_bss_by_channel((volatile uint8_t *)a1, key_table_slot);
   }
   else
   {
-    if ( **(volatile int16_t **)off_1214F0 < 0 && v4 > 0x23 )
+    if ( **(volatile int16_t **)off_1214F0 < 0 && sta_idx_or_group_marker > 0x23 )
       irq_disable_mmio_write((int)aStaIdxStaMax, (int)aMmSecMachwkeyW, 1424);
-    v7 = (uint8_t)(v4 + 16);
-    check_feature_flag(256, "add ptk:%d,%d\r\n", v4, (uint8_t)a1[40]);
-    set_connection_flag((int)a1, v4 + 16);
+    key_table_slot = (uint8_t)(sta_idx_or_group_marker + 16);
+    check_feature_flag(256, "add ptk:%d,%d\r\n", sta_idx_or_group_marker, (uint8_t)a1[40]);
+    set_connection_flag((int)a1, sta_idx_or_group_marker + 16);
     v8 = (void *)(uintptr_t)(off_121500);
-    v9 = (volatile uint16_t *)(dword_1214F8 + 696 * v4);
-    *(volatile uint32_t *)off_1214FC = v9[19] | (v9[20] << 16);
-    *v8 = v9[21];
+    sta_key_entry = (volatile uint16_t *)(dword_1214F8 + 696 * sta_idx_or_group_marker);
+    *(volatile uint32_t *)off_1214FC = sta_key_entry[19] | (sta_key_entry[20] << 16);
+    *v8 = sta_key_entry[21];
   }
   switch ( a1[40] )
   {
@@ -1548,14 +1571,15 @@ LABEL_22:
       break;
   }
   v16 = (void *)(uintptr_t)(off_12151C);
-  *(volatile uint32_t *)off_12151C = (16 * v5) | (4 * (uint8_t)a1[42]) | v13 | (v7 << 16) | v14 | 0x40000000;
+  *(volatile uint32_t *)off_12151C = (16 * key_index) | (4 * (uint8_t)a1[42]) | v13 | (key_table_slot << 16) | v14 | 0x40000000;
   while ( (*v16 & 0x40000000) != 0 )
     ;
-  return v7;
+  return key_table_slot;
 }
 
 
 // rf_get_version @ 0x121534
+/* luna: Resolves the indexed station or connection, prepares applicable RX-control fields, and synchronously submits a control request. */
 volatile uint32_t * rf_get_version(int a1) {
   int v2; // r1
   volatile uint32_t *v3; // r5
@@ -1607,6 +1631,7 @@ volatile uint32_t * rf_get_version(int a1) {
 
 
 // util_delay_clear_flag @ 0x121624
+/* luna: Clears the HCI command-delay flag with interrupts masked, then invokes command preprocessing. */
 int util_delay_clear_flag() {
   irq_disable_global_3(0x2000000);
   *((volatile uint32_t *)off_121644 + 1) &= ~4u;

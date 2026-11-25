@@ -1,4 +1,5 @@
 // hci_process_event @ 0x133af0
+/* luna: Processes the active link event and dispatches accumulated measurement data when the link’s report flag is pending. */
 int hci_process_event() {
   volatile uint8_t *v0; // r6
   int v1; // r7
@@ -114,6 +115,7 @@ LABEL_7:
 
 
 // bt_parse_packet @ 0x133cac
+/* luna: Honors the HCI/RF gate, then arms a timer for the indexed BT context when its flags allow it or issues the fallback MAC write. */
 int bt_parse_packet(int a1, volatile uint16_t *a2) {
   int v3; // r6
   volatile int *v4; // r4
@@ -178,6 +180,7 @@ int bt_parse_packet(int a1, volatile uint16_t *a2) {
 
 
 // ke_lock_and_read @ 0x133d58
+/* luna: Validates a station connect or reassociation request, updates per-VIF state, and queues the corresponding connection PDU. */
 int ke_lock_and_read(int a1, int a2, int a3, int a4) {
   int v4; // r9
   uint16_t v6; // r7
@@ -284,6 +287,7 @@ LABEL_13:
 
 
 // ke_lock_wait @ 0x133f24
+/* luna: Checks handler 6 and, for result 9, emits connection-related messages and updates the per-connection context; for result 10, resets the controller. */
 int ke_lock_wait() {
   int v1; // r4
   int v2; // r6

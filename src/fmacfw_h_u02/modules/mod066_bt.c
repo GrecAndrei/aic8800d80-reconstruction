@@ -1,4 +1,5 @@
 // wait_condition_status @ 0x13b25c
+/* luna: Processes a per-link wait result, updating link state and dispatching the corresponding success or failure action. */
 int wait_condition_status(int a1, volatile char *a2, unsigned int a3) {
   volatile char *v6; // r8
   char v7; // r10
@@ -94,6 +95,7 @@ int wait_condition_status(int a1, volatile char *a2, unsigned int a3) {
 
 
 // check_packet_type @ 0x13b424
+/* luna: For a type-2 packet with a matching command state, queues a role-adjusted three-byte PDU when the connection is active, updates indexed state, and sen */
 int check_packet_type(int a1, volatile char *a2, unsigned int a3) {
   unsigned int v5; // r5
   int v6; // r6
@@ -131,6 +133,7 @@ int check_packet_type(int a1, volatile char *a2, unsigned int a3) {
 
 
 // check_wait_status_1 @ 0x13b4c0
+/* luna: If the HCI code passes the command check, dispatches it using the corresponding 32-byte table entry and one of two handler contexts. */
 int check_wait_status_1(int a1, int a2, unsigned int a3) {
   int v4; // r0
 
@@ -147,6 +150,7 @@ int check_wait_status_1(int a1, int a2, unsigned int a3) {
 
 
 // check_wait_status_2 @ 0x13b4f8
+/* luna: If the HCI command handler reports state 2, dispatches the table entry indexed by the command's upper byte and preprocesses the command; always return */
 int check_wait_status_2(int a1, int a2, unsigned int a3) {
   if ( hci_cmd_handler(a3) == 2 )
   {
@@ -159,6 +163,7 @@ int check_wait_status_2(int a1, int a2, unsigned int a3) {
 
 
 // check_efuse_bits @ 0x13b548
+/* luna: Returns the bitwise intersection of the byte at offset 264 and the sum of the byte at offset 262 with the caller-provided value. */
 int check_efuse_bits(int a1, int a2) {
   return *(volatile uint8_t *)(a1 + 264) & (a2 + *(volatile uint8_t *)(a1 + 262));
 }
@@ -166,6 +171,7 @@ int check_efuse_bits(int a1, int a2) {
 
 
 // init_state_table @ 0x13b558
+/* luna: Builds a Bluetooth state-table initialization record from connection and controller parameters and assigns it a sequence value. */
 int init_state_table(int a1, int a2, int a3, char a4, int16_t a5, int16_t a6, int a7) {
   int v7; // r9
   int v8; // r7
@@ -296,6 +302,7 @@ LABEL_4:
 
 
 // timer_expired @ 0x13b7bc
+/* luna: Returns whether a 16-bit timer deadline has passed relative to the current hardware tick. */
 unsigned int timer_expired(int a1) {
   return ((unsigned int)(a1 - (*((volatile uint32_t *)off_13B7CC + 4) >> 10)) >> 15) & 1;
 }
@@ -303,33 +310,35 @@ unsigned int timer_expired(int a1) {
 
 
 // get_bt_state @ 0x13b7d0
+/* luna: Clears and dispatches consecutive BT state-table entries marked 2, returning the number dispatched. */
 int get_bt_state(int a1) {
-  int v1; // r3
-  int v2; // r6
-  int ( *v4)(int, int); // r2
-  uint8_t v5; // r0
+  int state_entry; // r3
+  int processed_count; // r6
+  int ( *dispatch_callback)(int, int); // r2
+  uint8_t next_entry_offset; // r0
 
-  v1 = *(volatile uint8_t *)(a1 + 262) + a1;
-  if ( *(volatile uint8_t *)(v1 + 6) != 2 )
+  state_entry = *(volatile uint8_t *)(a1 + 262) + a1;
+  if ( *(volatile uint8_t *)(state_entry + 6) != 2 )
     return 0;
-  v2 = (v2 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
+  processed_count = (processed_count & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
   do
   {
-    *(volatile uint8_t *)(v1 + 6) = 0;
-    v4 = *(int ( **)(int, int))a1;
+    *(volatile uint8_t *)(state_entry + 6) = 0;
+    dispatch_callback = *(int ( **)(int, int))a1;
     *(volatile uint16_t *)(a1 + 4) = (*(volatile uint16_t *)(a1 + 4) + 1) & 0xFFF;
-    v5 = v4(a1, 1);
-    v1 = a1 + v5;
-    *(volatile uint8_t *)(a1 + 262) = v5;
-    v2 = (char)(v2 + 1);
+    next_entry_offset = dispatch_callback(a1, 1);
+    state_entry = a1 + next_entry_offset;
+    *(volatile uint8_t *)(a1 + 262) = next_entry_offset;
+    processed_count = (char)(processed_count + 1);
   }
-  while ( *(volatile uint8_t *)(v1 + 6) == 2 );
-  return v2;
+  while ( *(volatile uint8_t *)(state_entry + 6) == 2 );
+  return processed_count;
 }
 
 
 
 // call_callback @ 0x13b814
+/* luna: Resolves the entry for a 12-bit index relative to the table’s stored base, writes its state byte, and returns the entry. */
 int call_callback(int a1, int16_t a2, char a3) {
   int result; // r0
 
@@ -341,6 +350,7 @@ int call_callback(int a1, int16_t a2, char a3) {
 
 
 // init_locks @ 0x13b82c
+/* luna: Clears the task-state blocks and initializes 32 task entries, assigning context pointers to entries 16–31 and invoking setup for each packed task ID. */
 int init_locks() {
   volatile uint32_t *v0; // r9
   int v1; // r5
@@ -378,6 +388,7 @@ LABEL_3:
 
 
 // get_global_base @ 0x13b8cc
+/* luna: Requests the global-base operation from the kernel event handler, encoding a1 in the high byte of the operation argument. */
 int get_global_base(int16_t a1) {
   return ke_event_handler(8194, (uint16_t)(a1 << 8) | 8, 0x1F4000u);
 }
@@ -385,6 +396,7 @@ int get_global_base(int16_t a1) {
 
 
 // get_table_entry_info @ 0x13b8e4
+/* luna: Returns the indexed 32-byte table entry and, when its selector is 0 or 1, writes marker 33 to the corresponding byte in the indexed backing record. */
 volatile uint8_t * get_table_entry_info(int a1) {
   volatile uint8_t *result; // r0
   int v2; // r1
@@ -408,6 +420,7 @@ volatile uint8_t * get_table_entry_info(int a1) {
 
 
 // load_global_pointer @ 0x13b938
+/* luna: Selects a patch-table index from the linked-list entries and returns the head entry's ID when the selected table entry is populated or its range cover */
 int load_global_pointer(volatile int **a1) {
   volatile int *v1; // r6
   int result; // r0
@@ -444,6 +457,7 @@ int load_global_pointer(volatile int **a1) {
 
 
 // dispatch_command @ 0x13b988
+/* luna: Dispatches a Bluetooth command descriptor by decoding its selector and channel fields, returning a per-link value or performing fallback state initial */
 int dispatch_command(int a1, volatile uint16_t *a2, int a3) {
   int v4; // r4
   unsigned int v6; // r3
@@ -516,6 +530,7 @@ LABEL_22:
 
 
 // send_vendor_command_1 @ 0x13bae8
+/* luna: Builds an HCI opcode from the command index, updates the associated status slot when applicable, dispatches through the selected handler pair, and pre */
 int send_vendor_command_1(unsigned int a1) {
   unsigned int v1; // r5
   int v3; // r1
@@ -560,6 +575,7 @@ LABEL_5:
 
 
 // init_patch_table @ 0x13bba8
+/* luna: Scans 32 slots and initializes each active state entry whose selector matches the supplied ID, preparing the corresponding HCI opcode first. */
 int init_patch_table(int result) {
   int v1; // r4
   int v2; // r5
@@ -596,6 +612,7 @@ int init_patch_table(int result) {
 
 
 // build_hci_event @ 0x13bc20
+/* luna: Builds and submits an eight-byte connection event using status and parameters from the indexed connection record. */
 int build_hci_event(char a1, int a2) {
   int v2; // r4
   int v4; // r0
@@ -618,6 +635,7 @@ int build_hci_event(char a1, int a2) {
 
 
 // rf_set_frequency_1 @ 0x13bc64
+/* luna: Builds and submits a frequency-setting request using values from the selected configuration entry. */
 int rf_set_frequency_1(int a1, int a2) {
   unsigned int v2; // r5
   volatile int *v5; // r4
@@ -639,6 +657,7 @@ int rf_set_frequency_1(int a1, int a2) {
 
 
 // ke_event_schedule_1 @ 0x13bcd4
+/* luna: Scans 32 event slots and processes each active slot whose stored task ID matches the supplied ID. */
 int ke_event_schedule_1(int result) {
   int v1; // r9
   int v2; // r6
@@ -681,6 +700,7 @@ int ke_event_schedule_1(int result) {
 
 
 // ke_task_get @ 0x13bdb8
+/* luna: Initializes a kernel task entry by selecting its handler tables, resetting a task status byte, and initializing its state table. */
 int ke_task_get(unsigned int a1) {
   int v1; // r5
   int v2; // r6
@@ -712,6 +732,7 @@ int ke_task_get(unsigned int a1) {
 
 
 // ke_get_state_1 @ 0x13be38
+/* luna: Returns the next queued task code when available; otherwise performs a fallback task lookup and returns the 0x21 sentinel. */
 int ke_get_state_1() {
   volatile uint32_t *v0; // r4
   int result; // r0
@@ -740,6 +761,7 @@ int ke_get_state_1() {
 
 
 // ke_event_handler_1 @ 0x13be74
+/* luna: Initializes a per-task-instance event record and state tables, then schedules a delayed kernel event and preprocesses the associated HCI task. */
 int ke_event_handler_1(int a1, int a2, uint16_t a3) {
   uint16_t v6; // r0
   char v7; // r11
@@ -794,6 +816,7 @@ int ke_event_handler_1(int a1, int a2, uint16_t a3) {
 
 
 // rf_validate_freq @ 0x13bf64
+/* luna: Checks whether a received 12-bit sequence number is within the active receive window, with sentinel and inactive-state bypasses. */
 int rf_validate_freq(int a1, int a2) {
   int v3; // r7
   int v5; // r4
@@ -812,6 +835,7 @@ int rf_validate_freq(int a1, int a2) {
 
 
 // radio_irq_handler @ 0x13bfd8
+/* luna: Dispatches a Bluetooth RX packet to its handler and updates packet and connection state. */
 unsigned int radio_irq_handler(unsigned int result) {
   int v1; // r1
   int v2; // r2
@@ -897,6 +921,7 @@ unsigned int radio_irq_handler(unsigned int result) {
 
 
 // bt_conn_get @ 0x13c154
+/* luna: Records an acknowledgment in the per-connection transmit window and retires consecutively acknowledged packets, with flush-timing logic that may defer */
 int bt_conn_get(int a1, int a2, int a3) {
   int v4; // r3
   int v5; // r3
@@ -969,6 +994,7 @@ int bt_conn_get(int a1, int a2, int a3) {
 
 
 // rx_clear_packet @ 0x13c26c
+/* luna: Clears the 256-byte RX payload, initializes size-dependent buffer metadata, and returns 348. */
 int rx_clear_packet(int a1) {
   int v1; // r5
   int result; // r0
@@ -998,30 +1024,32 @@ int rx_clear_packet(int a1) {
 
 
 // bt_conn_get_role @ 0x13c2c0
+/* luna: Counts the contiguous bytes starting at offset 6 that equal 2, using the byte at offset 263 as the number of bytes to scan. */
 int bt_conn_get_role(int a1) {
-  int v1; // r3
-  int v2; // r1
+  int entry_ptr; // r3
+  int last_entry; // r1
   int result; // r0
-  int v4; // t1
+  int entry_value; // t1
 
   if ( !*(volatile uint8_t *)(a1 + 263) )
     return *(volatile uint8_t *)(a1 + 263);
-  v1 = a1 + 5;
-  v2 = *(volatile uint8_t *)(a1 + 263) + a1 + 5;
+  entry_ptr = a1 + 5;
+  last_entry = *(volatile uint8_t *)(a1 + 263) + a1 + 5;
   result = 0;
   do
   {
-    v4 = *(volatile uint8_t *)++v1;
-    if ( v4 == 2 )
+    entry_value = *(volatile uint8_t *)++entry_ptr;
+    if ( entry_value == 2 )
       result = (char)(result + 1);
   }
-  while ( v1 != v2 );
+  while ( entry_ptr != last_entry );
   return result;
 }
 
 
 
 // rf_calc_power @ 0x13c2e4
+/* luna: Writes the configured word to the 32-byte table slot selected by the record’s byte-sized index, optionally triggering a bulk MMIO update when the inde */
 int rf_calc_power(int a1, int a2) {
   int result; // r0
   unsigned int v3; // r4
@@ -1037,6 +1065,7 @@ int rf_calc_power(int a1, int a2) {
 
 
 // is_valid_rate @ 0x13c344
+/* luna: Returns whether the supplied rate format and rate code are accepted by the Bluetooth rate validator. */
 BOOL is_valid_rate(char a1, unsigned int a2) {
   int v2; // r3
 
@@ -1070,6 +1099,7 @@ BOOL is_valid_rate(char a1, unsigned int a2) {
 
 
 // bt_conn_get_phy @ 0x13c3d8
+/* luna: Checks received management-frame protection requirements and processes replay state for protected frames. */
 unsigned int bt_conn_get_phy(volatile uint8_t *a1, int a2, int a3, volatile uint8_t *a4) {
   int v4; // r6
   int v5; // r11
@@ -1166,6 +1196,7 @@ LABEL_9:
 
 
 // bt_conn_is_active @ 0x13c558
+/* luna: Returns a 0/1/2 activity status for the indexed connection after validating the requested rate. */
 int bt_conn_is_active(int a1, int a2, int a3) {
   int v3; // r5
   int v4; // r6
@@ -1211,6 +1242,7 @@ int bt_conn_is_active(int a1, int a2, int a3) {
 
 
 // bt_conn_is_connected @ 0x13c5d0
+/* luna: Builds an 18-byte per-connection packet with an incremented counter and a 64-bit helper result, appending it to the input when no output buffer is sup */
 int bt_conn_is_connected(int a1, int a2, int a3, int a4) {
   int result; // r0
   int v5; // lr
@@ -1273,6 +1305,7 @@ int bt_conn_is_connected(int a1, int a2, int a3, int a4) {
 
 
 // bt_crypto_permute @ 0x13c694
+/* luna: Encrypts a 128-bit block in place using an expanded AES key schedule. */
 int bt_crypto_permute(volatile uint32_t *a1, volatile uint32_t *a2) {
   int v2; // r3
   int v3; // r4
@@ -1451,25 +1484,26 @@ int bt_crypto_permute(volatile uint32_t *a1, volatile uint32_t *a2) {
 
 
 // bt_parse_adv_header @ 0x13ca3c
+/* luna: Doubles a 128-bit block in GF(2^128), applying the 0x87 reduction polynomial when the high bit is set. */
 volatile unsigned int * bt_parse_adv_header(volatile unsigned int *result) {
-  uint64_t v1; // r2
-  int v2; // r1
-  unsigned int v3; // r5
-  unsigned int v4; // r7
-  unsigned int v5; // r1
+  uint64_t middle_words; // r2
+  int carry_mask; // r1
+  unsigned int first_word; // r5
+  unsigned int last_word; // r7
+  unsigned int shifted_last_word; // r1
 
-  v1 = *(volatile uint64_t *)(result + 1);
-  v2 = dword_13CAA8;
-  v3 = *result;
-  v4 = result[3];
-  *result = dword_13CAA8 & (*result >> 15) | ((uint32_t)v1 << 17) & 0x1000000 | (2 * *result) & 0xFEFEFEFE;
-  v1 = (v1 & ~0xFFFFFFFFull) | ((uint32_t)((2 * v1) & 0xFEFEFEFE | v2 & ((unsigned int)v1 >> 15) | (HIDWORD(v1) << 17) & 0x1000000) & 0xFFFFFFFFu);
-  v1 = (v1 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)((2 * HIDWORD(v1)) & 0xFEFEFEFE | v2 & (HIDWORD(v1) >> 15) | (v4 << 17) & 0x1000000) << 32);
-  v5 = v2 & (v4 >> 15) | (2 * v4) & 0xFEFEFEFE;
-  *(volatile uint64_t *)(result + 1) = v1;
-  if ( (v3 & 0x80) != 0 )
-    v5 ^= 0x87000000;
-  result[3] = v5;
+  middle_words = *(volatile uint64_t *)(result + 1);
+  carry_mask = dword_13CAA8;
+  first_word = *result;
+  last_word = result[3];
+  *result = dword_13CAA8 & (*result >> 15) | ((uint32_t)middle_words << 17) & 0x1000000 | (2 * *result) & 0xFEFEFEFE;
+  middle_words = (middle_words & ~0xFFFFFFFFull) | ((uint32_t)((2 * middle_words) & 0xFEFEFEFE | carry_mask & ((unsigned int)middle_words >> 15) | (HIDWORD(middle_words) << 17) & 0x1000000) & 0xFFFFFFFFu);
+  middle_words = (middle_words & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)((2 * HIDWORD(middle_words)) & 0xFEFEFEFE | carry_mask & (HIDWORD(middle_words) >> 15) | (last_word << 17) & 0x1000000) << 32);
+  shifted_last_word = carry_mask & (last_word >> 15) | (2 * last_word) & 0xFEFEFEFE;
+  *(volatile uint64_t *)(result + 1) = middle_words;
+  if ( (first_word & 0x80) != 0 )
+    shifted_last_word ^= 0x87000000;
+  result[3] = shifted_last_word;
   return result;
 }
 

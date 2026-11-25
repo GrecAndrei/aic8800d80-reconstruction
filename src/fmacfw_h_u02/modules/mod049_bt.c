@@ -1,4 +1,5 @@
 // mem_alloc @ 0x1313d8
+/* luna: Copies 254 bytes from the source buffer to a global staging buffer, then writes a MAC header word using the two 16-bit arguments. */
 int mem_alloc(int a1, int a2, int16_t a3, int16_t a4) {
   memcpy((void *)(uintptr_t)(dword_1313F8), (void *)(uintptr_t)(a2), 254);
   mac_write_header_word(5123, a4, a3);
@@ -8,6 +9,7 @@ int mem_alloc(int a1, int a2, int16_t a3, int16_t a4) {
 
 
 // rf_check_channel @ 0x1313fc
+/* luna: Requests an allocation using the byte pointed to by `size_ptr` as its size, discards the returned pointer, and always returns zero. */
 int rf_check_channel(int a1, volatile uint8_t *a2) {
   ke_malloc_wrapper(*a2);
   return 0;
@@ -16,6 +18,7 @@ int rf_check_channel(int a1, volatile uint8_t *a2) {
 
 
 // parse_adv_report @ 0x131408
+/* luna: Updates per-entry status flags, emits an internal PDU when the update mode or entry state permits, and writes the supplied MAC header word. */
 int parse_adv_report(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   int v5; // r5
   int v6; // r8
@@ -65,6 +68,7 @@ LABEL_9:
 
 
 // handle_adv_report @ 0x1314c4
+/* luna: Updates the indexed advertising-report state, conditionally creates a follow-up packet for its associated connection, and writes a MAC header word. */
 int handle_adv_report(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   int v4; // r0
   int v7; // r4
@@ -98,6 +102,7 @@ int handle_adv_report(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
 
 
 // rx_mpdu_parse_header @ 0x131548
+/* luna: Queues a connection report using either caller-provided data or the active connection’s stored data, with an extra notification when only one connecti */
 int rx_mpdu_parse_header(int a1, volatile int *a2, int16_t a3, int16_t a4) {
   int v7; // r5
   int v8; // r4
@@ -174,6 +179,7 @@ LABEL_9:
 
 
 // bt_get_connection @ 0x131644
+/* luna: Validates and records the received frame-control value, or clears pending RX state and refreshes channel configuration when given the 0xFFFF sentinel. */
 int bt_get_connection(int a1, volatile uint8_t *a2) {
   int v3; // r5
   int v4; // r6

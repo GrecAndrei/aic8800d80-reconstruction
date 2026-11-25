@@ -1,4 +1,5 @@
 // rf_setup_channel @ 0x122044
+/* luna: Applies the supplied RF register configuration and RF byte settings, waits for hardware readiness, then returns an EDCA M0 transmit-event allocation. */
 int rf_setup_channel(int a1) {
   volatile int *v1; // r3
   int v2; // r6
@@ -57,6 +58,7 @@ LABEL_5:
 
 
 // rf_switch_channel @ 0x1220dc
+/* luna: Merges the supplied RF configuration into a register-value buffer, writes an RF register byte, updates switch state and timing fields, then allocates  */
 int rf_switch_channel(int a1) {
   int v1; // r4
   volatile int *v2; // r2
@@ -119,6 +121,7 @@ int rf_switch_channel(int a1) {
 
 
 // poll_rf_register_done @ 0x122180
+/* luna: Adds 15000 to each of six RF polling deadline entries selected by a global bitmask and returns the deadline array base. */
 int poll_rf_register_done() {
   volatile uint32_t *v0; // r1
   int result; // r0
@@ -330,6 +333,7 @@ LABEL_22:
 
 
 // send_hci_event @ 0x12249c
+/* luna: Allocates a two-byte HCI event payload, stores the supplied bytes, and submits it to the packet-processing pipeline. */
 int send_hci_event(char a1, char a2) {
   volatile uint8_t *v4; // r0
 
@@ -342,55 +346,56 @@ int send_hci_event(char a1, char a2) {
 
 
 // process_rx_packet @ 0x1224bc
+/* luna: Processes a received 802.11 beacon by checking its advertised channel, hashing information elements while excluding the TIM element, and forwarding it */
 int process_rx_packet(int a1, int a2, int a3, volatile int *a4) {
   int v4; // r7
-  int v5; // r11
-  int v6; // r9
+  int packet_len; // r11
+  int frame_data; // r9
   int v7; // r4
-  int v9; // r0
-  int v10; // r2
+  int channel_ie; // r0
+  int advertised_channel; // r2
   int v11; // r3
   volatile uint32_t *v12; // r3
   int v13; // r1
-  int v14; // r0
+  int frame_crc; // r0
   volatile int *v15; // r7
-  volatile uint8_t *v16; // r1
+  volatile uint8_t *ie_cursor; // r1
   int v17; // r8
-  unsigned int v18; // r4
-  int v19; // r5
+  unsigned int remaining_ie_len; // r4
+  int ie_len; // r5
   volatile uint8_t *v20; // r10
   int result; // r0
-  int v23; // [sp+10h] [bp-Ch]
+  int rssi; // [sp+10h] [bp-Ch]
   int v24; // [sp+10h] [bp-Ch]
-  int v25; // [sp+14h] [bp-8h]
+  int previous_crc; // [sp+14h] [bp-8h]
 
   v4 = a1;
-  v5 = *(volatile uint16_t *)(a1 + 28);
-  v6 = *(volatile uint32_t *)(*(volatile uint32_t *)(a1 + 8) + 8);
+  packet_len = *(volatile uint16_t *)(a1 + 28);
+  frame_data = *(volatile uint32_t *)(*(volatile uint32_t *)(a1 + 8) + 8);
   v7 = a2;
-  v25 = *(volatile uint32_t *)(a2 + 124);
-  v9 = (int)(uintptr_t)(test_arg2_one_12da20((void *)(uintptr_t)(v6 + 36), (uint16_t)(v5 - 36)));
-  if ( !v9 )
+  previous_crc = *(volatile uint32_t *)(a2 + 124);
+  channel_ie = (int)(uintptr_t)(test_arg2_one_12da20((void *)(uintptr_t)(frame_data + 36), (uint16_t)(packet_len - 36)));
+  if ( !channel_ie )
     goto LABEL_7;
-  v10 = *(volatile uint8_t *)(v9 + 2);
+  advertised_channel = *(volatile uint8_t *)(channel_ie + 2);
   v11 = *((volatile uint8_t *)off_122644 + 36);
   if ( !*((volatile uint8_t *)off_122644 + 36) )
   {
-    if ( (unsigned int)(v10 - 1) <= 0xD )
+    if ( (unsigned int)(advertised_channel - 1) <= 0xD )
     {
-      if ( v10 == 14 )
+      if ( advertised_channel == 14 )
         v11 = 2484;
       else
-        v11 = 5 * v10 + 2407;
+        v11 = 5 * advertised_channel + 2407;
     }
 LABEL_6:
     if ( *(volatile uint16_t *)(v7 + 414) != v11 )
       goto LABEL_8;
     goto LABEL_7;
   }
-  if ( v11 == 1 && (uint8_t)(v10 - 1) <= 0xB0u )
+  if ( v11 == 1 && (uint8_t)(advertised_channel - 1) <= 0xB0u )
   {
-    v11 = 5 * v10 + 5000;
+    v11 = 5 * advertised_channel + 5000;
     goto LABEL_6;
   }
   if ( !*(volatile uint16_t *)(v7 + 414) )
@@ -407,53 +412,54 @@ LABEL_8:
   *(volatile uint8_t *)(v7 + 141) = 1;
   if ( (int)(dword_12264C - v12[4] + *(volatile uint32_t *)(v7 + 120)) < 0 && !phy_is_channel_valid(*(volatile uint8_t *)(v7 + 116), 0, 0) )
     *(volatile uint32_t *)(v7 + 120) = *((volatile uint32_t *)off_122648 + 4);
-  v23 = *(volatile char *)(v4 + 45);
+  rssi = *(volatile char *)(v4 + 45);
   get_rf_field_lo();
-  v13 = v23;
+  v13 = rssi;
   if ( *((volatile uint8_t *)off_122650 + 17) == 1 )
   {
-    process_hci_packet((volatile uint32_t *)v7, v23);
-    v13 = v23;
+    process_hci_packet((volatile uint32_t *)v7, rssi);
+    v13 = rssi;
   }
   set_rf_tx_power_compensation((volatile uint8_t *)v7, v13);
-  v14 = crc32_update((void *)(uintptr_t)(v6 + 32), 4, 0);
+  frame_crc = crc32_update((void *)(uintptr_t)(frame_data + 32), 4, 0);
   *a4 = 0;
-  if ( (uint16_t)(v5 - 36) > 1u )
+  if ( (uint16_t)(packet_len - 36) > 1u )
   {
     v24 = v4;
     v15 = a4;
-    v16 = (volatile uint8_t *)(v6 + 36);
+    ie_cursor = (volatile uint8_t *)(frame_data + 36);
     v17 = v7;
-    v18 = (uint16_t)(v5 - 36);
+    remaining_ie_len = (uint16_t)(packet_len - 36);
     do
     {
-      v19 = (uint8_t)v16[1];
-      v20 = v16 + 2;
-      if ( v19 + 1 >= (int)v18 )
+      ie_len = (uint8_t)ie_cursor[1];
+      v20 = ie_cursor + 2;
+      if ( ie_len + 1 >= (int)remaining_ie_len )
         break;
-      if ( *v16 == 5 )
-        *v15 = (int)v16;
+      if ( *ie_cursor == 5 )
+        *v15 = (int)ie_cursor;
       else
-        v14 = crc32_update(v20, (uint8_t)v16[1], v14);
-      v18 = (uint16_t)(v18 + -2 - v19);
-      v16 = &v20[v19];
+        frame_crc = crc32_update(v20, (uint8_t)ie_cursor[1], frame_crc);
+      remaining_ie_len = (uint16_t)(remaining_ie_len + -2 - ie_len);
+      ie_cursor = &v20[ie_len];
     }
-    while ( v18 > 1 );
+    while ( remaining_ie_len > 1 );
     v7 = v17;
     a4 = v15;
     v4 = v24;
   }
-  *(volatile uint32_t *)(v7 + 124) = v14;
-  rx_packet_proc(v6, v5, v4, v7, a3, *a4);
+  *(volatile uint32_t *)(v7 + 124) = frame_crc;
+  rx_packet_proc(frame_data, packet_len, v4, v7, a3, *a4);
   result = hci_cmd_handler(4);
   if ( result != 1 )
-    return *(volatile uint32_t *)(v7 + 124) != v25;
+    return *(volatile uint32_t *)(v7 + 124) != previous_crc;
   return result;
 }
 
 
 
 // ll_get_state @ 0x122654
+/* luna: Polls the active channel scan, updates its channel-specific buffer, and advances or stops it when the poll limit is reached. */
 volatile char * ll_get_state(volatile char *result) {
   int v1; // r4
   int v2; // r6
@@ -527,6 +533,7 @@ volatile char *check_adv_enabled() {
 
 
 // get_rx_pdu @ 0x1227a8
+/* luna: Counts linked PDU entries in eligible receive-queue records, returning zero if any record’s abort flag is set. */
 int get_rx_pdu() {
   volatile int *v0; // r2
   int result; // r0
@@ -565,6 +572,7 @@ int get_rx_pdu() {
 
 
 // send_hci_command_status @ 0x1227f0
+/* luna: Creates a type-11 transmit PDU, stores the result of `ke_send_msg` in its first byte, and passes it to the packet processor. */
 int send_hci_command_status(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v5; // r4
 

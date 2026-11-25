@@ -1,4 +1,5 @@
 // handle_radio_event @ 0x10d2d4
+/* luna: Programs and arms the selected RF event slot, reusing its current context when possible and initializing the slot otherwise. */
 int handle_radio_event(int a1, int a2, int a3) {
   volatile int *v6; // r1
   int result; // r0
@@ -71,6 +72,7 @@ if ( v10 && (((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 3] & 0x800)
 
 
 // handle_rf_status @ 0x10d46c
+/* luna: Reads RF status, acknowledges indicated status bits, and disables the global IRQ mask when status bit 0x400 is set. */
 int handle_rf_status() {
   int v0; // r3
   int result; // r0
@@ -89,6 +91,7 @@ int handle_rf_status() {
 
 
 // configure_radio @ 0x10d494
+/* luna: Initializes the radio register block when its control bit is clear, sets required control bits, and writes fixed values to associated RF registers. */
 int configure_radio() {
   volatile unsigned int *v0; // r2
   unsigned int v1; // r3
@@ -117,6 +120,7 @@ int configure_radio() {
 
 
 // enable_irq @ 0x10d4e8
+/* luna: Enables the radio peripheral interrupt source and unmasks its NVIC interrupt (IRQ 21). */
 void enable_irq() {
   volatile uint32_t *v0; // r3
 
@@ -128,6 +132,7 @@ void enable_irq() {
 
 
 // kernel_schedule_check @ 0x10d508
+/* luna: Configures RF timing hardware, deriving divider fields from a signed timing parameter when its sign bit selects divider mode. */
 void kernel_schedule_check() {
   int v0; // r3
   volatile uint32_t *v1; // r5
@@ -231,6 +236,7 @@ LABEL_7:
 
 
 // system_ready_check @ 0x10d634
+/* luna: Invokes the kernel scheduler check when the volatile system-ready value is zero. */
 void system_ready_check() {
   if ( !*(volatile uint32_t *)off_10D640 )
     kernel_schedule_check();
@@ -239,6 +245,7 @@ void system_ready_check() {
 
 
 // nvic_disable_irq15 @ 0x10d644
+/* luna: Disables NVIC interrupt 15 and synchronizes the change with data and instruction barriers. */
 void nvic_disable_irq15() {
   *((volatile uint32_t *)off_10D658 + 32) = 0x8000;
   __dsb(0xFu);
@@ -248,6 +255,7 @@ void nvic_disable_irq15() {
 
 
 // radio_tx_write_byte @ 0x10d65c
+/* luna: Waits until the radio transmit register is ready, writes a byte value, and returns that value. */
 int radio_tx_write_byte(int result) {
   while ( (*(volatile uint32_t *)off_10D66C & 0x80000) != 0 )
     ;
@@ -258,26 +266,27 @@ int radio_tx_write_byte(int result) {
 
 
 // radio_tx_write_string @ 0x10d674
+/* luna: Writes a null-terminated byte string to the radio transmit register, polling until the transmit status bit clears before each byte, and returns a poin */
 volatile uint8_t * radio_tx_write_string(volatile uint8_t *result) {
-  int v1; // r1
-  volatile uint32_t *v2; // r2
-  volatile uint32_t *v3; // r4
-  int v4; // t1
+  int current_byte; // r1
+  volatile uint32_t *tx_status_reg; // r2
+  volatile uint32_t *tx_data_reg; // r4
+  int next_byte; // t1
 
-  v1 = (uint8_t)*result;
+  current_byte = (uint8_t)*result;
   if ( *result )
   {
-    v2 = (void *)(uintptr_t)(off_10D698);
-    v3 = (void *)(uintptr_t)(off_10D69C);
+    tx_status_reg = (void *)(uintptr_t)(off_10D698);
+    tx_data_reg = (void *)(uintptr_t)(off_10D69C);
     do
     {
-      while ( (*v2 & 0x80000) != 0 )
+      while ( (*tx_status_reg & 0x80000) != 0 )
         ;
-      *v3 = v1;
-      v4 = (uint8_t)*++result;
-      v1 = v4;
+      *tx_data_reg = current_byte;
+      next_byte = (uint8_t)*++result;
+      current_byte = next_byte;
     }
-    while ( v4 );
+    while ( next_byte );
   }
   return result;
 }
@@ -285,6 +294,7 @@ volatile uint8_t * radio_tx_write_string(volatile uint8_t *result) {
 
 
 // radio_rx_read_byte @ 0x10d6a0
+/* luna: Waits until the radio receive-ready bit is set, then returns the received byte. */
 int radio_rx_read_byte() {
   while ( (*(volatile uint32_t *)off_10D6B0 & 1) == 0 )
     ;
@@ -294,6 +304,7 @@ int radio_rx_read_byte() {
 
 
 // radio_rx_status @ 0x10d6b8
+/* luna: Returns bit 0 of the radio receive status register, indicating whether receive data is ready. */
 int radio_rx_status() {
   return *(volatile uint32_t *)off_10D6C4 & 1;
 }
@@ -301,6 +312,7 @@ int radio_rx_status() {
 
 
 // stack_struct_init @ 0x10d6c8
+/* luna: Receives up to 256 bytes into a temporary buffer and processes the payload through the radio interface. */
 int stack_struct_init(volatile uint8_t *a1, volatile unsigned int *a2) {
   volatile uint32_t *v2; // r4
   unsigned int CPSR; // r6
@@ -690,6 +702,7 @@ LABEL_48:
 
 
 // debug_printf @ 0x10dae4
+/* luna: Forwards a variadic debug-format string and its argument list to the stack formatter. */
 int debug_printf(const volatile char *fmt, ...) {
   va_list varg_r1; // [sp+14h] [bp+8h] BYREF
 
@@ -699,40 +712,41 @@ int debug_printf(const volatile char *fmt, ...) {
 
 
 // rf_irq_pending @ 0x10db00
+/* luna: Dispatches pending RF interrupts for indices 0–7, acknowledging each interrupt before invoking its registered handler. */
 void rf_irq_pending() {
-  volatile uint32_t *v0; // r4
-  unsigned int v1; // r3
-  signed int v2; // r3
-  int v3; // r6
-  int v4; // r0
-  unsigned int v5; // r2
-  void ( *v6)(int); // r1
+  volatile uint32_t *irq_registers; // r4
+  unsigned int initial_pending_mask; // r3
+  signed int irq_index; // r3
+  int handler_table; // r6
+  int callback_status; // r0
+  unsigned int pending_mask; // r2
+  void ( *irq_handler)(int); // r1
 
-  v0 = (void *)(uintptr_t)(off_10DB5C);
-  v1 = *((volatile uint32_t *)off_10DB5C + 8);
-  if ( v1 )
+  irq_registers = (void *)(uintptr_t)(off_10DB5C);
+  initial_pending_mask = *((volatile uint32_t *)off_10DB5C + 8);
+  if ( initial_pending_mask )
   {
-    v2 = 31 - __clz(v1);
-    if ( v2 <= 7 )
+    irq_index = 31 - __clz(initial_pending_mask);
+    if ( irq_index <= 7 )
     {
-      v3 = dword_10DB60;
+      handler_table = dword_10DB60;
       do
       {
-        v0[9] = 1 << v2;
+        irq_registers[9] = 1 << irq_index;
         __isb(0xFu);
-        v6 = *(void ( **)(int))(v3 + 4 * v2);
-        if ( v6 )
+        irq_handler = *(void ( **)(int))(handler_table + 4 * irq_index);
+        if ( irq_handler )
         {
-          if ( ((v0[4] >> v2) & 1) != 0 )
-            v4 = 2;
+          if ( ((irq_registers[4] >> irq_index) & 1) != 0 )
+            callback_status = 2;
           else
-            v4 = ((v0[5] >> v2) & 1) == 0;
-          v6(v4 | (v2 << 16));
+            callback_status = ((irq_registers[5] >> irq_index) & 1) == 0;
+          irq_handler(callback_status | (irq_index << 16));
         }
-        v5 = v0[8];
-        v2 = 31 - __clz(v5);
+        pending_mask = irq_registers[8];
+        irq_index = 31 - __clz(pending_mask);
       }
-      while ( v5 && v2 <= 7 );
+      while ( pending_mask && irq_index <= 7 );
     }
   }
 }
@@ -740,6 +754,7 @@ void rf_irq_pending() {
 
 
 // rf_irq_clear @ 0x10db64
+/* luna: For RF interrupt indices 0–7, clears the corresponding register’s low four bits and sets that index’s bit in a separate control word. */
 int rf_irq_clear(int result) {
   volatile uint32_t *v1; // r1
 
@@ -756,6 +771,7 @@ int rf_irq_clear(int result) {
 
 
 // rf_irq_disable @ 0x10db94
+/* luna: Clears the selected RF interrupt-enable bit and returns its bit mask. */
 int rf_irq_disable(char a1) {
   int result; // r0
 
@@ -767,6 +783,7 @@ int rf_irq_disable(char a1) {
 
 
 // gpio_set_pin @ 0x10dbac
+/* luna: Sets the bit for the specified GPIO pin in a memory-mapped register and returns the updated register value. */
 int gpio_set_pin(char a1) {
   int result; // r0
 
@@ -778,6 +795,7 @@ int gpio_set_pin(char a1) {
 
 
 // mmio_set_bit_1 @ 0x10dbc0
+/* luna: Sets the bit at the given index in a fixed memory-mapped register and returns the updated register value. */
 int mmio_set_bit_1(char a1) {
   int result; // r0
 
@@ -789,6 +807,7 @@ int mmio_set_bit_1(char a1) {
 
 
 // mmio_clear_bit_1 @ 0x10dbd4
+/* luna: Clears the bit at the specified index in a fixed volatile register and returns its bit mask. */
 int mmio_clear_bit_1(char a1) {
   int result; // r0
 
@@ -800,6 +819,7 @@ int mmio_clear_bit_1(char a1) {
 
 
 // mmio_get_bit @ 0x10dbec
+/* luna: Returns whether the bit selected by bit_index is set in a fixed volatile MMIO register. */
 BOOL mmio_get_bit(char a1) {
   return ((1 << a1) & *(volatile uint32_t *)off_10DC00) != 0;
 }
@@ -807,6 +827,7 @@ BOOL mmio_get_bit(char a1) {
 
 
 // make_bit_mask @ 0x10dc04
+/* luna: Configures RF control masks for a bit index, stores its associated value, and initializes the shared RF interface if it is not already initialized. */
 int make_bit_mask(int result, int a2, int a3) {
   int v3; // r4
   volatile uint32_t *v4; // r6
@@ -860,6 +881,7 @@ int make_bit_mask(int result, int a2, int a3) {
 
 
 // ptr_add_12 @ 0x10dcc8
+/* luna: Sets bit 2 when the control byte at offset 369 is nonzero and clears it otherwise. */
 int ptr_add_12() {
   if ( *((volatile uint8_t *)off_10DCDC + 369) )
     return mmio_set_bit_1(2);
@@ -870,6 +892,7 @@ int ptr_add_12() {
 
 
 // ptr_add_12_alt @ 0x10dce0
+/* luna: Sets or clears MMIO bit 1 according to the byte flag at offset 369 from the referenced base address. */
 int ptr_add_12_alt() {
   if ( *((volatile uint8_t *)off_10DCF4 + 369) )
     return mmio_set_bit_1(1);
@@ -880,6 +903,7 @@ int ptr_add_12_alt() {
 
 
 // rf_table_lookup @ 0x10dcf8
+/* luna: For wakeup subtype 3, selects the radio mode from the BT-wakeup status and updates RF bit 2 from a configuration flag. */
 int rf_table_lookup(int a1) {
   int v1; // r4
   int result; // r0
@@ -911,6 +935,7 @@ int rf_table_lookup(int a1) {
 
 
 // rf_chain_enable @ 0x10dd54
+/* luna: Initializes RF GPIO pins 1 and 2, applies their configured MMIO state, and disables RF interrupt 3. */
 int rf_chain_enable() {
   volatile uint32_t *v0; // r1
   volatile uint32_t *v1; // r3
@@ -945,12 +970,14 @@ int rf_chain_enable() {
 
 
 // nullsub_1 @ 0x10ddcc
+/* luna: Returns zero without performing any operation. */
 int nullsub_1(void) {
   return 0;
 }
 
 
 // nullsub_2 @ 0x10ddd0
+/* luna: RF placeholder that performs no work and returns zero. */
 int nullsub_2(void) {
   return 0;
 }
@@ -963,6 +990,7 @@ int nullsub_3(void) {
 
 
 // rf_table_update @ 0x10ddd8
+/* luna: Sets bits 3:2 in each of 16 registers spaced 12 bytes apart, then calls uart_send_data with the global data buffer. */
 int rf_table_update(int a1) {
   int v1; // r2
   int v2; // r0
@@ -983,6 +1011,7 @@ int rf_table_update(int a1) {
 
 
 // hw_block_disable @ 0x10de08
+/* luna: Configures and triggers the hardware block's disable operation, waits for completion, acknowledges the status flag, and returns the processed result r */
 unsigned int hw_block_disable() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r3
@@ -1015,6 +1044,7 @@ unsigned int hw_block_disable() {
 
 
 // hw_block_reset @ 0x10deb0
+/* luna: Applies the block reset and configuration sequence, writes a fixed value to an auxiliary register, enables the block, and returns its previous control */
 int hw_block_reset() {
   volatile uint32_t *v0; // r3
   volatile uint32_t *v1; // r0
@@ -1039,6 +1069,7 @@ int hw_block_reset() {
 
 
 // hw_poll_status @ 0x10df08
+/* luna: Waits until the control word at offset 0x1c equals 1, writes 1 back, and returns an integer derived from the word at offset 0x10. */
 unsigned int hw_poll_status() {
   volatile uint32_t *v0; // r3
   uint64_t v1; // r0
@@ -1059,6 +1090,7 @@ unsigned int hw_poll_status() {
 
 
 // hw_block_enable @ 0x10df70
+/* luna: Requests RF table updates for stages 1–3, reads two mailbox values, and computes a validation result from them. */
 int hw_block_enable() {
   volatile uint32_t *v0; // r5
   uint64_t v1; // r0
@@ -1135,6 +1167,7 @@ int hw_block_enable() {
 
 
 // hw_ctrl_set @ 0x10e0a8
+/* luna: Writes 1 to the control word, waits for the status word to become 1 and acknowledges it, then returns a computed value derived from the word at offset */
 int hw_ctrl_set() {
   volatile uint32_t *v0; // r2
   uint64_t v1; // r0
@@ -1179,6 +1212,7 @@ int hw_ctrl_set() {
 
 
 // rf_hw_init @ 0x10e160
+/* luna: Initializes RF control registers and adjusts the measured voltage toward a 1400 mV target. */
 int rf_hw_init() {
   int v0; // r3
   volatile uint32_t *v1; // r4
@@ -1352,6 +1386,7 @@ LABEL_28:
 
 
 // rf_hw_init_alt @ 0x10e420
+/* luna: Samples the RF core voltage and adjusts its regulator trim toward an 840 mV target using hardware feedback. */
 int rf_hw_init_alt() {
   volatile uint32_t *v0; // r1
   int v1; // r3
@@ -1533,25 +1568,26 @@ LABEL_33:
 
 
 // gpio_mode_set @ 0x10e6fc
+/* luna: Tunes the RF resistor and CGM codes toward the target PA current, returns the signed adjustment count, and stores the final CGM code through the outpu */
 int gpio_mode_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
-  unsigned int v3; // r4
+  unsigned int cgm_code; // r4
   volatile unsigned int *v4; // r6
   volatile unsigned int *v5; // r5
   volatile int16_t *v8; // r5
-  int v9; // r10
-  int v10; // r2
+  int measured_i_pa; // r10
+  int target_i_pa; // r2
   volatile unsigned int *v11; // r7
   volatile unsigned int *v12; // r6
-  unsigned int v13; // r11
+  unsigned int res_code; // r11
   int v14; // r8
   int v15; // r9
   int v16; // r2
   int v17; // r0
   int v18; // r2
-  int v20; // r5
+  int adjustment_steps; // r5
   unsigned int v21; // [sp+Ch] [bp-20h]
   unsigned int v22; // [sp+10h] [bp-1Ch]
-  int v23; // [sp+14h] [bp-18h]
+  int adjustment_direction; // [sp+14h] [bp-18h]
   unsigned int v24; // [sp+18h] [bp-14h]
   unsigned int v25; // [sp+1Ch] [bp-10h]
 
@@ -1562,46 +1598,46 @@ int gpio_mode_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
   v8 = (volatile int16_t *)off_10E8A4;
-  v9 = hw_block_enable();
-  alloc_tx_event("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, v9, *v8);
-  v10 = *v8;
-  if ( v10 > v9 )
+  measured_i_pa = hw_block_enable();
+  alloc_tx_event("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, measured_i_pa, *v8);
+  target_i_pa = *v8;
+  if ( target_i_pa > measured_i_pa )
   {
-    v23 = 1;
+    adjustment_direction = 1;
   }
   else
   {
-    if ( v10 >= v9 )
+    if ( target_i_pa >= measured_i_pa )
     {
-      v20 = 0;
+      adjustment_steps = 0;
       goto LABEL_9;
     }
-    v23 = -1;
+    adjustment_direction = -1;
   }
-  v3 = a2;
+  cgm_code = a2;
   v11 = (volatile unsigned int *)off_10E89C;
   v12 = (volatile unsigned int *)off_10E8A0;
   v21 = a1;
   v22 = a1 + a2;
-  v13 = a1;
+  res_code = a1;
   v14 = 7;
-  v20 = 0;
+  adjustment_steps = 0;
   while ( 1 )
   {
-    v24 = v13;
-    v20 += v23;
-    v13 = __usat(3u, v21 + v20);
-    *v11 = *v11 & 0xFFFFFFF8 | v13;
-    *v12 = *v12 & 0xFFFF8FFF | (v13 << 12);
-    v25 = v3;
-    v3 = __usat(4u, v22 + v20 - v13);
-    *v11 = *v11 & 0xFFFFFF87 | (8 * v3);
-    *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
-    v15 = v9;
-    v9 = hw_block_enable();
-    alloc_tx_event("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", v13, v3, v9);
+    v24 = res_code;
+    adjustment_steps += adjustment_direction;
+    res_code = __usat(3u, v21 + adjustment_steps);
+    *v11 = *v11 & 0xFFFFFFF8 | res_code;
+    *v12 = *v12 & 0xFFFF8FFF | (res_code << 12);
+    v25 = cgm_code;
+    cgm_code = __usat(4u, v22 + adjustment_steps - res_code);
+    *v11 = *v11 & 0xFFFFFF87 | (8 * cgm_code);
+    *v12 = *v12 & 0xFFF87FFF | (cgm_code << 15);
+    v15 = measured_i_pa;
+    measured_i_pa = hw_block_enable();
+    alloc_tx_event("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", res_code, cgm_code, measured_i_pa);
     v16 = *(volatile int16_t *)off_10E8A4;
-    v17 = v9 - v16;
+    v17 = measured_i_pa - v16;
     v18 = v15 - v16;
     if ( v18 * v17 <= 0 )
       break;
@@ -1614,114 +1650,116 @@ int gpio_mode_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
     v17 = -v17;
   if ( v18 <= v17 )
   {
-    v3 = v25;
+    cgm_code = v25;
     *v11 = *v11 & 0xFFFFFFF8 | v24 & 7;
     *v12 = (v24 << 12) & 0x7000 | *v12 & 0xFFFF8FFF;
     *v11 = (8 * v25) & 0x78 | *v11 & 0xFFFFFF87;
-    v9 = v15;
-    v13 = v24;
+    measured_i_pa = v15;
+    res_code = v24;
     *v12 = (v25 << 15) & 0x78000 | *v12 & 0xFFF87FFF;
   }
-  alloc_tx_event("cal done, offset_res=%d,(%d,%d), i_pa_res=%d\n", v20, v13 - v21, v3 - a2, v9);
+  alloc_tx_event("cal done, offset_res=%d,(%d,%d), i_pa_res=%d\n", adjustment_steps, res_code - v21, cgm_code - a2, measured_i_pa);
 LABEL_9:
-  *a3 = v3;
-  return v20;
+  *a3 = cgm_code;
+  return adjustment_steps;
 }
 
 
 // gpio_pad_ctrl_set @ 0x10e8b4
+/* luna: Sweeps the RF PA control code to find the setting whose measured PA current is closest to the target, returning the selected code's offset from the in */
 int gpio_pad_ctrl_set(int a1) {
-  volatile int16_t *v1; // r9
-  int v2; // r7
-  int v3; // r5
+  volatile int16_t *target_pa_current_ptr; // r9
+  int current_control_code; // r7
+  int previous_pa_current; // r5
   int v4; // r3
-  volatile unsigned int *v5; // r8
+  volatile unsigned int *control_register; // r8
   int v6; // r6
-  int v7; // r10
+  int control_code_offset; // r10
   int v8; // r2
-  int v9; // r4
+  int measured_pa_current; // r4
   int v10; // r3
   int v11; // r0
   int v12; // r3
   int v14; // r1
   int v15; // r2
-  int v16; // [sp+0h] [bp-Ch]
-  int v17; // [sp+4h] [bp-8h]
+  int sweep_direction; // [sp+0h] [bp-Ch]
+  int initial_control_code; // [sp+4h] [bp-8h]
 
-  v1 = (volatile int16_t *)off_10E9D0;
+  target_pa_current_ptr = (volatile int16_t *)off_10E9D0;
   *(volatile uint32_t *)off_10E9C4 = (a1 << 26) & 0x1C000000 | *(volatile uint32_t *)off_10E9C4 & 0xE3FFFFFF;
-  v2 = a1;
-  v3 = hw_ctrl_set();
-  alloc_tx_event("cal start, reg_init=%d, i_pa_init=%d, i_pa_target=%d\n", v2, v3, *v1);
-  v4 = *v1;
-  if ( v4 > v3 )
+  current_control_code = a1;
+  previous_pa_current = hw_ctrl_set();
+  alloc_tx_event("cal start, reg_init=%d, i_pa_init=%d, i_pa_target=%d\n", current_control_code, previous_pa_current, *target_pa_current_ptr);
+  v4 = *target_pa_current_ptr;
+  if ( v4 > previous_pa_current )
   {
-    v16 = 1;
+    sweep_direction = 1;
   }
   else
   {
-    if ( v4 >= v3 )
+    if ( v4 >= previous_pa_current )
       return 0;
-    v16 = -1;
+    sweep_direction = -1;
   }
-  v5 = (volatile unsigned int *)off_10E9C4;
-  v17 = v2;
+  control_register = (volatile unsigned int *)off_10E9C4;
+  initial_control_code = current_control_code;
   v6 = 4;
-  v7 = 0;
+  control_code_offset = 0;
   while ( 1 )
   {
-    v2 += v16;
-    if ( v2 <= 7 )
+    current_control_code += sweep_direction;
+    if ( current_control_code <= 7 )
     {
-      if ( v2 < 0 )
+      if ( current_control_code < 0 )
       {
-        v2 = 0;
+        current_control_code = 0;
         v8 = 0;
-        v7 = -v17;
+        control_code_offset = -initial_control_code;
       }
       else
       {
-        v8 = v2 << 26;
-        v7 += v16;
+        v8 = current_control_code << 26;
+        control_code_offset += sweep_direction;
       }
     }
     else
     {
       v8 = 469762048;
-      v7 = 7 - v17;
-      v2 = 7;
+      control_code_offset = 7 - initial_control_code;
+      current_control_code = 7;
     }
-    *v5 = *v5 & 0xE3FFFFFF | v8;
-    v9 = hw_ctrl_set();
-    alloc_tx_event("reg_val=%d, i_pa=%d\n", v2, v9);
-    v10 = *v1;
-    v11 = v9 - v10;
-    v12 = v3 - v10;
+    *control_register = *control_register & 0xE3FFFFFF | v8;
+    measured_pa_current = hw_ctrl_set();
+    alloc_tx_event("reg_val=%d, i_pa=%d\n", current_control_code, measured_pa_current);
+    v10 = *target_pa_current_ptr;
+    v11 = measured_pa_current - v10;
+    v12 = previous_pa_current - v10;
     if ( v12 * v11 <= 0 )
       break;
     --v6;
-    v3 = v9;
+    previous_pa_current = measured_pa_current;
     if ( !v6 )
-      return v7;
+      return control_code_offset;
   }
   v14 = v12;
   if ( v12 < 0 )
     v14 = -v12;
   if ( v11 < 0 )
     v11 = -v11;
-  v15 = v9;
+  v15 = measured_pa_current;
   if ( v14 <= v11 )
   {
-    v7 -= v16;
-    v15 = v3;
-    *v5 = ((v2 - v16) << 26) & 0x1C000000 | *v5 & 0xE3FFFFFF;
+    control_code_offset -= sweep_direction;
+    v15 = previous_pa_current;
+    *control_register = ((current_control_code - sweep_direction) << 26) & 0x1C000000 | *control_register & 0xE3FFFFFF;
   }
-  alloc_tx_event("cal done, offset_res=%d, i_pa_res=%d\n", v7, v15);
-  return v7;
+  alloc_tx_event("cal done, offset_res=%d, i_pa_res=%d\n", control_code_offset, v15);
+  return control_code_offset;
 }
 
 
 // rf_gpio_init @ 0x10e9d8
+/* luna: Temporarily enables the RF GPIO control path, applies GPIO mode 8 using the supplied configuration, and restores the temporary control bits. */
 int rf_gpio_init(int a1) {
   volatile uint32_t *v1; // r2
   int v2; // r7
@@ -1781,8 +1819,9 @@ int rf_gpio_init(int a1) {
 
 
 // rf_gpio_init_alt @ 0x10eb04
+/* luna: Performs the alternate RF GPIO setup sequence, configures GPIO pad 4, and restores the saved control-register bits. */
 int rf_gpio_init_alt() {
-  volatile unsigned int *v0; // r4
+  volatile unsigned int *rf_gpio_ctrl_reg; // r4
   int v1; // r2
   int v2; // r0
   int v3; // r3
@@ -1792,15 +1831,15 @@ int rf_gpio_init_alt() {
   int v7; // r5
   volatile int *v8; // r2
   int v9; // r1
-  unsigned int v10; // r8
-  unsigned int v11; // r7
-  unsigned int v12; // r6
-  unsigned int v13; // r5
+  unsigned int saved_ctrl_reg_value_1; // r8
+  unsigned int saved_ctrl_reg_value_2; // r7
+  unsigned int saved_ctrl_reg_value_3; // r6
+  unsigned int saved_ctrl_reg_value_4; // r5
   int result; // r0
   struct __attribute__((packed)) { int a6[2]; // [sp+4h] [bp-Ch] BYREF
   int16_t v16; // [sp+Ch] [bp-4h]
   } _frame;
-  v0 = (volatile unsigned int *)off_10EC04;
+  rf_gpio_ctrl_reg = (volatile unsigned int *)off_10EC04;
   v1 = off_10EC08;
   v2 = dword_10EC0C;
   v3 = dword_10EC10;
@@ -1819,29 +1858,30 @@ int rf_gpio_init_alt() {
   check_boot_flag((volatile uint16_t *)_frame.a6, 0);
   v8 = (volatile int *)off_10EC1C;
   v9 = dword_10EC20;
-  v0 += 593954;
+  rf_gpio_ctrl_reg += 593954;
   *v6 |= 0x80000000;
   *v8 = v9;
-  v10 = *v0;
-  v11 = *v0;
-  v12 = *v0;
-  v13 = *v0;
-  *v0 &= ~0x80000u;
-  *v0 |= 0x100000u;
-  *v0 |= 0x200000u;
-  *v0 |= 0x400000u;
+  saved_ctrl_reg_value_1 = *rf_gpio_ctrl_reg;
+  saved_ctrl_reg_value_2 = *rf_gpio_ctrl_reg;
+  saved_ctrl_reg_value_3 = *rf_gpio_ctrl_reg;
+  saved_ctrl_reg_value_4 = *rf_gpio_ctrl_reg;
+  *rf_gpio_ctrl_reg &= ~0x80000u;
+  *rf_gpio_ctrl_reg |= 0x100000u;
+  *rf_gpio_ctrl_reg |= 0x200000u;
+  *rf_gpio_ctrl_reg |= 0x400000u;
   result = gpio_pad_ctrl_set(4);
   *v6 &= ~0x80000000;
   *v4 &= ~0x20000000u;
-  *v0 = v10 & 0x80000 | *v0 & 0xFFF7FFFF;
-  *v0 = v11 & 0x100000 | *v0 & 0xFFEFFFFF;
-  *v0 = v12 & 0x200000 | *v0 & 0xFFDFFFFF;
-  *v0 = v13 & 0x400000 | *v0 & 0xFFBFFFFF;
+  *rf_gpio_ctrl_reg = saved_ctrl_reg_value_1 & 0x80000 | *rf_gpio_ctrl_reg & 0xFFF7FFFF;
+  *rf_gpio_ctrl_reg = saved_ctrl_reg_value_2 & 0x100000 | *rf_gpio_ctrl_reg & 0xFFEFFFFF;
+  *rf_gpio_ctrl_reg = saved_ctrl_reg_value_3 & 0x200000 | *rf_gpio_ctrl_reg & 0xFFDFFFFF;
+  *rf_gpio_ctrl_reg = saved_ctrl_reg_value_4 & 0x400000 | *rf_gpio_ctrl_reg & 0xFFBFFFFF;
   return result;
 }
 
 
 // call_patch_hook_0 @ 0x10ec2c
+/* luna: Calls the no-argument function pointer stored at MEMD offset 0x1B0 and returns its result. */
 int call_patch_hook_0() {
   return ((int (*)())MEMD(0x1B0))();
 }
@@ -1849,6 +1889,7 @@ int call_patch_hook_0() {
 
 
 // call_patch_hook_1 @ 0x10ec34
+/* luna: Calls the function pointer stored at address 0x1B4 and returns its result. */
 int call_patch_hook_1() {
   return ((int (*)())MEMD(0x1B4))();
 }
@@ -1856,6 +1897,7 @@ int call_patch_hook_1() {
 
 
 // call_patch_hook_2 @ 0x10ec3c
+/* luna: Calls the function pointer stored at memory-data address 0x1B8 and returns its result. */
 int call_patch_hook_2() {
   return ((int (*)())MEMD(0x1B8))();
 }
@@ -1863,6 +1905,7 @@ int call_patch_hook_2() {
 
 
 // mmio_read32_1 @ 0x10ec44
+/* luna: Invokes the patched MMIO read under a nested IRQ-restoring guard, optionally waiting for and signaling a shared readiness flag. */
 int mmio_read32_1(int a1, int a2) {
   volatile int *v2; // r5
   volatile uint32_t *v3; // r4
@@ -1906,6 +1949,7 @@ int mmio_read32_1(int a1, int a2) {
 
 
 // mmio_read32_variant @ 0x10ec98
+/* luna: Invokes patch hook 1 inside a nest-counted interrupt guard, optionally waiting for a shared flag to become nonzero before the call. */
 int mmio_read32_variant(int a1, int a2, int a3) {
   volatile int *v3; // r5
   volatile uint32_t *v4; // r4

@@ -1,4 +1,5 @@
 // llc_state_reset @ 0x12723c
+/* luna: Resets shared LLC bookkeeping under interrupt protection, then conditionally handles state-specific events and IPC notifications for the supplied cont */
 int llc_state_reset(int a1, int a2) {
   volatile uint8_t *v2; // r4
   volatile uint32_t *v5; // r2
@@ -213,6 +214,7 @@ LABEL_8:
 
 
 // llc_version_read @ 0x127528
+/* luna: Handles a channel-timer switch by reconciling the current and pending descriptors and advancing the selected descriptor's state. */
 int llc_version_read(volatile uint32_t *a1) {
   volatile int16_t **v1; // r7
   volatile uint8_t *v2; // r6
@@ -464,6 +466,7 @@ LABEL_14:
 
 
 // llc_obj_release @ 0x127788
+/* luna: Refreshes the connection's RF readiness value, passes it to low-level RF processing, and updates a connection flag. */
 int llc_obj_release(int a1) {
   int v2; // r0
   int result; // r0
@@ -478,6 +481,7 @@ int llc_obj_release(int a1) {
 
 
 // llc_buf_advance @ 0x1277b0
+/* luna: Copies the pending payload into the LLC event buffer, clears a status flag, and saves the receive event, optionally dispatching a matching transmit ev */
 int llc_buf_advance(int a1) {
   int result; // r0
   char v3; // r3
@@ -506,6 +510,7 @@ int llc_buf_advance(int a1) {
 
 
 // llc_env_by_conhdl @ 0x127818
+/* luna: Checks calibration for the indexed link, records its signed offset, and may derive a shared compensation from matching peer offsets. */
 int llc_env_by_conhdl(int result, int16_t a2) {
   int v2; // r8
   int v3; // r7
@@ -579,6 +584,7 @@ LABEL_16:
 
 
 // llc_env_init @ 0x1278dc
+/* luna: Initializes the LLC environment, resets its per-entry state and statistics buffers, and installs static environment pointers. */
 int llc_env_init() {
   volatile int *v0; // r7
   void *v1; // r6
@@ -628,6 +634,7 @@ LABEL_4:
 
 
 // wifi_disable_get @ 0x127990
+/* luna: Copies the supplied Wi-Fi disable parameters into CFM state, marks the operation active, sets a related control flag, and returns LLC flag bit 4. */
 int wifi_disable_get(volatile int16_t *a1, int a2, char a3) {
   volatile uint8_t *v3; // r4
   int16_t v7; // r3
@@ -656,10 +663,11 @@ int wifi_disable_get(volatile int16_t *a1, int a2, char a3) {
 
 
 // cfm_event_handler @ 0x127a1c
+/* luna: Processes remain-on-channel events, updating ROC state, posting IPC notifications, and clearing associated radio state. */
 int cfm_event_handler(volatile uint8_t *a1, int a2) {
-  volatile uint8_t *v2; // r7
-  int v5; // r5
-  unsigned int v6; // r3
+  volatile uint8_t *roc_context; // r7
+  int event_status; // r5
+  unsigned int roc_state; // r3
   volatile uint32_t *v7; // r8
   char v8; // r3
   volatile uint8_t *v10; // r8
@@ -667,25 +675,25 @@ int cfm_event_handler(volatile uint8_t *a1, int a2) {
   volatile uint32_t *v12; // r0
   volatile uint8_t *v13; // r2
   int16_t v14; // r1
-  unsigned int v15; // r1
-  int v16; // r2
+  unsigned int event_duration; // r1
+  int adjusted_duration_ms; // r2
   int v17; // r0
   volatile uint32_t *v18; // r0
 
-  v2 = (void *)(uintptr_t)(off_127BDC);
+  roc_context = (void *)(uintptr_t)(off_127BDC);
   check_feature_flag(8, "roc: %d, dur=%d, st=%d\r\n", *a1, *((volatile uint32_t *)a1 + 3), *((volatile uint8_t *)off_127BDC + 128));
-  v5 = *a1;
+  event_status = *a1;
   if ( *a1 )
   {
-    if ( v5 == 1 )
+    if ( event_status == 1 )
     {
-      if ( (uint8_t)v2[136] == 255 )
+      if ( (uint8_t)roc_context[136] == 255 )
         return 0;
-      v6 = (uint8_t)v2[128];
+      roc_state = (uint8_t)roc_context[128];
       v7 = (void *)(uintptr_t)(off_127BF0);
-      if ( v6 > 3 )
+      if ( roc_state > 3 )
       {
-        if ( v6 == 4 )
+        if ( roc_state == 4 )
         {
           mem_set_util((int)(uintptr_t)((volatile uint32_t *)off_127BF0 + 16));
           v12 = (volatile uint32_t *)v7[8];
@@ -693,13 +701,13 @@ int cfm_event_handler(volatile uint8_t *a1, int a2) {
           llc_version_read(v12);
         }
       }
-      else if ( v6 > 1 )
+      else if ( roc_state > 1 )
       {
         v13 = *((volatile uint8_t **)off_127BF0 + 11);
         *((volatile uint8_t *)off_127BF0 + 88) &= ~4u;
         if ( v13 )
         {
-          if ( v13 == v2 + 112 && (volatile uint8_t *)v7[20] == v13 )
+          if ( v13 == roc_context + 112 && (volatile uint8_t *)v7[20] == v13 )
           {
             mem_set_util((int)(uintptr_t)(v7 + 16));
             v7[18] = 0;
@@ -708,24 +716,24 @@ int cfm_event_handler(volatile uint8_t *a1, int a2) {
         }
         ipc_post_msg(dword_127BE4);
       }
-      else if ( v6 == 1 )
+      else if ( roc_state == 1 )
       {
         *((volatile uint8_t *)off_127BF0 + 88) &= 0xFAu;
-        ipc_post_msg((int)(v2 + 112));
+        ipc_post_msg((int)(roc_context + 112));
       }
       v8 = *((volatile uint8_t *)v7 + 88);
-      v2[136] = -1;
+      roc_context[136] = -1;
       if ( (v8 & 0x12) != 0x10 )
         return 0;
       v18 = (volatile uint32_t *)dword_127BEC;
       *((volatile uint8_t *)v7 + 88) = v8 & 0xEF;
-      v5 = 0;
+      event_status = 0;
       mem_set_util((int)(uintptr_t)(v18));
-      return v5;
+      return event_status;
     }
     return 1;
   }
-  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || hci_cmd_handler(4u) == 1 )
+  if ( (uint8_t)roc_context[136] != 255 || roc_context[128] == 4 || hci_cmd_handler(4u) == 1 )
   {
     v10 = (void *)(uintptr_t)(off_127BF0);
     v11 = *((volatile uint8_t *)off_127BF0 + 88);
@@ -744,23 +752,23 @@ int cfm_event_handler(volatile uint8_t *a1, int a2) {
     if ( (v11 & 0x20) == 0 )
     {
 LABEL_25:
-      v2[136] = 4;
-      v2[116] = a1[2];
-      v2[117] = a1[3];
+      roc_context[136] = 4;
+      roc_context[116] = a1[2];
+      roc_context[117] = a1[3];
       v14 = *((volatile uint16_t *)a1 + 3);
-      *((volatile uint16_t *)v2 + 59) = *((volatile uint16_t *)a1 + 2);
-      *((volatile uint16_t *)v2 + 61) = *((volatile uint16_t *)a1 + 4);
-      *((volatile uint16_t *)v2 + 60) = v14;
-      v2[124] = a1[16];
-      v2[128] = 1;
-      v2[125] = 0;
-      v15 = *((volatile uint32_t *)a1 + 3);
-      *((volatile uint16_t *)v2 + 63) = a2;
-      v16 = 1000 * v15;
-      if ( v15 > 0x23 )
-        v16 -= 35000;
-      *((volatile uint32_t *)v2 + 33) = v16;
-      v2[138] = a1[1];
+      *((volatile uint16_t *)roc_context + 59) = *((volatile uint16_t *)a1 + 2);
+      *((volatile uint16_t *)roc_context + 61) = *((volatile uint16_t *)a1 + 4);
+      *((volatile uint16_t *)roc_context + 60) = v14;
+      roc_context[124] = a1[16];
+      roc_context[128] = 1;
+      roc_context[125] = 0;
+      event_duration = *((volatile uint32_t *)a1 + 3);
+      *((volatile uint16_t *)roc_context + 63) = a2;
+      adjusted_duration_ms = 1000 * event_duration;
+      if ( event_duration > 0x23 )
+        adjusted_duration_ms -= 35000;
+      *((volatile uint32_t *)roc_context + 33) = adjusted_duration_ms;
+      roc_context[138] = a1[1];
       if ( a2 )
       {
         v10[88] = v11 | 1;
@@ -773,7 +781,7 @@ LABEL_25:
         llc_hw_reg_sync(v17);
       }
       *(volatile uint32_t *)off_127BE8 |= 4u;
-      return v5;
+      return event_status;
     }
   }
   v10[88] = v11 & 0xDF;
@@ -782,6 +790,7 @@ LABEL_25:
 
 
 // cfm_radio_check @ 0x127bf4
+/* luna: Finds or updates a matching radio record, allocating a free record on a miss and returning its handle, or 1 if none is available. */
 int cfm_radio_check(volatile uint8_t *a1, volatile uint8_t *a2) {
   int v2; // r6
   int v5; // r3
@@ -853,24 +862,25 @@ LABEL_16:
 
 
 // wifi_disable_calc @ 0x127cc0
+/* luna: Notifies the hardware about channel-context removal when needed, then clears the indexed 28-byte context entry. */
 int wifi_disable_calc(int a1) {
   volatile int16_t **v1; // r8
-  int v2; // r5
-  volatile int *v4; // r6
+  int chan_ctx_table; // r5
+  volatile int *chan_ctx; // r6
   int v5; // r7
   int v6; // r4
   int result; // r0
 
   v1 = (volatile int16_t **)off_127D60;
-  v2 = dword_127D4C;
-  v4 = (volatile int *)(dword_127D4C + 28 * a1);
+  chan_ctx_table = dword_127D4C;
+  chan_ctx = (volatile int *)(dword_127D4C + 28 * a1);
   if ( **(volatile int16_t **)off_127D60 < 0 )
   {
     v5 = 8 * a1;
     if ( *(volatile uint8_t *)(dword_127D4C + 28 * a1 + 24) != 255
       || (irq_disable_mmio_write((int)aCtxtIdxChanCtx, (int)aChanCtxtDel, 3044), **v1 < 0) )
     {
-      if ( *(volatile uint8_t *)(v2 + 4 * (v5 - a1) + 25) )
+      if ( *(volatile uint8_t *)(chan_ctx_table + 4 * (v5 - a1) + 25) )
         irq_disable_mmio_write((int)aCtxtNbLinkedVi, (int)aChanCtxtDel, 3046);
     }
   }
@@ -878,9 +888,9 @@ int wifi_disable_calc(int a1) {
   {
     v5 = 8 * a1;
   }
-  wlan_ioctl_handler_1(dword_127D50, (void *)(v4));
-  v6 = v2 + 4 * (v5 - a1);
-  result = (int)memset(v4, 0, 0x1Cu);
+  wlan_ioctl_handler_1(dword_127D50, (void *)(chan_ctx));
+  v6 = chan_ctx_table + 4 * (v5 - a1);
+  result = (int)memset(chan_ctx, 0, 0x1Cu);
   *(volatile uint16_t *)(v6 + 14) = 255;
   *(volatile uint8_t *)(v6 + 24) = -1;
   *(volatile uint8_t *)(v6 + 27) = -1;
@@ -889,6 +899,7 @@ int wifi_disable_calc(int a1) {
 
 
 // cfm_mac_info @ 0x127d64
+/* luna: Copies the indexed 10-byte MAC-info payload into its record and, if that record is active, runs the guarded DMA and boot initialization sequence. */
 int cfm_mac_info(volatile uint8_t *a1) {
   int v1; // r4
   int result; // r0
@@ -942,6 +953,7 @@ int cfm_mac_info(volatile uint8_t *a1) {
 
 
 // cfm_dword_get @ 0x127dfc
+/* luna: Processes a CFM receive-activity event, prunes older queued entries, updates per-link event state, and reports whether the link's cached state differs */
 BOOL cfm_dword_get(int a1, int a2, int a3) {
   volatile uint8_t *v3; // r11
   volatile int *v4; // r4
@@ -1083,6 +1095,7 @@ LABEL_30:
 
 
 // radio_disabled_check @ 0x127fdc
+/* luna: Processes a timed LLC RX event, applying pending RF-mode changes and saving events that do not match the active context. */
 int radio_disabled_check(int result) {
   volatile uint32_t *v1; // r5
   int v2; // r2
@@ -1222,6 +1235,7 @@ LABEL_23:
 
 
 // radio_disable_check @ 0x12815c
+/* luna: Processes an LLC event buffer according to radio state, clearing consumed flags and routing pending receive or transmit data. */
 int radio_disable_check(int result) {
   void *v1; // r5
   int v2; // r4
@@ -1343,6 +1357,7 @@ LABEL_4:
 
 
 // wifi_disable_action @ 0x128294
+/* luna: When the CFM one-shot flag is clear and the state byte exceeds 1, it builds and processes a 20-byte Wi-Fi-disable PDU from the context record and sets */
 int wifi_disable_action(int result) {
   int v1; // r7
   int v2; // r5
@@ -1390,6 +1405,7 @@ int nullsub_5(void) {
 
 
 // cfm_ops_get @ 0x128350
+/* luna: Returns whether the global CFM operations descriptor matches the descriptor referenced at offset 72 in the supplied object. */
 BOOL cfm_ops_get(int a1) {
   int v1; // r3
   int v2; // r2
@@ -1412,6 +1428,7 @@ BOOL cfm_ops_get(int a1) {
 
 
 // cfm_ops_get2 @ 0x128390
+/* luna: Checks whether the active CFM operation matches the supplied context using type-specific pointer or identifier comparisons. */
 BOOL cfm_ops_get2(int a1) {
   int v1; // r3
   unsigned int v2; // r1
@@ -1430,6 +1447,7 @@ BOOL cfm_ops_get2(int a1) {
 
 
 // cfm_call_ops @ 0x1283e0
+/* luna: Returns true when the requested CFM ops entry exists and either the global gate is clear or the associated object's type discriminator equals 6. */
 BOOL cfm_call_ops(int a1) {
   BOOL result; // r0
 
@@ -1442,6 +1460,7 @@ BOOL cfm_call_ops(int a1) {
 
 
 // type_get @ 0x128408
+/* luna: Sets the object's type byte from its matching CFM slot, using 15 when the object is inactive, unmatched, or has an invalid slot value. */
 int type_get(int result) {
   int v1; // r3
   int v2; // r2

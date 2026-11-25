@@ -1,4 +1,5 @@
 // rf_get_rssi_1 @ 0x1194a8
+/* luna: Decodes the transmit rate, PHY format, and station context to assemble PHY transmission parameters in the output descriptor. */
 unsigned int rf_get_rssi_1(int a1, int a2, int a3) {
   volatile int16_t **v3; // r10
   unsigned int v5; // r3
@@ -134,6 +135,7 @@ LABEL_5:
 
 
 // phy_channel_same @ 0x1196e0
+/* luna: Validates the requested channel against current channel state and may initiate PHY channel selection for the indexed context. */
 int phy_channel_same(int a1, int a2, int a3) {
   unsigned int v3; // r7
   int result; // r0
@@ -276,6 +278,7 @@ LABEL_16:
 
 
 // hw_status_flag @ 0x119874
+/* luna: Dequeues a compatible pending transmit frame and appends its aligned storage to the current TX buffer, returning false if it is ineligible or will not */
 int hw_status_flag(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
   volatile int *v5; // r4
   int v6; // r5
@@ -367,6 +370,7 @@ int hw_status_flag(int a1, volatile int *a2, unsigned int a3, unsigned int a4, u
 
 
 // tx_process @ 0x1199c8
+/* luna: Processes TX descriptors for a matching PHY channel, updating buffer-length accounting and stopping when available buffer or hardware limits are reach */
 int tx_process(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
   int v5; // r5
   int v7; // r4
@@ -572,6 +576,7 @@ LABEL_34:
 
 
 // tx_check_size @ 0x119d2c
+/* luna: Returns the number of 32-bit words by which the size exceeds the 4-byte-aligned 16-bit field at offset 24 plus 4 bytes, rounded up, or zero if it does */
 unsigned int tx_check_size(int a1, unsigned int a2) {
   unsigned int v2; // r3
 
@@ -585,6 +590,7 @@ unsigned int tx_check_size(int a1, unsigned int a2) {
 
 
 // queue_counters_equal @ 0x119d4c
+/* luna: Initializes the per-queue TX context arrays and passes each context with its queue metadata to the TX command handler. */
 int queue_counters_equal() {
   volatile int *v0; // r3
   uint64_t v1; // kr00_8
@@ -676,6 +682,7 @@ if ( *(volatile uint32_t *)(uintptr_t)(off_119E58) != *(volatile uint32_t *)off_
 
 
 // process_event_loop @ 0x119e74
+/* luna: Clears each group’s 8-byte state slot and processes that group’s fixed-size entries through a worker function. */
 volatile uint32_t *process_event_loop() {
   volatile uint32_t *v0; // r4
   volatile int *v1; // r7
@@ -715,6 +722,7 @@ volatile uint32_t *process_event_loop() {
 
 
 // rate_get_config @ 0x119ec8
+/* luna: Advances a transmit-channel operation by setting up or validating the PHY channel and handling packet completion. */
 int rate_get_config(int a1) {
   int v1; // r8
   int v2; // r3
@@ -837,6 +845,7 @@ int rate_get_config(int a1) {
 
 
 // rate_set_config @ 0x11a090
+/* luna: Selects a rate configuration using per-station rate state and records the selected configuration pointer in the transmit descriptor. */
 int rate_set_config(int a1, int a2) {
   int v2; // r7
   int v3; // r8
@@ -1022,6 +1031,7 @@ LABEL_17:
 
 
 // dec_retry_count @ 0x11a2d0
+/* luna: Decrements an object's retry counter and invokes its handler when the counter reaches zero. */
 int dec_retry_count(int result) {
   char v1; // r3
 

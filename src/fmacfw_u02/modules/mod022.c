@@ -1,4 +1,5 @@
 // handle_radio_done @ 0x11bee0
+/* luna: Reinitializes radio data while preserving selected state and table fields, then schedules a delayed follow-up when the state flag is set. */
 int handle_radio_done() {
   volatile uint32_t *v0; // r4
   int v1; // r6
@@ -81,6 +82,7 @@ LABEL_14:
 
 
 // parse_rx_header @ 0x11bfac
+/* luna: Scans RX metadata records for the configured PHY report and stores its payload in the caller's inline result buffer, clearing the result for a marker  */
 int parse_rx_header(int a1, int a2) {
   int v2; // r2
   int v3; // r5
@@ -160,6 +162,7 @@ LABEL_9:
 
 
 // update_phy_status @ 0x11c07c
+/* luna: Decodes received PHY-status fields and updates the status context associated with the descriptor’s station and interface. */
 int update_phy_status(int result) {
   volatile uint32_t *v1; // r2
   volatile int16_t *v2; // r1
@@ -319,6 +322,7 @@ LABEL_18:
 
 
 // enable_radio_clock @ 0x11c2f4
+/* luna: Temporarily sets a radio-check flag, checks IRQ status for the supplied value, then clears the flag and checks the power state. */
 void enable_radio_clock(int a1) {
   volatile uint8_t *v1; // r4
 
@@ -332,6 +336,7 @@ void enable_radio_clock(int a1) {
 
 
 // check_radio_interrupt @ 0x11c310
+/* luna: Checks radio readiness and the RF status condition, updates the associated status and control registers when both qualify, and returns the last readin */
 int check_radio_interrupt() {
   int result; // r0
   int v1; // r4
@@ -356,6 +361,7 @@ int check_radio_interrupt() {
 
 
 // mmio_set_radio_bit @ 0x11c350
+/* luna: Sets bit 7 in a fixed radio-related MMIO register. */
 void mmio_set_radio_bit() {
   *(volatile uint32_t *)off_11C35C |= 0x80u;
 }
@@ -369,6 +375,7 @@ int nullsub_8(void) {
 
 
 // get_phy_descriptor @ 0x11c364
+/* luna: Selects a PHY descriptor from a flagged configuration when available, otherwise using a cached descriptor or encoding a byte from the supplied context */
 int get_phy_descriptor(int a1, int a2) {
   int v2; // r3
 
@@ -383,6 +390,7 @@ int get_phy_descriptor(int a1, int a2) {
 
 
 // get_channel_number @ 0x11c394
+/* luna: Decodes packed PHY channel metadata into bandwidth and configuration outputs, performs conditional radio-bit clears, and returns the derived channel n */
 unsigned int get_channel_number(int a1, int a2, volatile uint32_t *a3, volatile uint32_t *a4, volatile uint32_t *a5, volatile int *a6) {
   unsigned int v6; // r4
   int v7; // r8
@@ -484,6 +492,7 @@ int remove_tx_buffer(int a1) {
 
 
 // set_short_address @ 0x11c4e4
+/* luna: Copies the supplied two-byte short address into a global context field and returns the original pointer. */
 volatile uint8_t * set_short_address(volatile uint8_t *result) {
   volatile uint8_t *v1; // r3
 

@@ -1,4 +1,5 @@
 // mmio_rmw32 @ 0x10ecec
+/* luna: Calls the RF patch hook inside a nest-aware IRQ guard, optionally waiting on and setting a shared readiness flag. */
 int mmio_rmw32(int a1, int a2, int a3, int a4) {
   volatile int *v4; // r5
   volatile uint32_t *v5; // r4
@@ -52,6 +53,7 @@ int rf_set_frequency(int a1) {
 
 
 // rf_set_channel_1 @ 0x10ed98
+/* luna: Programs the RF channel selection value and applies the associated MMIO control updates. */
 int rf_set_channel_1(int a1) {
   mmio_rmw32(dword_10EDCC, 196608, dword_10EDC8, 1);
   mmio_read32_variant(dword_10EDD0, a1 << 15, 1);
@@ -68,6 +70,7 @@ int write_mmio_register() {
 
 
 // rf_get_status @ 0x10ede4
+/* luna: Reads the RF register and returns bits 11–15 as the status value. */
 int rf_get_status() {
   return (uint16_t)mmio_read32_1(dword_10EDF4, 1) >> 11;
 }
@@ -75,6 +78,7 @@ int rf_get_status() {
 
 
 // padding_data @ 0x10edf8
+/* luna: Replaces bits 11–15 of the RF MMIO register at dword_10EE0C with the low five bits of the argument. */
 int padding_data(int a1) {
   return mmio_rmw32(dword_10EE0C, (a1 << 11) & 0xF800, 63488, 1);
 }
@@ -82,6 +86,7 @@ int padding_data(int a1) {
 
 
 // rf_enable_rx @ 0x10ee10
+/* luna: Configures the RF receive registers and enables the receive path, applying additional setup for a selected configuration. */
 int rf_enable_rx() {
   int result; // r0
 
@@ -127,6 +132,7 @@ int rf_enable_rx() {
 
 
 // rf_cal_init @ 0x10f040
+/* luna: Initializes the RF calibration setting by writing byte 0xC2 and storing the same byte at offset 7 of a global byte area. */
 unsigned int rf_cal_init() {
   unsigned int result; // r0
 
@@ -138,6 +144,7 @@ unsigned int rf_cal_init() {
 
 
 // rf_get_rssi @ 0x10f058
+/* luna: Computes a clamped RF-level delta, programs and stores it, then clears a status byte or copies a selected table block according to the -61 threshold. */
 int rf_get_rssi() {
   volatile uint8_t *v0; // r6
   int v1; // r5
@@ -167,6 +174,7 @@ int rf_get_rssi() {
 
 
 // rx_copy_stats @ 0x10f0c4
+/* luna: Copies a 24-byte initialization block to a global buffer, initializes crypto and hardware support, conditionally initializes the PHY context for mode  */
 int rx_copy_stats() {
   int v0; // r2
   uint64_t v1; // kr00_8
@@ -199,6 +207,7 @@ int rx_copy_stats() {
 
 
 // ke_get_state @ 0x10f11c
+/* luna: Writes fixed values to an RF configuration block unless a global condition is nonzero, in which case it clears the block’s first byte. */
 int ke_get_state() {
   volatile uint8_t *v0; // r3
   int result; // r0
@@ -228,6 +237,7 @@ int ke_get_state() {
 
 
 // bt_send_data @ 0x10f230
+/* luna: Passes the supplied state handle to the wait routine and returns success. */
 int bt_send_data(int a1, int a2) {
   wait_for_state((void *)(uintptr_t)(a2));
   return 1;
@@ -236,6 +246,7 @@ int bt_send_data(int a1, int a2) {
 
 
 // tx_store_packet @ 0x10f23c
+/* luna: Initializes marker fields for two packet-stat slots and clears the data buffer following each slot. */
 int tx_store_packet() {
   volatile uint8_t *v0; // r4
   volatile char *v1; // r0
@@ -253,6 +264,7 @@ int tx_store_packet() {
 
 
 // rf_config_bb @ 0x10f270
+/* luna: Sets baseband control values, clears associated state and statistics buffers, and processes 128 entries through the WLAN handler. */
 uint64_t rf_config_bb() {
   volatile uint16_t *v0; // r5
   volatile int *v1; // r4
@@ -305,6 +317,7 @@ uint64_t rf_config_bb() {
 
 
 // rf_get_state @ 0x10f318
+/* luna: Runs common RF setup and dispatches the callback sequence for the current RF state. */
 int rf_get_state() {
   volatile uint8_t **v0; // r4
   int v1; // r3
@@ -616,6 +629,7 @@ LABEL_4:
 
 
 // ipc_send_command @ 0x10f7cc
+/* luna: Sends command 0x40D with fixed parameters and returns the result of processing its response. */
 int ipc_send_command() {
   int v0; // r0
 
@@ -626,6 +640,7 @@ int ipc_send_command() {
 
 
 // rx_handle_packet @ 0x10f7e4
+/* luna: Prepares per-packet RX descriptors and buffer metadata from the supplied packet offset-and-length table. */
 unsigned int rx_handle_packet(volatile int *a1, int a2, unsigned int a3) {
   unsigned int result; // r0
   unsigned int v6; // r2
@@ -787,16 +802,17 @@ LABEL_6:
 
 
 // tx_irq_handler @ 0x10f9e8
+/* luna: Removes and returns a free buffer from the first size class with sufficient capacity, validating the buffer address and guard pattern along the way. */
 volatile uint32_t * tx_irq_handler(int a1, unsigned int a2) {
-  unsigned int v2; // r6
+  unsigned int pool_class_count; // r6
   volatile uint32_t *v3; // r5
-  volatile uint16_t *v4; // r4
-  unsigned int v5; // r3
+  volatile uint16_t *pool_class_entry; // r4
+  unsigned int pool_class_index; // r3
   volatile int *v6; // r6
-  int v7; // r3
+  int free_buffer_count; // r3
   int v8; // r2
-  volatile unsigned int *v9; // r7
-  unsigned int v10; // r2
+  volatile unsigned int *buffer_region_bounds; // r7
+  unsigned int buffer_region_start; // r2
   int v11; // r1
   int v12; // r3
   int v13; // r2
@@ -808,7 +824,7 @@ volatile uint32_t * tx_irq_handler(int a1, unsigned int a2) {
   int v20; // r3
   int v21; // r2
 
-  v2 = *(volatile uint8_t *)(a1 + 8);
+  pool_class_count = *(volatile uint8_t *)(a1 + 8);
   if ( !*(volatile uint8_t *)(a1 + 8) )
   {
 LABEL_57:
@@ -821,25 +837,25 @@ LABEL_57:
     debug_printf(aMemmgrerrSubpo, a2);
     return v3;
   }
-  v4 = *(volatile uint16_t **)(a1 + 12);
-  v5 = 1;
-  while ( v4[2] < a2 )
+  pool_class_entry = *(volatile uint16_t **)(a1 + 12);
+  pool_class_index = 1;
+  while ( pool_class_entry[2] < a2 )
   {
-    if ( v2 <= v5 )
+    if ( pool_class_count <= pool_class_index )
       goto LABEL_11;
-    v4 = (volatile uint16_t *)&v3[3 * v5];
+    pool_class_entry = (volatile uint16_t *)&v3[3 * pool_class_index];
 LABEL_7:
-    v5 = (uint8_t)(v5 + 1);
+    pool_class_index = (uint8_t)(pool_class_index + 1);
   }
-  if ( *v4 )
+  if ( *pool_class_entry )
     goto LABEL_12;
-  if ( v2 > v5 )
+  if ( pool_class_count > pool_class_index )
   {
-    v4 = (volatile uint16_t *)&v3[3 * v5];
+    pool_class_entry = (volatile uint16_t *)&v3[3 * pool_class_index];
     goto LABEL_7;
   }
 LABEL_11:
-  if ( v2 == v5 )
+  if ( pool_class_count == pool_class_index )
     goto LABEL_57;
 LABEL_12:
   if ( (__get_CPSR() & 1) == 0 )
@@ -848,11 +864,11 @@ LABEL_12:
     *(volatile uint32_t *)off_10FB74 = 1;
   }
   v6 = (volatile int *)off_10FB78;
-  v7 = *v4;
+  free_buffer_count = *pool_class_entry;
   v3 = *(volatile uint32_t **)off_10FB78;
   v8 = *(volatile uint32_t *)off_10FB78 + 1;
   *(volatile uint32_t *)off_10FB78 = v8;
-  if ( !v7 )
+  if ( !free_buffer_count )
   {
     if ( v8 )
     {
@@ -867,30 +883,30 @@ LABEL_12:
     }
     return nullptr;
   }
-  v9 = (volatile unsigned int *)off_10FB7C;
-  v3 = *((volatile uint32_t **)v4 + 2);
-  v10 = *(volatile uint32_t *)off_10FB7C;
-  if ( *(volatile uint32_t *)off_10FB7C <= (unsigned int)v3 && (unsigned int)v3 <= *((volatile uint32_t *)off_10FB7C + 1) + v10
+  buffer_region_bounds = (volatile unsigned int *)off_10FB7C;
+  v3 = *((volatile uint32_t **)pool_class_entry + 2);
+  buffer_region_start = *(volatile uint32_t *)off_10FB7C;
+  if ( *(volatile uint32_t *)off_10FB7C <= (unsigned int)v3 && (unsigned int)v3 <= *((volatile uint32_t *)off_10FB7C + 1) + buffer_region_start
     || (unsigned int)v3 >= *(volatile uint32_t *)off_10FB80
     && (unsigned int)v3 <= *(volatile uint32_t *)off_10FB80 + *((volatile uint32_t *)off_10FB80 + 1) )
   {
-    *((volatile uint32_t *)v4 + 2) = *v3;
-    *v4 = v7 - 1;
-    if ( v10 <= (unsigned int)v3 )
+    *((volatile uint32_t *)pool_class_entry + 2) = *v3;
+    *pool_class_entry = free_buffer_count - 1;
+    if ( buffer_region_start <= (unsigned int)v3 )
       goto LABEL_18;
   }
   else
   {
-    debug_printf("get_next_buffer_addr: Invalid buffer passed: %x\n", *((volatile uint32_t *)v4 + 2));
-    v10 = *v9;
-    v14 = *v4 - 1;
-    v15 = *v9 > (unsigned int)v3;
-    *((volatile uint32_t *)v4 + 2) = 0;
-    *v4 = v14;
+    debug_printf("get_next_buffer_addr: Invalid buffer passed: %x\n", *((volatile uint32_t *)pool_class_entry + 2));
+    buffer_region_start = *buffer_region_bounds;
+    v14 = *pool_class_entry - 1;
+    v15 = *buffer_region_bounds > (unsigned int)v3;
+    *((volatile uint32_t *)pool_class_entry + 2) = 0;
+    *pool_class_entry = v14;
     if ( !v15 )
     {
 LABEL_18:
-      if ( v9[1] + v10 >= (unsigned int)v3 )
+      if ( buffer_region_bounds[1] + buffer_region_start >= (unsigned int)v3 )
       {
         v11 = *((volatile uint8_t *)v3 - 3);
         if ( v11 == 85 )
@@ -924,9 +940,9 @@ LABEL_45:
     debug_printf("SwEr:AllcErrPtrn : %d, buffer: 0x%x\n\r", v11, v3);
     return nullptr;
   }
-  if ( v10 > (unsigned int)v3 )
+  if ( buffer_region_start > (unsigned int)v3 )
     goto LABEL_36;
-  if ( (unsigned int)v3 <= v10 + v9[1] )
+  if ( (unsigned int)v3 <= buffer_region_start + buffer_region_bounds[1] )
     goto LABEL_20;
   if ( (unsigned int)v3 < v16 )
   {
@@ -941,7 +957,7 @@ LABEL_36:
 LABEL_20:
     *((volatile uint8_t *)v3 - 3) = -86;
   }
-  if ( (unsigned int)v3 >= *v9 && (unsigned int)v3 <= *v9 + v9[1]
+  if ( (unsigned int)v3 >= *buffer_region_bounds && (unsigned int)v3 <= *buffer_region_bounds + buffer_region_bounds[1]
     || (unsigned int)v3 >= *(volatile uint32_t *)off_10FB80
     && (unsigned int)v3 <= *(volatile uint32_t *)off_10FB80 + *((volatile uint32_t *)off_10FB80 + 1) )
   {
@@ -968,14 +984,15 @@ LABEL_43:
 
 
 // util_check_arg @ 0x10fba0
+/* luna: Validates a buffer against its pool context, decrements its reference count, and returns it to the pool when the count reaches zero. */
 int util_check_arg(int a1, volatile uint32_t *a2) {
-  volatile unsigned int *v4; // r7
-  unsigned int v5; // r6
-  int v6; // r8
+  volatile unsigned int *native_pool_bounds; // r7
+  unsigned int pool_id; // r6
+  int pool_entries; // r8
   volatile int *v7; // r5
   unsigned int v8; // r0
   int v9; // cf
-  int v10; // r9
+  int buffer_pattern; // r9
   int result; // r0
   int v12; // r3
   int v13; // r2
@@ -984,7 +1001,7 @@ int util_check_arg(int a1, volatile uint32_t *a2) {
   int v16; // r3
   int v17; // r2
   int v18; // r6
-  volatile uint16_t *v19; // r9
+  volatile uint16_t *pool_usage_entry; // r9
   int v20; // r6
   int16_t v21; // r3
   int v22; // r0
@@ -996,31 +1013,31 @@ int util_check_arg(int a1, volatile uint32_t *a2) {
     return -1;
   if ( *(volatile uint32_t *)a1 > (unsigned int)a2 || (unsigned int)a2 > *(volatile uint32_t *)a1 + *(volatile uint32_t *)(a1 + 4) )
     return -1;
-  if ( (v4 = (volatile unsigned int *)off_10FDCC, (unsigned int)a2 >= *(volatile uint32_t *)off_10FDCC)
+  if ( (native_pool_bounds = (volatile unsigned int *)off_10FDCC, (unsigned int)a2 >= *(volatile uint32_t *)off_10FDCC)
     && (unsigned int)a2 <= *(volatile uint32_t *)off_10FDCC + *((volatile uint32_t *)off_10FDCC + 1)
     || (unsigned int)a2 >= *(volatile uint32_t *)off_10FDD8
     && (unsigned int)a2 <= *(volatile uint32_t *)off_10FDD8 + *((volatile uint32_t *)off_10FDD8 + 1) )
   {
-    v5 = *((volatile uint8_t *)a2 - 4);
+    pool_id = *((volatile uint8_t *)a2 - 4);
   }
   else
   {
     debug_printf("get_native_pool_id: Invalid buffer passed: %x\n", a2);
-    v5 = 0;
+    pool_id = 0;
   }
-  if ( *(volatile uint8_t *)(a1 + 8) <= v5 )
+  if ( *(volatile uint8_t *)(a1 + 8) <= pool_id )
     return -1;
-  v6 = *(volatile uint32_t *)(a1 + 12);
+  pool_entries = *(volatile uint32_t *)(a1 + 12);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_10FDD0 = 1;
   }
   v7 = (volatile int *)off_10FDD4;
-  v8 = *v4;
-  v9 = (unsigned int)a2 >= *v4;
+  v8 = *native_pool_bounds;
+  v9 = (unsigned int)a2 >= *native_pool_bounds;
   ++*(volatile uint32_t *)off_10FDD4;
-  if ( !v9 || (unsigned int)a2 > v4[1] + v8 )
+  if ( !v9 || (unsigned int)a2 > native_pool_bounds[1] + v8 )
   {
     v14 = (volatile int *)off_10FDD8;
     v15 = *(volatile uint32_t *)off_10FDD8;
@@ -1030,14 +1047,14 @@ int util_check_arg(int a1, volatile uint32_t *a2) {
     }
     else
     {
-      v10 = *((volatile uint8_t *)a2 - 3);
-      if ( v10 == 170 )
+      buffer_pattern = *((volatile uint8_t *)a2 - 3);
+      if ( buffer_pattern == 170 )
       {
         if ( (unsigned int)a2 < v8 )
           goto LABEL_37;
         goto LABEL_15;
       }
-      if ( v10 == 255 )
+      if ( buffer_pattern == 255 )
       {
         if ( (unsigned int)a2 < v8 )
           goto LABEL_36;
@@ -1058,8 +1075,8 @@ LABEL_24:
     }
     return -1;
   }
-  v10 = *((volatile uint8_t *)a2 - 3);
-  if ( v10 == 170 )
+  buffer_pattern = *((volatile uint8_t *)a2 - 3);
+  if ( buffer_pattern == 170 )
   {
     result = (uint8_t)(*((volatile uint8_t *)a2 - 2) - 1);
     *((volatile uint8_t *)a2 - 2) = result;
@@ -1080,12 +1097,12 @@ LABEL_17:
       return (char)result;
     }
 LABEL_40:
-    v18 = 3 * v5;
-    v19 = (volatile uint16_t *)(v6 + 4 * v18);
+    v18 = 3 * pool_id;
+    pool_usage_entry = (volatile uint16_t *)(pool_entries + 4 * v18);
     v20 = 4 * v18;
-    if ( *v19 < (unsigned int)v19[1] )
+    if ( *pool_usage_entry < (unsigned int)pool_usage_entry[1] )
     {
-      if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
+      if ( (unsigned int)a2 >= *native_pool_bounds && (unsigned int)a2 <= *native_pool_bounds + native_pool_bounds[1]
         || (unsigned int)a2 >= *(volatile uint32_t *)off_10FDD8
         && (unsigned int)a2 <= *(volatile uint32_t *)off_10FDD8 + *((volatile uint32_t *)off_10FDD8 + 1) )
       {
@@ -1095,20 +1112,20 @@ LABEL_40:
       {
         debug_printf("set_pattern: Invalid buffer passed: %x\n", a2);
       }
-      if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
+      if ( (unsigned int)a2 >= *native_pool_bounds && (unsigned int)a2 <= *native_pool_bounds + native_pool_bounds[1]
         || (unsigned int)a2 >= *(volatile uint32_t *)off_10FDD8
         && (unsigned int)a2 <= *(volatile uint32_t *)off_10FDD8 + *((volatile uint32_t *)off_10FDD8 + 1) )
       {
-        *a2 = *((volatile uint32_t *)v19 + 2);
+        *a2 = *((volatile uint32_t *)pool_usage_entry + 2);
       }
       else
       {
         debug_printf("set_next_buffer_addr: Invalid buffer passed: %x\n", a2);
       }
-      v21 = *(volatile uint16_t *)(v6 + v20);
+      v21 = *(volatile uint16_t *)(pool_entries + v20);
       v22 = *v7;
-      *((volatile uint32_t *)v19 + 2) = (int)(uintptr_t)(a2);
-      *(volatile uint16_t *)(v6 + v20) = v21 + 1;
+      *((volatile uint32_t *)pool_usage_entry + 2) = (int)(uintptr_t)(a2);
+      *(volatile uint16_t *)(pool_entries + v20) = v21 + 1;
       if ( !v22 )
         return 0;
       result = v22 - 1;
@@ -1121,10 +1138,10 @@ LABEL_40:
     }
     goto LABEL_24;
   }
-  if ( v10 != 255 )
+  if ( buffer_pattern != 255 )
     goto LABEL_24;
 LABEL_15:
-  if ( (unsigned int)a2 <= v8 + v4[1] )
+  if ( (unsigned int)a2 <= v8 + native_pool_bounds[1] )
     goto LABEL_16;
   v14 = (volatile int *)off_10FDD8;
 LABEL_36:
@@ -1144,9 +1161,9 @@ LABEL_16:
   if ( result )
     goto LABEL_17;
 LABEL_39:
-  if ( v10 != 255 )
+  if ( buffer_pattern != 255 )
     goto LABEL_40;
-  if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
+  if ( (unsigned int)a2 >= *native_pool_bounds && (unsigned int)a2 <= *native_pool_bounds + native_pool_bounds[1]
     || (unsigned int)a2 >= *(volatile uint32_t *)off_10FDD8
     && (unsigned int)a2 <= *(volatile uint32_t *)off_10FDD8 + *((volatile uint32_t *)off_10FDD8 + 1) )
   {
@@ -1172,6 +1189,7 @@ LABEL_39:
 
 
 // check_state_flag @ 0x10fdf4
+/* luna: Returns true when the supplied address lies inclusively within either of the two configured RF register ranges. */
 BOOL check_state_flag(unsigned int a1) {
   if ( *(volatile uint32_t *)off_10FE24 <= a1 && a1 <= *(volatile uint32_t *)off_10FE24 + *((volatile uint32_t *)off_10FE24 + 1) )
     return 1;
@@ -1183,6 +1201,7 @@ BOOL check_state_flag(unsigned int a1) {
 
 
 // log_event @ 0x10fe2c
+/* luna: Builds and dispatches a 32-byte RX event record, initializes a related control block, and returns the 0x40000 status value. */
 int log_event(int a1, int a2, int a3) {
   volatile uint32_t *v3; // r3
   volatile uint32_t *v4; // r3
@@ -1208,6 +1227,7 @@ int log_event(int a1, int a2, int a3) {
 
 
 // is_chip_ready @ 0x10fe7c
+/* luna: Obtains and validates a buffer, writes the supplied user ID to the byte immediately preceding it, and returns the buffer. */
 volatile uint32_t * is_chip_ready(char a1) {
   volatile uint32_t *v2; // r4
 
@@ -1228,10 +1248,11 @@ volatile uint32_t * is_chip_ready(char a1) {
 
 
 // wait_for_state @ 0x10fec8
+/* luna: Validates a packet-buffer pointer and dispatches it to the appropriate allocator-specific release routine using the allocator mode and the tag precedi */
 int wait_for_state(volatile uint32_t *a1) {
   int result; // r0
-  int v3; // r2
-  int v4; // r3
+  int allocation_tag; // r2
+  int allocator_mode; // r3
   int v5; // r3
 
   result = check_state_flag((unsigned int)a1);
@@ -1256,35 +1277,35 @@ LABEL_11:
     }
     return mmio_write_3(a1);
   }
-  v3 = *((volatile uint8_t *)a1 - 4);
-  v4 = **(volatile uint8_t **)off_10FFA4;
-  if ( v4 == 1 )
+  allocation_tag = *((volatile uint8_t *)a1 - 4);
+  allocator_mode = **(volatile uint8_t **)off_10FFA4;
+  if ( allocator_mode == 1 )
   {
-    if ( v3 == 3 )
+    if ( allocation_tag == 3 )
       return mmio_write_1(a1);
-    if ( v3 == 2 )
+    if ( allocation_tag == 2 )
       return mmio_write_2(a1);
     if ( *((volatile uint8_t *)a1 - 4) )
       return result;
     return mmio_write_3(a1);
   }
-  if ( v4 != 2 )
+  if ( allocator_mode != 2 )
   {
-    if ( v4 == 3 )
+    if ( allocator_mode == 3 )
     {
       if ( **(volatile int16_t **)off_10FFA8 >= 0 )
       {
-        if ( v3 != 3 )
+        if ( allocation_tag != 3 )
           return result;
         return assert_fail(a1);
       }
-      if ( v3 == 3 )
+      if ( allocation_tag == 3 )
         return assert_fail(a1);
       return irq_disable_mmio_write((int)aNativeId3, (int)aPktMemFree, 204);
     }
     goto LABEL_11;
   }
-  if ( v3 == 3 )
+  if ( allocation_tag == 3 )
     return util_call_raw(a1);
   if ( !*((volatile uint8_t *)a1 - 4) )
     return util_call_arg(a1);
@@ -1293,6 +1314,7 @@ LABEL_11:
 
 
 // get_rx_stats @ 0x10ffc0
+/* luna: Copies selected fields from the RX statistics block into an RX record, dispatches it, and logs two associated values. */
 int get_rx_stats() {
   void *v0; // r4
   int v1; // r3
@@ -1330,6 +1352,7 @@ int get_rx_stats() {
 
 
 // get_noise_floor @ 0x11004c
+/* luna: Clears the shared statistics buffer, then collects and processes the configured number of noise-floor measurements. */
 volatile uint32_t *get_noise_floor() {
   void *v0; // r8
   volatile uint32_t *result; // r0
@@ -1391,6 +1414,7 @@ volatile uint32_t *get_current_channel() {
 
 
 // get_core_temp @ 0x1100e4
+/* luna: Clears the shared stats buffer, then invokes the 0x6B8 query path once for each iteration specified by the control object's count field. */
 volatile uint32_t *get_core_temp() {
   void *v0; // r8
   volatile uint32_t *result; // r0
@@ -1424,6 +1448,7 @@ volatile uint32_t *get_core_temp() {
 
 
 // get_tx_power @ 0x11013c
+/* luna: Clears the TX-power statistics buffer, processes the pending 0x7C transactions, and returns the final handler result. */
 volatile uint32_t *get_tx_power() {
   void *v0; // r5
   volatile uint32_t *result; // r0
@@ -1452,6 +1477,7 @@ volatile uint32_t *get_tx_power() {
 
 
 // mmio_read_0 @ 0x11017c
+/* luna: Pops and returns an item from the global list inside a nestable IRQ-protected critical section. */
 int mmio_read_0() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1485,6 +1511,7 @@ int mmio_read_0() {
 
 
 // mmio_write_0 @ 0x1101bc
+/* luna: Calls the underlying MMIO handler within a nest-counted critical section and restores IRQs only if this wrapper disabled them. */
 int mmio_write_0(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1517,6 +1544,7 @@ int mmio_write_0(volatile uint32_t *a1) {
 
 
 // mmio_write_1 @ 0x110250
+/* luna: Invokes the MMIO write handler under a nest-counted interrupt guard and returns its status. */
 int mmio_write_1(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1552,6 +1580,7 @@ int mmio_write_1(volatile uint32_t *a1) {
 
 
 // mmio_read_1 @ 0x1102a0
+/* luna: Pops and returns a pending MMIO read entry under an IRQ-safe critical section, decrementing the queue count when an entry is returned. */
 int mmio_read_1() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1587,6 +1616,7 @@ int mmio_read_1() {
 
 
 // mmio_write_2 @ 0x1102f0
+/* luna: Invokes the WLAN ioctl handler with the global context inside a nesting-aware critical section that restores interrupts on the outermost exit. */
 int mmio_write_2(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1622,6 +1652,7 @@ int mmio_write_2(volatile uint32_t *a1) {
 
 
 // mmio_read_2 @ 0x110340
+/* luna: Pops and returns an item from a global list while balancing a nested IRQ-protected critical section. */
 int mmio_read_2() {
   volatile int *v0; // r4
   int v1; // r0
@@ -1655,6 +1686,7 @@ int mmio_read_2() {
 
 
 // mmio_write_3 @ 0x110380
+/* luna: Calls the WLAN ioctl handler with interrupts disabled for the outermost nested invocation, restoring them only if this wrapper disabled them. */
 int mmio_write_3(volatile uint32_t *a1) {
   volatile int *v2; // r4
   int v3; // r0
@@ -1687,20 +1719,21 @@ int mmio_write_3(volatile uint32_t *a1) {
 
 
 // mac_tx_setup @ 0x1103c4
+/* luna: Adds RX buffer/descriptor pairs to the context queue until its queued-entry count exceeds one, notifying the hardware for each pair. */
 int mac_tx_setup(int result) {
   volatile uint32_t *v1; // r4
   unsigned int v2; // r3
   volatile int *v3; // r6
   volatile uint32_t *v4; // r9
   volatile uint32_t *v5; // r8
-  int v6; // r5
+  int rx_context; // r5
   volatile int *v7; // r7
-  volatile uint32_t *v8; // r10
+  volatile uint32_t *rx_buffer; // r10
   volatile uint32_t *v9; // r0
-  volatile uint32_t *v10; // r11
+  volatile uint32_t *rx_descriptor; // r11
   int v11; // r1
   int v12; // r2
-  int16_t v13; // r3
+  int16_t queued_entry_count; // r3
   int v14; // r1
   int v15; // r2
   int v16; // r3
@@ -1710,30 +1743,30 @@ int mac_tx_setup(int result) {
   v3 = (volatile int *)off_1104CC;
   v4 = (void *)(uintptr_t)(off_1104F4);
   v5 = (void *)(uintptr_t)(off_1104F8);
-  v6 = result;
+  rx_context = result;
 LABEL_2:
   v7 = (volatile int *)off_1104D0;
   while ( v2 <= 1 )
   {
-    v8 = (void *)(uintptr_t)(mmio_read_1());
-    if ( !v8 )
+    rx_buffer = (void *)(uintptr_t)(mmio_read_1());
+    if ( !rx_buffer )
     {
       result = debug_printf("rep: no rxmsg buffer, %d\r\n", *(volatile uint32_t *)off_1104E8);
-      if ( *(volatile uint16_t *)(v6 + 28) > 1u )
+      if ( *(volatile uint16_t *)(rx_context + 28) > 1u )
         return result;
       return irq_disable_global_2(32);
     }
     v9 = (void *)(uintptr_t)(mmio_read_0());
-    v10 = v9;
+    rx_descriptor = v9;
     if ( !v9 )
     {
       debug_printf(aRepRxmsgNoDesc);
-      result = mmio_write_2(v8);
-      if ( *(volatile uint16_t *)(v6 + 28) > 1u )
+      result = mmio_write_2(rx_buffer);
+      if ( *(volatile uint16_t *)(rx_context + 28) > 1u )
         return result;
       return irq_disable_global_2(32);
     }
-    *v9 = (int)(uintptr_t)(v8);
+    *v9 = (int)(uintptr_t)(rx_buffer);
     v9[1] = 0;
     v9[2] = 0;
     if ( (__get_CPSR() & 1) == 0 )
@@ -1748,7 +1781,7 @@ LABEL_2:
       ;
     if ( (uint8_t)*v3 )
     {
-      v16 = *(volatile uint32_t *)(v6 + 20);
+      v16 = *(volatile uint32_t *)(rx_context + 20);
       if ( v16 )
       {
         *(volatile uint32_t *)(v16 + 4) = (int)(uintptr_t)(v9);
@@ -1766,14 +1799,14 @@ LABEL_2:
         irq_disable_mmio_write((int)aSdioFunc1H2dFr, (int)aSdioReplenishR, 261);
         v11 = *v7;
       }
-      *v4 = (int)(uintptr_t)(v10);
+      *v4 = (int)(uintptr_t)(rx_descriptor);
     }
     v12 = *v3;
-    v13 = *(volatile uint16_t *)(v6 + 28);
-    *(volatile uint32_t *)(v6 + 20) = (int)(uintptr_t)(v10);
-    v2 = (uint16_t)(v13 + 1);
+    queued_entry_count = *(volatile uint16_t *)(rx_context + 28);
+    *(volatile uint32_t *)(rx_context + 20) = (int)(uintptr_t)(rx_descriptor);
+    v2 = (uint16_t)(queued_entry_count + 1);
     result = 1024;
-    *(volatile uint16_t *)(v6 + 28) = v2;
+    *(volatile uint16_t *)(rx_context + 28) = v2;
     *v3 = (uint8_t)(v12 + 1);
     *v5 = 1024;
     if ( v11 )
@@ -1786,7 +1819,7 @@ LABEL_2:
         if ( v15 )
         {
           __enable_irq();
-          v2 = *(volatile uint16_t *)(v6 + 28);
+          v2 = *(volatile uint16_t *)(rx_context + 28);
         }
       }
       goto LABEL_2;
@@ -1797,6 +1830,7 @@ LABEL_2:
 
 
 // phy_calibrate @ 0x1104fc
+/* luna: Allocates and links host-to-device SDIO buffers until the configured queue depth is reached, then signals replenishment work. */
 int phy_calibrate(int a1, int a2) {
   volatile uint32_t *v2; // r4
   volatile int *v3; // r7
@@ -1915,6 +1949,7 @@ int check_hardware_ready() {
 
 
 // event_queue_init @ 0x110660
+/* luna: Initializes two global PHY-calibration blocks, stores the caller-provided value at offset 8 of the first block, invokes `phy_calibrate`, and returns 1 */
 int event_queue_init(int a1) {
   volatile uint32_t *v1; // r2
   volatile uint32_t *v2; // r1
@@ -1944,6 +1979,7 @@ int event_queue_init(int a1) {
 
 
 // rx_task @ 0x110b20
+/* luna: Drains queued RX batches, replenishes their DMA-ring buffers, and restores deferred interrupt state after queue processing. */
 int rx_task() {
   volatile uint32_t *v0; // r8
   volatile int *v1; // r7
@@ -2053,6 +2089,7 @@ LABEL_14:
 
 
 // mmio_write_reg @ 0x110ce4
+/* luna: Initializes the RF I/O control block, synchronizes with its command interface, and submits an IPC command. */
 int mmio_write_reg() {
   volatile uint32_t *v0; // r3
   volatile uint32_t *v1; // r1
@@ -2172,6 +2209,7 @@ int mmio_write_reg() {
 
 
 // sub_110edc @ 0x110edc
+/* luna: Submits a serialized RF-interface write transaction, performing guarded MMIO setup and waiting for the hardware interface to become ready. */
 int sub_110edc(int a1, int a2, int a3) {
   volatile int *v6; // r9
   volatile uint8_t *v7; // r3
@@ -2270,6 +2308,7 @@ LABEL_4:
 
 
 // tx_desc_set_control @ 0x110ffc
+/* luna: Writes the first two descriptor words and updates the control word while preserving bits selected by a fixed mask. */
 volatile uint32_t * tx_desc_set_control(volatile uint32_t *result, int a2, int a3, uint16_t a4, int a5) {
   result[2] = dword_111018 & result[2] | a4 | (a5 << 31);
   *result = a2;
@@ -2280,6 +2319,7 @@ volatile uint32_t * tx_desc_set_control(volatile uint32_t *result, int a2, int a
 
 
 // sub_11101c @ 0x11101c
+/* luna: Submits a value through the RF register-control interface, waiting for the busy flag to clear and updating the associated shadow state. */
 int sub_11101c(int a1) {
   volatile int *v2; // r5
   volatile uint8_t *v3; // r3
@@ -2373,6 +2413,7 @@ LABEL_4:
 
 
 // kmalloc @ 0x111130
+/* luna: Builds a type-and-length-prefixed RF message in an available packet buffer and submits it through the configured descriptor. */
 int kmalloc(char a1, volatile char *a2, unsigned int a3, int a4) {
   volatile uint32_t *v7; // r0
   volatile uint32_t *v8; // r4
@@ -2408,6 +2449,7 @@ int kmalloc(char a1, volatile char *a2, unsigned int a3, int a4) {
 
 
 // get_init_flag @ 0x1111b4
+/* luna: Returns 1 if the primary initialization byte is set; otherwise returns the secondary initialization byte. */
 int get_init_flag() {
   if ( *(volatile uint8_t *)off_1111C4 )
     return 1;
@@ -2418,29 +2460,30 @@ int get_init_flag() {
 
 
 // timer_get_raw @ 0x1111cc
+/* luna: Updates the SDIO phase configuration register using its control-bit write sequence and logs the resulting phase value. */
 int timer_get_raw(int a1) {
-  volatile int *v1; // r3
-  int v2; // r2
-  int v3; // r1
-  int v4; // r1
+  volatile int *phase_register; // r3
+  int requested_phase; // r2
+  int current_phase; // r1
+  int staged_config; // r1
 
-  v1 = (volatile int *)off_111248;
-  v2 = a1 & 0x3FFFFF;
-  v3 = *(volatile uint32_t *)off_111248 & 0x3FFFFF;
+  phase_register = (volatile int *)off_111248;
+  requested_phase = a1 & 0x3FFFFF;
+  current_phase = *(volatile uint32_t *)off_111248 & 0x3FFFFF;
   if ( (a1 & 0x400000) != 0 )
   {
-    *(volatile uint32_t *)off_111248 = v3 | 0x800000;
-    *v1 = v3;
-    *v1 = v2;
-    v4 = v2 | 0x800000;
+    *(volatile uint32_t *)off_111248 = current_phase | 0x800000;
+    *phase_register = current_phase;
+    *phase_register = requested_phase;
+    staged_config = requested_phase | 0x800000;
   }
   else
   {
-    *(volatile uint32_t *)off_111248 = v3 | 0x400000;
-    v4 = v2 | 0x400000;
+    *(volatile uint32_t *)off_111248 = current_phase | 0x400000;
+    staged_config = requested_phase | 0x400000;
   }
-  *v1 = v4;
-  *v1 = v2 | 0xC00000;
+  *phase_register = staged_config;
+  *phase_register = requested_phase | 0xC00000;
   return debug_printf("sdio pahse cfg %x\n", *(volatile uint32_t *)off_111248 & 0x3FFFFF);
 }
 

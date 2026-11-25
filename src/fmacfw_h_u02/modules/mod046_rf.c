@@ -1,22 +1,23 @@
 // safe_snprintf @ 0x12d648
+/* luna: Scans a length-delimited 802.11 IE buffer for a vendor-specific (ID 221) element whose payload begins with the supplied byte sequence, returning the e */
 volatile uint8_t * safe_snprintf(volatile uint8_t *a1, int a2, volatile uint8_t *a3, int a4, volatile uint16_t *a5) {
-  unsigned int v5; // r9
-  unsigned int v6; // r7
+  unsigned int scan_end; // r9
+  unsigned int buffer_end; // r7
   int v7; // lr
   volatile uint8_t *v8; // r5
-  int v9; // r4
-  int v10; // r3
-  volatile uint8_t *v11; // r8
-  volatile uint8_t *v13; // r4
+  int ie_id; // r4
+  int ie_total_len; // r3
+  volatile uint8_t *ie_start; // r8
+  volatile uint8_t *prefix_cursor; // r4
   volatile uint8_t *v14; // r9
   int v15; // t1
 
-  v5 = (unsigned int)&a1[a2];
-  v6 = (unsigned int)&a1[a2];
+  scan_end = (unsigned int)&a1[a2];
+  buffer_end = (unsigned int)&a1[a2];
   if ( a1 >= &a1[a2] )
   {
 LABEL_15:
-    if ( **(volatile int16_t **)off_12D6E0 < 0 && (volatile uint8_t *)v6 != a1 )
+    if ( **(volatile int16_t **)off_12D6E0 < 0 && (volatile uint8_t *)buffer_end != a1 )
       irq_disable_mmio_write(dword_12D6E8, dword_12D6E4, 180);
   }
   else
@@ -25,33 +26,33 @@ LABEL_15:
     v8 = &a3[a4];
     while ( 1 )
     {
-      v11 = a1;
-      if ( v5 <= (unsigned int)(a1 + 1) )
+      ie_start = a1;
+      if ( scan_end <= (unsigned int)(a1 + 1) )
         break;
-      v9 = *a1;
-      v10 = a1[1] + 2;
-      a1 += v10;
-      if ( v9 == 221 )
+      ie_id = *a1;
+      ie_total_len = a1[1] + 2;
+      a1 += ie_total_len;
+      if ( ie_id == 221 )
       {
-        if ( v5 < (unsigned int)a1 )
+        if ( scan_end < (unsigned int)a1 )
           return 0;
-        *a5 = v10;
-        if ( !v11 || (unsigned int)&v11[v7] > v6 )
+        *a5 = ie_total_len;
+        if ( !ie_start || (unsigned int)&ie_start[v7] > buffer_end )
           return 0;
-        v13 = a3;
+        prefix_cursor = a3;
         while ( 1 )
         {
-          v14 = &v11[(uint32_t)v13];
-          v15 = *v13++;
+          v14 = &ie_start[(uint32_t)prefix_cursor];
+          v15 = *prefix_cursor++;
           if ( v15 != v14[2 - (uint32_t)a3] )
             break;
-          if ( v13 == v8 )
-            return v11;
+          if ( prefix_cursor == v8 )
+            return ie_start;
         }
-        a2 = (uint16_t)(a2 - v10);
-        if ( v6 <= (unsigned int)a1 )
+        a2 = (uint16_t)(a2 - ie_total_len);
+        if ( buffer_end <= (unsigned int)a1 )
           goto LABEL_15;
-        v5 = (unsigned int)&a1[a2];
+        scan_end = (unsigned int)&a1[a2];
       }
     }
   }
@@ -61,6 +62,7 @@ LABEL_15:
 
 
 // range_overflow_check @ 0x12d6ec
+/* luna: Scans an 802.11 IE buffer for an extension IE with the requested extension ID and returns it with its encoded size. */
 volatile uint8_t * range_overflow_check(volatile uint8_t *a1, int a2, int a3, volatile uint16_t *a4) {
   unsigned int v4; // r7
   unsigned int v5; // r12
@@ -108,6 +110,7 @@ LABEL_13:
 
 
 // check_buf_range_12d75c @ 0x12d75c
+/* luna: Scans a bounded sequence of type-length-value records and returns the first type-1 record with a payload length from 1 to 12, storing that length thro */
 volatile uint8_t * check_buf_range_12d75c(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
   unsigned int v3; // r1
   int v4; // r4
@@ -142,31 +145,32 @@ volatile uint8_t * check_buf_range_12d75c(volatile uint8_t *result, int a2, vola
 
 
 // check_buf_range_12d79c @ 0x12d79c
+/* luna: Scans a bounded 802.11 information-element list for a nonempty element ID 50, returning its element pointer and writing its payload length or NULL if  */
 volatile uint8_t * check_buf_range_12d79c(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
-  unsigned int v3; // r1
-  int v4; // r4
-  volatile uint8_t *v5; // r5
+  unsigned int ie_list_end; // r1
+  int ie_len; // r4
+  volatile uint8_t *next_ie; // r5
 
-  v3 = (unsigned int)&result[a2];
-  if ( v3 <= (unsigned int)(result + 1) )
+  ie_list_end = (unsigned int)&result[a2];
+  if ( ie_list_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v4 = (uint8_t)result[1];
-    v5 = &result[v4 + 2];
+    ie_len = (uint8_t)result[1];
+    next_ie = &result[ie_len + 2];
     if ( *result == 50 )
       break;
-    result += v4 + 2;
-    if ( v3 <= (unsigned int)(v5 + 1) )
+    result += ie_len + 2;
+    if ( ie_list_end <= (unsigned int)(next_ie + 1) )
       return 0;
   }
-  if ( v3 >= (unsigned int)v5 )
+  if ( ie_list_end >= (unsigned int)next_ie )
   {
     if ( !result )
       return result;
     if ( result[1] )
     {
-      *a3 = v4;
+      *a3 = ie_len;
       return result;
     }
   }
@@ -176,6 +180,7 @@ volatile uint8_t * check_buf_range_12d79c(volatile uint8_t *result, int a2, vola
 
 
 // check_buf_range_12d7d8 @ 0x12d7d8
+/* luna: Scans length-prefixed buffer entries to a zero-tag terminator, validates their bounds and the terminator length, stores that length, and returns the t */
 volatile uint8_t * check_buf_range_12d7d8(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
   unsigned int v3; // r1
   int v4; // r5
@@ -207,6 +212,7 @@ volatile uint8_t * check_buf_range_12d7d8(volatile uint8_t *result, int a2, vola
 
 
 // check_buf_range_12d818 @ 0x12d818
+/* luna: Scans a bounded sequence of type-length-value records for tag 7 and returns the matching record only if it is fully in bounds and has a payload of at  */
 volatile uint8_t * check_buf_range_12d818(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
   unsigned int v3; // r1
   int v4; // r4
@@ -241,31 +247,32 @@ volatile uint8_t * check_buf_range_12d818(volatile uint8_t *result, int a2, vola
 
 
 // check_buf_range_12d854 @ 0x12d854
+/* luna: Scans 802.11 information elements for an in-bounds RSN element with at least 18 bytes of payload and returns its pointer and length. */
 volatile uint8_t * check_buf_range_12d854(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
-  unsigned int v3; // r1
-  int v4; // r4
-  volatile uint8_t *v5; // r5
+  unsigned int buffer_end; // r1
+  int element_length; // r4
+  volatile uint8_t *element_end; // r5
 
-  v3 = (unsigned int)&result[a2];
-  if ( v3 <= (unsigned int)(result + 1) )
+  buffer_end = (unsigned int)&result[a2];
+  if ( buffer_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v4 = (uint8_t)result[1];
-    v5 = &result[v4 + 2];
+    element_length = (uint8_t)result[1];
+    element_end = &result[element_length + 2];
     if ( *result == 48 )
       break;
-    result += v4 + 2;
-    if ( v3 <= (unsigned int)(v5 + 1) )
+    result += element_length + 2;
+    if ( buffer_end <= (unsigned int)(element_end + 1) )
       return 0;
   }
-  if ( v3 >= (unsigned int)v5 )
+  if ( buffer_end >= (unsigned int)element_end )
   {
     if ( !result )
       return result;
-    if ( (unsigned int)(v4 + 2) > 0x13 )
+    if ( (unsigned int)(element_length + 2) > 0x13 )
     {
-      *a3 = v4;
+      *a3 = element_length;
       return result;
     }
   }
@@ -275,6 +282,7 @@ volatile uint8_t * check_buf_range_12d854(volatile uint8_t *result, int a2, vola
 
 
 // log_message_level @ 0x12d890
+/* luna: Parses a test parameter, rejects values of 23 or less, and stores the accepted value minus two in the output byte. */
 volatile uint8_t * log_message_level(volatile uint8_t *a1, int a2, volatile uint8_t *a3) {
   volatile uint8_t *result; // r0
   uint16_t v5; // [sp+Eh] [bp-2h] BYREF
@@ -293,6 +301,7 @@ volatile uint8_t * log_message_level(volatile uint8_t *a1, int a2, volatile uint
 
 
 // check_buf_range_12d8bc @ 0x12d8bc
+/* luna: Scans a length-prefixed buffer for tag 0x44 and returns its address while storing the payload length only if the complete record is in bounds and its  */
 volatile uint8_t * check_buf_range_12d8bc(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
   unsigned int v3; // r1
   int v4; // r4
@@ -327,6 +336,7 @@ volatile uint8_t * check_buf_range_12d8bc(volatile uint8_t *result, int a2, vola
 
 
 // check_buf_range_12d8f8 @ 0x12d8f8
+/* luna: Scans length-prefixed records and returns the first complete record with tag 0x25 and a declared payload length of 3, or NULL. */
 volatile uint8_t * check_buf_range_12d8f8(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
@@ -356,23 +366,24 @@ volatile uint8_t * check_buf_range_12d8f8(volatile uint8_t *result, int a2) {
 
 
 // check_buf_range_12d938 @ 0x12d938
+/* luna: Scans a bounded sequence of length-prefixed elements for tag 0x3C with a four-byte payload, returning its pointer or NULL if it is absent or truncated */
 volatile uint8_t * check_buf_range_12d938(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int buffer_end; // r1
+  volatile uint8_t *element_end; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  buffer_end = (unsigned int)&result[a2];
+  if ( buffer_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[(uint8_t)result[1] + 2];
+    element_end = &result[(uint8_t)result[1] + 2];
     if ( *result == 60 )
       break;
     result += (uint8_t)result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( buffer_end <= (unsigned int)(element_end + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( buffer_end < (unsigned int)element_end )
     return 0;
   if ( result )
   {
@@ -385,6 +396,7 @@ volatile uint8_t * check_buf_range_12d938(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12d978 @ 0x12d978
+/* luna: Scans a length-prefixed byte sequence for tag 0x3E, returning its record pointer and reporting whether its payload length is one byte. */
 volatile uint8_t * test_arg2_one_12d978(volatile uint8_t *result, int a2, volatile int *a3) {
   unsigned int v3; // r1
   volatile uint8_t *v4; // r4
@@ -411,6 +423,7 @@ volatile uint8_t * test_arg2_one_12d978(volatile uint8_t *result, int a2, volati
 
 
 // test_arg2_one_12d9bc @ 0x12d9bc
+/* luna: Scans for a 0xC4 container and returns its well-formed 0xC2 subelement, setting the output flag when the subelement payload length is 3. */
 volatile uint8_t * test_arg2_one_12d9bc(volatile uint8_t *result, int a2, volatile int *a3) {
   unsigned int v3; // r1
   int v4; // r4
@@ -457,23 +470,24 @@ volatile uint8_t * test_arg2_one_12d9bc(volatile uint8_t *result, int a2, volati
 
 
 // test_arg2_one_12da20 @ 0x12da20
+/* luna: Scans a bounded information-element buffer for element ID 3 with a one-byte payload and returns its header or NULL. */
 volatile uint8_t * test_arg2_one_12da20(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int buffer_end; // r1
+  volatile uint8_t *next_ie; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  buffer_end = (unsigned int)&result[a2];
+  if ( buffer_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[(uint8_t)result[1] + 2];
+    next_ie = &result[(uint8_t)result[1] + 2];
     if ( *result == 3 )
       break;
     result += (uint8_t)result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( buffer_end <= (unsigned int)(next_ie + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( buffer_end < (unsigned int)next_ie )
     return 0;
   if ( result )
   {
@@ -486,23 +500,24 @@ volatile uint8_t * test_arg2_one_12da20(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12da60 @ 0x12da60
+/* luna: Scans a bounded information-element list and returns the first element with ID 76 and a 16-byte payload, or NULL if none qualifies. */
 volatile uint8_t * test_arg2_one_12da60(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int buffer_end; // r1
+  volatile uint8_t *next_ie; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  buffer_end = (unsigned int)&result[a2];
+  if ( buffer_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[(uint8_t)result[1] + 2];
+    next_ie = &result[(uint8_t)result[1] + 2];
     if ( *result == 76 )
       break;
     result += (uint8_t)result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( buffer_end <= (unsigned int)(next_ie + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( buffer_end < (unsigned int)next_ie )
     return 0;
   if ( result )
   {
@@ -515,6 +530,7 @@ volatile uint8_t * test_arg2_one_12da60(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12daa0 @ 0x12daa0
+/* luna: Scans a bounded information-element sequence for element ID 42 and returns it only if its payload length is exactly one byte. */
 volatile uint8_t * test_arg2_one_12daa0(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
@@ -544,23 +560,24 @@ volatile uint8_t * test_arg2_one_12daa0(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12dae0 @ 0x12dae0
+/* luna: Scans a bounded TLV buffer for type 0xC7 with a one-byte payload and returns its record pointer if found. */
 volatile uint8_t * test_arg2_one_12dae0(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int buffer_end; // r1
+  volatile uint8_t *tlv_end; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  buffer_end = (unsigned int)&result[a2];
+  if ( buffer_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[result[1] + 2];
+    tlv_end = &result[result[1] + 2];
     if ( *result == 199 )
       break;
     result += result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( buffer_end <= (unsigned int)(tlv_end + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( buffer_end < (unsigned int)tlv_end )
     return 0;
   if ( result )
   {
@@ -573,6 +590,7 @@ volatile uint8_t * test_arg2_one_12dae0(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12db20 @ 0x12db20
+/* luna: Scans a bounded TLV buffer for tag 0x20 with a one-byte payload and returns its record pointer, or NULL if absent or invalid. */
 volatile uint8_t * test_arg2_one_12db20(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
@@ -602,23 +620,24 @@ volatile uint8_t * test_arg2_one_12db20(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12db60 @ 0x12db60
+/* luna: Scans a bounded information-element buffer for element ID 54 with length 3 and returns its address, or NULL if none is found. */
 volatile uint8_t * test_arg2_one_12db60(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int buffer_end; // r1
+  volatile uint8_t *next_ie; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  buffer_end = (unsigned int)&result[a2];
+  if ( buffer_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[(uint8_t)result[1] + 2];
+    next_ie = &result[(uint8_t)result[1] + 2];
     if ( *result == 54 )
       break;
     result += (uint8_t)result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( buffer_end <= (unsigned int)(next_ie + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( buffer_end < (unsigned int)next_ie )
     return 0;
   if ( result )
   {
@@ -631,6 +650,7 @@ volatile uint8_t * test_arg2_one_12db60(volatile uint8_t *result, int a2) {
 
 
 // format_log_message_12dba0 @ 0x12dba0
+/* luna: Formats a message into the supplied buffer and returns the formatter result only if its recorded output length is 26. */
 volatile uint8_t * format_log_message_12dba0(volatile uint8_t *a1, int a2) {
   volatile uint8_t *result; // r0
   uint16_t v3[3]; // [sp+Eh] [bp-6h] BYREF
@@ -647,6 +667,7 @@ volatile uint8_t * format_log_message_12dba0(volatile uint8_t *a1, int a2) {
 
 
 // test_arg2_one_12dbc8 @ 0x12dbc8
+/* luna: Scans bounded marker-and-length records and returns the first record marked '-' with a length byte of 26, or NULL if none is found. */
 volatile uint8_t * test_arg2_one_12dbc8(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
@@ -676,6 +697,7 @@ volatile uint8_t * test_arg2_one_12dbc8(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12dc08 @ 0x12dc08
+/* luna: Scans a bounded sequence of two-byte-header elements for ID 0x47 and returns its start only if its encoded length is at least six bytes and fits withi */
 volatile uint8_t * test_arg2_one_12dc08(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   unsigned int v3; // r3
@@ -707,6 +729,7 @@ volatile uint8_t * test_arg2_one_12dc08(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12dc48 @ 0x12dc48
+/* luna: Scans length-prefixed records and returns the zero-tagged terminal record only when the supplied offset reaches or passes its end and the record is at */
 volatile uint8_t * test_arg2_one_12dc48(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   unsigned int v3; // r3
@@ -738,23 +761,24 @@ volatile uint8_t * test_arg2_one_12dc48(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12dc90 @ 0x12dc90
+/* luna: Scans a length-prefixed element list and returns the header of element ID 83 with a two-byte payload, or NULL if it is absent or out of bounds. */
 volatile uint8_t * test_arg2_one_12dc90(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int buffer_end; // r1
+  volatile uint8_t *element_end; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  buffer_end = (unsigned int)&result[a2];
+  if ( buffer_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[(uint8_t)result[1] + 2];
+    element_end = &result[(uint8_t)result[1] + 2];
     if ( *result == 83 )
       break;
     result += (uint8_t)result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( buffer_end <= (unsigned int)(element_end + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( buffer_end < (unsigned int)element_end )
     return 0;
   if ( result )
   {
@@ -767,6 +791,7 @@ volatile uint8_t * test_arg2_one_12dc90(volatile uint8_t *result, int a2) {
 
 
 // sub_12DCD0 @ 0x12dcd0
+/* luna: Scans a length-prefixed buffer for a tag-0x55 entry and returns its start if its length is nonzero and the entry fits within the buffer. */
 volatile uint8_t * sub_12DCD0(volatile uint8_t *result, int a2) {
   volatile uint8_t *v2; // r1
   volatile uint8_t *v3; // r2
@@ -795,6 +820,7 @@ volatile uint8_t * sub_12DCD0(volatile uint8_t *result, int a2) {
 
 
 // return_zero_1 @ 0x12dd0c
+/* luna: Returns zero unconditionally. */
 int return_zero_1() {
   return 0;
 }
@@ -802,23 +828,24 @@ int return_zero_1() {
 
 
 // test_arg2_one_12dd10 @ 0x12dd10
+/* luna: Scans a bounded 802.11 information-element list and returns the VHT Capabilities IE (element ID 191, length 12), or NULL if it is absent or truncated. */
 volatile uint8_t * test_arg2_one_12dd10(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int ie_list_end; // r1
+  volatile uint8_t *current_ie_end; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  ie_list_end = (unsigned int)&result[a2];
+  if ( ie_list_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[result[1] + 2];
+    current_ie_end = &result[result[1] + 2];
     if ( *result == 191 )
       break;
     result += result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( ie_list_end <= (unsigned int)(current_ie_end + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( ie_list_end < (unsigned int)current_ie_end )
     return 0;
   if ( result )
   {
@@ -831,6 +858,7 @@ volatile uint8_t * test_arg2_one_12dd10(volatile uint8_t *result, int a2) {
 
 
 // emit_hash_12dd50 @ 0x12dd50
+/* luna: Parses a value from the input, accepts only values from 24 through 57, stores the accepted value minus 3 in the output byte, and returns NULL on parse */
 volatile uint8_t * emit_hash_12dd50(volatile uint8_t *a1, int a2, volatile uint8_t *a3) {
   volatile uint8_t *result; // r0
   uint16_t v5; // [sp+6h] [bp-2h] BYREF
@@ -849,23 +877,24 @@ volatile uint8_t * emit_hash_12dd50(volatile uint8_t *a1, int a2, volatile uint8
 
 
 // test_arg2_one_12dd78 @ 0x12dd78
+/* luna: Scans a bounded 802.11 information-element list and returns the HT Operation element (ID 61) only if its length is 22 bytes. */
 volatile uint8_t * test_arg2_one_12dd78(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int ies_end; // r1
+  volatile uint8_t *ie_end; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  ies_end = (unsigned int)&result[a2];
+  if ( ies_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[(uint8_t)result[1] + 2];
+    ie_end = &result[(uint8_t)result[1] + 2];
     if ( *result == 61 )
       break;
     result += (uint8_t)result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( ies_end <= (unsigned int)(ie_end + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( ies_end < (unsigned int)ie_end )
     return 0;
   if ( result )
   {
@@ -878,23 +907,24 @@ volatile uint8_t * test_arg2_one_12dd78(volatile uint8_t *result, int a2) {
 
 
 // test_arg2_one_12ddb8 @ 0x12ddb8
+/* luna: Scans a bounded 802.11 information-element buffer for a VHT Operation IE (element ID 192, length 5) and returns its address, or NULL if none is found  */
 volatile uint8_t * test_arg2_one_12ddb8(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int ies_end; // r1
+  volatile uint8_t *ie_end; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  ies_end = (unsigned int)&result[a2];
+  if ( ies_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[result[1] + 2];
+    ie_end = &result[result[1] + 2];
     if ( *result == 192 )
       break;
     result += result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( ies_end <= (unsigned int)(ie_end + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( ies_end < (unsigned int)ie_end )
     return 0;
   if ( result )
   {
@@ -907,6 +937,7 @@ volatile uint8_t * test_arg2_one_12ddb8(volatile uint8_t *result, int a2) {
 
 
 // emit_dollar_12ddf8 @ 0x12ddf8
+/* luna: Parses a value using the `$`-tagged range check, accepts values from 9 through 18, and stores the value minus 3. */
 volatile uint8_t * emit_dollar_12ddf8(volatile uint8_t *a1, int a2, volatile uint8_t *a3) {
   volatile uint8_t *result; // r0
   uint16_t v5; // [sp+6h] [bp-2h] BYREF
@@ -925,6 +956,7 @@ volatile uint8_t * emit_dollar_12ddf8(volatile uint8_t *a1, int a2, volatile uin
 
 
 // emit_ampersand_12de20 @ 0x12de20
+/* luna: Returns the input pointer only if range_overflow_check succeeds and its first parsed value is 16. */
 volatile uint8_t * emit_ampersand_12de20(volatile uint8_t *a1, int a2) {
   volatile uint8_t *result; // r0
   uint16_t v3[3]; // [sp+6h] [bp-6h] BYREF
@@ -941,6 +973,7 @@ volatile uint8_t * emit_ampersand_12de20(volatile uint8_t *a1, int a2) {
 
 
 // emit_percent_12de40 @ 0x12de40
+/* luna: Checks the percent token and returns the range-check result only when its decoded kind is 4. */
 volatile uint8_t * emit_percent_12de40(volatile uint8_t *a1, int a2) {
   volatile uint8_t *result; // r0
   uint16_t v3[3]; // [sp+6h] [bp-6h] BYREF
@@ -957,6 +990,7 @@ volatile uint8_t * emit_percent_12de40(volatile uint8_t *a1, int a2) {
 
 
 // rf_get_freq_field @ 0x12de60
+/* luna: Extracts a 9-bit frequency field from bytes 4–5 and places it in bits 22–30. */
 int rf_get_freq_field(int a1) {
   return ((2 * *(volatile uint8_t *)(a1 + 5)) | (*(volatile uint8_t *)(a1 + 4) >> 7)) << 22;
 }
@@ -964,6 +998,7 @@ int rf_get_freq_field(int a1) {
 
 
 // rf_calc_whitening @ 0x12de70
+/* luna: Encodes the low nine bits of the supplied value together with a nibble-derived selector from byte offset 5 into an RF control field. */
 int rf_calc_whitening(int a1, int16_t a2) {
   return dword_12DE90
        & ((((32 * (*(volatile uint8_t *)(a1 + 5) ^ (*(volatile uint8_t *)(a1 + 5) >> 4))) & 0x1E0) + (a2 & 0x1FF)) << 22)
@@ -973,6 +1008,7 @@ int rf_calc_whitening(int a1, int16_t a2) {
 
 
 // is_factory_mode_a @ 0x12de94
+/* luna: Converts recognized factory-test selector codes to internal IDs and returns 255 for unsupported codes. */
 int is_factory_mode_a(volatile char *a1) {
   int result; // r0
 
@@ -1067,6 +1103,7 @@ int is_factory_mode_a(volatile char *a1) {
 
 
 // is_factory_mode_b @ 0x12df40
+/* luna: Maps recognized factory-mode-B codes to selector values and returns 255 for unrecognized codes. */
 int is_factory_mode_b(unsigned int a1) {
   int result; // r0
 
@@ -1138,6 +1175,7 @@ int is_factory_mode_b(unsigned int a1) {
 
 
 // is_ptr_nonnull @ 0x12dfc0
+/* luna: Maps RSSI values from −110 to 0 dBm onto 0 to 220, saturating values outside that range. */
 int is_ptr_nonnull(int a1) {
   if ( a1 >= 0 )
     return 220;
@@ -1149,6 +1187,7 @@ int is_ptr_nonnull(int a1) {
 
 
 // rx_process_packet_2 @ 0x12dfdc
+/* luna: Parses a printf-style format string and emits the formatted result through the supplied output path. */
 unsigned int rx_process_packet_2(volatile char *a1, int a2, unsigned int a3, volatile uint8_t *a4, volatile unsigned int *a5) {
   int v7; // r2
   volatile uint8_t *v8; // r5
@@ -1923,6 +1962,7 @@ LABEL_13:
 
 
 // mmio_read_bit13 @ 0x12e8d0
+/* luna: Busy-waits until bit 18 of a volatile word at a fixed address is set. */
 void mmio_read_bit13() {
   while ( (*(volatile uint32_t *)off_12E8E8 & 0x40000) == 0 )
     ;
@@ -1931,6 +1971,7 @@ void mmio_read_bit13() {
 
 
 // set_global_field0 @ 0x12e8ec
+/* luna: Writes the supplied value to the global 32-bit field and returns it unchanged. */
 int set_global_field0(int result) {
   *(volatile uint32_t *)off_12E8F4 = result;
   return result;
@@ -1939,6 +1980,7 @@ int set_global_field0(int result) {
 
 
 // set_global_field4 @ 0x12e8f8
+/* luna: Stores a value in the 32-bit global field at offset 4 and returns that value. */
 int set_global_field4(int result) {
   *((volatile uint32_t *)off_12E900 + 1) = result;
   return result;
@@ -1947,6 +1989,7 @@ int set_global_field4(int result) {
 
 
 // get_global_field0 @ 0x12e904
+/* luna: Returns the 32-bit value stored at the fixed global field-0 address. */
 int get_global_field0() {
   return *(volatile uint32_t *)off_12E90C;
 }
@@ -1954,6 +1997,7 @@ int get_global_field0() {
 
 
 // get_global_field4 @ 0x12e910
+/* luna: Returns the 32-bit value stored at offset 4 in the global record. */
 int get_global_field4() {
   return *((volatile uint32_t *)off_12E918 + 1);
 }
@@ -1961,6 +2005,7 @@ int get_global_field4() {
 
 
 // is_id_lt_10 @ 0x12e91c
+/* luna: Returns true when the index is below 10, its bit is set in the global bitmap, and the adjacent global value is at least the requested value. */
 BOOL is_id_lt_10(unsigned int a1, unsigned int a2) {
   BOOL result; // r0
 
@@ -1975,6 +2020,7 @@ BOOL is_id_lt_10(unsigned int a1, unsigned int a2) {
 
 
 // alloc_tx_event @ 0x12e948
+/* luna: Checks up to two high-bit tag bytes against the debug filter, then forwards the remaining format string and arguments to the test-print backend. */
 int alloc_tx_event(const volatile char *fmt, ...) {
   volatile uint32_t *v1; // r6
   const volatile char *v2; // r4
@@ -2021,6 +2067,7 @@ int alloc_tx_event(const volatile char *fmt, ...) {
 
 
 // process_packet_params @ 0x12e9d8
+/* luna: Emits a hexadecimal dump of the requested memory range in 16-byte lines, optionally appending a printable-ASCII column. */
 int process_packet_params(int result, int a2, int a3, int a4) {
   int v4; // r4
   unsigned int v5; // r5
@@ -2176,6 +2223,7 @@ LABEL_30:
 
 
 // check_feature_flag @ 0x12eb90
+/* luna: Formats and emits a test message when the supplied flag intersects the enabled-test mask; otherwise returns the flag unchanged. */
 int check_feature_flag(int a1, const volatile char *fmt, ...) {
   va_list varg_r2; // [sp+10h] [bp+8h] BYREF
 

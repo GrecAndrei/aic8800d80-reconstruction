@@ -1,4 +1,5 @@
 // phy_init @ 0x13a3e8
+/* luna: Selects the PHY profile and mode for a channel, returning a result code and optionally copying profile parameters into the request. */
 int phy_init(int a1, volatile uint32_t *a2) {
   int v3; // r7
   int v4; // r0
@@ -90,6 +91,7 @@ int phy_init(int a1, volatile uint32_t *a2) {
 
 
 // phy_reset @ 0x13a514
+/* luna: Clears two state fields and, unless control bit 0 is set, advances an optional 12-bit table counter, calls `phy_init`, and records derived timing valu */
 int phy_reset(int a1) {
   int16_t v1; // r2
   int result; // r0
@@ -154,6 +156,7 @@ int phy_reset(int a1) {
 
 
 // phy_calibrate_2 @ 0x13a5c4
+/* luna: Constructs the PHY transmit descriptor before the frame using control flags and station/VIF context. */
 int phy_calibrate_2(int a1, int a2) {
   int v2; // r11
   int v3; // r10
@@ -351,6 +354,7 @@ LABEL_6:
 
 
 // phy_write @ 0x13a840
+/* luna: Conditionally packs a PHY write payload into the supplied word buffer using the active PHY format and updates the associated state word. */
 volatile uint16_t * phy_write(int a1, volatile uint16_t *a2, int a3) {
   int v4; // r5
   int v5; // r3
@@ -439,13 +443,14 @@ LABEL_17:
 
 
 // phy_set_channel_1 @ 0x13a9b4
+/* luna: Logs a TXU discard record, allocates a retransmission event when status bit 0 is set, and calls the registration routine inside a nested IRQ-safe crit */
 int phy_set_channel_1(int a1, int a2, int a3) {
-  int v6; // r3
+  int discard_flags; // r3
   int v7; // r1
-  volatile int *v8; // r5
+  volatile int *irq_lock_depth_ptr; // r5
   int result; // r0
-  int v10; // r3
-  int v11; // r2
+  int remaining_lock_depth; // r3
+  int irq_restore_needed; // r2
 
   check_feature_flag(
     32,
@@ -453,26 +458,26 @@ int phy_set_channel_1(int a1, int a2, int a3) {
     *(volatile uint16_t *)(a1 + 32),
     *(volatile uint16_t *)(a1 + 30),
     *(volatile uint8_t *)(a1 + 27));
-  v6 = *(volatile uint16_t *)(a1 + 30);
-  v7 = v6 << 31;
-  if ( (v6 & 1) != 0 || (phy_stats_count(), (*(volatile uint16_t *)(a1 + 30) & 1) != 0) )
+  discard_flags = *(volatile uint16_t *)(a1 + 30);
+  v7 = discard_flags << 31;
+  if ( (discard_flags & 1) != 0 || (phy_stats_count(), (*(volatile uint16_t *)(a1 + 30) & 1) != 0) )
     alloc_tx_event(aRetransmitTxuD, v7);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_13AA28 = 1;
   }
-  v8 = (volatile int *)off_13AA2C;
+  irq_lock_depth_ptr = (volatile int *)off_13AA2C;
   ++*(volatile uint32_t *)off_13AA2C;
   result = register_handler((volatile uint32_t *)a1, a3, a2);
-  if ( *v8 )
+  if ( *irq_lock_depth_ptr )
   {
-    v10 = *v8 - 1;
-    v11 = *(volatile uint32_t *)off_13AA28;
-    *v8 = v10;
-    if ( !v10 )
+    remaining_lock_depth = *irq_lock_depth_ptr - 1;
+    irq_restore_needed = *(volatile uint32_t *)off_13AA28;
+    *irq_lock_depth_ptr = remaining_lock_depth;
+    if ( !remaining_lock_depth )
     {
-      if ( v11 )
+      if ( irq_restore_needed )
         __enable_irq();
     }
   }
@@ -481,6 +486,7 @@ int phy_set_channel_1(int a1, int a2, int a3) {
 
 
 // phy_check_chanspec @ 0x13aa30
+/* luna: Prepends a chanspec-dependent PHY command when the stored chanspec is at least 0x600, then submits it and calibrates the resulting PHY state. */
 int phy_check_chanspec(int a1, volatile uint16_t *a2) {
   unsigned int v2; // r2
   volatile uint16_t *v4; // r1
@@ -501,6 +507,7 @@ int phy_check_chanspec(int a1, volatile uint16_t *a2) {
 
 
 // phy_txpower_calc @ 0x13aa68
+/* luna: Validates the requested PHY and station context, prepares the selected PHY configuration and Bluetooth coexistence state, then delegates channel progr */
 int phy_txpower_calc(unsigned int a1, int a2) {
   unsigned int v2; // r6
   int v5; // r3
@@ -736,6 +743,7 @@ LABEL_37:
 
 
 // phy_enable @ 0x13ade4
+/* luna: Sets the PHY enable bit, clears two PHY state fields, and recalculates transmit power. */
 int phy_enable(int a1, int a2) {
   int16_t v2; // r2
 
@@ -749,6 +757,7 @@ int phy_enable(int a1, int a2) {
 
 
 // phy_get_txpower @ 0x13adfc
+/* luna: Selects an RF channel for the indexed PHY state when its status byte is 1, otherwise returning the input unchanged. */
 volatile int * phy_get_txpower(volatile int *result) {
   int v1; // r5
 
@@ -768,6 +777,7 @@ volatile int * phy_get_txpower(volatile int *result) {
 
 
 // phy_switch_radio @ 0x13ae40
+/* luna: Applies the PHY radio configuration, optionally retunes the channel, and returns per-channel status when the radio status bit is set. */
 int phy_switch_radio(int a1, int a2) {
   int v2; // r5
   int v3; // r3
@@ -872,6 +882,7 @@ LABEL_11:
 
 
 // get_config_flag @ 0x13af60
+/* luna: Lazily initializes and caches PHY configuration offsets, sets bit 14 in the supplied word, and writes through the adjusted configuration pointer. */
 volatile uint16_t * get_config_flag(int a1, volatile uint16_t *a2, int a3) {
   volatile uint16_t *v6; // r1
   int v8; // r0
@@ -897,6 +908,7 @@ volatile uint16_t * get_config_flag(int a1, volatile uint16_t *a2, int a3) {
 
 
 // parse_packet_header @ 0x13afa0
+/* luna: Processes PHY response records, updates per-channel state, and dispatches the corresponding HCI and RF control actions. */
 int parse_packet_header(int a1, int a2, unsigned int a3) {
   int v3; // r3
   int v6; // r5
@@ -1072,6 +1084,7 @@ LABEL_31:
 
 
 // rf_wait_ready @ 0x13b250
+/* luna: Looks up the task ID encoded in the upper bits of the third argument, discards the result, and returns zero. */
 int rf_wait_ready(int a1, int a2, unsigned int a3) {
   ke_task_get(a3 >> 8);
   return 0;

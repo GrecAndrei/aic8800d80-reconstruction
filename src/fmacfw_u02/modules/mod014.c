@@ -1,4 +1,5 @@
 // phy_radio_switch @ 0x117074
+/* luna: Handles the indexed PHY radio instance by programming its selector register and servicing the associated RF status handshake. */
 int phy_radio_switch(int result) {
   int v1; // r6
   unsigned int v2; // r4
@@ -315,6 +316,7 @@ LABEL_14:
 
 
 // phy_band_validate @ 0x11749c
+/* luna: Initializes the indexed RF transmit context and event slot, clears per-slot fields, and updates the corresponding global slot mask. */
 int phy_band_validate(int a1) {
   volatile uint32_t *v2; // r5
   int v3; // r3
@@ -366,6 +368,7 @@ int phy_band_validate(int a1) {
 
 
 // dma_rx_setup @ 0x117534
+/* luna: Initializes two five-entry RF transmit configuration tables by calling rf_tx_setup for each indexed entry. */
 int dma_rx_setup(int a1) {
   int v1; // r4
   int v2; // r5
@@ -390,14 +393,15 @@ int dma_rx_setup(int a1) {
 
 
 // phy_chan_set @ 0x117564
+/* luna: Configures the requested PHY channel by initializing its state, applying rate and TX-length settings, issuing the channel command, and initializing th */
 int phy_chan_set(int a1, int a2) {
-  volatile char *v4; // r7
+  volatile char *phy_config_entry; // r7
   int v5; // r0
   int16_t v6; // r1
-  volatile uint32_t *v7; // r3
+  volatile uint32_t *phy_state_words; // r3
   int v8; // r3
   volatile uint8_t *v9; // r2
-  volatile int *v10; // r6
+  volatile int *irq_lock_depth; // r6
   int result; // r0
   int v12; // r3
   int v13; // r3
@@ -405,27 +409,27 @@ int phy_chan_set(int a1, int a2) {
   volatile unsigned int v15; // r2
 
   if ( a2 == 5 )
-    v4 = (volatile char *)dword_117688;
+    phy_config_entry = (volatile char *)dword_117688;
   else
-    v4 = (volatile char *)off_117664 + 84 * a2;
+    phy_config_entry = (volatile char *)off_117664 + 84 * a2;
   v5 = dword_117668;
   v6 = *(volatile uint16_t *)(a1 + 30);
-  v7 = *(volatile uint32_t **)(a1 + 76);
-  v7[9] = *(volatile uint8_t *)(a1 + 51) + *(volatile uint8_t *)(a1 + 53) + *(volatile uint16_t *)(a1 + 4) + 4;
-  v7[8] = 0;
-  v7[13] = 0;
-  v7[14] = 0;
-  v7[4] = 0;
-  v7[5] = 0;
-  v7[6] = 0;
-  v7[7] = 0;
-  v7[3] = v5;
-  v7[15] = 0;
-  v7[12] = 0;
-  v7[17] = 0;
-  v7[10] = 0;
+  phy_state_words = *(volatile uint32_t **)(a1 + 76);
+  phy_state_words[9] = *(volatile uint8_t *)(a1 + 51) + *(volatile uint8_t *)(a1 + 53) + *(volatile uint16_t *)(a1 + 4) + 4;
+  phy_state_words[8] = 0;
+  phy_state_words[13] = 0;
+  phy_state_words[14] = 0;
+  phy_state_words[4] = 0;
+  phy_state_words[5] = 0;
+  phy_state_words[6] = 0;
+  phy_state_words[7] = 0;
+  phy_state_words[3] = v5;
+  phy_state_words[15] = 0;
+  phy_state_words[12] = 0;
+  phy_state_words[17] = 0;
+  phy_state_words[10] = 0;
   if ( (v6 & 1) == 0 )
-    v7[18] = 0;
+    phy_state_words[18] = 0;
   v8 = *((volatile uint32_t *)off_11766C + 8);
   if ( v8 )
   {
@@ -442,22 +446,22 @@ int phy_chan_set(int a1, int a2) {
     __disable_irq();
     *(volatile uint32_t *)off_117678 = 1;
   }
-  v10 = (volatile int *)off_11767C;
+  irq_lock_depth = (volatile int *)off_11767C;
   ++*(volatile uint32_t *)off_11767C;
   rate_set_config(a1, a2);
-  cmd_handler_a((int)(v4 + 12), (volatile uint32_t *)a1);
+  cmd_handler_a((int)(phy_config_entry + 12), (volatile uint32_t *)a1);
   tx_len_check(*(volatile uint8_t *)(a1 + 28), *(volatile uint8_t *)(a1 + 29), 0);
   if ( (*(volatile uint16_t *)(a1 + 30) & 1) == 0 )
     ++*((volatile uint32_t *)off_117664 + 126);
   wlc_is_ready(a1);
   result = dma_ring_init(a1, a2, 0);
-  v12 = *v10;
+  v12 = *irq_lock_depth;
   *(volatile uint16_t *)(a1 + 82) |= 1u;
   if ( v12 )
   {
     v13 = v12 - 1;
     v14 = *(volatile uint32_t *)off_117678;
-    *v10 = v13;
+    *irq_lock_depth = v13;
     if ( !v13 )
     {
       if ( v14 )
@@ -469,6 +473,7 @@ int phy_chan_set(int a1, int a2) {
 
 
 // irq_counter_inc @ 0x11768c
+/* luna: Increments the volatile IRQ counter at byte offset 0x1F8 from the global state base. */
 void irq_counter_inc() {
   ++*((volatile uint32_t *)off_11769C + 126);
 }
@@ -476,6 +481,7 @@ void irq_counter_inc() {
 
 
 // phy_radio_init @ 0x1176a0
+/* luna: Processes a per-interface PHY event, checks link and channel conditions, updates state, and dispatches the associated command handler. */
 int phy_radio_init(int a1, int a2) {
   volatile char *v4; // r7
   int v5; // r10
@@ -628,12 +634,14 @@ int phy_radio_init(int a1, int a2) {
 
 
 // nullsub_7 @ 0x1178c4
+/* luna: Returns zero without performing any operation. */
 int nullsub_7(void) {
   return 0;
 }
 
 
 // core_rev_read @ 0x1178c8
+/* luna: Reads the masked PHY core configuration, conditionally enables the radio clock, dispatches the encoded revision index, and caches the configuration. */
 unsigned int core_rev_read() {
   int v0; // r4
   unsigned int result; // r0
@@ -658,6 +666,7 @@ unsigned int core_rev_read() {
 
 
 // chip_type_read @ 0x117924
+/* luna: Reads and acknowledges PHY status events, then dispatches RX handling, radio-core reset, or radio switching as indicated by the status bits. */
 int chip_type_read(int result) {
   int v1; // r4
   int v2; // r5
@@ -712,6 +721,7 @@ LABEL_9:
 
 
 // chip_status_read @ 0x1179f4
+/* luna: Reads status bits 20–23, dispatches the index of the highest set bit, and writes the captured mask back to the status register. */
 int chip_status_read() {
   unsigned int v0; // r4
   int result; // r0
@@ -732,6 +742,7 @@ int chip_status_read() {
 
 
 // func_117a24 @ 0x117a24
+/* luna: Under an IRQ-preserving critical section, scans five slots and sets the hardware bit for each eligible slot, then marks a shared state byte. */
 void func_117a24() {
   volatile int *v0; // r9
   volatile uint32_t *v1; // r7
@@ -783,6 +794,7 @@ void func_117a24() {
 
 
 // fatal_error_handler @ 0x117ab8
+/* luna: Scans five configuration slots, dispatches eligible commands, records per-slot deadlines, and sets the corresponding active-command bits under the int */
 int fatal_error_handler() {
   volatile int *v0; // r7
   volatile uint8_t *v1; // r5
@@ -870,6 +882,7 @@ int fatal_error_handler() {
 
 
 // mem_pool_init @ 0x117bbc
+/* luna: Configures five RF transmit entries, locks the PLL and processes radio completion, then resets associated records and a fixed-size pool. */
 uint64_t mem_pool_init() {
   volatile uint8_t *v0; // r8
   int v1; // r10
@@ -962,6 +975,7 @@ uint64_t mem_pool_init() {
 
 
 // timer_queue_init @ 0x117cc4
+/* luna: Populates a global six-value PHY timing table by scaling input values by 1000, using defaults for zero-valued entries among the first four inputs. */
 int timer_queue_init(int a1) {
   volatile uint64_t *v1; // r6
   volatile uint64_t *v2; // r7
@@ -1001,6 +1015,7 @@ int timer_queue_init(int a1) {
 
 
 // compare_uint16_field @ 0x117d10
+/* luna: Returns true when the 16-bit value at offset 32 in the second object is greater than or equal to the first object's value and no more than 63 ahead. */
 BOOL compare_uint16_field(int a1, int a2) {
   unsigned int v2; // r3
   unsigned int v3; // r0
@@ -1017,6 +1032,7 @@ BOOL compare_uint16_field(int a1, int a2) {
 
 
 // ll_state_check @ 0x117d30
+/* luna: When an operation has a negative status, packages its error details into a queued confirmation command and logs the status. */
 int ll_state_check(int result, volatile uint32_t *a2) {
   int v2; // r3
   int v3; // r2
@@ -1156,6 +1172,7 @@ int init_buf_188290() {
 
 
 // ipc_handler_register @ 0x117f18
+/* luna: Stores the supplied value in a nested context field, processes the indexed operation-table entry, and invokes an indexed fallback callback when flag b */
 int ipc_handler_register(volatile uint32_t *a1, int a2, int a3) {
   int v3; // r3
   int v5; // r0

@@ -1,4 +1,5 @@
 // check_radio_state @ 0x102bc0
+/* luna: Logs a spurious interrupt and clears the associated register when its signed status flag is set. */
 int check_radio_state() {
   int result; // r0
 
@@ -10,43 +11,44 @@ int check_radio_state() {
 
 
 // install_isr @ 0x102bfc
+/* luna: Installs radio interrupt handlers in the vector table, enables their NVIC lines, and globally enables interrupts. */
 int install_isr() {
   volatile uint32_t *v0; // r2
-  volatile uint8_t *v1; // r3
-  int v2; // r1
-  int v3; // r0
-  int v4; // r4
-  int v5; // r0
-  int v6; // r1
+  volatile uint8_t *nvic_register_base; // r3
+  int irq5_and_irq7_handler; // r1
+  int irq2_handler; // r0
+  int irq6_handler; // r4
+  int irq3_handler; // r0
+  int vector_table_base; // r1
   volatile uint8_t *v7; // r2
-  int v8; // r2
+  int enable_irq9_flag; // r2
   volatile uint32_t *v9; // r2
   volatile uint32_t *v10; // r3
 
   v0 = (void *)(uintptr_t)(off_102C80);
-  v1 = (void *)(uintptr_t)(off_102C84);
+  nvic_register_base = (void *)(uintptr_t)(off_102C84);
   *(volatile uint32_t *)(*((volatile uint32_t *)off_102C80 + 2) + 80) = dword_102C88;
-  *(volatile uint32_t *)v1 = 16;
-  v2 = dword_102C8C;
+  *(volatile uint32_t *)nvic_register_base = 16;
+  irq5_and_irq7_handler = dword_102C8C;
   *(volatile uint32_t *)(v0[2] + 84) = dword_102C8C;
-  *(volatile uint32_t *)v1 = 32;
-  v3 = dword_102C90;
-  *(volatile uint32_t *)(v0[2] + 92) = v2;
-  *(volatile uint32_t *)v1 = 128;
-  v4 = dword_102C94;
-  *(volatile uint32_t *)(v0[2] + 72) = v3;
-  *(volatile uint32_t *)v1 = 4;
-  v5 = dword_102C98;
-  *(volatile uint32_t *)(v0[2] + 88) = v4;
-  *(volatile uint32_t *)v1 = 64;
-  v6 = v0[2];
+  *(volatile uint32_t *)nvic_register_base = 32;
+  irq2_handler = dword_102C90;
+  *(volatile uint32_t *)(v0[2] + 92) = irq5_and_irq7_handler;
+  *(volatile uint32_t *)nvic_register_base = 128;
+  irq6_handler = dword_102C94;
+  *(volatile uint32_t *)(v0[2] + 72) = irq2_handler;
+  *(volatile uint32_t *)nvic_register_base = 4;
+  irq3_handler = dword_102C98;
+  *(volatile uint32_t *)(v0[2] + 88) = irq6_handler;
+  *(volatile uint32_t *)nvic_register_base = 64;
+  vector_table_base = v0[2];
   v7 = (volatile uint8_t *)off_102C9C;
-  *(volatile uint32_t *)(v6 + 76) = v5;
-  v8 = v7[413];
-  v1[771] = -8;
-  *(volatile uint32_t *)v1 = 8;
-  if ( v8 )
-    *(volatile uint32_t *)v1 = 512;
+  *(volatile uint32_t *)(vector_table_base + 76) = irq3_handler;
+  enable_irq9_flag = v7[413];
+  nvic_register_base[771] = -8;
+  *(volatile uint32_t *)nvic_register_base = 8;
+  if ( enable_irq9_flag )
+    *(volatile uint32_t *)nvic_register_base = 512;
   v9 = (void *)(uintptr_t)(off_102C80);
   v10 = (void *)(uintptr_t)(off_102C84);
   *(volatile uint32_t *)(*((volatile uint32_t *)off_102C80 + 2) + 208) = off_102CA0;
@@ -62,6 +64,7 @@ int install_isr() {
 
 
 // set_wakeup_trigger @ 0x102ca8
+/* luna: Selects one of two wakeup-trigger configurations in the control register using staged writes and short settling delays. */
 volatile int * set_wakeup_trigger(int a1) {
   int v1; // r4
   int v2; // r1
@@ -113,6 +116,7 @@ volatile int * set_wakeup_trigger(int a1) {
 
 
 // set_wakeup_polarity @ 0x102d0c
+/* luna: Selects a wakeup-control bit group based on the argument and updates its configuration bits in a peripheral register. */
 int set_wakeup_polarity(int result) {
   int v1; // r4
   int v2; // zf
@@ -166,6 +170,7 @@ int set_wakeup_polarity(int result) {
 
 
 // peripheral_write_32 @ 0x102d7c
+/* luna: Writes 16 supplied values, shifted by 11, into selected peripheral register banks while preserving configured bits and updating the corresponding seco */
 int peripheral_write_32(int a1, volatile uint16_t *a2) {
   unsigned int v4; // r11
   int v5; // r8
@@ -273,6 +278,7 @@ LABEL_10:
 
 
 // peripheral_read_32 @ 0x102eb8
+/* luna: Copies 32-bit words from the supplied source address into the mode-selected mapped window, applying the mode-specific slot stride and wakeup signaling */
 int peripheral_read_32(int a1, int a2, unsigned int a3, int a4) {
   int v6; // r6
   int v7; // r4
@@ -334,6 +340,7 @@ int peripheral_read_32(int a1, int a2, unsigned int a3, int a4) {
 
 
 // call_transfer @ 0x102f4c
+/* luna: Reads 16-byte peripheral blocks at offsets 0x20, 0x30, and 0x40 into configured destination buffers, returning the final read status. */
 int call_transfer() {
   uint64_t v0; // kr00_8
   int v1; // r4
@@ -348,6 +355,7 @@ int call_transfer() {
 
 
 // is_radio_busy @ 0x102f80
+/* luna: Initializes radio control registers and hardware state when the initialization flag is clear, otherwise sets a radio control bit. */
 int is_radio_busy() {
   volatile uint8_t *v0; // r3
   volatile uint32_t *v1; // r2
@@ -462,6 +470,7 @@ int is_radio_busy() {
 
 
 // get_radio_state @ 0x103200
+/* luna: Applies the requested radio state by setting or clearing control-register bit 1 and conditionally issuing the matching PHY configuration command. */
 unsigned int get_radio_state(unsigned int result) {
   if ( result )
   {
@@ -481,6 +490,7 @@ unsigned int get_radio_state(unsigned int result) {
 
 
 // load_and_store_block @ 0x103258
+/* luna: Calculates and stores two radio divider values from the selected mode, table entry, and configuration bytes, then returns the associated parameter blo */
 volatile uint32_t *load_and_store_block() {
   int v0; // r1
   int v1; // r2
@@ -536,29 +546,31 @@ volatile uint32_t *load_and_store_block() {
 
 
 // get_controller_state @ 0x1032e8
+/* luna: Busy-waits until the hardware timer advances by the requested number of ticks, then returns that interval. */
 unsigned int get_controller_state(unsigned int result) {
-  volatile unsigned int v1; // r1
-  unsigned int v2; // r3
+  volatile unsigned int start_count; // r1
+  unsigned int elapsed_ticks; // r3
 
-  v1 = (*(volatile uint32_t *)0x40501010u);
+  start_count = (*(volatile uint32_t *)0x40501010u);
   do
-    v2 = (*(volatile uint32_t *)0x40501010u) - v1;
-  while ( v2 < result );
+    elapsed_ticks = (*(volatile uint32_t *)0x40501010u) - start_count;
+  while ( elapsed_ticks < result );
   return result;
 }
 
 
 // enable_radio_controller @ 0x1032fc
+/* luna: Sweeps the MDLL feedback control to derive a duty setting and stores the result for the selected clock mode. */
 int enable_radio_controller(int a1) {
-  volatile uint32_t *v1; // r6
-  volatile uint32_t *v2; // r5
-  int v3; // r7
-  int v4; // r8
-  uint16_t v5; // r11
-  unsigned int v6; // r2
-  int v7; // r10
-  unsigned int v8; // r3
-  int v9; // r0
+  volatile uint32_t *mdll_control_reg; // r6
+  volatile uint32_t *mdll_trigger_reg; // r5
+  int previous_feedback_state; // r7
+  int calibration_pass; // r8
+  uint16_t duty_sum; // r11
+  unsigned int sweep_value; // r2
+  int sweep_step; // r10
+  unsigned int measured_duty; // r3
+  int sample_count; // r0
   unsigned int v10; // r12
   int v11; // r1
   unsigned int v12; // r12
@@ -568,55 +580,55 @@ int enable_radio_controller(int a1) {
   int v16; // r7
   uint16_t v17; // r9
   int16_t v18; // r2
-  uint8_t v19; // r4
+  uint8_t stored_duty_setting; // r4
   int result; // r0
   unsigned int v21; // [sp+0h] [bp-Ch]
 
-  v1 = (volatile uint32_t *)dword_103460;
-  v2 = (volatile uint32_t *)dword_103464;
+  mdll_control_reg = (volatile uint32_t *)dword_103460;
+  mdll_trigger_reg = (volatile uint32_t *)dword_103464;
   *(volatile uint32_t *)dword_103460 |= 0x10u;
-  v3 = 0;
-  v4 = 0;
-  *v2 = *v2 & 0xFFFFC0FF | 0x300;
-  v5 = 0;
-  v6 = 64;
+  previous_feedback_state = 0;
+  calibration_pass = 0;
+  *mdll_trigger_reg = *mdll_trigger_reg & 0xFFFFC0FF | 0x300;
+  duty_sum = 0;
+  sweep_value = 64;
   while ( 2 )
   {
-    *v1 = *v1 & 0xFFFFFDFF | (v4 << 9);
-    v7 = (v7 & ~0xFFFFu) | ((uint16_t)(10) & 0xFFFFu);
+    *mdll_control_reg = *mdll_control_reg & 0xFFFFFDFF | (calibration_pass << 9);
+    sweep_step = (sweep_step & ~0xFFFFu) | ((uint16_t)(10) & 0xFFFFu);
     do
     {
-      *v1 = *v1 & 0xFFFE03FF | (v6 << 10);
-      v8 = (uint8_t)v6;
-      v9 = 0;
+      *mdll_control_reg = *mdll_control_reg & 0xFFFE03FF | (sweep_value << 10);
+      measured_duty = (uint8_t)sweep_value;
+      sample_count = 0;
       while ( 1 )
       {
-        *v2 |= 0x4000u;
+        *mdll_trigger_reg |= 0x4000u;
         v10 = REG_4032_0120 + 5;
         do
           v11 = REG_4032_0120 - v10;
         while ( v11 < 0 );
-        *v2 &= ~0x4000u;
+        *mdll_trigger_reg &= ~0x4000u;
         v12 = REG_4032_0120 + 5;
         do
           v13 = REG_4032_0120 - v12;
         while ( v13 < 0 );
-        v14 = (*v1 >> 3) & 1;
-        if ( v9 )
+        v14 = (*mdll_control_reg >> 3) & 1;
+        if ( sample_count )
         {
-          if ( v14 != v3 )
+          if ( v14 != previous_feedback_state )
             break;
         }
-        if ( v4 )
-          v15 = (*v1 >> 3) & 1;
+        if ( calibration_pass )
+          v15 = (*mdll_control_reg >> 3) & 1;
         else
-          v15 = (*v1 & 8) == 0;
+          v15 = (*mdll_control_reg & 8) == 0;
         if ( v15 )
         {
-          if ( v8 )
+          if ( measured_duty )
           {
-            v8 = (uint8_t)(v8 - 1);
-            v16 = (v8 << 10) & 0x1FC00;
+            measured_duty = (uint8_t)(measured_duty - 1);
+            v16 = (measured_duty << 10) & 0x1FC00;
           }
           else
           {
@@ -625,50 +637,51 @@ int enable_radio_controller(int a1) {
         }
         else
         {
-          if ( v8 <= 0x7E )
-            v8 = (uint8_t)(v8 + 1);
-          v16 = (v8 << 10) & 0x1FC00;
+          if ( measured_duty <= 0x7E )
+            measured_duty = (uint8_t)(measured_duty + 1);
+          v16 = (measured_duty << 10) & 0x1FC00;
         }
-        v9 = (uint8_t)(v9 + 1);
-        *v1 = *v1 & 0xFFFE03FF | v16;
-        if ( v9 == 128 )
+        sample_count = (uint8_t)(sample_count + 1);
+        *mdll_control_reg = *mdll_control_reg & 0xFFFE03FF | v16;
+        if ( sample_count == 128 )
         {
-          v3 = v14;
+          previous_feedback_state = v14;
           break;
         }
-        v3 = v14;
+        previous_feedback_state = v14;
       }
-      v21 = v8;
-      v17 = v8;
-      v5 += v8;
-      check_status_bits(0x2000, "%x -> %x\n", v6, v8);
+      v21 = measured_duty;
+      v17 = measured_duty;
+      duty_sum += measured_duty;
+      check_status_bits(0x2000, "%x -> %x\n", sweep_value, measured_duty);
       if ( v21 <= 0x40 )
-        v18 = v17 - v7;
+        v18 = v17 - sweep_step;
       else
-        v18 = v17 + v7;
-      v7 = (uint16_t)(v7 - 20);
-      v6 = __usat(7u, v18);
+        v18 = v17 + sweep_step;
+      sweep_step = (uint16_t)(sweep_step - 20);
+      sweep_value = __usat(7u, v18);
     }
-    while ( v7 != 65506 );
-    if ( !v4 )
+    while ( sweep_step != 65506 );
+    if ( !calibration_pass )
     {
-      v4 = 1;
+      calibration_pass = 1;
       continue;
     }
     break;
   }
-  *(volatile uint32_t *)dword_103460 = ((v5 + 2) << 8) & 0x1FC00 | *(volatile uint32_t *)dword_103460 & 0xFFFE03FF;
-  v19 = ((unsigned int)v5 + 2) >> 2;
-  result = log_printf("%dM mdll duty: %x\n", 40 * a1 + 280, v19);
+  *(volatile uint32_t *)dword_103460 = ((duty_sum + 2) << 8) & 0x1FC00 | *(volatile uint32_t *)dword_103460 & 0xFFFE03FF;
+  stored_duty_setting = ((unsigned int)duty_sum + 2) >> 2;
+  result = log_printf("%dM mdll duty: %x\n", 40 * a1 + 280, stored_duty_setting);
   if ( a1 )
-    *(volatile uint8_t *)(dword_103474 + 1) = v19;
+    *(volatile uint8_t *)(dword_103474 + 1) = stored_duty_setting;
   else
-    *(volatile uint8_t *)dword_103474 = v19;
+    *(volatile uint8_t *)dword_103474 = stored_duty_setting;
   return result;
 }
 
 
 // init_radio_hw @ 0x103478
+/* luna: Initializes radio-controller registers, waits for a status condition, and invokes the GPIO initialization sequence. */
 int init_radio_hw() {
   volatile uint8_t *v0; // r4
   volatile int *v1; // r2
@@ -1101,6 +1114,7 @@ LABEL_17:
 
 
 // enable_pa @ 0x103b6c
+/* luna: Enables the Wi-Fi DFE and RF interface, waits for hardware-ready bits, and checks status bit 0x2000. */
 int enable_pa() {
   volatile uint32_t *v0; // r2
   int v1; // r3
@@ -1141,6 +1155,7 @@ int enable_pa() {
 
 
 // configure_gpio_bits @ 0x103c14
+/* luna: Clears selected GPIO and control-register bits, waits 10 timer units, then checks status bit 0x2000. */
 int configure_gpio_bits() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r1
@@ -1159,6 +1174,7 @@ int configure_gpio_bits() {
 
 
 // clear_chip_ctrl_clk @ 0x103c6c
+/* luna: Cycles two chip-control clock bits with short delays between transitions. */
 int clear_chip_ctrl_clk() {
   volatile uint32_t *v0; // r4
   int result; // r0
@@ -1176,6 +1192,7 @@ int clear_chip_ctrl_clk() {
 
 
 // pmu_write_control @ 0x103ca4
+/* luna: Selects an RF diagnostic dump source and programs the corresponding hardware debug-routing controls. */
 int pmu_write_control(int a1) {
   volatile unsigned int *v1; // r2
   volatile int *v2; // r4
@@ -1376,6 +1393,7 @@ LABEL_22:
 
 
 // mac_phy_config @ 0x103f2c
+/* luna: Waits for the debug end-address value to become nonnegative, clears related state, and emits a request to dump 16 KiB at 0x00100000. */
 int mac_phy_config() {
   volatile int *v0; // r4
   volatile int *v1; // r3
@@ -1400,6 +1418,7 @@ int mac_phy_config() {
 
 
 // mac_irq_enable @ 0x103fa8
+/* luna: Copies 0x480 bytes from the source image starting at offset 0x30 into the banked MAC memory window, selecting banks 0–2. */
 volatile int * mac_irq_enable(int a1) {
   volatile unsigned int *v1; // r3
   int v2; // r5
@@ -1453,6 +1472,7 @@ volatile int * mac_irq_enable(int a1) {
 
 
 // parse_table_entry @ 0x10402c
+/* luna: Initializes the indexed 12-word RF table entry when defaults are enabled, then copies it into the RF memory window while selecting each bank. */
 int parse_table_entry(int a1, int a2, int a3) {
   int v3; // r1
   int v4; // r2
@@ -1532,6 +1552,7 @@ int parse_table_entry(int a1, int a2, int a3) {
 
 
 // mac_reset_control @ 0x10410c
+/* luna: Runs the MAC reset-control sequence, writes the reset parameter, installs the value in bits 16–20, and restores the auxiliary control bit to its origi */
 unsigned int mac_reset_control(int a1, int a2) {
   volatile unsigned int *v2; // r2
   volatile unsigned int *v3; // r3
@@ -1563,6 +1584,7 @@ unsigned int mac_reset_control(int a1, int a2) {
 
 
 // mac_hw_init @ 0x104198
+/* luna: Initializes WLAN MAC control registers and sequences hardware clock and reset bits with a short delay. */
 volatile uint32_t *mac_hw_init() {
   volatile unsigned int *v0; // r4
   volatile unsigned int *v1; // r0
@@ -1654,6 +1676,7 @@ volatile unsigned int *mac_irq_disable() {
 
 
 // get_next_sequence @ 0x10438c
+/* luna: Returns a wrapped 14-bit sequence value, choosing a one- or two-step base advance from the next entry's low-bit tag and mode flag, then adding twice t */
 int get_next_sequence(int a1, int a2, volatile uint32_t *a3) {
   int v3; // r3
   int v4; // r4
@@ -1688,114 +1711,116 @@ LABEL_9:
 
 
 // select_fuse_bank @ 0x1043d4
+/* luna: Computes the mean signed 12-bit I/Q values across the selected 8192-sample buffer and subtracts those means from the samples in place. */
 int select_fuse_bank() {
   BOOL v0; // r1
-  int v1; // r2
-  volatile int *v2; // r4
+  int min_i; // r2
+  volatile int *iq_sample_buffer; // r4
   int v3; // r7
-  volatile int *v4; // r5
+  volatile int *sample_ptr; // r5
   int v5; // r6
-  int v6; // lr
-  int v7; // r12
-  int v8; // r9
+  int max_q; // lr
+  int max_i; // r12
+  int sum_q; // r9
   int v9; // r8
-  int v10; // r1
-  int v11; // r0
-  unsigned int v12; // r0
+  int sample_i; // r1
+  int sample_q; // r0
+  unsigned int packed_sample; // r0
   unsigned int v13; // r3
   int16_t v14; // r2
   int result; // r0
   int v16; // r3
 
   v0 = (MEMD(0x100000) & 1) == 0;
-  v1 = 0;
-  v2 = (volatile int *)(4 * (v0 + 0x40000));
+  min_i = 0;
+  iq_sample_buffer = (volatile int *)(4 * (v0 + 0x40000));
   v3 = v0 + 278528;
-  v4 = v2;
+  sample_ptr = iq_sample_buffer;
   v5 = 4 * (v0 + 278528);
-  v6 = 0;
-  v7 = 0;
-  v8 = 0;
+  max_q = 0;
+  max_i = 0;
+  sum_q = 0;
   v9 = 0;
   do
   {
-    v10 = (unsigned int)*v4 >> 20;
-    if ( *v4 < 0 )
-      v10 -= 4096;
-    v11 = (uint16_t)*v4 >> 4;
-    if ( (((unsigned int)*v4 >> 4) & 0x800) != 0 )
-      v11 -= 4096;
-    if ( v7 < v10 )
-      v7 = v10;
-    v4 += 2;
-    if ( v6 < v11 )
-      v6 = v11;
-    if ( v1 >= v10 )
-      v1 = v10;
-    v9 += v10;
-    v8 += v11;
+    sample_i = (unsigned int)*sample_ptr >> 20;
+    if ( *sample_ptr < 0 )
+      sample_i -= 4096;
+    sample_q = (uint16_t)*sample_ptr >> 4;
+    if ( (((unsigned int)*sample_ptr >> 4) & 0x800) != 0 )
+      sample_q -= 4096;
+    if ( max_i < sample_i )
+      max_i = sample_i;
+    sample_ptr += 2;
+    if ( max_q < sample_q )
+      max_q = sample_q;
+    if ( min_i >= sample_i )
+      min_i = sample_i;
+    v9 += sample_i;
+    sum_q += sample_q;
   }
-  while ( v4 != (volatile int *)v5 );
-  if ( v7 > 2040 || v6 > 2040 || v1 < -2040 )
+  while ( sample_ptr != (volatile int *)v5 );
+  if ( max_i > 2040 || max_q > 2040 || min_i < -2040 )
     check_status_bits(1, aWarningDataSat);
-  check_status_bits(1, "sum_i=%d\nsum_q=%d\ndc_i=%d\ndc_q=%d\n", v9, v8, v9 / 0x2000, v8 / 0x2000);
+  check_status_bits(1, "sum_i=%d\nsum_q=%d\ndc_i=%d\ndc_q=%d\n", v9, sum_q, v9 / 0x2000, sum_q / 0x2000);
   do
   {
-    v12 = *v2;
-    v13 = (unsigned int)*v2 >> 20;
-    if ( *v2 < 0 )
+    packed_sample = *iq_sample_buffer;
+    v13 = (unsigned int)*iq_sample_buffer >> 20;
+    if ( *iq_sample_buffer < 0 )
       v13 = (v13 & ~0xFFFFu) | ((uint16_t)(v13 - 4096) & 0xFFFFu);
-    v14 = (uint16_t)v12 >> 4;
-    result = v12 >> 4 << 20;
+    v14 = (uint16_t)packed_sample >> 4;
+    result = packed_sample >> 4 << 20;
     v16 = (int16_t)(v13 - v9 / 0x2000);
     if ( result < 0 )
       v14 -= 4096;
-    *v2 = ((v16 + (v16 < 0 ? 0x1000 : 0)) << 20)
+    *iq_sample_buffer = ((v16 + (v16 < 0 ? 0x1000 : 0)) << 20)
         + 65537
-        + 16 * ((int16_t)(v14 - v8 / 0x2000) + ((int16_t)(v14 - v8 / 0x2000) < 0 ? 0x1000 : 0));
-    v2 += 2;
+        + 16 * ((int16_t)(v14 - sum_q / 0x2000) + ((int16_t)(v14 - sum_q / 0x2000) < 0 ? 0x1000 : 0));
+    iq_sample_buffer += 2;
   }
-  while ( (volatile int *)(4 * v3) != v2 );
+  while ( (volatile int *)(4 * v3) != iq_sample_buffer );
   return result;
 }
 
 
 // start_arm_boot @ 0x1044e0
+/* luna: Configures and runs the hardware sequence for a type-3 tone dump, waits for completion, then restores and clears the associated control registers. */
 int start_arm_boot() {
   volatile int *v0; // r1
-  volatile uint32_t *v1; // r3
+  volatile uint32_t *tone_dump_control_reg; // r3
   int v2; // r0
-  int v3; // r5
+  int saved_reg_value; // r5
   volatile uint32_t *v4; // r6
-  volatile int *v5; // r4
+  volatile int *end_addr_reg; // r4
   int result; // r0
   volatile uint32_t *v7; // r3
   volatile uint32_t *v8; // r1
 
   v0 = (volatile int *)off_1045B4;
-  v1 = (void *)(uintptr_t)(off_1045BC);
+  tone_dump_control_reg = (void *)(uintptr_t)(off_1045BC);
   v2 = dword_1045C0;
-  v3 = *(volatile uint32_t *)off_1045B8;
+  saved_reg_value = *(volatile uint32_t *)off_1045B8;
   *(volatile uint32_t *)off_1045B8 = dword_1045C4;
   *v0 = v2;
   v4 = (void *)(uintptr_t)(off_1045C8);
-  v5 = (volatile int *)off_1045CC;
-  *v1 = *v1 & 0xFC000FFF | 0x333000;
-  *v1 &= 0x3FFFFFFFu;
-  *v1 |= 0xC000000u;
-  *v1 = ~(~(*v1 >> 12) << 12);
+  end_addr_reg = (volatile int *)off_1045CC;
+  *tone_dump_control_reg = *tone_dump_control_reg & 0xFC000FFF | 0x333000;
+  *tone_dump_control_reg &= 0x3FFFFFFFu;
+  *tone_dump_control_reg |= 0xC000000u;
+  *tone_dump_control_reg = ~(~(*tone_dump_control_reg >> 12) << 12);
   v0[29] = v0[29] & 0xFFFFFF0F | 0xA0;
-  *v1 |= 0x10000000u;
+  *tone_dump_control_reg |= 0x10000000u;
   timer_delay(10);
   *v4 = dword_1045D0;
   timer_delay(125);
   *v4 = dword_1045D4;
-  while ( *v5 < 0 )
+  while ( *end_addr_reg < 0 )
     timer_delay(1);
   check_status_bits(1, "end_addr=%x\n", *(volatile uint32_t *)off_1045CC);
   *(volatile uint32_t *)off_1045C8 = 0;
   check_status_bits(1, aDumpFinish);
-  *(volatile uint32_t *)off_1045B8 = v3;
+  *(volatile uint32_t *)off_1045B8 = saved_reg_value;
   select_fuse_bank();
   result = check_status_bits(1, "** dump tone typ3   r 00100000 %d**\n", 0x4000);
   v7 = (void *)(uintptr_t)(off_1045BC);
@@ -1809,6 +1834,7 @@ int start_arm_boot() {
 
 
 // lookup_rate_entry @ 0x1045e8
+/* luna: Returns the sum of squares of the two signed 12-bit components in the sequence-selected packed word. */
 int lookup_rate_entry(int a1, int a2, volatile uint32_t *a3) {
   int v3; // r2
   unsigned int v4; // r0

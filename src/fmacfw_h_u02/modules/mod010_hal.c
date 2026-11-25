@@ -1,4 +1,5 @@
 // patch_apply @ 0x114af0
+/* luna: Validates the ROM patch record and concatenates payload sections enabled by the intersection of the requested and available masks into the destination */
 int patch_apply(int a1, int a2, unsigned int a3) {
   int v6; // r4
   unsigned int v7; // r5
@@ -100,6 +101,7 @@ LABEL_12:
 
 
 // send_smc_cmd_2 @ 0x114bf4
+/* luna: Calls the patch helper with selector 1, the supplied argument, and a 4-byte size. */
 int send_smc_cmd_2(int a1) {
   return patch_apply(1, a1, 4u);
 }
@@ -107,6 +109,7 @@ int send_smc_cmd_2(int a1) {
 
 
 // send_smc_cmd_4 @ 0x114c00
+/* luna: Applies the 12-byte payload using patch selector 2. */
 int send_smc_cmd_4(int a1) {
   return patch_apply(2, a1, 0xCu);
 }
@@ -114,6 +117,7 @@ int send_smc_cmd_4(int a1) {
 
 
 // send_smc_cmd_0x20 @ 0x114c0c
+/* luna: Forwards the supplied argument to patch_apply with selector 4 and size 0x14, returning its result. */
 int send_smc_cmd_0x20(int a1) {
   return patch_apply(4, a1, 0x14u);
 }
@@ -121,6 +125,7 @@ int send_smc_cmd_0x20(int a1) {
 
 
 // send_smc_cmd_0x40 @ 0x114c18
+/* luna: Submits the 0x40 SMC command through the patch layer with a four-byte argument. */
 int send_smc_cmd_0x40(int a1) {
   return patch_apply(32, a1, 4u);
 }
@@ -128,6 +133,7 @@ int send_smc_cmd_0x40(int a1) {
 
 
 // send_smc_cmd_0x80 @ 0x114c24
+/* luna: Issues this SMC command by passing the supplied argument to patch_apply with operation 64 and size 4. */
 int send_smc_cmd_0x80(int a1) {
   return patch_apply(64, a1, 4u);
 }
@@ -135,6 +141,7 @@ int send_smc_cmd_0x80(int a1) {
 
 
 // patch_validate @ 0x114c30
+/* luna: Forwards the input to patch_apply with selector 0x80 and a size of 4 bytes. */
 int patch_validate(int a1) {
   return patch_apply(128, a1, 4u);
 }
@@ -142,6 +149,7 @@ int patch_validate(int a1) {
 
 
 // patch_apply_ext @ 0x114c3c
+/* luna: Validates the stored extension-patch block and copies requested payload fragments to the output buffer, returning status codes for invalid data, no ma */
 int patch_apply_ext(int a1, int a2, unsigned int a3) {
   unsigned int v6; // r4
   union {
@@ -231,6 +239,7 @@ LABEL_11:
 
 
 // send_smc_cmd_0x400000 @ 0x114d2c
+/* luna: Forwards the supplied value to patch_apply_ext with fixed parameters 2 and 6. */
 int send_smc_cmd_0x400000(int a1) {
   return patch_apply_ext(2, a1, 6u);
 }
@@ -238,6 +247,7 @@ int send_smc_cmd_0x400000(int a1) {
 
 
 // get_rssi @ 0x114d38
+/* luna: Queries RSSI through the 0x400000 extension command and returns its result. */
 int get_rssi(int a1) {
   return patch_apply_ext(0x400000, a1, 4u);
 }
@@ -245,6 +255,7 @@ int get_rssi(int a1) {
 
 
 // is_rssi_valid @ 0x114d44
+/* luna: Reads a signed 16-bit value associated with RSSI, performs the fixed IRQ/MMIO operation if it is negative, and then spins forever. */
 void is_rssi_valid() {
   if ( **(volatile int16_t **)off_114D60 < 0 )
     irq_disable_mmio_write(dword_114D68, dword_114D64, 242);
@@ -255,6 +266,7 @@ void is_rssi_valid() {
 
 
 // check_patch_signature @ 0x114d6c
+/* luna: Checks the patch header signature and, if it matches, applies its address/value writes and configured word-copy operations. */
 void check_patch_signature() {
   volatile uint32_t *v0; // r3
   int v1; // r2
@@ -322,46 +334,47 @@ void check_patch_signature() {
 
 
 // is_patch_loaded @ 0x114de8
+/* luna: Clears and copies firmware memory sections, configures startup state, loads the AES key, checks the patch signature, initializes MAC state, and then e */
 void is_patch_loaded() {
-  volatile uint32_t *v0; // r2
-  unsigned int v1; // r3
-  int v2; // r1
-  volatile int *v3; // r2
-  volatile int *v4; // r3
-  volatile uint32_t *v5; // r0
-  int v6; // t1
-  volatile uint32_t *v7; // r2
+  volatile uint32_t *zero_fill_ptr; // r2
+  unsigned int zero_fill_end; // r3
+  int initialized_data_start; // r1
+  volatile int *initialized_data_source; // r2
+  volatile int *initialized_data_source_end; // r3
+  volatile uint32_t *initialized_data_dest; // r0
+  int copied_word; // t1
+  volatile uint32_t *platform_state_base; // r2
   int v8; // r0
   int i; // r3
   int v10; // r2
-  int v11; // r3
+  int boot_flags; // r3
   volatile char *v12; // r2
 
-  v0 = (volatile uint32_t *)dword_114EA4;
+  zero_fill_ptr = (volatile uint32_t *)dword_114EA4;
   if ( dword_114EA4 < (unsigned int)dword_114EA8 )
   {
-    v1 = ((dword_114EA8 - 1 - dword_114EA4) & 0xFFFFFFFC) + 4 + dword_114EA4;
+    zero_fill_end = ((dword_114EA8 - 1 - dword_114EA4) & 0xFFFFFFFC) + 4 + dword_114EA4;
     do
-      *v0++ = 0;
-    while ( v0 != (volatile uint32_t *)v1 );
+      *zero_fill_ptr++ = 0;
+    while ( zero_fill_ptr != (volatile uint32_t *)zero_fill_end );
   }
-  v2 = dword_114EAC;
+  initialized_data_start = dword_114EAC;
   if ( dword_114EAC < (unsigned int)dword_114EB0 )
   {
-    v3 = (volatile int *)off_114EB4;
-    v4 = (volatile int *)((volatile char *)&((volatile uint32_t *)(uintptr_t)off_114EB4)[1] + ((dword_114EB0 - 1 - dword_114EAC) & 0xFFFFFFFC));
-    v5 = (volatile uint32_t *)dword_114EAC;
+    initialized_data_source = (volatile int *)off_114EB4;
+    initialized_data_source_end = (volatile int *)((volatile char *)&((volatile uint32_t *)(uintptr_t)off_114EB4)[1] + ((dword_114EB0 - 1 - dword_114EAC) & 0xFFFFFFFC));
+    initialized_data_dest = (volatile uint32_t *)dword_114EAC;
     do
     {
-      v6 = *v3++;
-      *v5++ = v6;
+      copied_word = *initialized_data_source++;
+      *initialized_data_dest++ = copied_word;
     }
-    while ( v3 != v4 );
+    while ( initialized_data_source != initialized_data_source_end );
   }
-  v7 = (void *)(uintptr_t)(off_114EB8);
+  platform_state_base = (void *)(uintptr_t)(off_114EB8);
   v8 = dword_114EBC;
   *((volatile uint32_t *)off_114EB8 + 34) |= 0xF00000u;
-  v7[2] = v2;
+  platform_state_base[2] = initialized_data_start;
   for ( i = 0; i != 86; ++i )
   {
     v10 = v8 + i;
@@ -369,15 +382,15 @@ void is_patch_loaded() {
   }
   if ( (uint16_t)*(volatile uint32_t *)off_114EB8 == 49729 )
     *(volatile uint32_t *)off_114EC0 = 1;
-  v11 = HIBYTE(*(volatile uint32_t *)off_114EC4);
-  *(volatile uint8_t *)off_114EC8 = v11;
-  if ( (v11 & 4) != 0 )
+  boot_flags = HIBYTE(*(volatile uint32_t *)off_114EC4);
+  *(volatile uint8_t *)off_114EC8 = boot_flags;
+  if ( (boot_flags & 4) != 0 )
   {
     v12 = (void *)(uintptr_t)(off_114ED0);
     *(volatile uint32_t *)(uintptr_t)(off_114ECC) = dword_114ED4;
     *v12 = 26;
   }
-  if ( (v11 & 0x10) == 0 )
+  if ( (boot_flags & 0x10) == 0 )
     *(volatile uint32_t *)off_114ED8 &= ~0x4000u;
   *(volatile uint8_t *)off_114EDC = BYTE2(*(volatile uint32_t *)off_114EC4);
   aes_load_key();
@@ -389,6 +402,7 @@ void is_patch_loaded() {
 
 
 // get_phy_state @ 0x114ee0
+/* luna: Returns the PHY state when the controller is in state 2 (otherwise 16), while servicing a soft reset and pending hardware status flags. */
 int get_phy_state() {
   int v0; // r4
   volatile uint32_t *v1; // r3
@@ -454,60 +468,61 @@ int get_phy_state() {
 
 
 // apply_patch_table @ 0x114fec
+/* luna: Prints the saved Cortex-M register context and SCB fault status, then dumps 256 bytes of the captured stack. */
 int apply_patch_table() {
-  volatile uint32_t *v0; // r7
-  volatile int *v1; // r5
+  volatile uint32_t *saved_context; // r7
+  volatile int *saved_context_word_ptr; // r5
   int i; // r4
   int v3; // r1
-  int v4; // t1
-  volatile uint32_t *v5; // r5
-  unsigned int v6; // r4
-  int v7; // r3
+  int register_value; // t1
+  volatile uint32_t *scb_registers; // r5
+  unsigned int cfsr; // r4
+  int exception_return; // r3
   int v8; // r1
   int result; // r0
-  int v10; // r4
+  int stack_pointer; // r4
   int v11; // r4
   unsigned int v12; // r4
   unsigned int v13; // r5
   int v14; // t1
-  unsigned int v15; // r4
-  unsigned int v16; // r5
-  int v17; // t1
+  unsigned int dump_address; // r4
+  unsigned int dump_end; // r5
+  int stack_word; // t1
 
-  v0 = (void *)(uintptr_t)(off_1151BC);
-  v1 = (volatile int *)off_1151BC;
+  saved_context = (void *)(uintptr_t)(off_1151BC);
+  saved_context_word_ptr = (volatile int *)off_1151BC;
   for ( i = 0; i != 13; ++i )
   {
     v3 = i;
-    v4 = *v1++;
-    debug_printf("\nR%-4d: %08X", v3, v4);
+    register_value = *saved_context_word_ptr++;
+    debug_printf("\nR%-4d: %08X", v3, register_value);
   }
-  v5 = (void *)(uintptr_t)(off_1151C4);
-  debug_printf(aSp08xLr08xPc08, v0[13], v0[14], v0[15], v0[16], v0[17], v0[18]);
-  debug_printf("\nCPUID: %08X\nICSR : %08X\nVTOR : %08X\nAIRCR: %08X", *v5, v5[1], v5[2], v5[3]);
+  scb_registers = (void *)(uintptr_t)(off_1151C4);
+  debug_printf(aSp08xLr08xPc08, saved_context[13], saved_context[14], saved_context[15], saved_context[16], saved_context[17], saved_context[18]);
+  debug_printf("\nCPUID: %08X\nICSR : %08X\nVTOR : %08X\nAIRCR: %08X", *scb_registers, scb_registers[1], scb_registers[2], scb_registers[3]);
   debug_printf(
     "\nSHCSR: %08X\nCFSR : %08X\nHFSR : %08X\nDFSR : %08X\nAFSR : %08X",
-    v5[9],
-    v5[10],
-    v5[11],
-    v5[12],
-    v5[15]);
-  v6 = v5[10];
-  if ( (uint8_t)v6 )
+    scb_registers[9],
+    scb_registers[10],
+    scb_registers[11],
+    scb_registers[12],
+    scb_registers[15]);
+  cfsr = scb_registers[10];
+  if ( (uint8_t)cfsr )
   {
     debug_printf(
       "\nMMFSR: %02X\n  IACCVIOL :%d\tDACCVIOL :%d\n  MUNSTKERR:%d\tMSTKERR  :%d\n  MLSPERR  :%d\tMMARVALID:%d",
-      (uint8_t)v5[10],
-      v6 & 1,
-      (v6 >> 1) & 1,
-      (v6 >> 3) & 1,
-      (v6 >> 4) & 1,
-      (v6 >> 5) & 1,
-      (v6 >> 7) & 1);
-    if ( (v6 & 0x80) != 0 )
-      debug_printf("\nMMFAR: %08X", v5[13]);
+      (uint8_t)scb_registers[10],
+      cfsr & 1,
+      (cfsr >> 1) & 1,
+      (cfsr >> 3) & 1,
+      (cfsr >> 4) & 1,
+      (cfsr >> 5) & 1,
+      (cfsr >> 7) & 1);
+    if ( (cfsr & 0x80) != 0 )
+      debug_printf("\nMMFAR: %08X", scb_registers[13]);
   }
-  if ( (v6 & 0xFF00) != 0 )
+  if ( (cfsr & 0xFF00) != 0 )
   {
     debug_printf(
       "\n"
@@ -516,34 +531,34 @@ int apply_patch_table() {
       "  IMPRECISERR:%d\tUNSTKERR :%d\n"
       "  STKERR     :%d\tLSPERR   :%d\n"
       "  BFARVALID  :%d",
-      BYTE1(v6),
-      (v6 >> 8) & 1,
-      (v6 >> 9) & 1,
-      (v6 >> 10) & 1,
-      (v6 >> 11) & 1,
-      (v6 >> 12) & 1,
-      (v6 >> 13) & 1,
-      (v6 >> 15) & 1);
-    if ( (v6 & 0x8000) != 0 )
+      BYTE1(cfsr),
+      (cfsr >> 8) & 1,
+      (cfsr >> 9) & 1,
+      (cfsr >> 10) & 1,
+      (cfsr >> 11) & 1,
+      (cfsr >> 12) & 1,
+      (cfsr >> 13) & 1,
+      (cfsr >> 15) & 1);
+    if ( (cfsr & 0x8000) != 0 )
       debug_printf("\nBFAR : %08X", *((volatile uint32_t *)off_1151C4 + 14));
   }
-  if ( HIWORD(v6) )
+  if ( HIWORD(cfsr) )
     debug_printf(
       "\nUFSR : %04X\n  UNDEFINSTR:%d\tINVSTATE :%d\n  INVPC     :%d\tNOCP     :%d\n  UNALIGNED :%d\tDIVBYZERO:%d",
-      HIWORD(v6),
-      HIWORD(v6) & 1,
-      (v6 >> 17) & 1,
-      (v6 >> 18) & 1,
-      (v6 >> 19) & 1,
-      HIBYTE(v6) & 1,
-      (v6 >> 25) & 1);
-  if ( (v0[19] & 8) == 0 )
+      HIWORD(cfsr),
+      HIWORD(cfsr) & 1,
+      (cfsr >> 17) & 1,
+      (cfsr >> 18) & 1,
+      (cfsr >> 19) & 1,
+      HIBYTE(cfsr) & 1,
+      (cfsr >> 25) & 1);
+  if ( (saved_context[19] & 8) == 0 )
   {
     debug_printf(aModeHandler);
     goto LABEL_9;
   }
   debug_printf(aModeThread);
-  if ( (v0[20] & 1) == 0 )
+  if ( (saved_context[20] & 1) == 0 )
   {
 LABEL_9:
     debug_printf(aPrivPrivileged);
@@ -551,30 +566,30 @@ LABEL_9:
   }
   debug_printf(aPrivUser);
 LABEL_10:
-  v7 = v0[19];
-  v8 = v7 << 29;
-  if ( (v7 & 4) != 0 )
+  exception_return = saved_context[19];
+  v8 = exception_return << 29;
+  if ( (exception_return & 4) != 0 )
     debug_printf(aStackPsp, v8);
   else
     debug_printf(aStackMsp, v8);
-  result = debug_printf(aCntrl08xPmask0, v0[20], __get_CPSR(), __get_CPSR(), __get_CPSR());
-  v10 = v0[18];
-  if ( v10 )
+  result = debug_printf(aCntrl08xPmask0, saved_context[20], __get_CPSR(), __get_CPSR(), __get_CPSR());
+  stack_pointer = saved_context[18];
+  if ( stack_pointer )
   {
-    v15 = v10 & 0xFFFFFFF0;
+    dump_address = stack_pointer & 0xFFFFFFF0;
     debug_printf(aDumpmsp_0);
-    v16 = v15 + 256;
+    dump_end = dump_address + 256;
     do
     {
-      if ( !(v15 << 28) )
-        debug_printf("\n[%08x]:", v15);
-      v17 = *(volatile uint32_t *)v15;
-      v15 += 4;
-      result = debug_printf(" %08X", v17);
+      if ( !(dump_address << 28) )
+        debug_printf("\n[%08x]:", dump_address);
+      stack_word = *(volatile uint32_t *)dump_address;
+      dump_address += 4;
+      result = debug_printf(" %08X", stack_word);
     }
-    while ( v16 != v15 );
+    while ( dump_end != dump_address );
   }
-  v11 = v0[17];
+  v11 = saved_context[17];
   if ( v11 )
   {
     v12 = v11 & 0xFFFFFFF0;
@@ -595,6 +610,7 @@ LABEL_10:
 
 
 // log_boot_message @ 0x115214
+/* luna: Prints the panic diagnostic, conditionally sets the RF frequency from the current PHY state, and then polls received bytes for RF calibration processi */
 void log_boot_message() {
   int v0; // r0
   int v1; // r0
@@ -619,6 +635,7 @@ void log_boot_message() {
 
 
 // process_debug_char @ 0x115250
+/* luna: Prints a fault-handler diagnostic selected by the supplied fault code, then runs the patch-table and boot-log routines. */
 void process_debug_char(int a1) {
   debug_printf(aFaultHandlerFa);
   switch ( a1 )
@@ -644,6 +661,7 @@ void process_debug_char(int a1) {
 
 
 // int_flag_clear @ 0x115384
+/* luna: Clears the volatile interrupt-flag byte and returns the result of allocating a transmit event with a fixed message constant. */
 int int_flag_clear() {
   *(volatile uint8_t *)off_115390 = 0;
   return alloc_tx_event(aApPsForbidTo);
@@ -702,6 +720,7 @@ int int_flag_get() {
 
 
 // fault_status_read @ 0x115470
+/* luna: Checks for a relevant pending interrupt by examining enabled NVIC pending bits and handling the associated status condition first. */
 int fault_status_read(int a1, int a2) {
   volatile uint32_t *v2; // r4
   int v3; // r3
@@ -763,6 +782,7 @@ LABEL_6:
 
 
 // rf_power_control @ 0x115500
+/* luna: Requests the Wi-Fi hardware wakeup handshake, reconciles power-mode bits, and refreshes state for active contexts after acknowledgment. */
 unsigned int rf_power_control() {
   volatile uint32_t *v0; // r2
   volatile uint8_t *v1; // r4
@@ -846,6 +866,7 @@ LABEL_22:
 
 
 // system_init @ 0x115674
+/* luna: Clears a platform state byte, then initializes the lock, vendor platform, RF modulation setting, and timer subsystem. */
 int system_init() {
   int v0; // r0
   int v1; // r0
@@ -863,6 +884,7 @@ int system_init() {
 
 
 // rx_packet_pending @ 0x115698
+/* luna: Reinitializes the RWNX core and radio state, then restores the caller's interrupt state. */
 volatile uint32_t * rx_packet_pending(int a1, int a2) {
   volatile int *v2; // r4
   volatile uint32_t *v3; // r3
@@ -959,6 +981,7 @@ volatile uint32_t * rx_packet_pending(int a1, int a2) {
 
 
 // chip_revision_read @ 0x11583c
+/* luna: Records a low-nibble hardware value, configures variant-dependent RF controls, and sets a status byte if any of three status/mask pairs is active. */
 volatile uint8_t *chip_revision_read() {
   volatile uint32_t *v0; // r4
   volatile uint8_t *v1; // r5
@@ -1042,6 +1065,7 @@ volatile uint8_t *chip_revision_read() {
 
 
 // sleep_mode_read @ 0x1159a4
+/* luna: Checks sleep, Wi-Fi, Bluetooth, and radio state to handle low-power transitions and queue the corresponding events. */
 void sleep_mode_read(int result) {
   volatile uint8_t **v1; // r5
   volatile uint8_t *v2; // r1
@@ -1205,6 +1229,7 @@ LABEL_46:
 
 
 // ll_init_tables @ 0x115c20
+/* luna: Initializes the link-layer radio and scheduler, then services controller events and RF housekeeping while sleeping when idle. */
 void ll_init_tables(int a1, int a2, int a3, int a4) {
   unsigned int v4; // r5
   volatile uint8_t **v5; // r10

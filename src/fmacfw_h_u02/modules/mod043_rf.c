@@ -1,4 +1,5 @@
 // is_phy_ready @ 0x12aec8
+/* luna: Initiates the RF control path, calls get_fw_info() when the selected entry’s bit 0 is clear, and then invokes the task-2/state-3 helper. */
 int is_phy_ready() {
   int v0; // r5
   int v1; // r4
@@ -21,6 +22,7 @@ int is_phy_ready() {
 
 
 // send_vendor_command @ 0x12af40
+/* luna: Builds and submits a vendor-command PDU, recording the request context and parameter in shared RF state on the alternate path. */
 int send_vendor_command(int a1, int a2, uint16_t a3, uint16_t a4) {
   volatile uint8_t *v6; // r4
   int v7; // r0
@@ -52,6 +54,7 @@ int send_vendor_command(int a1, int a2, uint16_t a3, uint16_t a4) {
 
 
 // get_event_payload @ 0x12afd4
+/* luna: Returns the configured RF value, adding 20,000 for a fixed set of channel frequencies. */
 int get_event_payload(volatile uint16_t *a1) {
   int v1; // r3
   int result; // r0
@@ -76,6 +79,7 @@ int get_event_payload(volatile uint16_t *a1) {
 
 
 // reset_global_config @ 0x12b030
+/* luna: Clears the pointed-to state block, preprocesses HCI command type 2, and reinitializes the global descriptor and its embedded-storage pointer. */
 int reset_global_config() {
   int result; // r0
   volatile uint32_t *v1; // r3
@@ -92,6 +96,7 @@ int reset_global_config() {
 
 
 // process_entry_list @ 0x12b064
+/* luna: Processes the current RF channel-list entry, selects its timeout, derives its channel number, and invokes HCI command preprocessing. */
 int process_entry_list() {
   volatile uint32_t *v0; // r6
   int v1; // r7
@@ -162,6 +167,7 @@ LABEL_4:
 
 
 // log_trace_event @ 0x12b138
+/* luna: Invokes a helper for the active RF context, processes the entry list, updates a global counter, and clears the context pointer. */
 int log_trace_event(int a1) {
   volatile uint32_t *v1; // r6
   volatile char *v2; // r4
@@ -179,6 +185,7 @@ int log_trace_event(int a1) {
 
 
 // get_bt_device_state @ 0x12b170
+/* luna: Builds a type-64 RF request from the selected radio entry and caller-supplied arguments, then submits it through the acquired request context. */
 int get_bt_device_state(int a1, int a2, int a3) {
   int v3; // r9
   int v4; // r3
@@ -254,6 +261,7 @@ LABEL_5:
 
 
 // get_fw_info @ 0x12b258
+/* luna: Queues a type-0x40 RF trace record by copying the context’s length-prefixed payload into an allocated transport buffer and updating queue accounting. */
 void get_fw_info() {
   int v0; // r5
   volatile char *v1; // r6
@@ -358,6 +366,7 @@ void get_fw_info() {
 
 
 // rf_execute_cmd @ 0x12b3a4
+/* luna: Sends the scan-send-cancel command with the supplied byte and returns the processed response. */
 volatile uint32_t * rf_execute_cmd(char a1, uint16_t a2) {
   volatile char *v3; // r4
 
@@ -369,6 +378,7 @@ volatile uint32_t * rf_execute_cmd(char a1, uint16_t a2) {
 
 
 // rf_get_buffer @ 0x12b3d4
+/* luna: Returns the address of the RF buffer entry selected by the stored index, using a 6-byte entry stride. */
 int rf_get_buffer() {
   return *(volatile uint32_t *)off_12B3E4 + 6 * *((volatile uint8_t *)off_12B3E4 + 10);
 }
@@ -376,6 +386,7 @@ int rf_get_buffer() {
 
 
 // hci_buffer_get @ 0x12b3e8
+/* luna: Returns the event payload, using an alternate buffer when bits 0 or 2 are set in the event header byte at offset 3. */
 int hci_buffer_get(int a1) {
   if ( (*(volatile uint8_t *)(a1 + 3) & 5) != 0 )
     return *(volatile uint32_t *)(*(volatile uint32_t *)off_12B3FC + 20);
@@ -386,6 +397,7 @@ int hci_buffer_get(int a1) {
 
 
 // rf_get_short_status @ 0x12b400
+/* luna: Validates the MAC state and, when the status-pending flag is set, clears it and disables the associated interrupt. */
 int rf_get_short_status() {
   volatile uint32_t *v0; // r4
   unsigned int v1; // r2
@@ -406,6 +418,7 @@ int rf_get_short_status() {
 
 
 // rf_irq_service @ 0x12b460
+/* luna: Sets the RF clock rate and proportionally rescales related timing fields and divider settings. */
 unsigned int rf_irq_service(unsigned int result) {
   volatile unsigned int *v1; // r6
   unsigned int v2; // r5
@@ -502,6 +515,7 @@ unsigned int rf_irq_service(unsigned int result) {
 
 
 // rf_status_check @ 0x12b6c4
+/* luna: Arms an RF status check by setting a deadline and enabling related control bits. */
 int rf_status_check() {
   volatile uint32_t *v0; // r1
   volatile unsigned int v1; // r3
@@ -555,6 +569,7 @@ int rf_status_check() {
 
 
 // rf_set_power_on @ 0x12b768
+/* luna: Writes a power-on request to the RF control word and spins until its low byte is cleared. */
 void rf_set_power_on() {
   volatile uint32_t *v0; // r2
 
@@ -567,6 +582,7 @@ void rf_set_power_on() {
 
 
 // rf_hw_init_1 @ 0x12b77c
+/* luna: Initializes RF hardware registers, applies calibration offsets, and configures radio operating fields. */
 int rf_hw_init_1() {
   volatile uint32_t *v0; // r2
   unsigned int v1; // r0
@@ -690,6 +706,7 @@ int rf_hw_init_1() {
 
 
 // rf_irq_clear_1 @ 0x12b9e0
+/* luna: Clears bit 31 in each of three consecutive RF interrupt-related registers. */
 void *rf_irq_clear_1() {
   void *result; // r0
   volatile uint32_t *v1; // r1
@@ -707,6 +724,7 @@ void *rf_irq_clear_1() {
 
 
 // rf_radio_calibrate @ 0x12ba0c
+/* luna: Starts RF calibration, waits for the status bits to clear, then applies the post-calibration register configuration. */
 volatile int *rf_radio_calibrate() {
   volatile uint32_t *v0; // r1
   volatile uint32_t *v1; // r0
@@ -751,6 +769,7 @@ volatile int *rf_radio_calibrate() {
 
 
 // rf_write_frequency @ 0x12bab0
+/* luna: Submits the request's 32-bit value and 16-bit RF register selector to the RF command interface, waits for completion, and returns the decoded response */
 int rf_write_frequency(volatile int *a1) {
   volatile uint32_t *v1; // r2
   volatile int *v2; // r3
@@ -777,6 +796,7 @@ int rf_write_frequency(volatile int *a1) {
 
 
 // rf_set_power_off @ 0x12baec
+/* luna: Turns off the RF power path by clearing radio-enable bits, programming shutdown controls, and committing the updated register state. */
 unsigned int rf_set_power_off() {
   volatile uint32_t *v0; // r2
   volatile uint32_t *v1; // r0
@@ -813,6 +833,7 @@ unsigned int rf_set_power_off() {
 
 
 // abs_i32 @ 0x12bb80
+/* luna: Validates and applies a signed adjustment to the RF timebase value while protecting the register update with interrupt-state handling. */
 int abs_i32(int a1) {
   unsigned int v1; // r2
   volatile uint32_t *v2; // r5
@@ -880,6 +901,7 @@ LABEL_6:
 
 
 // rf_radio_status @ 0x12bc00
+/* luna: Returns whether the radio is ready based on its status bit and timing state, disabling pending interrupts in specific timing windows. */
 int rf_radio_status() {
   int v0; // r4
   int v1; // r5
@@ -933,6 +955,7 @@ int rf_radio_status() {
 
 
 // rf_delay @ 0x12bd00
+/* luna: Reads and returns a volatile RF timing value while conditionally masking interrupts. */
 int rf_delay() {
   volatile uint32_t *v0; // r3
   int v1; // r2
@@ -966,6 +989,7 @@ int rf_delay() {
 
 
 // rf_sync_status @ 0x12bd4c
+/* luna: Acknowledges the RF status word, performs status-dependent synchronization updates, and reports pending timer conditions. */
 int rf_sync_status() {
   int v0; // r4
   int result; // r0
@@ -1056,84 +1080,85 @@ LABEL_4:
 
 
 // rf_wait_event @ 0x12beb0
+/* luna: Acknowledges enabled RF interrupt causes, dispatches status handlers, masks selected sources, and reports pending causes when diagnostics are enabled. */
 void rf_wait_event() {
-  int v0; // r4
-  int v1; // r3
-  int v2; // r5
+  int pending_irq_bits; // r4
+  int masked_irq_subset; // r3
+  int captured_event_status; // r5
 
-  v0 = *(volatile uint32_t *)off_12C048 & *(volatile uint32_t *)off_12C044;
-  v1 = dword_12C04C & v0;
-  *((volatile uint32_t *)off_12C044 + 1) = v0;
-  if ( v1 )
+  pending_irq_bits = *(volatile uint32_t *)off_12C048 & *(volatile uint32_t *)off_12C044;
+  masked_irq_subset = dword_12C04C & pending_irq_bits;
+  *((volatile uint32_t *)off_12C044 + 1) = pending_irq_bits;
+  if ( masked_irq_subset )
     irq_disable_global_2(0x1000000);
-  if ( (dword_12C050 & v0) != 0 )
+  if ( (dword_12C050 & pending_irq_bits) != 0 )
     irq_disable_global_2(0x800000);
-  if ( (v0 & 4) != 0 )
+  if ( (pending_irq_bits & 4) != 0 )
     rf_get_short_status();
-  if ( (v0 & 8) != 0 )
+  if ( (pending_irq_bits & 8) != 0 )
     rf_sync_status();
-  if ( (v0 & 0x10000000) != 0 )
+  if ( (pending_irq_bits & 0x10000000) != 0 )
   {
-    v2 = *(volatile uint32_t *)off_12C060;
+    captured_event_status = *(volatile uint32_t *)off_12C060;
     *((volatile uint8_t *)off_12C064 + 30) |= *(volatile uint8_t *)off_12C060 & 0x3F;
     irq_disable_global_2(0x40000);
-    *(volatile uint32_t *)off_12C068 = v2;
+    *(volatile uint32_t *)off_12C068 = captured_event_status;
   }
   if ( **(volatile int16_t **)off_12C054 < 0 )
   {
-    if ( (v0 & 0x400000) != 0 )
+    if ( (pending_irq_bits & 0x400000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_0, (int)aHalMachwGenHan, 847);
     }
-    else if ( (v0 & 0x200000) != 0 )
+    else if ( (pending_irq_bits & 0x200000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_1, (int)aHalMachwGenHan, 848);
     }
-    else if ( (v0 & 0x40) != 0 )
+    else if ( (pending_irq_bits & 0x40) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_2, (int)aHalMachwGenHan, 849);
     }
-    else if ( (v0 & 0x100) != 0 )
+    else if ( (pending_irq_bits & 0x100) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_3, (int)aHalMachwGenHan, 850);
     }
-    else if ( (v0 & 0x1000) != 0 )
+    else if ( (pending_irq_bits & 0x1000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_4, (int)aHalMachwGenHan, 851);
     }
-    else if ( (v0 & 0x2000) != 0 )
+    else if ( (pending_irq_bits & 0x2000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_5, (int)aHalMachwGenHan, 852);
     }
-    else if ( (v0 & 0x4000) != 0 )
+    else if ( (pending_irq_bits & 0x4000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_6, (int)aHalMachwGenHan, 853);
     }
-    else if ( (v0 & 0x8000) != 0 )
+    else if ( (pending_irq_bits & 0x8000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_7, (int)aHalMachwGenHan, 854);
     }
-    else if ( (v0 & 0x10000) != 0 )
+    else if ( (pending_irq_bits & 0x10000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_8, (int)aHalMachwGenHan, 855);
     }
-    else if ( (v0 & 0x20000) != 0 )
+    else if ( (pending_irq_bits & 0x20000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_9, (int)aHalMachwGenHan, 856);
     }
-    else if ( (v0 & 0x1000000) != 0 )
+    else if ( (pending_irq_bits & 0x1000000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_10, (int)aHalMachwGenHan, 857);
     }
-    else if ( (v0 & 0x2000000) != 0 )
+    else if ( (pending_irq_bits & 0x2000000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_11, (int)aHalMachwGenHan, 858);
     }
-    else if ( (v0 & 0x100000) != 0 )
+    else if ( (pending_irq_bits & 0x100000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN_12, (int)aHalMachwGenHan, 859);
     }
-    else if ( (v0 & 0x8000000) != 0 )
+    else if ( (pending_irq_bits & 0x8000000) != 0 )
     {
       unknown_12f2c8((int)aGenirqPendingN, (int)aHalMachwGenHan, 860);
     }
@@ -1142,6 +1167,7 @@ void rf_wait_event() {
 
 
 // rf_process_event @ 0x12c0a0
+/* luna: Acknowledges enabled RF event bits, dispatches WF/BT events, and performs the timed register sequence for unlock events. */
 void rf_process_event(int a1, volatile int *a2) {
   int v2; // r4
   volatile uint32_t *v3; // r0
@@ -1232,6 +1258,7 @@ void rf_process_event(int a1, volatile int *a2) {
 
 
 // deinit_bt_global_0x190688 @ 0x12c1fc
+/* luna: Clears two consecutive RF statistics buffers referenced by a global pointer. */
 int deinit_bt_global_0x190688() {
   int v0; // r4
 

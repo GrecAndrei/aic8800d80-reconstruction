@@ -1,4 +1,5 @@
 // is_bt_enabled @ 0x1360bc
+/* luna: Checks the BT state and HCI command status, conditionally performs an IRQ/MMIO operation, then invokes the lock-state checker and returns zero. */
 int is_bt_enabled(int a1) {
   int v2; // r0
 
@@ -18,6 +19,7 @@ int is_bt_enabled(int a1) {
 
 
 // is_bt_initialized @ 0x1360fc
+/* luna: Checks the HCI state to perform initialization-related IRQ and lock actions, then always returns zero. */
 int is_bt_initialized() {
   if ( **(volatile int16_t **)off_136144 < 0 && hci_cmd_handler(7u) != 3 && hci_cmd_handler(7u) )
     irq_disable_mmio_write(dword_13614C, dword_136148, 442);
@@ -48,6 +50,7 @@ int is_tx_enabled() {
 
 
 // is_rx_enabled @ 0x1361b8
+/* luna: Examines receive-side state and conditionally performs an interrupt-guarded MMIO update before checking locked state. */
 int is_rx_enabled(int a1) {
   int v2; // r0
 
@@ -67,6 +70,7 @@ int is_rx_enabled(int a1) {
 
 
 // is_scan_enabled @ 0x1361f8
+/* luna: Checks the scan-state marker and HCI handler state, conditionally disables the associated interrupt, and always sends vendor HCI command 0. */
 int is_scan_enabled() {
   if ( **(volatile int16_t **)off_136230 >= 0 || hci_cmd_handler(7u) == 2 )
   {
@@ -84,6 +88,7 @@ int is_scan_enabled() {
 
 
 // is_link_active @ 0x13623c
+/* luna: Handles the ME set-active confirmation path by validating the ME and link state and dispatching the corresponding follow-up message. */
 int is_link_active() {
   volatile int16_t **v0; // r4
 
@@ -106,6 +111,7 @@ int is_link_active() {
 
 
 // ble_encrypt_data @ 0x1362dc
+/* luna: Requests an HCI operation for a referenced connection in state 2 with its security flag set, otherwise writes the supplied values through the MAC head */
 int ble_encrypt_data(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v7; // r4
 

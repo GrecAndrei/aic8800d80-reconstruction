@@ -1,4 +1,5 @@
 // read_global_halfword @ 0x10d414
+/* luna: Registers or updates a per-source interrupt handler and its state while configuring the corresponding MMIO channel. */
 int read_global_halfword(int a1, int a2, int a3) {
   volatile int *v6; // r1
   int result; // r0
@@ -71,6 +72,7 @@ if ( v10 && (((volatile uint32_t *)(uintptr_t)0x40021000u)[16 * a3 + 3] & 0x800)
 
 
 // rf_tx_config @ 0x10d5ac
+/* luna: Reads RF status, acknowledges the 0x8000 and 0x400 conditions, and dispatches event 0x20000000 when the latter is set. */
 int rf_tx_config() {
   int v0; // r3
   int result; // r0
@@ -89,6 +91,7 @@ int rf_tx_config() {
 
 
 // rf_get_lock_status @ 0x10d5d4
+/* luna: Initializes the RF control registers when disabled, sets required control bits, and programs an auxiliary MMIO register. */
 int rf_get_lock_status() {
   volatile unsigned int *v0; // r2
   unsigned int v1; // r3
@@ -117,6 +120,7 @@ int rf_get_lock_status() {
 
 
 // irq_install_handler @ 0x10d628
+/* luna: Stores a fixed handler pointer at offset 0x94 in an interrupt-related object and writes 0x200000 to a separate control location. */
 void irq_install_handler() {
   volatile uint32_t *v0; // r3
 
@@ -128,6 +132,7 @@ void irq_install_handler() {
 
 
 // is_initialized @ 0x10d648
+/* luna: Programs RF clock-control registers, derives divider fields from a signed clock setting when applicable, and marks the block initialized. */
 void is_initialized() {
   int v0; // r3
   volatile uint32_t *v1; // r5
@@ -239,6 +244,7 @@ void nvic_configure() {
 
 
 // nvic_set_priority @ 0x10d784
+/* luna: Writes a fixed priority value to an NVIC priority register and issues data and instruction synchronization barriers. */
 void nvic_set_priority() {
   *((volatile uint32_t *)off_10D798 + 32) = 0x8000;
   __dsb(0xFu);
@@ -248,6 +254,7 @@ void nvic_set_priority() {
 
 
 // gpio_write_1 @ 0x10d79c
+/* luna: Waits for the MMIO busy bit to clear, writes the supplied value to the data register, and returns it. */
 int gpio_write_1(int result) {
   while ( (*(volatile uint32_t *)off_10D7AC & 0x80000) != 0 )
     ;
@@ -258,6 +265,7 @@ int gpio_write_1(int result) {
 
 
 // read_memory_byte @ 0x10d7b4
+/* luna: Writes a null-terminated string to a memory-mapped transmit register, waiting for the status bit to clear before each byte, and returns a pointer to t */
 volatile uint8_t * read_memory_byte(volatile uint8_t *result) {
   int v1; // r1
   volatile uint32_t *v2; // r2
@@ -285,6 +293,7 @@ volatile uint8_t * read_memory_byte(volatile uint8_t *result) {
 
 
 // gpio_read @ 0x10d7e0
+/* luna: Busy-waits for the receive-ready status bit, then returns the low byte from the data register. */
 int gpio_read() {
   while ( (*(volatile uint32_t *)off_10D7F0 & 1) == 0 )
     ;
@@ -294,6 +303,7 @@ int gpio_read() {
 
 
 // gpio_read_pin @ 0x10d7f8
+/* luna: Returns bit 0 of the GPIO input register. */
 int gpio_read_pin() {
   return *(volatile uint32_t *)off_10D804 & 1;
 }
@@ -301,6 +311,7 @@ int gpio_read_pin() {
 
 
 // prepare_debug_buffer @ 0x10d808
+/* luna: Formats the supplied argument list into a temporary buffer, writes the resulting text to the debug output, and returns the formatted length. */
 int prepare_debug_buffer(volatile uint8_t *a1, volatile unsigned int *a2) {
   volatile uint32_t *v2; // r4
   unsigned int CPSR; // r6
@@ -690,6 +701,7 @@ LABEL_48:
 
 
 // log_printf @ 0x10dc24
+/* luna: Forwards a variadic format string and its arguments to prepare_debug_buffer. */
 int log_printf(const volatile char *fmt, ...) {
   va_list varg_r1; // [sp+14h] [bp+8h] BYREF
 
@@ -699,40 +711,41 @@ int log_printf(const volatile char *fmt, ...) {
 
 
 // rf_get_int_status @ 0x10dc40
+/* luna: Processes pending RF interrupt bits 0–7 by acknowledging each bit and invoking its registered handler with encoded status flags. */
 void rf_get_int_status() {
-  volatile uint32_t *v0; // r4
-  unsigned int v1; // r3
-  signed int v2; // r3
-  int v3; // r6
+  volatile uint32_t *irq_registers; // r4
+  unsigned int initial_pending_status; // r3
+  signed int interrupt_bit; // r3
+  int interrupt_handler_table; // r6
   int v4; // r0
-  unsigned int v5; // r2
-  void ( *v6)(int); // r1
+  unsigned int pending_status; // r2
+  void ( *interrupt_handler)(int); // r1
 
-  v0 = (void *)(uintptr_t)(off_10DC9C);
-  v1 = *((volatile uint32_t *)off_10DC9C + 8);
-  if ( v1 )
+  irq_registers = (void *)(uintptr_t)(off_10DC9C);
+  initial_pending_status = *((volatile uint32_t *)off_10DC9C + 8);
+  if ( initial_pending_status )
   {
-    v2 = 31 - __clz(v1);
-    if ( v2 <= 7 )
+    interrupt_bit = 31 - __clz(initial_pending_status);
+    if ( interrupt_bit <= 7 )
     {
-      v3 = dword_10DCA0;
+      interrupt_handler_table = dword_10DCA0;
       do
       {
-        v0[9] = 1 << v2;
+        irq_registers[9] = 1 << interrupt_bit;
         __isb(0xFu);
-        v6 = *(void ( **)(int))(v3 + 4 * v2);
-        if ( v6 )
+        interrupt_handler = *(void ( **)(int))(interrupt_handler_table + 4 * interrupt_bit);
+        if ( interrupt_handler )
         {
-          if ( ((v0[4] >> v2) & 1) != 0 )
+          if ( ((irq_registers[4] >> interrupt_bit) & 1) != 0 )
             v4 = 2;
           else
-            v4 = ((v0[5] >> v2) & 1) == 0;
-          v6(v4 | (v2 << 16));
+            v4 = ((irq_registers[5] >> interrupt_bit) & 1) == 0;
+          interrupt_handler(v4 | (interrupt_bit << 16));
         }
-        v5 = v0[8];
-        v2 = 31 - __clz(v5);
+        pending_status = irq_registers[8];
+        interrupt_bit = 31 - __clz(pending_status);
       }
-      while ( v5 && v2 <= 7 );
+      while ( pending_status && interrupt_bit <= 7 );
     }
   }
 }
@@ -740,6 +753,7 @@ void rf_get_int_status() {
 
 
 // switch_on_arg @ 0x10dca4
+/* luna: For a selector from 0 through 7, clears its low-nibble MMIO field and records its bit in a state mask, returning the updated mask; otherwise it return */
 int switch_on_arg(int result) {
   volatile uint32_t *v1; // r1
 
@@ -756,6 +770,7 @@ int switch_on_arg(int result) {
 
 
 // rf_disable_irq @ 0x10dcd4
+/* luna: Clears the RF interrupt-enable bit for the given IRQ index and returns that bit mask. */
 int rf_disable_irq(char a1) {
   int result; // r0
 
@@ -767,6 +782,7 @@ int rf_disable_irq(char a1) {
 
 
 // rf_enable_irq @ 0x10dcec
+/* luna: Sets the bit for the specified RF interrupt in the interrupt-enable register and returns the updated register value. */
 int rf_enable_irq(char a1) {
   int result; // r0
 
@@ -778,6 +794,7 @@ int rf_enable_irq(char a1) {
 
 
 // gpio_set_bit @ 0x10dd00
+/* luna: Sets the GPIO register bit selected by the bit index and returns the updated register value. */
 int gpio_set_bit(char a1) {
   int result; // r0
 
@@ -789,6 +806,7 @@ int gpio_set_bit(char a1) {
 
 
 // gpio_clear_bit @ 0x10dd14
+/* luna: Clears the selected bit in a GPIO MMIO register and returns the bit mask. */
 int gpio_clear_bit(char a1) {
   int result; // r0
 
@@ -800,6 +818,7 @@ int gpio_clear_bit(char a1) {
 
 
 // gpio_read_bit @ 0x10dd2c
+/* luna: Returns whether the GPIO input register has the bit set for the specified pin. */
 BOOL gpio_read_bit(char a1) {
   return ((1 << a1) & *(volatile uint32_t *)off_10DD40) != 0;
 }
@@ -807,47 +826,48 @@ BOOL gpio_read_bit(char a1) {
 
 
 // gpio_configure_pin @ 0x10dd44
+/* luna: Configures a GPIO pin's control bits, writes the supplied value to its per-pin register, and initializes shared GPIO state if its ready flag is clear. */
 int gpio_configure_pin(int result, int a2, int a3) {
-  int v3; // r4
+  int pin_mask; // r4
   volatile uint32_t *v4; // r6
   volatile uint32_t *v5; // r3
-  int v6; // r6
+  int pin_mask_clear; // r6
   volatile uint32_t *v7; // r3
   volatile uint8_t *v8; // r5
-  int v9; // nf
+  int controller_initialized; // nf
 
-  v3 = 1 << result;
+  pin_mask = 1 << result;
   if ( result <= 7 )
   {
     v4 = (void *)(uintptr_t)(off_10DDF4);
     ((volatile uint32_t *)(uintptr_t)0x40504080u)[result] &= 0xFFFFFFF0;
-    v4[1] |= v3;
+    v4[1] |= pin_mask;
   }
   v5 = (void *)(uintptr_t)(off_10DDF4);
-  *((volatile uint32_t *)off_10DDF4 + 2) &= ~v3;
-  v5[10] |= v3;
-  v5[3] &= ~v3;
-  v6 = ~v3;
+  *((volatile uint32_t *)off_10DDF4 + 2) &= ~pin_mask;
+  v5[10] |= pin_mask;
+  v5[3] &= ~pin_mask;
+  pin_mask_clear = ~pin_mask;
   if ( a2 == 2 )
   {
-    v5[4] |= v3;
+    v5[4] |= pin_mask;
   }
   else
   {
-    v5[4] &= v6;
+    v5[4] &= pin_mask_clear;
     if ( a2 )
-      v5[5] &= v6;
+      v5[5] &= pin_mask_clear;
     else
-      v5[5] |= v3;
+      v5[5] |= pin_mask;
   }
   v7 = (void *)(uintptr_t)(off_10DDF4);
   v8 = (void *)(uintptr_t)(off_10DDF8);
-  *((volatile uint32_t *)off_10DDF4 + 9) = v3;
-  v7[6] |= v3;
+  *((volatile uint32_t *)off_10DDF4 + 9) = pin_mask;
+  v7[6] |= pin_mask;
   v7[11] |= 7 << (result & 0xFC);
-  v9 = (*(volatile uint32_t *)v8 & 0x800000) != 0;
+  controller_initialized = (*(volatile uint32_t *)v8 & 0x800000) != 0;
   *(volatile uint32_t *)(dword_10DDFC + 4 * result) = a3;
-  if ( !v9 )
+  if ( !controller_initialized )
   {
     result = dword_10DE04;
     *(volatile uint32_t *)(*((volatile uint32_t *)off_10DE00 + 2) + 156) = dword_10DE04;
@@ -860,6 +880,7 @@ int gpio_configure_pin(int result, int a2, int a3) {
 
 
 // util_get_struct_offset @ 0x10de08
+/* luna: Mirrors a global boolean control byte onto GPIO bit 2, setting the bit when the byte is nonzero and clearing it otherwise. */
 int util_get_struct_offset() {
   if ( *((volatile uint8_t *)off_10DE1C + 369) )
     return gpio_set_bit(2);
@@ -870,6 +891,7 @@ int util_get_struct_offset() {
 
 
 // util_get_struct_offset_alt @ 0x10de20
+/* luna: Drives GPIO pin 1 high when the global byte flag is nonzero and low otherwise. */
 int util_get_struct_offset_alt() {
   if ( *((volatile uint8_t *)off_10DE34 + 369) )
     return gpio_set_bit(1);
@@ -880,6 +902,7 @@ int util_get_struct_offset_alt() {
 
 
 // ble_phy_decode @ 0x10de38
+/* luna: For wakeup code 3, reads GPIO3, conditionally drives GPIO2 from a configuration byte when GPIO3 is low, and passes selector 1 or 2 to check_arg_one; o */
 int ble_phy_decode(int a1) {
   int v1; // r4
   int result; // r0
@@ -911,6 +934,7 @@ int ble_phy_decode(int a1) {
 
 
 // gpio_init_sequence @ 0x10de94
+/* luna: Enables RF IRQs 1 and 2, configures GPIO 3, sets or clears GPIOs 1 and 2 according to a stored flag, and disables RF IRQ 3. */
 int gpio_init_sequence() {
   volatile uint32_t *v0; // r1
   volatile uint32_t *v1; // r3
@@ -945,24 +969,28 @@ int gpio_init_sequence() {
 
 
 // nullsub_1 @ 0x10df0c
+/* luna: Returns zero without performing any operation. */
 int nullsub_1(void) {
   return 0;
 }
 
 
 // nullsub_2 @ 0x10df10
+/* luna: Returns zero without performing any operation. */
 int nullsub_2(void) {
   return 0;
 }
 
 
 // nullsub_3 @ 0x10df14
+/* luna: Returns zero without performing any operation. */
 int nullsub_3(void) {
   return 0;
 }
 
 
 // rf_ctrl_config_set @ 0x10df18
+/* luna: Writes the selected configuration into bits 3:2 of sixteen RF registers, then returns a peripheral register read. */
 int rf_ctrl_config_set(int a1) {
   int v1; // r2
   int v2; // r0
@@ -983,6 +1011,7 @@ int rf_ctrl_config_set(int a1) {
 
 
 // rf_core_reset @ 0x10df48
+/* luna: Configures the RF control registers, starts the operation, waits for and acknowledges completion, then returns a converted value from the result regis */
 unsigned int rf_core_reset() {
   volatile uint32_t *v0; // r0
   volatile uint32_t *v1; // r3
@@ -1015,6 +1044,7 @@ unsigned int rf_core_reset() {
 
 
 // rf_core_reset_alt @ 0x10dff0
+/* luna: Clears and reprograms RF core registers, sets the core control register to 1, and returns the prior value of the configuration register. */
 int rf_core_reset_alt() {
   volatile uint32_t *v0; // r3
   volatile uint32_t *v1; // r0
@@ -1039,6 +1069,7 @@ int rf_core_reset_alt() {
 
 
 // rf_core_is_ready @ 0x10e048
+/* luna: Spins until the RF-core state flag is 1, writes 1 back to that flag, and returns a threshold-based predicate derived from the state value. */
 unsigned int rf_core_is_ready() {
   volatile uint32_t *v0; // r3
   uint64_t v1; // r0
@@ -1059,6 +1090,7 @@ unsigned int rf_core_is_ready() {
 
 
 // rf_core_enable @ 0x10e0b0
+/* luna: Runs RF control modes 1–3, samples the control block, and returns a calculated calibration value. */
 int rf_core_enable() {
   volatile uint32_t *v0; // r5
   uint64_t v1; // r0
@@ -1135,6 +1167,7 @@ int rf_core_enable() {
 
 
 // rf_core_power_on @ 0x10e1e8
+/* luna: Sets the RF control request, waits for the status word to become 1, and returns a value derived from a control-block input. */
 int rf_core_power_on() {
   volatile uint32_t *v0; // r2
   uint64_t v1; // r0
@@ -1179,22 +1212,23 @@ int rf_core_power_on() {
 
 
 // rf_event_handler @ 0x10e2a0
+/* luna: Measures the RF voltage and iteratively adjusts its control setting toward a 1.4-V target. */
 int rf_event_handler() {
   int v0; // r3
-  volatile uint32_t *v1; // r4
+  volatile uint32_t *voltage_measurement_regs; // r4
   uint64_t v2; // r0
   uint64_t v3; // r0
   uint64_t v4; // r0
-  int v5; // r5
+  int measured_voltage_mv; // r5
   char v6; // r0
-  int v7; // r4
-  int v8; // r3
-  int v9; // r6
+  int voltage_error_mv; // r4
+  int abs_voltage_error_mv; // r3
+  int current_control_code; // r6
   uint64_t v10; // r0
   uint64_t v11; // r0
   int v12; // r0
   int v13; // r8
-  int v14; // r4
+  int candidate_control_code; // r4
   volatile uint32_t *v15; // r2
   uint64_t v16; // r0
   uint64_t v17; // r0
@@ -1217,51 +1251,51 @@ int rf_event_handler() {
   uint64_t v34; // r0
   int v35; // r0
   int v37; // [sp+4h] [bp-10h]
-  int v38; // [sp+8h] [bp-Ch]
-  int v39; // [sp+Ch] [bp-8h]
+  int initial_control_code; // [sp+8h] [bp-Ch]
+  int adjustment_direction; // [sp+Ch] [bp-8h]
 
   v0 = dword_10E534;
-  v1 = (void *)(uintptr_t)(off_10E53C);
+  voltage_measurement_regs = (void *)(uintptr_t)(off_10E53C);
   *((volatile uint32_t *)off_10E530 + 14) = 296;
-  v1[3] = v0 | v1[3] & 0xE0000000;
+  voltage_measurement_regs[3] = v0 | voltage_measurement_regs[3] & 0xE0000000;
   call_ptr_1b8();
-  v1[2] = dword_10E540 & v1[2] | 0x1200000F;
-  v1[1] = 1;
-  while ( v1[7] != 1 )
+  voltage_measurement_regs[2] = dword_10E540 & voltage_measurement_regs[2] | 0x1200000F;
+  voltage_measurement_regs[1] = 1;
+  while ( voltage_measurement_regs[7] != 1 )
     ;
-  v1[7] = 1;
-  v2 = uint_to_double(v1[4]);
+  voltage_measurement_regs[7] = 1;
+  v2 = uint_to_double(voltage_measurement_regs[4]);
   v3 = ((uint64_t (*)())double_add_1)(v2, *(volatile uint64_t *)&dword_10E518);
   v4 = ((uint64_t (*)())double_compare_wrapper)(v3, *(volatile uint64_t *)&dword_10E520);
-  v5 = ((int (*)(uint64_t))double_to_float_1)(v4);
-  event_dispatch("Initial    Volt:  %d mV\n", v5);
+  measured_voltage_mv = ((int (*)(uint64_t))double_to_float_1)(v4);
+  event_dispatch("Initial    Volt:  %d mV\n", measured_voltage_mv);
   v6 = call_ptr_1b0();
-  v7 = v5 - 1400;
-  v8 = abs32(v5 - 1400);
-  v9 = v6 & 0x3F;
-  v38 = v9;
-  if ( v8 > 49 )
+  voltage_error_mv = measured_voltage_mv - 1400;
+  abs_voltage_error_mv = abs32(measured_voltage_mv - 1400);
+  current_control_code = v6 & 0x3F;
+  initial_control_code = current_control_code;
+  if ( abs_voltage_error_mv > 49 )
   {
-    v10 = int_to_double(v8);
+    v10 = int_to_double(abs_voltage_error_mv);
     v11 = ((uint64_t (*)())double_add_1)(v10, *(volatile uint64_t *)&dword_10E528);
     v12 = ((int (*)(uint64_t))double_to_float_1)(v11);
     v13 = v12;
-    if ( v7 <= 0 )
+    if ( voltage_error_mv <= 0 )
     {
-      if ( v5 == 1400 )
+      if ( measured_voltage_mv == 1400 )
         goto LABEL_38;
-      v14 = v12 + v9;
+      candidate_control_code = v12 + current_control_code;
     }
     else
     {
-      v14 = v9 - v12;
+      candidate_control_code = current_control_code - v12;
     }
-    if ( v14 > 32 )
+    if ( candidate_control_code > 32 )
     {
       v25 = 7;
       goto LABEL_28;
     }
-    if ( v14 > 11 )
+    if ( candidate_control_code > 11 )
     {
       call_ptr_1b8();
       v15 = (void *)(uintptr_t)(off_10E53C);
@@ -1272,42 +1306,42 @@ int rf_event_handler() {
       v16 = uint_to_double(v15[4]);
       v17 = ((uint64_t (*)())double_add_1)(v16, *(volatile uint64_t *)&dword_10E518);
       v18 = ((uint64_t (*)())double_compare_wrapper)(v17, *(volatile uint64_t *)&dword_10E520);
-      v5 = ((int (*)(uint64_t))double_to_float_1)(v18);
-      event_dispatch("step=%d, val=%d, volt=%d\n", v13, v14, v5);
-      if ( v5 <= 1400 )
+      measured_voltage_mv = ((int (*)(uint64_t))double_to_float_1)(v18);
+      event_dispatch("step=%d, val=%d, volt=%d\n", v13, candidate_control_code, measured_voltage_mv);
+      if ( measured_voltage_mv <= 1400 )
         v19 = 1;
       else
         v19 = -1;
-      v39 = v19;
+      adjustment_direction = v19;
       goto LABEL_19;
     }
 LABEL_38:
     v25 = -13;
     goto LABEL_28;
   }
-  if ( (unsigned int)(v8 - 1) > 0x30 )
+  if ( (unsigned int)(abs_voltage_error_mv - 1) > 0x30 )
   {
     v25 = 0;
     goto LABEL_28;
   }
-  if ( v7 <= 0 )
+  if ( voltage_error_mv <= 0 )
     v20 = 1;
   else
     v20 = -1;
-  v39 = v20;
+  adjustment_direction = v20;
   v13 = 0;
 LABEL_19:
   v21 = (void *)(uintptr_t)(off_10E53C);
   v22 = v13 + 1;
-  v23 = v39 + v13 * v39 + v38;
+  v23 = adjustment_direction + v13 * adjustment_direction + initial_control_code;
   while ( 1 )
   {
     v24 = v13;
-    v25 = v23 - v38;
+    v25 = v23 - initial_control_code;
     v13 = v22;
     if ( (unsigned int)(v23 - 12) > 0x14 )
     {
-      v25 = v39 * v24;
+      v25 = adjustment_direction * v24;
       goto LABEL_28;
     }
     call_ptr_1b8();
@@ -1320,12 +1354,12 @@ LABEL_19:
     v28 = ((uint64_t (*)())double_compare_wrapper)(v27, *(volatile uint64_t *)&dword_10E520);
     v37 = ((int (*)(uint64_t))double_to_float_1)(v28);
     event_dispatch("ofst=%d, val=%d, volt=%d\n", v25, v23, v37);
-    v29 = v5 - 1400;
+    v29 = measured_voltage_mv - 1400;
     v30 = v37 - 1400;
     if ( v29 * (v37 - 1400) <= 0 )
       break;
-    v23 += v39;
-    v5 = v37;
+    v23 += adjustment_direction;
+    measured_voltage_mv = v37;
     ++v22;
   }
   if ( v30 < 0 )
@@ -1333,7 +1367,7 @@ LABEL_19:
   if ( v29 < 0 )
     v29 = -v29;
   if ( v30 > v29 )
-    v25 -= v39;
+    v25 -= adjustment_direction;
 LABEL_28:
   event_dispatch("reg_value_offset: %d\n", v25);
   call_ptr_1b8();
@@ -1352,6 +1386,7 @@ LABEL_28:
 
 
 // rf_event_handler_alt @ 0x10e560
+/* luna: Calibrates the RF core supply toward 840 mV by measuring its voltage and adjusting the trim code. */
 int rf_event_handler_alt() {
   volatile uint32_t *v0; // r1
   int v1; // r3
@@ -1360,15 +1395,15 @@ int rf_event_handler_alt() {
   uint64_t v4; // r0
   uint64_t v5; // r0
   uint64_t v6; // r0
-  int v7; // r5
-  int v8; // r10
-  int v9; // r8
-  int v10; // r0
+  int measured_vcore_mv; // r5
+  int trim_code; // r10
+  int voltage_error_mv; // r8
+  int abs_voltage_error_mv; // r0
   uint64_t v11; // r0
   uint64_t v12; // r0
   int v13; // r0
-  int v14; // r9
-  int v15; // r4
+  int trim_step; // r9
+  int candidate_trim_code; // r4
   volatile uint32_t *v16; // r2
   uint64_t v17; // r0
   uint64_t v18; // r0
@@ -1394,7 +1429,7 @@ int rf_event_handler_alt() {
   uint64_t v38; // r0
   int v39; // r0
   int result; // r0
-  int v41; // [sp+0h] [bp-Ch]
+  int trim_direction; // [sp+0h] [bp-Ch]
   int v42; // [sp+4h] [bp-8h]
 
   v0 = (void *)(uintptr_t)(off_10E814);
@@ -1411,49 +1446,49 @@ int rf_event_handler_alt() {
   v4 = ((uint64_t (*)())double_add_1)(v3, *(volatile uint64_t *)&dword_10E7F8);
   v5 = ((uint64_t (*)())double_subtract)(v4, *(volatile uint64_t *)&dword_10E800);
   v6 = ((uint64_t (*)())double_compare_wrapper)(v5, *(volatile uint64_t *)&dword_10E7F8);
-  v7 = ((int (*)(uint64_t))double_to_float_1)(v6);
-  v8 = call_ptr_1b0() & 0x1F;
-  v9 = v7 - 840;
-  log_printf("Initl vcore Volt: %d mV, reg: %x\n", v7, v8);
-  v10 = abs32(v7 - 840);
-  if ( v10 <= 47 )
+  measured_vcore_mv = ((int (*)(uint64_t))double_to_float_1)(v6);
+  trim_code = call_ptr_1b0() & 0x1F;
+  voltage_error_mv = measured_vcore_mv - 840;
+  log_printf("Initl vcore Volt: %d mV, reg: %x\n", measured_vcore_mv, trim_code);
+  abs_voltage_error_mv = abs32(measured_vcore_mv - 840);
+  if ( abs_voltage_error_mv <= 47 )
   {
-    if ( (unsigned int)(v10 - 1) > 0x2E )
+    if ( (unsigned int)(abs_voltage_error_mv - 1) > 0x2E )
     {
-      v9 = 0;
+      voltage_error_mv = 0;
       goto LABEL_33;
     }
-    if ( v9 <= 0 )
+    if ( voltage_error_mv <= 0 )
       v22 = 1;
     else
       v22 = -1;
-    v41 = v22;
-    v14 = 0;
+    trim_direction = v22;
+    trim_step = 0;
   }
   else
   {
-    v11 = int_to_double(v10);
+    v11 = int_to_double(abs_voltage_error_mv);
     v12 = ((uint64_t (*)())double_add_1)(v11, *(volatile uint64_t *)&dword_10E808);
     v13 = ((int (*)(uint64_t))double_to_float_1)(v12);
-    v14 = v13;
-    if ( v9 <= 0 )
+    trim_step = v13;
+    if ( voltage_error_mv <= 0 )
     {
-      if ( v7 == 840 )
+      if ( measured_vcore_mv == 840 )
         goto LABEL_33;
-      v15 = v13 + v8;
+      candidate_trim_code = v13 + trim_code;
     }
     else
     {
-      v15 = v8 - v13;
+      candidate_trim_code = trim_code - v13;
     }
-    if ( v15 > 31 )
+    if ( candidate_trim_code > 31 )
     {
-      v9 = 9;
+      voltage_error_mv = 9;
       goto LABEL_33;
     }
-    if ( v15 <= 12 )
+    if ( candidate_trim_code <= 12 )
     {
-      v9 = -9;
+      voltage_error_mv = -9;
       goto LABEL_33;
     }
     call_ptr_1b8();
@@ -1466,25 +1501,25 @@ int rf_event_handler_alt() {
     v18 = ((uint64_t (*)())double_add_1)(v17, *(volatile uint64_t *)&dword_10E7F8);
     v19 = ((uint64_t (*)())double_subtract)(v18, *(volatile uint64_t *)&dword_10E800);
     v20 = ((uint64_t (*)())double_compare_wrapper)(v19, *(volatile uint64_t *)&dword_10E7F8);
-    v7 = ((int (*)(uint64_t))double_to_float_1)(v20);
-    event_dispatch("step=%d, val=%x, volt=%d\n", v14, v15, v7);
-    if ( v7 <= 840 )
+    measured_vcore_mv = ((int (*)(uint64_t))double_to_float_1)(v20);
+    event_dispatch("step=%d, val=%x, volt=%d\n", trim_step, candidate_trim_code, measured_vcore_mv);
+    if ( measured_vcore_mv <= 840 )
       v21 = 1;
     else
       v21 = -1;
-    v41 = v21;
+    trim_direction = v21;
   }
   v23 = (void *)(uintptr_t)(off_10E814);
-  v42 = v8;
-  v24 = v41 + v14 * v41 + v8;
-  for ( i = v14 + 1; ; ++i )
+  v42 = trim_code;
+  v24 = trim_direction + trim_step * trim_direction + trim_code;
+  for ( i = trim_step + 1; ; ++i )
   {
-    v26 = v14;
-    v9 = v24 - v42;
-    v14 = i;
+    v26 = trim_step;
+    voltage_error_mv = v24 - v42;
+    trim_step = i;
     if ( (unsigned int)(v24 - 13) > 0x12 )
     {
-      v9 = v41 * v26;
+      voltage_error_mv = trim_direction * v26;
       goto LABEL_33;
     }
     call_ptr_1b8();
@@ -1497,22 +1532,22 @@ int rf_event_handler_alt() {
     v29 = ((uint64_t (*)())double_subtract)(v28, *(volatile uint64_t *)&dword_10E800);
     v30 = ((uint64_t (*)())double_compare_wrapper)(v29, *(volatile uint64_t *)&dword_10E7F8);
     v31 = ((int (*)(uint64_t))double_to_float_1)(v30);
-    event_dispatch("ofst=%d, val=%x, volt=%d\n", v9, v24, v31);
-    v32 = v7 - 840;
+    event_dispatch("ofst=%d, val=%x, volt=%d\n", voltage_error_mv, v24, v31);
+    v32 = measured_vcore_mv - 840;
     v33 = v31 - 840;
     if ( v32 * (v31 - 840) <= 0 )
       break;
-    v24 += v41;
-    v7 = v31;
+    v24 += trim_direction;
+    measured_vcore_mv = v31;
   }
   if ( v33 < 0 )
     v33 = 840 - v31;
   if ( v32 < 0 )
     v32 = -v32;
   if ( v33 > v32 )
-    v9 -= v41;
+    voltage_error_mv -= trim_direction;
 LABEL_33:
-  log_printf("reg_value_offset: %d\n", v9);
+  log_printf("reg_value_offset: %d\n", voltage_error_mv);
   call_ptr_1b8();
   v34 = (void *)(uintptr_t)(off_10E814);
   *((volatile uint32_t *)off_10E814 + 1) = 1;
@@ -1533,27 +1568,28 @@ LABEL_33:
 
 
 // rf_analog_ctrl_set @ 0x10e83c
+/* luna: Adjusts the RF RES and CGM analog codes in single-count steps to bring measured PA current toward its target, returning the RES-code offset and writin */
 int rf_analog_ctrl_set(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
-  unsigned int v3; // r4
+  unsigned int cgm_code; // r4
   volatile unsigned int *v4; // r6
   volatile unsigned int *v5; // r5
-  volatile int16_t *v8; // r5
-  int v9; // r10
-  int v10; // r2
+  volatile int16_t *target_pa_current_ptr; // r5
+  int measured_pa_current; // r10
+  int target_pa_current; // r2
   volatile unsigned int *v11; // r7
   volatile unsigned int *v12; // r6
-  unsigned int v13; // r11
-  int v14; // r8
-  int v15; // r9
+  unsigned int res_code; // r11
+  int remaining_steps; // r8
+  int previous_pa_current; // r9
   int v16; // r2
   int v17; // r0
   int v18; // r2
-  int v20; // r5
-  unsigned int v21; // [sp+Ch] [bp-20h]
-  unsigned int v22; // [sp+10h] [bp-1Ch]
-  int v23; // [sp+14h] [bp-18h]
-  unsigned int v24; // [sp+18h] [bp-14h]
-  unsigned int v25; // [sp+1Ch] [bp-10h]
+  int res_code_offset; // r5
+  unsigned int initial_res_code_saved; // [sp+Ch] [bp-20h]
+  unsigned int initial_total_code; // [sp+10h] [bp-1Ch]
+  int adjustment_direction; // [sp+14h] [bp-18h]
+  unsigned int previous_res_code; // [sp+18h] [bp-14h]
+  unsigned int previous_cgm_code; // [sp+1Ch] [bp-10h]
 
   v4 = (volatile unsigned int *)off_10E9DC;
   v5 = (volatile unsigned int *)off_10E9E0;
@@ -1561,51 +1597,51 @@ int rf_analog_ctrl_set(unsigned int a1, unsigned int a2, volatile unsigned int *
   *v5 = ((uint16_t)a1 << 12) & 0x7000 | *v5 & 0xFFFF8FFF;
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
-  v8 = (volatile int16_t *)off_10E9E4;
-  v9 = rf_core_enable();
-  event_dispatch("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, v9, *v8);
-  v10 = *v8;
-  if ( v10 > v9 )
+  target_pa_current_ptr = (volatile int16_t *)off_10E9E4;
+  measured_pa_current = rf_core_enable();
+  event_dispatch("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, measured_pa_current, *target_pa_current_ptr);
+  target_pa_current = *target_pa_current_ptr;
+  if ( target_pa_current > measured_pa_current )
   {
-    v23 = 1;
+    adjustment_direction = 1;
   }
   else
   {
-    if ( v10 >= v9 )
+    if ( target_pa_current >= measured_pa_current )
     {
-      v20 = 0;
+      res_code_offset = 0;
       goto LABEL_9;
     }
-    v23 = -1;
+    adjustment_direction = -1;
   }
-  v3 = a2;
+  cgm_code = a2;
   v11 = (volatile unsigned int *)off_10E9DC;
   v12 = (volatile unsigned int *)off_10E9E0;
-  v21 = a1;
-  v22 = a1 + a2;
-  v13 = a1;
-  v14 = 7;
-  v20 = 0;
+  initial_res_code_saved = a1;
+  initial_total_code = a1 + a2;
+  res_code = a1;
+  remaining_steps = 7;
+  res_code_offset = 0;
   while ( 1 )
   {
-    v24 = v13;
-    v20 += v23;
-    v13 = __usat(3u, v21 + v20);
-    *v11 = *v11 & 0xFFFFFFF8 | v13;
-    *v12 = *v12 & 0xFFFF8FFF | (v13 << 12);
-    v25 = v3;
-    v3 = __usat(4u, v22 + v20 - v13);
-    *v11 = *v11 & 0xFFFFFF87 | (8 * v3);
-    *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
-    v15 = v9;
-    v9 = rf_core_enable();
-    event_dispatch("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", v13, v3, v9);
+    previous_res_code = res_code;
+    res_code_offset += adjustment_direction;
+    res_code = __usat(3u, initial_res_code_saved + res_code_offset);
+    *v11 = *v11 & 0xFFFFFFF8 | res_code;
+    *v12 = *v12 & 0xFFFF8FFF | (res_code << 12);
+    previous_cgm_code = cgm_code;
+    cgm_code = __usat(4u, initial_total_code + res_code_offset - res_code);
+    *v11 = *v11 & 0xFFFFFF87 | (8 * cgm_code);
+    *v12 = *v12 & 0xFFF87FFF | (cgm_code << 15);
+    previous_pa_current = measured_pa_current;
+    measured_pa_current = rf_core_enable();
+    event_dispatch("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", res_code, cgm_code, measured_pa_current);
     v16 = *(volatile int16_t *)off_10E9E4;
-    v17 = v9 - v16;
-    v18 = v15 - v16;
+    v17 = measured_pa_current - v16;
+    v18 = previous_pa_current - v16;
     if ( v18 * v17 <= 0 )
       break;
-    if ( !--v14 )
+    if ( !--remaining_steps )
       goto LABEL_9;
   }
   if ( v18 < 0 )
@@ -1614,114 +1650,116 @@ int rf_analog_ctrl_set(unsigned int a1, unsigned int a2, volatile unsigned int *
     v17 = -v17;
   if ( v18 <= v17 )
   {
-    v3 = v25;
-    *v11 = *v11 & 0xFFFFFFF8 | v24 & 7;
-    *v12 = (v24 << 12) & 0x7000 | *v12 & 0xFFFF8FFF;
-    *v11 = (8 * v25) & 0x78 | *v11 & 0xFFFFFF87;
-    v9 = v15;
-    v13 = v24;
-    *v12 = (v25 << 15) & 0x78000 | *v12 & 0xFFF87FFF;
+    cgm_code = previous_cgm_code;
+    *v11 = *v11 & 0xFFFFFFF8 | previous_res_code & 7;
+    *v12 = (previous_res_code << 12) & 0x7000 | *v12 & 0xFFFF8FFF;
+    *v11 = (8 * previous_cgm_code) & 0x78 | *v11 & 0xFFFFFF87;
+    measured_pa_current = previous_pa_current;
+    res_code = previous_res_code;
+    *v12 = (previous_cgm_code << 15) & 0x78000 | *v12 & 0xFFF87FFF;
   }
-  event_dispatch("cal done, offset_res=%d,(%d,%d), i_pa_res=%d\n", v20, v13 - v21, v3 - a2, v9);
+  event_dispatch("cal done, offset_res=%d,(%d,%d), i_pa_res=%d\n", res_code_offset, res_code - initial_res_code_saved, cgm_code - a2, measured_pa_current);
 LABEL_9:
-  *a3 = v3;
-  return v20;
+  *a3 = cgm_code;
+  return res_code_offset;
 }
 
 
 // rf_control_field_set @ 0x10e9f4
+/* luna: Adjusts the RF PA current-control field toward the configured target current and returns the field offset from its initial setting. */
 int rf_control_field_set(int a1) {
-  volatile int16_t *v1; // r9
-  int v2; // r7
-  int v3; // r5
+  volatile int16_t *target_pa_current_ptr; // r9
+  int control_field_value; // r7
+  int previous_pa_current; // r5
   int v4; // r3
-  volatile unsigned int *v5; // r8
-  int v6; // r6
-  int v7; // r10
+  volatile unsigned int *control_register; // r8
+  int adjustment_attempts_remaining; // r6
+  int field_offset_from_initial; // r10
   int v8; // r2
-  int v9; // r4
+  int measured_pa_current; // r4
   int v10; // r3
   int v11; // r0
   int v12; // r3
   int v14; // r1
   int v15; // r2
-  int v16; // [sp+0h] [bp-Ch]
-  int v17; // [sp+4h] [bp-8h]
+  int adjustment_direction; // [sp+0h] [bp-Ch]
+  int initial_field_value; // [sp+4h] [bp-8h]
 
-  v1 = (volatile int16_t *)off_10EB10;
+  target_pa_current_ptr = (volatile int16_t *)off_10EB10;
   *(volatile uint32_t *)off_10EB04 = (a1 << 26) & 0x1C000000 | *(volatile uint32_t *)off_10EB04 & 0xE3FFFFFF;
-  v2 = a1;
-  v3 = rf_core_power_on();
-  event_dispatch("cal start, reg_init=%d, i_pa_init=%d, i_pa_target=%d\n", v2, v3, *v1);
-  v4 = *v1;
-  if ( v4 > v3 )
+  control_field_value = a1;
+  previous_pa_current = rf_core_power_on();
+  event_dispatch("cal start, reg_init=%d, i_pa_init=%d, i_pa_target=%d\n", control_field_value, previous_pa_current, *target_pa_current_ptr);
+  v4 = *target_pa_current_ptr;
+  if ( v4 > previous_pa_current )
   {
-    v16 = 1;
+    adjustment_direction = 1;
   }
   else
   {
-    if ( v4 >= v3 )
+    if ( v4 >= previous_pa_current )
       return 0;
-    v16 = -1;
+    adjustment_direction = -1;
   }
-  v5 = (volatile unsigned int *)off_10EB04;
-  v17 = v2;
-  v6 = 4;
-  v7 = 0;
+  control_register = (volatile unsigned int *)off_10EB04;
+  initial_field_value = control_field_value;
+  adjustment_attempts_remaining = 4;
+  field_offset_from_initial = 0;
   while ( 1 )
   {
-    v2 += v16;
-    if ( v2 <= 7 )
+    control_field_value += adjustment_direction;
+    if ( control_field_value <= 7 )
     {
-      if ( v2 < 0 )
+      if ( control_field_value < 0 )
       {
-        v2 = 0;
+        control_field_value = 0;
         v8 = 0;
-        v7 = -v17;
+        field_offset_from_initial = -initial_field_value;
       }
       else
       {
-        v8 = v2 << 26;
-        v7 += v16;
+        v8 = control_field_value << 26;
+        field_offset_from_initial += adjustment_direction;
       }
     }
     else
     {
       v8 = 469762048;
-      v7 = 7 - v17;
-      v2 = 7;
+      field_offset_from_initial = 7 - initial_field_value;
+      control_field_value = 7;
     }
-    *v5 = *v5 & 0xE3FFFFFF | v8;
-    v9 = rf_core_power_on();
-    event_dispatch("reg_val=%d, i_pa=%d\n", v2, v9);
-    v10 = *v1;
-    v11 = v9 - v10;
-    v12 = v3 - v10;
+    *control_register = *control_register & 0xE3FFFFFF | v8;
+    measured_pa_current = rf_core_power_on();
+    event_dispatch("reg_val=%d, i_pa=%d\n", control_field_value, measured_pa_current);
+    v10 = *target_pa_current_ptr;
+    v11 = measured_pa_current - v10;
+    v12 = previous_pa_current - v10;
     if ( v12 * v11 <= 0 )
       break;
-    --v6;
-    v3 = v9;
-    if ( !v6 )
-      return v7;
+    --adjustment_attempts_remaining;
+    previous_pa_current = measured_pa_current;
+    if ( !adjustment_attempts_remaining )
+      return field_offset_from_initial;
   }
   v14 = v12;
   if ( v12 < 0 )
     v14 = -v12;
   if ( v11 < 0 )
     v11 = -v11;
-  v15 = v9;
+  v15 = measured_pa_current;
   if ( v14 <= v11 )
   {
-    v7 -= v16;
-    v15 = v3;
-    *v5 = ((v2 - v16) << 26) & 0x1C000000 | *v5 & 0xE3FFFFFF;
+    field_offset_from_initial -= adjustment_direction;
+    v15 = previous_pa_current;
+    *control_register = ((control_field_value - adjustment_direction) << 26) & 0x1C000000 | *control_register & 0xE3FFFFFF;
   }
-  event_dispatch("cal done, offset_res=%d, i_pa_res=%d\n", v7, v15);
-  return v7;
+  event_dispatch("cal done, offset_res=%d, i_pa_res=%d\n", field_offset_from_initial, v15);
+  return field_offset_from_initial;
 }
 
 
 // rf_hardware_init @ 0x10eb18
+/* luna: Initializes RF-related MMIO registers, invokes the RF enable and analog-control routines, and restores the saved states of control-register bits 19–22 */
 int rf_hardware_init(int a1) {
   volatile uint32_t *v1; // r2
   int v2; // r7
@@ -1781,6 +1819,7 @@ int rf_hardware_init(int a1) {
 
 
 // rf_hardware_setup @ 0x10ec44
+/* luna: Programs RF-related MMIO registers, invokes rf_enable and control-field 4 setup, then restores four temporarily modified control bits. */
 int rf_hardware_setup() {
   volatile unsigned int *v0; // r4
   volatile uint32_t *v1; // r2
@@ -1792,10 +1831,10 @@ int rf_hardware_setup() {
   int v7; // r5
   volatile int *v8; // r2
   int v9; // r1
-  unsigned int v10; // r8
-  unsigned int v11; // r7
-  unsigned int v12; // r6
-  unsigned int v13; // r5
+  unsigned int saved_bit_19_state; // r8
+  unsigned int saved_bit_20_state; // r7
+  unsigned int saved_bit_21_state; // r6
+  unsigned int saved_bit_22_state; // r5
   int result; // r0
   struct __attribute__((packed)) { uint16_t a1[2]; // [sp+4h] [bp-Ch] BYREF
   int v16; // [sp+8h] [bp-8h]
@@ -1823,10 +1862,10 @@ int rf_hardware_setup() {
   v0 += 593954;
   *v6 |= 0x80000000;
   *v8 = v9;
-  v10 = *v0;
-  v11 = *v0;
-  v12 = *v0;
-  v13 = *v0;
+  saved_bit_19_state = *v0;
+  saved_bit_20_state = *v0;
+  saved_bit_21_state = *v0;
+  saved_bit_22_state = *v0;
   *v0 &= ~0x80000u;
   *v0 |= 0x100000u;
   *v0 |= 0x200000u;
@@ -1834,15 +1873,16 @@ int rf_hardware_setup() {
   result = rf_control_field_set(4);
   *v6 &= ~0x80000000;
   *v4 &= ~0x20000000u;
-  *v0 = v10 & 0x80000 | *v0 & 0xFFF7FFFF;
-  *v0 = v11 & 0x100000 | *v0 & 0xFFEFFFFF;
-  *v0 = v12 & 0x200000 | *v0 & 0xFFDFFFFF;
-  *v0 = v13 & 0x400000 | *v0 & 0xFFBFFFFF;
+  *v0 = saved_bit_19_state & 0x80000 | *v0 & 0xFFF7FFFF;
+  *v0 = saved_bit_20_state & 0x100000 | *v0 & 0xFFEFFFFF;
+  *v0 = saved_bit_21_state & 0x200000 | *v0 & 0xFFDFFFFF;
+  *v0 = saved_bit_22_state & 0x400000 | *v0 & 0xFFBFFFFF;
   return result;
 }
 
 
 // call_ptr_1b0 @ 0x10ed6c
+/* luna: Calls the zero-argument function pointer stored at address 0x1B0 and returns its result. */
 int call_ptr_1b0() {
   return ((int (*)())MEMD(0x1B0))();
 }
@@ -1850,6 +1890,7 @@ int call_ptr_1b0() {
 
 
 // call_ptr_1b4 @ 0x10ed74
+/* luna: Calls the zero-argument function pointer stored at address 0x1B4 and returns its result. */
 int call_ptr_1b4() {
   return ((int (*)())MEMD(0x1B4))();
 }
@@ -1857,6 +1898,7 @@ int call_ptr_1b4() {
 
 
 // call_ptr_1b8 @ 0x10ed7c
+/* luna: Invokes the zero-argument function pointer stored at address 0x1B8 and returns its result. */
 int call_ptr_1b8() {
   return ((int (*)())MEMD(0x1B8))();
 }
@@ -1864,6 +1906,7 @@ int call_ptr_1b8() {
 
 
 // mmio_read32 @ 0x10ed84
+/* luna: Invokes the RF callback inside a nested interrupt-safe critical section, optionally waiting for a shared readiness flag first. */
 int mmio_read32(int a1, int a2) {
   volatile int *v2; // r5
   volatile uint32_t *v3; // r4
@@ -1907,6 +1950,7 @@ int mmio_read32(int a1, int a2) {
 
 
 // mmio_write32 @ 0x10edd8
+/* luna: Invokes the delegated MMIO operation within a nested interrupt-safe critical section, optionally waiting for the shared access flag first. */
 int mmio_write32(int a1, int a2, int a3) {
   volatile int *v3; // r5
   volatile uint32_t *v4; // r4

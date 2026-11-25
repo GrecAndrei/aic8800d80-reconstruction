@@ -1,4 +1,5 @@
 // process_global_167204 @ 0x114574
+/* luna: Dispatches the LP-level power error event and conditionally clears associated control fields and resets a flag. */
 int process_global_167204() {
   int result; // r0
   volatile uint8_t *v1; // r3
@@ -19,6 +20,7 @@ int process_global_167204() {
 
 
 // sub_1145ac @ 0x1145ac
+/* luna: Checks timer-related time guards, logs a denial when a guard fails, and writes the resulting allow-or-deny flag. */
 unsigned int sub_1145ac(unsigned int result) {
   int v1; // r2
 
@@ -52,6 +54,7 @@ unsigned int sub_1145ac(unsigned int result) {
 
 
 // load_global_ptr_182558 @ 0x11463c
+/* luna: Selects the active RF control block and programs it with the supplied tuning value and mode-dependent settings. */
 int load_global_ptr_182558(int a1) {
   volatile int *v1; // r3
   int v2; // r2
@@ -93,6 +96,7 @@ int load_global_ptr_182558(int a1) {
 
 
 // dummy_store_global @ 0x1146b8
+/* luna: Reads the 32-bit word referenced by a global pointer and writes the unchanged value back to the same location. */
 void dummy_store_global() {
   **(volatile uint32_t **)off_1146C4 = **(volatile uint32_t **)off_1146C4;
 }
@@ -100,6 +104,7 @@ void dummy_store_global() {
 
 
 // clear_global_flag_2 @ 0x1146c8
+/* luna: Clears bit 1 in the 32-bit flags field at offset 8 of the global object. */
 void clear_global_flag_2() {
   *(volatile uint32_t *)(*(volatile uint32_t *)off_1146D8 + 8) &= ~2u;
 }
@@ -107,6 +112,7 @@ void clear_global_flag_2() {
 
 
 // set_global_flag_2 @ 0x1146dc
+/* luna: Sets bit 1 in the 32-bit field at offset 8 of the object referenced by a global pointer. */
 void set_global_flag_2() {
   *(volatile uint32_t *)(*(volatile uint32_t *)off_1146EC + 8) |= 2u;
 }
@@ -114,6 +120,7 @@ void set_global_flag_2() {
 
 
 // check_bt_ptr_state @ 0x1146f0
+/* luna: Updates BT-associated mode state by selecting 0x800 or 0x1000, conditionally clearing the corresponding flag bit, and resetting an associated field. */
 int check_bt_ptr_state() {
   int v0; // r2
   int v1; // r1
@@ -140,6 +147,7 @@ int check_bt_ptr_state() {
 
 
 // load_multiple_globals @ 0x114748
+/* luna: Logs interrupt and Cortex-M control/stack state, dumps a bounded MSP memory range and selected interrupt/timer registers, then initializes patches. */
 void load_multiple_globals() {
   unsigned int v0; // r5
   int v1; // r4
@@ -191,6 +199,7 @@ LABEL_5:
 
 
 // call_hook_1 @ 0x114840
+/* luna: Invokes the function pointer stored at address 0x1FC and returns its result. */
 int call_hook_1() {
   return ((int (*)())MEMD(0x1FC))();
 }
@@ -198,6 +207,7 @@ int call_hook_1() {
 
 
 // get_hook_bit_9 @ 0x114848
+/* luna: Calls the installed hook with selector 1 and returns bit 9 of its result. */
 unsigned int get_hook_bit_9() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(1) >> 9) & 1;
 }
@@ -205,6 +215,7 @@ unsigned int get_hook_bit_9() {
 
 
 // call_hook_2 @ 0x11485c
+/* luna: Calls the function pointer stored at 0x1FC with argument 2 and returns its result. */
 int call_hook_2() {
   return ((int (*)())MEMD(0x1FC))(2);
 }
@@ -212,19 +223,20 @@ int call_hook_2() {
 
 
 // rf_cmd6_read @ 0x114868
+/* luna: Calls the command-6 hook, writes its high byte when nonzero or otherwise its low byte, and returns 0, 1, or 2 according to the result. */
 int rf_cmd6_read(volatile uint8_t *a1) {
-  int16_t v2; // r0
+  int16_t hook_result; // r0
 
-  v2 = ((int (*)())MEMD(0x1FC))(6);
-  if ( (v2 & 0xFF00) != 0 )
+  hook_result = ((int (*)())MEMD(0x1FC))(6);
+  if ( (hook_result & 0xFF00) != 0 )
   {
-    *a1 = HIBYTE(v2);
+    *a1 = HIBYTE(hook_result);
     return 0;
   }
   else
   {
-    *a1 = v2;
-    if ( (uint8_t)v2 )
+    *a1 = hook_result;
+    if ( (uint8_t)hook_result )
       return 1;
     else
       return 2;
@@ -234,23 +246,24 @@ int rf_cmd6_read(volatile uint8_t *a1) {
 
 
 // rf_cmd6_read_hi @ 0x114894
+/* luna: Reads RF command 6, stores its highest nonzero response byte (or zero), and returns 0, 1, or 2 depending on which of the top two bytes was present. */
 int rf_cmd6_read_hi(volatile uint8_t *a1) {
-  unsigned int v2; // r0
-  char v4; // r3
+  unsigned int response; // r0
+  char selected_byte; // r3
 
-  v2 = ((int (*)())MEMD(0x1FC))(6);
-  if ( HIBYTE(v2) )
+  response = ((int (*)())MEMD(0x1FC))(6);
+  if ( HIBYTE(response) )
   {
-    *a1 = HIBYTE(v2);
+    *a1 = HIBYTE(response);
     return 0;
   }
   else
   {
-    v4 = BYTE2(v2);
-    if ( !HIWORD(v2) )
-      v4 = 0;
-    *a1 = v4;
-    if ( HIWORD(v2) )
+    selected_byte = BYTE2(response);
+    if ( !HIWORD(response) )
+      selected_byte = 0;
+    *a1 = selected_byte;
+    if ( HIWORD(response) )
       return 1;
     else
       return 2;
@@ -260,6 +273,7 @@ int rf_cmd6_read_hi(volatile uint8_t *a1) {
 
 
 // rf_cmd8_read @ 0x1148c4
+/* luna: Reads RF command results 8 and 9 into packed outputs, falling back to results 7 and 8 when the primary result is zero, and returns a status code. */
 int rf_cmd8_read(volatile uint32_t *a1, volatile unsigned int *a2) {
   unsigned int v4; // r4
   unsigned int v5; // r0
@@ -305,60 +319,62 @@ int rf_cmd8_read(volatile uint32_t *a1, volatile unsigned int *a2) {
 
 
 // copy_global_1672ec @ 0x114920
+/* luna: Executes the selected RF command, decodes its three signed-magnitude nibble values into the output buffer, and returns packed per-value status flags. */
 int copy_global_1672ec(int a1, int a2) {
   int v3; // r1
   int v4; // r2
-  unsigned int v5; // r0
-  int v6; // r3
-  int v7; // r1
-  unsigned int v8; // r2
-  char v9; // r5
-  unsigned int v10; // r4
-  char v11; // r2
+  unsigned int response_word; // r0
+  int result_index; // r3
+  int status_flags; // r1
+  unsigned int response_field; // r2
+  char decoded_value; // r5
+  unsigned int encoded_value_nibble; // r4
+  char sign_factor; // r2
   volatile uint8_t *v12; // r2
-  uint32_t v14[3]; // [sp+4h] [bp-10h]
+  uint32_t rf_command_words[3]; // [sp+4h] [bp-10h]
 
   v3 = *(volatile uint32_t *)(dword_114998 + 4);
   v4 = *(volatile uint32_t *)(dword_114998 + 8);
-  v14[0] = *(volatile uint32_t *)dword_114998;
-  v14[1] = v3;
-  v14[2] = v4;
-  v5 = ((int (*)())MEMD(0x1FC))(v14[a1]);
-  v6 = 0;
-  v7 = 0;
+  rf_command_words[0] = *(volatile uint32_t *)dword_114998;
+  rf_command_words[1] = v3;
+  rf_command_words[2] = v4;
+  response_word = ((int (*)())MEMD(0x1FC))(rf_command_words[a1]);
+  result_index = 0;
+  status_flags = 0;
   do
   {
-    v8 = v5 >> (8 * v6);
-    v9 = v8;
-    v10 = (uint8_t)v8 >> 4;
-    if ( (v8 & 0xF0) == 0 )
+    response_field = response_word >> (8 * result_index);
+    decoded_value = response_field;
+    encoded_value_nibble = (uint8_t)response_field >> 4;
+    if ( (response_field & 0xF0) == 0 )
     {
-      if ( !(uint8_t)v8 )
+      if ( !(uint8_t)response_field )
       {
-        v7 |= 2 << (4 * v6);
-        v12 = (volatile uint8_t *)(a2 + v6);
+        status_flags |= 2 << (4 * result_index);
+        v12 = (volatile uint8_t *)(a2 + result_index);
         goto LABEL_9;
       }
-      v7 |= 1 << (4 * v6);
-      v10 = (uint8_t)v8;
+      status_flags |= 1 << (4 * result_index);
+      encoded_value_nibble = (uint8_t)response_field;
     }
-    if ( (v10 & 1) != 0 )
-      v11 = -1;
+    if ( (encoded_value_nibble & 1) != 0 )
+      sign_factor = -1;
     else
-      v11 = 1;
-    v9 = (v10 >> 1) * v11;
-    v12 = (volatile uint8_t *)(a2 + v6);
+      sign_factor = 1;
+    decoded_value = (encoded_value_nibble >> 1) * sign_factor;
+    v12 = (volatile uint8_t *)(a2 + result_index);
 LABEL_9:
-    ++v6;
-    *v12 = v9;
+    ++result_index;
+    *v12 = decoded_value;
   }
-  while ( v6 != 3 );
-  return v7;
+  while ( result_index != 3 );
+  return status_flags;
 }
 
 
 
 // copy_global_1672f8 @ 0x11499c
+/* luna: Reads two selected RF words, decodes six signed-magnitude values into the caller buffer, and returns per-value encoding flags. */
 int copy_global_1672f8(int a1, int a2) {
   int v3; // r1
   int v4; // r2
@@ -425,6 +441,7 @@ LABEL_8:
 
 
 // rf_cmd_a_write @ 0x114a3c
+/* luna: Extracts the indexed byte from RF command A, decodes its signed nibble value into the output, and returns a status indicating which nibble was used or */
 int rf_cmd_a_write(char a1, volatile uint8_t *a2) {
   unsigned int v3; // r0
   unsigned int v4; // r3
@@ -458,6 +475,7 @@ int rf_cmd_a_write(char a1, volatile uint8_t *a2) {
 
 
 // rf_cmd_b_write @ 0x114a84
+/* luna: Selects the nonzero high nibble or the low nibble of an RF command byte, decodes it as signed magnitude, and returns 0, 1, or 2 for high-nibble, low-n */
 int rf_cmd_b_write(char a1, volatile uint8_t *a2) {
   unsigned int v3; // r0
   unsigned int v4; // r3
@@ -491,6 +509,7 @@ int rf_cmd_b_write(char a1, volatile uint8_t *a2) {
 
 
 // rom_get_chip_version @ 0x114acc
+/* luna: Queries the ROM version service, decodes the selected nonzero upper or lower nibble into the output version, and returns 0 for upper-nibble encoding,  */
 int rom_get_chip_version(volatile int *a1) {
   uint8_t v2; // r0
   int v3; // r2
@@ -526,6 +545,7 @@ int rom_get_chip_version(volatile int *a1) {
 
 
 // get_hook_bits_0_2 @ 0x114b08
+/* luna: Returns bits 0–2 of the hook value queried with selector 17. */
 int get_hook_bits_0_2() {
   return ((int (*)())MEMD(0x1FC))(17) & 7;
 }
@@ -533,6 +553,7 @@ int get_hook_bits_0_2() {
 
 
 // get_hook_bits_3_5 @ 0x114b1c
+/* luna: Returns bits 3–5 of the hook value obtained by calling the ROM service with argument 17. */
 unsigned int get_hook_bits_3_5() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(17) >> 3) & 7;
 }
@@ -540,6 +561,7 @@ unsigned int get_hook_bits_3_5() {
 
 
 // get_hook_bits_6_8 @ 0x114b30
+/* luna: Returns bits 6–8 of the hook value obtained by calling the ROM accessor with selector 17. */
 unsigned int get_hook_bits_6_8() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(17) >> 6) & 7;
 }
@@ -547,6 +569,7 @@ unsigned int get_hook_bits_6_8() {
 
 
 // rom_get_chip_metal @ 0x114b44
+/* luna: Queries the ROM for the chip metal revision, stores the decoded byte through the output pointer, and returns a status based on the encoded result. */
 int rom_get_chip_metal(volatile uint8_t *a1) {
   int16_t v2; // r0
 
@@ -569,6 +592,7 @@ int rom_get_chip_metal(volatile uint8_t *a1) {
 
 
 // get_hook_bit_18 @ 0x114b70
+/* luna: Returns bit 18 of the hook value queried with index 15. */
 unsigned int get_hook_bit_18() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(15) >> 18) & 1;
 }
@@ -576,6 +600,7 @@ unsigned int get_hook_bit_18() {
 
 
 // get_hook_bit_19 @ 0x114b84
+/* luna: Returns bit 19 of the value returned by the hook provider when called with selector 15. */
 unsigned int get_hook_bit_19() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(15) >> 19) & 1;
 }
@@ -583,6 +608,7 @@ unsigned int get_hook_bit_19() {
 
 
 // get_hook_bit_20 @ 0x114b98
+/* luna: Returns bit 20 of the value obtained by querying the hook provider with selector 15. */
 unsigned int get_hook_bit_20() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(15) >> 20) & 1;
 }
@@ -590,6 +616,7 @@ unsigned int get_hook_bit_20() {
 
 
 // call_hook_27 @ 0x114bac
+/* luna: Calls the hook function stored at address 0x1FC with hook index 27 and returns its result. */
 int call_hook_27() {
   return ((int (*)())MEMD(0x1FC))(27);
 }
@@ -597,6 +624,7 @@ int call_hook_27() {
 
 
 // invalid_handler @ 0x114bb8
+/* luna: Invokes the callback stored at address 0x1C8 with nesting-aware IRQ protection, restoring interrupts when the outermost call exits. */
 int invalid_handler() {
   volatile int *v0; // r4
   int result; // r0
@@ -627,6 +655,7 @@ int invalid_handler() {
 
 
 // get_ke_env @ 0x114bf8
+/* luna: Initializes two hook-related globals if unset and marks the hook state active. */
 void get_ke_env() {
   volatile int *v0; // r4
 

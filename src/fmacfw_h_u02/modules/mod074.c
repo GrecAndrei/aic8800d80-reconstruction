@@ -1,4 +1,5 @@
 // global_table_lookup @ 0x142494
+/* luna: Applies a state- and marker-triggered IRQ/MMIO workaround, forwards frames whose control field matches subtype 0xD0, and returns zero. */
 int global_table_lookup(int a1, unsigned int a2) {
   if ( **(volatile int16_t **)off_1424D0 < 0 && *(volatile uint8_t *)(a2 + 8) == 255 )
     irq_disable_mmio_write(dword_1424D8, dword_1424D4, 50);
@@ -10,64 +11,66 @@ int global_table_lookup(int a1, unsigned int a2) {
 
 
 // double_exp_check @ 0x1424dc
+/* luna: Rounds a binary64 value to the nearest integral value, with halfway cases rounded away from zero. */
 uint64_t double_exp_check(uint64_t a1) {
-  int v1; // r7
-  int v2; // r4
-  int v3; // r5
-  uint64_t v4; // r2
-  int v5; // r3
-  unsigned int v6; // r7
-  int v7; // r3
-  int v8; // cf
-  int v9; // r3
+  int exponent_field; // r7
+  int unbiased_exponent; // r4
+  int result_high_word; // r5
+  uint64_t original_value_bits; // r2
+  int result_low_word; // r3
+  unsigned int fractional_mask; // r7
+  int rounding_increment; // r3
+  int carry_flag; // cf
+  int incremented_low_word; // r3
 
-  v1 = (HIDWORD(a1) >> 20) & 0x7FF;
-  v2 = v1 - 1023;
-  v3 = HIDWORD(a1);
-  v4 = a1;
-  if ( v1 - 1023 > 19 )
+  exponent_field = (HIDWORD(a1) >> 20) & 0x7FF;
+  unbiased_exponent = exponent_field - 1023;
+  result_high_word = HIDWORD(a1);
+  original_value_bits = a1;
+  if ( exponent_field - 1023 > 19 )
   {
-    if ( v2 <= 51 )
+    if ( unbiased_exponent <= 51 )
     {
-      v6 = 0xFFFFFFFF >> (((HIDWORD(a1) >> 20) - 19) & 0xFF);
-      if ( ((unsigned int)a1 & v6) != 0 )
+      fractional_mask = 0xFFFFFFFF >> (((HIDWORD(a1) >> 20) - 19) & 0xFF);
+      if ( ((unsigned int)a1 & fractional_mask) != 0 )
       {
-        v7 = 1 << (51 - v2);
-        v8 = __CFADD__((uint32_t)a1, v7);
-        v9 = a1 + v7;
-        if ( v8 )
-          v3 = HIDWORD(a1) + 1;
-        v5 = v9 & ~v6;
-        return __PAIR64__(v3, v5);
+        rounding_increment = 1 << (51 - unbiased_exponent);
+        carry_flag = __CFADD__((uint32_t)a1, rounding_increment);
+        incremented_low_word = a1 + rounding_increment;
+        if ( carry_flag )
+          result_high_word = HIDWORD(a1) + 1;
+        result_low_word = incremented_low_word & ~fractional_mask;
+        return __PAIR64__(result_high_word, result_low_word);
       }
     }
-    else if ( v1 == 2047 )
+    else if ( exponent_field == 2047 )
     {
       return double_compare_eq(a1, a1);
     }
   }
   else
   {
-    if ( v2 < 0 )
+    if ( unbiased_exponent < 0 )
     {
-      v3 = HIDWORD(a1) & 0x80000000;
-      if ( v1 == 1022 )
-        v3 |= 0x3FF00000u;
-      v5 = 0;
-      return __PAIR64__(v3, v5);
+      result_high_word = HIDWORD(a1) & 0x80000000;
+      if ( exponent_field == 1022 )
+        result_high_word |= 0x3FF00000u;
+      result_low_word = 0;
+      return __PAIR64__(result_high_word, result_low_word);
     }
     if ( HIDWORD(a1) & (dword_14256C >> (((HIDWORD(a1) >> 20) + 1) & 0xFF)) | (unsigned int)a1 )
     {
-      v3 = (HIDWORD(a1) + (0x80000 >> (((HIDWORD(a1) >> 20) + 1) & 0xFF))) & ~(dword_14256C >> (((HIDWORD(a1) >> 20) + 1) & 0xFF));
-      v5 = 0;
-      return __PAIR64__(v3, v5);
+      result_high_word = (HIDWORD(a1) + (0x80000 >> (((HIDWORD(a1) >> 20) + 1) & 0xFF))) & ~(dword_14256C >> (((HIDWORD(a1) >> 20) + 1) & 0xFF));
+      result_low_word = 0;
+      return __PAIR64__(result_high_word, result_low_word);
     }
   }
-  return v4;
+  return original_value_bits;
 }
 
 
 // float_to_int_convert @ 0x142570
+/* luna: Returns the input rounded toward negative infinity to an integral-valued single-precision float, preserving already-integral values and routing NaNs t */
 unsigned int float_to_int_convert(unsigned int a1) {
   int v1; // r5
   unsigned int v3; // r7
@@ -230,11 +233,12 @@ unsigned int float_to_int_convert(unsigned int a1) {
 
 
 // double_cmp @ 0x1432d4
+/* luna: Returns the unsigned 64-bit quotient, yielding UINT64_MAX for a nonzero dividend divided by zero and zero for 0 divided by 0. */
 uint64_t double_cmp(uint64_t a1, uint64_t a2) {
-  uint64_t v2; // [sp+8h] [bp-8h] BYREF
+  uint64_t remainder; // [sp+8h] [bp-8h] BYREF
 
   if ( a2 )
-    return uint64_divmod(a1, a2, &v2);
+    return uint64_divmod(a1, a2, &remainder);
   if ( a1 )
     return -1;
   return a1;
@@ -242,8 +246,9 @@ uint64_t double_cmp(uint64_t a1, uint64_t a2) {
 
 
 // uint64_divmod @ 0x143304
+/* luna: Returns the unsigned 64-bit quotient of dividend divided by divisor and optionally stores the remainder through remainder_out. */
 uint64_t uint64_divmod(uint64_t a1, uint64_t a2, volatile uint64_t *a4) {
-  uint64_t v3; // r4
+  uint64_t dividend_copy; // r4
   unsigned int v4; // lr
   unsigned int v5; // r7
   unsigned int v6; // r2
@@ -289,7 +294,7 @@ uint64_t uint64_divmod(uint64_t a1, uint64_t a2, volatile uint64_t *a4) {
   uint64_t v46; // r8
   uint64_t v47; // kr08_8
 
-  v3 = a1;
+  dividend_copy = a1;
   v4 = HIDWORD(a1);
   if ( HIDWORD(a2) )
   {
@@ -299,9 +304,9 @@ uint64_t uint64_divmod(uint64_t a1, uint64_t a2, volatile uint64_t *a4) {
       if ( HIDWORD(a1) )
       {
         v32 = ((unsigned int)a2 >> (32 - BYTE4(a1))) | (HIDWORD(a2) << SBYTE4(a1));
-        a2 = (a2 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(HIDWORD(v3) << SBYTE4(a1)) << 32);
+        a2 = (a2 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(HIDWORD(dividend_copy) << SBYTE4(a1)) << 32);
         v33 = HIWORD(v32);
-        v34 = HIDWORD(v3) >> (32 - BYTE4(a1));
+        v34 = HIDWORD(dividend_copy) >> (32 - BYTE4(a1));
         v35 = ((unsigned int)a1 >> (32 - BYTE4(a1))) | HIDWORD(a2);
         v36 = v34 / HIWORD(v32);
         v37 = HIWORD(v35) | ((v34 % HIWORD(v32)) << 16);
@@ -355,19 +360,19 @@ if ( __PAIR64__(v45, v40) < v46 ) { a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(a1 
       }
       else
       {
-if ( HIDWORD(a2) >= HIDWORD(v3) && (unsigned int)a2 > (unsigned int)a1 ) { a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
+if ( HIDWORD(a2) >= HIDWORD(dividend_copy) && (unsigned int)a2 > (unsigned int)a1 ) { a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
         }
         else
         {
-          v25 = __PAIR64__(HIDWORD(v3), a1) - a2;
-          v24 = (__PAIR64__(HIDWORD(v3), a1) - a2) >> 32;
-          v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(v25) & 0xFFFFFFFFu);
+          v25 = __PAIR64__(HIDWORD(dividend_copy), a1) - a2;
+          v24 = (__PAIR64__(HIDWORD(dividend_copy), a1) - a2) >> 32;
+          dividend_copy = (dividend_copy & ~0xFFFFFFFFull) | ((uint32_t)(v25) & 0xFFFFFFFFu);
           a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(1) & 0xFFFFFFFFu);
           v4 = v24;
         }
         if ( a4 )
         {
-          *(volatile uint32_t *)a4 = v3;
+          *(volatile uint32_t *)a4 = dividend_copy;
           *((volatile uint32_t *)a4 + 1) = v4;
         }
       }
@@ -376,7 +381,7 @@ else { a1 = (a1 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(0) << 32);
       if ( a4 )
       {
         *(volatile uint32_t *)a4 = a1;
-        *((volatile uint32_t *)a4 + 1) = HIDWORD(v3);
+        *((volatile uint32_t *)a4 + 1) = HIDWORD(dividend_copy);
       }
       a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
     }
@@ -397,24 +402,24 @@ else { a1 = (a1 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(0) << 32);
         a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(((unsigned int)a1 >> (32 - v6)) | (HIDWORD(a1) << v6)) & 0xFFFFFFFFu);
         a1 = (a1 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v26 / HIWORD(v5)) << 32);
         v19 = (uint16_t)v5;
-        v3 = (v3 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(WORD1(a1) | ((v26 % HIWORD(v5)) << 16)) << 32);
+        dividend_copy = (dividend_copy & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(WORD1(a1) | ((v26 % HIWORD(v5)) << 16)) << 32);
         v27 = HIDWORD(a1) * (uint16_t)v5;
-        v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)((uint32_t)v3 << v6) & 0xFFFFFFFFu);
-        if ( v27 > HIDWORD(v3) )
+        dividend_copy = (dividend_copy & ~0xFFFFFFFFull) | ((uint32_t)((uint32_t)dividend_copy << v6) & 0xFFFFFFFFu);
+        if ( v27 > HIDWORD(dividend_copy) )
         {
-          v11 = __CFADD__(v5, HIDWORD(v3));
-          v3 = (v3 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v3 >> 32) & 0xFFFFFFFFu) + (uint32_t)(v5))) << 32;;
-          if ( v11 || v27 <= HIDWORD(v3) )
+          v11 = __CFADD__(v5, HIDWORD(dividend_copy));
+          dividend_copy = (dividend_copy & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(dividend_copy >> 32) & 0xFFFFFFFFu) + (uint32_t)(v5))) << 32;;
+          if ( v11 || v27 <= HIDWORD(dividend_copy) )
           {
             a1 = (a1 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(a1 >> 32) & 0xFFFFFFFFu) - (uint32_t)(1))) << 32;;
           }
           else
           {
             a1 = (a1 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(a1 >> 32) & 0xFFFFFFFFu) - (uint32_t)(2))) << 32;;
-            v3 = (v3 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v3 >> 32) & 0xFFFFFFFFu) + (uint32_t)(v5))) << 32;;
+            dividend_copy = (dividend_copy & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(dividend_copy >> 32) & 0xFFFFFFFFu) + (uint32_t)(v5))) << 32;;
           }
         }
-        v28 = HIDWORD(v3) - v27;
+        v28 = HIDWORD(dividend_copy) - v27;
         v29 = (uint16_t)a1;
         a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(v28 / v18) & 0xFFFFFFFFu);
         v30 = v29 | ((v28 % v18) << 16);
@@ -440,41 +445,41 @@ else { a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(a1 - 2) & 0xFFFFFFFFu);
         a1 = (a1 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(1) << 32);
       }
       v20 = v17 / v18;
-      v3 = (v3 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(WORD1(v3) | ((v17 % v18) << 16)) << 32);
+      dividend_copy = (dividend_copy & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(WORD1(dividend_copy) | ((v17 % v18) << 16)) << 32);
       v21 = v19 * (v17 / v18);
-      if ( v21 > HIDWORD(v3) )
+      if ( v21 > HIDWORD(dividend_copy) )
       {
-        v11 = __CFADD__(v5, HIDWORD(v3));
-        v3 = (v3 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v3 >> 32) & 0xFFFFFFFFu) + (uint32_t)(v5))) << 32;;
-        if ( v11 || v21 <= HIDWORD(v3) )
+        v11 = __CFADD__(v5, HIDWORD(dividend_copy));
+        dividend_copy = (dividend_copy & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(dividend_copy >> 32) & 0xFFFFFFFFu) + (uint32_t)(v5))) << 32;;
+        if ( v11 || v21 <= HIDWORD(dividend_copy) )
         {
           --v20;
         }
         else
         {
           v20 -= 2;
-          v3 = (v3 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v3 >> 32) & 0xFFFFFFFFu) + (uint32_t)(v5))) << 32;;
+          dividend_copy = (dividend_copy & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(dividend_copy >> 32) & 0xFFFFFFFFu) + (uint32_t)(v5))) << 32;;
         }
       }
-      v3 = (v3 & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(v3 >> 32) & 0xFFFFFFFFu) - (uint32_t)(v21))) << 32;;
-      v22 = HIDWORD(v3) / v18;
-      v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)((uint16_t)v3 | ((HIDWORD(v3) % v18) << 16)) & 0xFFFFFFFFu);
-      v23 = v19 * (HIDWORD(v3) / v18);
-      if ( v23 > (unsigned int)v3 )
+      dividend_copy = (dividend_copy & 0xFFFFFFFFull) | ((uint64_t)(uint32_t)(((uint32_t)(dividend_copy >> 32) & 0xFFFFFFFFu) - (uint32_t)(v21))) << 32;;
+      v22 = HIDWORD(dividend_copy) / v18;
+      dividend_copy = (dividend_copy & ~0xFFFFFFFFull) | ((uint32_t)((uint16_t)dividend_copy | ((HIDWORD(dividend_copy) % v18) << 16)) & 0xFFFFFFFFu);
+      v23 = v19 * (HIDWORD(dividend_copy) / v18);
+      if ( v23 > (unsigned int)dividend_copy )
       {
-        v11 = __CFADD__(v5, (uint32_t)v3);
-        v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(v5 + v3) & 0xFFFFFFFFu);
-        if ( v11 || v23 <= (unsigned int)v3 )
+        v11 = __CFADD__(v5, (uint32_t)dividend_copy);
+        dividend_copy = (dividend_copy & ~0xFFFFFFFFull) | ((uint32_t)(v5 + dividend_copy) & 0xFFFFFFFFu);
+        if ( v11 || v23 <= (unsigned int)dividend_copy )
         {
           --v22;
         }
         else
         {
           v22 -= 2;
-          v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(v3 + v5) & 0xFFFFFFFFu);
+          dividend_copy = (dividend_copy & ~0xFFFFFFFFull) | ((uint32_t)(dividend_copy + v5) & 0xFFFFFFFFu);
         }
       }
-      v16 = v3 - v23;
+      v16 = dividend_copy - v23;
       a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(v22 | (v20 << 16)) & 0xFFFFFFFFu);
     }
     else
@@ -484,11 +489,11 @@ else { a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(a1 - 2) & 0xFFFFFFFFu);
       {
         v5 <<= v6;
         v4 = ((unsigned int)a1 >> (32 - v6)) | (HIDWORD(a1) << v6);
-        v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)((uint32_t)a1 << v6) & 0xFFFFFFFFu);
+        dividend_copy = (dividend_copy & ~0xFFFFFFFFull) | ((uint32_t)((uint32_t)a1 << v6) & 0xFFFFFFFFu);
       }
       v7 = HIWORD(v5);
       v8 = v4 / HIWORD(v5);
-      v9 = WORD1(v3) | ((v4 % HIWORD(v5)) << 16);
+      v9 = WORD1(dividend_copy) | ((v4 % HIWORD(v5)) << 16);
       v10 = v8 * (uint16_t)v5;
       if ( v10 > v9 )
       {
@@ -506,7 +511,7 @@ else { a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(a1 - 2) & 0xFFFFFFFFu);
       }
       v12 = v9 - v10;
       v13 = v12 / v7;
-      v14 = (uint16_t)v3 | ((v12 % v7) << 16);
+      v14 = (uint16_t)dividend_copy | ((v12 % v7) << 16);
       v15 = v12 / v7 * (uint16_t)v5;
       if ( v15 > v14 )
       {
@@ -533,6 +538,7 @@ else { a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(a1 - 2) & 0xFFFFFFFFu);
 
 
 // int_abs @ 0x1435c8
+/* luna: Returns the absolute value of an integer. */
 int int_abs(int result) {
   if ( result < 0 )
     return -result;
@@ -542,15 +548,16 @@ int int_abs(int result) {
 
 
 // memcmp @ 0x1435d0
+/* luna: Compares two byte sequences lexicographically, using aligned 32-bit loads when possible, and returns the first differing unsigned-byte difference. */
 int memcmp(unsigned int a1, unsigned int a2, unsigned int a3) {
-  volatile int *v3; // r4
-  volatile int *v4; // r3
+  volatile int *lhs_word_ptr; // r4
+  volatile int *rhs_word_ptr; // r3
   int v5; // r5
   int v6; // t1
   int v7; // t1
   unsigned int v8; // r6
-  volatile char *v9; // r1
-  volatile char *v10; // r4
+  volatile char *rhs_byte_ptr; // r1
+  volatile char *lhs_byte_ptr; // r4
   int v11; // r5
   int v12; // t1
   int v13; // r2
@@ -565,40 +572,40 @@ LABEL_5:
   }
   else
   {
-    v3 = (volatile int *)a1;
-    v4 = (volatile int *)a2;
+    lhs_word_ptr = (volatile int *)a1;
+    rhs_word_ptr = (volatile int *)a2;
     if ( !((a1 | a2) << 30) )
     {
       while ( 1 )
       {
-        a2 = (unsigned int)v4;
-        a1 = (unsigned int)v3;
-        v6 = *v4++;
+        a2 = (unsigned int)rhs_word_ptr;
+        a1 = (unsigned int)lhs_word_ptr;
+        v6 = *rhs_word_ptr++;
         v5 = v6;
-        v7 = *v3++;
+        v7 = *lhs_word_ptr++;
         if ( v7 != v5 )
           break;
         a3 -= 4;
-        a1 = (unsigned int)v3;
-        a2 = (unsigned int)v4;
+        a1 = (unsigned int)lhs_word_ptr;
+        a2 = (unsigned int)rhs_word_ptr;
         if ( a3 <= 3 )
           goto LABEL_5;
       }
     }
     v8 = a3 - 1;
   }
-  v9 = (volatile char *)(a2 - 1);
-  v10 = (volatile char *)(a1 - 1);
+  rhs_byte_ptr = (volatile char *)(a2 - 1);
+  lhs_byte_ptr = (volatile char *)(a1 - 1);
   do
   {
-    v12 = (uint8_t)*++v10;
+    v12 = (uint8_t)*++lhs_byte_ptr;
     v11 = v12;
-    v14 = (uint8_t)*++v9;
+    v14 = (uint8_t)*++rhs_byte_ptr;
     v13 = v14;
     if ( v11 != v14 )
       return v11 - v13;
   }
-  while ( a1 + v8 - (uint32_t)v10 );
+  while ( a1 + v8 - (uint32_t)lhs_byte_ptr );
   return 0;
 }
 
@@ -609,6 +616,7 @@ LABEL_5:
 
 
 // memmove @ 0x143764
+/* luna: Copies len bytes from src to dest while preserving correct behavior when the ranges overlap. */
 unsigned int memmove(unsigned int result, unsigned int a2, unsigned int a3) {
   volatile uint8_t *v3; // r3
   unsigned int v4; // r2
@@ -710,19 +718,21 @@ LABEL_10:
 
 
 // hash32 @ 0x14383c
+/* luna: Advances the global 64-bit linear-congruential PRNG state and returns its upper 31 bits. */
 int hash32() {
-  uint64_t v0; // kr00_8
+  uint64_t next_rng_state; // kr00_8
 
-  v0 = *(volatile uint64_t *)(*(volatile uint32_t *)off_14386C + 168) * __PAIR64__(dword_143870, dword_143874) + 1;
-  *(volatile uint64_t *)(*(volatile uint32_t *)off_14386C + 168) = v0;
-  return HIDWORD(v0) & 0x7FFFFFFF;
+  next_rng_state = *(volatile uint64_t *)(*(volatile uint32_t *)off_14386C + 168) * __PAIR64__(dword_143870, dword_143874) + 1;
+  *(volatile uint64_t *)(*(volatile uint32_t *)off_14386C + 168) = next_rng_state;
+  return HIDWORD(next_rng_state) & 0x7FFFFFFF;
 }
 
 
 
 // strchr @ 0x143878
+/* luna: Returns a pointer to the first occurrence of the byte in the NUL-terminated string, including the terminator when searching for '\0', or NULL if it is */
 volatile uint8_t * strchr(volatile uint8_t *result, uint8_t a2) {
-  volatile uint8_t *v2; // r3
+  volatile uint8_t *scan_ptr; // r3
   int v3; // r6
   int v4; // t1
   int v5; // r3
@@ -731,22 +741,22 @@ volatile uint8_t * strchr(volatile uint8_t *result, uint8_t a2) {
   int v8; // t1
   int v9; // t1
 
-  v2 = result;
+  scan_ptr = result;
   if ( a2 )
   {
     if ( (uint32_t)result << 30 )
     {
       while ( 1 )
       {
-        result = v2;
-        v8 = *v2++;
+        result = scan_ptr;
+        v8 = *scan_ptr++;
         v7 = v8;
         if ( !v8 )
           return 0;
         if ( v7 == a2 )
           return result;
-        result = v2;
-        if ( !((uint32_t)v2 << 30) )
+        result = scan_ptr;
+        if ( !((uint32_t)scan_ptr << 30) )
           goto LABEL_3;
       }
     }
@@ -786,11 +796,11 @@ LABEL_3:
   {
     while ( 1 )
     {
-      result = v2++;
+      result = scan_ptr++;
       if ( !*result )
         break;
-      result = v2;
-      if ( !((uint32_t)v2 << 30) )
+      result = scan_ptr;
+      if ( !((uint32_t)scan_ptr << 30) )
         goto LABEL_18;
     }
   }
@@ -818,6 +828,7 @@ LABEL_18:
 
 
 // strcmp @ 0x143968
+/* luna: Compares two NUL-terminated byte strings lexicographically and returns the difference between the first differing bytes. */
 int strcmp(unsigned int a1, volatile unsigned int *a2) {
 uint32_t _R12;
 uint64_t _R2;
@@ -1151,30 +1162,31 @@ LABEL_59:
 
 
 // memcpy_aligned @ 0x143d00
+/* luna: Returns the number of bytes before the first NUL terminator in the input string. */
 unsigned int memcpy_aligned(unsigned int a1) {
 uint32_t _R12;
 uint64_t _R2;
 uint64_t _R3;
 uint32_t _R4;
 
-  volatile uint64_t *v1; // r1
-  int v3; // r4
-  int v5; // r0
+  volatile uint64_t *aligned_str; // r1
+  int alignment_offset; // r4
+  int length_offset; // r0
   int v15; // r5
 
   __pld((void *)a1);
-  v1 = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
+  aligned_str = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
   _R12 = -1;
-  v3 = a1 & 7;
+  alignment_offset = a1 & 7;
   __pld((void *)((a1 & 0xFFFFFFF8) + 32));
   if ( (a1 & 7) != 0 )
   {
-    _R2 = *v1;
-    v5 = -v3;
-    __pld(v1 + 8);
-    v15 = -1 << (8 * (v3 & 3));
+    _R2 = *aligned_str;
+    length_offset = -alignment_offset;
+    __pld(aligned_str + 8);
+    v15 = -1 << (8 * (alignment_offset & 3));
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(_R2 | ~v15) & 0xFFFFFFFFULL) << 0);
-    if ( (v3 & 4) != 0 )
+    if ( (alignment_offset & 4) != 0 )
     {
       _R2 = _R2 | (((uint64_t)(~v15)) << 32);
       _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
@@ -1183,41 +1195,41 @@ uint32_t _R4;
     goto LABEL_4;
   }
   _R4 = 0;
-  v5 = -8;
+  length_offset = -8;
   do
   {
-    _R2 = *v1;
-    __pld(v1 + 8);
-    v5 += 8;
+    _R2 = *aligned_str;
+    __pld(aligned_str + 8);
+    length_offset += 8;
 LABEL_4:
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
     if ( HIDWORD(_R2) )
       break;
-    _R2 = v1[1];
+    _R2 = aligned_str[1];
     (void)0;
 
-    v5 += 8;
+    length_offset += 8;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
     if ( HIDWORD(_R2) )
       break;
-    _R2 = v1[2];
+    _R2 = aligned_str[2];
     (void)0;
 
-    v5 += 8;
+    length_offset += 8;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
     if ( HIDWORD(_R2) )
       break;
-    _R2 = v1[3];
-    v1 += 4;
+    _R2 = aligned_str[3];
+    aligned_str += 4;
     (void)0;
 
-    v5 += 8;
+    length_offset += 8;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
@@ -1225,56 +1237,57 @@ _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(
   while ( !HIDWORD(_R2) );
   if ( !(uint32_t)_R2 )
   {
-    v5 += 4;
+    length_offset += 4;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(HIDWORD(_R2)) & 0xFFFFFFFFULL) << 0);
   }
-  return v5 + (__clz(bswap32(_R2)) >> 3);
+  return length_offset + (__clz(bswap32(_R2)) >> 3);
 }
 
 
 // memcpy_fixed @ 0x143ddc
+/* luna: Compares at most max_len bytes of two strings case-insensitively, returning the byte difference at the first mismatch. */
 int memcpy_fixed(volatile uint8_t *a1, volatile uint8_t *a2, int a3) {
-  volatile uint8_t *v3; // r5
-  volatile uint8_t *v4; // r7
-  int v5; // r3
-  int v6; // r3
+  volatile uint8_t *left_cursor; // r5
+  volatile uint8_t *left_end; // r7
+  int byte_difference; // r3
+  int left_char_folded; // r3
   int v7; // t1
-  int v8; // r2
+  int right_char; // r2
   int v9; // t1
-  int v10; // r4
+  int right_char_case_flag; // r4
   int result; // r0
-  int v12; // r2
+  int right_char_folded; // r2
 
   if ( a3 )
   {
-    v3 = a1;
-    v4 = &a1[a3];
+    left_cursor = a1;
+    left_end = &a1[a3];
     while ( 1 )
     {
-      v7 = *v3++;
-      v6 = v7;
+      v7 = *left_cursor++;
+      left_char_folded = v7;
       v9 = *a2++;
-      v8 = v9;
-      v10 = *(volatile uint8_t *)(dword_143E2C + v9) & 3;
-      if ( (*(volatile uint8_t *)(dword_143E2C + v6) & 3) == 1 )
-        v6 += 32;
-      result = v8;
-      if ( v10 == 1 )
+      right_char = v9;
+      right_char_case_flag = *(volatile uint8_t *)(dword_143E2C + v9) & 3;
+      if ( (*(volatile uint8_t *)(dword_143E2C + left_char_folded) & 3) == 1 )
+        left_char_folded += 32;
+      result = right_char;
+      if ( right_char_case_flag == 1 )
       {
-        v12 = v8 + 32;
-        result = v6 - v12;
-        if ( v6 != v12 )
+        right_char_folded = right_char + 32;
+        result = left_char_folded - right_char_folded;
+        if ( left_char_folded != right_char_folded )
           return result;
       }
       else
       {
-        v5 = v6 - v8;
-        if ( v5 )
-          return v5;
-        if ( !v8 )
+        byte_difference = left_char_folded - right_char;
+        if ( byte_difference )
+          return byte_difference;
+        if ( !right_char )
           return result;
       }
-      if ( v3 == v4 )
+      if ( left_cursor == left_end )
         return 0;
     }
   }
@@ -1284,6 +1297,7 @@ int memcpy_fixed(volatile uint8_t *a1, volatile uint8_t *a2, int a3) {
 
 
 // empty_stub_0 @ 0x14dee8
+/* luna: An empty stub that performs no operation. */
 void empty_stub_0() {
   ;
 }

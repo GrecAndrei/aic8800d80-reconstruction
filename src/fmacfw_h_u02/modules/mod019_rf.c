@@ -1,4 +1,5 @@
 // rf_command_handler @ 0x11ab34
+/* luna: Selects a pending RF command entry, parses its packet buffer, and links the parsed packet into the active receive queue. */
 int rf_command_handler(int result) {
   volatile uint32_t *v1; // r5
   volatile int16_t **v2; // r6
@@ -147,6 +148,7 @@ LABEL_13:
 
 
 // mac_tx_init @ 0x11acf0
+/* luna: Prepares a MAC transmit packet by adjusting its packet-buffer state and allocating and initializing a transmit descriptor when none is attached. */
 int mac_tx_init(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
   int v5; // r7
   volatile uint32_t *v6; // r10
@@ -330,6 +332,7 @@ LABEL_41:
 
 
 // rx_packet_type @ 0x11af90
+/* luna: Updates packet-format and status bits in a packed RX word when a table-derived rate/length comparison succeeds. */
 volatile unsigned int * rx_packet_type(volatile unsigned int *result, unsigned int a2, int a3) {
   unsigned int v3; // r3
   int v4; // r4
@@ -367,6 +370,7 @@ volatile unsigned int * rx_packet_type(volatile unsigned int *result, unsigned i
 
 
 // rf_index_to_value @ 0x11b050
+/* luna: Returns the 16-bit RF table value at the specified index. */
 int rf_index_to_value(int a1) {
   return *(volatile uint16_t *)(dword_11B058 + 2 * a1);
 }
@@ -374,6 +378,7 @@ int rf_index_to_value(int a1) {
 
 
 // rf_index_to_value2 @ 0x11b05c
+/* luna: Returns the 16-bit value at the specified index in a volatile RF lookup table. */
 int rf_index_to_value2(int a1) {
   return *(volatile uint16_t *)(dword_11B064 + 2 * a1);
 }
@@ -381,6 +386,7 @@ int rf_index_to_value2(int a1) {
 
 
 // get_ll_conn @ 0x11b068
+/* luna: Removes an item from the indexed RF list, decrements its pending count, and dispatches the completion handler or fallback routine. */
 int get_ll_conn(int a1, int a2) {
   int v4; // r5
   int v5; // r8
@@ -399,6 +405,7 @@ int get_ll_conn(int a1, int a2) {
 
 
 // radio_status_read @ 0x11b0b4
+/* luna: When the context flag at offset 37 is set, copies a block from the radio-state area into a global buffer and queries state for the connection identifi */
 BOOL radio_status_read(BOOL result) {
   int v1; // r3
   volatile uint32_t *v2; // r2

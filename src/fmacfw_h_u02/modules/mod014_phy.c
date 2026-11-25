@@ -1,4 +1,5 @@
 // phy_config_table @ 0x116f34
+/* luna: Processes the selected PHY configuration entry, coordinating its context state and hardware or firmware readiness. */
 int phy_config_table(int result) {
   int v1; // r6
   unsigned int v2; // r4
@@ -315,6 +316,7 @@ LABEL_14:
 
 
 // phy_get_cfg_ptr @ 0x11735c
+/* luna: Resets the selected PHY context's bookkeeping, clears its low-level event, and updates the associated global PHY bitmaps under IRQ protection. */
 int phy_get_cfg_ptr(int a1) {
   volatile uint32_t *v2; // r5
   int v3; // r3
@@ -366,6 +368,7 @@ int phy_get_cfg_ptr(int a1) {
 
 
 // phy_sleep_prepare @ 0x1173f4
+/* luna: Invokes `phy_dispatch` for two five-entry ranges with an 8-byte stride, passing each entry's index and a zero third argument. */
 int phy_sleep_prepare(int a1) {
   int v1; // r4
   int v2; // r5
@@ -390,6 +393,7 @@ int phy_sleep_prepare(int a1) {
 
 
 // phy_set_rate_power @ 0x117424
+/* luna: Selects and applies the indexed PHY configuration, initializes its packet-processing state, and invokes the downstream receive path. */
 int phy_set_rate_power(int a1, int a2) {
   volatile char *v4; // r7
   int v5; // r0
@@ -469,6 +473,7 @@ int phy_set_rate_power(int a1, int a2) {
 
 
 // phy_stats_count @ 0x11754c
+/* luna: Increments the PHY statistics counter at word index 126 in the statistics block. */
 void phy_stats_count() {
   ++*((volatile uint32_t *)off_11755C + 126);
 }
@@ -476,6 +481,7 @@ void phy_stats_count() {
 
 
 // ke_msg_dispatch @ 0x117560
+/* luna: Validates a received PHY event against connection and channel state, updates its descriptor and counters, and forwards it to the WLAN and event handle */
 int ke_msg_dispatch(int a1, int a2) {
   volatile char *v4; // r7
   int v5; // r10
@@ -634,30 +640,32 @@ int nullsub_7(void) {
 
 
 // radio_isr @ 0x117788
+/* luna: Processes masked radio interrupt status, runs the busy-flag path when bit 0x10 is set, dispatches encoded RF commands, and acknowledges the handled st */
 unsigned int radio_isr() {
-  int v0; // r4
+  int pending_irq_status; // r4
   unsigned int result; // r0
 
-  v0 = dword_1177D8 & *(volatile uint32_t *)off_1177D4;
+  pending_irq_status = dword_1177D8 & *(volatile uint32_t *)off_1177D4;
   if ( (*(volatile uint32_t *)off_1177D4 & 0x10) != 0 )
   {
     if ( (*(volatile uint32_t *)off_1177D4 & 0x1000) != 0 )
     {
-      v0 |= 0x1000u;
+      pending_irq_status |= 0x1000u;
       *((volatile uint32_t *)off_1177E0 + 52) |= 4u;
     }
     ((int (*)())run_with_busy_flag)();
   }
-  result = v0 & 0xF00000;
-  if ( (v0 & 0xF00000) != 0 )
+  result = pending_irq_status & 0xF00000;
+  if ( (pending_irq_status & 0xF00000) != 0 )
     result = rf_command_handler((uint8_t)(11 - __clz(result)));
-  *(volatile uint32_t *)off_1177DC = v0;
+  *(volatile uint32_t *)off_1177DC = pending_irq_status;
   return result;
 }
 
 
 
 // radio_event_handler @ 0x1177e4
+/* luna: Reads and acknowledges pending radio/PHY interrupt bits, handles DMA and firmware-ready causes, and dispatches remaining PHY events. */
 int radio_event_handler(int result) {
   int v1; // r4
   int v2; // r5
@@ -712,15 +720,16 @@ LABEL_9:
 
 
 // radio_irq_clear @ 0x1178b4
+/* luna: Dispatches the highest set bit in the 0xF00000 interrupt field to rf_command_handler and writes the captured field, or zero when none is set, to the a */
 int radio_irq_clear() {
-  unsigned int v0; // r4
+  unsigned int pending_irq_bits; // r4
   int result; // r0
 
-  v0 = *(volatile uint32_t *)off_1178DC & 0xF00000;
-  if ( v0 )
+  pending_irq_bits = *(volatile uint32_t *)off_1178DC & 0xF00000;
+  if ( pending_irq_bits )
   {
-    result = rf_command_handler((uint8_t)(11 - __clz(v0)));
-    *(volatile uint32_t *)off_1178E0 = v0;
+    result = rf_command_handler((uint8_t)(11 - __clz(pending_irq_bits)));
+    *(volatile uint32_t *)off_1178E0 = pending_irq_bits;
   }
   else
   {
@@ -732,6 +741,7 @@ int radio_irq_clear() {
 
 
 // critical_section_enter @ 0x1178e4
+/* luna: Temporarily masks interrupts while updating selected radio-context bits, marks shared state, and restores interrupts when the nesting counter returns  */
 void critical_section_enter() {
   volatile int *v0; // r9
   volatile uint32_t *v1; // r7
@@ -783,6 +793,7 @@ void critical_section_enter() {
 
 
 // critical_section_enter_alt @ 0x117978
+/* luna: Scans five radio-event slots, advances each eligible slot’s deadline, sets its pending bit, and invokes its event handler. */
 int critical_section_enter_alt() {
   volatile int *v0; // r7
   volatile uint8_t *v1; // r5
@@ -870,6 +881,7 @@ int critical_section_enter_alt() {
 
 
 // alloc_shared_ctx @ 0x117a7c
+/* luna: Initializes the shared PHY context storage and per-index work lists, then enables each queued PHY entry. */
 uint64_t alloc_shared_ctx() {
   volatile uint8_t *v0; // r8
   int v1; // r10
@@ -962,6 +974,7 @@ uint64_t alloc_shared_ctx() {
 
 
 // poll_hw_ready @ 0x117b84
+/* luna: Builds the PHY timing table by substituting defaults for zero values among the first four inputs and scaling all six values by 1000. */
 int poll_hw_ready(int a1) {
   volatile uint64_t *v1; // r6
   volatile uint64_t *v2; // r7
@@ -1001,6 +1014,7 @@ int poll_hw_ready(int a1) {
 
 
 // compare_short @ 0x117bd0
+/* luna: Returns true when the first object's 16-bit value is no greater than the second object's value and trails it by at most 63. */
 BOOL compare_short(int a1, int a2) {
   unsigned int v2; // r3
   unsigned int v3; // r0
@@ -1017,15 +1031,16 @@ BOOL compare_short(int a1, int a2) {
 
 
 // check_cal_status @ 0x117bf0
+/* luna: When the completion value is negative and the handler is in mode 2, packages the TX status and sequence number into a confirmation event and dispatche */
 int check_cal_status(int result, volatile uint32_t *a2) {
   int v2; // r3
   int v3; // r2
   int v4; // r4
-  volatile uint8_t *v6; // r6
+  volatile uint8_t *confirmation_payload; // r6
   volatile uint8_t *v7; // r9
   volatile uint32_t *v8; // r0
   int v9; // r12
-  volatile uint32_t *v10; // r7
+  volatile uint32_t *event_descriptor; // r7
   unsigned int v11; // r3
   int16_t v12; // lr
   int v13; // r2
@@ -1049,22 +1064,22 @@ int check_cal_status(int result, volatile uint32_t *a2) {
     switch ( v3 )
     {
       case 2:
-        v6 = (void *)(uintptr_t)(util_call_void());
-        if ( v6 )
+        confirmation_payload = (void *)(uintptr_t)(util_call_void());
+        if ( confirmation_payload )
         {
           v7 = (void *)(uintptr_t)(off_117D98);
           if ( *((volatile uint32_t *)off_117D98 + 2057) )
           {
             v8 = list_pop(dword_117D70);
-            *v6 = 8;
-            v6[1] = 0;
-            v6[3] = 0;
-            v6[2] = 18;
+            *confirmation_payload = 8;
+            confirmation_payload[1] = 0;
+            confirmation_payload[3] = 0;
+            confirmation_payload[2] = 18;
             v9 = *a2 & 0xF;
-            v10 = v8;
+            event_descriptor = v8;
             _frame.v24 = *(volatile uint32_t *)(v4 + 84) & 0x3FFFFFFF;
             _frame.v23 = v9;
-            memcpy(v6 + 4, (volatile char *)&_frame.v23, 8u);
+            memcpy(confirmation_payload + 4, (volatile char *)&_frame.v23, 8u);
             v11 = *((volatile uint16_t *)v7 + 4122);
             if ( v11 > 0x186 )
             {
@@ -1078,18 +1093,18 @@ int check_cal_status(int result, volatile uint32_t *a2) {
               v13 = 8 * v11;
             }
             v14 = (void *)(uintptr_t)(off_117D74);
-            *((volatile uint16_t *)v10 + 6) = v11;
+            *((volatile uint16_t *)event_descriptor + 6) = v11;
             v15 = dword_117D78;
             v16 = (volatile int *)(*v14 + v13);
-            v16[1] = (int)v6;
+            v16[1] = (int)confirmation_payload;
             *v16 = v15 & *v16 | 0x400000C;
             v15 = (v15 & ~0xFFu) | ((uint8_t)(v7[3074]) & 0xFFu);
             *((volatile uint16_t *)v7 + 4122) = v12;
             v7[3074] = v15 + 1;
-            v10[1] = (int)(uintptr_t)(v16);
-            *((volatile uint8_t *)v10 + 14) = 1;
-            *v10 = 0;
-            v10[2] = 12;
+            event_descriptor[1] = (int)(uintptr_t)(v16);
+            *((volatile uint8_t *)event_descriptor + 14) = 1;
+            *event_descriptor = 0;
+            event_descriptor[2] = 12;
             if ( (__get_CPSR() & 1) == 0 )
             {
               __disable_irq();
@@ -1100,7 +1115,7 @@ int check_cal_status(int result, volatile uint32_t *a2) {
             v19 = *a2 & 0xF;
             ++*(volatile uint32_t *)off_117D80;
             alloc_tx_event("cfms: %x, sn=%d, st=%d\r\n", v4, v18, v19);
-            wlan_ioctl_handler_1(dword_117D88, v10);
+            wlan_ioctl_handler_1(dword_117D88, event_descriptor);
             result = ((int (*)())rf_is_idle)();
             if ( *v17 )
             {
@@ -1141,6 +1156,7 @@ int check_cal_status(int result, volatile uint32_t *a2) {
 
 
 // init_mac_global_0x188290 @ 0x117d9c
+/* luna: Zeroes a 40-byte global region and clears its five consecutive 8-byte statistics buffers. */
 int init_mac_global_0x188290() {
   int v0; // r4
 
@@ -1156,6 +1172,7 @@ int init_mac_global_0x188290() {
 
 
 // register_handler @ 0x117dd8
+/* luna: Stores the supplied value in the context's handler slot, dispatches the indexed handler, and disables its associated IRQ unless the context flag is se */
 int register_handler(volatile uint32_t *a1, int a2, int a3) {
   int v3; // r3
   int v5; // r0

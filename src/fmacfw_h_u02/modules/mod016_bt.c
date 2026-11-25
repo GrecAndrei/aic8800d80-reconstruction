@@ -1,4 +1,5 @@
 // update_mic @ 0x118a78
+/* luna: Configures a Bluetooth MIC operation by selecting a configuration block and setting the packet range and length including the four-byte MIC. */
 int update_mic(int a1, int a2, int a3) {
   uint64_t v3; // kr00_8
   int v5; // r1
@@ -46,6 +47,7 @@ int update_mic(int a1, int a2, int a3) {
 
 
 // lock_acquire @ 0x118b04
+/* luna: Pops an available TXL frame, updates its MIC state, and reports a no-frame event if the pool is empty. */
 volatile uint32_t * lock_acquire(int a1, int a2) {
   volatile uint32_t *v4; // r0
   volatile uint32_t *v5; // r4
@@ -66,6 +68,7 @@ volatile uint32_t * lock_acquire(int a1, int a2) {
 
 
 // sec_check @ 0x118b34
+/* luna: Resets per-link state, derives a 0x200 status from the descriptor’s low flag bit, and dispatches the supplied kernel message. */
 int sec_check(int a1, int a2) {
   uint64_t v2; // kr00_8
   int v3; // r2
@@ -97,6 +100,7 @@ int sec_check(int a1, int a2) {
 
 
 // set_string_0x1882c0 @ 0x118ba0
+/* luna: Dispatches the `set_string` WLAN ioctl with the supplied argument, then disables global interrupt mask 0x20000 and returns that operation's result. */
 int set_string_0x1882c0(volatile uint32_t *a1) {
   wlan_ioctl_handler_1(dword_118BB8, a1);
   return irq_disable_global_2(0x20000);
@@ -104,6 +108,7 @@ int set_string_0x1882c0(volatile uint32_t *a1) {
 
 
 // check_packet_flag @ 0x118bbc
+/* luna: Runs the default handler when the request byte at offset 0x60 is zero, then optionally calls its completion callback with the stored argument and a ze */
 int check_packet_flag(int result, int a2) {
   int v2; // r4
   int ( *v4)(uint32_t, uint32_t); // r3
@@ -122,6 +127,7 @@ int check_packet_flag(int result, int a2) {
 
 
 // alloc_dma_buf @ 0x118be8
+/* luna: Drains queued WLAN request nodes, invoking each node’s callback when applicable and otherwise dispatching eligible nodes to the WLAN ioctl handler. */
 volatile uint32_t *alloc_dma_buf() {
   volatile int *v0; // r8
   volatile int *v1; // r7
@@ -177,6 +183,7 @@ volatile uint32_t *alloc_dma_buf() {
 
 
 // phy_get_channel @ 0x118c84
+/* luna: Prepares a channel-configuration message from the selected interface and PHY-context parameters. */
 int phy_get_channel(int a1, int a2, int a3) {
   int v3; // r9
   int v4; // r5
@@ -282,16 +289,17 @@ LABEL_4:
 
 
 // phy_set_channel @ 0x118e08
+/* luna: Queues a PHY channel-configuration request for the specified interface and channel. */
 int phy_set_channel(int a1, int16_t a2, int a3, int a4) {
   int v4; // r11
   int v5; // r4
-  int v7; // r7
+  int phy_idx; // r7
   int v9; // r0
   int v12; // r2
-  int v13; // r5
+  int request_ctx; // r5
   int v14; // r7
   int v15; // r3
-  int v16; // r4
+  int request_payload; // r4
   int v17; // r1
   int v18; // r12
   int16_t v19; // lr
@@ -301,15 +309,15 @@ int phy_set_channel(int a1, int16_t a2, int a3, int a4) {
 
   v4 = dword_118F48;
   v5 = dword_118F38;
-  v7 = *(volatile uint8_t *)(dword_118F48 + 696 * a1 + 34);
-  v9 = *(volatile uint32_t *)(dword_118F38 + 1320 * v7 + 72);
+  phy_idx = *(volatile uint8_t *)(dword_118F48 + 696 * a1 + 34);
+  v9 = *(volatile uint32_t *)(dword_118F38 + 1320 * phy_idx + 72);
   if ( !v9 )
   {
     if ( **(volatile int16_t **)off_118F3C >= 0 )
     {
 LABEL_10:
-      v13 = (int)(uintptr_t)(lock_acquire(1, 26));
-      if ( !v13 )
+      request_ctx = (int)(uintptr_t)(lock_acquire(1, 26));
+      if ( !request_ctx )
         return 1;
       goto LABEL_4;
     }
@@ -320,54 +328,55 @@ LABEL_9:
   v12 = *(volatile uint8_t *)(v9 + 4);
   if ( **(volatile int16_t **)off_118F3C < 0 && v12 == 2 )
     goto LABEL_9;
-  v13 = (int)(uintptr_t)(lock_acquire((*(volatile uint8_t *)(dword_118F38 + 1320 * v7 + 1224) | v12) != 0, 26));
-  if ( !v13 )
+  request_ctx = (int)(uintptr_t)(lock_acquire((*(volatile uint8_t *)(dword_118F38 + 1320 * phy_idx + 1224) | v12) != 0, 26));
+  if ( !request_ctx )
     return 1;
 LABEL_4:
-  v14 = v5 + 1320 * v7;
-  get_status_flag_c5(v14, v13);
+  v14 = v5 + 1320 * phy_idx;
+  get_status_flag_c5(v14, request_ctx);
   v15 = v4 + 696 * a1;
-  v16 = *(volatile uint32_t *)(v13 + 72);
+  request_payload = *(volatile uint32_t *)(request_ctx + 72);
   v17 = *(volatile uint32_t *)(v15 + 38);
   v18 = *(volatile uint8_t *)(v14 + 106);
   v19 = *(volatile uint16_t *)(v15 + 42);
   v20 = *(volatile uint32_t *)(v14 + 100);
   v21 = *(volatile uint16_t *)(v14 + 104);
-  *(volatile uint16_t *)(v16 + 122) = v21;
-  *(volatile uint16_t *)(v16 + 116) = v19;
-  *(volatile uint32_t *)(v16 + 112) = v17;
-  *(volatile uint32_t *)(v16 + 118) = v20;
-  *(volatile uint8_t *)(v16 + 110) = 0;
-  *(volatile uint8_t *)(v16 + 111) = 0;
+  *(volatile uint16_t *)(request_payload + 122) = v21;
+  *(volatile uint16_t *)(request_payload + 116) = v19;
+  *(volatile uint32_t *)(request_payload + 112) = v17;
+  *(volatile uint32_t *)(request_payload + 118) = v20;
+  *(volatile uint8_t *)(request_payload + 110) = 0;
+  *(volatile uint8_t *)(request_payload + 111) = 0;
   if ( v18 )
   {
-    *(volatile uint32_t *)(v16 + 124) = *(volatile uint32_t *)(v14 + 100);
-    *(volatile uint16_t *)(v16 + 128) = v21;
-    *(volatile uint8_t *)(v16 + 108) = -56;
-    *(volatile uint8_t *)(v16 + 109) = 2;
+    *(volatile uint32_t *)(request_payload + 124) = *(volatile uint32_t *)(v14 + 100);
+    *(volatile uint16_t *)(request_payload + 128) = v21;
+    *(volatile uint8_t *)(request_payload + 108) = -56;
+    *(volatile uint8_t *)(request_payload + 109) = 2;
   }
   else
   {
-    *(volatile uint32_t *)(v16 + 124) = v17;
-    *(volatile uint16_t *)(v16 + 128) = v19;
-    *(volatile uint8_t *)(v16 + 108) = -56;
-    *(volatile uint8_t *)(v16 + 109) = 1;
+    *(volatile uint32_t *)(request_payload + 124) = v17;
+    *(volatile uint16_t *)(request_payload + 128) = v19;
+    *(volatile uint8_t *)(request_payload + 108) = -56;
+    *(volatile uint8_t *)(request_payload + 109) = 1;
   }
   v22 = *(volatile uint8_t *)(v4 + 696 * a1 + 34);
-  *(volatile uint16_t *)(v16 + 132) = a2;
-  *(volatile uint8_t *)(v16 + 130) = 0;
-  *(volatile uint8_t *)(v16 + 131) = 0;
-  *(volatile uint32_t *)(v13 + 88) = a3;
-  *(volatile uint32_t *)(v13 + 92) = a4;
-  *(volatile uint8_t *)(v13 + 28) = v22;
-  *(volatile uint8_t *)(v13 + 29) = a1;
-  sec_check(v13, 5);
+  *(volatile uint16_t *)(request_payload + 132) = a2;
+  *(volatile uint8_t *)(request_payload + 130) = 0;
+  *(volatile uint8_t *)(request_payload + 131) = 0;
+  *(volatile uint32_t *)(request_ctx + 88) = a3;
+  *(volatile uint32_t *)(request_ctx + 92) = a4;
+  *(volatile uint8_t *)(request_ctx + 28) = v22;
+  *(volatile uint8_t *)(request_ctx + 29) = a1;
+  sec_check(request_ctx, 5);
   return 0;
 }
 
 
 
 // phy_is_channel_valid @ 0x118f4c
+/* luna: Sets the channel using selector 7 when the PHY state flag at bit 5 is set; otherwise delegates to the channel getter. */
 int phy_is_channel_valid(int a1, int a2, int a3) {
   if ( (*(volatile uint32_t *)(dword_118F70 + 696 * a1 + 4) & 0x20) != 0 )
     return phy_set_channel(a1, 7, a2, a3);
@@ -378,6 +387,7 @@ int phy_is_channel_valid(int a1, int a2, int a3) {
 
 
 // btm_acl_get_state @ 0x118f74
+/* luna: Initializes a per-link ACL request descriptor from the supplied parameters and returns whether its final check succeeds. */
 BOOL btm_acl_get_state(int a1, int a2, int a3, int a4, uint8_t a5, uint8_t a6, int a7, int a8) {
   int v8; // r10
   int v9; // r8
@@ -478,6 +488,7 @@ LABEL_7:
 
 
 // btm_chk_state @ 0x119124
+/* luna: Builds and queues an 802.11 probe response for the AP vif addressed to the supplied destination MAC. */
 int btm_chk_state(int a1, volatile char *a2) {
   int v2; // r3
   int v3; // r3
@@ -485,10 +496,10 @@ int btm_chk_state(int a1, volatile char *a2) {
   BOOL v7; // r0
   int v8; // r8
   volatile uint32_t *v9; // r0
-  int v10; // r6
-  int v11; // r5
+  int tx_descriptor; // r6
+  int frame; // r5
   volatile uint16_t *v12; // r2
-  uint16_t v13; // r3
+  uint16_t sequence_counter; // r3
   uint16_t v14; // r1
   int v15; // r0
 
@@ -518,36 +529,36 @@ LABEL_9:
 LABEL_5:
   v8 = dword_119258;
   v9 = lock_acquire(v7, *(volatile uint16_t *)(dword_119258 + 2 * *(volatile uint8_t *)(a1 + 107)));
-  v10 = (int)v9;
+  tx_descriptor = (int)v9;
   if ( v9 )
   {
     get_status_flag_c5(a1, (int)v9);
-    v11 = *(volatile uint32_t *)(v10 + 72);
-    *(volatile uint8_t *)(v11 + 108) = 80;
-    *(volatile uint8_t *)(v11 + 109) = 0;
-    *(volatile uint8_t *)(v11 + 110) = 0;
-    *(volatile uint8_t *)(v11 + 111) = 0;
-    memcpy((volatile char *)(v11 + 112), a2, 6u);
+    frame = *(volatile uint32_t *)(tx_descriptor + 72);
+    *(volatile uint8_t *)(frame + 108) = 80;
+    *(volatile uint8_t *)(frame + 109) = 0;
+    *(volatile uint8_t *)(frame + 110) = 0;
+    *(volatile uint8_t *)(frame + 111) = 0;
+    memcpy((volatile char *)(frame + 112), a2, 6u);
     v12 = (void *)(uintptr_t)(off_119240);
-    v13 = *((volatile uint16_t *)off_119240 + 254);
+    sequence_counter = *((volatile uint16_t *)off_119240 + 254);
     v14 = *(volatile uint16_t *)(a1 + 104);
-    *(volatile uint32_t *)(v11 + 118) = *(volatile uint32_t *)(a1 + 100);
-    ++v13;
+    *(volatile uint32_t *)(frame + 118) = *(volatile uint32_t *)(a1 + 100);
+    ++sequence_counter;
     v15 = *(volatile uint32_t *)(a1 + 100);
-    *(volatile uint16_t *)(v11 + 122) = v14;
-    *(volatile uint32_t *)(v11 + 124) = v15;
-    *(volatile uint16_t *)(v11 + 128) = v14;
-    v12[254] = v13;
-    *(volatile uint16_t *)(v11 + 130) = 16 * v13;
+    *(volatile uint16_t *)(frame + 122) = v14;
+    *(volatile uint32_t *)(frame + 124) = v15;
+    *(volatile uint16_t *)(frame + 128) = v14;
+    v12[254] = sequence_counter;
+    *(volatile uint16_t *)(frame + 130) = 16 * sequence_counter;
     memcpy(
-      (volatile char *)(v11 + 132),
+      (volatile char *)(frame + 132),
       (volatile char *)(dword_119244 + (*(volatile uint8_t *)(a1 + 107) << 9)),
       *(volatile uint16_t *)(v8 + 2 * *(volatile uint8_t *)(a1 + 107)) - 24);
-    *(volatile uint32_t *)(v10 + 88) = 0;
-    *(volatile uint32_t *)(v10 + 92) = 0;
-    *(volatile uint8_t *)(v10 + 28) = *(volatile uint8_t *)(a1 + 107);
-    *(volatile uint8_t *)(v10 + 29) = -1;
-    sec_check(v10, 5);
+    *(volatile uint32_t *)(tx_descriptor + 88) = 0;
+    *(volatile uint32_t *)(tx_descriptor + 92) = 0;
+    *(volatile uint8_t *)(tx_descriptor + 28) = *(volatile uint8_t *)(a1 + 107);
+    *(volatile uint8_t *)(tx_descriptor + 29) = -1;
+    sec_check(tx_descriptor, 5);
     return 0;
   }
   else
@@ -559,6 +570,7 @@ LABEL_5:
 
 
 // get_u16_table @ 0x11925c
+/* luna: Returns the 16-bit table entry at index a1 | (a2 << 1). */
 int get_u16_table(int a1, int a2) {
   return *(volatile uint16_t *)(dword_119268 + 2 * (a1 | (2 * a2)));
 }
@@ -566,6 +578,7 @@ int get_u16_table(int a1, int a2) {
 
 
 // get_u8_table @ 0x11926c
+/* luna: Returns the volatile byte from the table at the offset formed by OR-ing the first argument with twice the second argument. */
 int get_u8_table(int a1, int a2) {
   return *(volatile uint8_t *)(dword_119278 + (a1 | (2 * a2)));
 }
@@ -573,6 +586,7 @@ int get_u8_table(int a1, int a2) {
 
 
 // btm_acl_update @ 0x11927c
+/* luna: Initializes an ACL transmit descriptor from the selected link record and supplied packet parameters. */
 int btm_acl_update(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5) {
   volatile int *v5; // r7
   int v6; // r6
@@ -610,6 +624,7 @@ int btm_acl_update(int a1, int16_t a2, int a3, int16_t a4, uint8_t a5) {
 
 
 // btm_read_indirect @ 0x119308
+/* luna: Propagates a shared indirect value through active linked-list descriptors, stops at the terminal flag pattern, and returns the shared 16-bit table, tr */
 volatile int16_t * btm_read_indirect(volatile int16_t *result) {
   int v1; // r2
   int v2; // r1

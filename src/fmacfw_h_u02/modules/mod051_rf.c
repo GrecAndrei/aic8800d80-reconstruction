@@ -1,4 +1,5 @@
 // get_device_id @ 0x132178
+/* luna: Looks up the 16-bit identifier in the table selected by the request and stores the mapped two-byte value, using 15 when no entry matches. */
 int get_device_id(volatile uint8_t *a1) {
   int v1; // r3
   int result; // r0
@@ -56,6 +57,7 @@ int ke_malloc_wrapper(int a1) {
 
 
 // rf_get_calibration @ 0x132320
+/* luna: Derives rate-dependent RF calibration limits from packet PHY metadata and writes the selected limits to the packet and companion configuration. */
 BOOL rf_get_calibration(int a1, int a2) {
   volatile uint8_t *v2; // r8
   unsigned int v3; // r6
@@ -194,6 +196,7 @@ LABEL_15:
 
 
 // rf_is_state_1 @ 0x13245c
+/* luna: Maps the low two bits of a state value to code 7, 8, or 9. */
 int rf_is_state_1(char a1) {
   int v1; // r0
 
@@ -208,6 +211,7 @@ int rf_is_state_1(char a1) {
 
 
 // rf_is_state_2 @ 0x132474
+/* luna: Maps the low two bits of an RF state value to the corresponding code 9, 11, or 7. */
 int rf_is_state_2(char a1) {
   int v1; // r0
 
@@ -222,6 +226,7 @@ int rf_is_state_2(char a1) {
 
 
 // phy_get_rate_code @ 0x13248c
+/* luna: Decodes a rate code by counting consecutive 2-bit `11` groups from bits 15:2 and subtracting that count from 7. */
 int phy_get_rate_code(int a1) {
   int v1; // r2
   int result; // r0
@@ -246,6 +251,7 @@ int phy_get_rate_code(int a1) {
 
 
 // phy_get_channel_cfg @ 0x1324b4
+/* luna: Returns the highest index (3, 2, or 1) whose corresponding byte is nonzero, or 0 if all three bytes are zero. */
 int phy_get_channel_cfg(volatile uint8_t *a1) {
   if ( a1[3] )
     return 3;
@@ -257,6 +263,7 @@ int phy_get_channel_cfg(volatile uint8_t *a1) {
 
 
 // clear_module_state @ 0x1324d0
+/* luna: Returns the index of the lowest set bit among the lowest 12 bits, or 12 if none is set. */
 int clear_module_state(int a1) {
   int v1; // r3
   int v2; // zf
@@ -278,29 +285,31 @@ int clear_module_state(int a1) {
 
 
 // count_set_bits @ 0x1324ec
+/* luna: Returns the index of the highest set bit in the low 12 bits, 12 for zero, or 255 when the input is nonzero but those bits are clear. */
 int count_set_bits(int a1) {
-  int v1; // r3
-  int v2; // r2
-  char v3; // r1
+  int bit_index; // r3
+  int shifted_bit_probe; // r2
+  char previous_bit_index; // r1
 
   if ( !a1 )
     return 12;
-  v1 = 0;
+  bit_index = 0;
   while ( 1 )
   {
-    v2 = a1 >> (11 - v1) << 31;
-    v3 = v1++;
-    if ( v2 < 0 )
+    shifted_bit_probe = a1 >> (11 - bit_index) << 31;
+    previous_bit_index = bit_index++;
+    if ( shifted_bit_probe < 0 )
       break;
-    if ( v1 == 12 )
+    if ( bit_index == 12 )
       return 255;
   }
-  return (uint8_t)(11 - v3);
+  return (uint8_t)(11 - previous_bit_index);
 }
 
 
 
 // clear_measurements @ 0x132518
+/* luna: Derives a primary channel mask and optional companion masks from packed channel configuration fields, stores them in output parameters, and returns th */
 int clear_measurements(int result, volatile uint32_t *a2, int a3, volatile uint16_t *a4, volatile int *a5, volatile int *a6, volatile char *a7) {
   unsigned int v7; // r4
   int v8; // r12
@@ -351,6 +360,7 @@ int clear_measurements(int result, volatile uint32_t *a2, int a3, volatile uint1
 
 
 // cmd_char_validate @ 0x1325b4
+/* luna: Maps a recognized 7-bit command character to its command index, returning 255 for unrecognized values. */
 int cmd_char_validate(char a1) {
   unsigned int v1; // r3
   int result; // r0
@@ -418,6 +428,7 @@ int cmd_char_validate(char a1) {
 
 
 // status_code_switch @ 0x132632
+/* luna: Returns the fixed status code value 9. */
 int status_code_switch() {
   return 9;
 }
@@ -425,6 +436,7 @@ int status_code_switch() {
 
 
 // hci_cmd_dispatch @ 0x13264a
+/* luna: Returns HCI status code 0x07, Memory Capacity Exceeded. */
 int hci_cmd_dispatch() {
   return 7;
 }
@@ -439,6 +451,7 @@ int hci_cmd_handle() {
 
 
 // handle_rx_packet @ 0x132654
+/* luna: Scans a length-prefixed buffer, accumulates validated codes below 12 into a bitmask, and performs a special MMIO write for larger codes when the share */
 int handle_rx_packet(volatile uint8_t *a1, int a2) {
   int v2; // r11
   volatile int16_t **v3; // r8
@@ -485,6 +498,7 @@ LABEL_11:
 
 
 // extract_bit_pair @ 0x1326e0
+/* luna: Merges packed 2-bit fields by taking the smaller value at each position, stopping before the first pair where either value is 3. */
 int extract_bit_pair(int a1, int a2) {
   int v2; // r4
   int v3; // r7
@@ -515,6 +529,7 @@ int extract_bit_pair(int a1, int a2) {
 
 
 // get_phy_config_entry @ 0x132720
+/* luna: Returns 0x1521 when the entry byte at offset 412 is 1, and 0x1421 otherwise. */
 int get_phy_config_entry(int a1) {
   if ( *(volatile uint8_t *)(dword_132740 + 1320 * a1 + 412) == 1 )
     return 5409;
@@ -525,60 +540,62 @@ int get_phy_config_entry(int a1) {
 
 
 // rf_read_status_flags @ 0x132744
+/* luna: Reads the status word at offset 0xDC and returns bits 29:24 with bit 8 set and bit 9 set when bit 30 is present. */
 int rf_read_status_flags(int a1) {
-  unsigned int v1; // r3
-  int v2; // r0
+  unsigned int raw_status_word; // r3
+  int status_bits; // r0
 
-  v1 = *(volatile uint32_t *)(a1 + 220);
-  v2 = HIBYTE(v1) & 0x3F;
-  if ( (v1 & 0x40000000) != 0 )
-    return v2 | 0x300;
+  raw_status_word = *(volatile uint32_t *)(a1 + 220);
+  status_bits = HIBYTE(raw_status_word) & 0x3F;
+  if ( (raw_status_word & 0x40000000) != 0 )
+    return status_bits | 0x300;
   else
-    return v2 | 0x100;
+    return status_bits | 0x100;
 }
 
 
 
 // get_phy_status_byte @ 0x13275c
+/* luna: Selects the largest 7-bit value in the context’s status-byte list, validates it, applies it as the RF mode, and clears the byte at offset 350. */
 int get_phy_status_byte(int a1) {
-  int v2; // r0
-  int v3; // r3
-  int v4; // r4
-  int v5 = 0; // r0
-  char v6; // r2
+  int status_count; // r0
+  int status_ptr; // r3
+  int status_end; // r4
+  int max_status_value = 0; // r0
+  char status_byte; // r2
   int v7; // t1
-  int v8; // r0
+  int validated_mode; // r0
   int result; // r0
 
-  v2 = *(volatile uint8_t *)(a1 + 192);
+  status_count = *(volatile uint8_t *)(a1 + 192);
   if ( **(volatile int16_t **)off_1327B8 >= 0 )
   {
 LABEL_2:
-    if ( !v2 )
+    if ( !status_count )
       goto LABEL_7;
     goto LABEL_3;
   }
-  if ( !v2 )
+  if ( !status_count )
   {
     irq_disable_mmio_write(dword_1327BC, dword_1327C0, 707);
-    v2 = *(volatile uint8_t *)(a1 + 192);
+    status_count = *(volatile uint8_t *)(a1 + 192);
     goto LABEL_2;
   }
 LABEL_3:
-  v3 = a1 + 192;
-  v4 = a1 + 192 + v2;
-  v5 = 0;
+  status_ptr = a1 + 192;
+  status_end = a1 + 192 + status_count;
+  max_status_value = 0;
   do
   {
-    v7 = *(volatile uint8_t *)++v3;
-    v6 = v7;
-    if ( (int)(v7 & 0xFFFFFF7F) > v5 )
-      v5 = v6 & 0x7F;
+    v7 = *(volatile uint8_t *)++status_ptr;
+    status_byte = v7;
+    if ( (int)(v7 & 0xFFFFFF7F) > max_status_value )
+      max_status_value = status_byte & 0x7F;
   }
-  while ( v3 != v4 );
+  while ( status_ptr != status_end );
 LABEL_7:
-  v8 = cmd_char_validate(v5);
-  result = rf_set_mode(a1, v8);
+  validated_mode = cmd_char_validate(max_status_value);
+  result = rf_set_mode(a1, validated_mode);
   *(volatile uint8_t *)(a1 + 350) = 0;
   return result;
 }
@@ -586,6 +603,7 @@ LABEL_7:
 
 
 // process_rx_event @ 0x1327c4
+/* luna: Processes RX event data and status from the context, then returns its associated buffer pointer. */
 volatile uint32_t * process_rx_event(int a1) {
   char v1; // r3
   volatile uint32_t *v2; // r6
@@ -895,6 +913,7 @@ LABEL_24:
 
 
 // nop_stub @ 0x132bc4
+/* luna: Runs the L2CAP connection-control-block routine, then processes and returns the RX event for the supplied argument. */
 volatile uint32_t * nop_stub(int a1) {
   ((int (*)())l2c_ccb_run)();
   return process_rx_event(a1);
@@ -903,6 +922,7 @@ volatile uint32_t * nop_stub(int a1) {
 
 
 // ble_ll_conn_rx_update @ 0x132bd8
+/* luna: Updates RF channel frequencies from received channel metadata, applying sideband offsets and handling channel-pair spacing. */
 int ble_ll_conn_rx_update(int result, volatile uint8_t *a2, int a3) {
   unsigned int v3; // r4
   unsigned int v4; // r2
@@ -1069,6 +1089,7 @@ LABEL_38:
 
 
 // ble_ll_conn_get @ 0x132c48
+/* luna: Applies connection-specific RF limits and returns the PHY channel data for the connection’s channel. */
 int ble_ll_conn_get(int a1, unsigned int a2) {
   int v2; // r7
   int v4; // r0

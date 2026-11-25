@@ -1,4 +1,5 @@
 // bt_parse_adv_report @ 0x12a2b4
+/* luna: For a matching custom advertising-report signature, forwards the payload at byte 37 and a context-derived address to the security-table routine, optio */
 int bt_parse_adv_report(int result, volatile uint8_t *a2, int a3, int a4) {
   int v4; // r4
   int v5; // r6
@@ -30,6 +31,7 @@ int bt_parse_adv_report(int result, volatile uint8_t *a2, int a3, int a4) {
 
 
 // bt_ll_flow_control_check @ 0x12a32c
+/* luna: Returns true when the gated connection scan finds a state-2 connection whose indexed status byte is zero. */
 int bt_ll_flow_control_check() {
   int result; // r0
   volatile int *v1; // r3
@@ -63,6 +65,7 @@ int bt_ll_flow_control_check() {
 
 
 // ll_conn_is_connected @ 0x12a384
+/* luna: For a connection record with a nonzero active flag and state 2, updates the associated station record's byte at offset 135 and invokes the RSN IE pars */
 volatile uint8_t * ll_conn_is_connected(int a1, int a2) {
   volatile uint8_t *result; // r0
   int v3; // r3
@@ -90,6 +93,7 @@ volatile uint8_t * ll_conn_is_connected(int a1, int a2) {
 
 
 // lll_conn_phy_get @ 0x12a3e8
+/* luna: Selects the per-connection PHY record, stores the supplied PHY value and sets its flag before returning the record. */
 volatile uint8_t * lll_conn_phy_get(int a1, uint8_t a2) {
   int v2; // r5
   int v3; // r4
@@ -109,6 +113,7 @@ volatile uint8_t * lll_conn_phy_get(int a1, uint8_t a2) {
 
 
 // lll_conn_phy_ld_get @ 0x12a424
+/* luna: Selects the connection’s PHY link-data entry, performs pending cleanup, and returns the state selected from that entry. */
 volatile char * lll_conn_phy_ld_get(int a1) {
   int v1; // r7
   int v2; // r4
@@ -139,6 +144,7 @@ volatile char * lll_conn_phy_ld_get(int a1) {
 
 
 // lll_conn_get @ 0x12a490
+/* luna: Returns the indexed connection entry when the input requests indirection, otherwise returns the input pointer unchanged. */
 volatile uint8_t * lll_conn_get(volatile uint8_t *result) {
   if ( result[1224] )
     return rsn_parse_ie((volatile uint8_t *)(dword_12A4B0 + 140 * result[1225]));
@@ -148,6 +154,7 @@ volatile uint8_t * lll_conn_get(volatile uint8_t *result) {
 
 
 // lll_conn_state_match @ 0x12a4b4
+/* luna: Selects and initializes one of two connection state slots, returning the selected slot index or 0xFF if the connection is inactive or both slots are o */
 int lll_conn_state_match(int a1, int a2, char a3, char a4, unsigned int a5, int a6, int a7) {
   int v7; // r6
   int v8; // r7
@@ -215,6 +222,7 @@ int lll_conn_state_match(int a1, int a2, char a3, char a4, unsigned int a5, int 
 
 
 // lll_conn_ready_check @ 0x12a5c0
+/* luna: Processes a ready RSN slot, refreshes key and information-element state, advances the interface state, and issues the corresponding bus command. */
 int lll_conn_ready_check(int a1, unsigned int a2, int a3) {
   int v3; // r6
   int v4; // r5
@@ -265,14 +273,15 @@ int lll_conn_ready_check(int a1, unsigned int a2, int a3) {
 
 
 // lll_conn_event_prepare @ 0x12a6a0
+/* luna: Advances low-level connection-event timing and countdown state, invoking readiness handling when the countdown expires. */
 volatile uint8_t * lll_conn_event_prepare(int a1) {
-  int v1; // r9
-  int v2; // r8
-  int v3; // r6
-  int v4; // r3
-  int v6; // r10
-  volatile uint8_t *v7; // r7
-  int v8; // r4
+  int conn_slot_table_base; // r9
+  int conn_slot_index; // r8
+  int event_state; // r6
+  int conn_slot; // r3
+  int conn_context; // r10
+  volatile uint8_t *conn_slot_ptr; // r7
+  int event_time; // r4
   volatile int16_t **v9; // r3
   int v10; // r1
   volatile uint32_t *v11; // r11
@@ -285,35 +294,35 @@ volatile uint8_t * lll_conn_event_prepare(int a1) {
   volatile uint8_t *result; // r0
   uint64_t v19; // r0
   int v20; // r4
-  int v21; // [sp+0h] [bp-Ch]
+  int conn_context_index; // [sp+0h] [bp-Ch]
   char v22; // [sp+4h] [bp-8h]
 
-  v1 = dword_12A990;
-  v2 = *(volatile uint8_t *)(a1 + 17);
-  v3 = *(volatile uint8_t *)(a1 + 16);
-  v4 = dword_12A990 + 140 * v2;
-  v21 = *(volatile uint8_t *)(v4 + 113);
-  v6 = dword_12A96C + 1320 * v21;
-  v7 = (volatile uint8_t *)v4;
-  if ( *(volatile uint8_t *)(v4 + 112) == 1 )
+  conn_slot_table_base = dword_12A990;
+  conn_slot_index = *(volatile uint8_t *)(a1 + 17);
+  event_state = *(volatile uint8_t *)(a1 + 16);
+  conn_slot = dword_12A990 + 140 * conn_slot_index;
+  conn_context_index = *(volatile uint8_t *)(conn_slot + 113);
+  conn_context = dword_12A96C + 1320 * conn_context_index;
+  conn_slot_ptr = (volatile uint8_t *)conn_slot;
+  if ( *(volatile uint8_t *)(conn_slot + 112) == 1 )
   {
-    v8 = *(volatile uint32_t *)(a1 + 12);
+    event_time = *(volatile uint32_t *)(a1 + 12);
   }
   else
   {
     v20 = *(volatile uint32_t *)(a1 + 44);
-    if ( **(volatile int16_t **)off_12A970 < 0 && *(volatile uint8_t *)(v6 + 106) )
+    if ( **(volatile int16_t **)off_12A970 < 0 && *(volatile uint8_t *)(conn_context + 106) )
       irq_disable_mmio_write(dword_12A988, dword_12A984, 98);
-    v8 = v20 + *((volatile uint32_t *)off_12A978 + 4) - *(volatile uint32_t *)off_12A980 - *(volatile uint32_t *)(v6 + 132);
+    event_time = v20 + *((volatile uint32_t *)off_12A978 + 4) - *(volatile uint32_t *)off_12A980 - *(volatile uint32_t *)(conn_context + 132);
   }
   v9 = (volatile int16_t **)off_12A970;
   v10 = dword_12A974;
   v11 = (void *)(uintptr_t)(off_12A978);
   while ( 1 )
   {
-    if ( v3 == 1 )
+    if ( event_state == 1 )
       goto LABEL_27;
-    if ( v3 == 2 )
+    if ( event_state == 2 )
     {
       do
       {
@@ -324,10 +333,10 @@ volatile uint8_t * lll_conn_event_prepare(int a1) {
           *(volatile uint8_t *)(a1 + 19) = v17;
           if ( !v17 )
           {
-            if ( *(volatile uint8_t *)(v1 + 140 * v2 + 112) == 1 )
+            if ( *(volatile uint8_t *)(conn_slot_table_base + 140 * conn_slot_index + 112) == 1 )
             {
-              lll_conn_ready_check(v6, *(volatile uint8_t *)(a1 + 18), 0);
-              v12 = (int)v7;
+              lll_conn_ready_check(conn_context, *(volatile uint8_t *)(a1 + 18), 0);
+              v12 = (int)conn_slot_ptr;
             }
             else
             {
@@ -336,16 +345,16 @@ volatile uint8_t * lll_conn_event_prepare(int a1) {
                 mem_set_util(a1);
                 *(volatile uint8_t *)(a1 + 16) = 0;
               }
-              v12 = (int)v7;
+              v12 = (int)conn_slot_ptr;
             }
             goto LABEL_21;
           }
         }
-        v13 = v1 + 140 * v2;
+        v13 = conn_slot_table_base + 140 * conn_slot_index;
         v15 = *(volatile uint32_t *)(a1 + 28);
         v14 = *(volatile uint32_t *)(a1 + 24);
         v16 = *(volatile uint8_t *)(v13 + 112);
-        v8 += v15 - v14;
+        event_time += v15 - v14;
         if ( v16 == 1 )
         {
           if ( *(volatile uint8_t *)(v13 + 132) )
@@ -356,9 +365,9 @@ volatile uint8_t * lll_conn_event_prepare(int a1) {
             *(volatile uint64_t *)(a1 + 36) = v19;
             if ( HIDWORD(v19) )
             {
-              if ( (int)(v8 - *((volatile uint32_t *)off_12A978 + 4) - 5000) >= 0 )
+              if ( (int)(event_time - *((volatile uint32_t *)off_12A978 + 4) - 5000) >= 0 )
               {
-                v3 = 1;
+                event_state = 1;
                 v16 = *(volatile uint8_t *)(v13 + 112);
                 goto LABEL_35;
               }
@@ -368,44 +377,44 @@ volatile uint8_t * lll_conn_event_prepare(int a1) {
               *(volatile uint8_t *)(a1 + 20) = v17;
               if ( v15 )
                 *(volatile uint32_t *)(a1 + 40) = 0x80000000 / v15 - 1;
-              util_get_state(*(volatile uint8_t *)(dword_12A96C + 1320 * v21 + 107), 3);
-              if ( (int)(v8 - *((volatile uint32_t *)off_12A978 + 4) - 5000) >= 0 )
+              util_get_state(*(volatile uint8_t *)(dword_12A96C + 1320 * conn_context_index + 107), 3);
+              if ( (int)(event_time - *((volatile uint32_t *)off_12A978 + 4) - 5000) >= 0 )
               {
-                v3 = 1;
-                v16 = *(volatile uint8_t *)(v1 + 140 * v2 + 112);
+                event_state = 1;
+                v16 = *(volatile uint8_t *)(conn_slot_table_base + 140 * conn_slot_index + 112);
                 goto LABEL_35;
               }
 LABEL_27:
               v14 = *(volatile uint32_t *)(a1 + 24);
             }
           }
-          else if ( (int)(v8 - *((volatile uint32_t *)off_12A978 + 4) - 5000) >= 0 )
+          else if ( (int)(event_time - *((volatile uint32_t *)off_12A978 + 4) - 5000) >= 0 )
           {
             v22 = *(volatile uint8_t *)(v13 + 112);
-            mem_copy_util((void *)(uintptr_t)(a1), v8);
+            mem_copy_util((void *)(uintptr_t)(a1), event_time);
             *(volatile uint8_t *)(a1 + 16) = v22;
-            rsn_derive_key((int)v7);
-            result = rsn_parse_ie(v7);
-            if ( *(volatile uint8_t *)(dword_12A96C + 1320 * v21 + 106) != 2 )
+            rsn_derive_key((int)conn_slot_ptr);
+            result = rsn_parse_ie(conn_slot_ptr);
+            if ( *(volatile uint8_t *)(dword_12A96C + 1320 * conn_context_index + 106) != 2 )
               return result;
             goto LABEL_30;
           }
         }
-        else if ( (int)(v8 - *((volatile uint32_t *)off_12A978 + 4) - 5000) >= 0 )
+        else if ( (int)(event_time - *((volatile uint32_t *)off_12A978 + 4) - 5000) >= 0 )
         {
-          v3 = 1;
+          event_state = 1;
           goto LABEL_35;
         }
-        v8 += v14;
+        event_time += v14;
       }
-      while ( (int)(v8 - *((volatile uint32_t *)off_12A978 + 4) - 5000) < 0 );
-      v3 = 2;
-      if ( *(volatile uint8_t *)(v1 + 140 * v2 + 112) )
+      while ( (int)(event_time - *((volatile uint32_t *)off_12A978 + 4) - 5000) < 0 );
+      event_state = 2;
+      if ( *(volatile uint8_t *)(conn_slot_table_base + 140 * conn_slot_index + 112) )
         goto LABEL_36;
 LABEL_42:
-      if ( **(volatile int16_t **)off_12A970 < 0 && *(volatile uint8_t *)(v6 + 106) )
+      if ( **(volatile int16_t **)off_12A970 < 0 && *(volatile uint8_t *)(conn_context + 106) )
         irq_disable_mmio_write(dword_12A988, dword_12A98C, 79);
-      *(volatile uint32_t *)(a1 + 44) = *(volatile uint32_t *)off_12A980 - *((volatile uint32_t *)off_12A978 + 4) + *(volatile uint32_t *)(v6 + 132) + v8;
+      *(volatile uint32_t *)(a1 + 44) = *(volatile uint32_t *)off_12A980 - *((volatile uint32_t *)off_12A978 + 4) + *(volatile uint32_t *)(conn_context + 132) + event_time;
       goto LABEL_36;
     }
     if ( **v9 < 0 )
@@ -414,37 +423,38 @@ LABEL_42:
       v9 = (volatile int16_t **)off_12A970;
       v10 = dword_12A974;
     }
-    if ( (int)(v8 - v11[4] - 5000) >= 0 )
+    if ( (int)(event_time - v11[4] - 5000) >= 0 )
       break;
-    if ( !v3 )
+    if ( !event_state )
       goto LABEL_10;
   }
-  if ( !v3 )
+  if ( !event_state )
   {
 LABEL_10:
-    v12 = (int)v7;
+    v12 = (int)conn_slot_ptr;
 LABEL_21:
     rsn_derive_key(v12);
-    return rsn_parse_ie(v7);
+    return rsn_parse_ie(conn_slot_ptr);
   }
-  v16 = *(volatile uint8_t *)(v1 + 140 * v2 + 112);
+  v16 = *(volatile uint8_t *)(conn_slot_table_base + 140 * conn_slot_index + 112);
 LABEL_35:
   if ( !v16 )
     goto LABEL_42;
 LABEL_36:
-  mem_copy_util((void *)(uintptr_t)(a1), v8);
-  *(volatile uint8_t *)(a1 + 16) = v3;
-  rsn_derive_key((int)v7);
-  result = rsn_parse_ie(v7);
-  if ( *(volatile uint8_t *)(dword_12A96C + 1320 * v21 + 106) == 2 && v3 == 1 )
+  mem_copy_util((void *)(uintptr_t)(a1), event_time);
+  *(volatile uint8_t *)(a1 + 16) = event_state;
+  rsn_derive_key((int)conn_slot_ptr);
+  result = rsn_parse_ie(conn_slot_ptr);
+  if ( *(volatile uint8_t *)(dword_12A96C + 1320 * conn_context_index + 106) == 2 && event_state == 1 )
 LABEL_30:
-    *(volatile uint32_t *)(dword_12A96C + 1320 * v21 + 4) |= 0x20u;
+    *(volatile uint32_t *)(dword_12A96C + 1320 * conn_context_index + 4) |= 0x20u;
   return result;
 }
 
 
 
 // lll_conn_rf_process @ 0x12a994
+/* luna: Processes up to two eligible RF staging entries for the selected connection and invokes key derivation if an entry is copied. */
 int lll_conn_rf_process(int result, int a2) {
   volatile int *v2; // r7
   volatile uint32_t *v3; // r9
@@ -513,6 +523,7 @@ LABEL_8:
 
 
 // is_channel_entry_valid @ 0x12aa40
+/* luna: Returns zero if the entry marker at offset 113 is 0xFF or the gate at offset 132 is zero; otherwise returns the 8-bit value 13 times the byte at offse */
 int is_channel_entry_valid(int a1) {
   volatile uint8_t *v1; // r3
   int result; // r0
@@ -529,6 +540,7 @@ int is_channel_entry_valid(int a1) {
 
 
 // init_fixed_packet_header @ 0x12aa70
+/* luna: Writes fixed header bytes to the supplied buffer, leaves byte 1 unchanged, and returns the buffer. */
 volatile uint8_t * init_fixed_packet_header(volatile uint8_t *result) {
   *result = -35;
   result[2] = 80;
@@ -542,56 +554,58 @@ volatile uint8_t * init_fixed_packet_header(volatile uint8_t *result) {
 
 
 // get_channel_entry_info @ 0x12aa90
+/* luna: Serializes the connection sequence and status bytes plus up to three eligible channel entries into the output buffer, updating the sequence counter an */
 int get_channel_entry_info(int a1, int a2) {
-  int v2; // r6
-  int v3; // r3
-  char v4; // r2
-  int v5; // r4
+  int conn_table_base; // r6
+  int conn; // r3
+  char sequence; // r2
+  int status; // r4
   volatile uint32_t *v6; // r9
   volatile uint32_t *v7; // r8
-  int v8; // r3
-  int v9; // r2
-  int16_t v10; // r4
+  int channel_entry; // r3
+  int entry_out; // r2
+  int16_t entry_count; // r4
   int result; // r0
 
-  v2 = dword_12AB4C;
-  v3 = dword_12AB4C + 140 * a1;
-  v4 = *(volatile uint8_t *)(v3 + 120);
-  *(volatile uint8_t *)(a2 + 9) = v4;
-  v5 = *(volatile uint8_t *)(v3 + 115);
-  *(volatile uint8_t *)(v3 + 120) = v4 + 1;
-  if ( v5 )
-    *(volatile uint8_t *)(a2 + 10) = v5 | 0x80;
+  conn_table_base = dword_12AB4C;
+  conn = dword_12AB4C + 140 * a1;
+  sequence = *(volatile uint8_t *)(conn + 120);
+  *(volatile uint8_t *)(a2 + 9) = sequence;
+  status = *(volatile uint8_t *)(conn + 115);
+  *(volatile uint8_t *)(conn + 120) = sequence + 1;
+  if ( status )
+    *(volatile uint8_t *)(a2 + 10) = status | 0x80;
   else
     *(volatile uint8_t *)(a2 + 10) = 0;
   v6 = (void *)(uintptr_t)(off_12AB50);
   v7 = (void *)(uintptr_t)(off_12AB54);
-  v8 = v2 + 140 * a1;
-  v9 = a2 + 11;
-  v10 = 0;
+  channel_entry = conn_table_base + 140 * a1;
+  entry_out = a2 + 11;
+  entry_count = 0;
   do
   {
-    if ( *(volatile uint8_t *)(v8 + 16) && (!*(volatile uint8_t *)(v2 + 140 * a1 + 135) || !*(volatile uint8_t *)(v8 + 33) || *(volatile uint8_t *)(v8 + 32) != 1) )
+    if ( *(volatile uint8_t *)(channel_entry + 16) && (!*(volatile uint8_t *)(conn_table_base + 140 * a1 + 135) || !*(volatile uint8_t *)(channel_entry + 33) || *(volatile uint8_t *)(channel_entry + 32) != 1) )
     {
-      *(volatile uint8_t *)v9 = *(volatile uint8_t *)(v8 + 20);
-      *(volatile uint64_t *)(v9 + 1) = *(volatile uint64_t *)(v8 + 24);
-      v10 = (uint8_t)(v10 + 1);
-      *(volatile uint32_t *)(v9 + 9) = *v6 - v7[4] + *(volatile uint32_t *)(v8 + 36);
+      *(volatile uint8_t *)entry_out = *(volatile uint8_t *)(channel_entry + 20);
+      *(volatile uint64_t *)(entry_out + 1) = *(volatile uint64_t *)(channel_entry + 24);
+      entry_count = (uint8_t)(entry_count + 1);
+      *(volatile uint32_t *)(entry_out + 9) = *v6 - v7[4] + *(volatile uint32_t *)(channel_entry + 36);
     }
-    v9 += 13;
-    v8 += 48;
+    entry_out += 13;
+    channel_entry += 48;
   }
-  while ( v9 != a2 + 37 );
-  result = v2 + 140 * a1;
-  *(volatile uint8_t *)(result + 136) = v10;
-  *(volatile uint8_t *)(a2 + 1) = 13 * v10 + 9;
-  *(volatile uint16_t *)(a2 + 7) = 13 * v10 + 2;
+  while ( entry_out != a2 + 37 );
+  result = conn_table_base + 140 * a1;
+  *(volatile uint8_t *)(result + 136) = entry_count;
+  *(volatile uint8_t *)(a2 + 1) = 13 * entry_count + 9;
+  *(volatile uint16_t *)(a2 + 7) = 13 * entry_count + 2;
   return result;
 }
 
 
 
 // is_state_arg_valid @ 0x12ab58
+/* luna: For a channel entry, selectors 1 and 2 set or clear its control byte, while selector 3 derives a state when that byte is clear and otherwise returns t */
 int is_state_arg_valid(int result, int a2) {
   switch ( a2 )
   {
@@ -619,6 +633,7 @@ int is_state_arg_valid(int result, int a2) {
 
 
 // get_acl_flag @ 0x12abc8
+/* luna: Sets bit 6 in the entry's flags word when the byte fields at offsets 1224 and 108 are both nonzero, then returns the entry. */
 int get_acl_flag(int result) {
   if ( *(volatile uint8_t *)(result + 1224) )
   {
@@ -631,6 +646,7 @@ int get_acl_flag(int result) {
 
 
 // get_dev_entry @ 0x12abe0
+/* luna: Refreshes the selected device's connection and channel-state metadata, clears its state counters, and invokes the shared-memory copy helper. */
 int get_dev_entry(int a1) {
   int v1; // r7
   int v3; // r5
@@ -700,6 +716,7 @@ int get_dev_entry(int a1) {
 
 
 // init_chan_entry @ 0x12acc4
+/* luna: Initializes an indexed 32-byte BT low-level-link-layer channel entry, invoking a helper when its byte-30 flag is set before clearing and populating th */
 volatile int * init_chan_entry(int a1) {
   int v1; // r4
   int v2; // r6
@@ -728,25 +745,26 @@ volatile int * init_chan_entry(int a1) {
 
 
 // init_all_chan_entries @ 0x12ad00
+/* luna: Initializes channel entries 0–3, then zeroes a 96-byte table in three-byte strides. */
 volatile int *init_all_chan_entries() {
   volatile int *result; // r0
-  volatile uint8_t *v1; // r3
-  int v2; // r1
+  volatile uint8_t *table_bytes; // r3
+  int table_end; // r1
 
   init_chan_entry(0);
   init_chan_entry(1);
   init_chan_entry(2);
   result = init_chan_entry(3);
-  v1 = (volatile uint8_t *)dword_12AD30;
-  v2 = dword_12AD30 + 96;
+  table_bytes = (volatile uint8_t *)dword_12AD30;
+  table_end = dword_12AD30 + 96;
   do
   {
-    v1[1] = 0;
-    v1[2] = 0;
-    *v1 = 0;
-    v1 += 3;
+    table_bytes[1] = 0;
+    table_bytes[2] = 0;
+    *table_bytes = 0;
+    table_bytes += 3;
   }
-  while ( v1 != (volatile uint8_t *)v2 );
+  while ( table_bytes != (volatile uint8_t *)table_end );
   return result;
 }
 
