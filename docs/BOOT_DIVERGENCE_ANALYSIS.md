@@ -71,3 +71,14 @@ during boot logging. The digit corruption itself is a frame-layout defect
 in the decompiled backward-growing digit buffer exposed by the corrected
 build (-ffreestanding codegen shift), not a wrong division constant —
 dword_12EA04 = 0xcccccccd matches in original and reconstruction.
+
+## RESOLVED (2026-11-25): formatter scratch-frame repair heals the boot
+`tools/format_scratch_frame.py` merges the decompiled formatter's backward
+digit-generation scratch into a single array object so all pointer arithmetic
+stays in-object under correct compilation (commit ae94a120c). Post-repair
+boot parity on freshly linked ELFs: fmacfw_h recon capped 500000i with
+prefix 1964/2078, fmacfw_u02 capped 500000i with prefix 1960/2074 — exactly
+the pre-regression deep-boot behavior (the residual 114/114-write tail
+divergence matches the pre-existing baseline). The boot regression causal
+chain is closed: decompile frame-model defect → formatter clobbered its own
+frame during boot logging → boot derailed at the first print.
