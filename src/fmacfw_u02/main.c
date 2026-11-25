@@ -5532,7 +5532,7 @@ volatile uint32_t * periph_init_multi(int a1, volatile unsigned int *a2, int a3,
 volatile uint32_t * mmio_write_32(volatile uint32_t *result, volatile unsigned int *a2);
 int range_check_and_call(int result, int a2, volatile uint8_t *a3, volatile char *a4, volatile int *a5);
 int or_nonzero(uint64_t a1, int a2, volatile uint32_t *a3);
-int strlen(unsigned int a1, int a2, volatile int *a3);
+int sub_10957c(unsigned int a1, int a2, volatile int *a3);
 int f32_compare(volatile float *a1, volatile float *a2);
 int ptr_is_null(int a1, volatile int16_t *a2);
 int f32_pair_compare(unsigned int a1, volatile float *a2, volatile float *a3, int a4);
@@ -6690,11 +6690,11 @@ int memcmp(unsigned int a1, unsigned int a2, unsigned int a3);
 volatile char * memcpy(volatile char *a1, volatile char *a2, unsigned int a3) __asm__("__libmatch_memcpy");
 unsigned int memmove(unsigned int result, unsigned int a2, unsigned int a3);
 int scale_timer_value();
-volatile uint8_t * memset_1(volatile uint8_t *result, uint8_t a2);
+volatile uint8_t * strchr(volatile uint8_t *result, uint8_t a2);
 int strcmp(unsigned int a1, volatile unsigned int *a2);
-unsigned int memcpy_1(unsigned int result, unsigned int a2) __asm__("__libmatch_strcpy");
-unsigned int memmove_1(unsigned int a1);
-int memset_2(volatile uint8_t *a1, volatile uint8_t *a2, int a3);
+unsigned int strcpy(unsigned int result, unsigned int a2) __asm__("__libmatch_strcpy");
+unsigned int strlen(unsigned int a1);
+int strncasecmp(volatile uint8_t *a1, volatile uint8_t *a2, int a3);
 void nop_return();
 void nop_return2();
 
@@ -16333,8 +16333,8 @@ LABEL_12:
 
 
 
-// strlen @ 0x10957c
-int strlen(unsigned int a1, int a2, volatile int *a3) {
+// sub_10957c @ 0x10957c
+int sub_10957c(unsigned int a1, int a2, volatile int *a3) {
   int v3; // r12
   int v4; // r4
   volatile int *v5; // r6
@@ -17830,8 +17830,8 @@ int periph_init_2(unsigned int a1, unsigned int a2, int a3, unsigned int a4, uin
         else
           v26 = 50;
         _frame.v44 = v26;
-        *(volatile uint32_t *)&_frame.v58[2 * v27 + 54] = strlen(_frame.a1a, v26, (volatile int *)&_frame.v58[20 * v25 + 310]);
-        *(volatile uint32_t *)&_frame.v58[2 * v27 + 182] = strlen(_frame.a1a, _frame.v44, (volatile int *)&_frame.v58[20 * v25 + 630]);
+        *(volatile uint32_t *)&_frame.v58[2 * v27 + 54] = sub_10957c(_frame.a1a, v26, (volatile int *)&_frame.v58[20 * v25 + 310]);
+        *(volatile uint32_t *)&_frame.v58[2 * v27 + 182] = sub_10957c(_frame.a1a, _frame.v44, (volatile int *)&_frame.v58[20 * v25 + 630]);
         v25 = (uint8_t)(v25 + 1);
       }
       while ( a5 >= v25 );
@@ -61906,7 +61906,7 @@ volatile uint32_t * parse_ipv4_dot(int a1, volatile uint32_t *a2, int a3) {
   if ( v5 )
     v6 = v5 - a1;
   else
-    v6 = memmove_1(a1);
+    v6 = strlen(a1);
   if ( a3 )
   {
     v7 = 0;
@@ -61924,7 +61924,7 @@ if ( !memset((void *)(uintptr_t)(a1), *v8, v6) ) break;
         if ( a3 == v9 )
           goto LABEL_9;
       }
-      if ( memmove_1(v10) == v6 )
+      if ( strlen(v10) == v6 )
         return v11;
       a2 = v8;
       ++v7;
@@ -61971,7 +61971,7 @@ int fetch_global_ptr(unsigned int a1, volatile uint8_t *a2, int a3) {
     if ( !a3 )
       goto LABEL_3;
 LABEL_11:
-    v11 = memmove_1(a3);
+    v11 = strlen(a3);
     v12 = (volatile int *)off_12F944;
     v13 = (void *)(uintptr_t)(off_12F94C);
     *v3 = (int)a2;
@@ -62177,7 +62177,7 @@ int is_strlen_two(int a1) {
   int v3; // r0
   int v5; // r3
 
-  v2 = memmove_1(a1);
+  v2 = strlen(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;
@@ -62387,7 +62387,7 @@ int parse_hex12(int a1, int a2) {
   struct __attribute__((packed)) { char a1a[4]; // [sp+8h] [bp-Ch] BYREF
   char v26; // [sp+Ch] [bp-8h]
   } _frame;
-  if ( memmove_1(*(volatile uint32_t *)(a2 + 4)) != 12 || memmove_1(*(volatile uint32_t *)(a2 + 8)) != 12 )
+  if ( strlen(*(volatile uint32_t *)(a2 + 4)) != 12 || strlen(*(volatile uint32_t *)(a2 + 8)) != 12 )
     return -2;
   v3 = *(volatile uint32_t *)(a2 + 4);
   memcpy(_frame.a1a, (volatile char *)(v3 + 8), 4u);
@@ -62602,13 +62602,13 @@ int find_by_index(int a1) {
   {
     if ( v1 )
     {
-      if ( memmove_1(off_130140) != v1 || strcmp(off_130140, (volatile unsigned int *)dword_130138) )
+      if ( strlen(off_130140) != v1 || strcmp(off_130140, (volatile unsigned int *)dword_130138) )
       {
         v4 = mem_word_load(dword_130144);
         v5 = v4;
         if ( v4 )
         {
-          memcpy_1((unsigned int)(v4 + 1), dword_130138);
+          strcpy((unsigned int)(v4 + 1), dword_130138);
           cmd_handler_a(dword_130148, v5);
         }
         else
@@ -72733,7 +72733,7 @@ LABEL_67:
     }
 LABEL_84:
     v64 = (const volatile char *)(v48 + 9);
-    if ( memmove_1(v48 + 9) )
+    if ( strlen(v48 + 9) )
     {
       v63 = *(volatile uint8_t *)(v48 + 8);
       *(volatile uint8_t *)(v48 + v63 + 9) = 0;
@@ -85155,8 +85155,8 @@ int scale_timer_value() {
 
 
 
-// memset_1 @ 0x1439b8
-volatile uint8_t * memset_1(volatile uint8_t *result, uint8_t a2) {
+// strchr @ 0x1439b8
+volatile uint8_t * strchr(volatile uint8_t *result, uint8_t a2) {
   volatile uint8_t *v2; // r3
   int v3; // r6
   int v4; // t1
@@ -85581,12 +85581,12 @@ LABEL_59:
 }
 
 
-// memcpy_1 @ 0x143d7c
+// strcpy @ 0x143d7c
 /* libmatch: 186 bytes identical to strcpy (libc.a:libc_a-strcpy.o); the library routine is linked */
 
 
-// memmove_1 @ 0x143e40
-unsigned int memmove_1(unsigned int a1) {
+// strlen @ 0x143e40
+unsigned int strlen(unsigned int a1) {
 uint32_t _R12;
 uint64_t _R2;
 uint64_t _R3;
@@ -85667,8 +85667,8 @@ _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(
 }
 
 
-// memset_2 @ 0x143f1c
-int memset_2(volatile uint8_t *a1, volatile uint8_t *a2, int a3) {
+// strncasecmp @ 0x143f1c
+int strncasecmp(volatile uint8_t *a1, volatile uint8_t *a2, int a3) {
   volatile uint8_t *v3; // r5
   volatile uint8_t *v4; // r7
   int v5; // r3

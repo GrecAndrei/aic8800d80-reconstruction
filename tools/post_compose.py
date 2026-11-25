@@ -39,6 +39,7 @@ STEPS = [
     ("float_compares.py", [], True),
     ("signed_muls.py", [], True),
     ("signed_halfwords.py", [], True),
+    ("libc_names.py", [], True),
 ]
 
 

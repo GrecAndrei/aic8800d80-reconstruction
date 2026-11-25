@@ -5436,7 +5436,7 @@ uint8_t MEMORY_IMG[MEMORY_IMAGE_SIZE] = {0};
 
 /* --- forward declarations --- */
 int start();
-volatile int * memset_thunk(volatile int *result, uint8_t a2, unsigned int a3);
+volatile int * memset(volatile int *result, uint8_t a2, unsigned int a3);
 int mac_event_handler(int a1, int a2, int a3, int a4);
 void mac_state_init();
 int chip_identify(int a1);
@@ -5679,9 +5679,9 @@ int check_hardware_ready();
 int event_queue_init(int a1);
 int rx_task();
 int mmio_write_reg();
-int memmove(int a1, int a2, int a3);
+int sub_110edc(int a1, int a2, int a3);
 volatile uint32_t * tx_desc_set_control(volatile uint32_t *result, int a2, int a3, uint16_t a4, int a5);
-int memcpy(int a1);
+int sub_11101c(int a1);
 int kmalloc(char a1, volatile char *a2, unsigned int a3, int a4);
 int get_init_flag();
 int timer_get_raw(int a1);
@@ -6709,12 +6709,12 @@ uint64_t double_cmp(uint64_t a1, uint64_t a2);
 uint64_t uint64_divmod(uint64_t a1, uint64_t a2, volatile uint64_t *a4);
 int int_abs(int result);
 int memcmp(unsigned int a1, unsigned int a2, unsigned int a3);
-volatile char * memcpy_1(volatile char *a1, volatile char *a2, unsigned int a3) __asm__("__libmatch_memcpy");
-unsigned int memmove_1(unsigned int result, unsigned int a2, unsigned int a3);
+volatile char * memcpy(volatile char *a1, volatile char *a2, unsigned int a3) __asm__("__libmatch_memcpy");
+unsigned int memmove(unsigned int result, unsigned int a2, unsigned int a3);
 int hash32();
-volatile uint8_t * memset(volatile uint8_t *result, uint8_t a2);
+volatile uint8_t * strchr(volatile uint8_t *result, uint8_t a2);
 int strcmp(unsigned int a1, volatile unsigned int *a2);
-unsigned int memcpy_2(unsigned int result, unsigned int a2) __asm__("__libmatch_strcpy");
+unsigned int strcpy(unsigned int result, unsigned int a2) __asm__("__libmatch_strcpy");
 unsigned int memcpy_aligned(unsigned int a1);
 int memcpy_fixed(volatile uint8_t *a1, volatile uint8_t *a2, int a3);
 void empty_stub_0();
@@ -6858,8 +6858,8 @@ int start() {
 }
 
 
-// memset_thunk @ 0x100200
-volatile int * memset_thunk(volatile int *result, uint8_t a2, unsigned int a3) {
+// memset @ 0x100200
+volatile int * memset(volatile int *result, uint8_t a2, unsigned int a3) {
   unsigned int v3; // r4
   volatile int *v4; // r3
   int v6; // r5
@@ -7272,7 +7272,7 @@ int hw_config_init() {
 
   v0 = (volatile int *)off_1006C0;
   v1 = chip_identify(HIBYTE(*(volatile uint32_t *)off_1006BC) & 3);
-  memset_thunk(v0, 0, 8u);
+  memset(v0, 0, 8u);
   result = dword_1006C4 + 16 * v1;
   v3 = *(volatile uint16_t *)(result + 6);
   *(volatile uint32_t *)off_1006C8 = *(volatile uint16_t *)(result + 4);
@@ -10639,7 +10639,7 @@ LABEL_17:
   }
   else
   {
-    ((int (*)())memset)((void *)(_frame.v69), 0, sizeof(_frame.v69));
+    ((int (*)())strchr)((void *)(_frame.v69), 0, sizeof(_frame.v69));
     v46 = send_smc_cmd_4((int)_frame.v69);
     if ( v46 )
     {
@@ -10669,7 +10669,7 @@ LABEL_17:
       debug_printf(&aNoTxDscrHdr[16]);
       v17[1] |= 1u;
     }
-    ((int (*)())memset)(_frame.a2, 0, 20);
+    ((int (*)())strchr)(_frame.a2, 0, 20);
     if ( !send_smc_cmd_0x20((int)_frame.a2) )
     {
       debug_printf(aFlTxpwrOfst5g);
@@ -11666,7 +11666,7 @@ int rx_packet_alloc(int a1, int a2, volatile uint32_t *a3) {
     v8 = 32;
   else
     v8 = 16;
-  memset_thunk((volatile int *)&_frame.v37, 0, 0x80u);
+  memset((volatile int *)&_frame.v37, 0, 0x80u);
   v9 = flt_1048E4;
   _frame.v29 = v6;
   v10 = 10;
@@ -11827,7 +11827,7 @@ int rf_calibration(int a1, int a2, int a3, int a4, int a5, int a6) {
   } _frame;
   v7 = (volatile int *)off_104C14;
   check_feature_flag(1, aRunparescore);
-  memcpy_1(_frame.a1a, (volatile char *)off_104C18, 0x80u);
+  memcpy(_frame.a1a, (volatile char *)off_104C18, 0x80u);
   v11 = *v7;
   v12 = v7[1];
   v13 = v7[2];
@@ -11844,7 +11844,7 @@ int rf_calibration(int a1, int a2, int a3, int a4, int a5, int a6) {
   _frame.v63[5] = v15;
   _frame.v63[6] = v16;
   _frame.v63[7] = v17;
-  memcpy_1(_frame.v65, (volatile char *)v7 + 16, 0x80u);
+  memcpy(_frame.v65, (volatile char *)v7 + 16, 0x80u);
   v18 = rx_packet_alloc(0, 0, (void *)(uintptr_t)(a3));
   v19 = v18;
   _frame.v58 = a1 + 128;
@@ -15508,7 +15508,7 @@ volatile uint32_t * rf_phy_init( int a1, volatile unsigned int *a2, int a3, unsi
     _frame.v167[0] = ((volatile uint32_t *)(uintptr_t)off_108778)[0];
     _frame.v167[1] = v31;
     _frame.v167[2] = v32;
-    ((int (*)())memset)((void *)(_frame.a1a), 0, sizeof(_frame.a1a));
+    ((int (*)())strchr)((void *)(_frame.a1a), 0, sizeof(_frame.a1a));
     v33 = 0;
     _frame.v110 = 6;
     do
@@ -18655,7 +18655,7 @@ LABEL_37:
         1,
         "/***************************************cal tx_gain_table=%d********************************/\n",
         _frame.v149);
-      memset_thunk(_frame.result, 0, 0x40u);
+      memset(_frame.result, 0, 0x40u);
       _frame.v194 = 1.0;
       _frame.v188 = v70;
       _frame.v187 = 8;
@@ -19488,8 +19488,8 @@ volatile int *phy_context_init() {
   volatile int **v3; // r4
 
   v0 = *((volatile uint32_t *)off_10C82C + 23);
-  memset_thunk((volatile int *)dword_10C830, 0, 0x28u);
-  memset_thunk((volatile int *)dword_10C834, 0, 0x1E6Cu);
+  memset((volatile int *)dword_10C830, 0, 0x28u);
+  memset((volatile int *)dword_10C834, 0, 0x1E6Cu);
   if ( (*(volatile uint32_t *)off_10C838 & 8) != 0 )
   {
     while ( (*(volatile uint32_t *)off_10C838 & 0x10) == 0 )
@@ -19503,7 +19503,7 @@ volatile int *phy_context_init() {
     v3 = (volatile int **)off_10C83C;
     *(volatile uint32_t *)off_10C838 |= 8u;
     if ( v1 )
-      memset_thunk(*v3, v2, 0x288u);
+      memset(*v3, v2, 0x288u);
     *(volatile uint32_t *)off_10C838 |= 0x10u;
   }
   (*v3)[161] = *(volatile uint32_t *)off_10C840;
@@ -20073,7 +20073,7 @@ LABEL_6:
       irq_disable_mmio_write((int)aKmsgSrcParamLe, (int)aIpcEmbKmsgFwd, 1671);
       v9 = *(volatile uint16_t *)(a1 + 10);
     }
-    memcpy_1((volatile char *)(v6 + 12), (volatile char *)(a1 + 12), v9);
+    memcpy((volatile char *)(v6 + 12), (volatile char *)(a1 + 12), v9);
     v10 = **v1;
     if ( v10 != 3 )
     {
@@ -20179,7 +20179,7 @@ LABEL_27:
   v29[1] = 0;
   *v29 = (int)(uintptr_t)(v7);
   v29[2] = (uint16_t)(v30 + 16) | 0x80000000;
-  memcpy((int)v29);
+  sub_11101c((int)v29);
   return (void *)(uintptr_t)(tx_process_jump((int)(uintptr_t)((volatile char *)a1)));
 }
 
@@ -20301,7 +20301,7 @@ int set_radio_mode(int result) {
 
 // clear_queue_buffer @ 0x10d2c4
 volatile int *clear_queue_buffer() {
-  return memset_thunk((volatile int *)dword_10D2D0, 0, 0x38u);
+  return memset((volatile int *)dword_10D2D0, 0, 0x38u);
 }
 
 
@@ -20881,7 +20881,7 @@ LABEL_37:
     if ( v33 + v6 <= 1720 )
     {
       _frame.v78 = (volatile int *)off_10DACC;
-      memcpy_1((volatile char *)(*(volatile uint32_t *)off_10DACC + v33), _frame.a1a, v6);
+      memcpy((volatile char *)(*(volatile uint32_t *)off_10DACC + v33), _frame.a1a, v6);
       v72 = (uint8_t)*v26;
       v39 = (volatile char **)_frame.v78;
       v73 = v6 + *v32;
@@ -20924,7 +20924,7 @@ LABEL_37:
     v41 = (volatile char *)(*(int ( **)(uint32_t))(*(volatile uint32_t *)(*(volatile uint32_t *)off_10DAC8 + 8) + 16))(*(volatile uint32_t *)(*(volatile uint32_t *)off_10DAC8 + 4));
   if ( v41 )
   {
-    memcpy_1(v41 + 4, _frame.a1a, v6);
+    memcpy(v41 + 4, _frame.a1a, v6);
     v33 = (v33 & ~0xFFFFu) | ((uint16_t)(v6) & 0xFFFFu);
 LABEL_48:
     *(volatile uint16_t *)v41 = v5 + 1;
@@ -22537,7 +22537,7 @@ uint64_t rf_config_bb() {
   v0[4122] = 0;
   *((volatile uint8_t *)v0 + 3074) = 0;
   *((volatile uint32_t *)v0 + 769) = 0;
-  memset_thunk(v1, 0, 0x800u);
+  memset(v1, 0, 0x800u);
   v2 = v1 + 512;
   v3 = (int)(v1 + 512);
   do
@@ -24429,8 +24429,8 @@ int mmio_write_reg() {
 }
 
 
-// memmove @ 0x110edc
-int memmove(int a1, int a2, int a3) {
+// sub_110edc @ 0x110edc
+int sub_110edc(int a1, int a2, int a3) {
   volatile int *v6; // r9
   volatile uint8_t *v7; // r3
   int v8; // r5
@@ -24537,8 +24537,8 @@ volatile uint32_t * tx_desc_set_control(volatile uint32_t *result, int a2, int a
 
 
 
-// memcpy @ 0x11101c
-int memcpy(int a1) {
+// sub_11101c @ 0x11101c
+int sub_11101c(int a1) {
   volatile int *v2; // r5
   volatile uint8_t *v3; // r3
   int v4; // r1
@@ -24649,13 +24649,13 @@ int kmalloc(char a1, volatile char *a2, unsigned int a3, int a4) {
     *((volatile uint8_t *)v8 + 1) = BYTE1(a3) & 0xF;
     *((volatile uint8_t *)v8 + 2) = a1;
     *((volatile uint8_t *)v8 + 3) = 0;
-    memcpy_1((volatile char *)v8 + 4, a2, a3);
+    memcpy((volatile char *)v8 + 4, a2, a3);
     v10 = v9[2];
     v11 = dword_1111A8;
     v9[1] = 0;
     *v9 = (int)(uintptr_t)(v8);
     v9[2] = (uint16_t)(a3 + 4) | v11 & v10 | 0x80000000;
-    return memcpy((int)v9);
+    return sub_11101c((int)v9);
   }
   else
   {
@@ -25095,7 +25095,7 @@ volatile int * get_node_offset8(int a1) {
 
   v2 = dword_11185C + 16 * (a1 - 1);
   v3 = *(volatile uint8_t *)(v2 + 8);
-  result = memset_thunk((volatile int *)v2, 0, 0x10u);
+  result = memset((volatile int *)v2, 0, 0x10u);
   if ( v3 )
   {
     result = (volatile int *)dword_111860;
@@ -25117,7 +25117,7 @@ volatile int * get_node_offset_b(int a1) {
 
   v2 = dword_111894 + 16 * (a1 - 1);
   v3 = *(volatile uint8_t *)(v2 + 11);
-  result = memset_thunk((volatile int *)v2, 0, 0x10u);
+  result = memset((volatile int *)v2, 0, 0x10u);
   if ( v3 )
   {
     v5 = *(int ( **)(uint32_t, uint32_t, int))(dword_111898 + 4 * (a1 + 13));
@@ -25230,7 +25230,7 @@ int send_data_word(int result, int a2) {
   *(volatile uint16_t *)v4 = a2;
   if ( result && a2 )
   {
-    result = (int)(uintptr_t)(memcpy_1((void *)(uintptr_t)(v3), (void *)(uintptr_t)(result), a2));
+    result = (int)(uintptr_t)(memcpy((void *)(uintptr_t)(v3), (void *)(uintptr_t)(result), a2));
     v4 = *v2;
   }
   v6 = (void *)(uintptr_t)(off_111A20);
@@ -25481,7 +25481,7 @@ int wlan_set_band(int a1, int a2) {
   v5 = (volatile int *)off_111D88;
   v6 = (volatile char *)off_111D8C;
   *(volatile uint8_t *)off_111D84 = 1;
-  memcpy_1(v6, (volatile char *)a1, 0x50u);
+  memcpy(v6, (volatile char *)a1, 0x50u);
   v7 = v5[97];
   if ( v7 )
   {
@@ -26307,7 +26307,7 @@ LABEL_51:
           v53 = 64 - *(volatile uint16_t *)v20;
           if ( v53 >= (uint16_t)(*((volatile uint16_t *)off_1123F4 + 4) - v51) )
             v53 = (v53 & ~0xFFFFu) | ((uint16_t)(*((volatile uint16_t *)off_1123F4 + 4) - v51) & 0xFFFFu);
-          memcpy_1((volatile char *)(v51 + *((volatile uint32_t *)off_1123F4 + 1)), *(volatile char **)off_112748, (uint16_t)v53);
+          memcpy((volatile char *)(v51 + *((volatile uint32_t *)off_1123F4 + 1)), *(volatile char **)off_112748, (uint16_t)v53);
           v54 = *((volatile uint16_t *)v3 + 4);
           v55 = (uint16_t)(v53 + *((volatile uint16_t *)v3 + 5));
           *((volatile uint16_t *)v3 + 5) = v55;
@@ -26550,8 +26550,8 @@ LABEL_24:
   v18[1] = 0;
   v18[2] = 0;
   *(volatile uint8_t *)v18 = 0;
-  memset_thunk(v19, 0, 0x50u);
-  memset_thunk((volatile int *)dword_112B10, 0, 0x50u);
+  memset(v19, 0, 0x50u);
+  memset((volatile int *)dword_112B10, 0, 0x50u);
   result = update_packet_buffer();
   v21 = *((int ( **)(uint32_t))off_112B14 + 8);
   if ( v21 )
@@ -26722,7 +26722,7 @@ LABEL_3:
             v34 = (v10 & 1) == 0;
             if ( (v10 & 1) == 0 )
               set_hw_cfg_a((void *)(uintptr_t)(1), (uint8_t)v11);
-            v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(memset_thunk((volatile int *)(v9 - 16), 0, 0x10u)) & 0xFFFFFFFFu);
+            v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(memset((volatile int *)(v9 - 16), 0, 0x10u)) & 0xFFFFFFFFu);
             v15 = *(int ( **)(int, int, BOOL))(dword_112E08 + 4 * v11 + 52);
             if ( v15 )
               v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(v15(v38, v36, v34)) & 0xFFFFFFFFu);
@@ -26777,7 +26777,7 @@ LABEL_14:
             v37 = **(volatile uint16_t **)(v18 + 4 * i);
             v35 = *(volatile uint32_t *)(v17 - 12);
             v39 = *(volatile uint32_t *)(v17 - 16);
-            v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(memset_thunk((volatile int *)(v17 - 16), 0, 0x10u)) & 0xFFFFFFFFu);
+            v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(memset((volatile int *)(v17 - 16), 0, 0x10u)) & 0xFFFFFFFFu);
             v32 = *(int ( **)(int, int, uint32_t))(4 * i + dword_112E08 + 32);
             if ( v32 )
               v3 = (v3 & ~0xFFFFFFFFull) | ((uint32_t)(v32(v39, v35 - v37, 0)) & 0xFFFFFFFFu);
@@ -26999,12 +26999,12 @@ int bt_wait_ready(int a1) {
 
   if ( (*(volatile uint32_t *)off_1131EC & 0x2000000) != 0 )
   {
-    memset_thunk((volatile int *)off_1131F0, 0xFFu, 4u);
+    memset((volatile int *)off_1131F0, 0xFFu, 4u);
   }
   else
   {
     v2 = (volatile uint16_t *)off_1131F0;
-    memset_thunk((volatile int *)off_1131F0, 0xFFu, 4u);
+    memset((volatile int *)off_1131F0, 0xFFu, 4u);
     if ( get_rssi((int)v2) || (v3 = v2[1], v3 == 0xFFFF) || (v4 = *v2, v4 == 0xFFFF) )
       alloc_tx_event(aNoUsbInfoInFla);
     else
@@ -27278,7 +27278,7 @@ volatile uint32_t * rf_is_sleep(int a1) {
   {
     case 1:
       v2 = (void *)(uintptr_t)(off_113554);
-      v3 = (int)(uintptr_t)(memcpy_1((void *)(uintptr_t)(off_113554), (void *)(uintptr_t)(dword_113558), 18));
+      v3 = (int)(uintptr_t)(memcpy((void *)(uintptr_t)(off_113554), (void *)(uintptr_t)(dword_113558), 18));
       if ( *((volatile uint8_t *)off_11355C + 370) && call_patch_1fc_check(v3) )
       {
         v4 = call_patch_1fc_arg2();
@@ -27662,7 +27662,7 @@ int rf_save_regs(int a1) {
   v4[5] = 0;
   v4[3] = 0;
   v5[6] = 0;
-  memset_thunk(v3, 0, 0x140u);
+  memset(v3, 0, 0x140u);
   v6 = *(volatile int **)(*(volatile uint32_t *)v1 + 20);
   v7 = (void *)(uintptr_t)(off_113A9C);
   v8 = (void *)(uintptr_t)(off_113AA0);
@@ -27675,7 +27675,7 @@ int rf_save_regs(int a1) {
   v9 = (void *)(uintptr_t)(off_113AA4);
   v8[4] = (int)(uintptr_t)(v6 + 12);
   *v9 = (int)(uintptr_t)(v6 + 14);
-  memset_thunk(v6, 0, 0xCB8u);
+  memset(v6, 0, 0xCB8u);
   if ( **(volatile int16_t **)off_113AA8 < 0 && *(volatile uint32_t *)(*(volatile uint32_t *)v1 + 24) <= 0xCB7u )
     irq_disable_mmio_write((int)aIndexHostIfPar, (int)aHostUsbWlanIni, 758);
   v10 = (volatile int *)off_113AAC;
@@ -27783,7 +27783,7 @@ LABEL_7:
   *(volatile uint32_t *)(v7 + 4) = 0;
   *(volatile uint32_t *)(v7 + 72) = 0;
   v6[11] = 0;
-  memcpy_1((volatile char *)v6 + 4, (volatile char *)a1, 0x1Cu);
+  memcpy((volatile char *)v6 + 4, (volatile char *)a1, 0x1Cu);
   v9 = *((volatile uint16_t *)v6 + 15);
   v10 = *(volatile uint32_t *)(uintptr_t)(off_113C54);
   *((volatile uint16_t *)v6 + 3) = 0;
@@ -28675,7 +28675,7 @@ int patch_apply(int a1, int a2, unsigned int a3) {
   v7 = v6 & 1;
   if ( (v6 & 1) != 0 )
   {
-    memcpy_1((void *)(uintptr_t)(a2), _frame.v10, 4);
+    memcpy((void *)(uintptr_t)(a2), _frame.v10, 4);
     v7 = 4;
     if ( (v6 & 2) == 0 )
     {
@@ -28689,7 +28689,7 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v11, 12);
+  memcpy((void *)(uintptr_t)(a2 + v7), _frame.v11, 12);
   v7 += 12;
   if ( (v6 & 4) == 0 )
   {
@@ -28699,7 +28699,7 @@ LABEL_8:
     goto LABEL_20;
   }
 LABEL_22:
-  memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v12, 20);
+  memcpy((void *)(uintptr_t)(a2 + v7), _frame.v12, 20);
   v7 += 20;
   if ( (v6 & 8) == 0 )
   {
@@ -28709,7 +28709,7 @@ LABEL_9:
     goto LABEL_18;
   }
 LABEL_20:
-  memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v13, 4);
+  memcpy((void *)(uintptr_t)(a2 + v7), _frame.v13, 4);
   v7 += 4;
   if ( (v6 & 0x20) == 0 )
   {
@@ -28719,7 +28719,7 @@ LABEL_10:
     goto LABEL_16;
   }
 LABEL_18:
-  memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v14, 4);
+  memcpy((void *)(uintptr_t)(a2 + v7), _frame.v14, 4);
   v7 += 4;
   if ( (v6 & 0x40) == 0 )
   {
@@ -28729,12 +28729,12 @@ LABEL_11:
     goto LABEL_15;
   }
 LABEL_16:
-  memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v15, 4);
+  memcpy((void *)(uintptr_t)(a2 + v7), _frame.v15, 4);
   v7 += 4;
   if ( (v6 & 0x80) != 0 )
   {
 LABEL_15:
-    memcpy_1((void *)(uintptr_t)(a2 + v7), _frame.v16, 4);
+    memcpy((void *)(uintptr_t)(a2 + v7), _frame.v16, 4);
     v7 += 4;
   }
 LABEL_12:
@@ -28810,7 +28810,7 @@ int patch_apply_ext(int a1, int a2, unsigned int a3) {
   v6 = (uint8_t)_frame.v9 & (uint8_t)a1 & 2;
   if ( ((uint8_t)_frame.v9 & (uint8_t)a1 & 2) != 0 )
   {
-    memcpy_1((void *)(uintptr_t)(a2), _frame.v10, 6);
+    memcpy((void *)(uintptr_t)(a2), _frame.v10, 6);
     v6 = 6;
     if ( (a1 & 0x100000) == 0 )
     {
@@ -28824,7 +28824,7 @@ LABEL_7:
   {
     goto LABEL_7;
   }
-  memcpy_1((void *)(uintptr_t)(a2 + v6), _frame.v11, 2);
+  memcpy((void *)(uintptr_t)(a2 + v6), _frame.v11, 2);
   v6 += 2;
   if ( (a1 & 0x200000) == 0 )
   {
@@ -28834,7 +28834,7 @@ LABEL_8:
     goto LABEL_17;
   }
 LABEL_19:
-  memcpy_1((void *)(uintptr_t)(a2 + v6), _frame.v12, 8);
+  memcpy((void *)(uintptr_t)(a2 + v6), _frame.v12, 8);
   v6 += 8;
   if ( (a1 & 0x400000) == 0 )
   {
@@ -28844,7 +28844,7 @@ LABEL_9:
     goto LABEL_15;
   }
 LABEL_17:
-  memcpy_1((void *)(uintptr_t)(a2 + v6), _frame.v13, 4);
+  memcpy((void *)(uintptr_t)(a2 + v6), _frame.v13, 4);
   v6 += 4;
   if ( (a1 & 0x800000) == 0 )
   {
@@ -28854,12 +28854,12 @@ LABEL_10:
     goto LABEL_14;
   }
 LABEL_15:
-  memcpy_1((void *)(uintptr_t)(a2 + v6), _frame.v14, 2);
+  memcpy((void *)(uintptr_t)(a2 + v6), _frame.v14, 2);
   v6 += 2;
   if ( (a1 & 0x1000000) != 0 )
   {
 LABEL_14:
-    memcpy_1((void *)(uintptr_t)(a2 + v6), _frame.v15, 10);
+    memcpy((void *)(uintptr_t)(a2 + v6), _frame.v15, 10);
     v6 += 10;
   }
 LABEL_11:
@@ -30022,7 +30022,7 @@ int rssi_sample() {
   }
   v3 = (void *)(uintptr_t)(off_115EC4);
   v4 = dword_115EAC;
-  memset_thunk(v2, 0, 88 * *(volatile uint16_t *)(*(volatile uint32_t *)off_115EC4 + 8) + 88);
+  memset(v2, 0, 88 * *(volatile uint16_t *)(*(volatile uint32_t *)off_115EC4 + 8) + 88);
   v5 = 0;
   do
   {
@@ -30177,7 +30177,7 @@ volatile int * rf_channel_select(int a1, int a2, int a3, int a4) {
   char v11; // [sp+10h] [bp-Ch] BYREF
   } _frame;
   if ( (**(volatile uint8_t **)off_116090 & 1) != 0 )
-    return memset_thunk((volatile int *)(a3 + a4), 0, 8u);
+    return memset((volatile int *)(a3 + a4), 0, 8u);
   v7 = _frame.v10;
   bt_packet_parse((int)(uintptr_t)(_frame.v10), (void *)(uintptr_t)(a2), a1 + 12, (void *)(uintptr_t)(a1 + 18), *(volatile uint8_t *)(a1 + 27));
   unaligned_word_load((void *)(_frame.v10), a3, a4);
@@ -30582,7 +30582,7 @@ LABEL_7:
   *(volatile uint32_t *)(v25 + 48) = v3[25];
   *(volatile uint32_t *)(v25 + 68) = v28 | 0x600;
   v3[12] = v27 | 2;
-  memcpy_1((void *)(uintptr_t)(v25 + 272), (void *)(v3 + 11), 52);
+  memcpy((void *)(uintptr_t)(v25 + 272), (void *)(v3 + 11), 52);
   v29 = *(volatile uint16_t *)(a1 + 30);
   result = v29 << 31;
   if ( (v29 & 1) != 0 )
@@ -31192,7 +31192,7 @@ int system_init_seq() {
   v1 = verify_header_magic(0);
   wifi_core_init(v1);
   v2 = (volatile char *)off_116DB8 + 12;
-  memset_thunk((volatile int *)off_116DB8, 0, 0x204u);
+  memset((volatile int *)off_116DB8, 0, 0x204u);
   v3 = v2 + 420;
   do
   {
@@ -32247,7 +32247,7 @@ uint64_t alloc_shared_ctx() {
   v9 = (void *)(uintptr_t)(init_mac_global_0x188290());
   rx_queue_process((int)v9);
   v10 = *((volatile uint16_t *)v0 + 254);
-  memset_thunk((volatile int *)(v8 - 432), 0, 0x204u);
+  memset((volatile int *)(v8 - 432), 0, 0x204u);
   *((volatile uint16_t *)v0 + 254) = v10;
   do
   {
@@ -32395,7 +32395,7 @@ int check_cal_status(int result, volatile uint32_t *a2) {
             v10 = v8;
             _frame.v24 = *(volatile uint32_t *)(v4 + 84) & 0x3FFFFFFF;
             _frame.v23 = v9;
-            memcpy_1(v6 + 4, (volatile char *)&_frame.v23, 8u);
+            memcpy(v6 + 4, (volatile char *)&_frame.v23, 8u);
             v11 = *((volatile uint16_t *)v7 + 4122);
             if ( v11 > 0x186 )
             {
@@ -32476,7 +32476,7 @@ int init_mac_global_0x188290() {
   int v0; // r4
 
   v0 = dword_117DD4;
-  memset_thunk((volatile int *)dword_117DD4, 0, 0x28u);
+  memset((volatile int *)dword_117DD4, 0, 0x28u);
   clear_stats_buf((void *)(uintptr_t)(v0));
   clear_stats_buf((void *)(uintptr_t)(v0 + 8));
   clear_stats_buf((void *)(uintptr_t)(v0 + 16));
@@ -32548,7 +32548,7 @@ int is_initialized(int a1, int a2, int a3, int a4) {
         v13 = *(volatile uint16_t *)(a1 + 48);
         if ( (v13 == 52 || v13 == 28) && *(volatile uint8_t *)(v8 + 13) == v12 >> 12 )
         {
-          result = (int)memcpy_1((volatile char *)(v8 + 228), (volatile char *)(v11 + 18), 0x22u);
+          result = (int)memcpy((volatile char *)(v8 + 228), (volatile char *)(v11 + 18), 0x22u);
           *(volatile uint32_t *)(v8 + 224) = v8 + 228;
 LABEL_17:
           *(volatile uint16_t *)(v8 + 8) |= 0x40u;
@@ -33249,7 +33249,7 @@ int zero_struct(int a1, int a2, volatile uint32_t *a3, volatile int *a4) {
   int v8; // r1
   int v9; // r2
 
-  memset_thunk((volatile int *)a1, 0, 0x64u);
+  memset((volatile int *)a1, 0, 0x64u);
   *(volatile uint8_t *)(a1 + 96) = 1;
   v8 = dword_118968;
   v9 = dword_11896C;
@@ -33297,7 +33297,7 @@ int verify_header_magic(int a1) {
   {
     if ( !a1 || !*(volatile uint8_t *)(v2 + 97) )
     {
-      memset_thunk((volatile int *)v2, 0, 0x64u);
+      memset((volatile int *)v2, 0, 0x64u);
       *(volatile uint32_t *)(v2 + 44) = (int)(uintptr_t)(v3 + 11);
       *(volatile uint32_t *)(v2 + 72) = (int)(uintptr_t)(v3);
       *(volatile uint32_t *)(v2 + 76) = (int)(uintptr_t)(v4);
@@ -33385,7 +33385,7 @@ int update_mic(int a1, int a2, int a3) {
     v5 = dword_118AFC;
     v6 = v3 + 44;
   }
-  result = (int)(uintptr_t)(memcpy_1((void *)(uintptr_t)(v6), (void *)(uintptr_t)(v5), 52));
+  result = (int)(uintptr_t)(memcpy((void *)(uintptr_t)(v6), (void *)(uintptr_t)(v5), 52));
   v8 = *(volatile uint32_t *)off_118AF8;
   if ( *(volatile uint32_t *)(v3 + 64) & 0x7C | (*(volatile uint32_t *)(v3 + 64) >> 11) & 6 )
     v9 = (uint16_t)((uint16_t)*(volatile uint32_t *)off_118AF8 << 8) | (uint8_t)v8;
@@ -33887,7 +33887,7 @@ LABEL_5:
     *(volatile uint8_t *)(v11 + 109) = 0;
     *(volatile uint8_t *)(v11 + 110) = 0;
     *(volatile uint8_t *)(v11 + 111) = 0;
-    memcpy_1((volatile char *)(v11 + 112), a2, 6u);
+    memcpy((volatile char *)(v11 + 112), a2, 6u);
     v12 = (void *)(uintptr_t)(off_119240);
     v13 = *((volatile uint16_t *)off_119240 + 254);
     v14 = *(volatile uint16_t *)(a1 + 104);
@@ -33899,7 +33899,7 @@ LABEL_5:
     *(volatile uint16_t *)(v11 + 128) = v14;
     v12[254] = v13;
     *(volatile uint16_t *)(v11 + 130) = 16 * v13;
-    memcpy_1(
+    memcpy(
       (volatile char *)(v11 + 132),
       (volatile char *)(dword_119244 + (*(volatile uint8_t *)(a1 + 107) << 9)),
       *(volatile uint16_t *)(v8 + 2 * *(volatile uint8_t *)(a1 + 107)) - 24);
@@ -34621,12 +34621,12 @@ if ( *(volatile uint32_t *)(uintptr_t)(off_119D18) != *(volatile uint32_t *)off_
   v4 = (void *)(uintptr_t)(off_119D20);
   v5 = dword_119D30;
   v6 = dword_119D1C;
-  memset_thunk((volatile int *)dword_119D1C, 0, 0x30u);
+  memset((volatile int *)dword_119D1C, 0, 0x30u);
   v7 = v3 + 6;
   do
   {
     v8 = *v3++;
-    result = (int)memset_thunk(v8, 0, 360 * *v4);
+    result = (int)memset(v8, 0, 360 * *v4);
     v10 = *v4++;
     if ( v10 > 0 )
     {
@@ -35679,7 +35679,7 @@ LABEL_5:
       v43 = dword_11AB30;
       goto LABEL_41;
     }
-    memcpy_1(v11, (volatile char *)v2, 0x168u);
+    memcpy(v11, (volatile char *)v2, 0x168u);
     v13 = *((volatile uint8_t *)v3 + *(volatile uint8_t *)(v12 + 13));
   }
   v14 = v7[19];
@@ -37112,7 +37112,7 @@ volatile uint8_t * bt_start_operation(volatile uint8_t *result) {
       {
         if ( (*(volatile uint32_t *)(v2 + 4) & 0x20) != 0 )
         {
-          memset_thunk(_frame.v25, v1, 0x10u);
+          memset(_frame.v25, v1, 0x10u);
           v3 = (volatile uint8_t *)dword_11BC40;
           _frame.v23 = v1;
           v4 = 36 * *(volatile uint8_t *)(v2 + 35) + 8244 + dword_11BC3C;
@@ -37223,8 +37223,8 @@ int wifi_core_init() {
   unsigned int v11; // r3
 
   v0 = (volatile int *)off_11BD80;
-  memset_thunk((volatile int *)off_11BD84, 0, 0xD4u);
-  memset_thunk(v0, 0, 0x4C8u);
+  memset((volatile int *)off_11BD84, 0, 0xD4u);
+  memset(v0, 0, 0x4C8u);
   v1 = dword_11BD88;
   v0[272] = dword_11BD8C;
   *((volatile uint16_t *)v0 + 34) = 456;
@@ -37328,7 +37328,7 @@ int rx_queue_process() {
     if ( v3 )
     {
 LABEL_3:
-      memcpy_1((void *)(_frame.v12), (void *)(uintptr_t)(dword_11BE54), 144);
+      memcpy((void *)(_frame.v12), (void *)(uintptr_t)(dword_11BE54), 144);
       v4 = *((volatile uint8_t *)v0 + 160);
       if ( _frame.v12[1] )
         mem_set_util(dword_11BE54);
@@ -37436,7 +37436,7 @@ LABEL_13:
         }
         else if ( *(volatile uint8_t *)(a2 + 13) == v12 >> 12 )
         {
-          memcpy_1((void *)(uintptr_t)(a2 + 228), (void *)(v8 + 1), v11 - 2);
+          memcpy((void *)(uintptr_t)(a2 + 228), (void *)(v8 + 1), v11 - 2);
           *(volatile uint32_t *)(a2 + 224) = a2 + 228;
           return 1;
         }
@@ -39497,7 +39497,7 @@ LABEL_22:
     v15 = (void *)(uintptr_t)(off_11DAB8);
     if ( *((volatile uint8_t *)off_11DAB8 + 33) )
     {
-      result = memmove(*((volatile uint32_t *)off_11DAB8 + 4), *((volatile uint32_t *)off_11DAB8 + 5), *((volatile uint32_t *)off_11DAB8 + 6));
+      result = sub_110edc(*((volatile uint32_t *)off_11DAB8 + 4), *((volatile uint32_t *)off_11DAB8 + 5), *((volatile uint32_t *)off_11DAB8 + 6));
       v15[5] = 0;
       v15[7] = 0;
       v15[4] = 0;
@@ -40108,7 +40108,7 @@ int op_mode_get(int a1) {
   v1[6] = v5;
   if ( v3 >= result << 9 )
   {
-    result = memmove(v1[4], v4, v5);
+    result = sub_110edc(v1[4], v4, v5);
     v1[4] = 0;
     v1[5] = 0;
     v1[6] = 0;
@@ -40278,7 +40278,7 @@ LABEL_5:
               if ( v46 )
                 op_mode_get(v43);
               else
-                memmove(v43, v18[1], v18[2]);
+                sub_110edc(v43, v18[1], v18[2]);
               *(volatile uint8_t *)off_11E44C |= 1u;
               v18[1] = 0;
               v18[3] = 0;
@@ -40612,7 +40612,7 @@ LABEL_17:
             if ( v55 )
               op_mode_get(v52);
             else
-              memmove(v52, v12[1], v12[2]);
+              sub_110edc(v52, v12[1], v12[2]);
             v56 = (void *)(uintptr_t)(off_11E948);
             v57 = *(volatile uint8_t *)off_11E948;
             v12[1] = 0;
@@ -40922,7 +40922,7 @@ int send_ke_message(int a1) {
   v2 = tx_send_pdu(139, 13, 0, 24);
   v3 = a1;
   v4 = v2;
-  memcpy_1((void *)(uintptr_t)(v2), (void *)(uintptr_t)(v3), 24);
+  memcpy((void *)(uintptr_t)(v2), (void *)(uintptr_t)(v3), 24);
   return (int)(uintptr_t)(rx_process_packet_1(v4));
 }
 
@@ -41028,7 +41028,7 @@ volatile int * check_ll_event_queue(int a1) {
     v3 = (int)(uintptr_t)(list_pop(v2));
     check_packet_flag(v3, 1);
   }
-  result = memset_thunk((volatile int *)a1, 0, 0x2B8u);
+  result = memset((volatile int *)a1, 0, 0x2B8u);
   v5 = a1;
   do
   {
@@ -41423,7 +41423,7 @@ int set_connection_flag(int a1, uint8_t a2) {
   v4[161] = *(volatile uint8_t *)a1;
   v5 = (volatile int *)(696 * v2 + 64 + v3);
   v7 = v4[34];
-  v8 = memset_thunk(v5, 0, 0x48u);
+  v8 = memset(v5, 0, 0x48u);
   switch ( v4[160] )
   {
     case 0u:
@@ -41740,7 +41740,7 @@ int reset_controller_block() {
   int result; // r0
 
   v0 = (void *)(uintptr_t)(off_11F648);
-  memset_thunk((volatile int *)off_11F648, 0, 0x18u);
+  memset((volatile int *)off_11F648, 0, 0x18u);
   clear_stats_buf(v0);
   v1 = dword_11F64C;
   v2 = (void *)(uintptr_t)(off_11F650);
@@ -41748,7 +41748,7 @@ int reset_controller_block() {
   v3 = v1 + 5280;
   do
   {
-    memset_thunk((volatile int *)v1, 0, 0x528u);
+    memset((volatile int *)v1, 0, 0x528u);
     *(volatile uint32_t *)(v1 + 52) = (int)(uintptr_t)(v2);
     *(volatile uint32_t *)(v1 + 56) = v1;
     *(volatile uint8_t *)(v1 + 106) = 5;
@@ -42319,7 +42319,7 @@ LABEL_9:
   *(volatile uint32_t *)off_11FD94 = 0;
   if ( (uint8_t)v5[18] + (uint8_t)v5[17] <= 1 )
     get_current_channel_1();
-  memset_thunk(v3, 0, 0x528u);
+  memset(v3, 0, 0x528u);
   v48 = a1;
   v9 = v2 + 1320 * a1;
   v10 = (void *)(uintptr_t)(off_11FD98);
@@ -42360,7 +42360,7 @@ uint64_t get_bss_by_channel(volatile uint8_t *a1, char a2) {
   v6[576] = a1[40];
   v8 = (volatile int *)(v7 + 480 + v5);
   v6[577] = v3;
-  v9 = memset_thunk(v8, 0, 0x48u);
+  v9 = memset(v8, 0, 0x48u);
   switch ( v6[576] )
   {
     case 0:
@@ -42379,7 +42379,7 @@ uint64_t get_bss_by_channel(volatile uint8_t *a1, char a2) {
       *(volatile uint64_t *)(1320 * v4 + 120 * v3 + v5 + 552) = *(volatile uint64_t *)&dword_120040;
       break;
     case 5:
-      memcpy_1((void *)(uintptr_t)(v7 + 560 + v5), a1 + 8, 16);
+      memcpy((void *)(uintptr_t)(v7 + 560 + v5), a1 + 8, 16);
       goto LABEL_3;
     default:
 LABEL_3:
@@ -42757,7 +42757,7 @@ int init_fw_config() {
   int result; // r0
 
   v0 = (void *)(uintptr_t)(off_12045C);
-  memset_thunk((volatile int *)off_12045C, 0, 0x34u);
+  memset((volatile int *)off_12045C, 0, 0x34u);
   v1 = dword_120464;
   v2 = *(volatile int16_t **)off_120460;
   *(volatile uint32_t *)v0 = dword_120464;
@@ -44724,7 +44724,7 @@ LABEL_5:
   v10 = (void *)(uintptr_t)(off_1220D0);
   v11 = (void *)(uintptr_t)(off_1220D4);
   *((volatile uint8_t *)off_1220CC + 7) = *((volatile uint8_t *)v9 + 409);
-  ((int (*)())memset)((void *)(&v13[1]), 0, 16);
+  ((int (*)())strchr)((void *)(&v13[1]), 0, 16);
   *v10 = 0;
   v13[0] = 0;
   *v11 = 0;
@@ -45376,7 +45376,7 @@ int send_hci_vendor_event(int a1, int a2, int a3, int a4) {
 
 // copy_config_data @ 0x1229e8
 int copy_config_data(int a1, int a2, int a3, int a4) {
-  memcpy_1((void *)(uintptr_t)(dword_122A04), (void *)(uintptr_t)(a2), 69);
+  memcpy((void *)(uintptr_t)(dword_122A04), (void *)(uintptr_t)(a2), 69);
   mac_write_header_word(120, a4, a3);
   return 0;
 }
@@ -45664,7 +45664,7 @@ int ke_send_msg_74(int a1, int a2, uint16_t a3, uint16_t a4) {
   }
   else
   {
-    ((int (*)())memset)((void *)(_frame.v10), 0, 6);
+    ((int (*)())strchr)((void *)(_frame.v10), 0, 6);
     send_smc_cmd_0x400000((int)_frame.v10);
     v5 = __rev16(LOWORD(_frame.v10[0]));
     v6 = bswap32(*(volatile unsigned int *)((volatile char *)_frame.v10 + 2));
@@ -45826,7 +45826,7 @@ int ke_send_msg_81(int a1, int a2, int a3, int a4) {
   v4 = (volatile uint8_t *)tx_send_pdu(129, a4, a3, 64);
   v5 = dword_123050;
   *v4 = 0;
-  memcpy_1(v4 + 1, (void *)(uintptr_t)(v5), 36);
+  memcpy(v4 + 1, (void *)(uintptr_t)(v5), 36);
   v6 = (uint8_t)(*v4 + 36);
   *v4 = v6;
   v4[v6 + 1] = 0;
@@ -46528,7 +46528,7 @@ void list_check_first(int a1, int a2, int a3, int a4) {
   } _frame;
   v4 = (volatile int16_t **)off_123A24;
   v5 = **(volatile int16_t **)off_123A24;
-  ((int (*)())memset)((void *)(_frame.v12), 0, sizeof(_frame.v12));
+  ((int (*)())strchr)((void *)(_frame.v12), 0, sizeof(_frame.v12));
   if ( v5 < 0 && hci_cmd_handler(a3) )
     irq_disable_mmio_write((int)aKeStateGetDest, (int)aMmStartReqHand, 337);
   set_rf_channel((volatile int *)a2);
@@ -46950,7 +46950,7 @@ LABEL_53:
         case 0x18u:
 LABEL_52:
           v13 = (void *)(uintptr_t)(off_124194);
-          memcpy_1((volatile char *)(dword_1241B0 + 1320 * a2[6]), (volatile char *)a2, 6u);
+          memcpy((volatile char *)(dword_1241B0 + 1320 * a2[6]), (volatile char *)a2, 6u);
           v46 = (void *)(uintptr_t)(off_1241B8);
           v47 = *((volatile uint16_t *)a2 + 2);
           *(volatile uint32_t *)off_1241B4 = *(volatile uint32_t *)a2;
@@ -47940,7 +47940,7 @@ int mac_isr_check(volatile uint8_t *a1, int a2) {
       v7[1] = a1[34];
       v8 = (int)v7;
       a1[668] = 0;
-      memcpy_1(v7 + 2, a1 + 38, 6u);
+      memcpy(v7 + 2, a1 + 38, 6u);
       return (int)rx_process_packet_1(v8);
     }
   }
@@ -48475,7 +48475,7 @@ int init_bt_global_0x190310() {
 
   v0 = dword_125630;
   v1 = dword_125634;
-  memset_thunk((volatile int *)dword_125630, 0, 0x18u);
+  memset((volatile int *)dword_125630, 0, 0x18u);
   clear_stats_buf((void *)(uintptr_t)(v0 + 12));
   init_fixed_packet_header((void *)(uintptr_t)(v1));
   init_fixed_packet_header((void *)(uintptr_t)(v1 + 38));
@@ -48542,7 +48542,7 @@ volatile int * rf_chan_load(int a1) {
   v11[1] = v12;
   v11[6] = v12;
   v11[5] = v2;
-  result = memset_thunk(v10, 0, 0xFCu);
+  result = memset(v10, 0, 0xFCu);
   v14 = (volatile int *)(v1 + 4 * v9);
   *v14 = v2;
   v14[1] = 0;
@@ -48723,7 +48723,7 @@ int bt_task_init(int a1) {
   v7 = *(volatile uint8_t *)(v5 + 107);
   *((volatile uint8_t *)off_125950 + 9) = 1;
   v3[10] = 0;
-  memcpy_1((void *)(uintptr_t)(v6 + 108), (void *)(uintptr_t)(v4 + (v7 << 9)), *(volatile uint16_t *)(a1 + 4));
+  memcpy((void *)(uintptr_t)(v6 + 108), (void *)(uintptr_t)(v4 + (v7 << 9)), *(volatile uint16_t *)(a1 + 4));
   return ipc_trace_send(v5);
 }
 
@@ -51370,11 +51370,11 @@ int llc_env_init() {
 
   v0 = (volatile int *)off_12796C;
   v1 = (void *)(uintptr_t)(off_127968);
-  memset_thunk((volatile int *)off_127968, 0, 0x60u);
+  memset((volatile int *)off_127968, 0, 0x60u);
   v2 = 0;
   for ( i = v0; ; i += 7 )
   {
-    memset_thunk(i, 0, 0x1Cu);
+    memset(i, 0, 0x1Cu);
     *((volatile uint16_t *)i + 7) = 255;
     *((volatile uint8_t *)i + 24) = -1;
     *((volatile uint8_t *)i + 27) = -1;
@@ -51660,7 +51660,7 @@ int wifi_disable_calc(int a1) {
   }
   wlan_ioctl_handler_1(dword_127D50, (void *)(v4));
   v6 = v2 + 4 * (v5 - a1);
-  result = (int)memset_thunk(v4, 0, 0x1Cu);
+  result = (int)memset(v4, 0, 0x1Cu);
   *(volatile uint16_t *)(v6 + 14) = 255;
   *(volatile uint8_t *)(v6 + 24) = -1;
   *(volatile uint8_t *)(v6 + 27) = -1;
@@ -52957,7 +52957,7 @@ int mfp_key_clear() {
   int result; // r0
 
   v0 = (void *)(uintptr_t)(off_128DD4);
-  v1 = memset_thunk((volatile int *)off_128DD4, 0, 0x28u);
+  v1 = memset((volatile int *)off_128DD4, 0, 0x28u);
   result = (int)(uintptr_t)(init_runtime_state(v1));
   v0[4] = off_128DD8;
   *((volatile uint8_t *)v0 + 28) = 1;
@@ -54281,7 +54281,7 @@ volatile int *rf_patch_init() {
   volatile int *result; // r0
   volatile uint8_t *v1; // r3
 
-  result = memset_thunk((volatile int *)dword_129E20, 0, 1u);
+  result = memset((volatile int *)dword_129E20, 0, 1u);
   v1 = (void *)(uintptr_t)(off_129E24);
   *((volatile uint8_t *)off_129E24 + 113) = -1;
   v1[253] = -1;
@@ -54324,7 +54324,7 @@ int bt_is_ready(int a1, int a2) {
     v11 = 188;
     v12 = (volatile int *)((volatile char *)off_129EF8 + 140);
   }
-  memset_thunk(v12, 0, 0x8Cu);
+  memset(v12, 0, 0x8Cu);
   v7 = &v2[140 * v10];
   v7[113] = a1;
   v7[112] = a2;
@@ -55368,7 +55368,7 @@ volatile int * init_chan_entry(int a1) {
   v4 = 32 * a1;
   if ( *(volatile uint8_t *)(v2 + 30) )
     mem_set_util(dword_12ACF8 + 32 * a1);
-  result = memset_thunk((volatile int *)v2, 0, 0x20u);
+  result = memset((volatile int *)v2, 0, 0x20u);
   v6 = v1 + v4;
   v7 = (void *)(uintptr_t)(off_12ACFC);
   *(volatile uint32_t *)(v6 + 8) = v2;
@@ -55614,7 +55614,7 @@ int reset_global_config() {
   int result; // r0
   volatile uint32_t *v1; // r3
 
-  memset_thunk((volatile int *)dword_12B058, 0, 0xCu);
+  memset((volatile int *)dword_12B058, 0, 0xCu);
   result = hci_cmd_preprocess(2u, 0);
   v1 = (void *)(uintptr_t)(off_12B05C);
   *(volatile uint32_t *)off_12B05C = dword_12B060;
@@ -57286,7 +57286,7 @@ int tx_send_pdu(int16_t a1, int16_t a2, int16_t a3, unsigned int a4) {
   *(volatile uint16_t *)(v9 + 8) = a3;
   *(volatile uint16_t *)(v9 + 10) = a4;
   *(volatile uint32_t *)v9 = 0;
-  memset_thunk((volatile int *)(v9 + 12), 0, a4);
+  memset((volatile int *)(v9 + 12), 0, a4);
   return v9 + 12;
 }
 
@@ -58504,8 +58504,8 @@ int load_version_string(int a1) {
   char v12[132]; // [sp+80h] [bp-84h] BYREF
   } _frame;
   v1 = (volatile int *)off_12D458;
-  memcpy_1((volatile char *)_frame.v11, (volatile char *)off_12D458, 0x80u);
-  memcpy_1(_frame.v12, (volatile char *)v1 + 128, 0x80u);
+  memcpy((volatile char *)_frame.v11, (volatile char *)off_12D458, 0x80u);
+  memcpy(_frame.v12, (volatile char *)v1 + 128, 0x80u);
   v3 = ((uint64_t (*)())float_to_double)(a1);
   v4 = ((uint64_t (*)())double_compare_common)(v3, *(volatile uint64_t *)&dword_12D450);
   v5 = (v5 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_12D45C) << 32);
@@ -60966,7 +60966,7 @@ int pdu_alloc_424(int a1, volatile char **a2, int a3, int a4) {
   *(volatile uint32_t *)v5 = (int)(uintptr_t)(v6);
   *(volatile uint32_t *)(v5 + 4) = v7;
   v8 = v5;
-  memcpy_1((volatile char *)(v5 + 8), v6, v7);
+  memcpy((volatile char *)(v5 + 8), v6, v7);
   alloc_tx_event(asc_14AB98, *a2, &(*a2)[*(volatile uint32_t *)(v8 + 4)], *(volatile uint32_t *)(v8 + 8));
   rx_process_packet_1(v8);
   return 0;
@@ -60989,7 +60989,7 @@ int pdu_alloc_40c(int a1, volatile uint32_t *a2, int a3, int a4) {
     *v5 = 255;
   if ( v8 << 30 )
     *v5 = 1;
-  memcpy_1(v6, (volatile char *)a2 + 8, v8);
+  memcpy(v6, (volatile char *)a2 + 8, v8);
   alloc_tx_event(asc_14ABDC, *a2, a2[1] + *a2, a2[2], *v5);
   rx_process_packet_1((int)v5);
   return 0;
@@ -61456,7 +61456,7 @@ volatile int *lock_init_0x18274c() {
   volatile int *result; // r0
 
   v0 = (void *)(uintptr_t)(off_12F3C4);
-  result = memset_thunk((volatile int *)off_12F3C4, 0, 8u);
+  result = memset((volatile int *)off_12F3C4, 0, 8u);
   *v0 = 0x2FFFFFFFFLL;
   return result;
 }
@@ -61468,7 +61468,7 @@ int timer_init_0x1922d4() {
   int v0; // r4
 
   v0 = dword_12F3E4;
-  memset_thunk((volatile int *)dword_12F3E4, 0, 0x10u);
+  memset((volatile int *)dword_12F3E4, 0, 0x10u);
   clear_stats_buf((volatile uint32_t *)(v0 + 8));
   return 0;
 }
@@ -61576,7 +61576,7 @@ int state_check_0x182ba0_b(int result) {
     if ( v2 )
     {
       *(volatile uint32_t *)(v1 + 24) = 49374;
-      memcpy_1(v2, (volatile char *)v1, 0x1Cu);
+      memcpy(v2, (volatile char *)v1, 0x1Cu);
       v4 = (void *)(uintptr_t)(off_12F4A0);
       while ( !*(volatile uint32_t *)off_12F4A0 )
         ;
@@ -61795,7 +61795,7 @@ volatile uint32_t * split_on_dot(int a1, volatile uint32_t *a2, int a3) {
   int v10; // r6
   volatile uint32_t *v11; // r10
 
-  v5 = (int)(uintptr_t)(memset((void *)(uintptr_t)(a1), 46));
+  v5 = (int)(uintptr_t)(strchr((void *)(uintptr_t)(a1), 46));
   if ( v5 )
     v6 = v5 - a1;
   else
@@ -62283,14 +62283,14 @@ int is_compact_mac_string(int a1, int a2) {
   if ( memcpy_aligned(*(volatile uint32_t *)(a2 + 4)) != 12 || memcpy_aligned(*(volatile uint32_t *)(a2 + 8)) != 12 )
     return -2;
   v3 = *(volatile uint32_t *)(a2 + 4);
-  memcpy_1(_frame.a1a, (volatile char *)(v3 + 8), 4u);
+  memcpy(_frame.a1a, (volatile char *)(v3 + 8), 4u);
   *(volatile uint8_t *)(v3 + 8) = 0;
   _frame.v26 = 0;
   v4 = parse_uint_base((volatile uint8_t *)v3, nullptr, 0x10u);
   v5 = parse_uint_base((volatile uint8_t *)_frame.a1a, nullptr, 0x10u);
   v6 = *(volatile uint32_t *)(a2 + 8);
   v7 = v5;
-  memcpy_1(_frame.a1a, (volatile char *)(v6 + 8), 4u);
+  memcpy(_frame.a1a, (volatile char *)(v6 + 8), 4u);
   *(volatile uint8_t *)(v6 + 8) = 0;
   _frame.v26 = 0;
   v8 = parse_uint_base((volatile uint8_t *)v6, nullptr, 0x10u);
@@ -62502,7 +62502,7 @@ int lock_with_timeout(int a1) {
         v5 = v4;
         if ( v4 )
         {
-          memcpy_2((unsigned int)(v4 + 1), dword_12FFF8);
+          strcpy((unsigned int)(v4 + 1), dword_12FFF8);
           wlan_ioctl_handler_1(dword_130008, v5);
         }
         else
@@ -64360,7 +64360,7 @@ LABEL_21:
 
 // mem_alloc @ 0x1313d8
 int mem_alloc(int a1, int a2, int16_t a3, int16_t a4) {
-  memcpy_1((void *)(uintptr_t)(dword_1313F8), (void *)(uintptr_t)(a2), 254);
+  memcpy((void *)(uintptr_t)(dword_1313F8), (void *)(uintptr_t)(a2), 254);
   mac_write_header_word(5123, a4, a3);
   return 0;
 }
@@ -64605,8 +64605,8 @@ int log_bt_event(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
     *(volatile uint16_t *)(v7 + 6) = v11;
     *(volatile uint8_t *)(v7 + 12) = *(volatile uint8_t *)(v8 + 168);
     *(volatile uint8_t *)(v7 + 13) = *(volatile uint16_t *)(v8 + 152);
-    memcpy_1((void *)(uintptr_t)(v7 + 14), (void *)(uintptr_t)(v8 + 136), 8);
-    memcpy_1((void *)(uintptr_t)(v7 + 22), (void *)(uintptr_t)(v8 + 4), 120);
+    memcpy((void *)(uintptr_t)(v7 + 14), (void *)(uintptr_t)(v8 + 136), 8);
+    memcpy((void *)(uintptr_t)(v7 + 22), (void *)(uintptr_t)(v8 + 4), 120);
     if ( *(volatile uint16_t *)(v8 + 184) )
     {
       v12 = 0;
@@ -65353,7 +65353,7 @@ int send_req_5(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 // vendor_platform_init @ 0x132088
 int vendor_platform_init() {
-  memset_thunk((volatile int *)dword_1320B8, 0, 0x17Cu);
+  memset((volatile int *)dword_1320B8, 0, 0x17Cu);
   hci_cmd_preprocess(5u, 0);
   clear_shared_mem();
   reset_hci_control_block();
@@ -67991,7 +67991,7 @@ if ( v16 == 3 && ((int (*)())mac_backoff_rand)((void *)(uintptr_t)(a2 + 64), *(v
         v12[5] = v17;
         if ( v18 )
         {
-          memcpy_1((volatile char *)dword_133F04, (volatile char *)(v9 + 1320 * *(volatile uint8_t *)(a2 + 61) + 64), 6u);
+          memcpy((volatile char *)dword_133F04, (volatile char *)(v9 + 1320 * *(volatile uint8_t *)(a2 + 61) + 64), 6u);
           ke_timer_set(v9 + 1320 * *(volatile uint8_t *)(a2 + 61), 0, 0);
         }
         else
@@ -68219,8 +68219,8 @@ int hci_process_acl(int a1, volatile uint8_t *a2) {
     if ( *(volatile uint8_t *)off_134214 )
     {
       v38 = *(volatile uint8_t *)(v4 + 696 * _frame.v51 + 192);
-      ((int (*)())memset)((void *)(_frame.v55), 0, sizeof(_frame.v55));
-      ((int (*)())memset)((void *)(_frame.v56), 0, 12);
+      ((int (*)())strchr)((void *)(_frame.v55), 0, sizeof(_frame.v55));
+      ((int (*)())strchr)((void *)(_frame.v56), 0, 12);
       if ( v38 )
       {
         v39 = (void *)(_frame.v55);
@@ -68359,7 +68359,7 @@ int ble_clear_state() {
     tx_process_jump((int)(uintptr_t)((volatile char *)(v2 - 12)));
     tx_process_jump((int)(uintptr_t)((volatile char *)(v0[5] - 12)));
   }
-  memset_thunk((volatile int *)off_13432C, 0, 0x2Cu);
+  memset((volatile int *)off_13432C, 0, 0x2Cu);
   return hci_cmd_preprocess(6u, 0);
 }
 
@@ -70055,7 +70055,7 @@ int ke_msg_dispatch_1(int a1) {
 
   v1 = (void *)(uintptr_t)(off_13596C);
   invalid_handler_12c5fc(6154, 6);
-  memcpy_1((void *)(uintptr_t)(a1), (void *)(uintptr_t)(v1[4]), 54);
+  memcpy((void *)(uintptr_t)(a1), (void *)(uintptr_t)(v1[4]), 54);
   tx_process_jump(v1[4] - 12);
   v1[4] = a1;
   return mac_dma_setup();
@@ -70209,7 +70209,7 @@ LABEL_5:
     *(volatile uint8_t *)(v16 + 110) = 0;
     *(volatile uint8_t *)(v16 + 111) = 0;
     *(volatile uint32_t *)(v16 + 112) = v20;
-    memcpy_1((void *)(uintptr_t)(v16 + 124), (void *)(uintptr_t)(a2), 6);
+    memcpy((void *)(uintptr_t)(v16 + 124), (void *)(uintptr_t)(a2), 6);
     v21 = *(volatile uint8_t *)(v13 + 107);
     *(volatile uint16_t *)(v16 + 130) = 16 * _frame.v60;
     *(volatile uint8_t *)(v15 + 28) = v21;
@@ -70233,7 +70233,7 @@ LABEL_5:
           *(volatile uint8_t *)(v15 + 51) = 4;
           *(volatile uint8_t *)(v15 + 53) = 4;
           ++*(volatile uint64_t *)(_frame.v53 + 72);
-          memcpy_1((void *)(&_frame.v63), (void *)(uintptr_t)(_frame.v53 + 72), 6);
+          memcpy((void *)(&_frame.v63), (void *)(uintptr_t)(_frame.v53 + 72), 6);
           *(volatile uint16_t *)(v16 + 134) = _frame.v63;
           *(volatile uint16_t *)(v16 + 136) = HIWORD(_frame.v63) | (*(volatile uint8_t *)(_frame.v53 + 97) << 14);
           _frame.v62 = *(volatile uint8_t *)(v15 + 51);
@@ -70243,7 +70243,7 @@ LABEL_5:
           *(volatile uint8_t *)(v15 + 51) = 8;
           *(volatile uint8_t *)(v15 + 53) = 12;
           ++*(volatile uint64_t *)(_frame.v53 + 72);
-          memcpy_1((void *)(&_frame.v63), (void *)(uintptr_t)(_frame.v53 + 72), 6);
+          memcpy((void *)(&_frame.v63), (void *)(uintptr_t)(_frame.v53 + 72), 6);
           v48 = _frame.v63;
           v49 = HIWORD(_frame.v63);
           v46 = _frame.v64;
@@ -70256,7 +70256,7 @@ LABEL_5:
           *(volatile uint8_t *)(v15 + 51) = 8;
           *(volatile uint8_t *)(v15 + 53) = 8;
           ++*(volatile uint64_t *)(_frame.v53 + 72);
-          memcpy_1((void *)(&_frame.v63), (void *)(uintptr_t)(_frame.v53 + 72), 6);
+          memcpy((void *)(&_frame.v63), (void *)(uintptr_t)(_frame.v53 + 72), 6);
           *(volatile uint16_t *)(v16 + 134) = _frame.v63;
           v45 = *(volatile uint8_t *)(_frame.v53 + 97);
           v46 = _frame.v64;
@@ -70279,7 +70279,7 @@ LABEL_31:
           else
             v52 = __PAIR64__(v41, v40) + 1;
           *(volatile uint64_t *)(_frame.v53 + 72) = v52;
-          memcpy_1((void *)(&_frame.v63), (void *)(uintptr_t)(_frame.v53 + 72), 8);
+          memcpy((void *)(&_frame.v63), (void *)(uintptr_t)(_frame.v53 + 72), 8);
           *(volatile uint16_t *)(v16 + 134) = *(volatile uint8_t *)(_frame.v53 + 97);
           v42 = HIWORD(_frame.v63);
           v43 = _frame.v64;
@@ -70315,10 +70315,10 @@ LABEL_31:
     v26 = _frame.v61 + v23;
     _frame.v65[0] = *(volatile uint32_t *)off_135D40;
     _frame.v65[1] = v25;
-    memcpy_1((void *)(uintptr_t)(_frame.v61 + v23), (void *)(_frame.v65), 8);
+    memcpy((void *)(uintptr_t)(_frame.v61 + v23), (void *)(_frame.v65), 8);
     _frame.v66 = v24[1];
-    memcpy_1((void *)(uintptr_t)(v26 + 8), (void *)(&_frame.v66), 8);
-    memcpy_1((void *)(uintptr_t)(v26 + 16), (void *)(uintptr_t)(_frame.v59 + 100 + v3), 6);
+    memcpy((void *)(uintptr_t)(v26 + 8), (void *)(&_frame.v66), 8);
+    memcpy((void *)(uintptr_t)(v26 + 16), (void *)(uintptr_t)(_frame.v59 + 100 + v3), 6);
     v27 = v3 + 1320 * a1;
     *(volatile uint16_t *)(v26 + 22) = *(volatile uint32_t *)(v27 + 1228);
     *(volatile uint8_t *)(v26 + 24) = *(volatile uint16_t *)(v27 + 1230);
@@ -70338,7 +70338,7 @@ LABEL_31:
     {
       v28 = a3 + 42;
     }
-    memcpy_1((void *)(uintptr_t)(v26 + 26), v28, 10);
+    memcpy((void *)(uintptr_t)(v26 + 26), v28, 10);
     v29 = *(volatile uint8_t *)(v4 + 696 * v5 + 35);
     v30 = *(volatile uint32_t **)(v15 + 76);
     v31 = *(volatile uint8_t *)(v15 + 53);
@@ -70358,8 +70358,8 @@ LABEL_31:
     }
     if ( (a3[1] & 0x40) != 0 && *(volatile uint8_t *)(_frame.v53 + 96) == 1 )
     {
-      memcpy_1((void *)(uintptr_t)(v15 + 12), (void *)(uintptr_t)(a2), 6);
-      memcpy_1((void *)(uintptr_t)(v15 + 18), (void *)(uintptr_t)(_frame.v59 + 100 + v3), 6);
+      memcpy((void *)(uintptr_t)(v15 + 12), (void *)(uintptr_t)(a2), 6);
+      memcpy((void *)(uintptr_t)(v15 + 18), (void *)(uintptr_t)(_frame.v59 + 100 + v3), 6);
       v51 = v32 - (*(volatile uint8_t *)(v15 + 51) + *(volatile uint8_t *)(v15 + 53));
       *(volatile uint8_t *)(v15 + 27) = 0;
       rf_channel_select(v15, _frame.v53 + 80, v26, v51 - 26);
@@ -70377,7 +70377,7 @@ int tx_desc_get(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
   volatile uint8_t *v8; // r0
 
   v5 = *((volatile uint16_t *)a2 + 1);
-  memcpy_1((void *)(uintptr_t)(dword_135EDC + (*a2 << 9)), a2 + 4, v5);
+  memcpy((void *)(uintptr_t)(dword_135EDC + (*a2 << 9)), a2 + 4, v5);
   *(volatile uint16_t *)(dword_135EE0 + 2 * *a2) = v5;
   v8 = (volatile uint8_t *)tx_send_pdu(7177, a4, a3, 2u);
   *v8 = 1;
@@ -70826,7 +70826,7 @@ int reset_hci_control_block() {
   void *v1; // r3
 
   v0 = (void *)(uintptr_t)(off_1365EC);
-  memset_thunk((volatile int *)off_1365EC, 0, 0x24u);
+  memset((volatile int *)off_1365EC, 0, 0x24u);
   v1 = (void *)(uintptr_t)(off_1365F0);
   v0[15] = 3;
   *((volatile uint32_t *)v0 + 4) = 20000;
@@ -71291,7 +71291,7 @@ LABEL_4:
       *(volatile uint8_t *)(v8 + 109) = 0;
       *(volatile uint8_t *)(v8 + 110) = 0;
       *(volatile uint8_t *)(v8 + 111) = 0;
-      memcpy_1((void *)(uintptr_t)(v8 + 112), (void *)(uintptr_t)(a2), 6);
+      memcpy((void *)(uintptr_t)(v8 + 112), (void *)(uintptr_t)(a2), 6);
       v9 = (void *)(uintptr_t)(off_136D28);
       v10 = *((volatile uint16_t *)off_136D28 + 254);
       v11 = *(volatile uint16_t *)(a1 + 104);
@@ -71470,7 +71470,7 @@ int rf_trace_rate_set2(int a1, volatile char *a2, int a3, int a4) {
   v6 = (volatile char *)off_136EA8;
   v7 = *(volatile uint16_t *)a2;
   *(volatile uint16_t *)off_136EA8 = v7;
-  memcpy_1(v6 + 3, a2 + 3, v7);
+  memcpy(v6 + 3, a2 + 3, v7);
   *v5 = 1;
   v5[1] = a2[2];
   rx_process_packet_1((int)v5);
@@ -71977,7 +71977,7 @@ int util_hex_convert(int a1) {
 // clear_shared_mem @ 0x137490
 int clear_shared_mem() {
   hci_cmd_preprocess(4u, 0);
-  return (int)memset_thunk((volatile int *)dword_1374AC, 0, 0xFC0u);
+  return (int)memset((volatile int *)dword_1374AC, 0, 0xFC0u);
 }
 
 
@@ -73167,7 +73167,7 @@ LABEL_46:
     write_hash_header((int)&_frame.v65);
 LABEL_50:
   v50 = (volatile uint16_t *)off_1384D0;
-  memcpy_1((void *)(uintptr_t)(_frame.v65), (volatile char *)off_1384D0 + 3, *(volatile uint16_t *)off_1384D0);
+  memcpy((void *)(uintptr_t)(_frame.v65), (volatile char *)off_1384D0 + 3, *(volatile uint16_t *)off_1384D0);
   v51 = **(volatile int16_t **)off_1384D4;
   _frame.v65 += *v50;
   v52 = _frame.v65 - (uint32_t)v25;
@@ -73264,7 +73264,7 @@ int is_initialized_1() {
   {
     v13 = *(volatile uint16_t *)(*(volatile uint32_t *)v1 + 364);
     if ( v13 <= 0xC8 )
-      memcpy_1((volatile char *)dword_138694, v12, v13);
+      memcpy((volatile char *)dword_138694, v12, v13);
   }
   return (int)(uintptr_t)(check_event_flag_1());
 }
@@ -74845,7 +74845,7 @@ int rf_set_power(volatile char *a1, char a2, int a3) {
   }
   v6 = (uint8_t)(v4 + 6);
   v7 = &a1[v6];
-  memcpy_1(a1a, &a1[v6], 2u);
+  memcpy(a1a, &a1[v6], 2u);
   v8 = a1[4] & 1;
   if ( (a1[4] & 1) != 0 )
   {
@@ -74921,7 +74921,7 @@ volatile char * rf_get_power(volatile char *a1, char a2, int a3) {
   {
     v3 += 4;
   }
-  result = memcpy_1(a1a, &a1[(uint8_t)(v3 + 6)], 2u);
+  result = memcpy(a1a, &a1[(uint8_t)(v3 + 6)], 2u);
   if ( *(volatile uint16_t *)a1a == 36488 )
     return (volatile char *)alloc_tx_event("rx eapol:%x,%d\r\n", 36488, a3);
   return result;
@@ -75297,7 +75297,7 @@ int dma_tx_ring(int a1, int a2, int16_t a3) {
   v8 = v7;
   if ( !v7 )
     return 0;
-  memset_thunk(v7, 0, 0x124u);
+  memset(v7, 0, 0x124u);
   v9 = (void *)(uintptr_t)(off_13A318);
   *((volatile uint8_t *)v8 + 10) = a3 & 0x3F;
   *((volatile uint8_t *)v8 + 12) = v5;
@@ -75456,7 +75456,7 @@ int phy_init(int a1, volatile uint32_t *a2) {
     if ( (*(volatile uint16_t *)(a1 + 30) & 1) == 0 )
     {
       *(volatile uint64_t *)(v8 + 72) += v12;
-      memcpy_1((void *)(uintptr_t)(a1 + 56), (void *)(uintptr_t)(v8 + 72), 2 * v11);
+      memcpy((void *)(uintptr_t)(a1 + 56), (void *)(uintptr_t)(v8 + 72), 2 * v11);
     }
     return v10;
   }
@@ -75967,7 +75967,7 @@ LABEL_11:
       if ( v33 == 1 )
       {
         v15 = (v15 & ~0xFFu) | ((uint8_t)(phy_init(a1, (void *)(&_frame.a2a))) & 0xFFu);
-        memcpy_1((volatile char *)(*(volatile uint32_t *)(a1 + 72) + 164), (volatile char *)(*(volatile uint32_t *)(a1 + 72) + 172), 0x18u);
+        memcpy((volatile char *)(*(volatile uint32_t *)(a1 + 72) + 164), (volatile char *)(*(volatile uint32_t *)(a1 + 72) + 172), 0x18u);
         _frame.v41 = 24;
       }
       else
@@ -77434,7 +77434,7 @@ int rx_clear_packet(int a1) {
   int v6; // zf
 
   v1 = *(volatile uint32_t *)(a1 + 28);
-  memset_thunk((volatile int *)(v1 + 6), 0, 0x100u);
+  memset((volatile int *)(v1 + 6), 0, 0x100u);
   result = 348;
   v4 = *(volatile uint16_t *)(dword_13C2B4 + 2 * (*(volatile uint8_t *)(a1 + 22) + 348 * *(volatile uint8_t *)(a1 + 16)) + 316);
   *(volatile uint8_t *)(v1 + 262) = 0;
@@ -77988,7 +77988,7 @@ uint64_t rx_process_packet_3(int a1, volatile uint16_t *a2, int a3, int a4, int 
   }
   _frame.v50 = *a2 & 0xC7FF;
   v9 = (volatile char *)a2 + a4;
-  memcpy_1(_frame.v51, (void *)(a2 + 2), 18);
+  memcpy(_frame.v51, (void *)(a2 + 2), 18);
   v10 = a3 - a4;
   _frame.v38 = 20;
   _frame.v39 = v10;
@@ -78036,8 +78036,8 @@ uint64_t rx_process_packet_3(int a1, volatile uint16_t *a2, int a3, int a4, int 
     v19 = v20;
     v18 += 16;
   }
-  memset_thunk((volatile int *)&_frame.v44, 0, 0x10u);
-  memset_thunk((volatile int *)&_frame.v47, 0, 0x10u);
+  memset((volatile int *)&_frame.v44, 0, 0x10u);
+  memset((volatile int *)&_frame.v47, 0, 0x10u);
   if ( v12 > 16 )
   {
     v22 = &_frame.v38;
@@ -79652,9 +79652,9 @@ int rx_get_length(int result, int a2) {
             if ( (uint16_t)v5 >= v2 )
               goto LABEL_10;
           }
-          memmove_1((unsigned int)v13, v8, 0xCu);
-          memmove_1(v8, v8 + 12, 0xCu);
-          result = memmove_1(v8 + 12, (unsigned int)v13, 0xCu);
+          memmove((unsigned int)v13, v8, 0xCu);
+          memmove(v8, v8 + 12, 0xCu);
+          result = memmove(v8 + 12, (unsigned int)v13, 0xCu);
           ++v5;
           v12 = *(volatile uint64_t *)(v7 - 1);
           v9 = v6;
@@ -80618,7 +80618,7 @@ int rf_check_flag(int a1) {
   v24 = *(volatile uint8_t *)(a1 + 177);
   v25 = *(volatile uint16_t *)(a1 + 12 * *(volatile uint16_t *)(a1 + 138) + 10);
   v26 = *(volatile uint16_t *)(a1 + 12 * *(volatile uint16_t *)(a1 + 136) + 10);
-  memset_thunk(&_frame.v50, 0xFFu, 0xCu);
+  memset(&_frame.v50, 0xFFu, 0xCu);
   _frame.v45 = v23 - v24 + 1;
   while ( 2 )
   {
@@ -81583,7 +81583,7 @@ int l2c_ccb_run(int a1) {
   *(volatile uint32_t *)(a1 + 340) = v7;
   v86 = get_rf_field_mid() << 14;
   v8 = get_clock_prescaler();
-  memset_thunk((volatile int *)(v5 + 200 * v2), 0, 0xC8u);
+  memset((volatile int *)(v5 + 200 * v2), 0, 0xC8u);
   v9 = 200 * v2;
   if ( (*(volatile uint32_t *)(a1 + 4) & 2) != 0 )
   {
@@ -81671,7 +81671,7 @@ int l2c_ccb_run(int a1) {
           irq_disable_mmio_write((int)aRcSsNoSs3, (int)aRcInit_0, 3054);
           v45 = (volatile char *)(a1 + 211);
         }
-        memcpy_1((volatile char *)(v9 + 170 + v5), v45, 4u);
+        memcpy((volatile char *)(v9 + 170 + v5), v45, 4u);
         v47 = v5 + 200 * v2;
         v48 = *(volatile uint16_t *)(v47 + 174);
         *(volatile uint8_t *)(v47 + 170) = -1;
@@ -82704,7 +82704,7 @@ int bt_event_dispatch(int a1, int a2) {
       *(volatile uint16_t *)(v3 - 2) = 0;
       v5 = (volatile int *)v3;
       v3 += 528;
-      memset_thunk(v5, 0, 6u);
+      memset(v5, 0, 6u);
     }
     while ( v4 != v3 );
     v6 = (v6 & ~0xFFFFFFFFull) | ((uint32_t)(rf_delay()) & 0xFFFFFFFFu);
@@ -82777,7 +82777,7 @@ LABEL_12:
   *(volatile uint8_t *)(v18 + 367) = 1;
   v19 = *(volatile uint8_t *)(a1 + 58);
   *(volatile uint8_t *)(v18 + 252) = v19;
-  memcpy_1((volatile char *)(v18 + 253), (volatile char *)(a1 + 59), v19);
+  memcpy((volatile char *)(v18 + 253), (volatile char *)(a1 + 59), v19);
   *(volatile uint8_t *)(v18 + 368) = 1;
   *(volatile uint16_t *)(v18 + 352) = *(volatile uint16_t *)(a1 + 52);
   *(volatile uint16_t *)(v18 + 354) = *(volatile uint16_t *)(a1 + 54);
@@ -82795,7 +82795,7 @@ int clear_tx_buf() {
 
   v0 = (volatile int *)dword_140C80;
   hci_cmd_preprocess(0xBu, 0);
-  result = (int)memset_thunk(v0, 0, 0x1960u);
+  result = (int)memset(v0, 0, 0x1960u);
   v0[1620] = -1;
   return result;
 }
@@ -83138,7 +83138,7 @@ LABEL_23:
   {
     v18 = v17;
 LABEL_24:
-    result = memset_thunk((volatile int *)v18, 0, 0x210u);
+    result = memset((volatile int *)v18, 0, 0x210u);
 LABEL_25:
     if ( *(volatile uint16_t *)(v18 + 4) != 3 )
     {
@@ -83279,7 +83279,7 @@ LABEL_39:
           else
           {
             _frame.v45 = v21[2];
-            memcpy_1((void *)(uintptr_t)(v18 + 28), v21, v21[1] + 2);
+            memcpy((void *)(uintptr_t)(v18 + 28), v21, v21[1] + 2);
             result = (volatile int *)util_memcmp((volatile uint16_t *)(v18 + 6), (int)v21, v7);
             v29 = _frame.v45;
             if ( !result )
@@ -83859,11 +83859,11 @@ volatile int *init_runtime_state() {
   volatile int *result; // r0
 
   v0 = (volatile int *)dword_141F8C;
-  memset_thunk((volatile int *)dword_141F88, 0, 3u);
+  memset((volatile int *)dword_141F88, 0, 3u);
   v1 = v0 + 144;
   do
   {
-    result = memset_thunk(v0, 0, 0x48u);
+    result = memset(v0, 0, 0x48u);
     v0[15] = (int)v0;
     v0 += 18;
   }
@@ -83963,7 +83963,7 @@ unsigned int bt_data_process(unsigned int result) {
                 *(volatile uint8_t *)(v30 + 46) = v29;
                 *(volatile uint8_t *)(v30 + 2) = v32;
                 *(volatile uint8_t *)(v30 + 41) = 0;
-                memset_thunk((volatile int *)(v30 + 32), 0, 9u);
+                memset((volatile int *)(v30 + 32), 0, 9u);
                 v33 = *v31;
                 *(volatile int16_t *)v30 = 1;
                 *v31 = v33 + 1;
@@ -84239,7 +84239,7 @@ int ll_conn_process(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
     v10 = (uint8_t)v6[116];
     v11 = dword_14248C;
     _frame.v23 = v6[106];
-    memset_thunk(_frame.v24, 0, 0x48u);
+    memset(_frame.v24, 0, 0x48u);
     v12 = a2[4];
     v13 = v6[107];
     _frame.v24[0] = (_frame.v24[0] & ~0xFF00u) | (((uint8_t)(*(volatile uint8_t *)off_142484) & 0xFFu) << 8);
@@ -84879,12 +84879,12 @@ LABEL_5:
 
 
 
-// memcpy_1 @ 0x143630
+// memcpy @ 0x143630
 /* libmatch: 308 bytes identical to memcpy (libc.a:libc_a-memcpy.o); the library routine is linked */
 
 
-// memmove_1 @ 0x143764
-unsigned int memmove_1(unsigned int result, unsigned int a2, unsigned int a3) {
+// memmove @ 0x143764
+unsigned int memmove(unsigned int result, unsigned int a2, unsigned int a3) {
   volatile uint8_t *v3; // r3
   unsigned int v4; // r2
   char v5; // t1
@@ -84995,8 +84995,8 @@ int hash32() {
 
 
 
-// memset @ 0x143878
-volatile uint8_t * memset(volatile uint8_t *result, uint8_t a2) {
+// strchr @ 0x143878
+volatile uint8_t * strchr(volatile uint8_t *result, uint8_t a2) {
   volatile uint8_t *v2; // r3
   int v3; // r6
   int v4; // t1
@@ -85421,7 +85421,7 @@ LABEL_59:
 }
 
 
-// memcpy_2 @ 0x143c3c
+// strcpy @ 0x143c3c
 /* libmatch: 186 bytes identical to strcpy (libc.a:libc_a-strcpy.o); the library routine is linked */
 
 
