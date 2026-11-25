@@ -165,3 +165,14 @@ fmacfw_u02 0x116174. Failing functions 25 -> **22 corpus-wide** (fmacfw_h 8,
 fmacfw_u02 6, fmacfwbt 5, lmac 3); exercised matches rose exactly by the 3
 improvements. The chain-order repair (find_ext_strncasecmp after libc_names)
 held the reproduce fixed-point for the entire run.
+
+## Mix-clone tailcall + parse_ipv4_dot validation (fidelity v9, 2026-11-25)
+v9 (generalized patch_tailcall_args + ipv4_dot_libc repairs):
+EXERCISED_ALL_MATCH 3111/4720 = 65.91%; VACUOUS 1255 (unchanged).
+**5 improved / 0 regressed / 0 lateral** vs v8 — all DIFFER->MATCH:
+ble_state_check_13362c @ 0x13362c and bt_process_rx_data @ 0x133988 (the
+register-preserving mix/hash tailcall clones), parse_ipv4_dot @ 0x12f788
+(the strchr/strncasecmp libc bindings), and two sibling improvements at
+fmacfw_h 0x116034 and fmacfwbt 0x1165b4. Failing functions 22 -> **17
+corpus-wide** (fmacfw_h 6, fmacfw_u02 5, fmacfwbt 3, lmac 3); exercised
+matches rose exactly by the 5 improvements.
