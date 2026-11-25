@@ -1264,14 +1264,28 @@ def main() -> int:
         proto_by_addr = {int(r["address"], 16): r for r in prototype_infer.scan_image(img)}
         func_meta = {}
         for k, v in parsed.items():
-            machine_class = proto_by_addr.get(k, {}).get("class", "unknown")
+            prow = proto_by_addr.get(k, {})
+            machine_class = prow.get("class", "unknown")
+            contract = prow.get("contract")
+            # Machine-grounded scorer overlay: caller-use consumption proves a
+            # semantic result even when the Hex-Rays uninitialized-result
+            # heuristic says void; uniform input residue with no consuming
+            # caller proves void even when the heuristic says otherwise.
+            # Unknown contracts change nothing.
+            if contract == "void_machine":
+                r0_exclude = True
+            elif contract == "nonvoid_machine":
+                r0_exclude = False
+            else:
+                r0_exclude = machine_class in {"exact_nullsub", "nullsub_tail_alias"}
             func_meta[k] = {
                 "marker": v["marker"],
                 "is_void": v["is_void"],
                 "is_void_ub": v["is_void_ub"],
                 "machine_class": machine_class,
+                "contract": contract,
                 "param_types": v["param_types"],
-                "r0_exclude": machine_class in {"exact_nullsub", "nullsub_tail_alias"},
+                "r0_exclude": r0_exclude,
             }
         keys = sorted(func_meta)
         with ctx.Pool(
