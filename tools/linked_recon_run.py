@@ -38,6 +38,7 @@ from unicorn import UC_HOOK_CODE
 from unicorn.arm_const import UC_ARM_REG_PC, UC_ARM_REG_R0
 
 import aic8800d80_emulator as emu
+import link_freshness
 
 REPO = Path(__file__).resolve().parent.parent
 FULL_LINK = REPO / "build" / "full_link_run"
@@ -65,19 +66,29 @@ def marker_names(image: str) -> dict[int, str]:
 
 
 def check_elf_freshness(path: Path) -> None:
-    """Reject a runtime ELF older than the composed source it was linked from.
+    """Reject a runtime ELF whose content does not derive from current inputs.
 
     The behavioral corpus is meaningless when it accidentally executes a stale
-    reconstruction. The runtime ELF is derived from composed main.c, so reject
-    an ELF older than that source and print the exact regeneration command.
+    reconstruction — and `make reproduce` rewrites main.c even when the compose
+    fixed point leaves the bytes unchanged, so mtimes cannot prove freshness.
+    The ELF must carry a full_link stamp whose content fingerprint of the whole
+    derivation chain (main.c, headers, Makefile, object, full_link.py) matches
+    the current tree, linked at the runtime base.
     """
     stem = path.parent.name
-    main_c = REPO / "src" / SHORT.get(stem, stem) / "main.c"
-    if main_c.is_file() and path.stat().st_mtime < main_c.stat().st_mtime:
+    regenerate = ("regenerate with "
+                  "python3 tools/full_link.py --text-base 0x800000 --out build/full_link_run")
+    stamp = link_freshness.read_stamp(path)
+    if stamp is None:
+        raise SystemExit(f"unstamped linked reconstruction {path}: predates provenance tracking; {regenerate}")
+    if int(stamp.get("text_base", "0"), 16) != LINK_BASE:
         raise SystemExit(
-            f"stale linked reconstruction {path}: older than {main_c}; regenerate with "
-            "python3 tools/full_link.py --text-base 0x800000 --out build/full_link_run"
-        )
+            f"wrong-base linked reconstruction {path}: linked at {stamp.get('text_base')} "
+            f"but the runtime corpus requires {LINK_BASE:#x}; {regenerate}")
+    current = link_freshness.src_fingerprint(stem)
+    if stamp.get("src_fingerprint") != current:
+        raise SystemExit(
+            f"stale linked reconstruction {path}: inputs changed since it was linked; {regenerate}")
 
 
 @functools.lru_cache(maxsize=None)

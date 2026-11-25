@@ -55,6 +55,7 @@ import sys
 from pathlib import Path
 
 import libmatch
+import link_freshness
 
 REPO = Path(__file__).resolve().parent.parent
 IMGS = ["fmacfw_8800d80_h_u02", "fmacfw_8800d80_u02",
@@ -74,6 +75,7 @@ NM = os.environ.get("CROSS_COMPILE", "arm-none-eabi-") + "nm"
 READELF = os.environ.get("CROSS_COMPILE", "arm-none-eabi-") + "readelf"
 OBJDUMP = os.environ.get("CROSS_COMPILE", "arm-none-eabi-") + "objdump"
 CFLAGS = ["-mcpu=cortex-m4", "-mthumb", "-O2", "-Iinclude", "-w", "-std=gnu99",
+          "-ffreestanding",
           "-ffunction-sections", "-fdata-sections", "-include", "include/aic8800d80_types.h"]
 # artifacts.c is pure scaffolding (stdint only) — compiling it with the forced
 # firmware header would re-emit Hex-Rays register globals (_CF/_R0/...) and
@@ -319,6 +321,9 @@ def main() -> int:
         if not ok:
             print(f"[full_link] {img}: residual undefs: {undef_syms[:10]}", file=sys.stderr)
             rc = 1
+
+        if ok:
+            link_freshness.write_stamp(elf, img, args.text_base)
 
         img_report = {
             "aliases": {k: v for k, v in sorted(aliases.items())},

@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Regression tests for the stale-linked-ELF freshness guard.
+"""Regression tests for the linked-ELF provenance guard.
 
 The dynamic fidelity infrastructure silently produced a false mismatch once
-because it executed a stale runtime ELF linked at the wrong base. The guard
-must fire whenever the ELF is older than the composed main.c it derives from.
+because it executed a stale/wrong-base runtime ELF. mtimes cannot prove
+freshness (make reproduce rewrites main.c at the compose fixed point), so the
+guard is content-hash based: full_link writes a stamp next to the ELF and the
+check recomputes the fingerprint of the whole derivation chain.
 """
-import os
+import json
 import sys
 import tempfile
 import unittest
@@ -15,47 +17,68 @@ from unittest import mock
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 import linked_recon_run as lrr
+import link_freshness as lf
 
 
 class ElfFreshness(unittest.TestCase):
-    def _tree(self, tmp: Path, elf_mtime: int, main_mtime: int | None) -> Path:
+    def _tree(self, tmp: Path) -> Path:
         elf = tmp / "full_link_run" / "fmacfw_8800d80_h_u02" / "x.full.elf"
         elf.parent.mkdir(parents=True)
         elf.write_bytes(b"\x7fELF")
-        os.utime(elf, (elf_mtime, elf_mtime))
-        if main_mtime is not None:
-            main_c = tmp / "src" / "fmacfw_h_u02" / "main.c"
-            main_c.parent.mkdir(parents=True)
-            main_c.write_text("// composed\n")
-            os.utime(main_c, (main_mtime, main_mtime))
+        (tmp / "src" / "fmacfw_h_u02").mkdir(parents=True)
+        (tmp / "src" / "fmacfw_h_u02" / "main.c").write_text("// composed\n")
+        (tmp / "src" / "include").mkdir(parents=True)
+        (tmp / "src" / "Makefile").write_text("# makefile\n")
         return elf
 
-    def test_stale_elf_is_rejected_with_regeneration_command(self):
+    def _check(self, tmp: Path, elf: Path):
+        with mock.patch.object(lf, "REPO", tmp):
+            lrr.check_elf_freshness(elf)
+
+    def test_unstamped_elf_is_rejected(self):
         with tempfile.TemporaryDirectory() as td:
             tmp = Path(td)
-            elf = self._tree(tmp, elf_mtime=1000, main_mtime=2000)
-            with mock.patch.object(lrr, "REPO", tmp):
-                with self.assertRaises(SystemExit) as cm:
-                    lrr.check_elf_freshness(elf)
-            self.assertIn("stale linked reconstruction", str(cm.exception))
+            elf = self._tree(tmp)
+            with self.assertRaises(SystemExit) as cm:
+                self._check(tmp, elf)
+            self.assertIn("unstamped", str(cm.exception))
             self.assertIn("--text-base 0x800000", str(cm.exception))
 
-    def test_fresh_elf_passes(self):
+    def test_wrong_base_elf_is_rejected(self):
         with tempfile.TemporaryDirectory() as td:
             tmp = Path(td)
-            elf = self._tree(tmp, elf_mtime=2000, main_mtime=1000)
-            with mock.patch.object(lrr, "REPO", tmp):
-                lrr.check_elf_freshness(elf)
+            elf = self._tree(tmp)
+            with mock.patch.object(lf, "REPO", tmp):
+                lf.write_stamp(elf, elf.parent.name, 0x100000)
+            with self.assertRaises(SystemExit) as cm:
+                self._check(tmp, elf)
+            self.assertIn("wrong-base", str(cm.exception))
 
-    def test_missing_main_c_cannot_be_judged(self):
+    def test_fingerprint_mismatch_is_rejected(self):
         with tempfile.TemporaryDirectory() as td:
             tmp = Path(td)
-            elf = self._tree(tmp, elf_mtime=1000, main_mtime=None)
-            with mock.patch.object(lrr, "REPO", tmp):
-                lrr.check_elf_freshness(elf)
+            elf = self._tree(tmp)
+            with mock.patch.object(lf, "REPO", tmp):
+                lf.write_stamp(elf, elf.parent.name, lrr.LINK_BASE)
+                # inputs change after the stamp was written
+                (tmp / "src" / "fmacfw_h_u02" / "main.c").write_text("// edited\n")
+            with self.assertRaises(SystemExit) as cm:
+                self._check(tmp, elf)
+            self.assertIn("stale linked reconstruction", str(cm.exception))
+
+    def test_matching_stamp_passes(self):
+        with tempfile.TemporaryDirectory() as td:
+            tmp = Path(td)
+            elf = self._tree(tmp)
+            with mock.patch.object(lf, "REPO", tmp):
+                lf.write_stamp(elf, elf.parent.name, lrr.LINK_BASE)
+            self._check(tmp, elf)
 
     def test_tracked_runtime_elves_are_currently_fresh(self):
-        for elf in sorted(lrr.FULL_LINK.glob("*/*.full.elf")):
+        elves = sorted(lrr.FULL_LINK.glob("*/*.full.elf"))
+        if not elves:
+            self.skipTest("no runtime ELFs built")
+        for elf in elves:
             lrr.check_elf_freshness(elf)
 
 
