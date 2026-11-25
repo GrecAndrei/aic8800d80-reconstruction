@@ -47,7 +47,7 @@ def complete(prompt, instructions="You are a concise assistant.",
         "stream": True,
         # fast mode: 1.5x token speed, free on the subscription through
         # Dec 31 2026 per the owner — flat-rate either way, latency win only
-        "service_tier": "fast",
+        "service_tier": "priority",  # the backend accepts priority (=fast mode); the literal string fast is rejected
     }
     if reasoning_effort:
         body["reasoning"] = {"effort": reasoning_effort}
