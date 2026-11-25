@@ -478,7 +478,21 @@ def scan_image(image: str) -> list[dict]:
                     rec["target"] = hex(target)
                     rec["evidence"] = [f"entry instruction is unconditional branch to {target:#x}"]
         out.append(rec)
-    return resolve_aliases(out)
+    rows = resolve_aliases(out)
+    consumption = scan_caller_use(blob, funcs)
+    for r in rows:
+        cu = consumption.get(int(r["address"], 16))
+        if cu:
+            r["caller_use"] = {
+                "consumed": len(cu["consumed_sites"]),
+                "ignored": len(cu["ignored_sites"]),
+                "inconclusive": cu["inconclusive"],
+            }
+            if cu["consumed_sites"]:
+                r["caller_use"]["first_consuming_site"] = cu["consumed_sites"][0]
+    for r in rows:
+        r["contract"], r["contract_evidence"] = final_contract(r)
+    return rows
 
 
 def resolve_aliases(rows: list[dict]) -> list[dict]:
@@ -510,22 +524,7 @@ def main() -> int:
     args = ap.parse_args()
     rows = []
     for image in IMAGES:
-        img_rows = scan_image(image)
-        blob = (REPO / "inputs" / "firmware" / f"{image}.bin").read_bytes()
-        consumption = scan_caller_use(blob, load_funcs(image))
-        for r in img_rows:
-            cu = consumption.get(int(r["address"], 16))
-            if cu:
-                r["caller_use"] = {
-                    "consumed": len(cu["consumed_sites"]),
-                    "ignored": len(cu["ignored_sites"]),
-                    "inconclusive": cu["inconclusive"],
-                }
-                if cu["consumed_sites"]:
-                    r["caller_use"]["first_consuming_site"] = cu["consumed_sites"][0]
-        for r in img_rows:
-            r["contract"], r["contract_evidence"] = final_contract(r)
-        rows.extend(img_rows)
+        rows.extend(scan_image(image))
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text("".join(json.dumps(r, sort_keys=True) + "\n" for r in rows))
     counts = {}
