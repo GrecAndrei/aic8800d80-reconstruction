@@ -129,3 +129,11 @@ libc-binding/control-flow decompile defects) and boundary artifacts
 (bt_reg_write data-as-code). The genuine-defect count is thus far smaller
 than the raw failing count; the timer-state cluster is the single dominant
 systematic target.
+
+## Timer-repair corpus validation (fidelity v5, 2026-11-25)
+Fresh measurement on timer_signed_diffs-repaired sources with the caller-noise
+overlay active: EXERCISED_ALL_MATCH 3475/4720 = 73.62% (v4: 73.20%). Per-
+function delta vs v4: 20 improved / 0 regressed / 0 lateral (all DIFFER->MATCH).
+Failing functions 94 -> 74 corpus-wide (fmacfw_h 31->25, fmacfw_u02 26->20,
+fmacfwbt 24->18, lmacfw_rf 13->11). The dominant 0x1922a7 shared-state cluster
+is closed in the measurement itself.
