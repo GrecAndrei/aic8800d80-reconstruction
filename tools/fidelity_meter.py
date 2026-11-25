@@ -1014,7 +1014,7 @@ def _eval_function(key: int) -> dict:
                     if idx >= len(vcfg["args"]):
                         break
                     aval = vcfg["args"][idx]
-                    if "*" in ptype and aval < 0x10000:
+                    if "*" in ptype and (aval < 0x10000 or aval >= 0xFFFF0000):
                         invalid = True
                         break
             if not invalid:
