@@ -1918,36 +1918,35 @@ int bt_event_handler(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
 
 
 // rf_get_tx_power @ 0x101cac
-/* luna: Computes a rate- and channel-dependent transmit-power setting, applying the channel power limit when enabled. */
 int rf_get_tx_power(unsigned int a1, signed int a2, volatile uint8_t *a3) {
   int v3; // r6
-  unsigned int frequency_mhz; // r7
+  unsigned int v4; // r7
   int v5; // cc
   volatile char *v6; // r0
   signed int v7; // r2
-  int power_level; // r5
+  int v8; // r5
   int v9; // r12
   int v10; // r4
   int v11; // r0
   char v12; // r8
-  unsigned int channel_power_offset; // r4
+  unsigned int v13; // r4
   unsigned int v14; // r0
   volatile char *v16; // r2
   signed int v17; // r0
   signed int v18; // r2
   int v19; // r12
   int v20; // r4
-  int frequency_bucket; // r0
-  volatile char *channel_info; // r0
-  int maximum_channel_power; // r3
+  int v21; // r0
+  volatile char *v22; // r0
+  int v23; // r3
 
   v3 = *a3;
-  frequency_mhz = *((volatile uint16_t *)a3 + 2);
+  v4 = *((volatile uint16_t *)a3 + 2);
   if ( !*a3 )
   {
     if ( a1 <= 1 )
     {
-      power_level = *((volatile char *)&((volatile uint32_t *)(uintptr_t)off_101E50)[49] + a2 + 2);
+      v8 = *((volatile char *)&((volatile uint32_t *)(uintptr_t)off_101E50)[49] + a2 + 2);
       if ( !a1 && (unsigned int)a2 <= 3 )
       {
         v9 = *a3;
@@ -1962,9 +1961,9 @@ int rf_get_tx_power(unsigned int a1, signed int a2, volatile uint8_t *a3) {
       v6 = (volatile char *)off_101E50 + a2;
       v7 = 2;
       if ( v5 )
-        power_level = v6[220];
+        v8 = v6[220];
       else
-        power_level = v6[210];
+        v8 = v6[210];
     }
     if ( v7 < a2 )
       v9 = 3;
@@ -1975,11 +1974,11 @@ int rf_get_tx_power(unsigned int a1, signed int a2, volatile uint8_t *a3) {
     else
       v10 = 2;
 LABEL_12:
-    if ( frequency_mhz <= 0x97B )
+    if ( v4 <= 0x97B )
     {
       v11 = 0;
     }
-    else if ( frequency_mhz > 0x994 )
+    else if ( v4 > 0x994 )
     {
       v11 = 2;
     }
@@ -1988,24 +1987,24 @@ LABEL_12:
       v11 = 1;
     }
     v12 = *(volatile uint8_t *)(*(volatile uint32_t *)asc_151888 + v11 + v9) + *(volatile uint8_t *)(dword_101E58 + v10 + 8) + *(volatile uint8_t *)off_101E5C;
-    channel_power_offset = v12;
+    v13 = v12;
     if ( LOBYTE(((volatile uint32_t *)(uintptr_t)off_101E50)[99]) )
-      power_level = (char)(*(volatile uint8_t *)(*(volatile uint32_t *)asc_151880 + v11) + power_level);
+      v8 = (char)(*(volatile uint8_t *)(*(volatile uint32_t *)asc_151880 + v11) + v8);
     goto LABEL_18;
   }
   v16 = (volatile char *)off_101E50 + a2;
   if ( a1 <= 1 )
   {
-    power_level = v16[232];
+    v8 = v16[232];
     v17 = 11;
     v18 = 7;
   }
   else
   {
     if ( a1 > 4 )
-      power_level = v16[254];
+      v8 = v16[254];
     else
-      power_level = v16[244];
+      v8 = v16[244];
     v17 = 7;
     v18 = 4;
   }
@@ -2025,53 +2024,53 @@ LABEL_12:
     else
       v20 = 2;
   }
-  if ( frequency_mhz > 0x1666 )
+  if ( v4 > 0x1666 )
   {
-    frequency_bucket = 5;
+    v21 = 5;
   }
-  else if ( frequency_mhz > 0x1616 )
+  else if ( v4 > 0x1616 )
   {
-    frequency_bucket = 4;
+    v21 = 4;
   }
-  else if ( frequency_mhz > 0x15C6 )
+  else if ( v4 > 0x15C6 )
   {
-    frequency_bucket = 3;
+    v21 = 3;
   }
-  else if ( frequency_mhz <= 0x1571 )
+  else if ( v4 <= 0x1571 )
   {
-    frequency_bucket = frequency_mhz > 0x1486;
+    v21 = v4 > 0x1486;
   }
   else
   {
-    frequency_bucket = 2;
+    v21 = 2;
   }
-  v12 = *(volatile uint8_t *)(*(volatile uint32_t *)a2_0 + frequency_bucket + v19) + *(volatile uint8_t *)(dword_101E58 + v20 + 11) + *(volatile uint8_t *)(off_101E5C + 1);
-  channel_power_offset = v12;
+  v12 = *(volatile uint8_t *)(*(volatile uint32_t *)a2_0 + v21 + v19) + *(volatile uint8_t *)(dword_101E58 + v20 + 11) + *(volatile uint8_t *)(off_101E5C + 1);
+  v13 = v12;
   if ( LOBYTE(((volatile uint32_t *)(uintptr_t)off_101E50)[99]) )
-    power_level = (char)(*(volatile uint8_t *)(*(volatile uint32_t *)asc_151884 + frequency_bucket) + power_level);
+    v8 = (char)(*(volatile uint8_t *)(*(volatile uint32_t *)asc_151884 + v21) + v8);
 LABEL_18:
   if ( (((volatile uint32_t *)(uintptr_t)off_101E50)[98] & 2) != 0 )
   {
-    channel_info = is_adv_enabled(v3, frequency_mhz);
-    if ( channel_info )
+    v22 = is_adv_enabled(v3, v4);
+    if ( v22 )
     {
-      maximum_channel_power = channel_info[4];
+      v23 = v22[4];
     }
     else
     {
       if ( **(volatile int16_t **)off_101E6C < 0 )
         log_warning(off_101E78, (int)aPhyGetTxpwrLev, 7022);
-      alloc_tx_event("invalid chan, band=%d, freq=%d\n", v3, frequency_mhz);
-      maximum_channel_power = 15;
+      alloc_tx_event("invalid chan, band=%d, freq=%d\n", v3, v4);
+      v23 = 15;
     }
-    if ( power_level >= maximum_channel_power )
-      power_level = (power_level & ~0xFFu) | ((uint8_t)(maximum_channel_power) & 0xFFu);
+    if ( v8 >= v23 )
+      v8 = (v8 & ~0xFFu) | ((uint8_t)(v23) & 0xFFu);
   }
   if ( (v12 & 1) != 0 )
-    v14 = channel_power_offset - 1 + ((channel_power_offset - 1) >> 31);
+    v14 = v13 - 1 + ((v13 - 1) >> 31);
   else
-    v14 = channel_power_offset + (channel_power_offset >> 31);
-  return (char)((v14 >> 1) + power_level);
+    v14 = v13 + (v13 >> 31);
+  return (char)((v14 >> 1) + v8);
 }
 
 

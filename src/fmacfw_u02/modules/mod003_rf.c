@@ -732,10 +732,9 @@ int mac_reset_disable(int a1, int a2, int a3, int a4) {
 
 
 // rf_update_am_back_power_diff @ 0x105188
-/* luna: Computes 20 times the signed difference between current and base AM backoff values, stores it at offset 96, and reports the scaled difference. */
 int rf_update_am_back_power_diff(int a1, int a2, int a3) {
-  float power_difference; // s14
-  int scaled_difference_for_log; // r3
+  float v6; // s14
+  int v7; // r3
   uint64_t v9; // r8
   uint64_t v10; // r0
   uint64_t v11; // r0
@@ -766,15 +765,15 @@ int rf_update_am_back_power_diff(int a1, int a2, int a3) {
     v13 = COERCE_FLOAT(free_msg(v12));
     v14 = -20.0;
 LABEL_6:
-    power_difference = v13 * v14;
-    scaled_difference_for_log = (int)(float)(power_difference * flt_10522C);
+    v6 = v13 * v14;
+    v7 = (int)(float)(v6 * flt_10522C);
     goto LABEL_4;
   }
-  power_difference = flt_105224;
-  scaled_difference_for_log = 0;
+  v6 = flt_105224;
+  v7 = 0;
 LABEL_4:
-  *(volatile float *)(a3 + 96) = power_difference;
-  return check_status_bits(1, "am_back_cur=%d am_back_base=%d pwr_act_diff*100=%d\n", a1, a2, scaled_difference_for_log);
+  *(volatile float *)(a3 + 96) = v6;
+  return check_status_bits(1, "am_back_cur=%d am_back_base=%d pwr_act_diff*100=%d\n", a1, a2, v7);
 }
 
 
@@ -1942,28 +1941,27 @@ LABEL_3:
 
 
 // rf_tx_gain_map_write @ 0x1063f4
-/* luna: Builds and writes the TX gain-map register value, applying optional per-index temperature scaling and table/index bypass encoding. */
 int rf_tx_gain_map_write(int a1, int a2, int a3, int a4, int a5) {
-  int scaled_gain_byte; // r4
-  unsigned int tx_gain_map_word; // r4
-  int gain_map_control_field; // r8
-  volatile uint32_t *tx_gain_map_register; // r3
+  int v9; // r4
+  unsigned int v10; // r4
+  int v11; // r8
+  volatile uint32_t *v12; // r3
 
   if ( (int)*(volatile uint32_t *)(a4 + 132) <= a2 )
   {
     adc_to_temp_scale(*(volatile float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
-    scaled_gain_byte = *(volatile uint8_t *)(a4 + 104);
+    v9 = *(volatile uint8_t *)(a4 + 104);
   }
   else
   {
-    scaled_gain_byte = (uint8_t)a1;
+    v9 = (uint8_t)a1;
   }
-  tx_gain_map_word = scaled_gain_byte | a1 & 0xFFFFF000 | (a2 << 8);
+  v10 = v9 | a1 & 0xFFFFF000 | (a2 << 8);
   if ( a3 )
   {
     if ( a2 == 7 )
     {
-      gain_map_control_field = 83886080;
+      v11 = 83886080;
       goto LABEL_8;
     }
     goto LABEL_11;
@@ -1979,7 +1977,7 @@ LABEL_11:
     {
       if ( a3 )
       {
-        gain_map_control_field = (15 - a2) << 24;
+        v11 = (15 - a2) << 24;
         goto LABEL_8;
       }
     }
@@ -1995,17 +1993,17 @@ LABEL_6:
   if ( (a5 & 0xFFFFFFFD) == 0 )
   {
 LABEL_14:
-    tx_gain_map_word |= 0xC08000u;
+    v10 |= 0xC08000u;
     check_status_bits(1, "table %d index %d bypass\n", a5, a2);
     goto LABEL_9;
   }
-  gain_map_control_field = a3 << 24;
+  v11 = a3 << 24;
 LABEL_8:
-  tx_gain_map_word = tx_gain_map_word & 0xFF3F7FFF | gain_map_control_field;
+  v10 = v10 & 0xFF3F7FFF | v11;
 LABEL_9:
-  tx_gain_map_register = (void *)(uintptr_t)(off_1064B0);
-  *(volatile uint32_t *)off_1064B0 = tx_gain_map_word;
-  return check_status_bits(1, "tx_gain_map=%x ", *tx_gain_map_register);
+  v12 = (void *)(uintptr_t)(off_1064B0);
+  *(volatile uint32_t *)off_1064B0 = v10;
+  return check_status_bits(1, "tx_gain_map=%x ", *v12);
 }
 
 
@@ -3691,20 +3689,19 @@ int read_status_high() {
 
 
 // rf_apply_loft_q_calibration @ 0x108238
-/* luna: Reads the LOFT-Q calibration value, adds it to the RF register’s low 12 bits, and sets the calibration update bit. */
 int rf_apply_loft_q_calibration() {
   volatile unsigned int *v0; // r5
-  int loft_q_register_value; // r6
-  int16_t loft_q_calibration_value; // r4
+  int v1; // r6
+  int16_t v2; // r4
   int result; // r0
   volatile uint32_t *v4; // r1
 
   v0 = (volatile unsigned int *)off_108274;
-  loft_q_register_value = *(volatile uint32_t *)off_108274;
-  loft_q_calibration_value = (uint16_t)*(volatile uint32_t *)off_108270 >> 4;
-  result = check_status_bits(1, "calib_loft_q=%x\n", loft_q_calibration_value);
+  v1 = *(volatile uint32_t *)off_108274;
+  v2 = (uint16_t)*(volatile uint32_t *)off_108270 >> 4;
+  result = check_status_bits(1, "calib_loft_q=%x\n", v2);
   v4 = (void *)(uintptr_t)(off_10827C);
-  *v0 = (loft_q_calibration_value + (uint16_t)loft_q_register_value) & 0xFFF | *v0 & 0xFFFFF000;
+  *v0 = (v2 + (uint16_t)v1) & 0xFFF | *v0 & 0xFFFFF000;
   *v4 |= 0x400000u;
   return result;
 }

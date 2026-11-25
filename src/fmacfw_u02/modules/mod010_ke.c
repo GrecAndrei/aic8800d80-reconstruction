@@ -255,67 +255,66 @@ void patch_check_valid() {
 
 
 // patch_apply_if_magic_valid @ 0x114eac
-/* luna: Checks the patch header magic markers, applies its relocation entries, and copies enabled aligned patch regions. */
 void patch_apply_if_magic_valid() {
-  volatile uint32_t *patch_header; // r3
-  int relocation_entries; // r2
-  unsigned int relocation_index; // r1
-  int relocation_value; // r4
-  volatile uint32_t *relocation_target; // t1
-  volatile int *copy_table_cursor; // r2
-  int copy_table_end; // r5
-  int copy_destination; // r0
+  volatile uint32_t *v0; // r3
+  int v1; // r2
+  unsigned int v2; // r1
+  int v3; // r4
+  volatile uint32_t *v4; // t1
+  volatile int *v5; // r2
+  int v6; // r5
+  int v7; // r0
   int v8; // t1
-  volatile uint32_t *copy_source; // r3
-  unsigned int copy_word_index; // r1
-  int destination_source_delta; // r0
+  volatile uint32_t *v9; // r3
+  unsigned int v10; // r1
+  int v11; // r0
 
-  patch_header = (void *)(uintptr_t)(off_114F1C);
+  v0 = (void *)(uintptr_t)(off_114F1C);
   if ( *(volatile uint32_t *)off_114F1C == dword_114F20 && *((volatile uint32_t *)off_114F1C + 2) == dword_114F20 + 135327480 )
   {
-    relocation_entries = *((volatile uint32_t *)off_114F1C + 1);
-    relocation_index = relocation_entries & 3;
-    if ( (relocation_entries & 3) == 0 )
+    v1 = *((volatile uint32_t *)off_114F1C + 1);
+    v2 = v1 & 3;
+    if ( (v1 & 3) == 0 )
     {
       if ( *((volatile uint32_t *)off_114F1C + 3) )
       {
         do
         {
-          relocation_value = *(volatile uint32_t *)(relocation_entries + 4);
-          relocation_target = *(volatile uint32_t **)relocation_entries;
-          relocation_entries += 8;
-          *relocation_target = relocation_value;
-          ++relocation_index;
+          v3 = *(volatile uint32_t *)(v1 + 4);
+          v4 = *(volatile uint32_t **)v1;
+          v1 += 8;
+          *v4 = v3;
+          ++v2;
         }
-        while ( patch_header[3] > relocation_index );
+        while ( v0[3] > v2 );
       }
-      copy_table_cursor = (volatile int *)dword_114F24;
-      copy_table_end = dword_114F24 + 16;
+      v5 = (volatile int *)dword_114F24;
+      v6 = dword_114F24 + 16;
       do
       {
-        v8 = *copy_table_cursor++;
-        copy_destination = v8;
+        v8 = *v5++;
+        v7 = v8;
         if ( !(v8 << 30) )
         {
-          copy_source = (volatile uint32_t *)copy_table_cursor[3];
-          copy_word_index = (uint8_t)copy_source & 3;
-          if ( ((uint8_t)copy_source & 3) == 0 )
+          v9 = (volatile uint32_t *)v5[3];
+          v10 = (uint8_t)v9 & 3;
+          if ( ((uint8_t)v9 & 3) == 0 )
           {
-            if ( copy_table_cursor[7] )
+            if ( v5[7] )
             {
-              destination_source_delta = copy_destination - (uint32_t)copy_source;
+              v11 = v7 - (uint32_t)v9;
               do
               {
-                *(volatile uint32_t *)((volatile char *)copy_source + destination_source_delta) = *copy_source;
-                ++copy_word_index;
-                ++copy_source;
+                *(volatile uint32_t *)((volatile char *)v9 + v11) = *v9;
+                ++v10;
+                ++v9;
               }
-              while ( copy_word_index < copy_table_cursor[7] );
+              while ( v10 < v5[7] );
             }
           }
         }
       }
-      while ( copy_table_cursor != (volatile int *)copy_table_end );
+      while ( v5 != (volatile int *)v6 );
     }
   }
 }
@@ -455,20 +454,19 @@ int patch_get_state() {
 
 
 // dump_cortex_m_fault_context @ 0x11512c
-/* luna: Logs the saved Cortex-M register context, SCB fault status, execution mode, and memory around the saved MSP and PSP. */
 int dump_cortex_m_fault_context() {
-  volatile uint32_t *saved_context; // r7
+  volatile uint32_t *v0; // r7
   volatile int *v1; // r5
   int i; // r4
   int v3; // r1
   int v4; // t1
-  volatile uint32_t *scb_registers; // r5
-  unsigned int cfsr; // r4
+  volatile uint32_t *v5; // r5
+  unsigned int v6; // r4
   int v7; // r3
   int v8; // r1
   int result; // r0
-  int msp; // r4
-  int psp; // r4
+  int v10; // r4
+  int v11; // r4
   unsigned int v12; // r4
   unsigned int v13; // r5
   int v14; // t1
@@ -476,7 +474,7 @@ int dump_cortex_m_fault_context() {
   unsigned int v16; // r5
   int v17; // t1
 
-  saved_context = (void *)(uintptr_t)(off_1152FC);
+  v0 = (void *)(uintptr_t)(off_1152FC);
   v1 = (volatile int *)off_1152FC;
   for ( i = 0; i != 13; ++i )
   {
@@ -484,32 +482,32 @@ int dump_cortex_m_fault_context() {
     v4 = *v1++;
     log_printf("\nR%-4d: %08X", v3, v4);
   }
-  scb_registers = (void *)(uintptr_t)(off_115304);
-  log_printf(aSp08xLr08xPc08, saved_context[13], saved_context[14], saved_context[15], saved_context[16], saved_context[17], saved_context[18]);
-  log_printf("\nCPUID: %08X\nICSR : %08X\nVTOR : %08X\nAIRCR: %08X", *scb_registers, scb_registers[1], scb_registers[2], scb_registers[3]);
+  v5 = (void *)(uintptr_t)(off_115304);
+  log_printf(aSp08xLr08xPc08, v0[13], v0[14], v0[15], v0[16], v0[17], v0[18]);
+  log_printf("\nCPUID: %08X\nICSR : %08X\nVTOR : %08X\nAIRCR: %08X", *v5, v5[1], v5[2], v5[3]);
   log_printf(
     "\nSHCSR: %08X\nCFSR : %08X\nHFSR : %08X\nDFSR : %08X\nAFSR : %08X",
-    scb_registers[9],
-    scb_registers[10],
-    scb_registers[11],
-    scb_registers[12],
-    scb_registers[15]);
-  cfsr = scb_registers[10];
-  if ( (uint8_t)cfsr )
+    v5[9],
+    v5[10],
+    v5[11],
+    v5[12],
+    v5[15]);
+  v6 = v5[10];
+  if ( (uint8_t)v6 )
   {
     log_printf(
       "\nMMFSR: %02X\n  IACCVIOL :%d\tDACCVIOL :%d\n  MUNSTKERR:%d\tMSTKERR  :%d\n  MLSPERR  :%d\tMMARVALID:%d",
-      (uint8_t)scb_registers[10],
-      cfsr & 1,
-      (cfsr >> 1) & 1,
-      (cfsr >> 3) & 1,
-      (cfsr >> 4) & 1,
-      (cfsr >> 5) & 1,
-      (cfsr >> 7) & 1);
-    if ( (cfsr & 0x80) != 0 )
-      log_printf("\nMMFAR: %08X", scb_registers[13]);
+      (uint8_t)v5[10],
+      v6 & 1,
+      (v6 >> 1) & 1,
+      (v6 >> 3) & 1,
+      (v6 >> 4) & 1,
+      (v6 >> 5) & 1,
+      (v6 >> 7) & 1);
+    if ( (v6 & 0x80) != 0 )
+      log_printf("\nMMFAR: %08X", v5[13]);
   }
-  if ( (cfsr & 0xFF00) != 0 )
+  if ( (v6 & 0xFF00) != 0 )
   {
     log_printf(
       "\n"
@@ -518,34 +516,34 @@ int dump_cortex_m_fault_context() {
       "  IMPRECISERR:%d\tUNSTKERR :%d\n"
       "  STKERR     :%d\tLSPERR   :%d\n"
       "  BFARVALID  :%d",
-      BYTE1(cfsr),
-      (cfsr >> 8) & 1,
-      (cfsr >> 9) & 1,
-      (cfsr >> 10) & 1,
-      (cfsr >> 11) & 1,
-      (cfsr >> 12) & 1,
-      (cfsr >> 13) & 1,
-      (cfsr >> 15) & 1);
-    if ( (cfsr & 0x8000) != 0 )
+      BYTE1(v6),
+      (v6 >> 8) & 1,
+      (v6 >> 9) & 1,
+      (v6 >> 10) & 1,
+      (v6 >> 11) & 1,
+      (v6 >> 12) & 1,
+      (v6 >> 13) & 1,
+      (v6 >> 15) & 1);
+    if ( (v6 & 0x8000) != 0 )
       log_printf("\nBFAR : %08X", *((volatile uint32_t *)off_115304 + 14));
   }
-  if ( HIWORD(cfsr) )
+  if ( HIWORD(v6) )
     log_printf(
       "\nUFSR : %04X\n  UNDEFINSTR:%d\tINVSTATE :%d\n  INVPC     :%d\tNOCP     :%d\n  UNALIGNED :%d\tDIVBYZERO:%d",
-      HIWORD(cfsr),
-      HIWORD(cfsr) & 1,
-      (cfsr >> 17) & 1,
-      (cfsr >> 18) & 1,
-      (cfsr >> 19) & 1,
-      HIBYTE(cfsr) & 1,
-      (cfsr >> 25) & 1);
-  if ( (saved_context[19] & 8) == 0 )
+      HIWORD(v6),
+      HIWORD(v6) & 1,
+      (v6 >> 17) & 1,
+      (v6 >> 18) & 1,
+      (v6 >> 19) & 1,
+      HIBYTE(v6) & 1,
+      (v6 >> 25) & 1);
+  if ( (v0[19] & 8) == 0 )
   {
     log_printf(aModeHandler);
     goto LABEL_9;
   }
   log_printf(aModeThread);
-  if ( (saved_context[20] & 1) == 0 )
+  if ( (v0[20] & 1) == 0 )
   {
 LABEL_9:
     log_printf(aPrivPrivileged);
@@ -553,17 +551,17 @@ LABEL_9:
   }
   log_printf(aPrivUser);
 LABEL_10:
-  v7 = saved_context[19];
+  v7 = v0[19];
   v8 = v7 << 29;
   if ( (v7 & 4) != 0 )
     log_printf(aStackPsp, v8);
   else
     log_printf(aStackMsp, v8);
-  result = log_printf(aCntrl08xPmask0, saved_context[20], __get_CPSR(), __get_CPSR(), __get_CPSR());
-  msp = saved_context[18];
-  if ( msp )
+  result = log_printf(aCntrl08xPmask0, v0[20], __get_CPSR(), __get_CPSR(), __get_CPSR());
+  v10 = v0[18];
+  if ( v10 )
   {
-    v15 = msp & 0xFFFFFFF0;
+    v15 = v10 & 0xFFFFFFF0;
     log_printf(aDumpmsp_0);
     v16 = v15 + 256;
     do
@@ -576,10 +574,10 @@ LABEL_10:
     }
     while ( v16 != v15 );
   }
-  psp = saved_context[17];
-  if ( psp )
+  v11 = v0[17];
+  if ( v11 )
   {
-    v12 = psp & 0xFFFFFFF0;
+    v12 = v11 & 0xFFFFFFF0;
     log_printf(aDumppsp_0);
     v13 = v12 + 256;
     do
@@ -863,15 +861,14 @@ int system_init() {
 
 
 // handle_reset_event @ 0x1157d8
-/* luna: Handles a firmware reset event by reinitializing radio-related state, applying any pending PHY update, and releasing the reset critical section. */
 volatile uint32_t * handle_reset_event(int a1, int a2) {
-  volatile int *reset_refcount; // r4
+  volatile int *v2; // r4
   volatile uint32_t *v3; // r3
   volatile unsigned int v4; // r1
   unsigned int v5; // r1
   int v6; // r3
   volatile uint32_t *v7; // r5
-  unsigned int phy_update_state; // r5
+  unsigned int v8; // r5
   volatile uint32_t *v9; // r1
   volatile uint32_t *v10; // r0
   uint64_t v11; // kr00_8
@@ -891,7 +888,7 @@ volatile uint32_t * handle_reset_event(int a1, int a2) {
     __disable_irq();
     *(volatile uint32_t *)dword_115938 = 1;
   }
-  reset_refcount = (volatile int *)dword_11593C;
+  v2 = (volatile int *)dword_11593C;
   ++*(volatile uint32_t *)dword_11593C;
   check_status_bits(1024, "%s\r\n", aRwnxlResetEvt);
   unknown_func_12d14c(0x80000000);
@@ -912,23 +909,23 @@ volatile uint32_t * handle_reset_event(int a1, int a2) {
   radio_is_ready();
   if ( !rx_rate_field_parse(0) )
     unknown_func_12d14c(0x2000000);
-  phy_update_state = dword_115954;
+  v8 = dword_115954;
   ble_sched_poll();
-  if ( *(volatile uint8_t *)phy_update_state && !*(volatile uint8_t *)dword_115958 && *(volatile uint8_t *)(phy_update_state + 6) )
+  if ( *(volatile uint8_t *)v8 && !*(volatile uint8_t *)dword_115958 && *(volatile uint8_t *)(v8 + 6) )
   {
-    v16 = (char)(*(volatile uint8_t *)(phy_update_state + 5) + (*(volatile uint8_t *)dword_115974 & 3));
-    v17 = *(volatile char *)(phy_update_state + 7) + v16;
-    if ( v17 >= *(volatile char *)(phy_update_state + 4) )
-      v17 = (v17 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(phy_update_state + 4)) & 0xFFu);
+    v16 = (char)(*(volatile uint8_t *)(v8 + 5) + (*(volatile uint8_t *)dword_115974 & 3));
+    v17 = *(volatile char *)(v8 + 7) + v16;
+    if ( v17 >= *(volatile char *)(v8 + 4) )
+      v17 = (v17 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(v8 + 4)) & 0xFFu);
     write_phy_config(v17);
-    v18 = *(volatile uint16_t *)(phy_update_state + 8);
+    v18 = *(volatile uint16_t *)(v8 + 8);
     v19 = (*(volatile uint32_t *)0x40501010u);
-    *(volatile uint8_t *)(phy_update_state + 7) = v17;
-    *(volatile uint8_t *)(phy_update_state + 0xB) = 1;
-    unknown_worker((volatile uint32_t *)(phy_update_state + 12), v19 + 60000 * v18);
+    *(volatile uint8_t *)(v8 + 7) = v17;
+    *(volatile uint8_t *)(v8 + 0xB) = 1;
+    unknown_worker((volatile uint32_t *)(v8 + 12), v19 + 60000 * v18);
     event_dispatch("update %d, %d\r\n", (char)v17, v16);
   }
-  *(volatile uint8_t *)(phy_update_state + 6) = 0;
+  *(volatile uint8_t *)(v8 + 6) = 0;
   check_status_bits(1024, aResetDone);
   if ( rf_status_poll() )
     unknown_func_12d104(0x80000);
@@ -940,7 +937,7 @@ volatile uint32_t * handle_reset_event(int a1, int a2) {
   *v10 = v11;
   v9[2] = v11;
   result = (volatile uint32_t *)dword_115970;
-  v13 = *reset_refcount;
+  v13 = *v2;
   *(volatile uint32_t *)(dword_115970 + 0x14) = v11;
   result[3] = v11;
   result[4] = HIDWORD(v11) + v11;
@@ -948,7 +945,7 @@ volatile uint32_t * handle_reset_event(int a1, int a2) {
   {
     v14 = v13 - 1;
     v15 = *(volatile uint32_t *)dword_115938;
-    *reset_refcount = v14;
+    *v2 = v14;
     if ( !v14 )
     {
       if ( v15 )

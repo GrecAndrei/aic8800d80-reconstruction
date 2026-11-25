@@ -656,11 +656,10 @@ int wifi_disable_get(volatile int16_t *a1, int a2, char a3) {
 
 
 // cfm_roc_event_handler @ 0x127a1c
-/* luna: Processes remain-on-channel events, updating ROC state, posting IPC notifications, and clearing associated radio state. */
 int cfm_roc_event_handler(volatile uint8_t *a1, int a2) {
-  volatile uint8_t *roc_context; // r7
-  int event_status; // r5
-  unsigned int roc_state; // r3
+  volatile uint8_t *v2; // r7
+  int v5; // r5
+  unsigned int v6; // r3
   volatile uint32_t *v7; // r8
   char v8; // r3
   volatile uint8_t *v10; // r8
@@ -668,25 +667,25 @@ int cfm_roc_event_handler(volatile uint8_t *a1, int a2) {
   volatile uint32_t *v12; // r0
   volatile uint8_t *v13; // r2
   int16_t v14; // r1
-  unsigned int event_duration; // r1
-  int adjusted_duration_ms; // r2
+  unsigned int v15; // r1
+  int v16; // r2
   int v17; // r0
   volatile uint32_t *v18; // r0
 
-  roc_context = (void *)(uintptr_t)(off_127BDC);
+  v2 = (void *)(uintptr_t)(off_127BDC);
   check_feature_flag(8, "roc: %d, dur=%d, st=%d\r\n", *a1, *((volatile uint32_t *)a1 + 3), *((volatile uint8_t *)off_127BDC + 128));
-  event_status = *a1;
+  v5 = *a1;
   if ( *a1 )
   {
-    if ( event_status == 1 )
+    if ( v5 == 1 )
     {
-      if ( (uint8_t)roc_context[136] == 255 )
+      if ( (uint8_t)v2[136] == 255 )
         return 0;
-      roc_state = (uint8_t)roc_context[128];
+      v6 = (uint8_t)v2[128];
       v7 = (void *)(uintptr_t)(off_127BF0);
-      if ( roc_state > 3 )
+      if ( v6 > 3 )
       {
-        if ( roc_state == 4 )
+        if ( v6 == 4 )
         {
           mem_set_util((int)(uintptr_t)((volatile uint32_t *)off_127BF0 + 16));
           v12 = (volatile uint32_t *)v7[8];
@@ -694,13 +693,13 @@ int cfm_roc_event_handler(volatile uint8_t *a1, int a2) {
           llc_version_read(v12);
         }
       }
-      else if ( roc_state > 1 )
+      else if ( v6 > 1 )
       {
         v13 = *((volatile uint8_t **)off_127BF0 + 11);
         *((volatile uint8_t *)off_127BF0 + 88) &= ~4u;
         if ( v13 )
         {
-          if ( v13 == roc_context + 112 && (volatile uint8_t *)v7[20] == v13 )
+          if ( v13 == v2 + 112 && (volatile uint8_t *)v7[20] == v13 )
           {
             mem_set_util((int)(uintptr_t)(v7 + 16));
             v7[18] = 0;
@@ -709,24 +708,24 @@ int cfm_roc_event_handler(volatile uint8_t *a1, int a2) {
         }
         ipc_post_msg(dword_127BE4);
       }
-      else if ( roc_state == 1 )
+      else if ( v6 == 1 )
       {
         *((volatile uint8_t *)off_127BF0 + 88) &= 0xFAu;
-        ipc_post_msg((int)(roc_context + 112));
+        ipc_post_msg((int)(v2 + 112));
       }
       v8 = *((volatile uint8_t *)v7 + 88);
-      roc_context[136] = -1;
+      v2[136] = -1;
       if ( (v8 & 0x12) != 0x10 )
         return 0;
       v18 = (volatile uint32_t *)dword_127BEC;
       *((volatile uint8_t *)v7 + 88) = v8 & 0xEF;
-      event_status = 0;
+      v5 = 0;
       mem_set_util((int)(uintptr_t)(v18));
-      return event_status;
+      return v5;
     }
     return 1;
   }
-  if ( (uint8_t)roc_context[136] != 255 || roc_context[128] == 4 || hci_cmd_handler(4u) == 1 )
+  if ( (uint8_t)v2[136] != 255 || v2[128] == 4 || hci_cmd_handler(4u) == 1 )
   {
     v10 = (void *)(uintptr_t)(off_127BF0);
     v11 = *((volatile uint8_t *)off_127BF0 + 88);
@@ -745,23 +744,23 @@ int cfm_roc_event_handler(volatile uint8_t *a1, int a2) {
     if ( (v11 & 0x20) == 0 )
     {
 LABEL_25:
-      roc_context[136] = 4;
-      roc_context[116] = a1[2];
-      roc_context[117] = a1[3];
+      v2[136] = 4;
+      v2[116] = a1[2];
+      v2[117] = a1[3];
       v14 = *((volatile uint16_t *)a1 + 3);
-      *((volatile uint16_t *)roc_context + 59) = *((volatile uint16_t *)a1 + 2);
-      *((volatile uint16_t *)roc_context + 61) = *((volatile uint16_t *)a1 + 4);
-      *((volatile uint16_t *)roc_context + 60) = v14;
-      roc_context[124] = a1[16];
-      roc_context[128] = 1;
-      roc_context[125] = 0;
-      event_duration = *((volatile uint32_t *)a1 + 3);
-      *((volatile uint16_t *)roc_context + 63) = a2;
-      adjusted_duration_ms = 1000 * event_duration;
-      if ( event_duration > 0x23 )
-        adjusted_duration_ms -= 35000;
-      *((volatile uint32_t *)roc_context + 33) = adjusted_duration_ms;
-      roc_context[138] = a1[1];
+      *((volatile uint16_t *)v2 + 59) = *((volatile uint16_t *)a1 + 2);
+      *((volatile uint16_t *)v2 + 61) = *((volatile uint16_t *)a1 + 4);
+      *((volatile uint16_t *)v2 + 60) = v14;
+      v2[124] = a1[16];
+      v2[128] = 1;
+      v2[125] = 0;
+      v15 = *((volatile uint32_t *)a1 + 3);
+      *((volatile uint16_t *)v2 + 63) = a2;
+      v16 = 1000 * v15;
+      if ( v15 > 0x23 )
+        v16 -= 35000;
+      *((volatile uint32_t *)v2 + 33) = v16;
+      v2[138] = a1[1];
       if ( a2 )
       {
         v10[88] = v11 | 1;
@@ -774,7 +773,7 @@ LABEL_25:
         llc_hw_reg_sync(v17);
       }
       *(volatile uint32_t *)off_127BE8 |= 4u;
-      return event_status;
+      return v5;
     }
   }
   v10[88] = v11 & 0xDF;

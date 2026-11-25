@@ -152,42 +152,41 @@ void rf_get_flag(int a1, int a2, int a3, int a4) {
 
 
 // usb_wlan_rx_pkt_free_list_init @ 0x1136d4
-/* luna: Clears the USB WLAN RX packet free list and allocates and enqueues the configured number of packet buffers. */
 volatile uint32_t *usb_wlan_rx_pkt_free_list_init() {
-  void *rx_config; // r7
+  void *v0; // r7
   volatile uint32_t *result; // r0
   volatile int *v2; // r9
-  volatile uint16_t *allocated_packet_count; // r6
+  volatile uint16_t *v3; // r6
   int v4; // r8
   volatile int16_t **v5; // r10
-  int16_t packet_index; // r5
+  int16_t v6; // r5
   unsigned int v7; // r1
-  volatile uint32_t *rx_packet_buffer; // r4
+  volatile uint32_t *v8; // r4
 
-  rx_config = (void *)(uintptr_t)(off_113750);
+  v0 = (void *)(uintptr_t)(off_113750);
   result = clear_stats_buf((volatile uint32_t *)dword_113754);
-  if ( *(volatile uint16_t *)(*(volatile uint32_t *)rx_config + 8) )
+  if ( *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8) )
   {
     v2 = (volatile int *)off_113764;
-    allocated_packet_count = (void *)(uintptr_t)(off_113758);
+    v3 = (void *)(uintptr_t)(off_113758);
     v4 = dword_113768;
     v5 = (volatile int16_t **)off_113770;
-    packet_index = 0;
+    v6 = 0;
     do
     {
-      rx_packet_buffer = buffer_pool_alloc(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
-      if ( !rx_packet_buffer )
+      v8 = buffer_pool_alloc(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
+      if ( !v8 )
       {
-        alloc_tx_event("usb_wlan_rx_pkt_free_list_init alloc fail: %d\n", packet_index);
+        alloc_tx_event("usb_wlan_rx_pkt_free_list_init alloc fail: %d\n", v6);
         if ( **v5 < 0 )
           irq_disable_mmio_write(off_113760, (int)aUsbWlanRxPktFr_0, 495);
       }
-      result = (volatile uint32_t *)co_list_push_back(dword_113754, rx_packet_buffer);
-      v7 = *(volatile uint16_t *)(*(volatile uint32_t *)rx_config + 8);
-      ++packet_index;
-      ++*allocated_packet_count;
+      result = (volatile uint32_t *)co_list_push_back(dword_113754, v8);
+      v7 = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8);
+      ++v6;
+      ++*v3;
     }
-    while ( v7 > packet_index );
+    while ( v7 > v6 );
   }
   return result;
 }
@@ -466,23 +465,22 @@ int rf_load_calibration(int a1) {
 
 
 // handle_rx_descriptor @ 0x113b08
-/* luna: Validates an incoming Wi-Fi RX descriptor, copies it into an available host descriptor, updates per-peer/TID byte accounting, and dispatches it to the */
 int handle_rx_descriptor(int a1) {
-  unsigned int peer_id; // r3
-  int vif_id; // r7
+  unsigned int v1; // r3
+  int v2; // r7
   int v4; // r8
-  unsigned int rx_queue_id; // r6
-  volatile uint32_t *rx_descriptor; // r4
+  unsigned int v5; // r6
+  volatile uint32_t *v6; // r4
   int v7; // r1
   int16_t v8; // r3
   int16_t v9; // r2
   int v10; // r3
-  unsigned int descriptor_peer_id; // r3
-  unsigned int tid; // r2
+  unsigned int v11; // r3
+  unsigned int v12; // r2
 
-  peer_id = *(volatile uint8_t *)(a1 + 25);
-  vif_id = *(volatile uint8_t *)(a1 + 24);
-  if ( peer_id <= 0x1F && !*(volatile uint8_t *)(dword_113C48 + 696 * peer_id + 37) )
+  v1 = *(volatile uint8_t *)(a1 + 25);
+  v2 = *(volatile uint8_t *)(a1 + 24);
+  if ( v1 <= 0x1F && !*(volatile uint8_t *)(dword_113C48 + 696 * v1 + 37) )
   {
     alloc_tx_event(aPktDiscardSinc);
     return pkt_mem_free((volatile uint32_t *)(a1 - *(volatile uint32_t *)(uintptr_t)(off_113C54) - 4));
@@ -490,54 +488,54 @@ int handle_rx_descriptor(int a1) {
   v4 = dword_113C6C;
   if ( (*(volatile uint16_t *)(a1 + 26) & 8) == 0 )
   {
-    if ( *(volatile uint8_t *)(dword_113C6C + 1320 * vif_id + 108) )
+    if ( *(volatile uint8_t *)(dword_113C6C + 1320 * v2 + 108) )
     {
-      rx_queue_id = *(volatile uint8_t *)(a1 + 22);
-      if ( **(volatile int16_t **)off_113C4C < 0 && rx_queue_id > 4 )
+      v5 = *(volatile uint8_t *)(a1 + 22);
+      if ( **(volatile int16_t **)off_113C4C < 0 && v5 > 4 )
         irq_disable_mmio_write((int)aAcNxTxqCnt_0, (int)aHandleUsbRx, 926);
-      rx_descriptor = (void *)(uintptr_t)(rssi_compare());
-      if ( rx_descriptor )
+      v6 = (void *)(uintptr_t)(rssi_compare());
+      if ( v6 )
         goto LABEL_7;
 LABEL_13:
-      debug_printf(" host rx: dscr used = %d\r\n", *(volatile uint8_t *)(dword_113C50 + rx_queue_id));
+      debug_printf(" host rx: dscr used = %d\r\n", *(volatile uint8_t *)(dword_113C50 + v5));
       while ( 1 )
         ;
     }
     return pkt_mem_free((volatile uint32_t *)(a1 - *(volatile uint32_t *)(uintptr_t)(off_113C54) - 4));
   }
-  rx_queue_id = 3;
-  rx_descriptor = (void *)(uintptr_t)(rssi_compare());
-  if ( !rx_descriptor )
+  v5 = 3;
+  v6 = (void *)(uintptr_t)(rssi_compare());
+  if ( !v6 )
     goto LABEL_13;
 LABEL_7:
-  v7 = rx_descriptor[19];
-  v8 = *((volatile uint16_t *)rx_descriptor + 15) & 0xFFFE;
-  ++*(volatile uint8_t *)(dword_113C50 + rx_queue_id);
-  *((volatile uint16_t *)rx_descriptor + 15) = v8;
-  rx_descriptor[17] = 0;
+  v7 = v6[19];
+  v8 = *((volatile uint16_t *)v6 + 15) & 0xFFFE;
+  ++*(volatile uint8_t *)(dword_113C50 + v5);
+  *((volatile uint16_t *)v6 + 15) = v8;
+  v6[17] = 0;
   *(volatile uint32_t *)(v7 + 4) = 0;
   *(volatile uint32_t *)(v7 + 72) = 0;
-  rx_descriptor[11] = 0;
-  memcpy((volatile char *)rx_descriptor + 4, (volatile char *)a1, 0x1Cu);
-  v9 = *((volatile uint16_t *)rx_descriptor + 15);
+  v6[11] = 0;
+  memcpy((volatile char *)v6 + 4, (volatile char *)a1, 0x1Cu);
+  v9 = *((volatile uint16_t *)v6 + 15);
   v10 = *(volatile uint32_t *)(uintptr_t)(off_113C54);
-  *((volatile uint16_t *)rx_descriptor + 3) = 0;
-  rx_descriptor[18] = a1 - v10 - 4;
-  *((volatile uint8_t *)rx_descriptor + 66) = 0;
-  rx_descriptor[9] = 0;
-  rx_descriptor[21] = 0;
-  *((volatile uint16_t *)rx_descriptor + 41) = 0;
-  *((volatile uint16_t *)rx_descriptor + 15) = v9 & 0xFFFD;
+  *((volatile uint16_t *)v6 + 3) = 0;
+  v6[18] = a1 - v10 - 4;
+  *((volatile uint8_t *)v6 + 66) = 0;
+  v6[9] = 0;
+  v6[21] = 0;
+  *((volatile uint16_t *)v6 + 41) = 0;
+  *((volatile uint16_t *)v6 + 15) = v9 & 0xFFFD;
   if ( (v9 & 8) != 0 )
-    return co_list_push_back(v4 + 1320 * vif_id + 1312, rx_descriptor);
-  descriptor_peer_id = *((volatile uint8_t *)rx_descriptor + 29);
-  if ( descriptor_peer_id <= 0x1F )
+    return co_list_push_back(v4 + 1320 * v2 + 1312, v6);
+  v11 = *((volatile uint8_t *)v6 + 29);
+  if ( v11 <= 0x1F )
   {
-    tid = *((volatile uint8_t *)rx_descriptor + 27);
-    if ( tid <= 8 )
-      *(volatile uint32_t *)(dword_113C58 + 4 * (9 * descriptor_peer_id + tid + 2062)) += *((volatile uint16_t *)rx_descriptor + 2);
+    v12 = *((volatile uint8_t *)v6 + 27);
+    if ( v12 <= 8 )
+      *(volatile uint32_t *)(dword_113C58 + 4 * (9 * v11 + v12 + 2062)) += *((volatile uint16_t *)v6 + 2);
   }
-  return co_list_push_back(v4 + 8 * (rx_queue_id + 165 * vif_id + 154), rx_descriptor);
+  return co_list_push_back(v4 + 8 * (v5 + 165 * v2 + 154), v6);
 }
 
 

@@ -300,7 +300,6 @@ int conn_table_get(int a1, char a2) {
 
 
 // tx_queue_set_head @ 0x116574
-/* luna: Sets the hardware head pointer for the selected access-category TX queue and kicks that queue. */
 int tx_queue_set_head(int a1, int a2) {
   volatile uint32_t *v3; // r3
   volatile unsigned int v4; // r2

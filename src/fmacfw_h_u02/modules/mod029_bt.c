@@ -30,32 +30,31 @@ LABEL_4:
 
 
 // update_vif_dhcp_state @ 0x12287c
-/* luna: Stores a VIF's DHCP-acquired flag and IPv4 address, handles conditional ARP-offload and pending-state cleanup, and writes the command-98 response. */
 int update_vif_dhcp_state(int a1, int a2, int a3, int a4) {
-  int vif_table_base; // r9
-  int vif_index; // r5
-  int vif_state; // r8
-  char dhcped; // r1
+  int v4; // r9
+  int v6; // r5
+  int v9; // r8
+  char v10; // r1
   int v11; // r2
-  int ipv4_addr; // r3
+  int v12; // r3
 
-  vif_table_base = dword_122920;
-  vif_index = *(volatile uint8_t *)(a2 + 5);
-  if ( **(volatile int16_t **)off_122910 < 0 && *(volatile uint8_t *)(dword_122920 + 1320 * vif_index + 106) )
+  v4 = dword_122920;
+  v6 = *(volatile uint8_t *)(a2 + 5);
+  if ( **(volatile int16_t **)off_122910 < 0 && *(volatile uint8_t *)(dword_122920 + 1320 * v6 + 106) )
     irq_disable_mmio_write((int)aVifTypeVifSta, (int)aMmSetArpoffloa, 2660);
-  vif_state = vif_table_base + 1320 * vif_index;
-  dhcped = *(volatile uint8_t *)(a2 + 4);
-  v11 = *(volatile uint8_t *)(vif_state + 149);
-  ipv4_addr = *(volatile uint32_t *)a2;
-  *(volatile uint32_t *)(vif_state + 1228) = *(volatile uint32_t *)a2;
-  *(volatile uint8_t *)(vif_state + 1227) = dhcped;
+  v9 = v4 + 1320 * v6;
+  v10 = *(volatile uint8_t *)(a2 + 4);
+  v11 = *(volatile uint8_t *)(v9 + 149);
+  v12 = *(volatile uint32_t *)a2;
+  *(volatile uint32_t *)(v9 + 1228) = *(volatile uint32_t *)a2;
+  *(volatile uint8_t *)(v9 + 1227) = v10;
   if ( v11 == 1 )
   {
-    mem_set_util((int)(uintptr_t)((volatile uint32_t *)(1320 * vif_index + 152 + vif_table_base)));
-    ipv4_addr = *(volatile uint32_t *)(vif_state + 1228);
-    *(volatile uint8_t *)(vif_state + 149) = 0;
+    mem_set_util((int)(uintptr_t)((volatile uint32_t *)(1320 * v6 + 152 + v4)));
+    v12 = *(volatile uint32_t *)(v9 + 1228);
+    *(volatile uint8_t *)(v9 + 149) = 0;
   }
-  check_feature_flag(256, "DHCPed:%d,%x.\r\n", *(volatile uint8_t *)(vif_table_base + 1320 * vif_index + 1227), ipv4_addr);
+  check_feature_flag(256, "DHCPed:%d,%x.\r\n", *(volatile uint8_t *)(v4 + 1320 * v6 + 1227), v12);
   mac_write_header_word(98, a4, a3);
   return 0;
 }

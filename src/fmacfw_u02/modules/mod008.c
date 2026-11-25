@@ -1,5 +1,4 @@
 // usb_wlan_rx_pkt_free_list_init @ 0x113814
-/* luna: Initializes the USB WLAN RX packet free list by allocating buffers and adding them until the configured count is reached. */
 volatile uint32_t *usb_wlan_rx_pkt_free_list_init() {
   void *v0; // r7
   volatile uint32_t *result; // r0
@@ -7,9 +6,9 @@ volatile uint32_t *usb_wlan_rx_pkt_free_list_init() {
   volatile uint16_t *v3; // r6
   int v4; // r8
   volatile uint16_t **v5; // r10
-  int16_t buffer_index; // r5
-  unsigned int configured_buffer_count; // r1
-  volatile uint32_t *rx_buffer; // r4
+  int16_t v6; // r5
+  unsigned int v7; // r1
+  volatile uint32_t *v8; // r4
 
   v0 = (void *)(uintptr_t)(off_113890);
   result = zero_8_bytes((volatile uint32_t *)dword_113894);
@@ -19,22 +18,22 @@ volatile uint32_t *usb_wlan_rx_pkt_free_list_init() {
     v3 = (void *)(uintptr_t)(off_113898);
     v4 = dword_1138A8;
     v5 = (volatile uint16_t **)off_1138B0;
-    buffer_index = 0;
+    v6 = 0;
     do
     {
-      rx_buffer = buffer_pool_alloc(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
-      if ( !rx_buffer )
+      v8 = buffer_pool_alloc(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
+      if ( !v8 )
       {
-        event_dispatch("usb_wlan_rx_pkt_free_list_init alloc fail: %d\n", buffer_index);
+        event_dispatch("usb_wlan_rx_pkt_free_list_init alloc fail: %d\n", v6);
         if ( **v5 < 0 )
           mmio_clear_register(off_1138A0, (int)aUsbWlanRxPktFr_0, 495);
       }
-      result = (volatile uint32_t *)co_list_push_back(dword_113894, rx_buffer);
-      configured_buffer_count = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8);
-      ++buffer_index;
+      result = (volatile uint32_t *)co_list_push_back(dword_113894, v8);
+      v7 = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8);
+      ++v6;
       ++*v3;
     }
-    while ( configured_buffer_count > buffer_index );
+    while ( v7 > v6 );
   }
   return result;
 }

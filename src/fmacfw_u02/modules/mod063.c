@@ -128,14 +128,15 @@ int check_and_run_process(int a1, volatile uint8_t *a2) {
 
 
 // rf_set_config_803 @ 0x137170
+/* luna: Queues a SCANU cancellation request and logs a diagnostic value for the cancellation. */
 int rf_set_config_803() {
-  int v0; // r0
-  int v1; // r0
+  int cancel_message; // r0
+  int cancel_result; // r0
 
-  v0 = ke_msg_alloc(2051, 2, 4, 1);
-  ke_msg_send_2(v0);
-  v1 = rx_rate_field_parse(4u);
-  check_status_bits(8, "scanu cancel:%d\r\n", v1);
+  cancel_message = ke_msg_alloc(2051, 2, 4, 1);
+  ke_msg_send_2(cancel_message);
+  cancel_result = rx_rate_field_parse(4u);
+  check_status_bits(8, "scanu cancel:%d\r\n", cancel_result);
   return 0;
 }
 
@@ -443,42 +444,43 @@ LABEL_28:
 
 
 // hci_cmd_process @ 0x1374c8
+/* luna: Builds and sends a SCANU confirmation, selecting its message ID from the scan-operation flag and including the result and scan metadata. */
 int hci_cmd_process(int a1) {
-  volatile uint16_t *v2; // r4
+  volatile uint16_t *scan_env; // r4
   volatile uint8_t **v3; // r7
-  int16_t v4; // r0
-  volatile uint8_t *v5; // r5
+  int16_t confirmation_msg_id; // r0
+  volatile uint8_t *confirmation_msg; // r5
   volatile int *v6; // r2
   volatile uint16_t *v7; // r0
   int v8; // r1
-  int v9; // r0
+  int scan_context; // r0
   volatile uint32_t *v11; // r3
 
   if ( *(volatile uint8_t *)off_13759C )
     write_phy_config(*((volatile uint8_t *)off_1375CC + 9));
-  v2 = (void *)(uintptr_t)(off_1375A0);
+  scan_env = (void *)(uintptr_t)(off_1375A0);
   v3 = (volatile uint8_t **)off_1375A4;
   if ( *((volatile uint8_t *)off_1375A0 + 3850) == 1 )
-    v4 = 4099;
+    confirmation_msg_id = 4099;
   else
-    v4 = 4097;
-  v5 = (volatile uint8_t *)ke_msg_alloc(v4, *((volatile uint16_t *)off_1375A0 + 1924), 4, 3);
+    confirmation_msg_id = 4097;
+  confirmation_msg = (volatile uint8_t *)ke_msg_alloc(confirmation_msg_id, *((volatile uint16_t *)off_1375A0 + 1924), 4, 3);
   check_status_bits(
     8,
     "%s:%d,%d,%d\r\n",
     aScanuConfirm,
-    *(volatile uint8_t *)(*(volatile uint32_t *)v2 + 366),
-    *((volatile uint8_t *)v2 + 3850),
+    *(volatile uint8_t *)(*(volatile uint32_t *)scan_env + 366),
+    *((volatile uint8_t *)scan_env + 3850),
     a1);
   v6 = (volatile int *)off_1375B4;
   v7 = (void *)(uintptr_t)(off_1375B8);
   *(volatile uint32_t *)off_1375B0 &= ~4u;
   v8 = (uint16_t)*v7;
-  v9 = *(volatile uint32_t *)v2;
+  scan_context = *(volatile uint32_t *)scan_env;
   *v6 = (HIWORD(*v6) << 16) | v8;
-  *v5 = *(volatile uint8_t *)(v9 + 366);
-  v5[1] = a1;
-  v5[2] = v2[2];
+  *confirmation_msg = *(volatile uint8_t *)(scan_context + 366);
+  confirmation_msg[1] = a1;
+  confirmation_msg[2] = scan_env[2];
   if ( **v3 == 1 && BYTE1(((volatile uint32_t *)(uintptr_t)off_1375C0)[47]) )
   {
     v11 = (void *)(uintptr_t)(off_1375C8);
@@ -486,9 +488,9 @@ int hci_cmd_process(int a1) {
     *v11 |= 0x400000u;
     *v11 |= 0x200000u;
   }
-  branch_to_12cbc8((int)(uintptr_t)((volatile char *)(v9 - 12)));
-  *(volatile uint32_t *)v2 = 0;
-  ke_msg_send_2((int)v5);
+  branch_to_12cbc8((int)(uintptr_t)((volatile char *)(scan_context - 12)));
+  *(volatile uint32_t *)scan_env = 0;
+  ke_msg_send_2((int)confirmation_msg);
   *((volatile uint32_t *)off_1375BC + 1) &= ~0x20u;
   return ke_state_set(4u, 0);
 }

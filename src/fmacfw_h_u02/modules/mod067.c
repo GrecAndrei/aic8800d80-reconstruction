@@ -1677,66 +1677,65 @@ LABEL_71:
 
 
 // rx_sort_entries_by_key @ 0x13e090
-/* luna: Bubble-sorts 12-byte RX entries and their parallel 32-bit keys in ascending order, using each entry’s byte-9 marker to break ties when adjacent keys a */
 int rx_sort_entries_by_key(int result, int a2) {
-  unsigned int sort_limit; // r11
-  int entries; // r9
-  int scan_index; // r5
+  unsigned int v2; // r11
+  int v4; // r9
+  int v5; // r5
   int v6; // r7
-  volatile uint32_t *key_cursor; // r4
-  unsigned int entry_cursor; // r6
-  unsigned int last_swap_index; // r1
+  volatile uint32_t *v7; // r4
+  unsigned int v8; // r6
+  unsigned int v9; // r1
   int64_t v10; // r2
   unsigned int v11; // t1
   int64_t v12; // kr00_8
-  uint8_t entry_temp[52]; // [sp+4h] [bp-34h] BYREF
+  uint8_t v13[52]; // [sp+4h] [bp-34h] BYREF
 
   if ( *(volatile uint16_t *)(result + 184) )
   {
-    sort_limit = (uint16_t)(*(volatile uint16_t *)(result + 184) - 1);
-    entries = result + 16;
-    if ( sort_limit > 1 )
+    v2 = (uint16_t)(*(volatile uint16_t *)(result + 184) - 1);
+    v4 = result + 16;
+    if ( v2 > 1 )
     {
       do
       {
-        scan_index = 1;
+        v5 = 1;
         v6 = 1;
-        key_cursor = (volatile uint32_t *)(a2 + 4);
-        entry_cursor = entries;
-        last_swap_index = 0;
+        v7 = (volatile uint32_t *)(a2 + 4);
+        v8 = v4;
+        v9 = 0;
         do
         {
           while ( 1 )
           {
-            v10 = (v10 & ~0xFFFFFFFFull) | ((uint32_t)(*key_cursor) & 0xFFFFFFFFu);
-            v11 = key_cursor[1];
-            ++key_cursor;
+            v10 = (v10 & ~0xFFFFFFFFull) | ((uint32_t)(*v7) & 0xFFFFFFFFu);
+            v11 = v7[1];
+            ++v7;
             v10 = (v10 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v11) << 32);
-            if ( (unsigned int)v10 > v11 || !v10 && !*(volatile uint8_t *)(entry_cursor + 9) && *(volatile uint8_t *)(entry_cursor + 21) == 1 )
+            if ( (unsigned int)v10 > v11 || !v10 && !*(volatile uint8_t *)(v8 + 9) && *(volatile uint8_t *)(v8 + 21) == 1 )
               break;
-            v6 = (uint16_t)++scan_index;
-            entry_cursor += 12;
-            if ( (uint16_t)scan_index >= sort_limit )
+            v6 = (uint16_t)++v5;
+            v8 += 12;
+            if ( (uint16_t)v5 >= v2 )
               goto LABEL_10;
           }
-          memmove((unsigned int)entry_temp, entry_cursor, 0xCu);
-          memmove(entry_cursor, entry_cursor + 12, 0xCu);
-          result = memmove(entry_cursor + 12, (unsigned int)entry_temp, 0xCu);
-          ++scan_index;
-          v12 = *(volatile uint64_t *)(key_cursor - 1);
-          last_swap_index = v6;
-          v6 = (uint16_t)scan_index;
-          *(key_cursor - 1) = HIDWORD(v12);
-          *key_cursor = v12;
-          entry_cursor += 12;
+          memmove((unsigned int)v13, v8, 0xCu);
+          memmove(v8, v8 + 12, 0xCu);
+          result = memmove(v8 + 12, (unsigned int)v13, 0xCu);
+          ++v5;
+          v12 = *(volatile uint64_t *)(v7 - 1);
+          v9 = v6;
+          v6 = (uint16_t)v5;
+          *(v7 - 1) = HIDWORD(v12);
+          *v7 = v12;
+          v8 += 12;
         }
-        while ( (uint16_t)scan_index < sort_limit );
+        while ( (uint16_t)v5 < v2 );
 LABEL_10:
-        if ( !last_swap_index )
+        if ( !v9 )
           break;
-        sort_limit = last_swap_index;
+        v2 = v9;
       }
-      while ( last_swap_index > 1 );
+      while ( v9 > 1 );
     }
   }
   return result;

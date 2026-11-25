@@ -788,18 +788,17 @@ LABEL_6:
 
 
 // buffer_pool_alloc @ 0x10fb28
-/* luna: Allocates and removes a free buffer from a size-class pool large enough for the requested size, validating the freelist pointer against configured mem */
 volatile uint32_t * buffer_pool_alloc(int a1, unsigned int a2) {
-  unsigned int pool_count; // r6
+  unsigned int v2; // r6
   volatile uint32_t *v3; // r5
-  volatile uint16_t *pool_descriptor; // r4
-  unsigned int pool_index; // r3
+  volatile uint16_t *v4; // r4
+  unsigned int v5; // r3
   volatile int *v6; // r6
-  int free_block_count; // r3
+  int v7; // r3
   int v8; // r2
   volatile unsigned int *v9; // r7
   unsigned int v10; // r2
-  int buffer_guard_byte; // r1
+  int v11; // r1
   int v12; // r3
   int v13; // r2
   uint16_t v14; // r3
@@ -810,7 +809,7 @@ volatile uint32_t * buffer_pool_alloc(int a1, unsigned int a2) {
   int v20; // r3
   int v21; // r2
 
-  pool_count = *(volatile uint8_t *)(a1 + 8);
+  v2 = *(volatile uint8_t *)(a1 + 8);
   if ( !*(volatile uint8_t *)(a1 + 8) )
   {
 LABEL_57:
@@ -823,25 +822,25 @@ LABEL_57:
     log_printf(aMemmgrerrSubpo, a2);
     return v3;
   }
-  pool_descriptor = *(volatile uint16_t **)(a1 + 12);
-  pool_index = 1;
-  while ( pool_descriptor[2] < a2 )
+  v4 = *(volatile uint16_t **)(a1 + 12);
+  v5 = 1;
+  while ( v4[2] < a2 )
   {
-    if ( pool_count <= pool_index )
+    if ( v2 <= v5 )
       goto LABEL_11;
-    pool_descriptor = (volatile uint16_t *)&v3[3 * pool_index];
+    v4 = (volatile uint16_t *)&v3[3 * v5];
 LABEL_7:
-    pool_index = (uint8_t)(pool_index + 1);
+    v5 = (uint8_t)(v5 + 1);
   }
-  if ( *pool_descriptor )
+  if ( *v4 )
     goto LABEL_12;
-  if ( pool_count > pool_index )
+  if ( v2 > v5 )
   {
-    pool_descriptor = (volatile uint16_t *)&v3[3 * pool_index];
+    v4 = (volatile uint16_t *)&v3[3 * v5];
     goto LABEL_7;
   }
 LABEL_11:
-  if ( pool_count == pool_index )
+  if ( v2 == v5 )
     goto LABEL_57;
 LABEL_12:
   if ( (__get_CPSR() & 1) == 0 )
@@ -850,11 +849,11 @@ LABEL_12:
     *(volatile uint32_t *)off_10FCB4 = 1;
   }
   v6 = (volatile int *)off_10FCB8;
-  free_block_count = *pool_descriptor;
+  v7 = *v4;
   v3 = *(volatile uint32_t **)off_10FCB8;
   v8 = *(volatile uint32_t *)off_10FCB8 + 1;
   *(volatile uint32_t *)off_10FCB8 = v8;
-  if ( !free_block_count )
+  if ( !v7 )
   {
     if ( v8 )
     {
@@ -870,32 +869,32 @@ LABEL_12:
     return nullptr;
   }
   v9 = (volatile unsigned int *)off_10FCBC;
-  v3 = *((volatile uint32_t **)pool_descriptor + 2);
+  v3 = *((volatile uint32_t **)v4 + 2);
   v10 = *(volatile uint32_t *)off_10FCBC;
   if ( *(volatile uint32_t *)off_10FCBC <= (unsigned int)v3 && (unsigned int)v3 <= *((volatile uint32_t *)off_10FCBC + 1) + v10
     || (unsigned int)v3 >= *(volatile uint32_t *)off_10FCC0
     && (unsigned int)v3 <= *(volatile uint32_t *)off_10FCC0 + *((volatile uint32_t *)off_10FCC0 + 1) )
   {
-    *((volatile uint32_t *)pool_descriptor + 2) = *v3;
-    *pool_descriptor = free_block_count - 1;
+    *((volatile uint32_t *)v4 + 2) = *v3;
+    *v4 = v7 - 1;
     if ( v10 <= (unsigned int)v3 )
       goto LABEL_18;
   }
   else
   {
-    log_printf("get_next_buffer_addr: Invalid buffer passed: %x\n", *((volatile uint32_t *)pool_descriptor + 2));
+    log_printf("get_next_buffer_addr: Invalid buffer passed: %x\n", *((volatile uint32_t *)v4 + 2));
     v10 = *v9;
-    v14 = *pool_descriptor - 1;
+    v14 = *v4 - 1;
     v15 = *v9 > (unsigned int)v3;
-    *((volatile uint32_t *)pool_descriptor + 2) = 0;
-    *pool_descriptor = v14;
+    *((volatile uint32_t *)v4 + 2) = 0;
+    *v4 = v14;
     if ( !v15 )
     {
 LABEL_18:
       if ( v9[1] + v10 >= (unsigned int)v3 )
       {
-        buffer_guard_byte = *((volatile uint8_t *)v3 - 3);
-        if ( buffer_guard_byte == 85 )
+        v11 = *((volatile uint8_t *)v3 - 3);
+        if ( v11 == 85 )
           goto LABEL_20;
         goto LABEL_45;
       }
@@ -905,11 +904,11 @@ LABEL_18:
   if ( *(volatile uint32_t *)off_10FCC0 > (unsigned int)v3 || *((volatile uint32_t *)off_10FCC0 + 1) + v16 < (unsigned int)v3 )
   {
     log_printf("get_pattern: Invalid buffer passed: %x\n", v3);
-    buffer_guard_byte = 0;
+    v11 = 0;
     goto LABEL_45;
   }
-  buffer_guard_byte = *((volatile uint8_t *)v3 - 3);
-  if ( buffer_guard_byte != 85 )
+  v11 = *((volatile uint8_t *)v3 - 3);
+  if ( v11 != 85 )
   {
 LABEL_45:
     if ( *v6 )
@@ -923,7 +922,7 @@ LABEL_45:
           __enable_irq();
       }
     }
-    log_printf("SwEr:AllcErrPtrn : %d, buffer: 0x%x\n\r", buffer_guard_byte, v3);
+    log_printf("SwEr:AllcErrPtrn : %d, buffer: 0x%x\n\r", v11, v3);
     return nullptr;
   }
   if ( v10 > (unsigned int)v3 )
@@ -1210,7 +1209,6 @@ int hci_send_command(int a1, int a2, int a3) {
 
 
 // set_user_id @ 0x10ffbc
-/* luna: Obtains a controller buffer and stores the supplied user ID in the byte immediately preceding its payload, logging if the buffer is invalid. */
 volatile uint32_t * set_user_id(char a1) {
   volatile uint32_t *v2; // r4
 
@@ -1687,17 +1685,16 @@ int is_park_mode(volatile uint32_t *a1) {
 
 
 // replenish_rxmsg_buffers @ 0x110504
-/* luna: Allocates RX message buffers and descriptors, links them onto the receive queue, and notifies the hardware until the context has more than one buffer. */
 int replenish_rxmsg_buffers(int result) {
-  volatile uint32_t *rx_doorbell_register; // r4
-  unsigned int buffer_count; // r3
+  volatile uint32_t *v1; // r4
+  unsigned int v2; // r3
   volatile int *v3; // r6
-  volatile uint32_t *rx_queue_head; // r9
+  volatile uint32_t *v4; // r9
   volatile uint32_t *v5; // r8
-  int rx_context; // r5
+  int v6; // r5
   volatile int *v7; // r7
-  volatile uint32_t *rx_buffer; // r10
-  volatile uint32_t *rx_descriptor; // r0
+  volatile uint32_t *v8; // r10
+  volatile uint32_t *v9; // r0
   volatile uint32_t *v10; // r11
   int v11; // r1
   int v12; // r2
@@ -1706,37 +1703,37 @@ int replenish_rxmsg_buffers(int result) {
   int v15; // r2
   int v16; // r3
 
-  rx_doorbell_register = (void *)(uintptr_t)(off_110608);
-  buffer_count = *(volatile uint16_t *)(result + 28);
+  v1 = (void *)(uintptr_t)(off_110608);
+  v2 = *(volatile uint16_t *)(result + 28);
   v3 = (volatile int *)off_11060C;
-  rx_queue_head = (void *)(uintptr_t)(off_110634);
+  v4 = (void *)(uintptr_t)(off_110634);
   v5 = (void *)(uintptr_t)(off_110638);
-  rx_context = result;
+  v6 = result;
 LABEL_2:
   v7 = (volatile int *)off_110610;
-  while ( buffer_count <= 1 )
+  while ( v2 <= 1 )
   {
-    rx_buffer = (void *)(uintptr_t)(is_page_scan_active());
-    if ( !rx_buffer )
+    v8 = (void *)(uintptr_t)(is_page_scan_active());
+    if ( !v8 )
     {
       result = log_printf("rep: no rxmsg buffer, %d\r\n", *(volatile uint32_t *)off_110628);
-      if ( *(volatile uint16_t *)(rx_context + 28) > 1u )
+      if ( *(volatile uint16_t *)(v6 + 28) > 1u )
         return result;
       return unknown_func_12d104(32);
     }
-    rx_descriptor = is_scan_enabled();
-    v10 = rx_descriptor;
-    if ( !rx_descriptor )
+    v9 = is_scan_enabled();
+    v10 = v9;
+    if ( !v9 )
     {
       log_printf(aRepRxmsgNoDesc);
-      result = is_sniff_mode(rx_buffer);
-      if ( *(volatile uint16_t *)(rx_context + 28) > 1u )
+      result = is_sniff_mode(v8);
+      if ( *(volatile uint16_t *)(v6 + 28) > 1u )
         return result;
       return unknown_func_12d104(32);
     }
-    *rx_descriptor = (int)(uintptr_t)(rx_buffer);
-    rx_descriptor[1] = 0;
-    rx_descriptor[2] = 0;
+    *v9 = (int)(uintptr_t)(v8);
+    v9[1] = 0;
+    v9[2] = 0;
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
@@ -1744,15 +1741,15 @@ LABEL_2:
     }
     v11 = *v7 + 1;
     *v7 = v11;
-    *rx_doorbell_register = 1024;
-    while ( (*rx_doorbell_register & 0x800) != 0 )
+    *v1 = 1024;
+    while ( (*v1 & 0x800) != 0 )
       ;
     if ( (uint8_t)*v3 )
     {
-      v16 = *(volatile uint32_t *)(rx_context + 20);
+      v16 = *(volatile uint32_t *)(v6 + 20);
       if ( v16 )
       {
-        *(volatile uint32_t *)(v16 + 4) = (int)(uintptr_t)(rx_descriptor);
+        *(volatile uint32_t *)(v16 + 4) = (int)(uintptr_t)(v9);
       }
       else
       {
@@ -1762,19 +1759,19 @@ LABEL_2:
     }
     else
     {
-      if ( **(volatile int16_t **)off_110618 < 0 && *rx_queue_head )
+      if ( **(volatile int16_t **)off_110618 < 0 && *v4 )
       {
         mmio_clear_register((int)aSdioFunc1H2dFr, (int)aSdioReplenishR, 261);
         v11 = *v7;
       }
-      *rx_queue_head = (int)(uintptr_t)(v10);
+      *v4 = (int)(uintptr_t)(v10);
     }
     v12 = *v3;
-    v13 = *(volatile uint16_t *)(rx_context + 28);
-    *(volatile uint32_t *)(rx_context + 20) = (int)(uintptr_t)(v10);
-    buffer_count = (uint16_t)(v13 + 1);
+    v13 = *(volatile uint16_t *)(v6 + 28);
+    *(volatile uint32_t *)(v6 + 20) = (int)(uintptr_t)(v10);
+    v2 = (uint16_t)(v13 + 1);
     result = 1024;
-    *(volatile uint16_t *)(rx_context + 28) = buffer_count;
+    *(volatile uint16_t *)(v6 + 28) = v2;
     *v3 = (uint8_t)(v12 + 1);
     *v5 = 1024;
     if ( v11 )
@@ -1787,7 +1784,7 @@ LABEL_2:
         if ( v15 )
         {
           __enable_irq();
-          buffer_count = *(volatile uint16_t *)(rx_context + 28);
+          v2 = *(volatile uint16_t *)(v6 + 28);
         }
       }
       goto LABEL_2;
@@ -2419,30 +2416,29 @@ int get_status_flag() {
 
 
 // set_sdio_phase_config @ 0x11130c
-/* luna: Programs the SDIO phase configuration from the argument’s low 22 bits using a bit-22-selected register-write sequence, then logs the configured value. */
 int set_sdio_phase_config(int a1) {
-  volatile int *sdio_phase_reg; // r3
-  int phase_value; // r2
-  int current_phase; // r1
-  int phase_write_value; // r1
+  volatile int *v1; // r3
+  int v2; // r2
+  int v3; // r1
+  int v4; // r1
 
-  sdio_phase_reg = (volatile int *)off_111388;
-  phase_value = a1 & 0x3FFFFF;
-  current_phase = *(volatile uint32_t *)off_111388 & 0x3FFFFF;
+  v1 = (volatile int *)off_111388;
+  v2 = a1 & 0x3FFFFF;
+  v3 = *(volatile uint32_t *)off_111388 & 0x3FFFFF;
   if ( (a1 & 0x400000) != 0 )
   {
-    *(volatile uint32_t *)off_111388 = current_phase | 0x800000;
-    *sdio_phase_reg = current_phase;
-    *sdio_phase_reg = phase_value;
-    phase_write_value = phase_value | 0x800000;
+    *(volatile uint32_t *)off_111388 = v3 | 0x800000;
+    *v1 = v3;
+    *v1 = v2;
+    v4 = v2 | 0x800000;
   }
   else
   {
-    *(volatile uint32_t *)off_111388 = current_phase | 0x400000;
-    phase_write_value = phase_value | 0x400000;
+    *(volatile uint32_t *)off_111388 = v3 | 0x400000;
+    v4 = v2 | 0x400000;
   }
-  *sdio_phase_reg = phase_write_value;
-  *sdio_phase_reg = phase_value | 0xC00000;
+  *v1 = v4;
+  *v1 = v2 | 0xC00000;
   return log_printf("sdio pahse cfg %x\n", *(volatile uint32_t *)off_111388 & 0x3FFFFF);
 }
 

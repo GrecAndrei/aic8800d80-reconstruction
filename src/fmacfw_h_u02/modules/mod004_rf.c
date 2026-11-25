@@ -3568,7 +3568,6 @@ int peripheral_clock_config() {
 
 
 // rf_peripheral_clock_init @ 0x10c6f0
-/* luna: Enables the RF clock and configures peripheral clocks, returning the peripheral configuration status. */
 int rf_peripheral_clock_init() {
   rf_clock_enable();
   return peripheral_clock_config();

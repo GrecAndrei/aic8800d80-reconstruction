@@ -325,47 +325,46 @@ void check_patch_signature() {
 
 
 // firmware_startup @ 0x114de8
-/* luna: Clears and copies firmware memory sections, configures startup state, loads the AES key, checks the patch signature, initializes MAC state, and then e */
 void firmware_startup() {
-  volatile uint32_t *zero_fill_ptr; // r2
-  unsigned int zero_fill_end; // r3
-  int initialized_data_start; // r1
-  volatile int *initialized_data_source; // r2
-  volatile int *initialized_data_source_end; // r3
-  volatile uint32_t *initialized_data_dest; // r0
-  int copied_word; // t1
-  volatile uint32_t *platform_state_base; // r2
+  volatile uint32_t *v0; // r2
+  unsigned int v1; // r3
+  int v2; // r1
+  volatile int *v3; // r2
+  volatile int *v4; // r3
+  volatile uint32_t *v5; // r0
+  int v6; // t1
+  volatile uint32_t *v7; // r2
   int v8; // r0
   int i; // r3
   int v10; // r2
-  int boot_flags; // r3
+  int v11; // r3
   volatile char *v12; // r2
 
-  zero_fill_ptr = (volatile uint32_t *)dword_114EA4;
+  v0 = (volatile uint32_t *)dword_114EA4;
   if ( dword_114EA4 < (unsigned int)dword_114EA8 )
   {
-    zero_fill_end = ((dword_114EA8 - 1 - dword_114EA4) & 0xFFFFFFFC) + 4 + dword_114EA4;
+    v1 = ((dword_114EA8 - 1 - dword_114EA4) & 0xFFFFFFFC) + 4 + dword_114EA4;
     do
-      *zero_fill_ptr++ = 0;
-    while ( zero_fill_ptr != (volatile uint32_t *)zero_fill_end );
+      *v0++ = 0;
+    while ( v0 != (volatile uint32_t *)v1 );
   }
-  initialized_data_start = dword_114EAC;
+  v2 = dword_114EAC;
   if ( dword_114EAC < (unsigned int)dword_114EB0 )
   {
-    initialized_data_source = (volatile int *)off_114EB4;
-    initialized_data_source_end = (volatile int *)((volatile char *)&((volatile uint32_t *)(uintptr_t)off_114EB4)[1] + ((dword_114EB0 - 1 - dword_114EAC) & 0xFFFFFFFC));
-    initialized_data_dest = (volatile uint32_t *)dword_114EAC;
+    v3 = (volatile int *)off_114EB4;
+    v4 = (volatile int *)((volatile char *)&((volatile uint32_t *)(uintptr_t)off_114EB4)[1] + ((dword_114EB0 - 1 - dword_114EAC) & 0xFFFFFFFC));
+    v5 = (volatile uint32_t *)dword_114EAC;
     do
     {
-      copied_word = *initialized_data_source++;
-      *initialized_data_dest++ = copied_word;
+      v6 = *v3++;
+      *v5++ = v6;
     }
-    while ( initialized_data_source != initialized_data_source_end );
+    while ( v3 != v4 );
   }
-  platform_state_base = (void *)(uintptr_t)(off_114EB8);
+  v7 = (void *)(uintptr_t)(off_114EB8);
   v8 = dword_114EBC;
   *((volatile uint32_t *)off_114EB8 + 34) |= 0xF00000u;
-  platform_state_base[2] = initialized_data_start;
+  v7[2] = v2;
   for ( i = 0; i != 86; ++i )
   {
     v10 = v8 + i;
@@ -373,15 +372,15 @@ void firmware_startup() {
   }
   if ( (uint16_t)*(volatile uint32_t *)off_114EB8 == 49729 )
     *(volatile uint32_t *)off_114EC0 = 1;
-  boot_flags = HIBYTE(*(volatile uint32_t *)off_114EC4);
-  *(volatile uint8_t *)off_114EC8 = boot_flags;
-  if ( (boot_flags & 4) != 0 )
+  v11 = HIBYTE(*(volatile uint32_t *)off_114EC4);
+  *(volatile uint8_t *)off_114EC8 = v11;
+  if ( (v11 & 4) != 0 )
   {
     v12 = (void *)(uintptr_t)(off_114ED0);
     *(volatile uint32_t *)(uintptr_t)(off_114ECC) = dword_114ED4;
     *v12 = 26;
   }
-  if ( (boot_flags & 0x10) == 0 )
+  if ( (v11 & 0x10) == 0 )
     *(volatile uint32_t *)off_114ED8 &= ~0x4000u;
   *(volatile uint8_t *)off_114EDC = BYTE2(*(volatile uint32_t *)off_114EC4);
   aes_load_key();
@@ -458,61 +457,60 @@ int get_phy_state() {
 
 
 // dump_fault_context @ 0x114fec
-/* luna: Prints the saved Cortex-M register context and SCB fault status, then dumps 256 bytes of the captured stack. */
 int dump_fault_context() {
-  volatile uint32_t *saved_context; // r7
-  volatile int *saved_context_word_ptr; // r5
+  volatile uint32_t *v0; // r7
+  volatile int *v1; // r5
   int i; // r4
   int v3; // r1
-  int register_value; // t1
-  volatile uint32_t *scb_registers; // r5
-  unsigned int cfsr; // r4
-  int exception_return; // r3
+  int v4; // t1
+  volatile uint32_t *v5; // r5
+  unsigned int v6; // r4
+  int v7; // r3
   int v8; // r1
   int result; // r0
-  int stack_pointer; // r4
+  int v10; // r4
   int v11; // r4
   unsigned int v12; // r4
   unsigned int v13; // r5
   int v14; // t1
-  unsigned int dump_address; // r4
-  unsigned int dump_end; // r5
-  int stack_word; // t1
+  unsigned int v15; // r4
+  unsigned int v16; // r5
+  int v17; // t1
 
-  saved_context = (void *)(uintptr_t)(off_1151BC);
-  saved_context_word_ptr = (volatile int *)off_1151BC;
+  v0 = (void *)(uintptr_t)(off_1151BC);
+  v1 = (volatile int *)off_1151BC;
   for ( i = 0; i != 13; ++i )
   {
     v3 = i;
-    register_value = *saved_context_word_ptr++;
-    debug_printf("\nR%-4d: %08X", v3, register_value);
+    v4 = *v1++;
+    debug_printf("\nR%-4d: %08X", v3, v4);
   }
-  scb_registers = (void *)(uintptr_t)(off_1151C4);
-  debug_printf(aSp08xLr08xPc08, saved_context[13], saved_context[14], saved_context[15], saved_context[16], saved_context[17], saved_context[18]);
-  debug_printf("\nCPUID: %08X\nICSR : %08X\nVTOR : %08X\nAIRCR: %08X", *scb_registers, scb_registers[1], scb_registers[2], scb_registers[3]);
+  v5 = (void *)(uintptr_t)(off_1151C4);
+  debug_printf(aSp08xLr08xPc08, v0[13], v0[14], v0[15], v0[16], v0[17], v0[18]);
+  debug_printf("\nCPUID: %08X\nICSR : %08X\nVTOR : %08X\nAIRCR: %08X", *v5, v5[1], v5[2], v5[3]);
   debug_printf(
     "\nSHCSR: %08X\nCFSR : %08X\nHFSR : %08X\nDFSR : %08X\nAFSR : %08X",
-    scb_registers[9],
-    scb_registers[10],
-    scb_registers[11],
-    scb_registers[12],
-    scb_registers[15]);
-  cfsr = scb_registers[10];
-  if ( (uint8_t)cfsr )
+    v5[9],
+    v5[10],
+    v5[11],
+    v5[12],
+    v5[15]);
+  v6 = v5[10];
+  if ( (uint8_t)v6 )
   {
     debug_printf(
       "\nMMFSR: %02X\n  IACCVIOL :%d\tDACCVIOL :%d\n  MUNSTKERR:%d\tMSTKERR  :%d\n  MLSPERR  :%d\tMMARVALID:%d",
-      (uint8_t)scb_registers[10],
-      cfsr & 1,
-      (cfsr >> 1) & 1,
-      (cfsr >> 3) & 1,
-      (cfsr >> 4) & 1,
-      (cfsr >> 5) & 1,
-      (cfsr >> 7) & 1);
-    if ( (cfsr & 0x80) != 0 )
-      debug_printf("\nMMFAR: %08X", scb_registers[13]);
+      (uint8_t)v5[10],
+      v6 & 1,
+      (v6 >> 1) & 1,
+      (v6 >> 3) & 1,
+      (v6 >> 4) & 1,
+      (v6 >> 5) & 1,
+      (v6 >> 7) & 1);
+    if ( (v6 & 0x80) != 0 )
+      debug_printf("\nMMFAR: %08X", v5[13]);
   }
-  if ( (cfsr & 0xFF00) != 0 )
+  if ( (v6 & 0xFF00) != 0 )
   {
     debug_printf(
       "\n"
@@ -521,34 +519,34 @@ int dump_fault_context() {
       "  IMPRECISERR:%d\tUNSTKERR :%d\n"
       "  STKERR     :%d\tLSPERR   :%d\n"
       "  BFARVALID  :%d",
-      BYTE1(cfsr),
-      (cfsr >> 8) & 1,
-      (cfsr >> 9) & 1,
-      (cfsr >> 10) & 1,
-      (cfsr >> 11) & 1,
-      (cfsr >> 12) & 1,
-      (cfsr >> 13) & 1,
-      (cfsr >> 15) & 1);
-    if ( (cfsr & 0x8000) != 0 )
+      BYTE1(v6),
+      (v6 >> 8) & 1,
+      (v6 >> 9) & 1,
+      (v6 >> 10) & 1,
+      (v6 >> 11) & 1,
+      (v6 >> 12) & 1,
+      (v6 >> 13) & 1,
+      (v6 >> 15) & 1);
+    if ( (v6 & 0x8000) != 0 )
       debug_printf("\nBFAR : %08X", *((volatile uint32_t *)off_1151C4 + 14));
   }
-  if ( HIWORD(cfsr) )
+  if ( HIWORD(v6) )
     debug_printf(
       "\nUFSR : %04X\n  UNDEFINSTR:%d\tINVSTATE :%d\n  INVPC     :%d\tNOCP     :%d\n  UNALIGNED :%d\tDIVBYZERO:%d",
-      HIWORD(cfsr),
-      HIWORD(cfsr) & 1,
-      (cfsr >> 17) & 1,
-      (cfsr >> 18) & 1,
-      (cfsr >> 19) & 1,
-      HIBYTE(cfsr) & 1,
-      (cfsr >> 25) & 1);
-  if ( (saved_context[19] & 8) == 0 )
+      HIWORD(v6),
+      HIWORD(v6) & 1,
+      (v6 >> 17) & 1,
+      (v6 >> 18) & 1,
+      (v6 >> 19) & 1,
+      HIBYTE(v6) & 1,
+      (v6 >> 25) & 1);
+  if ( (v0[19] & 8) == 0 )
   {
     debug_printf(aModeHandler);
     goto LABEL_9;
   }
   debug_printf(aModeThread);
-  if ( (saved_context[20] & 1) == 0 )
+  if ( (v0[20] & 1) == 0 )
   {
 LABEL_9:
     debug_printf(aPrivPrivileged);
@@ -556,30 +554,30 @@ LABEL_9:
   }
   debug_printf(aPrivUser);
 LABEL_10:
-  exception_return = saved_context[19];
-  v8 = exception_return << 29;
-  if ( (exception_return & 4) != 0 )
+  v7 = v0[19];
+  v8 = v7 << 29;
+  if ( (v7 & 4) != 0 )
     debug_printf(aStackPsp, v8);
   else
     debug_printf(aStackMsp, v8);
-  result = debug_printf(aCntrl08xPmask0, saved_context[20], __get_CPSR(), __get_CPSR(), __get_CPSR());
-  stack_pointer = saved_context[18];
-  if ( stack_pointer )
+  result = debug_printf(aCntrl08xPmask0, v0[20], __get_CPSR(), __get_CPSR(), __get_CPSR());
+  v10 = v0[18];
+  if ( v10 )
   {
-    dump_address = stack_pointer & 0xFFFFFFF0;
+    v15 = v10 & 0xFFFFFFF0;
     debug_printf(aDumpmsp_0);
-    dump_end = dump_address + 256;
+    v16 = v15 + 256;
     do
     {
-      if ( !(dump_address << 28) )
-        debug_printf("\n[%08x]:", dump_address);
-      stack_word = *(volatile uint32_t *)dump_address;
-      dump_address += 4;
-      result = debug_printf(" %08X", stack_word);
+      if ( !(v15 << 28) )
+        debug_printf("\n[%08x]:", v15);
+      v17 = *(volatile uint32_t *)v15;
+      v15 += 4;
+      result = debug_printf(" %08X", v17);
     }
-    while ( dump_end != dump_address );
+    while ( v16 != v15 );
   }
-  v11 = saved_context[17];
+  v11 = v0[17];
   if ( v11 )
   {
     v12 = v11 & 0xFFFFFFF0;

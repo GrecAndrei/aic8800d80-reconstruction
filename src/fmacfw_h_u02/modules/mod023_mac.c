@@ -224,20 +224,19 @@ LABEL_19:
 
 
 // dma_irq_handler @ 0x11c7a4
-/* luna: Acknowledges DMA interrupt sources and, for RX-completion events, processes the indicated channel’s MPDU queue and updates per-channel state. */
 void dma_irq_handler() {
-  volatile uint32_t *dma_status_reg; // r2
-  volatile uint32_t *dma_register_base; // r7
-  int dma_irq_status; // r3
-  int channel_id; // r6
-  int channel_state_base; // r8
+  volatile uint32_t *v0; // r2
+  volatile uint32_t *v1; // r7
+  int v2; // r3
+  int v3; // r6
+  int v4; // r8
   int v5; // r3
   int v6; // r4
   int v7; // r3
   int v8; // r0
   volatile uint32_t *v9; // r1
   unsigned int v10; // r3
-  volatile uint32_t *rx_mpdu; // r4
+  volatile uint32_t *v11; // r4
   volatile int16_t **v12; // r9
   int v13; // r5
   int v14; // r3
@@ -250,75 +249,75 @@ void dma_irq_handler() {
   volatile uint32_t *v21; // r1
   int v22; // r2
 
-  dma_status_reg = (void *)(uintptr_t)(off_11C920);
+  v0 = (void *)(uintptr_t)(off_11C920);
   *(volatile uint32_t *)off_11C91C = 0x100000;
-  while ( (*dma_status_reg & 0x300000) != 0 )
+  while ( (*v0 & 0x300000) != 0 )
     ;
-  dma_register_base = (void *)(uintptr_t)(off_11C924);
-  dma_irq_status = *((volatile uint32_t *)off_11C924 + 52);
+  v1 = (void *)(uintptr_t)(off_11C924);
+  v2 = *((volatile uint32_t *)off_11C924 + 52);
   *(volatile uint32_t *)off_11C928 = 0x100000;
-  if ( (dma_irq_status & 1) != 0 )
+  if ( (v2 & 1) != 0 )
   {
-    channel_id = *((volatile uint8_t *)dma_register_base + 190);
-    channel_state_base = dword_11C94C;
-    v5 = dword_11C94C + 84 * channel_id;
+    v3 = *((volatile uint8_t *)v1 + 190);
+    v4 = dword_11C94C;
+    v5 = dword_11C94C + 84 * v3;
     if ( *(volatile uint8_t *)(v5 + 26) )
     {
 LABEL_5:
-      v6 = channel_state_base + 84 * channel_id;
+      v6 = v4 + 84 * v3;
       *(volatile uint16_t *)(*(volatile uint32_t *)(v6 + 36) + 8) |= 0x10u;
       list_pop(v6 + 28);
-      irq_disable_global_2(*(volatile uint32_t *)(dword_11C92C + 4 * channel_id));
+      irq_disable_global_2(*(volatile uint32_t *)(dword_11C92C + 4 * v3));
       *(volatile uint8_t *)(v6 + 26) = 0;
       *(volatile uint32_t *)(v6 + 36) = 0;
     }
     else
     {
-      rx_mpdu = *(volatile uint32_t **)(v5 + 12);
-      if ( (rx_mpdu[9] & 0x200000) != 0 )
+      v11 = *(volatile uint32_t **)(v5 + 12);
+      if ( (v11[9] & 0x200000) != 0 )
       {
         v22 = *(volatile uint32_t *)(*(volatile uint32_t *)(v5 + 20) + 68);
-        if ( v22 == rx_mpdu[17] )
+        if ( v22 == v11[17] )
           *(volatile uint32_t *)(v5 + 20) = **(volatile uint32_t **)(v22 + 324);
       }
       v12 = (volatile int16_t **)off_11C950;
-      v13 = channel_state_base + 84 * channel_id;
+      v13 = v4 + 84 * v3;
       while ( 1 )
       {
-        if ( **v12 < 0 && !rx_mpdu )
+        if ( **v12 < 0 && !v11 )
           irq_disable_mmio_write(dword_11C93C, dword_11C938, 2094);
-        v14 = rx_mpdu[19];
-        v15 = rx_mpdu[9];
+        v14 = v11[19];
+        v15 = v11[9];
         v16 = *(volatile uint32_t *)(v14 + 72) | 0x80400000;
         *(volatile uint32_t *)(v14 + 72) = v16;
         if ( (v15 & 0x200000) == 0 )
           break;
-        get_conn_by_channel((int)rx_mpdu, v16);
-        rx_mpdu = *(volatile uint32_t **)(v13 + 12);
+        get_conn_by_channel((int)v11, v16);
+        v11 = *(volatile uint32_t **)(v13 + 12);
         if ( *(volatile uint8_t *)(v13 + 26) )
           goto LABEL_5;
       }
-      rx_mpdu_process((int)rx_mpdu, v16);
+      rx_mpdu_process((int)v11, v16);
     }
-    v7 = (int)&dma_register_base[7 * channel_id];
+    v7 = (int)&v1[7 * v3];
     if ( !*(volatile uint8_t *)(v7 + 46) )
     {
       v8 = *(volatile uint32_t *)(v7 + 36);
       if ( v8 )
-        ((int (*)())tx_queue_set_head)(v8, channel_id, *(volatile uint8_t *)(v7 + 46), v7);
-      dma_register_base[7 * channel_id + 9] = 0;
+        ((int (*)())tx_queue_set_head)(v8, v3, *(volatile uint8_t *)(v7 + 46), v7);
+      v1[7 * v3 + 9] = 0;
     }
     v9 = (void *)(uintptr_t)(off_11C934);
     *(volatile uint32_t *)off_11C930 &= ~0x40u;
     *v9 = 64;
-    v10 = dma_register_base[52] & 0xFFFFFFFE;
-    --*(volatile uint8_t *)(channel_state_base + 84 * channel_id + 80);
-    dma_register_base[52] = v10;
-    invalid_handler(channel_id);
+    v10 = v1[52] & 0xFFFFFFFE;
+    --*(volatile uint8_t *)(v4 + 84 * v3 + 80);
+    v1[52] = v10;
+    invalid_handler(v3);
   }
-  else if ( (dma_irq_status & 2) != 0 )
+  else if ( (v2 & 2) != 0 )
   {
-    dma_register_base[52] = dma_irq_status & 0xFFFFFFFD;
+    v1[52] = v2 & 0xFFFFFFFD;
   }
   else
   {
@@ -333,7 +332,7 @@ LABEL_5:
     v20 = (*(volatile uint32_t *)off_11C948 & 0x1000) != 0;
     *(volatile uint32_t *)off_11C944 = v19;
     if ( v20 )
-      dma_register_base[52] |= 4u;
+      v1[52] |= 4u;
     if ( v19 )
     {
       v21 = (void *)(uintptr_t)(off_11C940);

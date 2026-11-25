@@ -870,7 +870,6 @@ int gpio_configure_pin(int result, int a2, int a3) {
 
 
 // gpio_write_bit2_from_flag @ 0x10de08
-/* luna: Mirrors a global boolean control byte onto GPIO bit 2, setting the bit when the byte is nonzero and clearing it otherwise. */
 int gpio_write_bit2_from_flag() {
   if ( *((volatile uint8_t *)off_10DE1C + 369) )
     return gpio_set_bit(2);
@@ -881,7 +880,6 @@ int gpio_write_bit2_from_flag() {
 
 
 // gpio_sync_pin1_with_flag @ 0x10de20
-/* luna: Drives GPIO pin 1 high when the global byte flag is nonzero and low otherwise. */
 int gpio_sync_pin1_with_flag() {
   if ( *((volatile uint8_t *)off_10DE34 + 369) )
     return gpio_set_bit(1);
@@ -1365,7 +1363,6 @@ LABEL_28:
 
 
 // rf_core_voltage_calibrate @ 0x10e560
-/* luna: Calibrates the RF core supply toward 840 mV by measuring its voltage and adjusting the trim code. */
 int rf_core_voltage_calibrate() {
   volatile uint32_t *v0; // r1
   int v1; // r3
@@ -1374,15 +1371,15 @@ int rf_core_voltage_calibrate() {
   uint64_t v4; // r0
   uint64_t v5; // r0
   uint64_t v6; // r0
-  int measured_vcore_mv; // r5
-  int trim_code; // r10
-  int voltage_error_mv; // r8
-  int abs_voltage_error_mv; // r0
+  int v7; // r5
+  int v8; // r10
+  int v9; // r8
+  int v10; // r0
   uint64_t v11; // r0
   uint64_t v12; // r0
   int v13; // r0
-  int trim_step; // r9
-  int candidate_trim_code; // r4
+  int v14; // r9
+  int v15; // r4
   volatile uint32_t *v16; // r2
   uint64_t v17; // r0
   uint64_t v18; // r0
@@ -1408,7 +1405,7 @@ int rf_core_voltage_calibrate() {
   uint64_t v38; // r0
   int v39; // r0
   int result; // r0
-  int trim_direction; // [sp+0h] [bp-Ch]
+  int v41; // [sp+0h] [bp-Ch]
   int v42; // [sp+4h] [bp-8h]
 
   v0 = (void *)(uintptr_t)(off_10E814);
@@ -1425,49 +1422,49 @@ int rf_core_voltage_calibrate() {
   v4 = ((uint64_t (*)())double_add_1)(v3, *(volatile uint64_t *)&dword_10E7F8);
   v5 = ((uint64_t (*)())double_subtract)(v4, *(volatile uint64_t *)&dword_10E800);
   v6 = ((uint64_t (*)())double_compare_wrapper)(v5, *(volatile uint64_t *)&dword_10E7F8);
-  measured_vcore_mv = ((int (*)(uint64_t))double_to_float_1)(v6);
-  trim_code = call_ptr_1b0() & 0x1F;
-  voltage_error_mv = measured_vcore_mv - 840;
-  log_printf("Initl vcore Volt: %d mV, reg: %x\n", measured_vcore_mv, trim_code);
-  abs_voltage_error_mv = abs32(measured_vcore_mv - 840);
-  if ( abs_voltage_error_mv <= 47 )
+  v7 = ((int (*)(uint64_t))double_to_float_1)(v6);
+  v8 = call_ptr_1b0() & 0x1F;
+  v9 = v7 - 840;
+  log_printf("Initl vcore Volt: %d mV, reg: %x\n", v7, v8);
+  v10 = abs32(v7 - 840);
+  if ( v10 <= 47 )
   {
-    if ( (unsigned int)(abs_voltage_error_mv - 1) > 0x2E )
+    if ( (unsigned int)(v10 - 1) > 0x2E )
     {
-      voltage_error_mv = 0;
+      v9 = 0;
       goto LABEL_33;
     }
-    if ( voltage_error_mv <= 0 )
+    if ( v9 <= 0 )
       v22 = 1;
     else
       v22 = -1;
-    trim_direction = v22;
-    trim_step = 0;
+    v41 = v22;
+    v14 = 0;
   }
   else
   {
-    v11 = int_to_double(abs_voltage_error_mv);
+    v11 = int_to_double(v10);
     v12 = ((uint64_t (*)())double_add_1)(v11, *(volatile uint64_t *)&dword_10E808);
     v13 = ((int (*)(uint64_t))double_to_float_1)(v12);
-    trim_step = v13;
-    if ( voltage_error_mv <= 0 )
+    v14 = v13;
+    if ( v9 <= 0 )
     {
-      if ( measured_vcore_mv == 840 )
+      if ( v7 == 840 )
         goto LABEL_33;
-      candidate_trim_code = v13 + trim_code;
+      v15 = v13 + v8;
     }
     else
     {
-      candidate_trim_code = trim_code - v13;
+      v15 = v8 - v13;
     }
-    if ( candidate_trim_code > 31 )
+    if ( v15 > 31 )
     {
-      voltage_error_mv = 9;
+      v9 = 9;
       goto LABEL_33;
     }
-    if ( candidate_trim_code <= 12 )
+    if ( v15 <= 12 )
     {
-      voltage_error_mv = -9;
+      v9 = -9;
       goto LABEL_33;
     }
     call_ptr_1b8();
@@ -1480,25 +1477,25 @@ int rf_core_voltage_calibrate() {
     v18 = ((uint64_t (*)())double_add_1)(v17, *(volatile uint64_t *)&dword_10E7F8);
     v19 = ((uint64_t (*)())double_subtract)(v18, *(volatile uint64_t *)&dword_10E800);
     v20 = ((uint64_t (*)())double_compare_wrapper)(v19, *(volatile uint64_t *)&dword_10E7F8);
-    measured_vcore_mv = ((int (*)(uint64_t))double_to_float_1)(v20);
-    event_dispatch("step=%d, val=%x, volt=%d\n", trim_step, candidate_trim_code, measured_vcore_mv);
-    if ( measured_vcore_mv <= 840 )
+    v7 = ((int (*)(uint64_t))double_to_float_1)(v20);
+    event_dispatch("step=%d, val=%x, volt=%d\n", v14, v15, v7);
+    if ( v7 <= 840 )
       v21 = 1;
     else
       v21 = -1;
-    trim_direction = v21;
+    v41 = v21;
   }
   v23 = (void *)(uintptr_t)(off_10E814);
-  v42 = trim_code;
-  v24 = trim_direction + trim_step * trim_direction + trim_code;
-  for ( i = trim_step + 1; ; ++i )
+  v42 = v8;
+  v24 = v41 + v14 * v41 + v8;
+  for ( i = v14 + 1; ; ++i )
   {
-    v26 = trim_step;
-    voltage_error_mv = v24 - v42;
-    trim_step = i;
+    v26 = v14;
+    v9 = v24 - v42;
+    v14 = i;
     if ( (unsigned int)(v24 - 13) > 0x12 )
     {
-      voltage_error_mv = trim_direction * v26;
+      v9 = v41 * v26;
       goto LABEL_33;
     }
     call_ptr_1b8();
@@ -1511,22 +1508,22 @@ int rf_core_voltage_calibrate() {
     v29 = ((uint64_t (*)())double_subtract)(v28, *(volatile uint64_t *)&dword_10E800);
     v30 = ((uint64_t (*)())double_compare_wrapper)(v29, *(volatile uint64_t *)&dword_10E7F8);
     v31 = ((int (*)(uint64_t))double_to_float_1)(v30);
-    event_dispatch("ofst=%d, val=%x, volt=%d\n", voltage_error_mv, v24, v31);
-    v32 = measured_vcore_mv - 840;
+    event_dispatch("ofst=%d, val=%x, volt=%d\n", v9, v24, v31);
+    v32 = v7 - 840;
     v33 = v31 - 840;
     if ( v32 * (v31 - 840) <= 0 )
       break;
-    v24 += trim_direction;
-    measured_vcore_mv = v31;
+    v24 += v41;
+    v7 = v31;
   }
   if ( v33 < 0 )
     v33 = 840 - v31;
   if ( v32 < 0 )
     v32 = -v32;
   if ( v33 > v32 )
-    voltage_error_mv -= trim_direction;
+    v9 -= v41;
 LABEL_33:
-  log_printf("reg_value_offset: %d\n", voltage_error_mv);
+  log_printf("reg_value_offset: %d\n", v9);
   call_ptr_1b8();
   v34 = (void *)(uintptr_t)(off_10E814);
   *((volatile uint32_t *)off_10E814 + 1) = 1;

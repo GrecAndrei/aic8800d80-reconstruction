@@ -241,31 +241,32 @@ volatile uint8_t * buf_calc_4(volatile uint8_t *result, int a2, volatile uint8_t
 
 
 // buf_calc_5 @ 0x12d994
+/* luna: Scans a bounded 802.11 information-element list for an RSN (EID 48) element with at least 18 payload bytes, stores its payload length, and returns its */
 volatile uint8_t * buf_calc_5(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
-  unsigned int v3; // r1
-  int v4; // r4
-  volatile uint8_t *v5; // r5
+  unsigned int buffer_end; // r1
+  int ie_payload_len; // r4
+  volatile uint8_t *ie_end; // r5
 
-  v3 = (unsigned int)&result[a2];
-  if ( v3 <= (unsigned int)(result + 1) )
+  buffer_end = (unsigned int)&result[a2];
+  if ( buffer_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v4 = (uint8_t)result[1];
-    v5 = &result[v4 + 2];
+    ie_payload_len = (uint8_t)result[1];
+    ie_end = &result[ie_payload_len + 2];
     if ( *result == 48 )
       break;
-    result += v4 + 2;
-    if ( v3 <= (unsigned int)(v5 + 1) )
+    result += ie_payload_len + 2;
+    if ( buffer_end <= (unsigned int)(ie_end + 1) )
       return 0;
   }
-  if ( v3 >= (unsigned int)v5 )
+  if ( buffer_end >= (unsigned int)ie_end )
   {
     if ( !result )
       return result;
-    if ( (unsigned int)(v4 + 2) > 0x13 )
+    if ( (unsigned int)(ie_payload_len + 2) > 0x13 )
     {
-      *a3 = v4;
+      *a3 = ie_payload_len;
       return result;
     }
   }
@@ -356,6 +357,7 @@ volatile uint8_t * check_one_12da38(volatile uint8_t *result, int a2) {
 
 
 // check_one_12da78 @ 0x12da78
+/* luna: Scans a bounded 802.11 information-element stream for an Extended Channel Switch Announcement element (ID 60) with a four-byte payload and returns its */
 volatile uint8_t * check_one_12da78(volatile uint8_t *result, int a2) {
   unsigned int v2; // r1
   volatile uint8_t *v3; // r2
@@ -486,23 +488,24 @@ volatile uint8_t * check_one_12db60(volatile uint8_t *result, int a2) {
 
 
 // check_one_12dba0 @ 0x12dba0
+/* luna: Scans a bounded 802.11 information-element stream and returns the first complete MMIE (element ID 76, length 16), or NULL if none is found. */
 volatile uint8_t * check_one_12dba0(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int ies_end; // r1
+  volatile uint8_t *ie_end; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  ies_end = (unsigned int)&result[a2];
+  if ( ies_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[(uint8_t)result[1] + 2];
+    ie_end = &result[(uint8_t)result[1] + 2];
     if ( *result == 76 )
       break;
     result += (uint8_t)result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( ies_end <= (unsigned int)(ie_end + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( ies_end < (unsigned int)ie_end )
     return 0;
   if ( result )
   {
@@ -647,23 +650,24 @@ volatile uint8_t * log_format_message(volatile uint8_t *a1, int a2) {
 
 
 // check_one_12dd08 @ 0x12dd08
+/* luna: Scans an 802.11 information-element list and returns the HT Capabilities element (ID 45) only when its payload length is 26 bytes and it is in bounds. */
 volatile uint8_t * check_one_12dd08(volatile uint8_t *result, int a2) {
-  unsigned int v2; // r1
-  volatile uint8_t *v3; // r2
+  unsigned int ies_end; // r1
+  volatile uint8_t *ie_end; // r2
 
-  v2 = (unsigned int)&result[a2];
-  if ( v2 <= (unsigned int)(result + 1) )
+  ies_end = (unsigned int)&result[a2];
+  if ( ies_end <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v3 = &result[(uint8_t)result[1] + 2];
+    ie_end = &result[(uint8_t)result[1] + 2];
     if ( *result == 45 )
       break;
     result += (uint8_t)result[1] + 2;
-    if ( v2 <= (unsigned int)(v3 + 1) )
+    if ( ies_end <= (unsigned int)(ie_end + 1) )
       return 0;
   }
-  if ( v2 < (unsigned int)v3 )
+  if ( ies_end < (unsigned int)ie_end )
     return 0;
   if ( result )
   {
@@ -1931,6 +1935,7 @@ void ipc_wait_flag() {
 
 
 // ipc_set_data0 @ 0x12ea2c
+/* luna: Writes a value to IPC data register 0 and returns the written value. */
 int ipc_set_data0(int result) {
   *(volatile uint32_t *)off_12EA34 = result;
   return result;
@@ -1939,6 +1944,7 @@ int ipc_set_data0(int result) {
 
 
 // ipc_set_data1 @ 0x12ea38
+/* luna: Writes a value to IPC data register 1 and returns that value. */
 int ipc_set_data1(int result) {
   *((volatile uint32_t *)off_12EA40 + 1) = result;
   return result;
@@ -1947,6 +1953,7 @@ int ipc_set_data1(int result) {
 
 
 // ipc_get_data0 @ 0x12ea44
+/* luna: Returns the current value of the IPC data0 register. */
 int ipc_get_data0() {
   return *(volatile uint32_t *)off_12EA4C;
 }
@@ -1954,6 +1961,7 @@ int ipc_get_data0() {
 
 
 // ipc_get_data1 @ 0x12ea50
+/* luna: Returns the second IPC data register value. */
 int ipc_get_data1() {
   return *((volatile uint32_t *)off_12EA58 + 1);
 }
@@ -1975,45 +1983,46 @@ BOOL get_flag_bit(unsigned int a1, unsigned int a2) {
 
 
 // event_dispatch @ 0x12ea88
+/* luna: Filters optional high-bit debug category and severity prefixes against global settings, then forwards the remaining format string and arguments to the */
 int event_dispatch(const volatile char *fmt, ...) {
-  volatile uint32_t *v1; // r6
-  const volatile char *v2; // r4
+  volatile uint32_t *debug_config; // r6
+  const volatile char *format_cursor; // r4
   volatile int16_t **v3; // r8
-  unsigned int v4; // r5
-  unsigned int v5; // t1
-  char v6; // r2
+  unsigned int prefix_byte; // r5
+  unsigned int prefix_byte_raw; // t1
+  char prefix_bit_index; // r2
   const volatile char *varg_r0; // [sp+28h] [bp+20h]
   va_list varg_r1; // [sp+2Ch] [bp+24h] BYREF
 
   va_start(varg_r1, fmt);
   varg_r0 = fmt;
-  v1 = (void *)(uintptr_t)(off_12EB08);
+  debug_config = (void *)(uintptr_t)(off_12EB08);
   if ( *((volatile uint32_t *)off_12EB08 + 1) )
   {
-    v2 = fmt;
+    format_cursor = fmt;
     v3 = (volatile int16_t **)off_12EB0C;
     do
     {
-      fmt = v2;
-      v5 = *(volatile uint8_t *)v2++;
-      v4 = v5;
-      v6 = v5 + 0x80;
-      if ( (v5 & 0x80) == 0 )
+      fmt = format_cursor;
+      prefix_byte_raw = *(volatile uint8_t *)format_cursor++;
+      prefix_byte = prefix_byte_raw;
+      prefix_bit_index = prefix_byte_raw + 0x80;
+      if ( (prefix_byte_raw & 0x80) == 0 )
         break;
-      if ( v4 > 0x89 )
+      if ( prefix_byte > 0x89 )
       {
-        if ( **v3 < 0 && (uint8_t)(v4 + 102) > 5u )
+        if ( **v3 < 0 && (uint8_t)(prefix_byte + 102) > 5u )
           fmt = (const volatile char *)mmio_clear_register((int)aDbgSevMinPrefi, (int)aDbgTestPrint, 812);
-        if ( v1[1] <= v4 - 154 )
+        if ( debug_config[1] <= prefix_byte - 154 )
           return (int)fmt;
       }
-      else if ( (((unsigned int)~*v1 >> v6) & 1) != 0 )
+      else if ( (((unsigned int)~*debug_config >> prefix_bit_index) & 1) != 0 )
       {
         return (int)fmt;
       }
-      fmt = v2;
+      fmt = format_cursor;
     }
-    while ( varg_r0 + 2 != v2 );
+    while ( varg_r0 + 2 != format_cursor );
     return prepare_debug_buffer(fmt, (volatile unsigned int *)(*(void **)&(varg_r1)));
   }
   return (int)fmt;

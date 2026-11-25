@@ -300,7 +300,6 @@ int phy_ctx_get_by_index(int a1, char a2) {
 
 
 // tx_queue_set_new_head @ 0x1166b4
-/* luna: Stores a new TX-list head for the selected access category and signals the corresponding hardware queue after checking its status. */
 int tx_queue_set_new_head(int a1, int a2) {
   volatile uint32_t *v3; // r3
   volatile unsigned int v4; // r2

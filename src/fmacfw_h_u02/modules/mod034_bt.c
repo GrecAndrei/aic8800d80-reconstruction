@@ -1,13 +1,12 @@
 // mm_timer_set @ 0x124bfc
-/* luna: Updates a timer’s expiration, reorders it in the pending-timer list, and adjusts timer state when it becomes the earliest deadline. */
 int mm_timer_set(volatile uint32_t *a1, int a2) {
-  volatile int *timer_lock_count_ptr; // r7
+  volatile int *v4; // r7
   volatile unsigned int *v5; // r2
   int v6; // r3
-  volatile uint32_t *timer_list_head_ptr; // r6
+  volatile uint32_t *v7; // r6
   void *v8; // r2
   int result; // r0
-  volatile uint32_t *first_timer_entry; // r3
+  volatile uint32_t *v10; // r3
   int v11; // r3
   int v12; // r2
   void *v13; // r2
@@ -19,7 +18,7 @@ int mm_timer_set(volatile uint32_t *a1, int a2) {
     __disable_irq();
     *(volatile uint32_t *)off_124CD0 = 1;
   }
-  timer_lock_count_ptr = (volatile int *)off_124CD4;
+  v4 = (volatile int *)off_124CD4;
   v5 = (void *)(uintptr_t)(off_124CD8);
   ++*(volatile uint32_t *)off_124CD4;
   v6 = *((volatile uint32_t *)v5 + 4);
@@ -29,15 +28,15 @@ int mm_timer_set(volatile uint32_t *a1, int a2) {
     if ( **(volatile int16_t **)off_124CE8 < 0 )
       irq_disable_mmio_write(off_124CF0, (int)aMmTimerSet, 131);
   }
-  timer_list_head_ptr = (volatile uint32_t *)off_124CDC;
+  v7 = (volatile uint32_t *)off_124CDC;
   if ( a1 == *(volatile uint32_t **)off_124CDC )
   {
     list_pop(off_124CDC);
     v13 = (void *)(uintptr_t)(off_124CE0);
     a1[3] = a2;
-    result = list_foreach((int)timer_list_head_ptr, a1, (int ( *)(volatile uint32_t *, volatile uint32_t *))v13);
-    first_timer_entry = (volatile uint32_t *)*timer_list_head_ptr;
-    if ( !*timer_list_head_ptr )
+    result = list_foreach((int)v7, a1, (int ( *)(volatile uint32_t *, volatile uint32_t *))v13);
+    v10 = (volatile uint32_t *)*v7;
+    if ( !*v7 )
     {
       *((volatile uint32_t *)off_124CD8 + 2) = 1024;
       goto LABEL_6;
@@ -47,20 +46,20 @@ int mm_timer_set(volatile uint32_t *a1, int a2) {
   wlan_ioctl_handler_3(off_124CDC, a1);
   v8 = (void *)(uintptr_t)(off_124CE0);
   a1[3] = a2;
-  result = list_foreach((int)timer_list_head_ptr, a1, (int ( *)(volatile uint32_t *, volatile uint32_t *))v8);
-  first_timer_entry = (volatile uint32_t *)*timer_list_head_ptr;
-  if ( a1 == (volatile uint32_t *)*timer_list_head_ptr )
+  result = list_foreach((int)v7, a1, (int ( *)(volatile uint32_t *, volatile uint32_t *))v8);
+  v10 = (volatile uint32_t *)*v7;
+  if ( a1 == (volatile uint32_t *)*v7 )
   {
 LABEL_14:
     v14 = (void *)(uintptr_t)(off_124CD8);
-    v15 = first_timer_entry[3];
+    v15 = v10[3];
     result = 0x40000;
     *((volatile uint32_t *)off_124CD8 + 2) = 0x40000;
     *((volatile uint32_t *)v14 + 12) = v15;
     *((volatile uint32_t *)v14 + 2) = 4;
   }
 LABEL_6:
-  if ( *timer_lock_count_ptr && (v11 = *timer_lock_count_ptr - 1, v12 = *(volatile uint32_t *)off_124CD0, (*timer_lock_count_ptr = v11) == 0) && v12 )
+  if ( *v4 && (v11 = *v4 - 1, v12 = *(volatile uint32_t *)off_124CD0, (*v4 = v11) == 0) && v12 )
   {
     __enable_irq();
     if ( (int)(a2 - *((volatile uint32_t *)off_124CD8 + 4)) < 0 )

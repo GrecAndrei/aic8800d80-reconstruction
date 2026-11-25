@@ -1,11 +1,10 @@
 // txl_ba_push @ 0x117e0c
-/* luna: Pops a buffer from the selected transmit queue and prepares its BA-related descriptor metadata and frame header. */
 int txl_ba_push(int a1, int a2, int a3, int a4) {
-  int queue_index; // r2
-  volatile uint32_t *popped_buffer; // r0
+  int v4; // r2
+  volatile uint32_t *v6; // r0
   volatile int16_t *v7; // r1
-  int tx_buffer; // r4
-  unsigned int tx_descriptor_info; // r2
+  int v8; // r4
+  unsigned int v9; // r2
   int result; // r0
   int v11; // r1
   unsigned int v12; // r3
@@ -13,42 +12,42 @@ int txl_ba_push(int a1, int a2, int a3, int a4) {
 
   if ( *(volatile uint8_t *)off_117EF8 )
     return alloc_tx_event(aBaWarn, a2, a3, a4);
-  queue_index = (queue_index & ~0xFFFFu) | ((uint16_t)(*((volatile uint8_t *)off_117EFC + 190)) & 0xFFFFu);
+  v4 = (v4 & ~0xFFFFu) | ((uint16_t)(*((volatile uint8_t *)off_117EFC + 190)) & 0xFFFFu);
   if ( (*((volatile uint32_t *)off_117EFC + 52) & 1) == 0 )
-    queue_index = (*(volatile uint32_t *)(a1 + 84) >> 11) & 3;
-  popped_buffer = list_pop(dword_117F00 + 84 * (uint16_t)queue_index + 28);
+    v4 = (*(volatile uint32_t *)(a1 + 84) >> 11) & 3;
+  v6 = list_pop(dword_117F00 + 84 * (uint16_t)v4 + 28);
   v7 = *(volatile int16_t **)off_117F04;
-  tx_buffer = (int)popped_buffer;
-  if ( **(volatile int16_t **)off_117F04 < 0 && !popped_buffer )
+  v8 = (int)v6;
+  if ( **(volatile int16_t **)off_117F04 < 0 && !v6 )
     return log_assert_failure((int)aAggDescNull, (int)aTxlBaPush, 369);
-  tx_descriptor_info = *(volatile uint32_t *)(a1 + 84);
-  result = tx_descriptor_info << 6;
-  *(volatile uint16_t *)(tx_buffer + 8) |= 0x20u;
-  if ( (tx_descriptor_info & 0x2000000) != 0 )
+  v9 = *(volatile uint32_t *)(a1 + 84);
+  result = v9 << 6;
+  *(volatile uint16_t *)(v8 + 8) |= 0x20u;
+  if ( (v9 & 0x2000000) != 0 )
   {
-    result = (uint16_t)(tx_descriptor_info >> 15);
+    result = (uint16_t)(v9 >> 15);
     if ( *v7 < 0 && (result & 0x3F0) == 0 )
       return log_assert_failure((int)aKeyIdxHwMmSecD, (int)aTxlIsBaValid, 217);
-    if ( ((tx_descriptor_info >> 15) & 0x3FF) - 16 == *(volatile uint8_t *)(tx_buffer + 12) )
+    if ( ((v9 >> 15) & 0x3FF) - 16 == *(volatile uint8_t *)(v8 + 12) )
     {
       v11 = *(volatile uint32_t *)(*(volatile uint32_t *)(a1 + 28) + 8);
       v12 = *(volatile uint16_t *)(v11 + 16);
       result = v12 & 0x1E;
       if ( result == 22 )
       {
-        result = tx_frame_build(a1, tx_buffer);
+        result = tx_frame_build(a1, v8);
         if ( result )
           goto LABEL_17;
       }
-      else if ( (tx_descriptor_info & 0x200) == 0 )
+      else if ( (v9 & 0x200) == 0 )
       {
         v13 = *(volatile uint16_t *)(a1 + 48);
-        if ( (v13 == 52 || v13 == 28) && *(volatile uint8_t *)(tx_buffer + 13) == v12 >> 12 )
+        if ( (v13 == 52 || v13 == 28) && *(volatile uint8_t *)(v8 + 13) == v12 >> 12 )
         {
-          result = (int)memcpy((volatile char *)(tx_buffer + 228), (volatile char *)(v11 + 18), 0x22u);
-          *(volatile uint32_t *)(tx_buffer + 224) = tx_buffer + 228;
+          result = (int)memcpy((volatile char *)(v8 + 228), (volatile char *)(v11 + 18), 0x22u);
+          *(volatile uint32_t *)(v8 + 224) = v8 + 228;
 LABEL_17:
-          *(volatile uint16_t *)(tx_buffer + 8) |= 0x40u;
+          *(volatile uint16_t *)(v8 + 8) |= 0x40u;
         }
       }
     }

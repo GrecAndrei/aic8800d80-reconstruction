@@ -479,7 +479,6 @@ LABEL_7:
 
 
 // send_probe_response @ 0x119124
-/* luna: Builds and queues an 802.11 probe response for the AP vif addressed to the supplied destination MAC. */
 int send_probe_response(int a1, volatile char *a2) {
   int v2; // r3
   int v3; // r3
@@ -487,10 +486,10 @@ int send_probe_response(int a1, volatile char *a2) {
   BOOL v7; // r0
   int v8; // r8
   volatile uint32_t *v9; // r0
-  int tx_descriptor; // r6
-  int frame; // r5
+  int v10; // r6
+  int v11; // r5
   volatile uint16_t *v12; // r2
-  uint16_t sequence_counter; // r3
+  uint16_t v13; // r3
   uint16_t v14; // r1
   int v15; // r0
 
@@ -520,36 +519,36 @@ LABEL_9:
 LABEL_5:
   v8 = dword_119258;
   v9 = lock_acquire(v7, *(volatile uint16_t *)(dword_119258 + 2 * *(volatile uint8_t *)(a1 + 107)));
-  tx_descriptor = (int)v9;
+  v10 = (int)v9;
   if ( v9 )
   {
     get_status_flag_c5(a1, (int)v9);
-    frame = *(volatile uint32_t *)(tx_descriptor + 72);
-    *(volatile uint8_t *)(frame + 108) = 80;
-    *(volatile uint8_t *)(frame + 109) = 0;
-    *(volatile uint8_t *)(frame + 110) = 0;
-    *(volatile uint8_t *)(frame + 111) = 0;
-    memcpy((volatile char *)(frame + 112), a2, 6u);
+    v11 = *(volatile uint32_t *)(v10 + 72);
+    *(volatile uint8_t *)(v11 + 108) = 80;
+    *(volatile uint8_t *)(v11 + 109) = 0;
+    *(volatile uint8_t *)(v11 + 110) = 0;
+    *(volatile uint8_t *)(v11 + 111) = 0;
+    memcpy((volatile char *)(v11 + 112), a2, 6u);
     v12 = (void *)(uintptr_t)(off_119240);
-    sequence_counter = *((volatile uint16_t *)off_119240 + 254);
+    v13 = *((volatile uint16_t *)off_119240 + 254);
     v14 = *(volatile uint16_t *)(a1 + 104);
-    *(volatile uint32_t *)(frame + 118) = *(volatile uint32_t *)(a1 + 100);
-    ++sequence_counter;
+    *(volatile uint32_t *)(v11 + 118) = *(volatile uint32_t *)(a1 + 100);
+    ++v13;
     v15 = *(volatile uint32_t *)(a1 + 100);
-    *(volatile uint16_t *)(frame + 122) = v14;
-    *(volatile uint32_t *)(frame + 124) = v15;
-    *(volatile uint16_t *)(frame + 128) = v14;
-    v12[254] = sequence_counter;
-    *(volatile uint16_t *)(frame + 130) = 16 * sequence_counter;
+    *(volatile uint16_t *)(v11 + 122) = v14;
+    *(volatile uint32_t *)(v11 + 124) = v15;
+    *(volatile uint16_t *)(v11 + 128) = v14;
+    v12[254] = v13;
+    *(volatile uint16_t *)(v11 + 130) = 16 * v13;
     memcpy(
-      (volatile char *)(frame + 132),
+      (volatile char *)(v11 + 132),
       (volatile char *)(dword_119244 + (*(volatile uint8_t *)(a1 + 107) << 9)),
       *(volatile uint16_t *)(v8 + 2 * *(volatile uint8_t *)(a1 + 107)) - 24);
-    *(volatile uint32_t *)(tx_descriptor + 88) = 0;
-    *(volatile uint32_t *)(tx_descriptor + 92) = 0;
-    *(volatile uint8_t *)(tx_descriptor + 28) = *(volatile uint8_t *)(a1 + 107);
-    *(volatile uint8_t *)(tx_descriptor + 29) = -1;
-    sec_check(tx_descriptor, 5);
+    *(volatile uint32_t *)(v10 + 88) = 0;
+    *(volatile uint32_t *)(v10 + 92) = 0;
+    *(volatile uint8_t *)(v10 + 28) = *(volatile uint8_t *)(a1 + 107);
+    *(volatile uint8_t *)(v10 + 29) = -1;
+    sec_check(v10, 5);
     return 0;
   }
   else

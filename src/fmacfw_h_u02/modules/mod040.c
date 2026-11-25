@@ -531,21 +531,20 @@ volatile uint8_t * bt_get_conn_ptr(int a1) {
 
 
 // p2p_process_noa_ie @ 0x12a204
-/* luna: Searches a received 802.11 management frame for a P2P vendor IE containing the Notice of Absence attribute and forwards that attribute to the NoA hand */
 unsigned int p2p_process_noa_ie(volatile uint8_t *a1, int a2, int a3) {
-  unsigned int noa_attr; // r4
+  unsigned int v3; // r4
   unsigned int v5; // r0
-  int frame; // r7
-  volatile uint8_t *ie_cursor; // r3
-  unsigned int ies_end; // r7
-  int ie_length; // r5
-  int ie_id; // r2
+  int v8; // r7
+  volatile uint8_t *v9; // r3
+  unsigned int v10; // r7
+  int v11; // r5
+  int v12; // r2
   volatile uint8_t *v13; // r4
-  unsigned int attribute_end; // r5
+  unsigned int v14; // r5
 
-  noa_attr = (uint8_t)a1[1224];
+  v3 = (uint8_t)a1[1224];
   if ( !a1[1224] )
-    return noa_attr;
+    return v3;
   if ( !a1[106] )
   {
     v5 = (uint8_t)a1[1225];
@@ -554,45 +553,45 @@ unsigned int p2p_process_noa_ie(volatile uint8_t *a1, int a2, int a3) {
       irq_disable_mmio_write(dword_12A2AC, dword_12A2B0, 1420);
       v5 = (uint8_t)a1[1225];
     }
-    frame = *(volatile uint32_t *)(a2 + 8);
-    ie_cursor = (volatile uint8_t *)(frame + 36);
-    ies_end = frame + *(volatile uint16_t *)(a3 + 28);
-    if ( (unsigned int)ie_cursor < ies_end )
+    v8 = *(volatile uint32_t *)(a2 + 8);
+    v9 = (volatile uint8_t *)(v8 + 36);
+    v10 = v8 + *(volatile uint16_t *)(a3 + 28);
+    if ( (unsigned int)v9 < v10 )
     {
       while ( 1 )
       {
-        ie_length = ie_cursor[1];
-        ie_id = *ie_cursor;
-        v13 = ie_cursor;
-        ie_cursor += ie_length + 2;
-        if ( ie_id == 221 && v13[5] == 9 )
+        v11 = v9[1];
+        v12 = *v9;
+        v13 = v9;
+        v9 += v11 + 2;
+        if ( v12 == 221 && v13[5] == 9 )
         {
-          noa_attr = (unsigned int)(v13 + 6);
-          attribute_end = noa_attr + (uint16_t)(ie_length - 4);
-          if ( noa_attr < attribute_end )
+          v3 = (unsigned int)(v13 + 6);
+          v14 = v3 + (uint16_t)(v11 - 4);
+          if ( v3 < v14 )
           {
-            while ( *(volatile uint8_t *)noa_attr != 12 )
+            while ( *(volatile uint8_t *)v3 != 12 )
             {
-              noa_attr += *(volatile uint16_t *)(noa_attr + 1) + 3;
-              if ( attribute_end <= noa_attr )
+              v3 += *(volatile uint16_t *)(v3 + 1) + 3;
+              if ( v14 <= v3 )
                 goto LABEL_6;
             }
-            if ( noa_attr )
+            if ( v3 )
               break;
           }
         }
 LABEL_6:
-        if ( ies_end <= (unsigned int)ie_cursor )
+        if ( v10 <= (unsigned int)v9 )
           goto LABEL_19;
       }
     }
     else
     {
 LABEL_19:
-      noa_attr = 0;
+      v3 = 0;
     }
-    sec_table_entry_count(v5, noa_attr, *(volatile uint32_t *)(*(volatile uint32_t *)(*(volatile uint32_t *)(a3 + 8) + 8) + 24));
-    return noa_attr;
+    sec_table_entry_count(v5, v3, *(volatile uint32_t *)(*(volatile uint32_t *)(*(volatile uint32_t *)(a3 + 8) + 8) + 24));
+    return v3;
   }
   return 0;
 }

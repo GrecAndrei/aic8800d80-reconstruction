@@ -1,44 +1,43 @@
 // txdesc_pool_init @ 0x115e28
-/* luna: Clears and initializes the TX descriptor pool, assigning each descriptor its 80-byte backing buffer and passing it to the descriptor handler. */
 int txdesc_pool_init() {
-  volatile int **txdesc_array; // r5
-  volatile uint32_t *tx_buffer_base_ptr; // r6
+  volatile int **v0; // r5
+  volatile uint32_t *v1; // r6
   volatile int *v2; // r0
-  void *descriptor_config_ptr; // r8
+  void *v3; // r8
   int v4; // r7
-  uint16_t descriptor_index; // r9
-  volatile int *descriptor_entry; // r1
+  uint16_t v5; // r9
+  volatile int *v6; // r1
   int result; // r0
 
-  txdesc_array = (volatile int **)off_115EB0;
+  v0 = (volatile int **)off_115EB0;
   clear_stats_buf((volatile uint32_t *)dword_115EAC);
   if ( **(volatile int16_t **)off_115EB4 < 0 )
   {
-    v2 = *txdesc_array;
-    tx_buffer_base_ptr = (void *)(uintptr_t)(off_115EB8);
-    if ( !*txdesc_array || !*(volatile uint32_t *)off_115EB8 )
+    v2 = *v0;
+    v1 = (void *)(uintptr_t)(off_115EB8);
+    if ( !*v0 || !*(volatile uint32_t *)off_115EB8 )
     {
       irq_disable_mmio_write((int)aTxdescArray0Tx, (int)aTxTxdescInit, 90);
-      v2 = *txdesc_array;
+      v2 = *v0;
     }
   }
   else
   {
-    tx_buffer_base_ptr = (void *)(uintptr_t)(off_115EB8);
-    v2 = *txdesc_array;
+    v1 = (void *)(uintptr_t)(off_115EB8);
+    v2 = *v0;
   }
-  descriptor_config_ptr = (void *)(uintptr_t)(off_115EC4);
+  v3 = (void *)(uintptr_t)(off_115EC4);
   v4 = dword_115EAC;
   memset(v2, 0, 88 * *(volatile uint16_t *)(*(volatile uint32_t *)off_115EC4 + 8) + 88);
-  descriptor_index = 0;
+  v5 = 0;
   do
   {
-    descriptor_entry = &(*txdesc_array)[22 * descriptor_index];
-    descriptor_entry[19] = *tx_buffer_base_ptr + 80 * descriptor_index;
-    result = co_list_push_back(v4, (void *)(descriptor_entry));
-    ++descriptor_index;
+    v6 = &(*v0)[22 * v5];
+    v6[19] = *v1 + 80 * v5;
+    result = co_list_push_back(v4, (void *)(v6));
+    ++v5;
   }
-  while ( *(volatile uint16_t *)(*(volatile uint32_t *)descriptor_config_ptr + 8) >= (unsigned int)descriptor_index );
+  while ( *(volatile uint16_t *)(*(volatile uint32_t *)v3 + 8) >= (unsigned int)v5 );
   return result;
 }
 

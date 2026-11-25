@@ -1,18 +1,17 @@
 // test_command_queue_process @ 0x130030
-/* luna: Drains queued console commands, validates their argument counts against command descriptors, invokes the matching handlers, and releases each processe */
 int test_command_queue_process(int a1, int a2) {
-  volatile int *lock_depth_ptr; // r6
+  volatile int *v2; // r6
   int v3; // r0
   int result; // r0
-  int queued_command; // r4
+  int v5; // r4
   int v6; // r3
   int v7; // r2
-  volatile uint8_t **command_table; // r7
-  int argument_count; // r5
+  volatile uint8_t **v8; // r7
+  int v9; // r5
   int v10; // r0
   int v11; // r3
   int v12; // r2
-  volatile uint8_t **command_entry; // r0
+  volatile uint8_t **v13; // r0
   int v14; // r0
   volatile uint8_t *a1a[18]; // [sp+4h] [bp-48h] BYREF
 
@@ -21,16 +20,16 @@ int test_command_queue_process(int a1, int a2) {
     __disable_irq();
     *(volatile uint32_t *)off_130120 = 1;
   }
-  lock_depth_ptr = (volatile int *)off_130124;
+  v2 = (volatile int *)off_130124;
   v3 = dword_130128;
   ++*(volatile uint32_t *)off_130124;
   result = (int)list_pop(v3);
-  queued_command = result;
-  if ( *lock_depth_ptr )
+  v5 = result;
+  if ( *v2 )
   {
-    v6 = *lock_depth_ptr - 1;
+    v6 = *v2 - 1;
     v7 = *(volatile uint32_t *)off_130120;
-    *lock_depth_ptr = v6;
+    *v2 = v6;
     if ( !v6 )
     {
       if ( v7 )
@@ -39,22 +38,22 @@ int test_command_queue_process(int a1, int a2) {
   }
   if ( result )
   {
-    command_table = (volatile uint8_t **)off_13012C;
+    v8 = (volatile uint8_t **)off_13012C;
     do
     {
-      argument_count = skip_leading_spaces((volatile uint8_t *)(queued_command + 4), (int)a1a);
-      if ( argument_count )
+      v9 = skip_leading_spaces((volatile uint8_t *)(v5 + 4), (int)a1a);
+      if ( v9 )
       {
-        command_entry = (void *)(split_on_dot((int)(uintptr_t)(a1a[0]), (void *)(command_table), 7));
-        if ( command_entry )
+        v13 = (void *)(split_on_dot((int)(uintptr_t)(a1a[0]), (void *)(v8), 7));
+        if ( v13 )
         {
-          if ( *((volatile int16_t *)command_entry + 5) < argument_count || *((volatile int16_t *)command_entry + 4) > argument_count )
+          if ( *((volatile int16_t *)v13 + 5) < v9 || *((volatile int16_t *)v13 + 4) > v9 )
           {
-            debug_printf(aUsageSS, *command_entry, command_entry[1]);
+            debug_printf(aUsageSS, *v13, v13[1]);
           }
           else
           {
-            v14 = ((int ( *)(int, volatile uint8_t **))command_entry[3])(argument_count, a1a);
+            v14 = ((int ( *)(int, volatile uint8_t **))v13[3])(v9, a1a);
             if ( v14 )
               debug_printf("Command fail, ret=%d\r\n", v14);
           }
@@ -75,15 +74,15 @@ int test_command_queue_process(int a1, int a2) {
         *(volatile uint32_t *)off_130120 = 1;
       }
       v10 = dword_130138;
-      ++*lock_depth_ptr;
-      co_list_push_back(v10, (volatile uint32_t *)queued_command);
+      ++*v2;
+      co_list_push_back(v10, (volatile uint32_t *)v5);
       result = (int)list_pop(dword_130128);
-      queued_command = result;
-      if ( *lock_depth_ptr )
+      v5 = result;
+      if ( *v2 )
       {
-        v11 = *lock_depth_ptr - 1;
+        v11 = *v2 - 1;
         v12 = *(volatile uint32_t *)off_130120;
-        *lock_depth_ptr = v11;
+        *v2 = v11;
         if ( !v11 )
         {
           if ( v12 )
@@ -121,25 +120,24 @@ void mmio_register_access() {
 
 
 // rf_step_xtal_cap_toward_target @ 0x130184
-/* luna: Moves the current XTAL capacitor value one step toward its target and logs the adjustment. */
 unsigned int rf_step_xtal_cap_toward_target() {
-  volatile uint8_t *calibration_state; // r4
+  volatile uint8_t *v0; // r4
   unsigned int result; // r0
-  unsigned int target_xtal_cap; // r3
-  uint8_t adjusted_xtal_cap; // r0
+  unsigned int v2; // r3
+  uint8_t v3; // r0
 
-  calibration_state = (volatile uint8_t *)off_1301B0;
+  v0 = (volatile uint8_t *)off_1301B0;
   result = *((volatile uint8_t *)off_1301B0 + 6);
-  target_xtal_cap = *((volatile uint8_t *)off_1301B0 + 5);
-  if ( result != target_xtal_cap )
+  v2 = *((volatile uint8_t *)off_1301B0 + 5);
+  if ( result != v2 )
   {
-    if ( result >= target_xtal_cap )
-      adjusted_xtal_cap = result - 1;
+    if ( result >= v2 )
+      v3 = result - 1;
     else
-      adjusted_xtal_cap = result + 1;
-    *((volatile uint8_t *)off_1301B0 + 6) = adjusted_xtal_cap;
-    padding_data(adjusted_xtal_cap);
-    return alloc_tx_event("\x9D\x89""adjust xtal_cap: tgt=0x%x, cur=0x%x\n", calibration_state[5], calibration_state[6]);
+      v3 = result + 1;
+    *((volatile uint8_t *)off_1301B0 + 6) = v3;
+    padding_data(v3);
+    return alloc_tx_event("\x9D\x89""adjust xtal_cap: tgt=0x%x, cur=0x%x\n", v0[5], v0[6]);
   }
   return result;
 }
@@ -205,33 +203,32 @@ int rf_power_adjust() {
 
 
 // rf_calibration_status_dump @ 0x130260
-/* luna: Logs the current temperature-compensation, crystal-capacitance, RF offset, and RF control settings. */
 int rf_calibration_status_dump() {
-  volatile uint8_t *calibration_state; // r4
-  int settings_enabled; // r4
-  int active_state; // r0
-  int timer_setting; // [sp+14h] [bp-4h]
+  volatile uint8_t *v0; // r4
+  int v1; // r4
+  int v2; // r0
+  int v4; // [sp+14h] [bp-4h]
 
-  calibration_state = (volatile uint8_t *)off_1302D8;
+  v0 = (volatile uint8_t *)off_1302D8;
   alloc_tx_event(
     "temp_comp: init=%d, en=%d, lvl_cal=%d, t_last=%d C\n",
     *(volatile char *)off_1302D8,
     *((volatile char *)off_1302D8 + 1),
     *((volatile char *)off_1302D8 + 2),
     *((volatile char *)off_1302D8 + 3));
-  alloc_tx_event("xtal_cap: cal=0x%x, tgt=0x%x, cur=0x%x\n", calibration_state[4], calibration_state[5], calibration_state[6]);
+  alloc_tx_event("xtal_cap: cal=0x%x, tgt=0x%x, cur=0x%x\n", v0[4], v0[5], v0[6]);
   alloc_tx_event(
     "ofst2x: 2G4=%d,%d,%d; 5G=%d,%d,%d\n",
-    (char)calibration_state[8],
-    (char)calibration_state[9],
-    (char)calibration_state[10],
-    (char)calibration_state[11],
-    (char)calibration_state[12],
-    (char)calibration_state[13]);
-  settings_enabled = HIBYTE(((volatile uint32_t *)(uintptr_t)off_1302E8)[90]);
-  timer_setting = ((volatile uint32_t *)(uintptr_t)off_1302E8)[91];
-  active_state = rf_get_state_1(1070, 1);
-  return alloc_tx_event("settings: en=%d, tmr=%d, act=%d\n", settings_enabled, timer_setting, active_state);
+    (char)v0[8],
+    (char)v0[9],
+    (char)v0[10],
+    (char)v0[11],
+    (char)v0[12],
+    (char)v0[13]);
+  v1 = HIBYTE(((volatile uint32_t *)(uintptr_t)off_1302E8)[90]);
+  v4 = ((volatile uint32_t *)(uintptr_t)off_1302E8)[91];
+  v2 = rf_get_state_1(1070, 1);
+  return alloc_tx_event("settings: en=%d, tmr=%d, act=%d\n", v1, v4, v2);
 }
 
 
@@ -1186,34 +1183,33 @@ volatile uint8_t * addba_request_ack(volatile uint8_t *a1, int a2, int a3) {
 
 
 // apply_country_ie_channel_power @ 0x130d18
-/* luna: Finds the country-information triplet covering the channel record’s channel and stores that triplet’s maximum transmit power in the record. */
 volatile uint8_t * apply_country_ie_channel_power(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
-  int target_channel; // r5
+  int v5; // r5
   int v6; // r3
-  char channel_step; // r6
-  int triplet_offset; // r2
-  int candidate_channel; // r3
-  int channel_index; // r1
+  char v7; // r6
+  int v8; // r2
+  int v9; // r3
+  int v10; // r1
   int v11; // zf
   uint8_t v12[5]; // [sp+7h] [bp-5h] BYREF
 
   result = check_buf_range_12d818(a1, a2, v12);
   if ( result )
   {
-    target_channel = *(volatile uint8_t *)(a3 + 164);
+    v5 = *(volatile uint8_t *)(a3 + 164);
     if ( *(volatile uint8_t *)(a3 + 164) )
     {
-      if ( target_channel == 1 && (uint16_t)(*(volatile uint16_t *)(a3 + 166) - 5005) <= 0x370u )
+      if ( v5 == 1 && (uint16_t)(*(volatile uint16_t *)(a3 + 166) - 5005) <= 0x370u )
       {
-        target_channel = (uint8_t)((unsigned int)(((unsigned int)dword_130DE4
+        v5 = (uint8_t)((unsigned int)(((unsigned int)dword_130DE4
                                              * (uint64_t)((unsigned int)*(volatile uint16_t *)(a3 + 166) - 5000)) >> 32) >> 2);
-        channel_step = 4;
+        v7 = 4;
       }
       else
       {
-        target_channel = 0;
-        channel_step = 4;
+        v5 = 0;
+        v7 = 4;
       }
     }
     else
@@ -1221,46 +1217,46 @@ volatile uint8_t * apply_country_ie_channel_power(volatile uint8_t *a1, int a2, 
       v6 = *(volatile uint16_t *)(a3 + 166);
       if ( (unsigned int)(v6 - 2412) > 0x48 )
       {
-        channel_step = 1;
+        v7 = 1;
       }
       else
       {
-        target_channel = v6 == 2484
+        v5 = v6 == 2484
            ? 14
            : (uint8_t)((unsigned int)(((unsigned int)dword_130DE4 * (uint64_t)(unsigned int)(v6 - 2407)) >> 32) >> 2);
-        channel_step = 1;
+        v7 = 1;
       }
     }
     v12[0] += 2;
     if ( v12[0] > 7u )
     {
-      triplet_offset = 5;
+      v8 = 5;
       do
       {
-        candidate_channel = (uint8_t)result[triplet_offset];
-        if ( result[triplet_offset + 1] )
+        v9 = (uint8_t)result[v8];
+        if ( result[v8 + 1] )
         {
-          if ( candidate_channel == target_channel )
+          if ( v9 == v5 )
           {
 LABEL_7:
-            *(volatile uint8_t *)(a3 + 172) = result[triplet_offset + 2];
+            *(volatile uint8_t *)(a3 + 172) = result[v8 + 2];
             return result;
           }
-          channel_index = 0;
+          v10 = 0;
           while ( 1 )
           {
-            v11 = channel_index == (uint8_t)(result[triplet_offset + 1] - 1);
-            candidate_channel = (uint8_t)(candidate_channel + channel_step);
-            ++channel_index;
+            v11 = v10 == (uint8_t)(result[v8 + 1] - 1);
+            v9 = (uint8_t)(v9 + v7);
+            ++v10;
             if ( v11 )
               break;
-            if ( candidate_channel == target_channel )
+            if ( v9 == v5 )
               goto LABEL_7;
           }
         }
-        triplet_offset = (uint8_t)(triplet_offset + 3);
+        v8 = (uint8_t)(v8 + 3);
       }
-      while ( v12[0] > triplet_offset + 2 );
+      while ( v12[0] > v8 + 2 );
     }
   }
   return result;
@@ -1289,7 +1285,6 @@ volatile uint8_t * delba_ack(volatile uint8_t *a1, int a2, int a3) {
 
 
 // parse_channel_definition @ 0x130e10
-/* luna: Parses a channel number and optional secondary-channel offset, then populates the output band and frequency fields. */
 int parse_channel_definition(volatile uint8_t *a1, int a2, volatile uint8_t *a3, int a4) {
   unsigned int v8; // r7
   unsigned int v9; // r0
@@ -1297,10 +1292,10 @@ int parse_channel_definition(volatile uint8_t *a1, int a2, volatile uint8_t *a3,
   volatile uint8_t *v11; // r9
   volatile uint8_t *v12; // r0
   int v13; // r5
-  unsigned int channel_number; // r3
+  unsigned int v14; // r3
   unsigned int v15; // r2
-  int16_t channel_frequency_mhz; // r3
-  int secondary_offset_mode; // r2
+  int16_t v16; // r3
+  int v18; // r2
   int v19; // [sp+7h] [bp-1h] BYREF
 
   v8 = (unsigned int)check_buf_range_12d8f8(a1, a2);
@@ -1324,23 +1319,23 @@ int parse_channel_definition(volatile uint8_t *a1, int a2, volatile uint8_t *a3,
   {
     v13 = *(volatile uint8_t *)(v8 + 4);
     *a3 = *(volatile uint8_t *)(v8 + 2);
-    channel_number = *(volatile uint8_t *)(v8 + 3);
+    v14 = *(volatile uint8_t *)(v8 + 3);
   }
   else
   {
     v13 = (uint8_t)v10[5];
     *a3 = v10[2];
-    channel_number = (uint8_t)v10[4];
+    v14 = (uint8_t)v10[4];
   }
   if ( !v13 )
     v13 = 2;
-  *(volatile uint8_t *)a4 = channel_number > 0xE;
-  v15 = channel_number - 1;
-  if ( channel_number > 0xE )
+  *(volatile uint8_t *)a4 = v14 > 0xE;
+  v15 = v14 - 1;
+  if ( v14 > 0xE )
   {
     if ( (uint8_t)v15 <= 0xB0u )
     {
-      channel_frequency_mhz = 5 * channel_number + 5000;
+      v16 = 5 * v14 + 5000;
       goto LABEL_17;
     }
     goto LABEL_23;
@@ -1348,29 +1343,29 @@ int parse_channel_definition(volatile uint8_t *a1, int a2, volatile uint8_t *a3,
   if ( v15 > 0xD )
   {
 LABEL_23:
-    channel_frequency_mhz = 0;
+    v16 = 0;
     goto LABEL_17;
   }
-  if ( channel_number == 14 )
-    channel_frequency_mhz = 2484;
+  if ( v14 == 14 )
+    v16 = 2484;
   else
-    channel_frequency_mhz = 5 * channel_number + 2407;
+    v16 = 5 * v14 + 2407;
 LABEL_17:
-  *(volatile uint16_t *)(a4 + 2) = channel_frequency_mhz;
-  *(volatile uint16_t *)(a4 + 4) = channel_frequency_mhz;
+  *(volatile uint16_t *)(a4 + 2) = v16;
+  *(volatile uint16_t *)(a4 + 4) = v16;
   *(volatile uint8_t *)(a4 + 1) = 0;
   *(volatile uint16_t *)(a4 + 6) = 0;
   if ( v11 )
   {
-    secondary_offset_mode = (uint8_t)v11[2];
-    if ( secondary_offset_mode == 1 )
+    v18 = (uint8_t)v11[2];
+    if ( v18 == 1 )
     {
-      *(volatile uint16_t *)(a4 + 4) = channel_frequency_mhz + 10;
+      *(volatile uint16_t *)(a4 + 4) = v16 + 10;
       *(volatile uint8_t *)(a4 + 1) = 1;
     }
-    else if ( secondary_offset_mode == 3 )
+    else if ( v18 == 3 )
     {
-      *(volatile uint16_t *)(a4 + 4) = channel_frequency_mhz - 10;
+      *(volatile uint16_t *)(a4 + 4) = v16 - 10;
       *(volatile uint8_t *)(a4 + 1) = 1;
       if ( !v12 )
         goto LABEL_21;

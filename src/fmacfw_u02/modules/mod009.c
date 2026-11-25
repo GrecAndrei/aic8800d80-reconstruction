@@ -311,56 +311,55 @@ int rf_cmd8_read(volatile uint32_t *a1, volatile unsigned int *a2) {
 
 
 // rf_cmd_read_decode @ 0x114920
-/* luna: Executes the selected RF command, decodes its three signed-magnitude nibble values into the output buffer, and returns packed per-value status flags. */
 int rf_cmd_read_decode(int a1, int a2) {
   int v3; // r1
   int v4; // r2
-  unsigned int response_word; // r0
-  int result_index; // r3
-  int status_flags; // r1
-  unsigned int response_field; // r2
-  char decoded_value; // r5
-  unsigned int encoded_value_nibble; // r4
-  char sign_factor; // r2
+  unsigned int v5; // r0
+  int v6; // r3
+  int v7; // r1
+  unsigned int v8; // r2
+  char v9; // r5
+  unsigned int v10; // r4
+  char v11; // r2
   volatile uint8_t *v12; // r2
-  uint32_t rf_command_words[3]; // [sp+4h] [bp-10h]
+  uint32_t v14[3]; // [sp+4h] [bp-10h]
 
   v3 = *(volatile uint32_t *)(dword_114998 + 4);
   v4 = *(volatile uint32_t *)(dword_114998 + 8);
-  rf_command_words[0] = *(volatile uint32_t *)dword_114998;
-  rf_command_words[1] = v3;
-  rf_command_words[2] = v4;
-  response_word = ((int (*)())MEMD(0x1FC))(rf_command_words[a1]);
-  result_index = 0;
-  status_flags = 0;
+  v14[0] = *(volatile uint32_t *)dword_114998;
+  v14[1] = v3;
+  v14[2] = v4;
+  v5 = ((int (*)())MEMD(0x1FC))(v14[a1]);
+  v6 = 0;
+  v7 = 0;
   do
   {
-    response_field = response_word >> (8 * result_index);
-    decoded_value = response_field;
-    encoded_value_nibble = (uint8_t)response_field >> 4;
-    if ( (response_field & 0xF0) == 0 )
+    v8 = v5 >> (8 * v6);
+    v9 = v8;
+    v10 = (uint8_t)v8 >> 4;
+    if ( (v8 & 0xF0) == 0 )
     {
-      if ( !(uint8_t)response_field )
+      if ( !(uint8_t)v8 )
       {
-        status_flags |= 2 << (4 * result_index);
-        v12 = (volatile uint8_t *)(a2 + result_index);
+        v7 |= 2 << (4 * v6);
+        v12 = (volatile uint8_t *)(a2 + v6);
         goto LABEL_9;
       }
-      status_flags |= 1 << (4 * result_index);
-      encoded_value_nibble = (uint8_t)response_field;
+      v7 |= 1 << (4 * v6);
+      v10 = (uint8_t)v8;
     }
-    if ( (encoded_value_nibble & 1) != 0 )
-      sign_factor = -1;
+    if ( (v10 & 1) != 0 )
+      v11 = -1;
     else
-      sign_factor = 1;
-    decoded_value = (encoded_value_nibble >> 1) * sign_factor;
-    v12 = (volatile uint8_t *)(a2 + result_index);
+      v11 = 1;
+    v9 = (v10 >> 1) * v11;
+    v12 = (volatile uint8_t *)(a2 + v6);
 LABEL_9:
-    ++result_index;
-    *v12 = decoded_value;
+    ++v6;
+    *v12 = v9;
   }
-  while ( result_index != 3 );
-  return status_flags;
+  while ( v6 != 3 );
+  return v7;
 }
 
 

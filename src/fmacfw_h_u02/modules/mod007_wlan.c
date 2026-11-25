@@ -752,11 +752,10 @@ volatile int * wlan_ctrl_check(volatile int *result, unsigned int a2) {
 
 
 // wlan_open @ 0x111c78
-/* luna: Validates and stores the WLAN configuration, initializes the interface hardware, enables interrupts, and optionally waits until the open state is reac */
 int wlan_open(int a1, int a2) {
-  volatile uint8_t *wlan_state; // r6
+  volatile uint8_t *v4; // r6
   volatile int *v5; // r7
-  volatile char *saved_config; // r0
+  volatile char *v6; // r0
   int v7; // r1
   volatile uint32_t *v8; // r4
   volatile uint32_t *v9; // r3
@@ -771,13 +770,13 @@ int wlan_open(int a1, int a2) {
     return 1;
   if ( !*(volatile uint32_t *)a1 || !*(volatile uint32_t *)(a1 + 4) || !*(volatile uint32_t *)(a1 + 8) || !*(volatile uint32_t *)(a1 + 20) )
     return 2;
-  wlan_state = (void *)(uintptr_t)(off_111D84);
+  v4 = (void *)(uintptr_t)(off_111D84);
   if ( *(volatile uint8_t *)off_111D84 )
     return 3;
   v5 = (volatile int *)off_111D88;
-  saved_config = (volatile char *)off_111D8C;
+  v6 = (volatile char *)off_111D8C;
   *(volatile uint8_t *)off_111D84 = 1;
-  memcpy(saved_config, (volatile char *)a1, 0x50u);
+  memcpy(v6, (volatile char *)a1, 0x50u);
   v7 = v5[97];
   if ( v7 )
   {
@@ -791,7 +790,7 @@ int wlan_open(int a1, int a2) {
     *((volatile uint32_t *)off_111DA8 + 1) = 0;
     *((volatile uint32_t *)v11 + 2) = 0;
     *v11 = 0;
-    *wlan_state = 4;
+    *v4 = 4;
     v12 = update_packet_buffer();
     v13 = *(volatile uint32_t *)off_111DAC;
     v14 = *(volatile uint32_t **)off_111DB0;
@@ -820,7 +819,7 @@ int wlan_open(int a1, int a2) {
   v9[2] = 1;
   if ( a2 == 1 )
   {
-    while ( *wlan_state != 4 )
+    while ( *v4 != 4 )
       ;
   }
   alloc_tx_event(aOpenDone);
@@ -829,16 +828,15 @@ int wlan_open(int a1, int a2) {
 
 
 // wlan_configure_tx_queue @ 0x111dbc
-/* luna: Configures a WLAN transmit queue and, when a queue buffer is provided, allocates and records its shared FIFO region. */
 int wlan_configure_tx_queue(int result, int a2, int a3, unsigned int a4) {
   int v4; // r6
   unsigned int v7; // r11
-  int fifo_allocation_size; // r7
+  int v8; // r7
   int v9; // r10
   int v10; // r9
   int v11; // r2
   volatile uint16_t *v12; // r4
-  int fifo_offset; // r1
+  int v13; // r1
   volatile uint32_t *v14; // r2
   int v15; // r5
   int v16; // r6
@@ -857,14 +855,14 @@ int wlan_configure_tx_queue(int result, int a2, int a3, unsigned int a4) {
         if ( a4 > 0x320 )
         {
           v9 = 400;
-          fifo_allocation_size = (fifo_allocation_size & ~0xFFFFu) | ((uint16_t)(400) & 0xFFFFu);
+          v8 = (v8 & ~0xFFFFu) | ((uint16_t)(400) & 0xFFFFu);
           v10 = 26214400;
         }
         else
         {
-          fifo_allocation_size = (uint16_t)(2 * ((int)(a4 + 3) >> 2));
-          v9 = fifo_allocation_size;
-          v10 = (uint16_t)fifo_allocation_size << 16;
+          v8 = (uint16_t)(2 * ((int)(a4 + 3) >> 2));
+          v9 = v8;
+          v10 = (uint16_t)v8 << 16;
         }
         if ( a4 > 0x400 )
         {
@@ -880,25 +878,25 @@ int wlan_configure_tx_queue(int result, int a2, int a3, unsigned int a4) {
       }
       else
       {
-        fifo_allocation_size = (uint16_t)(2 * ((int)(a4 + 3) >> 2));
-        v9 = fifo_allocation_size;
-        v10 = (uint16_t)fifo_allocation_size << 16;
+        v8 = (uint16_t)(2 * ((int)(a4 + 3) >> 2));
+        v9 = v8;
+        v10 = (uint16_t)v8 << 16;
       }
       if ( (*((volatile uint32_t *)&REG_4020_0900 + 8 * a2) & 0x80008000) != 0 )
         result = (int)(uintptr_t)(set_hw_cfg_a((void *)(uintptr_t)(result), a2));
       v11 = (a3 << 18) & 0xC0000;
       v12 = (void *)(uintptr_t)(off_111EF8);
-      fifo_offset = *(volatile uint16_t *)off_111EF8;
+      v13 = *(volatile uint16_t *)off_111EF8;
       *((volatile uint32_t *)&REG_4020_0900 + 8 * a2) = v7 & 0x7FF | v11 | (a2 << 22) | 0x18008000;
-      if ( fifo_offset + v9 > 2048 )
+      if ( v13 + v9 > 2048 )
       {
-        result = debug_printf("FIFO ERROR: overflow, addr is %d, size is %d, Total RAM is %d", fifo_offset, v9, 2048);
-        fifo_offset = (uint16_t)*v12;
+        result = debug_printf("FIFO ERROR: overflow, addr is %d, size is %d, Total RAM is %d", v13, v9, 2048);
+        v13 = (uint16_t)*v12;
       }
       v14 = (void *)(uintptr_t)(off_111EFC);
-      *((volatile uint32_t *)off_111EFC + v4 + 65) = fifo_offset | v10;
+      *((volatile uint32_t *)off_111EFC + v4 + 65) = v13 | v10;
       v15 = (1 << a2) | v14[519];
-      *v12 = fifo_allocation_size + fifo_offset;
+      *v12 = v8 + v13;
       v14[519] = v15;
     }
     else

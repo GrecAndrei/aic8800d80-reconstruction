@@ -1544,26 +1544,25 @@ LABEL_33:
 
 
 // rf_pa_current_calibrate @ 0x10e6fc
-/* luna: Tunes the RF resistor and CGM codes toward the target PA current, returns the signed adjustment count, and stores the final CGM code through the outpu */
 int rf_pa_current_calibrate(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
-  unsigned int cgm_code; // r4
+  unsigned int v3; // r4
   volatile unsigned int *v4; // r6
   volatile unsigned int *v5; // r5
   volatile int16_t *v8; // r5
-  int measured_i_pa; // r10
-  int target_i_pa; // r2
+  int v9; // r10
+  int v10; // r2
   volatile unsigned int *v11; // r7
   volatile unsigned int *v12; // r6
-  unsigned int res_code; // r11
+  unsigned int v13; // r11
   int v14; // r8
   int v15; // r9
   int v16; // r2
   int v17; // r0
   int v18; // r2
-  int adjustment_steps; // r5
+  int v20; // r5
   unsigned int v21; // [sp+Ch] [bp-20h]
   unsigned int v22; // [sp+10h] [bp-1Ch]
-  int adjustment_direction; // [sp+14h] [bp-18h]
+  int v23; // [sp+14h] [bp-18h]
   unsigned int v24; // [sp+18h] [bp-14h]
   unsigned int v25; // [sp+1Ch] [bp-10h]
 
@@ -1574,46 +1573,46 @@ int rf_pa_current_calibrate(unsigned int a1, unsigned int a2, volatile unsigned 
   *v4 = (8 * a2) & 0x78 | *v4 & 0xFFFFFF87;
   *v5 = (a2 << 15) & 0x78000 | *v5 & 0xFFF87FFF;
   v8 = (volatile int16_t *)off_10E8A4;
-  measured_i_pa = hw_block_enable();
-  alloc_tx_event("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, measured_i_pa, *v8);
-  target_i_pa = *v8;
-  if ( target_i_pa > measured_i_pa )
+  v9 = hw_block_enable();
+  alloc_tx_event("cal start, reg_init=(%d,%d), i_pa_init=%d, i_pa_target=%d\n", a1, a2, v9, *v8);
+  v10 = *v8;
+  if ( v10 > v9 )
   {
-    adjustment_direction = 1;
+    v23 = 1;
   }
   else
   {
-    if ( target_i_pa >= measured_i_pa )
+    if ( v10 >= v9 )
     {
-      adjustment_steps = 0;
+      v20 = 0;
       goto LABEL_9;
     }
-    adjustment_direction = -1;
+    v23 = -1;
   }
-  cgm_code = a2;
+  v3 = a2;
   v11 = (volatile unsigned int *)off_10E89C;
   v12 = (volatile unsigned int *)off_10E8A0;
   v21 = a1;
   v22 = a1 + a2;
-  res_code = a1;
+  v13 = a1;
   v14 = 7;
-  adjustment_steps = 0;
+  v20 = 0;
   while ( 1 )
   {
-    v24 = res_code;
-    adjustment_steps += adjustment_direction;
-    res_code = __usat(3u, v21 + adjustment_steps);
-    *v11 = *v11 & 0xFFFFFFF8 | res_code;
-    *v12 = *v12 & 0xFFFF8FFF | (res_code << 12);
-    v25 = cgm_code;
-    cgm_code = __usat(4u, v22 + adjustment_steps - res_code);
-    *v11 = *v11 & 0xFFFFFF87 | (8 * cgm_code);
-    *v12 = *v12 & 0xFFF87FFF | (cgm_code << 15);
-    v15 = measured_i_pa;
-    measured_i_pa = hw_block_enable();
-    alloc_tx_event("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", res_code, cgm_code, measured_i_pa);
+    v24 = v13;
+    v20 += v23;
+    v13 = __usat(3u, v21 + v20);
+    *v11 = *v11 & 0xFFFFFFF8 | v13;
+    *v12 = *v12 & 0xFFFF8FFF | (v13 << 12);
+    v25 = v3;
+    v3 = __usat(4u, v22 + v20 - v13);
+    *v11 = *v11 & 0xFFFFFF87 | (8 * v3);
+    *v12 = *v12 & 0xFFF87FFF | (v3 << 15);
+    v15 = v9;
+    v9 = hw_block_enable();
+    alloc_tx_event("reg_val_res=%d, reg_val_cgm=%d, i_pa=%d\n", v13, v3, v9);
     v16 = *(volatile int16_t *)off_10E8A4;
-    v17 = measured_i_pa - v16;
+    v17 = v9 - v16;
     v18 = v15 - v16;
     if ( v18 * v17 <= 0 )
       break;
@@ -1626,18 +1625,18 @@ int rf_pa_current_calibrate(unsigned int a1, unsigned int a2, volatile unsigned 
     v17 = -v17;
   if ( v18 <= v17 )
   {
-    cgm_code = v25;
+    v3 = v25;
     *v11 = *v11 & 0xFFFFFFF8 | v24 & 7;
     *v12 = (v24 << 12) & 0x7000 | *v12 & 0xFFFF8FFF;
     *v11 = (8 * v25) & 0x78 | *v11 & 0xFFFFFF87;
-    measured_i_pa = v15;
-    res_code = v24;
+    v9 = v15;
+    v13 = v24;
     *v12 = (v25 << 15) & 0x78000 | *v12 & 0xFFF87FFF;
   }
-  alloc_tx_event("cal done, offset_res=%d,(%d,%d), i_pa_res=%d\n", adjustment_steps, res_code - v21, cgm_code - a2, measured_i_pa);
+  alloc_tx_event("cal done, offset_res=%d,(%d,%d), i_pa_res=%d\n", v20, v13 - v21, v3 - a2, v9);
 LABEL_9:
-  *a3 = cgm_code;
-  return adjustment_steps;
+  *a3 = v3;
+  return v20;
 }
 
 

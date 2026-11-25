@@ -789,17 +789,16 @@ LABEL_6:
 
 
 // buffer_pool_alloc @ 0x10f9e8
-/* luna: Removes and returns a free buffer from the first size class with sufficient capacity, validating the buffer address and guard pattern along the way. */
 volatile uint32_t * buffer_pool_alloc(int a1, unsigned int a2) {
-  unsigned int pool_class_count; // r6
+  unsigned int v2; // r6
   volatile uint32_t *v3; // r5
-  volatile uint16_t *pool_class_entry; // r4
-  unsigned int pool_class_index; // r3
+  volatile uint16_t *v4; // r4
+  unsigned int v5; // r3
   volatile int *v6; // r6
-  int free_buffer_count; // r3
+  int v7; // r3
   int v8; // r2
-  volatile unsigned int *buffer_region_bounds; // r7
-  unsigned int buffer_region_start; // r2
+  volatile unsigned int *v9; // r7
+  unsigned int v10; // r2
   int v11; // r1
   int v12; // r3
   int v13; // r2
@@ -811,7 +810,7 @@ volatile uint32_t * buffer_pool_alloc(int a1, unsigned int a2) {
   int v20; // r3
   int v21; // r2
 
-  pool_class_count = *(volatile uint8_t *)(a1 + 8);
+  v2 = *(volatile uint8_t *)(a1 + 8);
   if ( !*(volatile uint8_t *)(a1 + 8) )
   {
 LABEL_57:
@@ -824,25 +823,25 @@ LABEL_57:
     debug_printf(aMemmgrerrSubpo, a2);
     return v3;
   }
-  pool_class_entry = *(volatile uint16_t **)(a1 + 12);
-  pool_class_index = 1;
-  while ( pool_class_entry[2] < a2 )
+  v4 = *(volatile uint16_t **)(a1 + 12);
+  v5 = 1;
+  while ( v4[2] < a2 )
   {
-    if ( pool_class_count <= pool_class_index )
+    if ( v2 <= v5 )
       goto LABEL_11;
-    pool_class_entry = (volatile uint16_t *)&v3[3 * pool_class_index];
+    v4 = (volatile uint16_t *)&v3[3 * v5];
 LABEL_7:
-    pool_class_index = (uint8_t)(pool_class_index + 1);
+    v5 = (uint8_t)(v5 + 1);
   }
-  if ( *pool_class_entry )
+  if ( *v4 )
     goto LABEL_12;
-  if ( pool_class_count > pool_class_index )
+  if ( v2 > v5 )
   {
-    pool_class_entry = (volatile uint16_t *)&v3[3 * pool_class_index];
+    v4 = (volatile uint16_t *)&v3[3 * v5];
     goto LABEL_7;
   }
 LABEL_11:
-  if ( pool_class_count == pool_class_index )
+  if ( v2 == v5 )
     goto LABEL_57;
 LABEL_12:
   if ( (__get_CPSR() & 1) == 0 )
@@ -851,11 +850,11 @@ LABEL_12:
     *(volatile uint32_t *)off_10FB74 = 1;
   }
   v6 = (volatile int *)off_10FB78;
-  free_buffer_count = *pool_class_entry;
+  v7 = *v4;
   v3 = *(volatile uint32_t **)off_10FB78;
   v8 = *(volatile uint32_t *)off_10FB78 + 1;
   *(volatile uint32_t *)off_10FB78 = v8;
-  if ( !free_buffer_count )
+  if ( !v7 )
   {
     if ( v8 )
     {
@@ -870,30 +869,30 @@ LABEL_12:
     }
     return nullptr;
   }
-  buffer_region_bounds = (volatile unsigned int *)off_10FB7C;
-  v3 = *((volatile uint32_t **)pool_class_entry + 2);
-  buffer_region_start = *(volatile uint32_t *)off_10FB7C;
-  if ( *(volatile uint32_t *)off_10FB7C <= (unsigned int)v3 && (unsigned int)v3 <= *((volatile uint32_t *)off_10FB7C + 1) + buffer_region_start
+  v9 = (volatile unsigned int *)off_10FB7C;
+  v3 = *((volatile uint32_t **)v4 + 2);
+  v10 = *(volatile uint32_t *)off_10FB7C;
+  if ( *(volatile uint32_t *)off_10FB7C <= (unsigned int)v3 && (unsigned int)v3 <= *((volatile uint32_t *)off_10FB7C + 1) + v10
     || (unsigned int)v3 >= *(volatile uint32_t *)off_10FB80
     && (unsigned int)v3 <= *(volatile uint32_t *)off_10FB80 + *((volatile uint32_t *)off_10FB80 + 1) )
   {
-    *((volatile uint32_t *)pool_class_entry + 2) = *v3;
-    *pool_class_entry = free_buffer_count - 1;
-    if ( buffer_region_start <= (unsigned int)v3 )
+    *((volatile uint32_t *)v4 + 2) = *v3;
+    *v4 = v7 - 1;
+    if ( v10 <= (unsigned int)v3 )
       goto LABEL_18;
   }
   else
   {
-    debug_printf("get_next_buffer_addr: Invalid buffer passed: %x\n", *((volatile uint32_t *)pool_class_entry + 2));
-    buffer_region_start = *buffer_region_bounds;
-    v14 = *pool_class_entry - 1;
-    v15 = *buffer_region_bounds > (unsigned int)v3;
-    *((volatile uint32_t *)pool_class_entry + 2) = 0;
-    *pool_class_entry = v14;
+    debug_printf("get_next_buffer_addr: Invalid buffer passed: %x\n", *((volatile uint32_t *)v4 + 2));
+    v10 = *v9;
+    v14 = *v4 - 1;
+    v15 = *v9 > (unsigned int)v3;
+    *((volatile uint32_t *)v4 + 2) = 0;
+    *v4 = v14;
     if ( !v15 )
     {
 LABEL_18:
-      if ( buffer_region_bounds[1] + buffer_region_start >= (unsigned int)v3 )
+      if ( v9[1] + v10 >= (unsigned int)v3 )
       {
         v11 = *((volatile uint8_t *)v3 - 3);
         if ( v11 == 85 )
@@ -927,9 +926,9 @@ LABEL_45:
     debug_printf("SwEr:AllcErrPtrn : %d, buffer: 0x%x\n\r", v11, v3);
     return nullptr;
   }
-  if ( buffer_region_start > (unsigned int)v3 )
+  if ( v10 > (unsigned int)v3 )
     goto LABEL_36;
-  if ( (unsigned int)v3 <= buffer_region_start + buffer_region_bounds[1] )
+  if ( (unsigned int)v3 <= v10 + v9[1] )
     goto LABEL_20;
   if ( (unsigned int)v3 < v16 )
   {
@@ -944,7 +943,7 @@ LABEL_36:
 LABEL_20:
     *((volatile uint8_t *)v3 - 3) = -86;
   }
-  if ( (unsigned int)v3 >= *buffer_region_bounds && (unsigned int)v3 <= *buffer_region_bounds + buffer_region_bounds[1]
+  if ( (unsigned int)v3 >= *v9 && (unsigned int)v3 <= *v9 + v9[1]
     || (unsigned int)v3 >= *(volatile uint32_t *)off_10FB80
     && (unsigned int)v3 <= *(volatile uint32_t *)off_10FB80 + *((volatile uint32_t *)off_10FB80 + 1) )
   {
@@ -971,15 +970,14 @@ LABEL_43:
 
 
 // buffer_release @ 0x10fba0
-/* luna: Validates a buffer against its pool context, decrements its reference count, and returns it to the pool when the count reaches zero. */
 int buffer_release(int a1, volatile uint32_t *a2) {
-  volatile unsigned int *native_pool_bounds; // r7
-  unsigned int pool_id; // r6
-  int pool_entries; // r8
+  volatile unsigned int *v4; // r7
+  unsigned int v5; // r6
+  int v6; // r8
   volatile int *v7; // r5
   unsigned int v8; // r0
   int v9; // cf
-  int buffer_pattern; // r9
+  int v10; // r9
   int result; // r0
   int v12; // r3
   int v13; // r2
@@ -988,7 +986,7 @@ int buffer_release(int a1, volatile uint32_t *a2) {
   int v16; // r3
   int v17; // r2
   int v18; // r6
-  volatile uint16_t *pool_usage_entry; // r9
+  volatile uint16_t *v19; // r9
   int v20; // r6
   int16_t v21; // r3
   int v22; // r0
@@ -1000,31 +998,31 @@ int buffer_release(int a1, volatile uint32_t *a2) {
     return -1;
   if ( *(volatile uint32_t *)a1 > (unsigned int)a2 || (unsigned int)a2 > *(volatile uint32_t *)a1 + *(volatile uint32_t *)(a1 + 4) )
     return -1;
-  if ( (native_pool_bounds = (volatile unsigned int *)off_10FDCC, (unsigned int)a2 >= *(volatile uint32_t *)off_10FDCC)
+  if ( (v4 = (volatile unsigned int *)off_10FDCC, (unsigned int)a2 >= *(volatile uint32_t *)off_10FDCC)
     && (unsigned int)a2 <= *(volatile uint32_t *)off_10FDCC + *((volatile uint32_t *)off_10FDCC + 1)
     || (unsigned int)a2 >= *(volatile uint32_t *)off_10FDD8
     && (unsigned int)a2 <= *(volatile uint32_t *)off_10FDD8 + *((volatile uint32_t *)off_10FDD8 + 1) )
   {
-    pool_id = *((volatile uint8_t *)a2 - 4);
+    v5 = *((volatile uint8_t *)a2 - 4);
   }
   else
   {
     debug_printf("get_native_pool_id: Invalid buffer passed: %x\n", a2);
-    pool_id = 0;
+    v5 = 0;
   }
-  if ( *(volatile uint8_t *)(a1 + 8) <= pool_id )
+  if ( *(volatile uint8_t *)(a1 + 8) <= v5 )
     return -1;
-  pool_entries = *(volatile uint32_t *)(a1 + 12);
+  v6 = *(volatile uint32_t *)(a1 + 12);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_10FDD0 = 1;
   }
   v7 = (volatile int *)off_10FDD4;
-  v8 = *native_pool_bounds;
-  v9 = (unsigned int)a2 >= *native_pool_bounds;
+  v8 = *v4;
+  v9 = (unsigned int)a2 >= *v4;
   ++*(volatile uint32_t *)off_10FDD4;
-  if ( !v9 || (unsigned int)a2 > native_pool_bounds[1] + v8 )
+  if ( !v9 || (unsigned int)a2 > v4[1] + v8 )
   {
     v14 = (volatile int *)off_10FDD8;
     v15 = *(volatile uint32_t *)off_10FDD8;
@@ -1034,14 +1032,14 @@ int buffer_release(int a1, volatile uint32_t *a2) {
     }
     else
     {
-      buffer_pattern = *((volatile uint8_t *)a2 - 3);
-      if ( buffer_pattern == 170 )
+      v10 = *((volatile uint8_t *)a2 - 3);
+      if ( v10 == 170 )
       {
         if ( (unsigned int)a2 < v8 )
           goto LABEL_37;
         goto LABEL_15;
       }
-      if ( buffer_pattern == 255 )
+      if ( v10 == 255 )
       {
         if ( (unsigned int)a2 < v8 )
           goto LABEL_36;
@@ -1062,8 +1060,8 @@ LABEL_24:
     }
     return -1;
   }
-  buffer_pattern = *((volatile uint8_t *)a2 - 3);
-  if ( buffer_pattern == 170 )
+  v10 = *((volatile uint8_t *)a2 - 3);
+  if ( v10 == 170 )
   {
     result = (uint8_t)(*((volatile uint8_t *)a2 - 2) - 1);
     *((volatile uint8_t *)a2 - 2) = result;
@@ -1084,12 +1082,12 @@ LABEL_17:
       return (char)result;
     }
 LABEL_40:
-    v18 = 3 * pool_id;
-    pool_usage_entry = (volatile uint16_t *)(pool_entries + 4 * v18);
+    v18 = 3 * v5;
+    v19 = (volatile uint16_t *)(v6 + 4 * v18);
     v20 = 4 * v18;
-    if ( *pool_usage_entry < (unsigned int)pool_usage_entry[1] )
+    if ( *v19 < (unsigned int)v19[1] )
     {
-      if ( (unsigned int)a2 >= *native_pool_bounds && (unsigned int)a2 <= *native_pool_bounds + native_pool_bounds[1]
+      if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
         || (unsigned int)a2 >= *(volatile uint32_t *)off_10FDD8
         && (unsigned int)a2 <= *(volatile uint32_t *)off_10FDD8 + *((volatile uint32_t *)off_10FDD8 + 1) )
       {
@@ -1099,20 +1097,20 @@ LABEL_40:
       {
         debug_printf("set_pattern: Invalid buffer passed: %x\n", a2);
       }
-      if ( (unsigned int)a2 >= *native_pool_bounds && (unsigned int)a2 <= *native_pool_bounds + native_pool_bounds[1]
+      if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
         || (unsigned int)a2 >= *(volatile uint32_t *)off_10FDD8
         && (unsigned int)a2 <= *(volatile uint32_t *)off_10FDD8 + *((volatile uint32_t *)off_10FDD8 + 1) )
       {
-        *a2 = *((volatile uint32_t *)pool_usage_entry + 2);
+        *a2 = *((volatile uint32_t *)v19 + 2);
       }
       else
       {
         debug_printf("set_next_buffer_addr: Invalid buffer passed: %x\n", a2);
       }
-      v21 = *(volatile uint16_t *)(pool_entries + v20);
+      v21 = *(volatile uint16_t *)(v6 + v20);
       v22 = *v7;
-      *((volatile uint32_t *)pool_usage_entry + 2) = (int)(uintptr_t)(a2);
-      *(volatile uint16_t *)(pool_entries + v20) = v21 + 1;
+      *((volatile uint32_t *)v19 + 2) = (int)(uintptr_t)(a2);
+      *(volatile uint16_t *)(v6 + v20) = v21 + 1;
       if ( !v22 )
         return 0;
       result = v22 - 1;
@@ -1125,10 +1123,10 @@ LABEL_40:
     }
     goto LABEL_24;
   }
-  if ( buffer_pattern != 255 )
+  if ( v10 != 255 )
     goto LABEL_24;
 LABEL_15:
-  if ( (unsigned int)a2 <= v8 + native_pool_bounds[1] )
+  if ( (unsigned int)a2 <= v8 + v4[1] )
     goto LABEL_16;
   v14 = (volatile int *)off_10FDD8;
 LABEL_36:
@@ -1148,9 +1146,9 @@ LABEL_16:
   if ( result )
     goto LABEL_17;
 LABEL_39:
-  if ( buffer_pattern != 255 )
+  if ( v10 != 255 )
     goto LABEL_40;
-  if ( (unsigned int)a2 >= *native_pool_bounds && (unsigned int)a2 <= *native_pool_bounds + native_pool_bounds[1]
+  if ( (unsigned int)a2 >= *v4 && (unsigned int)a2 <= *v4 + v4[1]
     || (unsigned int)a2 >= *(volatile uint32_t *)off_10FDD8
     && (unsigned int)a2 <= *(volatile uint32_t *)off_10FDD8 + *((volatile uint32_t *)off_10FDD8 + 1) )
   {
@@ -1212,7 +1210,6 @@ int log_event(int a1, int a2, int a3) {
 
 
 // set_user_id @ 0x10fe7c
-/* luna: Obtains and validates a buffer, writes the supplied user ID to the byte immediately preceding it, and returns the buffer. */
 volatile uint32_t * set_user_id(char a1) {
   volatile uint32_t *v2; // r4
 
@@ -1233,11 +1230,10 @@ volatile uint32_t * set_user_id(char a1) {
 
 
 // pkt_mem_free @ 0x10fec8
-/* luna: Validates a packet-buffer pointer and dispatches it to the appropriate allocator-specific release routine using the allocator mode and the tag precedi */
 int pkt_mem_free(volatile uint32_t *a1) {
   int result; // r0
-  int allocation_tag; // r2
-  int allocator_mode; // r3
+  int v3; // r2
+  int v4; // r3
   int v5; // r3
 
   result = check_state_flag((unsigned int)a1);
@@ -1262,35 +1258,35 @@ LABEL_11:
     }
     return mmio_write_3(a1);
   }
-  allocation_tag = *((volatile uint8_t *)a1 - 4);
-  allocator_mode = **(volatile uint8_t **)off_10FFA4;
-  if ( allocator_mode == 1 )
+  v3 = *((volatile uint8_t *)a1 - 4);
+  v4 = **(volatile uint8_t **)off_10FFA4;
+  if ( v4 == 1 )
   {
-    if ( allocation_tag == 3 )
+    if ( v3 == 3 )
       return mmio_write_1(a1);
-    if ( allocation_tag == 2 )
+    if ( v3 == 2 )
       return mmio_write_2(a1);
     if ( *((volatile uint8_t *)a1 - 4) )
       return result;
     return mmio_write_3(a1);
   }
-  if ( allocator_mode != 2 )
+  if ( v4 != 2 )
   {
-    if ( allocator_mode == 3 )
+    if ( v4 == 3 )
     {
       if ( **(volatile int16_t **)off_10FFA8 >= 0 )
       {
-        if ( allocation_tag != 3 )
+        if ( v3 != 3 )
           return result;
         return assert_fail(a1);
       }
-      if ( allocation_tag == 3 )
+      if ( v3 == 3 )
         return assert_fail(a1);
       return irq_disable_mmio_write((int)aNativeId3, (int)aPktMemFree, 204);
     }
     goto LABEL_11;
   }
-  if ( allocation_tag == 3 )
+  if ( v3 == 3 )
     return util_call_raw(a1);
   if ( !*((volatile uint8_t *)a1 - 4) )
     return util_call_arg(a1);
@@ -1693,21 +1689,20 @@ int mmio_write_3(volatile uint32_t *a1) {
 
 
 // replenish_rx_messages @ 0x1103c4
-/* luna: Adds RX buffer/descriptor pairs to the context queue until its queued-entry count exceeds one, notifying the hardware for each pair. */
 int replenish_rx_messages(int result) {
   volatile uint32_t *v1; // r4
   unsigned int v2; // r3
   volatile int *v3; // r6
   volatile uint32_t *v4; // r9
   volatile uint32_t *v5; // r8
-  int rx_context; // r5
+  int v6; // r5
   volatile int *v7; // r7
-  volatile uint32_t *rx_buffer; // r10
+  volatile uint32_t *v8; // r10
   volatile uint32_t *v9; // r0
-  volatile uint32_t *rx_descriptor; // r11
+  volatile uint32_t *v10; // r11
   int v11; // r1
   int v12; // r2
-  int16_t queued_entry_count; // r3
+  int16_t v13; // r3
   int v14; // r1
   int v15; // r2
   int v16; // r3
@@ -1717,30 +1712,30 @@ int replenish_rx_messages(int result) {
   v3 = (volatile int *)off_1104CC;
   v4 = (void *)(uintptr_t)(off_1104F4);
   v5 = (void *)(uintptr_t)(off_1104F8);
-  rx_context = result;
+  v6 = result;
 LABEL_2:
   v7 = (volatile int *)off_1104D0;
   while ( v2 <= 1 )
   {
-    rx_buffer = (void *)(uintptr_t)(mmio_read_1());
-    if ( !rx_buffer )
+    v8 = (void *)(uintptr_t)(mmio_read_1());
+    if ( !v8 )
     {
       result = debug_printf("rep: no rxmsg buffer, %d\r\n", *(volatile uint32_t *)off_1104E8);
-      if ( *(volatile uint16_t *)(rx_context + 28) > 1u )
+      if ( *(volatile uint16_t *)(v6 + 28) > 1u )
         return result;
       return irq_disable_global_2(32);
     }
     v9 = (void *)(uintptr_t)(mmio_read_0());
-    rx_descriptor = v9;
+    v10 = v9;
     if ( !v9 )
     {
       debug_printf(aRepRxmsgNoDesc);
-      result = mmio_write_2(rx_buffer);
-      if ( *(volatile uint16_t *)(rx_context + 28) > 1u )
+      result = mmio_write_2(v8);
+      if ( *(volatile uint16_t *)(v6 + 28) > 1u )
         return result;
       return irq_disable_global_2(32);
     }
-    *v9 = (int)(uintptr_t)(rx_buffer);
+    *v9 = (int)(uintptr_t)(v8);
     v9[1] = 0;
     v9[2] = 0;
     if ( (__get_CPSR() & 1) == 0 )
@@ -1755,7 +1750,7 @@ LABEL_2:
       ;
     if ( (uint8_t)*v3 )
     {
-      v16 = *(volatile uint32_t *)(rx_context + 20);
+      v16 = *(volatile uint32_t *)(v6 + 20);
       if ( v16 )
       {
         *(volatile uint32_t *)(v16 + 4) = (int)(uintptr_t)(v9);
@@ -1773,14 +1768,14 @@ LABEL_2:
         irq_disable_mmio_write((int)aSdioFunc1H2dFr, (int)aSdioReplenishR, 261);
         v11 = *v7;
       }
-      *v4 = (int)(uintptr_t)(rx_descriptor);
+      *v4 = (int)(uintptr_t)(v10);
     }
     v12 = *v3;
-    queued_entry_count = *(volatile uint16_t *)(rx_context + 28);
-    *(volatile uint32_t *)(rx_context + 20) = (int)(uintptr_t)(rx_descriptor);
-    v2 = (uint16_t)(queued_entry_count + 1);
+    v13 = *(volatile uint16_t *)(v6 + 28);
+    *(volatile uint32_t *)(v6 + 20) = (int)(uintptr_t)(v10);
+    v2 = (uint16_t)(v13 + 1);
     result = 1024;
-    *(volatile uint16_t *)(rx_context + 28) = v2;
+    *(volatile uint16_t *)(v6 + 28) = v2;
     *v3 = (uint8_t)(v12 + 1);
     *v5 = 1024;
     if ( v11 )
@@ -1793,7 +1788,7 @@ LABEL_2:
         if ( v15 )
         {
           __enable_irq();
-          v2 = *(volatile uint16_t *)(rx_context + 28);
+          v2 = *(volatile uint16_t *)(v6 + 28);
         }
       }
       goto LABEL_2;
@@ -2425,30 +2420,29 @@ int get_init_flag() {
 
 
 // sdio_set_phase_config @ 0x1111cc
-/* luna: Updates the SDIO phase configuration register using its control-bit write sequence and logs the resulting phase value. */
 int sdio_set_phase_config(int a1) {
-  volatile int *phase_register; // r3
-  int requested_phase; // r2
-  int current_phase; // r1
-  int staged_config; // r1
+  volatile int *v1; // r3
+  int v2; // r2
+  int v3; // r1
+  int v4; // r1
 
-  phase_register = (volatile int *)off_111248;
-  requested_phase = a1 & 0x3FFFFF;
-  current_phase = *(volatile uint32_t *)off_111248 & 0x3FFFFF;
+  v1 = (volatile int *)off_111248;
+  v2 = a1 & 0x3FFFFF;
+  v3 = *(volatile uint32_t *)off_111248 & 0x3FFFFF;
   if ( (a1 & 0x400000) != 0 )
   {
-    *(volatile uint32_t *)off_111248 = current_phase | 0x800000;
-    *phase_register = current_phase;
-    *phase_register = requested_phase;
-    staged_config = requested_phase | 0x800000;
+    *(volatile uint32_t *)off_111248 = v3 | 0x800000;
+    *v1 = v3;
+    *v1 = v2;
+    v4 = v2 | 0x800000;
   }
   else
   {
-    *(volatile uint32_t *)off_111248 = current_phase | 0x400000;
-    staged_config = requested_phase | 0x400000;
+    *(volatile uint32_t *)off_111248 = v3 | 0x400000;
+    v4 = v2 | 0x400000;
   }
-  *phase_register = staged_config;
-  *phase_register = requested_phase | 0xC00000;
+  *v1 = v4;
+  *v1 = v2 | 0xC00000;
   return debug_printf("sdio pahse cfg %x\n", *(volatile uint32_t *)off_111248 & 0x3FFFFF);
 }
 

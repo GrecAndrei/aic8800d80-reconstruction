@@ -1019,16 +1019,15 @@ BOOL compare_short(int a1, int a2) {
 
 
 // send_tx_confirmation @ 0x117bf0
-/* luna: When the completion value is negative and the handler is in mode 2, packages the TX status and sequence number into a confirmation event and dispatche */
 int send_tx_confirmation(int result, volatile uint32_t *a2) {
   int v2; // r3
   int v3; // r2
   int v4; // r4
-  volatile uint8_t *confirmation_payload; // r6
+  volatile uint8_t *v6; // r6
   volatile uint8_t *v7; // r9
   volatile uint32_t *v8; // r0
   int v9; // r12
-  volatile uint32_t *event_descriptor; // r7
+  volatile uint32_t *v10; // r7
   unsigned int v11; // r3
   int16_t v12; // lr
   int v13; // r2
@@ -1052,22 +1051,22 @@ int send_tx_confirmation(int result, volatile uint32_t *a2) {
     switch ( v3 )
     {
       case 2:
-        confirmation_payload = (void *)(uintptr_t)(util_call_void());
-        if ( confirmation_payload )
+        v6 = (void *)(uintptr_t)(util_call_void());
+        if ( v6 )
         {
           v7 = (void *)(uintptr_t)(off_117D98);
           if ( *((volatile uint32_t *)off_117D98 + 2057) )
           {
             v8 = list_pop(dword_117D70);
-            *confirmation_payload = 8;
-            confirmation_payload[1] = 0;
-            confirmation_payload[3] = 0;
-            confirmation_payload[2] = 18;
+            *v6 = 8;
+            v6[1] = 0;
+            v6[3] = 0;
+            v6[2] = 18;
             v9 = *a2 & 0xF;
-            event_descriptor = v8;
+            v10 = v8;
             _frame.v24 = *(volatile uint32_t *)(v4 + 84) & 0x3FFFFFFF;
             _frame.v23 = v9;
-            memcpy(confirmation_payload + 4, (volatile char *)&_frame.v23, 8u);
+            memcpy(v6 + 4, (volatile char *)&_frame.v23, 8u);
             v11 = *((volatile uint16_t *)v7 + 4122);
             if ( v11 > 0x186 )
             {
@@ -1081,18 +1080,18 @@ int send_tx_confirmation(int result, volatile uint32_t *a2) {
               v13 = 8 * v11;
             }
             v14 = (void *)(uintptr_t)(off_117D74);
-            *((volatile uint16_t *)event_descriptor + 6) = v11;
+            *((volatile uint16_t *)v10 + 6) = v11;
             v15 = dword_117D78;
             v16 = (volatile int *)(*v14 + v13);
-            v16[1] = (int)confirmation_payload;
+            v16[1] = (int)v6;
             *v16 = v15 & *v16 | 0x400000C;
             v15 = (v15 & ~0xFFu) | ((uint8_t)(v7[3074]) & 0xFFu);
             *((volatile uint16_t *)v7 + 4122) = v12;
             v7[3074] = v15 + 1;
-            event_descriptor[1] = (int)(uintptr_t)(v16);
-            *((volatile uint8_t *)event_descriptor + 14) = 1;
-            *event_descriptor = 0;
-            event_descriptor[2] = 12;
+            v10[1] = (int)(uintptr_t)(v16);
+            *((volatile uint8_t *)v10 + 14) = 1;
+            *v10 = 0;
+            v10[2] = 12;
             if ( (__get_CPSR() & 1) == 0 )
             {
               __disable_irq();
@@ -1103,7 +1102,7 @@ int send_tx_confirmation(int result, volatile uint32_t *a2) {
             v19 = *a2 & 0xF;
             ++*(volatile uint32_t *)off_117D80;
             alloc_tx_event("cfms: %x, sn=%d, st=%d\r\n", v4, v18, v19);
-            co_list_push_back(dword_117D88, event_descriptor);
+            co_list_push_back(dword_117D88, v10);
             result = ((int (*)())rf_is_idle)();
             if ( *v17 )
             {

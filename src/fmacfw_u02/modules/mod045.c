@@ -38,19 +38,20 @@ int cmd_handler_b(int result, volatile uint32_t *a2) {
 
 
 // mem_word_load @ 0x12d2d0
+/* luna: Removes and returns the head node of a linked list, clearing the tail pointer when the list becomes empty. */
 volatile uint32_t * mem_word_load(int a1) {
-  volatile uint32_t *v1; // r3
-  volatile uint32_t *v2; // r2
+  volatile uint32_t *node; // r3
+  volatile uint32_t *tail; // r2
 
-  v1 = *(volatile uint32_t **)a1;
+  node = *(volatile uint32_t **)a1;
   if ( *(volatile uint32_t *)a1 )
   {
-    v2 = *(volatile uint32_t **)(a1 + 4);
-    *(volatile uint32_t *)a1 = *v1;
-    if ( v2 == v1 )
+    tail = *(volatile uint32_t **)(a1 + 4);
+    *(volatile uint32_t *)a1 = *node;
+    if ( tail == node )
       *(volatile uint32_t *)(a1 + 4) = 0;
   }
-  return v1;
+  return node;
 }
 
 
@@ -319,19 +320,20 @@ LABEL_4:
 
 
 // crc32_update @ 0x12d4f4
+/* luna: Updates a CRC-32 state over a byte buffer using a lookup table and a non-reflected, most-significant-byte-first recurrence. */
 unsigned int crc32_update(volatile uint8_t *a1, int a2, unsigned int a3) {
-  volatile uint8_t *v3; // r1
-  int v4; // t1
+  volatile uint8_t *end_ptr; // r1
+  int byte; // t1
 
   if ( !a2 )
     return a3;
-  v3 = &a1[a2];
+  end_ptr = &a1[a2];
   do
   {
-    v4 = *a1++;
-    a3 = *(volatile uint32_t *)(dword_12D51C + 4 * (v4 ^ HIBYTE(a3))) ^ (a3 << 8);
+    byte = *a1++;
+    a3 = *(volatile uint32_t *)(dword_12D51C + 4 * (byte ^ HIBYTE(a3))) ^ (a3 << 8);
   }
-  while ( v3 != a1 );
+  while ( end_ptr != a1 );
   return a3;
 }
 
@@ -452,6 +454,7 @@ int branch_to_1426b0(int a1) {
 
 
 // apply_patch_block @ 0x12d70c
+/* luna: Computes a table-seeded, single-iteration Newton approximation of the square root of the input. */
 float apply_patch_block(float a1) {
   int v1; // r1
   int v2; // r2
@@ -477,68 +480,68 @@ float apply_patch_block(float a1) {
   int v22; // r1
   int v23; // r2
   int v24; // r3
-  float v25; // s15
-  uint32_t v27[16]; // [sp+0h] [bp-80h]
-  uint32_t v28[16]; // [sp+40h] [bp-40h]
+  float sqrt_estimate; // s15
+  uint32_t scale_factors[16]; // [sp+0h] [bp-80h]
+  uint32_t bit_pattern_biases[16]; // [sp+40h] [bp-40h]
 
   v1 = *(volatile uint32_t *)(dword_12D784 + 260);
   v2 = *(volatile uint32_t *)(dword_12D784 + 264);
   v3 = *(volatile uint32_t *)(dword_12D784 + 268);
-  v27[0] = *(volatile uint32_t *)(dword_12D784 + 256);
-  v27[1] = v1;
-  v27[2] = v2;
-  v27[3] = v3;
+  scale_factors[0] = *(volatile uint32_t *)(dword_12D784 + 256);
+  scale_factors[1] = v1;
+  scale_factors[2] = v2;
+  scale_factors[3] = v3;
   v4 = *(volatile uint32_t *)(dword_12D784 + 276);
   v5 = *(volatile uint32_t *)(dword_12D784 + 280);
   v6 = *(volatile uint32_t *)(dword_12D784 + 284);
-  v27[4] = *(volatile uint32_t *)(dword_12D784 + 272);
-  v27[5] = v4;
-  v27[6] = v5;
-  v27[7] = v6;
+  scale_factors[4] = *(volatile uint32_t *)(dword_12D784 + 272);
+  scale_factors[5] = v4;
+  scale_factors[6] = v5;
+  scale_factors[7] = v6;
   v7 = *(volatile uint32_t *)(dword_12D784 + 292);
   v8 = *(volatile uint32_t *)(dword_12D784 + 296);
   v9 = *(volatile uint32_t *)(dword_12D784 + 300);
-  v27[8] = *(volatile uint32_t *)(dword_12D784 + 288);
-  v27[9] = v7;
-  v27[10] = v8;
-  v27[11] = v9;
+  scale_factors[8] = *(volatile uint32_t *)(dword_12D784 + 288);
+  scale_factors[9] = v7;
+  scale_factors[10] = v8;
+  scale_factors[11] = v9;
   v10 = *(volatile uint32_t *)(dword_12D784 + 308);
   v11 = *(volatile uint32_t *)(dword_12D784 + 312);
   v12 = *(volatile uint32_t *)(dword_12D784 + 316);
-  v27[12] = *(volatile uint32_t *)(dword_12D784 + 304);
-  v27[13] = v10;
-  v27[14] = v11;
-  v27[15] = v12;
+  scale_factors[12] = *(volatile uint32_t *)(dword_12D784 + 304);
+  scale_factors[13] = v10;
+  scale_factors[14] = v11;
+  scale_factors[15] = v12;
   v13 = *(volatile uint32_t *)(dword_12D784 + 324);
   v14 = *(volatile uint32_t *)(dword_12D784 + 328);
   v15 = *(volatile uint32_t *)(dword_12D784 + 332);
-  v28[0] = *(volatile uint32_t *)(dword_12D784 + 320);
-  v28[1] = v13;
-  v28[2] = v14;
-  v28[3] = v15;
+  bit_pattern_biases[0] = *(volatile uint32_t *)(dword_12D784 + 320);
+  bit_pattern_biases[1] = v13;
+  bit_pattern_biases[2] = v14;
+  bit_pattern_biases[3] = v15;
   v16 = *(volatile uint32_t *)(dword_12D784 + 340);
   v17 = *(volatile uint32_t *)(dword_12D784 + 344);
   v18 = *(volatile uint32_t *)(dword_12D784 + 348);
-  v28[4] = *(volatile uint32_t *)(dword_12D784 + 336);
-  v28[5] = v16;
-  v28[6] = v17;
-  v28[7] = v18;
+  bit_pattern_biases[4] = *(volatile uint32_t *)(dword_12D784 + 336);
+  bit_pattern_biases[5] = v16;
+  bit_pattern_biases[6] = v17;
+  bit_pattern_biases[7] = v18;
   v19 = *(volatile uint32_t *)(dword_12D784 + 356);
   v20 = *(volatile uint32_t *)(dword_12D784 + 360);
   v21 = *(volatile uint32_t *)(dword_12D784 + 364);
-  v28[8] = *(volatile uint32_t *)(dword_12D784 + 352);
-  v28[9] = v19;
-  v28[10] = v20;
-  v28[11] = v21;
+  bit_pattern_biases[8] = *(volatile uint32_t *)(dword_12D784 + 352);
+  bit_pattern_biases[9] = v19;
+  bit_pattern_biases[10] = v20;
+  bit_pattern_biases[11] = v21;
   v22 = *(volatile uint32_t *)(dword_12D784 + 372);
   v23 = *(volatile uint32_t *)(dword_12D784 + 376);
   v24 = *(volatile uint32_t *)(dword_12D784 + 380);
-  v28[12] = *(volatile uint32_t *)(dword_12D784 + 368);
-  v28[13] = v22;
-  v28[14] = v23;
-  v28[15] = v24;
-  v25 = COERCE_FLOAT(v28[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF] + (COERCE_UNSIGNED_INT(a1) >> 1)) * *(volatile float *)&v27[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF];
-  return (float)((float)(a1 / v25) + v25) * 0.5;
+  bit_pattern_biases[12] = *(volatile uint32_t *)(dword_12D784 + 368);
+  bit_pattern_biases[13] = v22;
+  bit_pattern_biases[14] = v23;
+  bit_pattern_biases[15] = v24;
+  sqrt_estimate = COERCE_FLOAT(bit_pattern_biases[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF] + (COERCE_UNSIGNED_INT(a1) >> 1)) * *(volatile float *)&scale_factors[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF];
+  return (float)((float)(a1 / sqrt_estimate) + sqrt_estimate) * 0.5;
 }
 
 

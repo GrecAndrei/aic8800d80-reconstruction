@@ -597,15 +597,14 @@ int rf_get_rate_table_index(int result, int a2) {
 
 
 // send_deauth_frame @ 0x136c2c
-/* luna: Builds and submits an 802.11 deauthentication frame to the specified peer using reason code 7 and the interface MAC as the source and BSSID. */
 int send_deauth_frame(int a1, int a2) {
   int v2; // r3
   int v5; // r3
   int result; // r0
-  int tx_packet; // r5
-  int frame_buffer; // r6
+  int v7; // r5
+  int v8; // r6
   volatile uint16_t *v9; // r2
-  int16_t sequence_number; // r3
+  int16_t v10; // r3
   int16_t v11; // r1
   int v12; // r0
   int v13; // r0
@@ -619,38 +618,38 @@ int send_deauth_frame(int a1, int a2) {
     if ( **(volatile int16_t **)off_136D24 >= 0 || v5 != 2 )
     {
       result = (int)(uintptr_t)(lock_acquire((v5 | *(volatile uint8_t *)(a1 + 1224)) != 0, 512));
-      tx_packet = result;
+      v7 = result;
       if ( !result )
         return result;
 LABEL_4:
       get_status_flag_c5(a1, result);
-      frame_buffer = *(volatile uint32_t *)(tx_packet + 72);
-      *(volatile uint8_t *)(frame_buffer + 108) = -64;
-      *(volatile uint8_t *)(frame_buffer + 109) = 0;
-      *(volatile uint8_t *)(frame_buffer + 110) = 0;
-      *(volatile uint8_t *)(frame_buffer + 111) = 0;
-      memcpy((void *)(uintptr_t)(frame_buffer + 112), (void *)(uintptr_t)(a2), 6);
+      v8 = *(volatile uint32_t *)(v7 + 72);
+      *(volatile uint8_t *)(v8 + 108) = -64;
+      *(volatile uint8_t *)(v8 + 109) = 0;
+      *(volatile uint8_t *)(v8 + 110) = 0;
+      *(volatile uint8_t *)(v8 + 111) = 0;
+      memcpy((void *)(uintptr_t)(v8 + 112), (void *)(uintptr_t)(a2), 6);
       v9 = (void *)(uintptr_t)(off_136D28);
-      sequence_number = *((volatile uint16_t *)off_136D28 + 254);
+      v10 = *((volatile uint16_t *)off_136D28 + 254);
       v11 = *(volatile uint16_t *)(a1 + 104);
-      *(volatile uint32_t *)(frame_buffer + 118) = *(volatile uint32_t *)(a1 + 100);
-      ++sequence_number;
+      *(volatile uint32_t *)(v8 + 118) = *(volatile uint32_t *)(a1 + 100);
+      ++v10;
       v12 = *(volatile uint32_t *)(a1 + 100);
-      *(volatile uint16_t *)(frame_buffer + 122) = v11;
-      *(volatile uint32_t *)(frame_buffer + 124) = v12;
-      *(volatile uint16_t *)(frame_buffer + 128) = v11;
-      v9[254] = sequence_number;
-      *(volatile uint16_t *)(frame_buffer + 130) = 16 * sequence_number;
-      *(volatile uint32_t *)(tx_packet + 88) = 0;
-      *(volatile uint32_t *)(tx_packet + 92) = a1;
-      *(volatile uint8_t *)(tx_packet + 28) = *(volatile uint8_t *)(a1 + 107);
-      *(volatile uint8_t *)(tx_packet + 29) = -1;
-      v13 = store_half_return_two((volatile uint16_t *)(frame_buffer + 132), 7);
-      v14 = *(volatile uint32_t *)(tx_packet + 76);
+      *(volatile uint16_t *)(v8 + 122) = v11;
+      *(volatile uint32_t *)(v8 + 124) = v12;
+      *(volatile uint16_t *)(v8 + 128) = v11;
+      v9[254] = v10;
+      *(volatile uint16_t *)(v8 + 130) = 16 * v10;
+      *(volatile uint32_t *)(v7 + 88) = 0;
+      *(volatile uint32_t *)(v7 + 92) = a1;
+      *(volatile uint8_t *)(v7 + 28) = *(volatile uint8_t *)(a1 + 107);
+      *(volatile uint8_t *)(v7 + 29) = -1;
+      v13 = store_half_return_two((volatile uint16_t *)(v8 + 132), 7);
+      v14 = *(volatile uint32_t *)(v7 + 76);
       v15 = (v15 & ~0xFFFFFFFFull) | ((uint32_t)(*(volatile uint32_t *)(v14 + 28) + 23 + v13) & 0xFFFFFFFFu);
       v15 = (v15 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v13 + 28) << 32);
       *(volatile uint64_t *)(v14 + 32) = v15;
-      return sec_check(tx_packet, 5);
+      return sec_check(v7, 5);
     }
     goto LABEL_6;
   }
@@ -658,7 +657,7 @@ LABEL_4:
 LABEL_6:
     irq_disable_mmio_write(dword_136D30, dword_136D2C, 520);
   result = (int)(uintptr_t)(lock_acquire(1, 512));
-  tx_packet = result;
+  v7 = result;
   if ( result )
     goto LABEL_4;
   return result;

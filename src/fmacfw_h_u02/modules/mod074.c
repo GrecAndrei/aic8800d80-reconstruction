@@ -1160,31 +1160,30 @@ LABEL_59:
 
 
 // strlen @ 0x143d00
-/* luna: Returns the number of bytes before the first NUL terminator in the input string. */
 unsigned int strlen(unsigned int a1) {
 uint32_t _R12;
 uint64_t _R2;
 uint64_t _R3;
 uint32_t _R4;
 
-  volatile uint64_t *aligned_str; // r1
-  int alignment_offset; // r4
-  int length_offset; // r0
+  volatile uint64_t *v1; // r1
+  int v3; // r4
+  int v5; // r0
   int v15; // r5
 
   __pld((void *)a1);
-  aligned_str = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
+  v1 = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
   _R12 = -1;
-  alignment_offset = a1 & 7;
+  v3 = a1 & 7;
   __pld((void *)((a1 & 0xFFFFFFF8) + 32));
   if ( (a1 & 7) != 0 )
   {
-    _R2 = *aligned_str;
-    length_offset = -alignment_offset;
-    __pld(aligned_str + 8);
-    v15 = -1 << (8 * (alignment_offset & 3));
+    _R2 = *v1;
+    v5 = -v3;
+    __pld(v1 + 8);
+    v15 = -1 << (8 * (v3 & 3));
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(_R2 | ~v15) & 0xFFFFFFFFULL) << 0);
-    if ( (alignment_offset & 4) != 0 )
+    if ( (v3 & 4) != 0 )
     {
       _R2 = _R2 | (((uint64_t)(~v15)) << 32);
       _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
@@ -1193,41 +1192,41 @@ uint32_t _R4;
     goto LABEL_4;
   }
   _R4 = 0;
-  length_offset = -8;
+  v5 = -8;
   do
   {
-    _R2 = *aligned_str;
-    __pld(aligned_str + 8);
-    length_offset += 8;
+    _R2 = *v1;
+    __pld(v1 + 8);
+    v5 += 8;
 LABEL_4:
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
     if ( HIDWORD(_R2) )
       break;
-    _R2 = aligned_str[1];
+    _R2 = v1[1];
     (void)0;
 
-    length_offset += 8;
+    v5 += 8;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
     if ( HIDWORD(_R2) )
       break;
-    _R2 = aligned_str[2];
+    _R2 = v1[2];
     (void)0;
 
-    length_offset += 8;
+    v5 += 8;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
     if ( HIDWORD(_R2) )
       break;
-    _R2 = aligned_str[3];
-    aligned_str += 4;
+    _R2 = v1[3];
+    v1 += 4;
     (void)0;
 
-    length_offset += 8;
+    v5 += 8;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
@@ -1235,57 +1234,56 @@ _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(
   while ( !HIDWORD(_R2) );
   if ( !(uint32_t)_R2 )
   {
-    length_offset += 4;
+    v5 += 4;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(HIDWORD(_R2)) & 0xFFFFFFFFULL) << 0);
   }
-  return length_offset + (__clz(bswap32(_R2)) >> 3);
+  return v5 + (__clz(bswap32(_R2)) >> 3);
 }
 
 
 // strncasecmp @ 0x143ddc
-/* luna: Compares at most max_len bytes of two strings case-insensitively, returning the byte difference at the first mismatch. */
 int strncasecmp(volatile uint8_t *a1, volatile uint8_t *a2, int a3) {
-  volatile uint8_t *left_cursor; // r5
-  volatile uint8_t *left_end; // r7
-  int byte_difference; // r3
-  int left_char_folded; // r3
+  volatile uint8_t *v3; // r5
+  volatile uint8_t *v4; // r7
+  int v5; // r3
+  int v6; // r3
   int v7; // t1
-  int right_char; // r2
+  int v8; // r2
   int v9; // t1
-  int right_char_case_flag; // r4
+  int v10; // r4
   int result; // r0
-  int right_char_folded; // r2
+  int v12; // r2
 
   if ( a3 )
   {
-    left_cursor = a1;
-    left_end = &a1[a3];
+    v3 = a1;
+    v4 = &a1[a3];
     while ( 1 )
     {
-      v7 = *left_cursor++;
-      left_char_folded = v7;
+      v7 = *v3++;
+      v6 = v7;
       v9 = *a2++;
-      right_char = v9;
-      right_char_case_flag = *(volatile uint8_t *)(dword_143E2C + v9) & 3;
-      if ( (*(volatile uint8_t *)(dword_143E2C + left_char_folded) & 3) == 1 )
-        left_char_folded += 32;
-      result = right_char;
-      if ( right_char_case_flag == 1 )
+      v8 = v9;
+      v10 = *(volatile uint8_t *)(dword_143E2C + v9) & 3;
+      if ( (*(volatile uint8_t *)(dword_143E2C + v6) & 3) == 1 )
+        v6 += 32;
+      result = v8;
+      if ( v10 == 1 )
       {
-        right_char_folded = right_char + 32;
-        result = left_char_folded - right_char_folded;
-        if ( left_char_folded != right_char_folded )
+        v12 = v8 + 32;
+        result = v6 - v12;
+        if ( v6 != v12 )
           return result;
       }
       else
       {
-        byte_difference = left_char_folded - right_char;
-        if ( byte_difference )
-          return byte_difference;
-        if ( !right_char )
+        v5 = v6 - v8;
+        if ( v5 )
+          return v5;
+        if ( !v8 )
           return result;
       }
-      if ( left_cursor == left_end )
+      if ( v3 == v4 )
         return 0;
     }
   }

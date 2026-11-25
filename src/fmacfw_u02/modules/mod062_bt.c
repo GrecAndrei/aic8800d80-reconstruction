@@ -1,12 +1,13 @@
 // bt_rx_process @ 0x136478
+/* luna: Validates an AP-start request, initializes the per-VIF AP context, and sends a confirmation with a rejection status when validation fails. */
 int bt_rx_process(int a1, int a2, int a3, int a4) {
-  int v4; // r8
+  int vif_context_table; // r8
   uint16_t v6; // r7
   uint16_t v7; // r9
-  int v8; // r6
-  int v9; // r5
-  char v10; // r5
-  volatile char *v11; // r0
+  int vif_idx; // r6
+  int vif_context; // r5
+  char failure_status; // r5
+  volatile char *confirm_params; // r0
   char v13; // r2
   int16_t v14; // r3
   int v15; // r3
@@ -24,33 +25,33 @@ int bt_rx_process(int a1, int a2, int a3, int a4) {
   int v27; // [sp+8h] [bp-Ch]
   uint16_t v28; // [sp+Ch] [bp-8h]
   } _frame;
-  v4 = dword_136660;
+  vif_context_table = dword_136660;
   v6 = a3;
   v7 = a4;
   check_status_bits(256, "ap start:%d, radar=%d\r\n", *(volatile uint32_t *)(a2 + 20), BYTE1(((volatile uint32_t *)(uintptr_t)off_13663C)[103]));
-  v8 = *(volatile uint8_t *)(a2 + 51);
-  v9 = v4 + 1320 * v8;
-  if ( *(volatile uint8_t *)(v9 + 106) != 2 )
+  vif_idx = *(volatile uint8_t *)(a2 + 51);
+  vif_context = vif_context_table + 1320 * vif_idx;
+  if ( *(volatile uint8_t *)(vif_context + 106) != 2 )
   {
-    v10 = 4;
+    failure_status = 4;
 LABEL_3:
-    v11 = (volatile char *)ke_msg_alloc(7169, v7, v6, 4);
-    *v11 = v10;
-    v11[1] = *(volatile uint8_t *)(a2 + 51);
-    ke_msg_send_2((int)v11);
+    confirm_params = (volatile char *)ke_msg_alloc(7169, v7, v6, 4);
+    *confirm_params = failure_status;
+    confirm_params[1] = *(volatile uint8_t *)(a2 + 51);
+    ke_msg_send_2((int)confirm_params);
     return 0;
   }
   if ( rx_rate_field_parse(7u) )
   {
-    v10 = 8;
+    failure_status = 8;
     goto LABEL_3;
   }
-  if ( *(volatile uint8_t *)(v9 + 108) )
+  if ( *(volatile uint8_t *)(vif_context + 108) )
   {
-    v10 = 9;
+    failure_status = 9;
     goto LABEL_3;
   }
-  if ( **(volatile int16_t **)off_136644 < 0 && *(volatile uint32_t *)(v9 + 72) )
+  if ( **(volatile int16_t **)off_136644 < 0 && *(volatile uint32_t *)(vif_context + 72) )
     mmio_clear_register((int)aVifChanCtxtNul_0, (int)aApmStartReqHan, 105);
   v13 = *(volatile uint8_t *)(a2 + 28);
   _frame.a1a = (_frame.a1a & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(a2 + 16)) & 0xFFu);
@@ -68,38 +69,38 @@ LABEL_3:
   _frame.v28 = (_frame.v28 & ~0xFF00u) | (((uint8_t)(v15) & 0xFFu) << 8);
   if ( scan_find_empty_slot((volatile uint8_t *)&_frame.a1a, &_frame.a2a) )
   {
-    v10 = 1;
+    failure_status = 1;
     goto LABEL_3;
   }
   v18 = _frame.v27;
   v19 = _frame.v28;
-  v20 = v4 + 1320 * v8;
+  v20 = vif_context_table + 1320 * vif_idx;
   *(volatile uint32_t *)(v20 + 412) = _frame.a1a;
   *(volatile uint32_t *)(v20 + 416) = v18;
   *(volatile uint8_t *)(v20 + 464) = 0;
   *(volatile uint16_t *)(v20 + 420) = v19;
   rf_temperature_comp(v20);
   if ( BYTE1(_frame.a1a) == 2 )
-    is_valid_id((volatile int *)(v4 + 1320 * v8), 1, 0);
+    is_valid_id((volatile int *)(vif_context_table + 1320 * vif_idx), 1, 0);
   sta_lookup_by_bss(*(volatile uint8_t *)(a2 + 51), _frame.a2a);
   if ( *((volatile uint8_t *)off_136650 + 18) + *((volatile uint8_t *)off_136650 + 17) == 1
-    && !*(volatile uint8_t *)(v4 + 1320 * v8 + 1224) )
+    && !*(volatile uint8_t *)(vif_context_table + 1320 * vif_idx + 1224) )
   {
     *(volatile uint8_t *)off_13665C = 0;
     set_bt_irq_flag();
   }
   if ( !*(volatile uint8_t *)(a2 + 16) )
   {
-    v24 = bt_process_msg((volatile uint8_t *)(1320 * v8 + 424 + v4), 1) & 0xF;
+    v24 = bt_process_msg((volatile uint8_t *)(1320 * vif_idx + 424 + vif_context_table), 1) & 0xF;
     if ( v24 )
-      *(volatile uint8_t *)(v4 + 1320 * v8 + 461) = 31 - __clz(v24);
+      *(volatile uint8_t *)(vif_context_table + 1320 * vif_idx + 461) = 31 - __clz(v24);
     else
-      *(volatile uint8_t *)(v4 + 1320 * v8 + 461) = 1;
+      *(volatile uint8_t *)(vif_context_table + 1320 * vif_idx + 461) = 1;
   }
   ke_send_event_0x18();
   if ( !*(volatile uint32_t *)off_136654 )
   {
-    v21 = v4 + 1320 * v8;
+    v21 = vif_context_table + 1320 * vif_idx;
     v22 = *(volatile uint16_t *)(v21 + 416);
     if ( v22 <= 0x1387 )
       callback_post(v22 | (*(volatile uint8_t *)(v21 + 413) << 16) | 0x80000000);
@@ -596,59 +597,60 @@ int bt_get_link_context(int result, int a2) {
 
 
 // rx_process_callback @ 0x136d6c
+/* luna: Builds and transmits an 802.11 deauthentication frame to the supplied peer MAC address using reason code 7. */
 int rx_process_callback(int a1, int a2) {
-  int v2; // r3
-  int v5; // r3
+  int link_context; // r3
+  int link_state; // r3
   int result; // r0
-  int v7; // r5
-  int v8; // r6
+  int tx_context; // r5
+  int frame_buffer; // r6
   volatile uint16_t *v9; // r2
-  int16_t v10; // r3
+  int16_t sequence_number; // r3
   int16_t v11; // r1
   int v12; // r0
   int v13; // r0
-  int v14; // r1
+  int tx_descriptor; // r1
   uint64_t v15; // r2
 
-  v2 = *(volatile uint32_t *)(a1 + 72);
-  if ( v2 )
+  link_context = *(volatile uint32_t *)(a1 + 72);
+  if ( link_context )
   {
-    v5 = *(volatile uint8_t *)(v2 + 4);
-    if ( **(volatile int16_t **)off_136E64 >= 0 || v5 != 2 )
+    link_state = *(volatile uint8_t *)(link_context + 4);
+    if ( **(volatile int16_t **)off_136E64 >= 0 || link_state != 2 )
     {
-      result = (int)(uintptr_t)(ke_mutex_guard((v5 | *(volatile uint8_t *)(a1 + 1224)) != 0, 512));
-      v7 = result;
+      result = (int)(uintptr_t)(ke_mutex_guard((link_state | *(volatile uint8_t *)(a1 + 1224)) != 0, 512));
+      tx_context = result;
       if ( !result )
         return result;
 LABEL_4:
       rf_check_temperature(a1, result);
-      v8 = *(volatile uint32_t *)(v7 + 72);
-      *(volatile uint8_t *)(v8 + 108) = -64;
-      *(volatile uint8_t *)(v8 + 109) = 0;
-      *(volatile uint8_t *)(v8 + 110) = 0;
-      *(volatile uint8_t *)(v8 + 111) = 0;
-      memcpy((void *)(uintptr_t)(v8 + 112), (void *)(uintptr_t)(a2), 6);
+      frame_buffer = *(volatile uint32_t *)(tx_context + 72);
+      *(volatile uint8_t *)(frame_buffer + 108) = -64;
+      *(volatile uint8_t *)(frame_buffer + 109) = 0;
+      *(volatile uint8_t *)(frame_buffer + 110) = 0;
+      *(volatile uint8_t *)(frame_buffer + 111) = 0;
+      memcpy((void *)(uintptr_t)(frame_buffer + 112), (void *)(uintptr_t)(a2), 6);
       v9 = (void *)(uintptr_t)(off_136E68);
-      v10 = *((volatile uint16_t *)off_136E68 + 254);
+      sequence_number = *((volatile uint16_t *)off_136E68 + 254);
       v11 = *(volatile uint16_t *)(a1 + 104);
-      *(volatile uint32_t *)(v8 + 118) = *(volatile uint32_t *)(a1 + 100);
-      ++v10;
+      *(volatile uint32_t *)(frame_buffer + 118) = *(volatile uint32_t *)(a1 + 100);
+      ++sequence_number;
       v12 = *(volatile uint32_t *)(a1 + 100);
-      *(volatile uint16_t *)(v8 + 122) = v11;
-      *(volatile uint32_t *)(v8 + 124) = v12;
-      *(volatile uint16_t *)(v8 + 128) = v11;
-      v9[254] = v10;
-      *(volatile uint16_t *)(v8 + 130) = 16 * v10;
-      *(volatile uint32_t *)(v7 + 88) = 0;
-      *(volatile uint32_t *)(v7 + 92) = a1;
-      *(volatile uint8_t *)(v7 + 28) = *(volatile uint8_t *)(a1 + 107);
-      *(volatile uint8_t *)(v7 + 29) = -1;
-      v13 = store_uint16_ret2((volatile uint16_t *)(v8 + 132), 7);
-      v14 = *(volatile uint32_t *)(v7 + 76);
-      v15 = (v15 & ~0xFFFFFFFFull) | ((uint32_t)(*(volatile uint32_t *)(v14 + 28) + 23 + v13) & 0xFFFFFFFFu);
+      *(volatile uint16_t *)(frame_buffer + 122) = v11;
+      *(volatile uint32_t *)(frame_buffer + 124) = v12;
+      *(volatile uint16_t *)(frame_buffer + 128) = v11;
+      v9[254] = sequence_number;
+      *(volatile uint16_t *)(frame_buffer + 130) = 16 * sequence_number;
+      *(volatile uint32_t *)(tx_context + 88) = 0;
+      *(volatile uint32_t *)(tx_context + 92) = a1;
+      *(volatile uint8_t *)(tx_context + 28) = *(volatile uint8_t *)(a1 + 107);
+      *(volatile uint8_t *)(tx_context + 29) = -1;
+      v13 = store_uint16_ret2((volatile uint16_t *)(frame_buffer + 132), 7);
+      tx_descriptor = *(volatile uint32_t *)(tx_context + 76);
+      v15 = (v15 & ~0xFFFFFFFFull) | ((uint32_t)(*(volatile uint32_t *)(tx_descriptor + 28) + 23 + v13) & 0xFFFFFFFFu);
       v15 = (v15 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v13 + 28) << 32);
-      *(volatile uint64_t *)(v14 + 32) = v15;
-      return tx_path_status(v7, 5);
+      *(volatile uint64_t *)(tx_descriptor + 32) = v15;
+      return tx_path_status(tx_context, 5);
     }
     goto LABEL_6;
   }
@@ -656,7 +658,7 @@ LABEL_4:
 LABEL_6:
     mmio_clear_register(dword_136E70, dword_136E6C, 520);
   result = (int)(uintptr_t)(ke_mutex_guard(1, 512));
-  v7 = result;
+  tx_context = result;
   if ( result )
     goto LABEL_4;
   return result;

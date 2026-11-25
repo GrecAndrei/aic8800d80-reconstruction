@@ -303,29 +303,28 @@ unsigned int timer_expired(int a1) {
 
 
 // process_bt_states @ 0x13b7d0
-/* luna: Clears and dispatches consecutive BT state-table entries marked 2, returning the number dispatched. */
 int process_bt_states(int a1) {
-  int state_entry; // r3
-  int processed_count; // r6
-  int ( *dispatch_callback)(int, int); // r2
-  uint8_t next_entry_offset; // r0
+  int v1; // r3
+  int v2; // r6
+  int ( *v4)(int, int); // r2
+  uint8_t v5; // r0
 
-  state_entry = *(volatile uint8_t *)(a1 + 262) + a1;
-  if ( *(volatile uint8_t *)(state_entry + 6) != 2 )
+  v1 = *(volatile uint8_t *)(a1 + 262) + a1;
+  if ( *(volatile uint8_t *)(v1 + 6) != 2 )
     return 0;
-  processed_count = (processed_count & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
+  v2 = (v2 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
   do
   {
-    *(volatile uint8_t *)(state_entry + 6) = 0;
-    dispatch_callback = *(int ( **)(int, int))a1;
+    *(volatile uint8_t *)(v1 + 6) = 0;
+    v4 = *(int ( **)(int, int))a1;
     *(volatile uint16_t *)(a1 + 4) = (*(volatile uint16_t *)(a1 + 4) + 1) & 0xFFF;
-    next_entry_offset = dispatch_callback(a1, 1);
-    state_entry = a1 + next_entry_offset;
-    *(volatile uint8_t *)(a1 + 262) = next_entry_offset;
-    processed_count = (char)(processed_count + 1);
+    v5 = v4(a1, 1);
+    v1 = a1 + v5;
+    *(volatile uint8_t *)(a1 + 262) = v5;
+    v2 = (char)(v2 + 1);
   }
-  while ( *(volatile uint8_t *)(state_entry + 6) == 2 );
-  return processed_count;
+  while ( *(volatile uint8_t *)(v1 + 6) == 2 );
+  return v2;
 }
 
 
@@ -999,25 +998,24 @@ int rx_clear_packet(int a1) {
 
 
 // bt_count_entries_equal_2 @ 0x13c2c0
-/* luna: Counts the contiguous bytes starting at offset 6 that equal 2, using the byte at offset 263 as the number of bytes to scan. */
 int bt_count_entries_equal_2(int a1) {
-  int entry_ptr; // r3
-  int last_entry; // r1
+  int v1; // r3
+  int v2; // r1
   int result; // r0
-  int entry_value; // t1
+  int v4; // t1
 
   if ( !*(volatile uint8_t *)(a1 + 263) )
     return *(volatile uint8_t *)(a1 + 263);
-  entry_ptr = a1 + 5;
-  last_entry = *(volatile uint8_t *)(a1 + 263) + a1 + 5;
+  v1 = a1 + 5;
+  v2 = *(volatile uint8_t *)(a1 + 263) + a1 + 5;
   result = 0;
   do
   {
-    entry_value = *(volatile uint8_t *)++entry_ptr;
-    if ( entry_value == 2 )
+    v4 = *(volatile uint8_t *)++v1;
+    if ( v4 == 2 )
       result = (char)(result + 1);
   }
-  while ( entry_ptr != last_entry );
+  while ( v1 != v2 );
   return result;
 }
 

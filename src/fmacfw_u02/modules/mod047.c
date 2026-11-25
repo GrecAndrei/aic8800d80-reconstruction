@@ -518,6 +518,7 @@ int bad_func_0x12f408(int a1, int a2, int a3) {
 
 
 // mmio_clear_register @ 0x12f46c
+/* luna: Disables interrupts, reports the failed assertion and its source location, then waits in the assertion halt loop. */
 int mmio_clear_register(int a1, int a2, int a3) {
   int result; // r0
 

@@ -542,46 +542,45 @@ int rf_read_status_flags(int a1) {
 
 
 // set_rf_mode_from_status_bytes @ 0x13275c
-/* luna: Selects the largest 7-bit value in the context’s status-byte list, validates it, applies it as the RF mode, and clears the byte at offset 350. */
 int set_rf_mode_from_status_bytes(int a1) {
-  int status_count; // r0
-  int status_ptr; // r3
-  int status_end; // r4
-  int max_status_value = 0; // r0
-  char status_byte; // r2
+  int v2; // r0
+  int v3; // r3
+  int v4; // r4
+  int v5 = 0; // r0
+  char v6; // r2
   int v7; // t1
-  int validated_mode; // r0
+  int v8; // r0
   int result; // r0
 
-  status_count = *(volatile uint8_t *)(a1 + 192);
+  v2 = *(volatile uint8_t *)(a1 + 192);
   if ( **(volatile int16_t **)off_1327B8 >= 0 )
   {
 LABEL_2:
-    if ( !status_count )
+    if ( !v2 )
       goto LABEL_7;
     goto LABEL_3;
   }
-  if ( !status_count )
+  if ( !v2 )
   {
     irq_disable_mmio_write(dword_1327BC, dword_1327C0, 707);
-    status_count = *(volatile uint8_t *)(a1 + 192);
+    v2 = *(volatile uint8_t *)(a1 + 192);
     goto LABEL_2;
   }
 LABEL_3:
-  status_ptr = a1 + 192;
-  status_end = a1 + 192 + status_count;
-  max_status_value = 0;
+  v3 = a1 + 192;
+  v4 = a1 + 192 + v2;
+  v5 = 0;
   do
   {
-    v7 = *(volatile uint8_t *)++status_ptr;
-    status_byte = v7;
-    if ( (int)(v7 & 0xFFFFFF7F) > max_status_value )
-      max_status_value = status_byte & 0x7F;
+    v7 = *(volatile uint8_t *)++v3;
+    v6 = v7;
+    if ( (int)(v7 & 0xFFFFFF7F) > v5 )
+      v5 = v6 & 0x7F;
   }
-  while ( status_ptr != status_end );
+  while ( v3 != v4 );
 LABEL_7:
-  validated_mode = cmd_char_validate(max_status_value);
-  result = rf_set_mode(a1, validated_mode);
+  v8 = cmd_char_validate(v5);
+  result = rf_set_mode(a1, v8);
   *(volatile uint8_t *)(a1 + 350) = 0;
   return result;
 }

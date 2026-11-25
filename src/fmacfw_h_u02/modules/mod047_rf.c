@@ -486,7 +486,6 @@ LABEL_6:
 
 
 // log_assert_failure @ 0x12f2c8
-/* luna: Emits an ASSERT diagnostic with the failed expression, source file, and line, then performs configured RF and interrupt cleanup. */
 int log_assert_failure(int a1, int a2, int a3) {
   volatile int *v3; // r4
   int result; // r0
@@ -535,7 +534,6 @@ while ( *(volatile uint32_t *)(uintptr_t)(off_12F358) ) ;
 
 
 // log_warning @ 0x12f35c
-/* luna: Emits a warning identifying the function, source file, and line number. */
 int log_warning(int a1, int a2, int a3) {
   return alloc_tx_event("\x9BWARNING (%s) at %s:%d\n", (const volatile char *)a1, (const volatile char *)a2, a3 & 0xFFFFF);
 }
@@ -604,7 +602,6 @@ int phy_rate_map() {
 
 
 // rx_packet_dispatch_wrapper @ 0x12f3ec
-/* luna: Forwards the supplied pointer to `rx_packet_dispatch` and returns its result. */
 int rx_packet_dispatch_wrapper(volatile uint16_t *a1) {
   return (int)(uintptr_t)(rx_packet_dispatch((int)(uintptr_t)(a1)));
 }
@@ -764,53 +761,52 @@ int get_buffer_size() {
 
 
 // handle_console_backspace @ 0x12f51c
-/* luna: Erases the final input character, redrawing the remaining text with tab-stop-aware cursor handling when the erased character is a tab. */
 unsigned int handle_console_backspace(unsigned int a1, int a2, int a3) {
-  unsigned int last_char_ptr; // r7
-  volatile int *column_ptr; // r5
-  volatile uint8_t *erase_sequence; // r9
-  int column; // r3
-  int tab_fill_table; // r8
-  volatile uint8_t *redraw_ptr; // r4
-  volatile uint8_t *redraw_last_ptr; // r6
-  int current_char; // t1
+  unsigned int v3; // r7
+  volatile int *v4; // r5
+  volatile uint8_t *v8; // r9
+  int v9; // r3
+  int v10; // r8
+  volatile uint8_t *v11; // r4
+  volatile uint8_t *v12; // r6
+  int v13; // t1
 
-  last_char_ptr = a2 - 1;
+  v3 = a2 - 1;
   if ( *(volatile uint8_t *)(a2 - 1) == 9 )
   {
-    column_ptr = (volatile int *)off_12F5AC;
+    v4 = (volatile int *)off_12F5AC;
     if ( a3 < (int)*(volatile uint32_t *)off_12F5AC )
     {
-      erase_sequence = (volatile uint8_t *)dword_12F5B4;
+      v8 = (volatile uint8_t *)dword_12F5B4;
       do
       {
-        radio_tx_write_string(erase_sequence);
-        column = *column_ptr - 1;
-        *column_ptr = column;
+        radio_tx_write_string(v8);
+        v9 = *v4 - 1;
+        *v4 = v9;
       }
-      while ( column > a3 );
+      while ( v9 > a3 );
     }
-    if ( last_char_ptr > a1 )
+    if ( v3 > a1 )
     {
-      tab_fill_table = dword_12F5B8;
-      redraw_ptr = (volatile uint8_t *)(a1 - 1);
-      redraw_last_ptr = (volatile uint8_t *)(a2 - 2);
+      v10 = dword_12F5B8;
+      v11 = (volatile uint8_t *)(a1 - 1);
+      v12 = (volatile uint8_t *)(a2 - 2);
       do
       {
         while ( 1 )
         {
-          current_char = *++redraw_ptr;
-          if ( current_char == 9 )
+          v13 = *++v11;
+          if ( v13 == 9 )
             break;
-          ++*column_ptr;
-          radio_tx_write_byte(*redraw_ptr);
-          if ( redraw_ptr == redraw_last_ptr )
+          ++*v4;
+          radio_tx_write_byte(*v11);
+          if ( v11 == v12 )
             goto LABEL_10;
         }
-        radio_tx_write_string((volatile uint8_t *)((*column_ptr & 7) + tab_fill_table));
-        *column_ptr = (*column_ptr & 0xFFFFFFF8) + 8;
+        radio_tx_write_string((volatile uint8_t *)((*v4 & 7) + v10));
+        *v4 = (*v4 & 0xFFFFFFF8) + 8;
       }
-      while ( redraw_ptr != redraw_last_ptr );
+      while ( v11 != v12 );
     }
   }
   else
@@ -820,7 +816,7 @@ unsigned int handle_console_backspace(unsigned int a1, int a2, int a3) {
   }
 LABEL_10:
   --*(volatile uint32_t *)off_12F5B0;
-  return last_char_ptr;
+  return v3;
 }
 
 
@@ -1097,28 +1093,27 @@ LABEL_7:
 
 
 // parse_int_base @ 0x12f818
-/* luna: Parses a signed integer using the requested base, with base zero selecting octal for a leading zero and decimal otherwise, accepts a valid `0x` prefix */
 int parse_int_base(volatile uint8_t *a1, volatile uint32_t *a2, unsigned int a3) {
-  int current_char; // r5
-  int is_negative; // r7
+  int v3; // r5
+  int v4; // r7
   int i; // r6
-  unsigned int digit_value; // r3
-  int next_char; // t1
+  unsigned int v6; // r3
+  int v8; // t1
   int v9; // r3
   int v10; // r3
 
-  current_char = *a1;
-  if ( current_char == 48 )
+  v3 = *a1;
+  if ( v3 == 48 )
   {
-    current_char = a1[1];
-    if ( (unsigned int)(current_char - 65) > 0x19 )
+    v3 = a1[1];
+    if ( (unsigned int)(v3 - 65) > 0x19 )
       v9 = a1[1];
     else
-      v9 = (uint8_t)(current_char + 32);
+      v9 = (uint8_t)(v3 + 32);
     if ( v9 == 120 && ((v10 = a1[2], (unsigned int)(v10 - 48) <= 9) || (v10 & 0xFFFFFFDF) - 65 <= 5) )
     {
       a1 += 2;
-      current_char = v10;
+      v3 = v10;
       a3 = 16;
     }
     else
@@ -1127,11 +1122,11 @@ int parse_int_base(volatile uint8_t *a1, volatile uint32_t *a2, unsigned int a3)
       if ( !a3 )
       {
         a3 = 8;
-        if ( current_char != 45 )
+        if ( v3 != 45 )
           goto LABEL_5;
 LABEL_25:
-        is_negative = 1;
-        current_char = *++a1;
+        v4 = 1;
+        v3 = *++a1;
         goto LABEL_6;
       }
     }
@@ -1140,29 +1135,29 @@ LABEL_25:
   {
     a3 = 10;
   }
-  if ( current_char == 45 )
+  if ( v3 == 45 )
     goto LABEL_25;
 LABEL_5:
-  is_negative = 0;
+  v4 = 0;
 LABEL_6:
-  for ( i = 0; ; i = digit_value + i * a3 )
+  for ( i = 0; ; i = v6 + i * a3 )
   {
-    digit_value = current_char - 48;
-    if ( (uint8_t)(current_char - 48) > 9u )
+    v6 = v3 - 48;
+    if ( (uint8_t)(v3 - 48) > 9u )
     {
-      if ( (current_char & 0xFFFFFFDF) - 65 > 5 )
+      if ( (v3 & 0xFFFFFFDF) - 65 > 5 )
         break;
-      if ( (unsigned int)(current_char - 97) > 0x19 )
-        digit_value = current_char - 55;
+      if ( (unsigned int)(v3 - 97) > 0x19 )
+        v6 = v3 - 55;
       else
-        digit_value = (uint8_t)(current_char - 32) - 55;
+        v6 = (uint8_t)(v3 - 32) - 55;
     }
-    if ( a3 <= digit_value )
+    if ( a3 <= v6 )
       break;
-    next_char = *++a1;
-    current_char = next_char;
+    v8 = *++a1;
+    v3 = v8;
   }
-  if ( is_negative )
+  if ( v4 )
     i = -i;
   if ( a2 )
     *a2 = (int)(uintptr_t)(a1);
@@ -1268,66 +1263,65 @@ LABEL_3:
 
 
 // test_write_memory @ 0x12fa08
-/* luna: Parses a write width, hexadecimal address and value, and optional repeat count, then writes the value to successive addresses or invokes the patch hoo */
 int test_write_memory(int a1, volatile uint32_t *a2) {
-  int width_bytes; // r10
-  unsigned int address; // r4
-  int value; // r6
-  int writes_remaining; // r5
-  unsigned int aligned_address; // r4
-  int repeat_count; // r0
+  int v4; // r10
+  unsigned int v5; // r4
+  int v6; // r6
+  int v7; // r5
+  unsigned int v8; // r4
+  int v10; // r0
 
-  width_bytes = is_two_char_string(*a2);
-  if ( width_bytes < 0 )
+  v4 = is_two_char_string(*a2);
+  if ( v4 < 0 )
   {
-    debug_printf("Unknown data size:%d\r\n", width_bytes);
+    debug_printf("Unknown data size:%d\r\n", v4);
     return -1;
   }
   else
   {
-    address = parse_int_base((volatile uint8_t *)a2[1], nullptr, 0x10u);
-    value = parse_int_base((volatile uint8_t *)a2[2], nullptr, 0x10u);
+    v5 = parse_int_base((volatile uint8_t *)a2[1], nullptr, 0x10u);
+    v6 = parse_int_base((volatile uint8_t *)a2[2], nullptr, 0x10u);
     if ( a1 <= 3 )
     {
-      writes_remaining = 0;
+      v7 = 0;
       goto LABEL_9;
     }
-    repeat_count = parse_int_base((volatile uint8_t *)a2[3], nullptr, 0);
-    if ( repeat_count )
+    v10 = parse_int_base((volatile uint8_t *)a2[3], nullptr, 0);
+    if ( v10 )
     {
-      writes_remaining = repeat_count - 1;
+      v7 = v10 - 1;
       do
       {
 LABEL_9:
-        while ( ((address >> 20) & 0xFFFFFDFF) == 0x500 )
+        while ( ((v5 >> 20) & 0xFFFFFDFF) == 0x500 )
         {
-          aligned_address = address & 0xFFFFFFFC;
-          debug_printf("[0x%08X] = 0x%08lX\r\n", aligned_address, value);
-          --writes_remaining;
+          v8 = v5 & 0xFFFFFFFC;
+          debug_printf("[0x%08X] = 0x%08lX\r\n", v8, v6);
+          --v7;
           call_patch_hook_1();
-          address = aligned_address + width_bytes;
-          if ( writes_remaining == -1 )
+          v5 = v8 + v4;
+          if ( v7 == -1 )
             return 0;
         }
-        switch ( width_bytes )
+        switch ( v4 )
         {
           case 4:
-            debug_printf("[0x%08lX] = 0x%08lX\r\n", address, value);
-            *(volatile uint32_t *)address = value;
+            debug_printf("[0x%08lX] = 0x%08lX\r\n", v5, v6);
+            *(volatile uint32_t *)v5 = v6;
             break;
           case 2:
-            debug_printf("[0x%08lX] = 0x%04X\r\n", address, (uint16_t)value);
-            *(volatile uint16_t *)address = value;
+            debug_printf("[0x%08lX] = 0x%04X\r\n", v5, (uint16_t)v6);
+            *(volatile uint16_t *)v5 = v6;
             break;
           case 1:
-            debug_printf("[0x%08lX] = 0x%02X\r\n", address, (uint8_t)value);
-            *(volatile uint8_t *)address = value;
+            debug_printf("[0x%08lX] = 0x%02X\r\n", v5, (uint8_t)v6);
+            *(volatile uint8_t *)v5 = v6;
             break;
         }
-        --writes_remaining;
-        address += width_bytes;
+        --v7;
+        v5 += v4;
       }
-      while ( writes_remaining != -1 );
+      while ( v7 != -1 );
     }
     return 0;
   }
@@ -1335,26 +1329,25 @@ LABEL_9:
 
 
 // handle_debug_config_command @ 0x12faf8
-/* luna: Prints the current debug mask and module selector, or updates one from a hexadecimal argument selected by a decimal operation code. */
 int handle_debug_config_command(int a1, int a2) {
-  int operation_code; // r0
-  uint16_t debug_mask; // r0
-  int current_debug_module; // r0
-  int debug_module; // r4
+  int v4; // r0
+  uint16_t v6; // r0
+  int v7; // r0
+  int v8; // r4
 
-  operation_code = parse_int_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
-  if ( operation_code )
+  v4 = parse_int_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
+  if ( v4 )
   {
-    if ( operation_code == 1 )
+    if ( v4 == 1 )
     {
       if ( a1 <= 2 )
         goto LABEL_5;
-      debug_mask = parse_int_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
-      **(volatile uint16_t **)off_12FB8C = debug_mask;
-      alloc_tx_event("cfg dbg_msk: 0x%x\n", debug_mask);
+      v6 = parse_int_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
+      **(volatile uint16_t **)off_12FB8C = v6;
+      alloc_tx_event("cfg dbg_msk: 0x%x\n", v6);
       return 0;
     }
-    else if ( operation_code == 2 )
+    else if ( v4 == 2 )
     {
       if ( a1 <= 2 )
       {
@@ -1362,22 +1355,22 @@ LABEL_5:
         alloc_tx_event(aInvalidArgs);
         return 0;
       }
-      debug_module = parse_int_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
-      alloc_tx_event("cfg dbg mod: %08X\n", debug_module);
-      set_global_field0(debug_module);
+      v8 = parse_int_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0x10u);
+      alloc_tx_event("cfg dbg mod: %08X\n", v8);
+      set_global_field0(v8);
       return 0;
     }
     else
     {
-      alloc_tx_event("invalid func: %d\n", operation_code);
+      alloc_tx_event("invalid func: %d\n", v4);
       return 0;
     }
   }
   else
   {
     alloc_tx_event("cur dbg_msk: 0x%x\n", **(volatile uint16_t **)off_12FB8C);
-    current_debug_module = get_global_field0();
-    alloc_tx_event("dbg mod: %08X\n", current_debug_module);
+    v7 = get_global_field0();
+    alloc_tx_event("dbg mod: %08X\n", v7);
     return 0;
   }
 }
@@ -1475,19 +1468,18 @@ int is_compact_mac_string(int a1, int a2) {
 
 
 // debug_severity_command @ 0x12fd64
-/* luna: Displays the current debug severity when no command is selected, or sets it to a validated index from 0 through 5. */
 int debug_severity_command(int a1, int a2) {
-  int command; // r0
-  int current_severity; // r0
-  unsigned int severity_index; // r4
+  int v4; // r0
+  int v5; // r0
+  unsigned int v7; // r4
 
-  if ( a1 <= 1 || (command = parse_int_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0)) == 0 )
+  if ( a1 <= 1 || (v4 = parse_int_base(*(volatile uint8_t **)(a2 + 4), nullptr, 0)) == 0 )
   {
-    current_severity = get_global_field4();
-    alloc_tx_event("dbg sev: %d\n", current_severity);
+    v5 = get_global_field4();
+    alloc_tx_event("dbg sev: %d\n", v5);
     return 0;
   }
-  if ( command == 1 )
+  if ( v4 == 1 )
   {
     if ( a1 == 2 )
     {
@@ -1495,15 +1487,15 @@ int debug_severity_command(int a1, int a2) {
     }
     else
     {
-      severity_index = parse_int_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0);
-      if ( severity_index > 5 )
+      v7 = parse_int_base(*(volatile uint8_t **)(a2 + 8), nullptr, 0);
+      if ( v7 > 5 )
       {
-        alloc_tx_event("invalid sev_idx:%d\n", severity_index);
+        alloc_tx_event("invalid sev_idx:%d\n", v7);
       }
       else
       {
-        alloc_tx_event("Cfg dbg sev: %d\n", severity_index);
-        set_global_field4(severity_index);
+        alloc_tx_event("Cfg dbg sev: %d\n", v7);
+        set_global_field4(v7);
       }
     }
     return 0;

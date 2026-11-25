@@ -144,32 +144,31 @@ volatile uint8_t * check_buf_range_12d75c(volatile uint8_t *result, int a2, vola
 
 
 // find_extended_supported_rates_ie @ 0x12d79c
-/* luna: Scans a bounded 802.11 information-element list for a nonempty element ID 50, returning its element pointer and writing its payload length or NULL if  */
 volatile uint8_t * find_extended_supported_rates_ie(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
-  unsigned int ie_list_end; // r1
-  int ie_len; // r4
-  volatile uint8_t *next_ie; // r5
+  unsigned int v3; // r1
+  int v4; // r4
+  volatile uint8_t *v5; // r5
 
-  ie_list_end = (unsigned int)&result[a2];
-  if ( ie_list_end <= (unsigned int)(result + 1) )
+  v3 = (unsigned int)&result[a2];
+  if ( v3 <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    ie_len = (uint8_t)result[1];
-    next_ie = &result[ie_len + 2];
+    v4 = (uint8_t)result[1];
+    v5 = &result[v4 + 2];
     if ( *result == 50 )
       break;
-    result += ie_len + 2;
-    if ( ie_list_end <= (unsigned int)(next_ie + 1) )
+    result += v4 + 2;
+    if ( v3 <= (unsigned int)(v5 + 1) )
       return 0;
   }
-  if ( ie_list_end >= (unsigned int)next_ie )
+  if ( v3 >= (unsigned int)v5 )
   {
     if ( !result )
       return result;
     if ( result[1] )
     {
-      *a3 = ie_len;
+      *a3 = v4;
       return result;
     }
   }
@@ -551,24 +550,23 @@ volatile uint8_t * test_arg2_one_12daa0(volatile uint8_t *result, int a2) {
 
 
 // find_tlv_0xc7_len1 @ 0x12dae0
-/* luna: Scans a bounded TLV buffer for type 0xC7 with a one-byte payload and returns its record pointer if found. */
 volatile uint8_t * find_tlv_0xc7_len1(volatile uint8_t *result, int a2) {
-  unsigned int buffer_end; // r1
-  volatile uint8_t *tlv_end; // r2
+  unsigned int v2; // r1
+  volatile uint8_t *v3; // r2
 
-  buffer_end = (unsigned int)&result[a2];
-  if ( buffer_end <= (unsigned int)(result + 1) )
+  v2 = (unsigned int)&result[a2];
+  if ( v2 <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    tlv_end = &result[result[1] + 2];
+    v3 = &result[result[1] + 2];
     if ( *result == 199 )
       break;
     result += result[1] + 2;
-    if ( buffer_end <= (unsigned int)(tlv_end + 1) )
+    if ( v2 <= (unsigned int)(v3 + 1) )
       return 0;
   }
-  if ( buffer_end < (unsigned int)tlv_end )
+  if ( v2 < (unsigned int)v3 )
     return 0;
   if ( result )
   {
@@ -861,24 +859,23 @@ volatile uint8_t * emit_hash_12dd50(volatile uint8_t *a1, int a2, volatile uint8
 
 
 // find_ht_operation_ie @ 0x12dd78
-/* luna: Scans a bounded 802.11 information-element list and returns the HT Operation element (ID 61) only if its length is 22 bytes. */
 volatile uint8_t * find_ht_operation_ie(volatile uint8_t *result, int a2) {
-  unsigned int ies_end; // r1
-  volatile uint8_t *ie_end; // r2
+  unsigned int v2; // r1
+  volatile uint8_t *v3; // r2
 
-  ies_end = (unsigned int)&result[a2];
-  if ( ies_end <= (unsigned int)(result + 1) )
+  v2 = (unsigned int)&result[a2];
+  if ( v2 <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    ie_end = &result[(uint8_t)result[1] + 2];
+    v3 = &result[(uint8_t)result[1] + 2];
     if ( *result == 61 )
       break;
     result += (uint8_t)result[1] + 2;
-    if ( ies_end <= (unsigned int)(ie_end + 1) )
+    if ( v2 <= (unsigned int)(v3 + 1) )
       return 0;
   }
-  if ( ies_end < (unsigned int)ie_end )
+  if ( v2 < (unsigned int)v3 )
     return 0;
   if ( result )
   {
@@ -1938,7 +1935,6 @@ LABEL_13:
 
 
 // wait_for_mmio_bit18 @ 0x12e8d0
-/* luna: Busy-waits until bit 18 of a volatile word at a fixed address is set. */
 void wait_for_mmio_bit18() {
   while ( (*(volatile uint32_t *)off_12E8E8 & 0x40000) == 0 )
     ;

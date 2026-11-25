@@ -1131,10 +1131,9 @@ if ( ((int (*)())cfm_radio_check)(_frame.v57, &_frame.a2a, v47, v48) ) return 1;
 
 
 // unregister_vif_by_index @ 0x11fa78
-/* luna: Tears down the indexed virtual interface, clears its current-interface reference, and cleans up per-channel state. */
 int unregister_vif_by_index(int a1) {
   int v2; // r6
-  volatile int *vif_entry; // r8
+  volatile int *v3; // r8
   int v4; // r3
   volatile uint8_t *v5; // r5
   int v6; // r2
@@ -1186,16 +1185,16 @@ int unregister_vif_by_index(int a1) {
   int v53; // [sp+1Ch] [bp-8h]
 
   v2 = dword_11FD7C;
-  vif_entry = (volatile int *)(dword_11FD7C + 1320 * a1);
+  v3 = (volatile int *)(dword_11FD7C + 1320 * a1);
   v50 = 1320 * a1;
-  wlan_ioctl_handler_3(dword_11FD80, (void *)(vif_entry));
-  if ( *((volatile int **)off_11FD84 + 8) == vif_entry )
+  wlan_ioctl_handler_3(dword_11FD80, (void *)(v3));
+  if ( *((volatile int **)off_11FD84 + 8) == v3 )
     *((volatile uint32_t *)off_11FD84 + 8) = 0;
   v4 = *(volatile uint8_t *)(v2 + 1320 * a1 + 106);
   if ( v4 == 2 )
   {
     v13 = (volatile int *)off_11FDC4;
-    v52 = vif_entry;
+    v52 = v3;
     v14 = dword_11FDA4 + 696 * (a1 + 32);
     v15 = dword_11FDA4 + 8 * (87 * (a1 + 32) + 78);
     v53 = off_11FD88;
@@ -1210,7 +1209,7 @@ int unregister_vif_by_index(int a1) {
         phy_dispatch((uint8_t)v17, a2 - 40, 0);
       if ( *(volatile uint32_t *)(v14 + 624) )
         phy_dispatch((uint8_t)v17, a2, 0);
-      if ( vif_entry[318] || vif_entry[308] )
+      if ( v3[318] || v3[308] )
       {
         v18 = (int)(v16 - 10);
         v51 = list_length(v16);
@@ -1243,11 +1242,11 @@ int unregister_vif_by_index(int a1) {
       ++v17;
       v14 += 8;
       v16 += 2;
-      vif_entry += 2;
+      v3 += 2;
       a2 += 8;
     }
     while ( v17 != 5 );
-    vif_entry = v52;
+    v3 = v52;
     v5 = (volatile uint8_t *)v53;
     if ( *(volatile uint32_t *)(v2 + 1320 * a1 + 1312) )
     {
@@ -1401,24 +1400,24 @@ LABEL_9:
     --v5[19];
   }
   init_chan_entry(*(volatile uint8_t *)(v2 + 1320 * a1 + 107));
-  if ( *((volatile int **)off_11FD90 + 4) == vif_entry )
+  if ( *((volatile int **)off_11FD90 + 4) == v3 )
     *((volatile uint32_t *)off_11FD90 + 4) = 0;
   *(volatile uint32_t *)off_11FD94 = 0;
   if ( (uint8_t)v5[18] + (uint8_t)v5[17] <= 1 )
     get_current_channel_1();
-  memset(vif_entry, 0, 0x528u);
+  memset(v3, 0, 0x528u);
   v48 = a1;
   v9 = v2 + 1320 * a1;
   v10 = (void *)(uintptr_t)(off_11FD98);
   v47 = (uint8_t)v5[18];
   v11 = v47 + (uint8_t)v5[17];
   *(volatile uint8_t *)(v9 + 106) = 5;
-  *(volatile uint32_t *)(v9 + 56) = (int)(uintptr_t)(vif_entry);
+  *(volatile uint32_t *)(v9 + 56) = (int)(uintptr_t)(v3);
   *(volatile uint32_t *)(v9 + 52) = (int)(uintptr_t)(v10);
   *(volatile uint8_t *)(v9 + 109) = 127;
   *(volatile uint8_t *)(v9 + 110) = 127;
   check_feature_flag(256, "%s:%d,%d,%d\r\n", aVifMgmtUnregis, v11, v47, v48);
-  return co_list_push_back(off_11FD88, (void *)(vif_entry));
+  return co_list_push_back(off_11FD88, (void *)(v3));
 }
 
 

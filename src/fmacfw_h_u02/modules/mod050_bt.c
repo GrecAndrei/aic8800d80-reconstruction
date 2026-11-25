@@ -831,43 +831,42 @@ volatile char * is_adv_enabled(int a1, int a2) {
 
 
 // find_channel_info @ 0x132104
-/* luna: Returns the channel-table entry for the requested 2.4- or 5-GHz channel, or NULL if no matching entry exists. */
 volatile char * find_channel_info(volatile char *result, int a2) {
-  int target_frequency_mhz; // r1
-  volatile char *channel_entry; // r3
-  volatile char *channel_table_end; // r4
-  int entry_frequency_mhz; // r2
+  int v2; // r1
+  volatile char *v3; // r3
+  volatile char *v4; // r4
+  int v5; // r2
 
   if ( result )
   {
     if ( result != (volatile char *)1 || (uint8_t)(a2 - 1) > 0xB0u )
       return 0;
     result = (volatile char *)*((volatile uint8_t *)off_132174 + 371);
-    target_frequency_mhz = 5 * a2 + 5000;
-    channel_entry = (volatile char *)off_132174 + 202;
+    v2 = 5 * a2 + 5000;
+    v3 = (volatile char *)off_132174 + 202;
   }
   else
   {
     if ( (unsigned int)(a2 - 1) > 0xD )
       return result;
     if ( a2 == 14 )
-      target_frequency_mhz = 2484;
+      v2 = 2484;
     else
-      target_frequency_mhz = 5 * a2 + 2407;
+      v2 = 5 * a2 + 2407;
     result = (volatile char *)*((volatile uint8_t *)off_132174 + 370);
-    channel_entry = (volatile char *)off_132174 + 118;
+    v3 = (volatile char *)off_132174 + 118;
   }
   if ( result )
   {
-    channel_table_end = &channel_entry[6 * (uint32_t)result];
+    v4 = &v3[6 * (uint32_t)result];
     while ( 1 )
     {
-      entry_frequency_mhz = *(volatile uint16_t *)channel_entry;
-      result = channel_entry;
-      channel_entry += 6;
-      if ( entry_frequency_mhz == target_frequency_mhz )
+      v5 = *(volatile uint16_t *)v3;
+      result = v3;
+      v3 += 6;
+      if ( v5 == v2 )
         break;
-      if ( channel_entry == channel_table_end )
+      if ( v3 == v4 )
         return 0;
     }
   }

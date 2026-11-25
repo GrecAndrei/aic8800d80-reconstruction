@@ -1,5 +1,4 @@
 // co_list_push_back @ 0x12d108
-/* luna: Appends an element to the end of a list and clears the element’s next pointer. */
 int co_list_push_back(int result, volatile uint32_t *a2) {
   int v2; // r5
 
@@ -282,7 +281,6 @@ volatile uint32_t * get_ptr_value(volatile uint32_t *result, volatile uint32_t *
 
 
 // list_remove_node @ 0x12d320
-/* luna: Removes a node from a singly linked list, updates the head or tail as needed, and clears the removed node’s next pointer. */
 int list_remove_node(int result, volatile uint32_t *a2, volatile uint32_t *a3) {
   volatile int16_t **v3; // r7
   volatile uint32_t *v4; // r6
@@ -379,67 +377,66 @@ int load_version_string(int a1) {
 
 
 // fast_log2f @ 0x12d464
-/* luna: Approximates log2 of a positive normal IEEE-754 float by adding its exponent to a piecewise-linear approximation of the mantissa contribution. */
 unsigned int fast_log2f(unsigned int a1) {
-  unsigned int mantissa_bits; // r3
-  int mantissa_bits_copy; // s15
-  int exponent_field; // r0
-  float mantissa_log_approx; // s15
+  unsigned int v1; // r3
+  int v2; // s15
+  int v3; // r0
+  float v4; // s15
   unsigned int result; // r0
-  float mantissa_as_float; // s15
-  float segment_slope; // s13
-  float segment_intercept; // s14
+  float v6; // s15
+  float v7; // s13
+  float v8; // s14
 
-  mantissa_bits = a1 & 0x7FFFFF;
-  mantissa_bits_copy = a1 & 0x7FFFFF;
-  exponent_field = (uint8_t)(a1 >> 23);
+  v1 = a1 & 0x7FFFFF;
+  v2 = a1 & 0x7FFFFF;
+  v3 = (uint8_t)(a1 >> 23);
   if ( (a1 & 0x7FFFFFu) >= 0x100000 )
   {
-    if ( mantissa_bits >= 0x200000 )
+    if ( v1 >= 0x200000 )
     {
-      if ( mantissa_bits < 0x300000 )
+      if ( v1 < 0x300000 )
       {
-        mantissa_log_approx = (float)((float)mantissa_bits_copy * flt_12D574) + flt_12D578;
+        v4 = (float)((float)v2 * flt_12D574) + flt_12D578;
       }
-      else if ( mantissa_bits >= 0x400000 )
+      else if ( v1 >= 0x400000 )
       {
-        mantissa_as_float = (float)(unsigned int)mantissa_bits_copy;
-        if ( mantissa_bits < 0x500000 )
+        v6 = (float)(unsigned int)v2;
+        if ( v1 < 0x500000 )
         {
-          mantissa_log_approx = (float)(mantissa_as_float * flt_12D584) + flt_12D588;
+          v4 = (float)(v6 * flt_12D584) + flt_12D588;
         }
-        else if ( mantissa_bits >= 0x600000 )
+        else if ( v1 >= 0x600000 )
         {
-          if ( mantissa_bits >= 0x700000 )
-            segment_slope = flt_12D590;
+          if ( v1 >= 0x700000 )
+            v7 = flt_12D590;
           else
-            segment_slope = flt_12D58C;
-          if ( mantissa_bits >= 0x700000 )
-            segment_intercept = flt_12D598;
+            v7 = flt_12D58C;
+          if ( v1 >= 0x700000 )
+            v8 = flt_12D598;
           else
-            segment_intercept = flt_12D594;
-          mantissa_log_approx = (float)(mantissa_as_float * segment_slope) + segment_intercept;
+            v8 = flt_12D594;
+          v4 = (float)(v6 * v7) + v8;
         }
         else
         {
-          mantissa_log_approx = (float)(mantissa_as_float * flt_12D57C) + flt_12D580;
+          v4 = (float)(v6 * flt_12D57C) + flt_12D580;
         }
       }
       else
       {
-        mantissa_log_approx = (float)((float)mantissa_bits_copy * flt_12D56C) + flt_12D570;
+        v4 = (float)((float)v2 * flt_12D56C) + flt_12D570;
       }
     }
     else
     {
-      mantissa_log_approx = (float)((float)mantissa_bits_copy * flt_12D564) + flt_12D568;
+      v4 = (float)((float)v2 * flt_12D564) + flt_12D568;
     }
   }
   else
   {
-    mantissa_log_approx = (float)((float)mantissa_bits_copy * flt_12D558) + flt_12D55C;
+    v4 = (float)((float)v2 * flt_12D558) + flt_12D55C;
   }
-  *(volatile float *)&result = (float)(exponent_field - 127) + (float)(mantissa_log_approx * flt_12D560);
+  *(volatile float *)&result = (float)(v3 - 127) + (float)(v4 * flt_12D560);
   return result;
 }
 
@@ -465,7 +462,6 @@ int trampoline_142570(int a1) {
 
 
 // fast_sqrtf @ 0x12d5cc
-/* luna: Estimates the square root of a positive float using a table-derived initial guess and one Newton iteration. */
 float fast_sqrtf(float a1) {
   int v1; // r1
   int v2; // r2
@@ -491,68 +487,68 @@ float fast_sqrtf(float a1) {
   int v22; // r1
   int v23; // r2
   int v24; // r3
-  float sqrt_estimate; // s15
-  uint32_t sqrt_scale_table[16]; // [sp+0h] [bp-80h]
-  uint32_t sqrt_bit_adjust_table[16]; // [sp+40h] [bp-40h]
+  float v25; // s15
+  uint32_t v27[16]; // [sp+0h] [bp-80h]
+  uint32_t v28[16]; // [sp+40h] [bp-40h]
 
   v1 = *(volatile uint32_t *)(dword_12D644 + 260);
   v2 = *(volatile uint32_t *)(dword_12D644 + 264);
   v3 = *(volatile uint32_t *)(dword_12D644 + 268);
-  sqrt_scale_table[0] = *(volatile uint32_t *)(dword_12D644 + 256);
-  sqrt_scale_table[1] = v1;
-  sqrt_scale_table[2] = v2;
-  sqrt_scale_table[3] = v3;
+  v27[0] = *(volatile uint32_t *)(dword_12D644 + 256);
+  v27[1] = v1;
+  v27[2] = v2;
+  v27[3] = v3;
   v4 = *(volatile uint32_t *)(dword_12D644 + 276);
   v5 = *(volatile uint32_t *)(dword_12D644 + 280);
   v6 = *(volatile uint32_t *)(dword_12D644 + 284);
-  sqrt_scale_table[4] = *(volatile uint32_t *)(dword_12D644 + 272);
-  sqrt_scale_table[5] = v4;
-  sqrt_scale_table[6] = v5;
-  sqrt_scale_table[7] = v6;
+  v27[4] = *(volatile uint32_t *)(dword_12D644 + 272);
+  v27[5] = v4;
+  v27[6] = v5;
+  v27[7] = v6;
   v7 = *(volatile uint32_t *)(dword_12D644 + 292);
   v8 = *(volatile uint32_t *)(dword_12D644 + 296);
   v9 = *(volatile uint32_t *)(dword_12D644 + 300);
-  sqrt_scale_table[8] = *(volatile uint32_t *)(dword_12D644 + 288);
-  sqrt_scale_table[9] = v7;
-  sqrt_scale_table[10] = v8;
-  sqrt_scale_table[11] = v9;
+  v27[8] = *(volatile uint32_t *)(dword_12D644 + 288);
+  v27[9] = v7;
+  v27[10] = v8;
+  v27[11] = v9;
   v10 = *(volatile uint32_t *)(dword_12D644 + 308);
   v11 = *(volatile uint32_t *)(dword_12D644 + 312);
   v12 = *(volatile uint32_t *)(dword_12D644 + 316);
-  sqrt_scale_table[12] = *(volatile uint32_t *)(dword_12D644 + 304);
-  sqrt_scale_table[13] = v10;
-  sqrt_scale_table[14] = v11;
-  sqrt_scale_table[15] = v12;
+  v27[12] = *(volatile uint32_t *)(dword_12D644 + 304);
+  v27[13] = v10;
+  v27[14] = v11;
+  v27[15] = v12;
   v13 = *(volatile uint32_t *)(dword_12D644 + 324);
   v14 = *(volatile uint32_t *)(dword_12D644 + 328);
   v15 = *(volatile uint32_t *)(dword_12D644 + 332);
-  sqrt_bit_adjust_table[0] = *(volatile uint32_t *)(dword_12D644 + 320);
-  sqrt_bit_adjust_table[1] = v13;
-  sqrt_bit_adjust_table[2] = v14;
-  sqrt_bit_adjust_table[3] = v15;
+  v28[0] = *(volatile uint32_t *)(dword_12D644 + 320);
+  v28[1] = v13;
+  v28[2] = v14;
+  v28[3] = v15;
   v16 = *(volatile uint32_t *)(dword_12D644 + 340);
   v17 = *(volatile uint32_t *)(dword_12D644 + 344);
   v18 = *(volatile uint32_t *)(dword_12D644 + 348);
-  sqrt_bit_adjust_table[4] = *(volatile uint32_t *)(dword_12D644 + 336);
-  sqrt_bit_adjust_table[5] = v16;
-  sqrt_bit_adjust_table[6] = v17;
-  sqrt_bit_adjust_table[7] = v18;
+  v28[4] = *(volatile uint32_t *)(dword_12D644 + 336);
+  v28[5] = v16;
+  v28[6] = v17;
+  v28[7] = v18;
   v19 = *(volatile uint32_t *)(dword_12D644 + 356);
   v20 = *(volatile uint32_t *)(dword_12D644 + 360);
   v21 = *(volatile uint32_t *)(dword_12D644 + 364);
-  sqrt_bit_adjust_table[8] = *(volatile uint32_t *)(dword_12D644 + 352);
-  sqrt_bit_adjust_table[9] = v19;
-  sqrt_bit_adjust_table[10] = v20;
-  sqrt_bit_adjust_table[11] = v21;
+  v28[8] = *(volatile uint32_t *)(dword_12D644 + 352);
+  v28[9] = v19;
+  v28[10] = v20;
+  v28[11] = v21;
   v22 = *(volatile uint32_t *)(dword_12D644 + 372);
   v23 = *(volatile uint32_t *)(dword_12D644 + 376);
   v24 = *(volatile uint32_t *)(dword_12D644 + 380);
-  sqrt_bit_adjust_table[12] = *(volatile uint32_t *)(dword_12D644 + 368);
-  sqrt_bit_adjust_table[13] = v22;
-  sqrt_bit_adjust_table[14] = v23;
-  sqrt_bit_adjust_table[15] = v24;
-  sqrt_estimate = COERCE_FLOAT(sqrt_bit_adjust_table[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF] + (COERCE_UNSIGNED_INT(a1) >> 1)) * *(volatile float *)&sqrt_scale_table[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF];
-  return (float)((float)(a1 / sqrt_estimate) + sqrt_estimate) * 0.5;
+  v28[12] = *(volatile uint32_t *)(dword_12D644 + 368);
+  v28[13] = v22;
+  v28[14] = v23;
+  v28[15] = v24;
+  v25 = COERCE_FLOAT(v28[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF] + (COERCE_UNSIGNED_INT(a1) >> 1)) * *(volatile float *)&v27[(COERCE_UNSIGNED_INT(a1) >> 20) & 0xF];
+  return (float)((float)(a1 / v25) + v25) * 0.5;
 }
 
 

@@ -425,6 +425,7 @@ int get_hw_rev() {
 
 
 // get_phy_rev @ 0x13278a
+/* luna: Returns the firmware's fixed PHY revision value, 7. */
 int get_phy_rev() {
   return 7;
 }

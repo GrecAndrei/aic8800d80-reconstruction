@@ -1,17 +1,16 @@
 // chan_ctxt_unlink @ 0x12847c
-/* luna: Detaches a BSS configuration from its channel context and updates the associated link and reference counts. */
 int chan_ctxt_unlink(int a1) {
   volatile int16_t **v1; // r9
-  int bsscfg_table_base; // r8
-  int bsscfg_offset; // r10
-  int channel_context; // r6
-  int bsscfg; // r5
+  int v2; // r8
+  int v3; // r10
+  int v4; // r6
+  int v6; // r5
   volatile uint8_t *v7; // r7
   char v8; // r3
   int v9; // r3
   int v10; // r4
   int v11; // r3
-  int channel_context_refcount; // r5
+  int v12; // r5
   volatile uint8_t *v13; // r3
   int v14; // r0
   int v15; // r3
@@ -29,24 +28,24 @@ int chan_ctxt_unlink(int a1) {
   volatile char *v28; // r1
 
   v1 = (volatile int16_t **)off_128744;
-  bsscfg_table_base = dword_12873C;
-  bsscfg_offset = 1320 * a1;
-  channel_context = *(volatile uint32_t *)(dword_12873C + 1320 * a1 + 72);
-  if ( **(volatile int16_t **)off_128744 < 0 && !channel_context )
+  v2 = dword_12873C;
+  v3 = 1320 * a1;
+  v4 = *(volatile uint32_t *)(dword_12873C + 1320 * a1 + 72);
+  if ( **(volatile int16_t **)off_128744 < 0 && !v4 )
     irq_disable_mmio_write((int)aCtxtNull, (int)aChanCtxtUnlink, 3149);
-  bsscfg = bsscfg_table_base + 1320 * a1;
+  v6 = v2 + 1320 * a1;
   v7 = (volatile uint8_t *)off_128714;
   check_feature_flag(
     256,
     "chan unlink: %d,%d,%d,%d,%d\r\n",
-    *(volatile uint8_t *)(channel_context + 25),
+    *(volatile uint8_t *)(v4 + 25),
     *((volatile uint8_t *)off_128714 + 91),
     *((volatile uint8_t *)off_128714 + 90),
-    *(volatile uint8_t *)(bsscfg + 85),
-    *(volatile uint8_t *)(channel_context + 16));
-  wlan_ioctl_handler_3((int)(v7 + 16), (volatile uint32_t *)(bsscfg_offset + 76 + bsscfg_table_base));
-  v8 = *(volatile uint8_t *)(bsscfg + 85);
-  *(volatile uint8_t *)(bsscfg + 85) = v8 & 0xFE;
+    *(volatile uint8_t *)(v6 + 85),
+    *(volatile uint8_t *)(v4 + 16));
+  wlan_ioctl_handler_3((int)(v7 + 16), (volatile uint32_t *)(v3 + 76 + v2));
+  v8 = *(volatile uint8_t *)(v6 + 85);
+  *(volatile uint8_t *)(v6 + 85) = v8 & 0xFE;
   if ( (v8 & 2) != 0 )
   {
     v9 = (uint8_t)(v7[91] - 1);
@@ -57,21 +56,21 @@ int chan_ctxt_unlink(int a1) {
       llc_hw_reg_sync(*((volatile uint32_t *)v7 + 20));
     }
   }
-  v10 = bsscfg_table_base + 1320 * a1;
+  v10 = v2 + 1320 * a1;
   *(volatile uint8_t *)(v10 + 85) = 0;
   *(volatile uint32_t *)(v10 + 72) = 0;
-  v11 = *(volatile uint8_t *)(channel_context + 16);
-  channel_context_refcount = (uint8_t)(*(volatile uint8_t *)(channel_context + 25) - 1);
-  *(volatile uint8_t *)(channel_context + 25) = channel_context_refcount;
+  v11 = *(volatile uint8_t *)(v4 + 16);
+  v12 = (uint8_t)(*(volatile uint8_t *)(v4 + 25) - 1);
+  *(volatile uint8_t *)(v4 + 25) = v12;
   if ( v11 )
   {
-    if ( *(volatile uint8_t *)(channel_context + 27) == *(volatile uint8_t *)(v10 + 107) )
+    if ( *(volatile uint8_t *)(v4 + 27) == *(volatile uint8_t *)(v10 + 107) )
     {
-      scan_entry_lookup(bsscfg_table_base + bsscfg_offset);
-      channel_context_refcount = *(volatile uint8_t *)(channel_context + 25);
-      *(volatile uint8_t *)(channel_context + 27) = -1;
-      if ( channel_context_refcount )
-        return type_get(channel_context);
+      scan_entry_lookup(v2 + v3);
+      v12 = *(volatile uint8_t *)(v4 + 25);
+      *(volatile uint8_t *)(v4 + 27) = -1;
+      if ( v12 )
+        return type_get(v4);
     }
     else
     {
@@ -88,32 +87,32 @@ int chan_ctxt_unlink(int a1) {
         if ( (volatile uint8_t *)((volatile char *)off_12871C + 84) == v13 )
           goto LABEL_10;
       }
-      v24 = (volatile uint32_t *)(bsscfg_table_base + 1320 * v14);
-      if ( v24[18] == channel_context )
+      v24 = (volatile uint32_t *)(v2 + 1320 * v14);
+      if ( v24[18] == v4 )
       {
 LABEL_10:
-        if ( !channel_context_refcount )
+        if ( !v12 )
           goto LABEL_26;
-        return type_get(channel_context);
+        return type_get(v4);
       }
-      if ( channel_context_refcount )
+      if ( v12 )
       {
         rf_mode_setup(v24);
-        channel_context_refcount = (channel_context_refcount & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(channel_context + 25)) & 0xFFu);
-        if ( (uint8_t)channel_context_refcount )
-          return type_get(channel_context);
+        v12 = (v12 & ~0xFFu) | ((uint8_t)(*(volatile uint8_t *)(v4 + 25)) & 0xFFu);
+        if ( (uint8_t)v12 )
+          return type_get(v4);
       }
       else
       {
         scan_entry_lookup((int)v24);
-        channel_context_refcount = *(volatile uint8_t *)(channel_context + 25);
-        if ( *(volatile uint8_t *)(channel_context + 25) )
-          return type_get(channel_context);
+        v12 = *(volatile uint8_t *)(v4 + 25);
+        if ( *(volatile uint8_t *)(v4 + 25) )
+          return type_get(v4);
       }
     }
 LABEL_26:
-    wlan_ioctl_handler_3(dword_128730, (volatile uint32_t *)channel_context);
-    *(volatile uint8_t *)(channel_context + 16) = channel_context_refcount;
+    wlan_ioctl_handler_3(dword_128730, (volatile uint32_t *)v4);
+    *(volatile uint8_t *)(v4 + 16) = v12;
     v20 = *v1;
     v21 = (uint8_t)(v7[90] - 1);
     v7[90] = v21;
@@ -136,11 +135,11 @@ LABEL_26:
       if ( !*((volatile uint32_t *)v7 + 20) )
         llc_env_get();
     }
-    if ( *((volatile uint32_t *)v7 + 10) != channel_context )
+    if ( *((volatile uint32_t *)v7 + 10) != v4 )
     {
-      if ( *((volatile uint32_t *)v7 + 11) != channel_context )
+      if ( *((volatile uint32_t *)v7 + 11) != v4 )
         goto LABEL_30;
-      v25 = *(volatile uint8_t *)(channel_context + 24);
+      v25 = *(volatile uint8_t *)(v4 + 24);
       v26 = v25 + 1;
       if ( v25 == 2 )
       {
@@ -179,12 +178,12 @@ LABEL_57:
     if ( !v15 || (v16 = *((volatile uint32_t **)v7 + 11)) != nullptr )
     {
 LABEL_30:
-      if ( !*(volatile uint8_t *)(channel_context + 25) )
+      if ( !*(volatile uint8_t *)(v4 + 25) )
         goto LABEL_21;
-      return type_get(channel_context);
+      return type_get(v4);
     }
     alloc_tx_event(aUnlinkSwChan);
-    v17 = *(volatile uint8_t *)(channel_context + 24);
+    v17 = *(volatile uint8_t *)(v4 + 24);
     v18 = v17 + 1;
     if ( v17 == 2 )
     {
@@ -207,7 +206,7 @@ LABEL_30:
     {
 LABEL_19:
       llc_conn_command((int)(uintptr_t)(v16));
-      channel_context_refcount = *(volatile uint8_t *)(channel_context + 25);
+      v12 = *(volatile uint8_t *)(v4 + 25);
       goto LABEL_20;
     }
 LABEL_61:
@@ -215,11 +214,11 @@ LABEL_61:
     goto LABEL_19;
   }
 LABEL_20:
-  if ( channel_context_refcount )
-    return type_get(channel_context);
+  if ( v12 )
+    return type_get(v4);
 LABEL_21:
-  wifi_disable_calc(*(volatile uint8_t *)(channel_context + 24));
-  return type_get(channel_context);
+  wifi_disable_calc(*(volatile uint8_t *)(v4 + 24));
+  return type_get(v4);
 }
 
 

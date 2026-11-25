@@ -338,27 +338,28 @@ int tx_send_acl_packet(int a1, volatile uint8_t *a2, int16_t a3, int16_t a4) {
 
 
 // ipc_send_msg @ 0x136024
+/* luna: Copies the basic-rate update payload into the station context when its state is 2, checks the context version, and queues a completion message. */
 int ipc_send_msg(int a1, volatile uint16_t *a2, int a3, int a4) {
-  int v7; // r2
-  int v9; // r7
+  int sta_idx; // r2
+  int sta_ctx; // r7
   int v10; // r1
   int v11; // r2
   char v12; // r12
 
   check_status_bits(256, "apm_update_basicrate:%d\r\n", *a2);
-  v7 = *a2;
-  if ( *(volatile uint8_t *)(dword_136098 + 1320 * v7 + 106) == 2 )
+  sta_idx = *a2;
+  if ( *(volatile uint8_t *)(dword_136098 + 1320 * sta_idx + 106) == 2 )
   {
-    v9 = dword_13609C + 696 * (v7 + 32);
+    sta_ctx = dword_13609C + 696 * (sta_idx + 32);
     v10 = *(volatile uint32_t *)(a2 + 3);
     v11 = *(volatile uint32_t *)(a2 + 5);
     v12 = *((volatile uint8_t *)a2 + 14);
-    *(volatile uint32_t *)(v9 + 192) = *(volatile uint32_t *)(a2 + 1);
-    *(volatile uint32_t *)(v9 + 196) = v10;
-    *(volatile uint32_t *)(v9 + 200) = v11;
-    *(volatile uint8_t *)(v9 + 204) = v12;
+    *(volatile uint32_t *)(sta_ctx + 192) = *(volatile uint32_t *)(a2 + 1);
+    *(volatile uint32_t *)(sta_ctx + 196) = v10;
+    *(volatile uint32_t *)(sta_ctx + 200) = v11;
+    *(volatile uint8_t *)(sta_ctx + 204) = v12;
     check_status_bits(256, "param->basic_rates:%d\r\n", *((volatile uint8_t *)a2 + 2));
-    patch_check_version(v9);
+    patch_check_version(sta_ctx);
   }
   ke_msg_send_no_param(7179, a4, a3);
   return 0;
@@ -366,9 +367,10 @@ int ipc_send_msg(int a1, volatile uint16_t *a2, int a3, int a4) {
 
 
 // ipc_register_handler @ 0x1360a4
+/* luna: Processes an APM stop-CAC request, conditionally performs station-related cleanup, and sends a no-parameter kernel response. */
 int ipc_register_handler(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v6; // r2
-  int v7; // r0
+  int sta_info; // r0
   int v9; // r0
   volatile uint32_t *v10; // r1
   volatile uint32_t *v11; // r4
@@ -380,8 +382,8 @@ int ipc_register_handler(int a1, volatile uint8_t *a2, int a3, int a4) {
 
   event_dispatch("%s\n", aApmStopCacReqH);
   v6 = a3;
-  v7 = dword_136140 + 1320 * *a2;
-  if ( *(volatile uint8_t *)(v7 + 106) == 2 && !*(volatile uint8_t *)(v7 + 108) )
+  sta_info = dword_136140 + 1320 * *a2;
+  if ( *(volatile uint8_t *)(sta_info + 106) == 2 && !*(volatile uint8_t *)(sta_info + 108) )
   {
     v9 = rx_rate_field_parse(7u);
     v6 = a3;

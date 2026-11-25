@@ -1,5 +1,4 @@
 // handle_spurious_interrupt @ 0x102bc0
-/* luna: Logs a spurious interrupt and clears the associated register when its signed status flag is set. */
 int handle_spurious_interrupt() {
   int result; // r0
 
@@ -539,31 +538,29 @@ volatile uint32_t *load_and_store_block() {
 
 
 // wait_timer_ticks @ 0x1032e8
-/* luna: Busy-waits until the hardware timer advances by the requested number of ticks, then returns that interval. */
 unsigned int wait_timer_ticks(unsigned int result) {
-  volatile unsigned int start_count; // r1
-  unsigned int elapsed_ticks; // r3
+  volatile unsigned int v1; // r1
+  unsigned int v2; // r3
 
-  start_count = (*(volatile uint32_t *)0x40501010u);
+  v1 = (*(volatile uint32_t *)0x40501010u);
   do
-    elapsed_ticks = (*(volatile uint32_t *)0x40501010u) - start_count;
-  while ( elapsed_ticks < result );
+    v2 = (*(volatile uint32_t *)0x40501010u) - v1;
+  while ( v2 < result );
   return result;
 }
 
 
 // calibrate_mdll_duty_cycle @ 0x1032fc
-/* luna: Sweeps the MDLL feedback control to derive a duty setting and stores the result for the selected clock mode. */
 int calibrate_mdll_duty_cycle(int a1) {
-  volatile uint32_t *mdll_control_reg; // r6
-  volatile uint32_t *mdll_trigger_reg; // r5
-  int previous_feedback_state; // r7
-  int calibration_pass; // r8
-  uint16_t duty_sum; // r11
-  unsigned int sweep_value; // r2
-  int sweep_step; // r10
-  unsigned int measured_duty; // r3
-  int sample_count; // r0
+  volatile uint32_t *v1; // r6
+  volatile uint32_t *v2; // r5
+  int v3; // r7
+  int v4; // r8
+  uint16_t v5; // r11
+  unsigned int v6; // r2
+  int v7; // r10
+  unsigned int v8; // r3
+  int v9; // r0
   unsigned int v10; // r12
   int v11; // r1
   unsigned int v12; // r12
@@ -573,55 +570,55 @@ int calibrate_mdll_duty_cycle(int a1) {
   int v16; // r7
   uint16_t v17; // r9
   int16_t v18; // r2
-  uint8_t stored_duty_setting; // r4
+  uint8_t v19; // r4
   int result; // r0
   unsigned int v21; // [sp+0h] [bp-Ch]
 
-  mdll_control_reg = (volatile uint32_t *)dword_103460;
-  mdll_trigger_reg = (volatile uint32_t *)dword_103464;
+  v1 = (volatile uint32_t *)dword_103460;
+  v2 = (volatile uint32_t *)dword_103464;
   *(volatile uint32_t *)dword_103460 |= 0x10u;
-  previous_feedback_state = 0;
-  calibration_pass = 0;
-  *mdll_trigger_reg = *mdll_trigger_reg & 0xFFFFC0FF | 0x300;
-  duty_sum = 0;
-  sweep_value = 64;
+  v3 = 0;
+  v4 = 0;
+  *v2 = *v2 & 0xFFFFC0FF | 0x300;
+  v5 = 0;
+  v6 = 64;
   while ( 2 )
   {
-    *mdll_control_reg = *mdll_control_reg & 0xFFFFFDFF | (calibration_pass << 9);
-    sweep_step = (sweep_step & ~0xFFFFu) | ((uint16_t)(10) & 0xFFFFu);
+    *v1 = *v1 & 0xFFFFFDFF | (v4 << 9);
+    v7 = (v7 & ~0xFFFFu) | ((uint16_t)(10) & 0xFFFFu);
     do
     {
-      *mdll_control_reg = *mdll_control_reg & 0xFFFE03FF | (sweep_value << 10);
-      measured_duty = (uint8_t)sweep_value;
-      sample_count = 0;
+      *v1 = *v1 & 0xFFFE03FF | (v6 << 10);
+      v8 = (uint8_t)v6;
+      v9 = 0;
       while ( 1 )
       {
-        *mdll_trigger_reg |= 0x4000u;
+        *v2 |= 0x4000u;
         v10 = REG_4032_0120 + 5;
         do
           v11 = REG_4032_0120 - v10;
         while ( v11 < 0 );
-        *mdll_trigger_reg &= ~0x4000u;
+        *v2 &= ~0x4000u;
         v12 = REG_4032_0120 + 5;
         do
           v13 = REG_4032_0120 - v12;
         while ( v13 < 0 );
-        v14 = (*mdll_control_reg >> 3) & 1;
-        if ( sample_count )
+        v14 = (*v1 >> 3) & 1;
+        if ( v9 )
         {
-          if ( v14 != previous_feedback_state )
+          if ( v14 != v3 )
             break;
         }
-        if ( calibration_pass )
-          v15 = (*mdll_control_reg >> 3) & 1;
+        if ( v4 )
+          v15 = (*v1 >> 3) & 1;
         else
-          v15 = (*mdll_control_reg & 8) == 0;
+          v15 = (*v1 & 8) == 0;
         if ( v15 )
         {
-          if ( measured_duty )
+          if ( v8 )
           {
-            measured_duty = (uint8_t)(measured_duty - 1);
-            v16 = (measured_duty << 10) & 0x1FC00;
+            v8 = (uint8_t)(v8 - 1);
+            v16 = (v8 << 10) & 0x1FC00;
           }
           else
           {
@@ -630,45 +627,45 @@ int calibrate_mdll_duty_cycle(int a1) {
         }
         else
         {
-          if ( measured_duty <= 0x7E )
-            measured_duty = (uint8_t)(measured_duty + 1);
-          v16 = (measured_duty << 10) & 0x1FC00;
+          if ( v8 <= 0x7E )
+            v8 = (uint8_t)(v8 + 1);
+          v16 = (v8 << 10) & 0x1FC00;
         }
-        sample_count = (uint8_t)(sample_count + 1);
-        *mdll_control_reg = *mdll_control_reg & 0xFFFE03FF | v16;
-        if ( sample_count == 128 )
+        v9 = (uint8_t)(v9 + 1);
+        *v1 = *v1 & 0xFFFE03FF | v16;
+        if ( v9 == 128 )
         {
-          previous_feedback_state = v14;
+          v3 = v14;
           break;
         }
-        previous_feedback_state = v14;
+        v3 = v14;
       }
-      v21 = measured_duty;
-      v17 = measured_duty;
-      duty_sum += measured_duty;
-      check_status_bits(0x2000, "%x -> %x\n", sweep_value, measured_duty);
+      v21 = v8;
+      v17 = v8;
+      v5 += v8;
+      check_status_bits(0x2000, "%x -> %x\n", v6, v8);
       if ( v21 <= 0x40 )
-        v18 = v17 - sweep_step;
+        v18 = v17 - v7;
       else
-        v18 = v17 + sweep_step;
-      sweep_step = (uint16_t)(sweep_step - 20);
-      sweep_value = __usat(7u, v18);
+        v18 = v17 + v7;
+      v7 = (uint16_t)(v7 - 20);
+      v6 = __usat(7u, v18);
     }
-    while ( sweep_step != 65506 );
-    if ( !calibration_pass )
+    while ( v7 != 65506 );
+    if ( !v4 )
     {
-      calibration_pass = 1;
+      v4 = 1;
       continue;
     }
     break;
   }
-  *(volatile uint32_t *)dword_103460 = ((duty_sum + 2) << 8) & 0x1FC00 | *(volatile uint32_t *)dword_103460 & 0xFFFE03FF;
-  stored_duty_setting = ((unsigned int)duty_sum + 2) >> 2;
-  result = log_printf("%dM mdll duty: %x\n", 40 * a1 + 280, stored_duty_setting);
+  *(volatile uint32_t *)dword_103460 = ((v5 + 2) << 8) & 0x1FC00 | *(volatile uint32_t *)dword_103460 & 0xFFFE03FF;
+  v19 = ((unsigned int)v5 + 2) >> 2;
+  result = log_printf("%dM mdll duty: %x\n", 40 * a1 + 280, v19);
   if ( a1 )
-    *(volatile uint8_t *)(dword_103474 + 1) = stored_duty_setting;
+    *(volatile uint8_t *)(dword_103474 + 1) = v19;
   else
-    *(volatile uint8_t *)dword_103474 = stored_duty_setting;
+    *(volatile uint8_t *)dword_103474 = v19;
   return result;
 }
 
@@ -1694,116 +1691,114 @@ LABEL_9:
 
 
 // correct_iq_dc_offset @ 0x1043d4
-/* luna: Computes the mean signed 12-bit I/Q values across the selected 8192-sample buffer and subtracts those means from the samples in place. */
 int correct_iq_dc_offset() {
   BOOL v0; // r1
-  int min_i; // r2
-  volatile int *iq_sample_buffer; // r4
+  int v1; // r2
+  volatile int *v2; // r4
   int v3; // r7
-  volatile int *sample_ptr; // r5
+  volatile int *v4; // r5
   int v5; // r6
-  int max_q; // lr
-  int max_i; // r12
-  int sum_q; // r9
+  int v6; // lr
+  int v7; // r12
+  int v8; // r9
   int v9; // r8
-  int sample_i; // r1
-  int sample_q; // r0
-  unsigned int packed_sample; // r0
+  int v10; // r1
+  int v11; // r0
+  unsigned int v12; // r0
   unsigned int v13; // r3
   int16_t v14; // r2
   int result; // r0
   int v16; // r3
 
   v0 = (MEMD(0x100000) & 1) == 0;
-  min_i = 0;
-  iq_sample_buffer = (volatile int *)(4 * (v0 + 0x40000));
+  v1 = 0;
+  v2 = (volatile int *)(4 * (v0 + 0x40000));
   v3 = v0 + 278528;
-  sample_ptr = iq_sample_buffer;
+  v4 = v2;
   v5 = 4 * (v0 + 278528);
-  max_q = 0;
-  max_i = 0;
-  sum_q = 0;
+  v6 = 0;
+  v7 = 0;
+  v8 = 0;
   v9 = 0;
   do
   {
-    sample_i = (unsigned int)*sample_ptr >> 20;
-    if ( *sample_ptr < 0 )
-      sample_i -= 4096;
-    sample_q = (uint16_t)*sample_ptr >> 4;
-    if ( (((unsigned int)*sample_ptr >> 4) & 0x800) != 0 )
-      sample_q -= 4096;
-    if ( max_i < sample_i )
-      max_i = sample_i;
-    sample_ptr += 2;
-    if ( max_q < sample_q )
-      max_q = sample_q;
-    if ( min_i >= sample_i )
-      min_i = sample_i;
-    v9 += sample_i;
-    sum_q += sample_q;
+    v10 = (unsigned int)*v4 >> 20;
+    if ( *v4 < 0 )
+      v10 -= 4096;
+    v11 = (uint16_t)*v4 >> 4;
+    if ( (((unsigned int)*v4 >> 4) & 0x800) != 0 )
+      v11 -= 4096;
+    if ( v7 < v10 )
+      v7 = v10;
+    v4 += 2;
+    if ( v6 < v11 )
+      v6 = v11;
+    if ( v1 >= v10 )
+      v1 = v10;
+    v9 += v10;
+    v8 += v11;
   }
-  while ( sample_ptr != (volatile int *)v5 );
-  if ( max_i > 2040 || max_q > 2040 || min_i < -2040 )
+  while ( v4 != (volatile int *)v5 );
+  if ( v7 > 2040 || v6 > 2040 || v1 < -2040 )
     check_status_bits(1, aWarningDataSat);
-  check_status_bits(1, "sum_i=%d\nsum_q=%d\ndc_i=%d\ndc_q=%d\n", v9, sum_q, v9 / 0x2000, sum_q / 0x2000);
+  check_status_bits(1, "sum_i=%d\nsum_q=%d\ndc_i=%d\ndc_q=%d\n", v9, v8, v9 / 0x2000, v8 / 0x2000);
   do
   {
-    packed_sample = *iq_sample_buffer;
-    v13 = (unsigned int)*iq_sample_buffer >> 20;
-    if ( *iq_sample_buffer < 0 )
+    v12 = *v2;
+    v13 = (unsigned int)*v2 >> 20;
+    if ( *v2 < 0 )
       v13 = (v13 & ~0xFFFFu) | ((uint16_t)(v13 - 4096) & 0xFFFFu);
-    v14 = (uint16_t)packed_sample >> 4;
-    result = packed_sample >> 4 << 20;
+    v14 = (uint16_t)v12 >> 4;
+    result = v12 >> 4 << 20;
     v16 = (int16_t)(v13 - v9 / 0x2000);
     if ( result < 0 )
       v14 -= 4096;
-    *iq_sample_buffer = ((v16 + (v16 < 0 ? 0x1000 : 0)) << 20)
+    *v2 = ((v16 + (v16 < 0 ? 0x1000 : 0)) << 20)
         + 65537
-        + 16 * ((int16_t)(v14 - sum_q / 0x2000) + ((int16_t)(v14 - sum_q / 0x2000) < 0 ? 0x1000 : 0));
-    iq_sample_buffer += 2;
+        + 16 * ((int16_t)(v14 - v8 / 0x2000) + ((int16_t)(v14 - v8 / 0x2000) < 0 ? 0x1000 : 0));
+    v2 += 2;
   }
-  while ( (volatile int *)(4 * v3) != iq_sample_buffer );
+  while ( (volatile int *)(4 * v3) != v2 );
   return result;
 }
 
 
 // dump_tone_type3 @ 0x1044e0
-/* luna: Configures and runs the hardware sequence for a type-3 tone dump, waits for completion, then restores and clears the associated control registers. */
 int dump_tone_type3() {
   volatile int *v0; // r1
-  volatile uint32_t *tone_dump_control_reg; // r3
+  volatile uint32_t *v1; // r3
   int v2; // r0
-  int saved_reg_value; // r5
+  int v3; // r5
   volatile uint32_t *v4; // r6
-  volatile int *end_addr_reg; // r4
+  volatile int *v5; // r4
   int result; // r0
   volatile uint32_t *v7; // r3
   volatile uint32_t *v8; // r1
 
   v0 = (volatile int *)off_1045B4;
-  tone_dump_control_reg = (void *)(uintptr_t)(off_1045BC);
+  v1 = (void *)(uintptr_t)(off_1045BC);
   v2 = dword_1045C0;
-  saved_reg_value = *(volatile uint32_t *)off_1045B8;
+  v3 = *(volatile uint32_t *)off_1045B8;
   *(volatile uint32_t *)off_1045B8 = dword_1045C4;
   *v0 = v2;
   v4 = (void *)(uintptr_t)(off_1045C8);
-  end_addr_reg = (volatile int *)off_1045CC;
-  *tone_dump_control_reg = *tone_dump_control_reg & 0xFC000FFF | 0x333000;
-  *tone_dump_control_reg &= 0x3FFFFFFFu;
-  *tone_dump_control_reg |= 0xC000000u;
-  *tone_dump_control_reg = ~(~(*tone_dump_control_reg >> 12) << 12);
+  v5 = (volatile int *)off_1045CC;
+  *v1 = *v1 & 0xFC000FFF | 0x333000;
+  *v1 &= 0x3FFFFFFFu;
+  *v1 |= 0xC000000u;
+  *v1 = ~(~(*v1 >> 12) << 12);
   v0[29] = v0[29] & 0xFFFFFF0F | 0xA0;
-  *tone_dump_control_reg |= 0x10000000u;
+  *v1 |= 0x10000000u;
   timer_delay(10);
   *v4 = dword_1045D0;
   timer_delay(125);
   *v4 = dword_1045D4;
-  while ( *end_addr_reg < 0 )
+  while ( *v5 < 0 )
     timer_delay(1);
   check_status_bits(1, "end_addr=%x\n", *(volatile uint32_t *)off_1045CC);
   *(volatile uint32_t *)off_1045C8 = 0;
   check_status_bits(1, aDumpFinish);
-  *(volatile uint32_t *)off_1045B8 = saved_reg_value;
+  *(volatile uint32_t *)off_1045B8 = v3;
   correct_iq_dc_offset();
   result = check_status_bits(1, "** dump tone typ3   r 00100000 %d**\n", 0x4000);
   v7 = (void *)(uintptr_t)(off_1045BC);

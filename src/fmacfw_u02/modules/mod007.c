@@ -1,7 +1,6 @@
 // handle_sdio_interrupt @ 0x111390
-/* luna: Processes pending SDIO interrupt status bits, acknowledges hardware sources, and dispatches corresponding events. */
 int handle_sdio_interrupt() {
-  int interrupt_status; // r4
+  int v0; // r4
   volatile uint32_t *v1; // r0
   int v2; // r1
   volatile uint32_t *v3; // r2
@@ -46,36 +45,36 @@ int handle_sdio_interrupt() {
   int v42; // r1
   int v43; // r1
   volatile uint32_t *v44; // r2
-  int int2dev_status; // r5
-  volatile uint8_t *pre_sleep_flag; // r6
+  int v45; // r5
+  volatile uint8_t *v46; // r6
   volatile uint32_t *v47; // r2
 
-  interrupt_status = *(volatile uint32_t *)off_111618;
-  if ( **(volatile int16_t **)off_111614 < 0 && !interrupt_status )
+  v0 = *(volatile uint32_t *)off_111618;
+  if ( **(volatile int16_t **)off_111614 < 0 && !v0 )
   {
     call_shared_handler((int)aIntStatus0, (int)aSdioIsr, 39);
     goto LABEL_10;
   }
-  if ( (interrupt_status & 0x2000) != 0 )
+  if ( (v0 & 0x2000) != 0 )
   {
     v44 = (void *)(uintptr_t)(off_111834);
-    int2dev_status = *(volatile uint32_t *)off_111848;
+    v45 = *(volatile uint32_t *)off_111848;
     *(volatile uint32_t *)off_111848 = *(volatile uint32_t *)off_111848;
     *v44 &= ~0x20u;
-    check_status_bits(2, "int2dev:%d\n", int2dev_status);
-    if ( (int2dev_status & 4) != 0 )
+    check_status_bits(2, "int2dev:%d\n", v45);
+    if ( (v45 & 4) != 0 )
     {
       *(volatile uint8_t *)off_111854 = 1;
       check_status_bits(2, &aClrPreSleep[4]);
     }
-    if ( (int2dev_status & 1) != 0 )
+    if ( (v45 & 1) != 0 )
     {
-      pre_sleep_flag = (void *)(uintptr_t)(off_111854);
+      v46 = (void *)(uintptr_t)(off_111854);
       *(volatile uint32_t *)off_111850 = 16;
-      if ( *pre_sleep_flag )
+      if ( *v46 )
       {
         check_status_bits(2, aClrPreSleep);
-        *pre_sleep_flag = 0;
+        *v46 = 0;
       }
       if ( *(volatile uint8_t *)off_111858 )
       {
@@ -86,25 +85,25 @@ int handle_sdio_interrupt() {
       }
       *(volatile uint8_t *)off_11185C = 0;
     }
-    if ( (int2dev_status & 2) != 0 )
+    if ( (v45 & 2) != 0 )
     {
       *(volatile uint8_t *)off_11185C = 1;
       check_status_bits(2, aBit1);
     }
-    if ( (int2dev_status & 8) != 0 )
+    if ( (v45 & 8) != 0 )
       event_dispatch(aNotUsed);
   }
-  if ( (interrupt_status & 1) != 0 )
+  if ( (v0 & 1) != 0 )
   {
-    event_dispatch(aSdioHostSoftRe, interrupt_status << 31);
+    event_dispatch(aSdioHostSoftRe, v0 << 31);
     *(volatile uint32_t *)off_111620 = 1;
   }
-  if ( (interrupt_status & 0x20) != 0 )
+  if ( (v0 & 0x20) != 0 )
   {
     set_sdio_phase_config(*(volatile uint32_t *)off_111624);
     *(volatile uint32_t *)off_111620 = 32;
   }
-  if ( (interrupt_status & 0x4000) != 0 )
+  if ( (v0 & 0x4000) != 0 )
   {
     v1 = (void *)(uintptr_t)(off_11162C);
     v2 = *(volatile uint32_t *)off_111628;
@@ -112,7 +111,7 @@ int handle_sdio_interrupt() {
     *(volatile uint32_t *)off_111628 = *(volatile uint32_t *)off_111628;
     event_dispatch("sdio func1 error bit:%x, func1 free cnt=%d, func1 free queue2 cnt=%d\r\n", v2, *v3, *v1);
   }
-  if ( (interrupt_status & 0x8000) == 0 )
+  if ( (v0 & 0x8000) == 0 )
     goto LABEL_10;
   v41 = *(volatile uint32_t *)off_11182C;
   *(volatile uint32_t *)off_11182C = *(volatile uint32_t *)off_11182C;
@@ -122,28 +121,28 @@ int handle_sdio_interrupt() {
   if ( (v41 & 8) == 0 )
   {
 LABEL_10:
-    if ( (interrupt_status & 0x400000) == 0 )
+    if ( (v0 & 0x400000) == 0 )
       goto LABEL_11;
 LABEL_60:
     v42 = *(volatile uint32_t *)off_111838;
     *(volatile uint32_t *)off_111838 = *(volatile uint32_t *)off_111838;
     event_dispatch("sdio func2 error bit:%x\r\n", v42);
-    if ( (interrupt_status & 0x800000) == 0 )
+    if ( (v0 & 0x800000) == 0 )
       goto LABEL_12;
     goto LABEL_61;
   }
   *(volatile uint32_t *)off_111834 &= ~4u;
-  if ( (interrupt_status & 0x400000) != 0 )
+  if ( (v0 & 0x400000) != 0 )
     goto LABEL_60;
 LABEL_11:
-  if ( (interrupt_status & 0x800000) == 0 )
+  if ( (v0 & 0x800000) == 0 )
     goto LABEL_12;
 LABEL_61:
   v43 = *(volatile uint32_t *)off_111840;
   *(volatile uint32_t *)off_111840 = *(volatile uint32_t *)off_111840;
   event_dispatch("sdio func2 other bit:%x\r\n", v43);
 LABEL_12:
-  if ( (interrupt_status & 0x400) != 0 )
+  if ( (v0 & 0x400) != 0 )
   {
     v4 = (void *)(uintptr_t)(off_111638);
     v5 = *((volatile uint8_t *)off_111638 + 1621);
@@ -185,12 +184,12 @@ LABEL_12:
     }
     *(volatile uint32_t *)off_111620 = 1024;
   }
-  if ( (interrupt_status & 0x200) != 0 )
+  if ( (v0 & 0x200) != 0 )
   {
     event_dispatch(aUnexpectH2dCon);
     *(volatile uint32_t *)off_111868 = 512;
   }
-  if ( (interrupt_status & 0x100) != 0 )
+  if ( (v0 & 0x100) != 0 )
   {
     v16 = (void *)(uintptr_t)(off_111638);
     v17 = *((volatile uint8_t *)off_111638 + 2433);
@@ -220,8 +219,8 @@ LABEL_12:
     }
     *(volatile uint32_t *)off_111620 = 256;
   }
-  result = interrupt_status << 19;
-  if ( (interrupt_status & 0x1000) != 0 )
+  result = v0 << 19;
+  if ( (v0 & 0x1000) != 0 )
   {
     if ( *(volatile uint8_t *)off_111660 )
     {
@@ -263,7 +262,7 @@ LABEL_12:
     if ( !*v25 )
       *(volatile uint8_t *)off_111678 &= ~1u;
   }
-  if ( (interrupt_status & 0x800) != 0 )
+  if ( (v0 & 0x800) != 0 )
   {
     if ( *(volatile uint8_t *)off_111660 )
     {
@@ -304,9 +303,9 @@ LABEL_12:
     if ( !*v30 )
       *(volatile uint8_t *)off_111678 &= ~2u;
   }
-  if ( (interrupt_status & 4) != 0 )
+  if ( (v0 & 4) != 0 )
     *(volatile uint32_t *)off_111620 = 4;
-  if ( (interrupt_status & 8) != 0 )
+  if ( (v0 & 8) != 0 )
     *(volatile uint32_t *)off_111620 = 8;
   return result;
 }
@@ -672,7 +671,6 @@ LABEL_15:
 
 
 // read_mmio_bank_bit21 @ 0x111d10
-/* luna: Selects one of two MMIO bases, reads the 32-bit register at the requested 32-byte bank index, and returns bit 21. */
 int read_mmio_bank_bit21(int a1, int a2) {
   volatile uint32_t *v2; // r0
   int v4; // r0
@@ -1082,10 +1080,9 @@ int arg_store() {
 
 
 // usb_ep0_send @ 0x112228
-/* luna: Advances an EP0 control transfer by sending at most one 64-byte packet and tracking progress against the setup request length. */
 int usb_ep0_send(uint64_t a1, volatile uint32_t *a2) {
   int v2; // r4
-  volatile uint8_t *ep0_context; // r5
+  volatile uint8_t *v3; // r5
   void *v4; // r6
   volatile uint8_t *v5; // r3
   uint8_t v6; // r2
@@ -1097,7 +1094,7 @@ int usb_ep0_send(uint64_t a1, volatile uint32_t *a2) {
   char v12; // r2
   int v13; // r7
   int v14; // r0
-  int ep0_state; // r3
+  int v15; // r3
   int v16; // r3
   volatile uint32_t *v17; // r2
   int v18; // r3
@@ -1140,9 +1137,9 @@ int usb_ep0_send(uint64_t a1, volatile uint32_t *a2) {
   int v55; // r7
   volatile uint32_t *v56; // r2
   volatile uint32_t *v57; // r3
-  uint16_t bytes_sent; // r2
+  uint16_t v58; // r2
   int v59; // r6
-  unsigned int updated_bytes_sent; // r2
+  unsigned int v60; // r2
   unsigned int v61; // r1
   volatile uint32_t *v62; // r2
   void ( *v63)(volatile uint8_t *); // r3
@@ -1155,9 +1152,9 @@ int usb_ep0_send(uint64_t a1, volatile uint32_t *a2) {
   v2 = HIDWORD(a1);
   if ( (uint32_t)a1 )
   {
-    ep0_context = (volatile uint8_t *)off_112534;
-    ep0_state = *(volatile uint8_t *)off_112534;
-    if ( ep0_state == 2 )
+    v3 = (volatile uint8_t *)off_112534;
+    v15 = *(volatile uint8_t *)off_112534;
+    if ( v15 == 2 )
     {
       v4 = (void *)(uintptr_t)(off_112538);
       log_printf(aEp0SetupErrorD, HIDWORD(a1), a2);
@@ -1165,12 +1162,12 @@ int usb_ep0_send(uint64_t a1, volatile uint32_t *a2) {
     }
     if ( (a1 & 0x100000000LL) == 0 )
       goto LABEL_18;
-    if ( ep0_state == 4 )
+    if ( v15 == 4 )
     {
       a1 = (a1 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(*((volatile uint16_t *)off_112534 + 4)) << 32);
-      bytes_sent = *((volatile uint16_t *)off_112534 + 5);
-      a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)((uint16_t)(WORD2(a1) - bytes_sent)) & 0xFFFFFFFFu);
-      if ( WORD2(a1) == bytes_sent )
+      v58 = *((volatile uint16_t *)off_112534 + 5);
+      a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)((uint16_t)(WORD2(a1) - v58)) & 0xFFFFFFFFu);
+      if ( WORD2(a1) == v58 )
       {
         *(volatile uint8_t *)off_112534 = 5;
         return a1;
@@ -1185,15 +1182,15 @@ int usb_ep0_send(uint64_t a1, volatile uint32_t *a2) {
           a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(64) & 0xFFFFFFFFu);
         v59 = 0;
       }
-      updated_bytes_sent = (uint16_t)(bytes_sent + a1);
-      *((volatile uint16_t *)off_112534 + 5) = updated_bytes_sent;
-      if ( HIDWORD(a1) < updated_bytes_sent )
+      v60 = (uint16_t)(v58 + a1);
+      *((volatile uint16_t *)off_112534 + 5) = v60;
+      if ( HIDWORD(a1) < v60 )
       {
-        a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(log_printf("Ep0 send length err %u-%u", HIDWORD(a1), updated_bytes_sent)) & 0xFFFFFFFFu);
-        a1 = (a1 & ~0xFFFF0000u) | (((uint16_t)(*((volatile uint16_t *)ep0_context + 4)) & 0xFFFFu) << 16);
-        updated_bytes_sent = *((volatile uint16_t *)ep0_context + 5);
+        a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(log_printf("Ep0 send length err %u-%u", HIDWORD(a1), v60)) & 0xFFFFFFFFu);
+        a1 = (a1 & ~0xFFFF0000u) | (((uint16_t)(*((volatile uint16_t *)v3 + 4)) & 0xFFFFu) << 16);
+        v60 = *((volatile uint16_t *)v3 + 5);
       }
-      v61 = (uint16_t)(WORD2(a1) - updated_bytes_sent);
+      v61 = (uint16_t)(WORD2(a1) - v60);
       if ( v61 > 0x40 )
       {
         v61 = 64;
@@ -1203,19 +1200,19 @@ int usb_ep0_send(uint64_t a1, volatile uint32_t *a2) {
         if ( !v59 )
         {
           v62 = (void *)(uintptr_t)(off_1129D0);
-          *ep0_context = 5;
+          *v3 = 5;
           v62[516] |= 0x10u;
           return a1;
         }
         a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(bt_cmd_handler((int)(uintptr_t)(nullptr), 0)) & 0xFFFFFFFFu);
         goto LABEL_18;
       }
-      a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(bt_cmd_handler((int)(uintptr_t)((volatile char *)(*((volatile uint32_t *)ep0_context + 1) + updated_bytes_sent)), v61)) & 0xFFFFFFFFu);
+      a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(bt_cmd_handler((int)(uintptr_t)((volatile char *)(*((volatile uint32_t *)v3 + 1) + v60)), v61)) & 0xFFFFFFFFu);
 LABEL_18:
       if ( (v2 & 0x20) == 0 )
         return a1;
 LABEL_19:
-      if ( *ep0_context == 6 )
+      if ( *v3 == 6 )
       {
         v27 = *(volatile uint32_t **)off_112538;
         v28 = *(volatile uint32_t *)off_112544;
@@ -1225,13 +1222,13 @@ LABEL_19:
         v29[709] = (int)(uintptr_t)(v27);
         v29[706] = v29[706];
         v29[704] |= 0x84000000;
-        *ep0_context = 7;
+        *v3 = 7;
         v29[517] |= 0x10u;
         a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(mmio_sync_2()) & 0xFFFFFFFFu);
       }
       return a1;
     }
-    if ( ep0_state != 7 )
+    if ( v15 != 7 )
       goto LABEL_18;
     v23 = (void *)(uintptr_t)(off_11253C);
     a1 = (a1 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(off_112550) << 32);
@@ -1269,7 +1266,7 @@ LABEL_19:
     }
     if ( (a1 & 0x100000000LL) == 0 )
     {
-      ep0_context = (volatile uint8_t *)off_112534;
+      v3 = (volatile uint8_t *)off_112534;
       v16 = *(volatile uint8_t *)off_112534;
       if ( (a1 & 0x800000000LL) != 0 )
       {
@@ -1287,7 +1284,7 @@ LABEL_6:
     }
     if ( (a1 & 0x800000000LL) != 0 )
     {
-      ep0_context = (volatile uint8_t *)off_112534;
+      v3 = (volatile uint8_t *)off_112534;
       if ( !*(volatile uint8_t *)off_112534 )
         goto LABEL_6;
       flash_erase_main((void *)(uintptr_t)(1), 0);
@@ -1297,19 +1294,19 @@ LABEL_7:
         v5 = (volatile uint8_t *)(*((volatile uint32_t *)off_11253C + 709) - 8);
       else
         v5 = *(volatile uint8_t **)(*(volatile uint32_t *)v4 + 4);
-      *((volatile uint32_t *)ep0_context + 1) = 0;
-      *((volatile uint32_t *)ep0_context + 2) = 0;
-      *ep0_context = 2;
-      ep0_context[12] = ep0_context[12] & 0x7F | (*v5 >> 7 << 7);
-      v6 = ep0_context[12] & 0x9F | (32 * (((int)*v5 >> 5) & 3));
-      ep0_context[12] = v6;
-      ep0_context[12] = v6 & 0xE0 | *v5 & 0x1F;
-      ep0_context[13] = v5[1];
-      *((volatile uint16_t *)ep0_context + 7) = v5[2] | (v5[3] << 8);
-      *((volatile uint16_t *)ep0_context + 8) = v5[4] | (v5[5] << 8);
+      *((volatile uint32_t *)v3 + 1) = 0;
+      *((volatile uint32_t *)v3 + 2) = 0;
+      *v3 = 2;
+      v3[12] = v3[12] & 0x7F | (*v5 >> 7 << 7);
+      v6 = v3[12] & 0x9F | (32 * (((int)*v5 >> 5) & 3));
+      v3[12] = v6;
+      v3[12] = v6 & 0xE0 | *v5 & 0x1F;
+      v3[13] = v5[1];
+      *((volatile uint16_t *)v3 + 7) = v5[2] | (v5[3] << 8);
+      *((volatile uint16_t *)v3 + 8) = v5[4] | (v5[5] << 8);
       v7 = v5[6] | (v5[7] << 8);
-      *((volatile uint16_t *)ep0_context + 9) = v7;
-      if ( !v7 && (ep0_context[12] & 0x80u) != 0 )
+      *((volatile uint16_t *)v3 + 9) = v7;
+      if ( !v7 && (v3[12] & 0x80u) != 0 )
         log_printf(aEp0SetupErrorW);
       v8 = (void *)(uintptr_t)(off_11253C);
       v9 = (int ( **)(int, unsigned int))off_112540;
@@ -1319,7 +1316,7 @@ LABEL_7:
 if ( !v10 || !v10((void *)(uintptr_t)(off_112534)) ) { v11 = (void *)(uintptr_t)(off_11255C);
         v12 = *(volatile uint8_t *)off_11255C;
         v13 = *(volatile uint8_t *)off_11255C;
-        if ( (ep0_context[12] & 0x60) != 0 )
+        if ( (v3[12] & 0x60) != 0 )
         {
 LABEL_54:
           if ( v13 == 4 && *v11 != 4 )
@@ -1327,18 +1324,18 @@ LABEL_56:
             table_lookup_wrapper();
           goto LABEL_49;
         }
-        v14 = ep0_context[13];
-        switch ( ep0_context[13] )
+        v14 = v3[13];
+        switch ( v3[13] )
         {
           case 0u:
             if ( *(volatile uint8_t *)off_11255C == 4 )
             {
-              v30 = ep0_context[12] & 0x1F;
+              v30 = v3[12] & 0x1F;
               if ( v30 == 1 )
                 goto LABEL_156;
               if ( v30 != 2 )
                 goto LABEL_66;
-              v67 = *((volatile uint16_t *)ep0_context + 8);
+              v67 = *((volatile uint16_t *)v3 + 8);
               v40 = v67 & 0xF;
               if ( v40 > 5 )
                 goto LABEL_156;
@@ -1346,9 +1343,9 @@ LABEL_56:
             }
             else
             {
-              if ( *((volatile uint16_t *)ep0_context + 8) )
+              if ( *((volatile uint16_t *)v3 + 8) )
                 goto LABEL_54;
-              v30 = ep0_context[12] & 0x1F;
+              v30 = v3[12] & 0x1F;
               if ( v30 == 1 )
                 goto LABEL_156;
               if ( v30 != 2 )
@@ -1360,16 +1357,16 @@ LABEL_66:
                 *(volatile uint16_t *)off_112874 = *(volatile uint8_t *)off_112870;
                 goto LABEL_68;
               }
-              v40 = ep0_context[13];
+              v40 = v3[13];
             }
             if ( read_mmio_bank_bit21(v14, v40) )
             {
               v31 = (void *)(uintptr_t)(off_112874);
               *(volatile uint16_t *)off_112874 = 1;
 LABEL_68:
-              *((volatile uint32_t *)ep0_context + 1) = (int)(uintptr_t)(v31);
-              *((volatile uint16_t *)ep0_context + 4) = 2;
-              *ep0_context = 4;
+              *((volatile uint32_t *)v3 + 1) = (int)(uintptr_t)(v31);
+              *((volatile uint16_t *)v3 + 4) = 2;
+              *v3 = 4;
               goto LABEL_86;
             }
 LABEL_156:
@@ -1377,24 +1374,24 @@ LABEL_156:
             *(volatile uint16_t *)off_1129E0 = 0;
             goto LABEL_68;
           case 1u:
-            if ( *(volatile uint8_t *)off_11255C != 4 && *((volatile uint16_t *)ep0_context + 8) )
+            if ( *(volatile uint8_t *)off_11255C != 4 && *((volatile uint16_t *)v3 + 8) )
               goto LABEL_54;
-            if ( (ep0_context[12] & 0x1F) != 2 || *((volatile uint16_t *)ep0_context + 7) )
+            if ( (v3[12] & 0x1F) != 2 || *((volatile uint16_t *)v3 + 7) )
               goto LABEL_79;
-            flash_write_data((void *)(uintptr_t)((*((volatile uint16_t *)ep0_context + 8) >> 7) & 1), *((volatile uint16_t *)ep0_context + 8) & 0xF);
-            *ep0_context = 7;
+            flash_write_data((void *)(uintptr_t)((*((volatile uint16_t *)v3 + 8) >> 7) & 1), *((volatile uint16_t *)v3 + 8) & 0xF);
+            *v3 = 7;
             if ( v13 == 4 )
               goto LABEL_44;
             goto LABEL_73;
           case 3u:
-            if ( *(volatile uint8_t *)off_11255C != 4 && *((volatile uint16_t *)ep0_context + 8) )
+            if ( *(volatile uint8_t *)off_11255C != 4 && *((volatile uint16_t *)v3 + 8) )
               goto LABEL_54;
-            if ( (ep0_context[12] & 0x1F) != 0 )
+            if ( (v3[12] & 0x1F) != 0 )
             {
-              if ( (ep0_context[12] & 0x1F) != 2 || *((volatile uint16_t *)ep0_context + 7) )
+              if ( (v3[12] & 0x1F) != 2 || *((volatile uint16_t *)v3 + 7) )
               {
 LABEL_79:
-                *ep0_context = 7;
+                *v3 = 7;
                 if ( v12 == 4 )
                 {
 LABEL_60:
@@ -1403,18 +1400,18 @@ LABEL_60:
                 }
                 goto LABEL_49;
               }
-              flash_erase_area((void *)(uintptr_t)((*((volatile uint16_t *)ep0_context + 8) >> 7) & 1), *((volatile uint16_t *)ep0_context + 8) & 0xF);
-              *ep0_context = 7;
+              flash_erase_area((void *)(uintptr_t)((*((volatile uint16_t *)v3 + 8) >> 7) & 1), *((volatile uint16_t *)v3 + 8) & 0xF);
+              *v3 = 7;
               if ( v13 != 4 )
                 goto LABEL_73;
             }
             else
             {
-              v68 = *((volatile uint16_t *)ep0_context + 7);
+              v68 = *((volatile uint16_t *)v3 + 7);
               if ( v68 != 2 )
               {
                 v39 = v68 == 1;
-                *ep0_context = 7;
+                *v3 = 7;
 LABEL_89:
                 if ( v13 != 4 || *v11 == 4 )
                 {
@@ -1429,8 +1426,8 @@ LABEL_89:
                 }
                 goto LABEL_49;
               }
-              *(volatile uint8_t *)off_1129E4 = HIBYTE(*((volatile uint16_t *)ep0_context + 8));
-              *ep0_context = 7;
+              *(volatile uint8_t *)off_1129E4 = HIBYTE(*((volatile uint16_t *)v3 + 8));
+              *v3 = 7;
               if ( v12 != 4 )
                 goto LABEL_73;
             }
@@ -1441,16 +1438,16 @@ LABEL_45:
             table_lookup_wrapper();
             break;
           case 5u:
-            v34 = *((volatile uint16_t *)ep0_context + 7);
+            v34 = *((volatile uint16_t *)v3 + 7);
             *((volatile uint32_t *)off_112878 + 512) = (16 * v34) & 0x7F0 | *((volatile uint32_t *)off_112878 + 512) & 0xFFFFF80F;
-            *ep0_context = 7;
+            *v3 = 7;
             if ( v34 )
               *v11 = 3;
             else
               *v11 = 2;
             goto LABEL_72;
           case 6u:
-            v32 = *((volatile uint16_t *)ep0_context + 7);
+            v32 = *((volatile uint16_t *)v3 + 7);
             v33 = v32 >> 8;
             switch ( v32 >> 8 )
             {
@@ -1468,8 +1465,8 @@ LABEL_45:
                   goto LABEL_54;
                 v46 = (uint8_t)v45[3];
                 v47 = (uint8_t)v45[2];
-                *((volatile uint32_t *)ep0_context + 1) = (int)(uintptr_t)(v45);
-                *((volatile uint16_t *)ep0_context + 4) = v47 | (v46 << 8);
+                *((volatile uint32_t *)v3 + 1) = (int)(uintptr_t)(v45);
+                *((volatile uint16_t *)v3 + 4) = v47 | (v46 << 8);
                 v48 = *(volatile uint8_t *)off_112870;
                 if ( (v45[7] & 0x40) != 0 )
                   v49 = v48 | 1;
@@ -1479,10 +1476,10 @@ LABEL_45:
                 goto LABEL_103;
               case 3u:
                 v44 = (volatile uint8_t *)v9[2]((uint8_t)v32, v33);
-                *((volatile uint32_t *)ep0_context + 1) = (int)(uintptr_t)(v44);
+                *((volatile uint32_t *)v3 + 1) = (int)(uintptr_t)(v44);
                 if ( !v44 )
                   goto LABEL_54;
-                *((volatile uint16_t *)ep0_context + 4) = *v44;
+                *((volatile uint16_t *)v3 + 4) = *v44;
                 goto LABEL_103;
               case 4u:
               case 5u:
@@ -1501,13 +1498,13 @@ LABEL_45:
                   goto LABEL_54;
                 v42 = (v42 & ~0xFFFFu) | ((uint16_t)(v41[2]) & 0xFFFFu);
 LABEL_102:
-                *((volatile uint16_t *)ep0_context + 4) = v42;
-                *((volatile uint32_t *)ep0_context + 1) = (int)(uintptr_t)(v41);
+                *((volatile uint16_t *)v3 + 4) = v42;
+                *((volatile uint32_t *)v3 + 1) = (int)(uintptr_t)(v41);
 LABEL_103:
-                v43 = *((volatile uint16_t *)ep0_context + 9);
-                if ( *((volatile uint16_t *)ep0_context + 4) > v43 )
-                  *((volatile uint16_t *)ep0_context + 4) = v43;
-                *ep0_context = 4;
+                v43 = *((volatile uint16_t *)v3 + 9);
+                if ( *((volatile uint16_t *)v3 + 4) > v43 )
+                  *((volatile uint16_t *)v3 + 4) = v43;
+                *v3 = 4;
                 break;
               default:
                 log_printf("Unknown descriptor: %d", v33);
@@ -1515,9 +1512,9 @@ LABEL_103:
             }
             goto LABEL_86;
           case 8u:
-            *((volatile uint32_t *)ep0_context + 1) = dword_112884;
-            *((volatile uint16_t *)ep0_context + 4) = 2;
-            *ep0_context = 4;
+            *((volatile uint32_t *)v3 + 1) = dword_112884;
+            *((volatile uint16_t *)v3 + 4) = 2;
+            *v3 = 4;
             goto LABEL_86;
           case 9u:
             v39 = arg_store();
@@ -1526,23 +1523,23 @@ LABEL_103:
             if ( *(volatile uint8_t *)off_11255C != 4 )
               goto LABEL_54;
             v37 = (void *)(uintptr_t)(off_11287C);
-            *ep0_context = *(volatile uint8_t *)off_11255C;
+            *v3 = *(volatile uint8_t *)off_11255C;
             v38 = (void *)(uintptr_t)(off_112880);
-            *((volatile uint16_t *)ep0_context + 8) = *v37;
-            *((volatile uint32_t *)ep0_context + 1) = (int)(uintptr_t)(v38);
-            *((volatile uint16_t *)ep0_context + 4) = 1;
+            *((volatile uint16_t *)v3 + 8) = *v37;
+            *((volatile uint32_t *)v3 + 1) = (int)(uintptr_t)(v38);
+            *((volatile uint16_t *)v3 + 4) = 1;
 LABEL_86:
             if ( v13 != 4 )
               goto LABEL_87;
             goto LABEL_152;
           case 0xBu:
             v35 = v9[6];
-            if ( !v35 || !v35(*((volatile uint16_t *)ep0_context + 8), *((volatile uint16_t *)ep0_context + 7)) )
+            if ( !v35 || !v35(*((volatile uint16_t *)v3 + 8), *((volatile uint16_t *)v3 + 7)) )
               goto LABEL_54;
             v36 = (void *)(uintptr_t)(off_112880);
-            *(volatile uint16_t *)off_11287C = *((volatile uint16_t *)ep0_context + 8);
-            *v36 = *((volatile uint16_t *)ep0_context + 7);
-            *ep0_context = 7;
+            *(volatile uint16_t *)off_11287C = *((volatile uint16_t *)v3 + 8);
+            *v36 = *((volatile uint16_t *)v3 + 7);
+            *v3 = 7;
 LABEL_72:
             if ( v13 != 4 )
               goto LABEL_73;
@@ -1557,16 +1554,16 @@ LABEL_59:
             goto LABEL_60;
         }
       }
-      v24 = *ep0_context;
+      v24 = *v3;
       switch ( v24 )
       {
         case 3:
-          if ( !*((volatile uint32_t *)ep0_context + 1) )
-            *((volatile uint32_t *)ep0_context + 1) = dword_112558;
+          if ( !*((volatile uint32_t *)v3 + 1) )
+            *((volatile uint32_t *)v3 + 1) = dword_112558;
           goto LABEL_50;
         case 4:
 LABEL_87:
-          bt_cmd_handler((int)(uintptr_t)(*((volatile char **)ep0_context + 1)), *((volatile uint16_t *)ep0_context + 4));
+          bt_cmd_handler((int)(uintptr_t)(*((volatile char **)v3 + 1)), *((volatile uint16_t *)v3 + 4));
           goto LABEL_50;
         case 7:
 LABEL_73:
@@ -1574,7 +1571,7 @@ LABEL_73:
           goto LABEL_50;
       }
 LABEL_49:
-      *ep0_context = 0;
+      *v3 = 0;
       unknown_15(0, 0x200000, 0);
       unknown_16(0, 0x200000, 0);
 LABEL_50:
@@ -1590,7 +1587,7 @@ LABEL_51:
       return a1;
     }
     v4 = (void *)(uintptr_t)(off_112538);
-    ep0_context = (volatile uint8_t *)off_112534;
+    v3 = (volatile uint8_t *)off_112534;
     v20 = *(volatile uint32_t **)off_112538;
     if ( (*(volatile uint8_t *)(*(volatile uint32_t *)off_112538 + 3) & 1) == 0 )
     {
@@ -1606,18 +1603,18 @@ LABEL_51:
           if ( v53 >= (uint16_t)(*((volatile uint16_t *)off_112534 + 4) - v51) )
             v53 = (v53 & ~0xFFFFu) | ((uint16_t)(*((volatile uint16_t *)off_112534 + 4) - v51) & 0xFFFFu);
           memcpy((volatile char *)(v51 + *((volatile uint32_t *)off_112534 + 1)), *(volatile char **)off_112888, (uint16_t)v53);
-          v54 = *((volatile uint16_t *)ep0_context + 4);
-          v55 = (uint16_t)(v53 + *((volatile uint16_t *)ep0_context + 5));
-          *((volatile uint16_t *)ep0_context + 5) = v55;
+          v54 = *((volatile uint16_t *)v3 + 4);
+          v55 = (uint16_t)(v53 + *((volatile uint16_t *)v3 + 5));
+          *((volatile uint16_t *)v3 + 5) = v55;
           if ( v54 == v55 )
           {
             v63 = *((void ( **)(volatile uint8_t *))off_1129D4 + 4);
             if ( v63 )
-              v63(ep0_context);
+              v63(v3);
             a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(v2 << 26) & 0xFFFFFFFFu);
             if ( (v2 & 0x20) == 0 )
             {
-              *ep0_context = 6;
+              *v3 = 6;
               return a1;
             }
             v64 = *(volatile uint32_t **)v4;
@@ -1628,7 +1625,7 @@ LABEL_51:
             v66[709] = (int)(uintptr_t)(v64);
             v66[706] = v66[706];
             v66[704] |= 0x84000000;
-            *ep0_context = 7;
+            *v3 = 7;
             v66[517] |= 0x10u;
             a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(mmio_sync_2()) & 0xFFFFFFFFu);
             goto LABEL_19;
@@ -1667,7 +1664,7 @@ LABEL_51:
     }
     if ( *(volatile uint8_t *)off_112534 )
       a1 = (a1 & ~0xFFFFFFFFull) | ((uint32_t)(flash_erase_main((void *)(uintptr_t)(1), 0)) & 0xFFFFFFFFu);
-    *ep0_context = 1;
+    *v3 = 1;
   }
   return a1;
 }
@@ -2191,21 +2188,20 @@ volatile int *get_global_166e84() {
 
 
 // process_usb_wlan_rx_frame @ 0x113104
-/* luna: Validates a USB WLAN receive frame and dispatches data frames or enqueues management messages for command handling. */
 int process_usb_wlan_rx_frame(volatile uint8_t *a1, unsigned int a2, int a3) {
-  volatile uint16_t *rx_packet_counter; // r7
+  volatile uint16_t *v3; // r7
   volatile uint8_t *v4; // r6
   volatile uint8_t *v5; // r4
   char v6; // r2
-  int frame_type; // r8
-  int declared_payload_len; // r6
-  volatile uint8_t *rx_message_queue; // r8
-  char queued_message_count; // r5
-  int command_context; // r0
-  unsigned int rx_message_slot_index; // r3
-  volatile uint32_t *rx_message_slot; // r3
+  int v9; // r8
+  int v10; // r6
+  volatile uint8_t *v11; // r8
+  char v12; // r5
+  int v13; // r0
+  unsigned int v14; // r3
+  volatile uint32_t *v15; // r3
 
-  rx_packet_counter = (volatile uint16_t *)off_11326C;
+  v3 = (volatile uint16_t *)off_11326C;
   v4 = (volatile uint8_t *)off_113270;
   v5 = (void *)(uintptr_t)(off_113274);
   ++*(volatile uint16_t *)off_11326C;
@@ -2217,66 +2213,66 @@ int process_usb_wlan_rx_frame(volatile uint8_t *a1, unsigned int a2, int a3) {
   *v5 = 0;
   if ( *v4 != 2 )
   {
-    log_printf("usb wlan recv err %X %d\n", *rx_packet_counter, *v4);
+    log_printf("usb wlan recv err %X %d\n", *v3, *v4);
     is_current_task(off_113288);
     return 1;
   }
   *v4 = 0;
   if ( a2 <= 3 )
   {
-    log_printf("len err %X %d\n", *rx_packet_counter, a2);
+    log_printf("len err %X %d\n", *v3, a2);
   }
   else
   {
-    frame_type = a1[2];
-    declared_payload_len = *a1 | (a1[1] << 8) & 0xF00;
+    v9 = a1[2];
+    v10 = *a1 | (a1[1] << 8) & 0xF00;
     if ( *(volatile uint8_t *)off_113278 )
       check_status_bits(512, "R:%d\n", a2);
-    if ( frame_type == 1 )
+    if ( v9 == 1 )
     {
-      if ( a2 == declared_payload_len || declared_payload_len + 1 == a2 )
+      if ( a2 == v10 || v10 + 1 == a2 )
       {
         timer_delay_1();
         check_packet_length((int)(a1 + 4));
         unknown_func_12d104(512);
         return 1;
       }
-      log_printf("wdl err %X %d %d\n", *rx_packet_counter, declared_payload_len, a2);
+      log_printf("wdl err %X %d %d\n", *v3, v10, a2);
     }
-    else if ( frame_type == 17 )
+    else if ( v9 == 17 )
     {
-      rx_message_queue = (void *)(uintptr_t)(off_1132A8);
+      v11 = (void *)(uintptr_t)(off_1132A8);
       if ( *((volatile uint8_t *)off_1132A8 + 2433) >= (unsigned int)*((volatile uint8_t *)off_1132A8 + 2434) )
       {
         log_printf(aErrNoRxMsgElem);
       }
       else
       {
-        if ( declared_payload_len + 4 == a2 || a2 == declared_payload_len + 5 )
+        if ( v10 + 4 == a2 || a2 == v10 + 5 )
         {
           timer_delay_1();
-          queued_message_count = rx_message_queue[2433];
-          command_context = dword_113280;
-          rx_message_slot_index = (uint8_t)rx_message_queue[2432]
+          v12 = v11[2433];
+          v13 = dword_113280;
+          v14 = (uint8_t)v11[2432]
               + 1
               - 40
               * ((unsigned int)(((unsigned int)dword_11327C
-                               * (uint64_t)((unsigned int)(uint8_t)rx_message_queue[2432] + 1)) >> 32) >> 5);
-          rx_message_queue[2432] = rx_message_slot_index;
-          rx_message_slot = (void *)(&rx_message_queue[20 * rx_message_slot_index]);
-          rx_message_slot[409] = (int)(uintptr_t)(a1 + 4);
-          rx_message_slot[412] = declared_payload_len;
-          rx_message_queue[2433] = queued_message_count + 1;
-          co_list_push_back(command_context, rx_message_slot + 408);
+                               * (uint64_t)((unsigned int)(uint8_t)v11[2432] + 1)) >> 32) >> 5);
+          v11[2432] = v14;
+          v15 = (void *)(&v11[20 * v14]);
+          v15[409] = (int)(uintptr_t)(a1 + 4);
+          v15[412] = v10;
+          v11[2433] = v12 + 1;
+          co_list_push_back(v13, v15 + 408);
           unknown_func_12d104(0x400000);
           return 1;
         }
-        log_printf("wml err %X %d %d\n", *rx_packet_counter, declared_payload_len, a2);
+        log_printf("wml err %X %d %d\n", *v3, v10, a2);
       }
     }
     else
     {
-      log_printf("type err %X %X %d %d\r\n", *rx_packet_counter, frame_type, declared_payload_len, a2);
+      log_printf("type err %X %X %d %d\r\n", *v3, v9, v10, a2);
     }
   }
   is_controller_mode((void *)(&a1[-*(volatile uint32_t *)off_113290]));

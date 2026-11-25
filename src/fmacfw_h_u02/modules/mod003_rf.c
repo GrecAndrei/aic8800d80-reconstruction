@@ -778,49 +778,48 @@ LABEL_4:
 
 
 // rf_set_digital_power_from_delta @ 0x105118
-/* luna: Converts a power delta and base power into a digital power value, clamps it to 0x20–0xE8, stores it in the RF state, and reports analog-index limit wa */
 int rf_set_digital_power_from_delta(float a1, int a2, int a3) {
   float v6; // r0
   uint64_t v7; // r0
   uint64_t v8; // r0
-  int digital_power; // r0
+  int v9; // r0
   uint64_t v10; // kr00_8
   uint64_t v12; // kr08_8
 
   v6 = COERCE_FLOAT(load_version_string(COERCE_INT(a1 / 20.0)));
   v7 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT((float)a2 * v6));
   v8 = double_exp_check(v7);
-  digital_power = (uint16_t)((int (*)(uint64_t))double_to_float_1)(v8);
-  if ( (uint16_t)digital_power <= 232 )
+  v9 = (uint16_t)((int (*)(uint64_t))double_to_float_1)(v8);
+  if ( (uint16_t)v9 <= 232 )
   {
-    if ( (uint16_t)digital_power > 31 )
+    if ( (uint16_t)v9 > 31 )
     {
-      *(volatile uint8_t *)(a3 + 104) = digital_power;
+      *(volatile uint8_t *)(a3 + 104) = v9;
     }
     else
     {
       v12 = *(volatile uint64_t *)(a3 + 112);
-      digital_power = 32;
+      v9 = 32;
       *(volatile uint8_t *)(a3 + 104) = 32;
       if ( SHIDWORD(v12) < (int)v12 )
       {
         alloc_tx_event("ana_cur_index=%x ana_max_index=%x warning:dig_pwr is smaller\n", HIDWORD(v12), (uint32_t)v12);
-        digital_power = *(volatile uint8_t *)(a3 + 104);
+        v9 = *(volatile uint8_t *)(a3 + 104);
       }
     }
   }
   else
   {
     v10 = *(volatile uint64_t *)(a3 + 112);
-    digital_power = 232;
+    v9 = 232;
     *(volatile uint8_t *)(a3 + 104) = -24;
     if ( SHIDWORD(v10) < (int)v10 )
     {
       alloc_tx_event("ana_cur_index=%x ana_max_index=%x warning:dig_pwr is bigger\n", HIDWORD(v10), (uint32_t)v10);
-      digital_power = *(volatile uint8_t *)(a3 + 104);
+      v9 = *(volatile uint8_t *)(a3 + 104);
     }
   }
-  return check_feature_flag(1, "pwr_diff*100=%4d base_pwr=%x dig_pwr=%x ", (int)(float)(a1 * flt_1051C0), a2, digital_power);
+  return check_feature_flag(1, "pwr_diff*100=%4d base_pwr=%x dig_pwr=%x ", (int)(float)(a1 * flt_1051C0), a2, v9);
 }
 
 
@@ -1942,28 +1941,27 @@ LABEL_3:
 
 
 // rf_set_tx_gain_map @ 0x1062dc
-/* luna: Builds and writes the TX gain-map register value for the requested index, applying configured calibration and bypass encoding. */
 int rf_set_tx_gain_map(int a1, int a2, int a3, int a4, int a5) {
-  int gain_code; // r4
-  unsigned int register_value; // r4
-  int encoded_field; // r8
-  volatile uint32_t *gain_map_register; // r3
+  int v9; // r4
+  unsigned int v10; // r4
+  int v11; // r8
+  volatile uint32_t *v12; // r3
 
   if ( (int)*(volatile uint32_t *)(a4 + 132) <= a2 )
   {
     rf_set_digital_power_from_delta(*(volatile float *)(a4 + 4 * a2 + 148), (uint8_t)a1, a4);
-    gain_code = *(volatile uint8_t *)(a4 + 104);
+    v9 = *(volatile uint8_t *)(a4 + 104);
   }
   else
   {
-    gain_code = (uint8_t)a1;
+    v9 = (uint8_t)a1;
   }
-  register_value = gain_code | a1 & 0xFFFFF000 | (a2 << 8);
+  v10 = v9 | a1 & 0xFFFFF000 | (a2 << 8);
   if ( a3 )
   {
     if ( a2 == 7 )
     {
-      encoded_field = 83886080;
+      v11 = 83886080;
       goto LABEL_8;
     }
     goto LABEL_11;
@@ -1979,7 +1977,7 @@ LABEL_11:
     {
       if ( a3 )
       {
-        encoded_field = (15 - a2) << 24;
+        v11 = (15 - a2) << 24;
         goto LABEL_8;
       }
     }
@@ -1995,17 +1993,17 @@ LABEL_6:
   if ( (a5 & 0xFFFFFFFD) == 0 )
   {
 LABEL_14:
-    register_value |= 0xC08000u;
+    v10 |= 0xC08000u;
     check_feature_flag(1, "table %d index %d bypass\n", a5, a2);
     goto LABEL_9;
   }
-  encoded_field = a3 << 24;
+  v11 = a3 << 24;
 LABEL_8:
-  register_value = register_value & 0xFF3F7FFF | encoded_field;
+  v10 = v10 & 0xFF3F7FFF | v11;
 LABEL_9:
-  gain_map_register = (void *)(uintptr_t)(off_106398);
-  *(volatile uint32_t *)off_106398 = register_value;
-  return check_feature_flag(1, "tx_gain_map=%x ", *gain_map_register);
+  v12 = (void *)(uintptr_t)(off_106398);
+  *(volatile uint32_t *)off_106398 = v10;
+  return check_feature_flag(1, "tx_gain_map=%x ", *v12);
 }
 
 

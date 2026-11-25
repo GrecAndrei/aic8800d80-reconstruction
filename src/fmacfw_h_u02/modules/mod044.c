@@ -456,38 +456,37 @@ int rf_get_state_1(int a1, int a2) {
 
 
 // tx_process_queued_packets @ 0x12c798
-/* luna: Drains the pending TX packet list and passes each popped packet to heap_free_block under interrupt protection. */
 int tx_process_queued_packets() {
-  volatile int *tx_processing_depth_ptr; // r5
-  int pending_tx_queue; // r4
+  volatile int *v0; // r5
+  int v1; // r4
   int result; // r0
-  int remaining_processing_depth; // r3
-  int restore_irq_enabled; // r2
+  int v3; // r3
+  int v4; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_12C7E0 = 1;
   }
-  tx_processing_depth_ptr = (volatile int *)off_12C7E4;
-  pending_tx_queue = dword_12C7E8;
+  v0 = (volatile int *)off_12C7E4;
+  v1 = dword_12C7E8;
   ++*(volatile uint32_t *)off_12C7E4;
   irq_disable_global_3(0x10000000);
   while ( 1 )
   {
-    result = (int)(uintptr_t)(list_pop(pending_tx_queue));
+    result = (int)(uintptr_t)(list_pop(v1));
     if ( !result )
       break;
     heap_free_block((void *)(uintptr_t)(result));
   }
-  if ( *tx_processing_depth_ptr )
+  if ( *v0 )
   {
-    remaining_processing_depth = *tx_processing_depth_ptr - 1;
-    restore_irq_enabled = *(volatile uint32_t *)off_12C7E0;
-    *tx_processing_depth_ptr = remaining_processing_depth;
-    if ( !remaining_processing_depth )
+    v3 = *v0 - 1;
+    v4 = *(volatile uint32_t *)off_12C7E0;
+    *v0 = v3;
+    if ( !v3 )
     {
-      if ( restore_irq_enabled )
+      if ( v4 )
         __enable_irq();
     }
   }
@@ -570,7 +569,7 @@ int nop_function(int a1, int16_t a2, int16_t a3, int16_t a4) {
 
 
 // tx_process_jump @ 0x12c8f8
-/* luna: Forwards the supplied packet context to `heap_free_block` and returns its result. */
+/* luna: Forwards the supplied packet context to `tx_pkt_process` and returns its result. */
 int tx_process_jump(int a1) {
   return (int)(uintptr_t)(heap_free_block((void *)(uintptr_t)(a1)));
 }
@@ -751,29 +750,28 @@ LABEL_14:
 
 
 // heap_free_block @ 0x12ca88
-/* luna: Returns an allocation to the address-ordered heap free list and coalesces it with contiguous neighboring blocks under interrupt-state protection. */
 volatile uint32_t * heap_free_block(volatile char *a1) {
   volatile int16_t **v1; // r9
-  volatile char *free_list_block; // r4
-  int released_block_size; // r8
-  volatile char *released_block_header; // r5
+  volatile char *v2; // r4
+  int v3; // r8
+  volatile char *v5; // r5
   volatile uint32_t *result; // r0
-  int saved_critical_section_depth; // r12
-  int incremented_critical_section_depth; // r7
-  int free_list_block_size; // r3
-  volatile uint32_t *previous_free_list_block; // r1
-  volatile int *irq_restore_flag_ptr; // r3
-  int irq_restore_flag; // r3
-  int merged_block_size; // r3
-  volatile char *next_free_list_block; // r2
-  int next_free_list_block_size; // r1
+  int v7; // r12
+  int v8; // r7
+  int v9; // r3
+  volatile uint32_t *v10; // r1
+  volatile int *v11; // r3
+  int v12; // r3
+  int v13; // r3
+  volatile char *v14; // r2
+  int v15; // r1
   uint64_t v16; // r2
 
   v1 = (volatile int16_t **)off_12CB84;
-  free_list_block = *((volatile char **)off_12CB6C + 7);
-  released_block_size = *((volatile uint32_t *)a1 - 1);
-  released_block_header = a1 - 4;
-  if ( **(volatile int16_t **)off_12CB84 < 0 && a1 <= free_list_block )
+  v2 = *((volatile char **)off_12CB6C + 7);
+  v3 = *((volatile uint32_t *)a1 - 1);
+  v5 = a1 - 4;
+  if ( **(volatile int16_t **)off_12CB84 < 0 && a1 <= v2 )
     irq_disable_mmio_write(dword_12CB7C, dword_12CB78, 220);
   if ( (__get_CPSR() & 1) == 0 )
   {
@@ -781,71 +779,71 @@ volatile uint32_t * heap_free_block(volatile char *a1) {
     *(volatile uint32_t *)off_12CB70 = 1;
   }
   result = (void *)(uintptr_t)(off_12CB74);
-  saved_critical_section_depth = *(volatile uint32_t *)off_12CB74;
-  incremented_critical_section_depth = *(volatile uint32_t *)off_12CB74 + 1;
-  *(volatile uint32_t *)off_12CB74 = incremented_critical_section_depth;
-  if ( !free_list_block )
+  v7 = *(volatile uint32_t *)off_12CB74;
+  v8 = *(volatile uint32_t *)off_12CB74 + 1;
+  *(volatile uint32_t *)off_12CB74 = v8;
+  if ( !v2 )
   {
-    MEMD(0) = (int)(uintptr_t)(released_block_header);
+    MEMD(0) = (int)(uintptr_t)(v5);
     __und(0xFFu);
   }
-  free_list_block_size = *((volatile uint32_t *)free_list_block + 1);
-  if ( &free_list_block[free_list_block_size] != released_block_header )
+  v9 = *((volatile uint32_t *)v2 + 1);
+  if ( &v2[v9] != v5 )
   {
-    if ( free_list_block > released_block_header )
+    if ( v2 > v5 )
     {
       if ( **v1 < 0 )
         irq_disable_mmio_write(dword_12CB80, dword_12CB78, 247);
-      MEMD(0) = (int)(uintptr_t)(released_block_header);
+      MEMD(0) = (int)(uintptr_t)(v5);
       __und(0xFFu);
     }
     while ( 1 )
     {
-      previous_free_list_block = (void *)(free_list_block);
-      free_list_block = *(volatile char **)free_list_block;
-      if ( !free_list_block )
+      v10 = (void *)(v2);
+      v2 = *(volatile char **)v2;
+      if ( !v2 )
         break;
-      free_list_block_size = *((volatile uint32_t *)free_list_block + 1);
-      if ( &free_list_block[free_list_block_size] == released_block_header )
+      v9 = *((volatile uint32_t *)v2 + 1);
+      if ( &v2[v9] == v5 )
         goto LABEL_20;
-      if ( free_list_block > released_block_header )
+      if ( v2 > v5 )
       {
-        *previous_free_list_block = (int)(uintptr_t)(released_block_header);
-        if ( free_list_block == &released_block_header[released_block_size] )
+        *v10 = (int)(uintptr_t)(v5);
+        if ( v2 == &v5[v3] )
         {
-          *((volatile uint32_t *)a1 - 1) = *(volatile uint32_t *)free_list_block;
-          *(volatile uint32_t *)a1 = &free_list_block[free_list_block_size] - released_block_header;
+          *((volatile uint32_t *)a1 - 1) = *(volatile uint32_t *)v2;
+          *(volatile uint32_t *)a1 = &v2[v9] - v5;
           goto LABEL_13;
         }
 LABEL_12:
-        *((volatile uint32_t *)a1 - 1) = (int)(uintptr_t)(free_list_block);
-        *(volatile uint32_t *)a1 = released_block_size;
+        *((volatile uint32_t *)a1 - 1) = (int)(uintptr_t)(v2);
+        *(volatile uint32_t *)a1 = v3;
         goto LABEL_13;
       }
     }
-    *previous_free_list_block = (int)(uintptr_t)(released_block_header);
+    *v10 = (int)(uintptr_t)(v5);
     goto LABEL_12;
   }
 LABEL_20:
-  merged_block_size = free_list_block_size + released_block_size;
-  next_free_list_block = *(volatile char **)free_list_block;
-  *((volatile uint32_t *)free_list_block + 1) = merged_block_size;
-  if ( next_free_list_block == &free_list_block[merged_block_size] )
+  v13 = v9 + v3;
+  v14 = *(volatile char **)v2;
+  *((volatile uint32_t *)v2 + 1) = v13;
+  if ( v14 == &v2[v13] )
   {
-    next_free_list_block_size = *((volatile uint32_t *)next_free_list_block + 1);
-    v16 = (v16 & ~0xFFFFFFFFull) | ((uint32_t)(*(volatile uint32_t *)next_free_list_block) & 0xFFFFFFFFu);
-    v16 = (v16 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(merged_block_size + next_free_list_block_size) << 32);
-    *(volatile uint64_t *)free_list_block = v16;
+    v15 = *((volatile uint32_t *)v14 + 1);
+    v16 = (v16 & ~0xFFFFFFFFull) | ((uint32_t)(*(volatile uint32_t *)v14) & 0xFFFFFFFFu);
+    v16 = (v16 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(v13 + v15) << 32);
+    *(volatile uint64_t *)v2 = v16;
   }
 LABEL_13:
-  if ( incremented_critical_section_depth )
+  if ( v8 )
   {
-    irq_restore_flag_ptr = (volatile int *)off_12CB70;
-    *result = saved_critical_section_depth;
-    irq_restore_flag = *irq_restore_flag_ptr;
-    if ( !saved_critical_section_depth )
+    v11 = (volatile int *)off_12CB70;
+    *result = v7;
+    v12 = *v11;
+    if ( !v7 )
     {
-      if ( irq_restore_flag )
+      if ( v12 )
         __enable_irq();
     }
   }
@@ -889,26 +887,25 @@ int list_node_count(int a1, volatile int *a2, int a3) {
 
 
 // ke_state_set @ 0x12cbf4
-/* luna: Updates the state of a task instance and dispatches queued messages for that task when the state changes. */
 int ke_state_set(unsigned int a1, int a2) {
   volatile int16_t **v2; // r7
-  unsigned int task_instance; // r9
-  int task_type; // r6
-  volatile uint16_t *task_state_slot; // r9
+  unsigned int v5; // r9
+  int v6; // r6
+  volatile uint16_t *v7; // r9
   int result; // r0
   int ( *v9)(volatile uint32_t *, int); // r8
   int v10; // r7
-  volatile int *irq_reenable_pending; // r6
-  volatile int *dispatch_depth; // r5
+  volatile int *v11; // r6
+  volatile int *v12; // r5
   int v13; // r0
   int v14; // r3
   int v15; // r2
-  volatile uint32_t *queued_message; // r1
-  volatile int *task_descriptor; // r6
+  volatile uint32_t *v16; // r1
+  volatile int *v17; // r6
 
   v2 = (volatile int16_t **)off_12CD0C;
-  task_instance = a1 >> 8;
-  task_type = (uint8_t)a1;
+  v5 = a1 >> 8;
+  v6 = (uint8_t)a1;
   if ( **(volatile int16_t **)off_12CD0C >= 0 )
     goto LABEL_2;
   if ( (uint8_t)a1 > 0xDu )
@@ -917,10 +914,10 @@ int ke_state_set(unsigned int a1, int a2) {
     if ( **v2 >= 0 )
     {
 LABEL_2:
-      task_state_slot = (volatile uint16_t *)(((volatile uint32_t *)(uintptr_t)off_12CD10)[4 * task_type + 2] + 2 * task_instance);
+      v7 = (volatile uint16_t *)(((volatile uint32_t *)(uintptr_t)off_12CD10)[4 * v6 + 2] + 2 * v5);
       goto LABEL_3;
     }
-    if ( task_type != 14 )
+    if ( v6 != 14 )
       irq_disable_mmio_write((int)aIdTaskMax, (int)aKeTaskLocal_0, 183);
   }
   else if ( (uint8_t)a1 != 13 )
@@ -931,47 +928,47 @@ LABEL_2:
   if ( **v2 >= 0 )
     goto LABEL_2;
 LABEL_16:
-  task_descriptor = (void *)(&((volatile uint32_t *)(uintptr_t)off_12CD10)[4 * task_type]);
-  if ( *((volatile uint16_t *)task_descriptor + 7) > task_instance )
+  v17 = (void *)(&((volatile uint32_t *)(uintptr_t)off_12CD10)[4 * v6]);
+  if ( *((volatile uint16_t *)v17 + 7) > v5 )
   {
-    task_state_slot = (volatile uint16_t *)(task_descriptor[2] + 2 * task_instance);
-    if ( task_state_slot )
+    v7 = (volatile uint16_t *)(v17[2] + 2 * v5);
+    if ( v7 )
       goto LABEL_3;
     goto LABEL_18;
   }
   irq_disable_mmio_write((int)aIdxTaskDescTyp, (int)aKeStateSet, 175);
-  task_state_slot = (volatile uint16_t *)(task_descriptor[2] + 2 * task_instance);
-  if ( **v2 < 0 && !task_state_slot )
+  v7 = (volatile uint16_t *)(v17[2] + 2 * v5);
+  if ( **v2 < 0 && !v7 )
 LABEL_18:
     irq_disable_mmio_write((int)aKeStateidPtr, (int)aKeStateSet, 180);
 LABEL_3:
   result = alloc_tx_event("\x80\x9Dset tsk:%x:%x\n", a1, a2);
-  if ( (uint16_t)*task_state_slot != a2 )
+  if ( (uint16_t)*v7 != a2 )
   {
     v9 = (int ( *)(volatile uint32_t *, int))off_12CD44;
     v10 = dword_12CD18;
-    irq_reenable_pending = (volatile int *)off_12CD1C;
-    *task_state_slot = a2;
+    v11 = (volatile int *)off_12CD1C;
+    *v7 = a2;
     while ( 1 )
     {
       result = (int)rx_read_buffer(v10, v9, a1);
-      queued_message = (volatile uint32_t *)result;
+      v16 = (volatile uint32_t *)result;
       if ( !result )
         break;
       if ( (__get_CPSR() & 1) == 0 )
       {
         __disable_irq();
-        *irq_reenable_pending = 1;
+        *v11 = 1;
       }
-      dispatch_depth = (volatile int *)off_12CD20;
+      v12 = (volatile int *)off_12CD20;
       v13 = dword_12CD24;
       ++*(volatile uint32_t *)off_12CD20;
-      co_list_push_back(v13, queued_message);
-      v14 = *dispatch_depth - 1;
-      if ( *dispatch_depth )
+      co_list_push_back(v13, v16);
+      v14 = *v12 - 1;
+      if ( *v12 )
       {
-        v15 = *irq_reenable_pending;
-        *dispatch_depth = v14;
+        v15 = *v11;
+        *v12 = v14;
         if ( !v14 )
         {
           if ( v15 )

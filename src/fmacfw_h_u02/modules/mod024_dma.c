@@ -1006,36 +1006,35 @@ volatile uint32_t * rx_packet_parse_1(volatile uint32_t *a1, unsigned int a2, in
 
 
 // rx_dma_advance_cursor @ 0x11de3c
-/* luna: Walks the RX descriptor chain until status bit 0 is set, updates the DMA cursor and wrap state, and returns the previous cursor value. */
 int rx_dma_advance_cursor(int a1, int a2) {
   int result; // r0
-  unsigned int next_cursor; // r3
-  volatile uint32_t *ring_state; // r1
-  int cursor_wrap_state; // r2
+  unsigned int v3; // r3
+  volatile uint32_t *v4; // r1
+  int v5; // r2
   int v6; // cf
-  unsigned int wrap_bit; // r2
+  unsigned int v7; // r2
 
   if ( !a2 )
   {
-    next_cursor = a1 + 160;
+    v3 = a1 + 160;
     goto LABEL_9;
   }
   if ( (*(volatile uint16_t *)(a2 + 16) & 1) != 0 )
   {
 LABEL_8:
-    next_cursor = (*(volatile uint32_t *)(a2 + 12) & 0xFFFFFFFC) + 4;
+    v3 = (*(volatile uint32_t *)(a2 + 12) & 0xFFFFFFFC) + 4;
 LABEL_9:
-    ring_state = (void *)(uintptr_t)(off_11DEAC);
-    cursor_wrap_state = *((volatile uint32_t *)off_11DEAC + 2);
-    if ( *((volatile uint32_t *)off_11DEAC + 1) == next_cursor )
-      next_cursor = *(volatile uint32_t *)off_11DEAC;
-    *(volatile uint32_t *)(a1 + 152) = next_cursor;
-    result = cursor_wrap_state & 0x7FFFFFFF;
-    v6 = next_cursor >= (cursor_wrap_state & 0x7FFFFFFFu);
-    wrap_bit = cursor_wrap_state & 0x80000000;
+    v4 = (void *)(uintptr_t)(off_11DEAC);
+    v5 = *((volatile uint32_t *)off_11DEAC + 2);
+    if ( *((volatile uint32_t *)off_11DEAC + 1) == v3 )
+      v3 = *(volatile uint32_t *)off_11DEAC;
+    *(volatile uint32_t *)(a1 + 152) = v3;
+    result = v5 & 0x7FFFFFFF;
+    v6 = v3 >= (v5 & 0x7FFFFFFFu);
+    v7 = v5 & 0x80000000;
     if ( !v6 )
-      wrap_bit += 0x80000000;
-    ring_state[2] = next_cursor | wrap_bit;
+      v7 += 0x80000000;
+    v4[2] = v3 | v7;
     return result;
   }
   while ( 1 )

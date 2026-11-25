@@ -1175,80 +1175,81 @@ volatile uint8_t * call_config_setter(volatile uint8_t *a1, int a2, int a3) {
 
 
 // parse_scan_report @ 0x130e58
+/* luna: Finds the Country Information Element, converts the supplied band and frequency to a channel number, and stores the matching subband's maximum transmi */
 volatile uint8_t * parse_scan_report(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
-  int v5; // r5
-  int v6; // r3
-  char v7; // r6
-  int v8; // r2
-  int v9; // r3
-  int v10; // r1
+  int target_channel; // r5
+  int frequency_mhz; // r3
+  char channel_step; // r6
+  int triplet_offset; // r2
+  int first_channel; // r3
+  int channel_offset; // r1
   int v11; // zf
   uint8_t v12[5]; // [sp+7h] [bp-5h] BYREF
 
   result = buf_calc_4(a1, a2, v12);
   if ( result )
   {
-    v5 = *(volatile uint8_t *)(a3 + 164);
+    target_channel = *(volatile uint8_t *)(a3 + 164);
     if ( *(volatile uint8_t *)(a3 + 164) )
     {
-      if ( v5 == 1 && (uint16_t)(*(volatile uint16_t *)(a3 + 166) - 5005) <= 0x370u )
+      if ( target_channel == 1 && (uint16_t)(*(volatile uint16_t *)(a3 + 166) - 5005) <= 0x370u )
       {
-        v5 = (uint8_t)((unsigned int)(((unsigned int)dword_130F24
+        target_channel = (uint8_t)((unsigned int)(((unsigned int)dword_130F24
                                              * (uint64_t)((unsigned int)*(volatile uint16_t *)(a3 + 166) - 5000)) >> 32) >> 2);
-        v7 = 4;
+        channel_step = 4;
       }
       else
       {
-        v5 = 0;
-        v7 = 4;
+        target_channel = 0;
+        channel_step = 4;
       }
     }
     else
     {
-      v6 = *(volatile uint16_t *)(a3 + 166);
-      if ( (unsigned int)(v6 - 2412) > 0x48 )
+      frequency_mhz = *(volatile uint16_t *)(a3 + 166);
+      if ( (unsigned int)(frequency_mhz - 2412) > 0x48 )
       {
-        v7 = 1;
+        channel_step = 1;
       }
       else
       {
-        v5 = v6 == 2484
+        target_channel = frequency_mhz == 2484
            ? 14
-           : (uint8_t)((unsigned int)(((unsigned int)dword_130F24 * (uint64_t)(unsigned int)(v6 - 2407)) >> 32) >> 2);
-        v7 = 1;
+           : (uint8_t)((unsigned int)(((unsigned int)dword_130F24 * (uint64_t)(unsigned int)(frequency_mhz - 2407)) >> 32) >> 2);
+        channel_step = 1;
       }
     }
     v12[0] += 2;
     if ( v12[0] > 7u )
     {
-      v8 = 5;
+      triplet_offset = 5;
       do
       {
-        v9 = (uint8_t)result[v8];
-        if ( result[v8 + 1] )
+        first_channel = (uint8_t)result[triplet_offset];
+        if ( result[triplet_offset + 1] )
         {
-          if ( v9 == v5 )
+          if ( first_channel == target_channel )
           {
 LABEL_7:
-            *(volatile uint8_t *)(a3 + 172) = result[v8 + 2];
+            *(volatile uint8_t *)(a3 + 172) = result[triplet_offset + 2];
             return result;
           }
-          v10 = 0;
+          channel_offset = 0;
           while ( 1 )
           {
-            v11 = v10 == (uint8_t)(result[v8 + 1] - 1);
-            v9 = (uint8_t)(v9 + v7);
-            ++v10;
+            v11 = channel_offset == (uint8_t)(result[triplet_offset + 1] - 1);
+            first_channel = (uint8_t)(first_channel + channel_step);
+            ++channel_offset;
             if ( v11 )
               break;
-            if ( v9 == v5 )
+            if ( first_channel == target_channel )
               goto LABEL_7;
           }
         }
-        v8 = (uint8_t)(v8 + 3);
+        triplet_offset = (uint8_t)(triplet_offset + 3);
       }
-      while ( v12[0] > v8 + 2 );
+      while ( v12[0] > triplet_offset + 2 );
     }
   }
   return result;
@@ -1557,6 +1558,7 @@ LABEL_8:
 
 
 // ll_get_access_addr @ 0x131230
+/* luna: Parses the supplied link-layer frame and stores its 32-bit access address at offset 220, or an invalid sentinel if parsing fails. */
 volatile uint8_t * ll_get_access_addr(volatile uint8_t *a1, int a2, int a3) {
   volatile uint8_t *result; // r0
   char v5; // [sp+7h] [bp-1h] BYREF

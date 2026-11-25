@@ -1,44 +1,43 @@
 // tx_txdesc_init @ 0x115f68
-/* luna: Initializes each transmit-descriptor slot, assigns its per-slot buffer, and invokes the slot setup handler. */
 int tx_txdesc_init() {
-  volatile int **descriptor_array_ref; // r5
-  volatile uint32_t *tx_buffer_base_ref; // r6
-  volatile int *descriptor_array; // r0
-  void *tx_config_ref; // r8
+  volatile int **v0; // r5
+  volatile uint32_t *v1; // r6
+  volatile int *v2; // r0
+  void *v3; // r8
   int v4; // r7
-  uint16_t slot_index; // r9
-  volatile int *descriptor_entry; // r1
+  uint16_t v5; // r9
+  volatile int *v6; // r1
   int result; // r0
 
-  descriptor_array_ref = (volatile int **)off_115FF0;
+  v0 = (volatile int **)off_115FF0;
   zero_8_bytes((volatile uint32_t *)dword_115FEC);
   if ( **(volatile int16_t **)off_115FF4 < 0 )
   {
-    descriptor_array = *descriptor_array_ref;
-    tx_buffer_base_ref = (void *)(uintptr_t)(off_115FF8);
-    if ( !*descriptor_array_ref || !*(volatile uint32_t *)off_115FF8 )
+    v2 = *v0;
+    v1 = (void *)(uintptr_t)(off_115FF8);
+    if ( !*v0 || !*(volatile uint32_t *)off_115FF8 )
     {
       mmio_clear_register((int)aTxdescArray0Tx, (int)aTxTxdescInit, 90);
-      descriptor_array = *descriptor_array_ref;
+      v2 = *v0;
     }
   }
   else
   {
-    tx_buffer_base_ref = (void *)(uintptr_t)(off_115FF8);
-    descriptor_array = *descriptor_array_ref;
+    v1 = (void *)(uintptr_t)(off_115FF8);
+    v2 = *v0;
   }
-  tx_config_ref = (void *)(uintptr_t)(off_116004);
+  v3 = (void *)(uintptr_t)(off_116004);
   v4 = dword_115FEC;
-  memset(descriptor_array, 0, 88 * *(volatile uint16_t *)(*(volatile uint32_t *)off_116004 + 8) + 88);
-  slot_index = 0;
+  memset(v2, 0, 88 * *(volatile uint16_t *)(*(volatile uint32_t *)off_116004 + 8) + 88);
+  v5 = 0;
   do
   {
-    descriptor_entry = &(*descriptor_array_ref)[22 * slot_index];
-    descriptor_entry[19] = *tx_buffer_base_ref + 80 * slot_index;
-    result = co_list_push_back(v4, (void *)(descriptor_entry));
-    ++slot_index;
+    v6 = &(*v0)[22 * v5];
+    v6[19] = *v1 + 80 * v5;
+    result = co_list_push_back(v4, (void *)(v6));
+    ++v5;
   }
-  while ( *(volatile uint16_t *)(*(volatile uint32_t *)tx_config_ref + 8) >= (unsigned int)slot_index );
+  while ( *(volatile uint16_t *)(*(volatile uint32_t *)v3 + 8) >= (unsigned int)v5 );
   return result;
 }
 
@@ -176,29 +175,28 @@ int parse_control_packet(int result, int a2) {
 
 
 // append_tkip_mic @ 0x116174
-/* luna: Computes and appends an 8-byte TKIP Michael MIC for the payload, or writes eight zero bytes when the global bypass flag is set. */
 volatile int * append_tkip_mic(int a1, int a2, int a3, int a4) {
   volatile int *result; // r0
-  volatile char *mic_bytes; // r4
-  int mic_output_offset; // r5
-  char mic_byte; // t1
+  volatile char *v7; // r4
+  int v8; // r5
+  char v9; // t1
   struct __attribute__((packed)) { uint8_t v10[8]; // [sp+8h] [bp-14h] BYREF
   char v11; // [sp+10h] [bp-Ch] BYREF
   } _frame;
   if ( (**(volatile uint8_t **)off_1161D0 & 1) != 0 )
     return memset((volatile int *)(a3 + a4), 0, 8u);
-  mic_bytes = _frame.v10;
+  v7 = _frame.v10;
   crypto_load_args((int)(uintptr_t)(_frame.v10), (void *)(uintptr_t)(a2), a1 + 12, (void *)(uintptr_t)(a1 + 18), *(volatile uint8_t *)(a1 + 27));
   unaligned_read((void *)(_frame.v10), a3, a4);
   patch_handle_data((int)(uintptr_t)(_frame.v10));
-  mic_output_offset = a4 + a3;
+  v8 = a4 + a3;
   do
   {
-    result = (volatile int *)((uintptr_t)(mic_bytes) - (uintptr_t)(_frame.v10));
-    mic_byte = *mic_bytes++;
-    *((volatile uint8_t *)result + mic_output_offset) = mic_byte;
+    result = (volatile int *)((uintptr_t)(v7) - (uintptr_t)(_frame.v10));
+    v9 = *v7++;
+    *((volatile uint8_t *)result + v8) = v9;
   }
-  while ( mic_bytes != &_frame.v11 );
+  while ( v7 != &_frame.v11 );
   return result;
 }
 

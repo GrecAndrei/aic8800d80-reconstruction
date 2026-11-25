@@ -585,12 +585,13 @@ LABEL_5:
 
 
 // init_rf_tables @ 0x135364
+/* luna: Prepares and sends an 802.11 station-management association request for the current interface. */
 int init_rf_tables() {
   int v0; // r8
   int v1; // r9
-  int v2; // r6
-  volatile uint8_t *v3; // r4
-  int v4; // r11
+  int vif_index; // r6
+  volatile uint8_t *vif_context; // r4
+  int station_index; // r11
   int v5; // r0
   volatile uint32_t *v6; // r4
   volatile uint8_t *v7; // r7
@@ -623,14 +624,14 @@ int init_rf_tables() {
   } _frame;
   v0 = dword_135560;
   v1 = *((volatile uint32_t *)off_135534 + 4);
-  v2 = *(volatile uint8_t *)(v1 + 61);
-  v3 = (volatile uint8_t *)(dword_135560 + 1320 * v2);
-  v4 = v3[116];
+  vif_index = *(volatile uint8_t *)(v1 + 61);
+  vif_context = (volatile uint8_t *)(dword_135560 + 1320 * vif_index);
+  station_index = vif_context[116];
   check_status_bits(256, "%s\r\n", aSmAssocReqSend);
-  if ( !v3[1224] )
+  if ( !vif_context[1224] )
   {
-    v5 = v3[412];
-    if ( v3[412] )
+    v5 = vif_context[412];
+    if ( vif_context[412] )
       v5 = 1;
     v6 = ke_mutex_guard(v5, 512);
     if ( v6 )
@@ -642,9 +643,9 @@ int init_rf_tables() {
     return bt_setup_conn_profile(1);
 LABEL_5:
   v7 = (void *)(uintptr_t)(off_135534);
-  _frame.a3 = 1320 * v2;
+  _frame.a3 = 1320 * vif_index;
   v8 = *((volatile uint32_t *)off_135534 + 5);
-  rf_check_temperature(v0 + 1320 * v2, (int)v6);
+  rf_check_temperature(v0 + 1320 * vif_index, (int)v6);
   v9 = v6[18];
   v10 = (uint8_t)v7[33];
   if ( v7[33] )
@@ -658,13 +659,13 @@ LABEL_5:
   }
   v12 = dword_135540;
   *(volatile uint16_t *)(v9 + 108) = v10;
-  v13 = v12 + 696 * v4;
+  v13 = v12 + 696 * station_index;
   v14 = *(volatile uint32_t *)(v13 + 38);
   v13 += 38;
   v15 = *(volatile uint32_t *)v13;
   v16 = *((volatile uint16_t *)off_135544 + 254);
   *(volatile uint32_t *)(v9 + 112) = v14;
-  v17 = v0 + 1320 * v2;
+  v17 = v0 + 1320 * vif_index;
   *(volatile uint16_t *)(v9 + 116) = *(volatile uint16_t *)(v13 + 4);
   v18 = *(volatile uint16_t *)(v13 + 4);
   *(volatile uint32_t *)(v9 + 118) = *(volatile uint32_t *)(v17 + 100);

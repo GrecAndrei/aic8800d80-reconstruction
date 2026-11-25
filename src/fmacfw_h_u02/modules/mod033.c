@@ -941,35 +941,34 @@ LABEL_10:
 
 
 // set_txop_parameters @ 0x124848
-/* luna: Programs the BK, BE, VI, and VO TXOP values into the corresponding hardware registers and logs the settings. */
 int set_txop_parameters(volatile uint16_t *a1) {
-  int preserve_mask; // r3
-  volatile int *txop_registers; // r2
-  int bk_txop; // r0
+  int v1; // r3
+  volatile int *v2; // r2
+  int v4; // r0
   volatile int *v5; // r5
   volatile int *v6; // r7
-  int vi_txop; // r6
-  int be_txop; // r1
-  int vo_txop; // r5
+  int v7; // r6
+  int v8; // r1
+  int v9; // r5
   volatile int *v10; // r0
 
-  preserve_mask = dword_1248D0;
-  txop_registers = *(volatile int **)off_1248CC;
-  bk_txop = *a1;
+  v1 = dword_1248D0;
+  v2 = *(volatile int **)off_1248CC;
+  v4 = *a1;
   v5 = (volatile int *)off_1248D4;
   v6 = (volatile int *)off_1248D8;
-  vi_txop = a1[2];
-  *txop_registers = **(volatile uint32_t **)off_1248CC & dword_1248D0 | (bk_txop << 12);
-  *v5 = *v5 & preserve_mask | (bk_txop << 12);
-  be_txop = a1[1];
-  txop_registers[1] = txop_registers[1] & preserve_mask | (be_txop << 12);
-  vo_txop = a1[3];
-  *v6 = *v6 & preserve_mask | (be_txop << 12);
-  txop_registers[2] = txop_registers[2] & preserve_mask | (vi_txop << 12);
+  v7 = a1[2];
+  *v2 = **(volatile uint32_t **)off_1248CC & dword_1248D0 | (v4 << 12);
+  *v5 = *v5 & v1 | (v4 << 12);
+  v8 = a1[1];
+  v2[1] = v2[1] & v1 | (v8 << 12);
+  v9 = a1[3];
+  *v6 = *v6 & v1 | (v8 << 12);
+  v2[2] = v2[2] & v1 | (v7 << 12);
   v10 = (volatile int *)off_1248DC;
-  v6[1] = v6[1] & preserve_mask | (vi_txop << 12);
-  txop_registers[3] = txop_registers[3] & preserve_mask | (vo_txop << 12);
-  *v10 = preserve_mask & *v10 | (vo_txop << 12);
+  v6[1] = v6[1] & v1 | (v7 << 12);
+  v2[3] = v2[3] & v1 | (v9 << 12);
+  *v10 = v1 & *v10 | (v9 << 12);
   get_mac_ver();
   alloc_tx_event("set txop: bk:%x,be:%x,vi:%x,vo:%x\n", *a1, a1[1], a1[2], a1[3]);
   return 0;

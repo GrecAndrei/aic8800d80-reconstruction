@@ -439,14 +439,13 @@ LABEL_17:
 
 
 // phy_handle_txu_discard @ 0x13a9b4
-/* luna: Logs a TXU discard record, allocates a retransmission event when status bit 0 is set, and calls the registration routine inside a nested IRQ-safe crit */
 int phy_handle_txu_discard(int a1, int a2, int a3) {
-  int discard_flags; // r3
+  int v6; // r3
   int v7; // r1
-  volatile int *irq_lock_depth_ptr; // r5
+  volatile int *v8; // r5
   int result; // r0
-  int remaining_lock_depth; // r3
-  int irq_restore_needed; // r2
+  int v10; // r3
+  int v11; // r2
 
   check_feature_flag(
     32,
@@ -454,26 +453,26 @@ int phy_handle_txu_discard(int a1, int a2, int a3) {
     *(volatile uint16_t *)(a1 + 32),
     *(volatile uint16_t *)(a1 + 30),
     *(volatile uint8_t *)(a1 + 27));
-  discard_flags = *(volatile uint16_t *)(a1 + 30);
-  v7 = discard_flags << 31;
-  if ( (discard_flags & 1) != 0 || (phy_stats_count(), (*(volatile uint16_t *)(a1 + 30) & 1) != 0) )
+  v6 = *(volatile uint16_t *)(a1 + 30);
+  v7 = v6 << 31;
+  if ( (v6 & 1) != 0 || (phy_stats_count(), (*(volatile uint16_t *)(a1 + 30) & 1) != 0) )
     alloc_tx_event(aRetransmitTxuD, v7);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_13AA28 = 1;
   }
-  irq_lock_depth_ptr = (volatile int *)off_13AA2C;
+  v8 = (volatile int *)off_13AA2C;
   ++*(volatile uint32_t *)off_13AA2C;
   result = register_handler((volatile uint32_t *)a1, a3, a2);
-  if ( *irq_lock_depth_ptr )
+  if ( *v8 )
   {
-    remaining_lock_depth = *irq_lock_depth_ptr - 1;
-    irq_restore_needed = *(volatile uint32_t *)off_13AA28;
-    *irq_lock_depth_ptr = remaining_lock_depth;
-    if ( !remaining_lock_depth )
+    v10 = *v8 - 1;
+    v11 = *(volatile uint32_t *)off_13AA28;
+    *v8 = v10;
+    if ( !v10 )
     {
-      if ( irq_restore_needed )
+      if ( v11 )
         __enable_irq();
     }
   }
