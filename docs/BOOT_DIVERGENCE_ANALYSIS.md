@@ -100,3 +100,18 @@ scratch-frame + rom_copy_frames): PASS=7 REVIEW=0 FAIL=0, every decisive
 target reporting identical_peripheral_write_sequence. The former 1 PASS /
 6 FAIL linked-run split — whose failures were callee decompile defects
 including the formatter — is fully closed by the two frame-object repairs.
+
+## Corpus-wide verification of the frame repairs (fidelity v4, 2026-11-25)
+Fresh full-corpus measurement on dual-repaired sources (formatter scratch
+frame + rom_copy_frames), all scoring improvements active:
+
+- EXERCISED_ALL_MATCH: 3455/4720 = 73.20% true non-trivial fidelity
+  (baseline v2: 3347 = 70.91%).
+- Per-function delta vs v2: 115 improved, 0 regressed, 0 lateral
+  (108 DIFFER->MATCH, 6 NOT_RUN->MATCH).
+- Failing functions corpus-wide: 203 -> 94. Per image: fmacfw_h 73->31,
+  fmacfw_u02 93->26, fmacfwbt 24, lmacfw_rf 13.
+- Boot trace prefix parity: all four images now capped at 500000i with deep
+  matched prefixes (1964/2078, 1960/2074, 1953/2069, 2238/2251) — the
+  fmacfw boot regression is closed in the measurement itself, matching the
+  pre-regression baseline exactly.
