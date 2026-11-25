@@ -47,3 +47,19 @@ same either way), but it is correct independent of the remaining defect.
 
 Diff the callback's memory WRITE targets between direct-call and nested contexts —
 the corruption vector is one of those writes hitting the nested lr stack slot.
+
+
+## Byte-level endgame evidence (final state)
+
+sp/lr instrumented at the epilogue: at pc 0x80020c (mov r0,r3) sp=0x19ffe0
+(correct pre-pop value) — and sp NEVER advances, meaning the pop at 0x80020e
+never executes. Execution appears next at 0x800212 (the literal pool). The
+emitted bytes are verified correct (4618 mov; bd70 pop; pool after), the
+beq.w at 0x8000ec correctly targets 0x80020c, and the pushed lr 0x80643b sits
+untouched in the correct stack slot (0x19ffec). The transition 0x80020c ->
+0x800212 with unchanged sp is impossible in correct ARM execution; remaining
+suspects are (a) unicorn IT-state corruption across the blx boundary making
+the pop conditionally skipped, or (b) a unicorn code-hook artifact masking the
+true transition. The next attack requires single-stepping with uc_emu_start
+instruction-level control rather than hooks, or rebasing the experiment onto
+the alternative emulator harness (tools/test_boot_rom_contract.py path).
