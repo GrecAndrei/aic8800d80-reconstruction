@@ -862,6 +862,48 @@ def _init_worker(image: str, bootstate: dict, elf_info: dict, func_meta: dict,
     })
 
 
+
+_DEREF_RE = re.compile(r"\[r([0-3])[,\]]")
+_DEREF_SCAN_CACHE: dict = {}
+
+
+def machine_deref_params(img_path: str, key: int) -> frozenset:
+    """Machine truth: which argument registers the original binary dereferences
+    as a memory base ([rN+imm] load/store) within the first 16 instructions of
+    the function at analysis-space address `key`. A scalar or wild value in
+    such a register is outside the function's valid input domain — the original
+    executes the wild access mechanically while the compiled reconstruction is
+    free to UB-optimize around it."""
+    ck = (img_path, key)
+    if ck in _DEREF_SCAN_CACHE:
+        return _DEREF_SCAN_CACHE[ck]
+    out = frozenset()
+    try:
+        from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_MCLASS
+        data = open(img_path, "rb").read()
+        off = key - 0x100000
+        if 0 <= off < len(data) - 40:
+            md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+            regs = set()
+            written = set()
+            for ins in list(md.disasm(data[off:off + 48], key))[:16]:
+                # read-before-write discipline: a [rN] deref only evidences
+                # an input pointer when rN has not been written yet in the
+                # prologue — otherwise rN is a locally computed base.
+                if ins.mnemonic.startswith(("ldr", "str")):
+                    m = _DEREF_RE.search(ins.op_str)
+                    if m and int(m.group(1)) not in written:
+                        regs.add(int(m.group(1)))
+                dw = re.match(r"^(?:mov|movs|movw|mov\.w|movs\.w|add|adds|sub|subs|lsls?|lsrs?|and|ands|eor|eors|orr|orrs|bic|rev|uxth|uxtb|sxth|sxtb|mrs|ldr\w*)\s+r([0-3])\b", ins.mnemonic + " " + ins.op_str)
+                if dw:
+                    written.add(int(dw.group(1)))
+            out = frozenset(regs)
+    except Exception:
+        pass
+    _DEREF_SCAN_CACHE[ck] = out
+    return out
+
+
 def _eval_function(key: int) -> dict:
     image = _CTX["image"]
     img_path = _CTX["img_path"]
@@ -973,6 +1015,14 @@ def _eval_function(key: int) -> dict:
                         break
                     aval = vcfg["args"][idx]
                     if "*" in ptype and aval < 0x10000:
+                        invalid = True
+                        break
+            if not invalid:
+                for idx in machine_deref_params(img_path, key):
+                    if idx >= len(vcfg["args"]):
+                        break
+                    aval = vcfg["args"][idx]
+                    if aval < 0x10000 or aval >= 0xFFFF0000:
                         invalid = True
                         break
             if invalid:
