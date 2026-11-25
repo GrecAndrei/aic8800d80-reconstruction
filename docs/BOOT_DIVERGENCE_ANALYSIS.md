@@ -306,3 +306,33 @@ readback is the classic varargs implementation pattern; the callee genuinely
 uses only r0 for the flag test (tst r0,r3), and r1-r3 are optional printf
 trace arguments. Calls with fewer than the composed prototype's arity are
 semantically correct — no repair needed.
+
+## Track-2 quantification: verbatim source recovery (2026-11-25)
+Question: which firmware functions are recoverable verbatim from circulating
+RivieraWaves sources? Answer: **marginal, bounded by version divergence** —
+measured at two independent levels.
+
+1. **Instruction fingerprints**: the bk3633 ke module compiled cleanly for
+   cortex-m4 thumb (7/7 files, shim-terminated RTOS deps in /tmp/ke_shim).
+   Zero of 35 RW functions reached even 0.5 mnemonic-histogram cosine
+   against ANY of the 1,283 fmacfw_h functions — modern gcc 12 codegen is
+   structurally incompatible with the firmware's gcc-5.4-era Thumb-2 output
+   for small kernel functions.
+2. **Semantic matching (Decisions API)**: predicate decisions pairing
+   decompiled firmware functions against bk3633 ke source scored ~0.00
+   across the board, including LLM-named ke_* candidates. Caveat: the
+   controls are uncontrolled (LLM names are guesses), but the independent
+   string evidence is decisive — the firmware's embedded assert expressions
+   (ke_task_local(kmsg_dst->dest_id)) do not exist anywhere in the bk3633
+   tree. The circulating source is a different RW kernel generation.
+3. **Corpus mismatch**: bk3633 is the BT-focused RW stack; the aic8800
+   firmware is the WiFi (rwnx/FullMAC) generation. The closer corpus is the
+   aic8800_fdrv host driver (rwnx v1.0.9, cloned at /tmp/aic8800-dkms) —
+   genuinely shared units there are the IPC protocol layer and utility
+   libraries, not the kernel core.
+
+Tooling banked for the closer-corpus pass: tools/fingerprint_match.py
+(fixed Thumb-2 objdump parsing), tools/semantic_source_match.py,
+tools/decisions_client.py. The realistic yield of source recovery is
+type/protocol-grade for the IPC layer plus isolated utility functions —
+not wholesale file recovery.
