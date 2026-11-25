@@ -176,3 +176,11 @@ register-preserving mix/hash tailcall clones), parse_ipv4_dot @ 0x12f788
 fmacfw_h 0x116034 and fmacfwbt 0x1165b4. Failing functions 22 -> **17
 corpus-wide** (fmacfw_h 6, fmacfw_u02 5, fmacfwbt 3, lmac 3); exercised
 matches rose exactly by the 5 improvements.
+
+## Tail-jump trampoline validation (fidelity v10, 2026-11-25)
+v10 (jump_trampolines repair): EXERCISED_ALL_MATCH 3114/4720 = 65.97%;
+VACUOUS 1255 (unchanged). **3 improved / 0 regressed / 0 lateral** vs v9 —
+all DIFFER->MATCH and exactly the three repaired trampolines (jump_0x12abc8
+@ 0x1211fc, jump_to_12ad08 @ 0x12133c, jump_to_12af2c @ 0x12159c). Failing
+functions 17 -> **14 corpus-wide** (fmacfw_h 5, fmacfw_u02 4, fmacfwbt 2,
+lmac 3). The transparent tail-jump forwarding class is closed.
