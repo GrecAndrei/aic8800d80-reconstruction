@@ -2743,6 +2743,7 @@ LABEL_28:
 
 
 // rf_enable @ 0x10701c
+/* luna: Enables the RF hardware by sequencing control-register bits, applying delays, and programming RF interface registers. */
 volatile int *rf_enable() {
   volatile unsigned int *v0; // r4
   volatile uint32_t *v1; // r6
@@ -2816,6 +2817,7 @@ volatile int *rf_enable() {
 
 
 // rf_disable @ 0x107224
+/* luna: Disables the RF subsystem by clearing radio-control fields and setting shutdown bits across its control registers. */
 volatile uint32_t *rf_disable() {
   volatile uint32_t *result; // r0
   volatile unsigned int *v1; // r2

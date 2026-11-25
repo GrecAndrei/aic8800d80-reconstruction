@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "rx_process_packet",
+ "luna": "rx_l_frame_handle",
+ "doc": "Handles a received MAC frame descriptor by validating the first PBD and RX error/status bits, updating or filtering per-context fields and timestamps, and returning whether the frame was accepted.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rx_l_frame_handle",
+   "probabilities": [
+    {
+     "value": "rx_process_packet",
+     "probability": 0.22
+    },
+    {
+     "value": "rx_l_frame_handle",
+     "probability": 0.78
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.67
+  }
+ ],
+ "status": "ok"
+}

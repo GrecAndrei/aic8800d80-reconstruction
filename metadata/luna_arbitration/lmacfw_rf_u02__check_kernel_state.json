@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "check_kernel_state",
+ "luna": "co_list_push_back",
+ "doc": "Appends an entry to the tail of an intrusive kernel list, updating the list first/last pointers and initializing the entry's next pointer.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "co_list_push_back",
+   "probabilities": [
+    {
+     "value": "check_kernel_state",
+     "probability": 0.26
+    },
+    {
+     "value": "co_list_push_back",
+     "probability": 0.6
+    },
+    {
+     "value": "neither",
+     "probability": 0.14
+    }
+   ],
+   "confidence": 0.4
+  }
+ ],
+ "status": "ok"
+}

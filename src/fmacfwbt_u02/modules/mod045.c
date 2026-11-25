@@ -1,15 +1,16 @@
 // check_abort_flag @ 0x12d470
+/* luna: Appends a node to the tail of a RivieraWaves co_list by updating the list first/last pointers and clearing the node's next link, with optional debug l */
 int check_abort_flag(int result, volatile uint32_t *a2) {
-  int v2; // r5
+  int list; // r5
 
-  v2 = result;
+  list = result;
   if ( **(volatile int16_t **)off_12D4AC < 0 && !a2 )
     result = mmio_irq_clear((int)aListHdrNull, (int)aCoListPushBack, 72);
-  if ( *(volatile uint32_t *)v2 )
-    **(volatile uint32_t **)(v2 + 4) = (int)(uintptr_t)(a2);
+  if ( *(volatile uint32_t *)list )
+    **(volatile uint32_t **)(list + 4) = (int)(uintptr_t)(a2);
   else
-    *(volatile uint32_t *)v2 = (int)(uintptr_t)(a2);
-  *(volatile uint32_t *)(v2 + 4) = (int)(uintptr_t)(a2);
+    *(volatile uint32_t *)list = (int)(uintptr_t)(a2);
+  *(volatile uint32_t *)(list + 4) = (int)(uintptr_t)(a2);
   *a2 = 0;
   return result;
 }
@@ -38,19 +39,20 @@ int check_abort_flag_2(int result, volatile uint32_t *a2) {
 
 
 // list_pop_front @ 0x12d4f8
+/* luna: Remove and return the first node from a singly linked list whose head and tail are stored in the provided list control block. */
 volatile uint32_t * list_pop_front(int a1) {
-  volatile uint32_t *v1; // r3
-  volatile uint32_t *v2; // r2
+  volatile uint32_t *popped_node; // r3
+  volatile uint32_t *tail; // r2
 
-  v1 = *(volatile uint32_t **)a1;
+  popped_node = *(volatile uint32_t **)a1;
   if ( *(volatile uint32_t *)a1 )
   {
-    v2 = *(volatile uint32_t **)(a1 + 4);
-    *(volatile uint32_t *)a1 = *v1;
-    if ( v2 == v1 )
+    tail = *(volatile uint32_t **)(a1 + 4);
+    *(volatile uint32_t *)a1 = *popped_node;
+    if ( tail == popped_node )
       *(volatile uint32_t *)(a1 + 4) = 0;
   }
-  return v1;
+  return popped_node;
 }
 
 
@@ -99,16 +101,17 @@ int check_abort_flag_3(int result, volatile uint32_t *a2) {
 
 
 // list_contains @ 0x12d578
+/* luna: Checks whether a node pointer appears in a singly linked list by following first-field next pointers, returning TRUE if found or if the queried node i */
 BOOL list_contains(volatile uint32_t **a1, volatile uint32_t *a2) {
-  volatile uint32_t *v2; // r3
+  volatile uint32_t *current; // r3
 
-  v2 = *a1;
+  current = *a1;
   if ( *a1 == a2 )
     return 1;
-  while ( v2 )
+  while ( current )
   {
-    v2 = (volatile uint32_t *)*v2;
-    if ( a2 == v2 )
+    current = (volatile uint32_t *)*current;
+    if ( a2 == current )
       return 1;
   }
   return a2 == 0;
@@ -117,20 +120,21 @@ BOOL list_contains(volatile uint32_t **a1, volatile uint32_t *a2) {
 
 
 // list_length @ 0x12d594
+/* luna: Counts the nodes in a singly linked list by following the next-pointer field at offset 0 until null. */
 int list_length(volatile uint32_t **a1) {
-  volatile uint32_t *v1; // r3
+  volatile uint32_t *node; // r3
   int result; // r0
 
-  v1 = *a1;
+  node = *a1;
   if ( !*a1 )
     return 0;
   result = 0;
   do
   {
-    v1 = (volatile uint32_t *)*v1;
+    node = (volatile uint32_t *)*node;
     ++result;
   }
-  while ( v1 );
+  while ( node );
   return result;
 }
 
@@ -243,27 +247,28 @@ volatile uint32_t * list_find_prev(volatile uint32_t *result, volatile uint32_t 
 
 
 // list_merge @ 0x12d658
+/* luna: Merges a source list onto the tail of a destination list, using an O(1) tail append when non-empty or a head/tail copy when empty, then clears the sou */
 volatile uint32_t * list_merge(volatile uint32_t *result, volatile uint32_t *a2) {
-  volatile uint32_t *v3; // r1
-  volatile uint32_t *v4; // r2
-  int v5; // r1
+  volatile uint32_t *src_head; // r1
+  volatile uint32_t *dst_head_tail; // r2
+  int src_tail; // r1
 
-  v3 = (volatile uint32_t *)*a2;
-  if ( v3 )
+  src_head = (volatile uint32_t *)*a2;
+  if ( src_head )
   {
-    v4 = result;
+    dst_head_tail = result;
     if ( *result )
     {
       result = (volatile uint32_t *)a2[1];
-      *(volatile uint32_t *)v4[1] = (int)(uintptr_t)(v3);
-      v4[1] = (int)(uintptr_t)(result);
+      *(volatile uint32_t *)dst_head_tail[1] = (int)(uintptr_t)(src_head);
+      dst_head_tail[1] = (int)(uintptr_t)(result);
     }
     else
     {
       result = (volatile uint32_t *)*a2;
-      v5 = a2[1];
-      *v4 = *a2;
-      v4[1] = v5;
+      src_tail = a2[1];
+      *dst_head_tail = *a2;
+      dst_head_tail[1] = src_tail;
     }
     *a2 = 0;
   }
@@ -319,19 +324,20 @@ LABEL_4:
 
 
 // crc32_update @ 0x12d71c
+/* luna: Updates a CRC-32 accumulator by processing a buffer of bytes using a table-driven MSB-first polynomial routine. */
 unsigned int crc32_update(volatile uint8_t *a1, int a2, unsigned int a3) {
-  volatile uint8_t *v3; // r1
-  int v4; // t1
+  volatile uint8_t *data_end; // r1
+  int input_byte; // t1
 
   if ( !a2 )
     return a3;
-  v3 = &a1[a2];
+  data_end = &a1[a2];
   do
   {
-    v4 = *a1++;
-    a3 = *(volatile uint32_t *)(dword_12D744 + 4 * (v4 ^ HIBYTE(a3))) ^ (a3 << 8);
+    input_byte = *a1++;
+    a3 = *(volatile uint32_t *)(dword_12D744 + 4 * (input_byte ^ HIBYTE(a3))) ^ (a3 << 8);
   }
-  while ( v3 != a1 );
+  while ( data_end != a1 );
   return a3;
 }
 

@@ -1145,8 +1145,8 @@ int timer_arm(int a1, int a2, int a3) {
 
 
 
-// check_radio_state @ 0x10fe14
-volatile uint32_t * check_radio_state(char a1) {
+// set_user_id @ 0x10fe14
+volatile uint32_t * set_user_id(char a1) {
   volatile uint32_t *v2; // r4
 
   if ( **(volatile uint8_t **)off_10FE54 == 1 )
@@ -2355,7 +2355,7 @@ int ke_mem_alloc(char a1, volatile char *a2, unsigned int a3) {
   int v9; // r2
   int v10; // r3
 
-  v6 = check_radio_state(4);
+  v6 = set_user_id(4);
   if ( !v6 )
     return printf_wrapper(aErrNoMsgPkt);
   v7 = v6;

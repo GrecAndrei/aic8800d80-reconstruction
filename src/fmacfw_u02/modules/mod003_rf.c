@@ -74,7 +74,7 @@ LABEL_5:
     v12 = ((uint64_t (*)())double_add_1)(v11, *(volatile uint64_t *)&dword_104800);
     v13 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT((float)(*(volatile float *)&v10 - 1.0) * *(volatile float *)&v10));
     v14 = ((uint64_t (*)())double_add_1)(v11, *(volatile uint64_t *)&dword_104808);
-    v15 = double_compare(v14, *(volatile uint64_t *)&dword_104810);
+    v15 = aeabi_dadd(v14, *(volatile uint64_t *)&dword_104810);
     v16 = ((uint64_t (*)())double_add_1)(v13, v15);
     v17 = ((uint64_t (*)())double_compare_wrapper)(v12, v16);
     v18 = ((int (*)(uint64_t))double_to_uint)(v17);
@@ -91,7 +91,7 @@ LABEL_11:
   v26 = ((uint64_t (*)())double_add_1)(v25, *(volatile uint64_t *)&dword_104800);
   v27 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT((float)(*(volatile float *)&v24 - 1.0) * *(volatile float *)&v24));
   v28 = ((uint64_t (*)())double_add_1)(v25, *(volatile uint64_t *)&dword_104808);
-  v29 = double_compare(v28, *(volatile uint64_t *)&dword_104810);
+  v29 = aeabi_dadd(v28, *(volatile uint64_t *)&dword_104810);
   v30 = ((uint64_t (*)())double_add_1)(v27, v29);
   v31 = ((uint64_t (*)())double_compare_wrapper)(v26, v30);
   result = ((int (*)(uint64_t))double_to_uint)(v31);
@@ -108,7 +108,7 @@ LABEL_12:
   if ( v6 != 1 )
   {
     v32 = ((uint64_t (*)())float_to_double)(result ^ 0x80000000);
-    v33 = double_compare(v32, *(volatile uint64_t *)&dword_104820);
+    v33 = aeabi_dadd(v32, *(volatile uint64_t *)&dword_104820);
     return ((int (*)(uint64_t))double_to_uint)(v33);
   }
   return result;
@@ -675,14 +675,14 @@ else if ( ((int (*)())double_le)(v10, v68) ) { v63 = v23;
       v53 = ((uint64_t (*)())double_subtract)(v51, v52);
       v54 = ((uint64_t (*)())double_compare_wrapper)(v14, v10);
       v55 = ((uint64_t (*)())double_subtract)(v53, v54);
-      v56 = double_compare(v50, v55);
+      v56 = aeabi_dadd(v50, v55);
       v57 = ((uint64_t (*)())double_add_1)(v23, v43);
       v58 = ((uint64_t (*)())double_add_1)(v57, v37);
       v59 = ((uint64_t (*)())double_compare_wrapper)(v10, v18);
       v60 = ((uint64_t (*)())double_subtract)(v58, v59);
       v61 = ((uint64_t (*)())double_compare_wrapper)(v10, v14);
       v62 = ((uint64_t (*)())double_subtract)(v60, v61);
-      v63 = double_compare(v56, v62);
+      v63 = aeabi_dadd(v56, v62);
     }
     v69 = v63;
     v64 = ((uint64_t (*)())float_to_double)(v8[63]);

@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "nullsub_1",
+ "luna": "noop",
+ "doc": "No-op stub that performs no action and returns 0.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "noop",
+   "probabilities": [
+    {
+     "value": "nullsub_1",
+     "probability": 0.08
+    },
+    {
+     "value": "noop",
+     "probability": 0.91
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.86
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "tx_power_temperature_comp",
+ "luna": "rf_tx_power_temperature_comp",
+ "doc": "Computes and stores the RF TX power temperature compensation value, clamps negative compensation, updates GPIO configuration, logs the change, and either disables compensation or schedules the next periodic update.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_tx_power_temperature_comp",
+   "probabilities": [
+    {
+     "value": "tx_power_temperature_comp",
+     "probability": 0.4
+    },
+    {
+     "value": "rf_tx_power_temperature_comp",
+     "probability": 0.49
+    },
+    {
+     "value": "neither",
+     "probability": 0.11
+    }
+   ],
+   "confidence": 0.24
+  }
+ ],
+ "status": "ok"
+}

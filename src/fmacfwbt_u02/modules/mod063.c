@@ -1318,35 +1318,36 @@ LABEL_7:
 
 
 // parse_pdu_data @ 0x138378
+/* luna: Scans a fixed-size global table for the highest-priority record whose length-prefixed name matches the supplied key and returns a pointer to that reco */
 volatile uint8_t * parse_pdu_data(volatile uint8_t *a1) {
-  volatile uint8_t *v1; // r4
-  volatile uint8_t *v3; // r8
-  int v4; // r6
-  int v5; // r5
-  volatile uint8_t *v6; // r9
-  int v7; // r2
+  volatile uint8_t *table_entry; // r4
+  volatile uint8_t *best_entry; // r8
+  int table_end; // r6
+  int best_priority; // r5
+  volatile uint8_t *key_data; // r9
+  int entry_name_len; // r2
 
   if ( !*a1 )
     return (volatile uint8_t *)*a1;
-  v1 = (volatile uint8_t *)dword_1383DC;
-  v3 = 0;
-  v4 = dword_1383DC + 3840;
-  v5 = -128;
-  v6 = a1 + 1;
-while ( v1[8] ) { if ( (char)v1[64] <= v5 || (v7 = *a1, v7 != (uint8_t)v1[16]) || memcmp((int)(uintptr_t)(v1 + 17), (int)(uintptr_t)(v6), v7) ) { v1 += 60;
-      if ( v1 == (volatile uint8_t *)v4 )
-        return v3;
+  table_entry = (volatile uint8_t *)dword_1383DC;
+  best_entry = 0;
+  table_end = dword_1383DC + 3840;
+  best_priority = -128;
+  key_data = a1 + 1;
+while ( table_entry[8] ) { if ( (char)table_entry[64] <= best_priority || (entry_name_len = *a1, entry_name_len != (uint8_t)table_entry[16]) || memcmp((int)(uintptr_t)(table_entry + 17), (int)(uintptr_t)(key_data), entry_name_len) ) { table_entry += 60;
+      if ( table_entry == (volatile uint8_t *)table_end )
+        return best_entry;
     }
     else
     {
-      v5 = (char)v1[64];
-      v3 = v1 + 8;
-      v1 += 60;
-      if ( v1 == (volatile uint8_t *)v4 )
-        return v3;
+      best_priority = (char)table_entry[64];
+      best_entry = table_entry + 8;
+      table_entry += 60;
+      if ( table_entry == (volatile uint8_t *)table_end )
+        return best_entry;
     }
   }
-  return v3;
+  return best_entry;
 }
 
 

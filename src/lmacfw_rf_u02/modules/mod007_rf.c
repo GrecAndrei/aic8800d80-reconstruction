@@ -509,50 +509,51 @@ int rf_set_param(int result, int a2) {
 
 
 // rf_channel_set_flag @ 0x11146c
+/* luna: Sets or clears bits in the selected RF channel flag word, performs the RF hardware update handshake, and clears the associated timer entry. */
 volatile int * rf_channel_set_flag(int a1, int a2, int a3) {
-  volatile uint32_t *v3; // r6
-  volatile int *v4; // r5
-  int v5; // r7
-  volatile uint32_t *v6; // r4
+  volatile uint32_t *chan_ctrl; // r6
+  volatile int *chan_flags; // r5
+  int old_flags; // r7
+  volatile uint32_t *rf_mmio; // r4
 
   if ( a1 )
   {
-    v3 = (volatile uint32_t *)(dword_111510 + 32 * (a1 - 1) + 8);
-    v4 = (volatile int *)(dword_111510 + 32 * (a1 - 1));
+    chan_ctrl = (volatile uint32_t *)(dword_111510 + 32 * (a1 - 1) + 8);
+    chan_flags = (volatile int *)(dword_111510 + 32 * (a1 - 1));
   }
   else
   {
-    v3 = (volatile uint32_t *)dword_11151C;
-    v4 = (volatile int *)dword_111520;
+    chan_ctrl = (volatile uint32_t *)dword_11151C;
+    chan_flags = (volatile int *)dword_111520;
   }
-  v5 = *v4;
-  if ( (*v4 & 0x80008000) != 0 && ((dword_111514 & v5) != 0x20000 || a2 != 0x8000000 || a3) )
+  old_flags = *chan_flags;
+  if ( (*chan_flags & 0x80008000) != 0 && ((dword_111514 & old_flags) != 0x20000 || a2 != 0x8000000 || a3) )
   {
-    v6 = (void *)(uintptr_t)(off_111518);
+    rf_mmio = (void *)(uintptr_t)(off_111518);
     *((volatile uint32_t *)off_111518 + 513) |= 0x200u;
-    while ( (v6[5] & 0x80) == 0 )
+    while ( (rf_mmio[5] & 0x80) == 0 )
       ;
-    *v4 |= a2 | 0x8008000;
+    *chan_flags |= a2 | 0x8008000;
     if ( a3 )
-      *v4 &= ~a3;
+      *chan_flags &= ~a3;
     if ( !a1 )
       goto LABEL_10;
-    if ( v5 < 0 )
+    if ( old_flags < 0 )
     {
-      *v3 = 2;
-      *v4 |= 0x40000000u;
-      while ( (*v3 & 2) == 0 )
+      *chan_ctrl = 2;
+      *chan_flags |= 0x40000000u;
+      while ( (*chan_ctrl & 2) == 0 )
         ;
-      if ( (v5 & 0x8000) != 0 )
+      if ( (old_flags & 0x8000) != 0 )
         goto LABEL_10;
     }
-    else if ( (v5 & 0x8000) != 0 )
+    else if ( (old_flags & 0x8000) != 0 )
     {
 LABEL_10:
       *((volatile uint32_t *)off_111518 + 513) |= 0x400u;
       return timer_entry_clear(a1);
     }
-    *v4 &= ~0x8000u;
+    *chan_flags &= ~0x8000u;
     goto LABEL_10;
   }
   return timer_entry_clear(a1);
@@ -712,8 +713,8 @@ volatile int * rf_enable_txrx_patch(volatile int *result, unsigned int a2) {
 
 
 
-// rf_enable_tx_patch_dup @ 0x1116bc
-volatile int * rf_enable_tx_patch_dup(volatile int *result, unsigned int a2) {
+// rf_enable_tx_patch_wrapper @ 0x1116bc
+volatile int * rf_enable_tx_patch_wrapper(volatile int *result, unsigned int a2) {
   return rf_enable_tx_patch(result, a2);
 }
 
@@ -2319,7 +2320,7 @@ int send_data_packet(int a1, int a2) {
       *(volatile uint8_t *)off_112CB0 = 1;
       if ( *v2 )
       {
-        ((int (*)())rf_enable_tx_patch_dup)(0, 1, 0);
+        ((int (*)())rf_enable_tx_patch_wrapper)(0, 1, 0);
         *v3 = 0;
         return -14;
       }
@@ -2375,7 +2376,7 @@ int send_control_packet(int a1, int a2) {
       *(volatile uint8_t *)off_112D74 = 1;
       if ( *v2 )
       {
-        ((int (*)())rf_enable_tx_patch_dup)(0, 1, 0);
+        ((int (*)())rf_enable_tx_patch_wrapper)(0, 1, 0);
         *v3 = 0;
         return -14;
       }

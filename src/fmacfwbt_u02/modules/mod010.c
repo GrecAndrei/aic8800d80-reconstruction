@@ -100,6 +100,7 @@ LABEL_12:
 
 
 // ioctl_cmd_1 @ 0x115370
+/* luna: Forwards ioctl command 1 to the dispatcher with the supplied argument and a fixed length of four bytes. */
 int ioctl_cmd_1(int a1) {
   return ioctl_dispatch(1, a1, 4u);
 }
@@ -107,6 +108,7 @@ int ioctl_cmd_1(int a1) {
 
 
 // ioctl_cmd_2 @ 0x11537c
+/* luna: Forwards command 2 and its argument to ioctl_dispatch with a 12-byte payload length. */
 int ioctl_cmd_2(int a1) {
   return ioctl_dispatch(2, a1, 0xCu);
 }
@@ -114,6 +116,7 @@ int ioctl_cmd_2(int a1) {
 
 
 // ioctl_cmd_4 @ 0x115388
+/* luna: Dispatches ioctl command 4 with the supplied argument buffer and a 0x14-byte payload. */
 int ioctl_cmd_4(int a1) {
   return ioctl_dispatch(4, a1, 0x14u);
 }
@@ -121,6 +124,7 @@ int ioctl_cmd_4(int a1) {
 
 
 // ioctl_cmd_0x20 @ 0x115394
+/* luna: Dispatches ioctl command 0x20 with the supplied argument and a 4-byte parameter size. */
 int ioctl_cmd_0x20(int a1) {
   return ioctl_dispatch(32, a1, 4u);
 }
@@ -128,6 +132,7 @@ int ioctl_cmd_0x20(int a1) {
 
 
 // ioctl_cmd_0x40 @ 0x1153a0
+/* luna: Dispatches ioctl command 0x40 with the supplied argument and a 4-byte parameter. */
 int ioctl_cmd_0x40(int a1) {
   return ioctl_dispatch(64, a1, 4u);
 }
@@ -135,6 +140,7 @@ int ioctl_cmd_0x40(int a1) {
 
 
 // ioctl_cmd_0x80 @ 0x1153ac
+/* luna: Forwards ioctl command 0x80 and the supplied argument to ioctl_dispatch with 4 as its third parameter. */
 int ioctl_cmd_0x80(int a1) {
   return ioctl_dispatch(128, a1, 4u);
 }
@@ -237,6 +243,7 @@ int ioctl2_cmd_2(int a1) {
 
 
 // ioctl2_cmd_0x400000 @ 0x1154b4
+/* luna: Forwards a 4-byte argument to the secondary ioctl dispatcher for command 0x400000. */
 int ioctl2_cmd_0x400000(int a1) {
   return ioctl_dispatch2(0x400000, (void *)(uintptr_t)(a1), 4u);
 }

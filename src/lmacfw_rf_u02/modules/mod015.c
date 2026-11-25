@@ -469,7 +469,7 @@ volatile uint32_t *rf_clock_enable() {
 
   v0 = (volatile int *)off_1185DC;
   *(volatile uint32_t *)off_1185D8 |= 0x10u;
-  v1 = nullsub_1();
+  v1 = noop();
   v2 = ((int (*)())nullsub_2)(v1);
   ((int (*)())nullsub_3)(v2);
   v3 = (void *)(uintptr_t)(off_1185E0);

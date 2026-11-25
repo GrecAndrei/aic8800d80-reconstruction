@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "find_char_1",
+ "luna": "wlan_find_ssid_ie",
+ "doc": "Scan IEEE 802.11 information elements for an SSID element (ID 0), returning its pointer and storing its length if it is well-formed and within the buffer bounds.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "wlan_find_ssid_ie",
+   "probabilities": [
+    {
+     "value": "find_char_1",
+     "probability": 0.35
+    },
+    {
+     "value": "wlan_find_ssid_ie",
+     "probability": 0.51
+    },
+    {
+     "value": "neither",
+     "probability": 0.14
+    }
+   ],
+   "confidence": 0.27
+  }
+ ],
+ "status": "ok"
+}

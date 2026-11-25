@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "double_swap_compare",
+ "luna": "double_compare_reverse_le",
+ "doc": "Implements the ARM EABI reversed-operand double-precision comparison helper for the less-than-or-equal condition.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_compare_reverse_le",
+   "probabilities": [
+    {
+     "value": "double_swap_compare",
+     "probability": 0.32
+    },
+    {
+     "value": "double_compare_reverse_le",
+     "probability": 0.57
+    },
+    {
+     "value": "neither",
+     "probability": 0.11
+    }
+   ],
+   "confidence": 0.35
+  }
+ ],
+ "status": "ok"
+}

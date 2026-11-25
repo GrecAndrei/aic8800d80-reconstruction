@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "float_swap_compare",
+ "luna": "float_compare_reverse_le",
+ "doc": "Implements the ARM EABI reversed single-precision comparison helper for less-than-or-equal tests (__aeabi_cfrcmple).",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_compare_reverse_le",
+   "probabilities": [
+    {
+     "value": "float_swap_compare",
+     "probability": 0.12
+    },
+    {
+     "value": "float_compare_reverse_le",
+     "probability": 0.87
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.8
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "rf_radio_enable",
+ "luna": "usb_device_init",
+ "doc": "Resets and configures the USB device controller, clears endpoint interrupt status, and schedules the USB initialization-complete event.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_radio_enable",
+   "probabilities": [
+    {
+     "value": "rf_radio_enable",
+     "probability": 0.55
+    },
+    {
+     "value": "usb_device_init",
+     "probability": 0.44
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.33
+  }
+ ],
+ "status": "ok"
+}

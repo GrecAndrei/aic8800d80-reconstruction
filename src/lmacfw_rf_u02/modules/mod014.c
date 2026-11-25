@@ -292,19 +292,20 @@ int event_count_update() {
 
 
 // wlan_rx_process @ 0x116858
+/* luna: Handles an incoming 802.11 RX PBD by validating the security key and station context and updating RX status and counter fields. */
 int wlan_rx_process(int a1) {
   volatile int16_t **v1; // r7
   int v2; // r5
   int v3; // r1
-  volatile int16_t *v5; // r0
-  int16_t v6; // r8
-  unsigned int v7; // r3
-  int v9; // r6
-  unsigned int v10; // r2
+  volatile int16_t *pbd_data_ptr; // r0
+  int16_t frame_control; // r8
+  unsigned int rx_status; // r3
+  int key_idx; // r6
+  unsigned int sec_desc; // r2
   int v11; // r5
-  int v12; // r9
-  unsigned int v13; // r3
-  unsigned int v14; // r2
+  int sta_idx; // r9
+  unsigned int sta_table_base; // r3
+  unsigned int sta_entry; // r2
   int v15; // r2
   int v16; // r11
   int v17; // r8
@@ -348,74 +349,74 @@ int wlan_rx_process(int a1) {
       ke_int_lock_1((int)aRhdFirstPbdPtr, (int)aRxlFrameHandle, 423);
       return v2;
     }
-    v5 = *(volatile uint16_t **)(v2 + 8);
-    v6 = *v5;
-    v7 = *(volatile uint32_t *)(a1 + 84);
+    pbd_data_ptr = *(volatile uint16_t **)(v2 + 8);
+    frame_control = *pbd_data_ptr;
+    rx_status = *(volatile uint32_t *)(a1 + 84);
     if ( *(volatile uint8_t *)(dword_116B4C + 0x198)
       && (*(volatile uint32_t *)(dword_116B50 + 4) & 0x40) != 0
       && (*(volatile uint32_t *)(a1 + 84) & 0x600) == 0x200 )
     {
-      if ( (v6 & 0xFC) == 0xC4 )
+      if ( (frame_control & 0xFC) == 0xC4 )
         ++*(volatile uint32_t *)dword_116B80;
     }
     else
     {
-      if ( (dword_116B54 & ~v7) != 0 )
+      if ( (dword_116B54 & ~rx_status) != 0 )
         return 0;
-      *(volatile uint32_t *)(a1 + 84) = v7 & 0xFEFFFFFF;
+      *(volatile uint32_t *)(a1 + 84) = rx_status & 0xFEFFFFFF;
       if ( v3 < 0 )
       {
-        v2 = (v7 >> 15) & 0x1F0;
+        v2 = (rx_status >> 15) & 0x1F0;
         if ( !v2 )
         {
           ke_int_lock_1((int)aKeyIdxHwMmSecD, (int)aRxlFrameHandle, 475);
           return v2;
         }
       }
-      v9 = (uint8_t)((v7 >> 15) - 16);
-      v10 = dword_116B58 + 152 * v9;
-      v2 = *(volatile uint8_t *)(v10 + 35);
-      if ( !*(volatile uint8_t *)(v10 + 35) )
+      key_idx = (uint8_t)((rx_status >> 15) - 16);
+      sec_desc = dword_116B58 + 152 * key_idx;
+      v2 = *(volatile uint8_t *)(sec_desc + 35);
+      if ( !*(volatile uint8_t *)(sec_desc + 35) )
       {
-        *(volatile uint32_t *)(a1 + 84) = v7 & 0xFCFFFFFF;
+        *(volatile uint32_t *)(a1 + 84) = rx_status & 0xFCFFFFFF;
         return v2;
       }
-      if ( *(volatile uint16_t *)(v10 + 30) == 0xFFFF )
+      if ( *(volatile uint16_t *)(sec_desc + 30) == 0xFFFF )
       {
-        if ( (v6 & 0xFC) != 0x80 )
+        if ( (frame_control & 0xFC) != 0x80 )
         {
-          *(volatile uint32_t *)(a1 + 84) = v7 & 0xFCFFFFFF;
+          *(volatile uint32_t *)(a1 + 84) = rx_status & 0xFCFFFFFF;
           return 0;
         }
-        v11 = *(volatile uint32_t *)(v10 + 44);
-        *(volatile uint32_t *)(a1 + 84) = v7 & 0xFE007FFF | ((*(volatile uint8_t *)(v11 + 33) + 16) << 15);
+        v11 = *(volatile uint32_t *)(sec_desc + 44);
+        *(volatile uint32_t *)(a1 + 84) = rx_status & 0xFE007FFF | ((*(volatile uint8_t *)(v11 + 33) + 16) << 15);
       }
       else
       {
-        v11 = dword_116B58 + 152 * v9;
+        v11 = dword_116B58 + 152 * key_idx;
       }
-      v12 = *(volatile uint8_t *)(v11 + 32);
-      v13 = dword_116B5C;
-      v14 = dword_116B5C + 224 * v12;
-      if ( !*(volatile uint8_t *)(v14 + 96) )
+      sta_idx = *(volatile uint8_t *)(v11 + 32);
+      sta_table_base = dword_116B5C;
+      sta_entry = dword_116B5C + 224 * sta_idx;
+      if ( !*(volatile uint8_t *)(sta_entry + 96) )
         return 0;
-      v15 = *(volatile uint8_t *)(v14 + 94);
-      v16 = 224 * v12;
+      v15 = *(volatile uint8_t *)(sta_entry + 94);
+      v16 = 224 * sta_idx;
       if ( v15 )
       {
-        if ( (v6 & 4) != 0 )
+        if ( (frame_control & 4) != 0 )
           goto LABEL_44;
         goto LABEL_42;
       }
-      if ( (v6 & 0x300) != 0x200 )
+      if ( (frame_control & 0x300) != 0x200 )
       {
-        if ( (v6 & 4) != 0 )
+        if ( (frame_control & 4) != 0 )
         {
 LABEL_17:
-          v17 = v6 & 0xFC;
+          v17 = frame_control & 0xFC;
           if ( v17 == 128 )
           {
-            v36 = v16 + v13;
+            v36 = v16 + sta_table_base;
             _frame.a4 = nullptr;
             v2 = !timer_start_capture(a1 + 20, v36, v11, (void *)(&_frame.a4));
             setup_packet_buffer(v36);
@@ -510,14 +511,14 @@ LABEL_17:
         }
         goto LABEL_42;
       }
-      v35 = memcmp((unsigned int)(v5 + 8), v16 + 88 + dword_116B5C, 6u);
-      v13 = dword_116B5C;
+      v35 = memcmp((unsigned int)(pbd_data_ptr + 8), v16 + 88 + dword_116B5C, 6u);
+      sta_table_base = dword_116B5C;
       if ( v35 )
       {
-        if ( (v6 & 4) != 0 )
+        if ( (frame_control & 4) != 0 )
         {
 LABEL_43:
-          v27 = v13 + 224 * v12;
+          v27 = sta_table_base + 224 * sta_idx;
           v15 = *(volatile uint8_t *)(v27 + 94);
           if ( !*(volatile uint8_t *)(v27 + 94) )
             goto LABEL_17;
@@ -542,8 +543,8 @@ LABEL_44:
           return 0;
         }
 LABEL_42:
-        tx_slot_ref(*(volatile uint8_t *)(v13 + 224 * v12 + 95), v9, 1);
-        v13 = dword_116B5C;
+        tx_slot_ref(*(volatile uint8_t *)(sta_table_base + 224 * sta_idx + 95), key_idx, 1);
+        sta_table_base = dword_116B5C;
         goto LABEL_43;
       }
     }
@@ -1964,51 +1965,52 @@ int btcoex_update_bt_info(volatile int *a1, volatile uint8_t *a2) {
 
 
 // rf_calibration_table_get @ 0x117cb4
+/* luna: Unregisters the station context for a given station index by clearing its active/registered flag and notifying the associated kernel object under a cr */
 int rf_calibration_table_get(int a1) {
-  int v1; // r6
+  int sta_table_base; // r6
   int v3; // r5
-  volatile uint32_t *v4; // r5
+  volatile uint32_t *sta_ctx; // r5
   volatile uint32_t *v5; // r2
   int v6; // r3
   int v7; // r1
-  int v8; // r0
+  int assoc_obj_ptr; // r0
   int v9; // r7
   volatile int *v11; // r0
-  int v12; // r2
+  int irq_disabled_saved; // r2
   volatile int *v13; // r3
 
-  v1 = dword_117D54;
+  sta_table_base = dword_117D54;
   v3 = 19 * a1;
   check_interrupt_flag(256, "%s: sta_idx=%d\n", aStaMgmtUnregis, a1);
-  v4 = (volatile uint32_t *)(v1 + 8 * v3);
+  sta_ctx = (volatile uint32_t *)(sta_table_base + 8 * v3);
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_117D60 = 1;
   }
   v5 = (void *)(uintptr_t)(off_117D64);
-  v6 = v1 + 152 * a1;
+  v6 = sta_table_base + 152 * a1;
   v7 = *(volatile uint32_t *)off_117D64;
-  v8 = *(volatile uint32_t *)(v6 + 44);
+  assoc_obj_ptr = *(volatile uint32_t *)(v6 + 44);
   v9 = *(volatile uint32_t *)off_117D64 + 1;
   *(volatile uint32_t *)off_117D64 = v9;
   *(volatile uint8_t *)(v6 + 35) = 0;
-  if ( v8 )
+  if ( assoc_obj_ptr )
   {
-    *(volatile uint8_t *)(v8 + 35) = 0;
+    *(volatile uint8_t *)(assoc_obj_ptr + 35) = 0;
     if ( !v9 )
     {
 LABEL_5:
-      mutex_acquire_if_ready(v8);
-      check_kernel_state(dword_117D68, *(volatile uint32_t **)(v1 + 152 * a1 + 44));
+      mutex_acquire_if_ready(assoc_obj_ptr);
+      check_kernel_state(dword_117D68, *(volatile uint32_t **)(sta_table_base + 152 * a1 + 44));
       goto LABEL_6;
     }
     v11 = (volatile int *)off_117D60;
     *v5 = v7;
-    v12 = *v11;
+    irq_disabled_saved = *v11;
     if ( v7 )
     {
-      v8 = *(volatile uint32_t *)(v6 + 44);
+      assoc_obj_ptr = *(volatile uint32_t *)(v6 + 44);
       goto LABEL_5;
     }
   }
@@ -2018,18 +2020,18 @@ LABEL_5:
       goto LABEL_6;
     v13 = (volatile int *)off_117D60;
     *v5 = v7;
-    v12 = *v13;
+    irq_disabled_saved = *v13;
     if ( v7 )
       goto LABEL_6;
   }
-  if ( v12 )
+  if ( irq_disabled_saved )
     __enable_irq();
-  v8 = *(volatile uint32_t *)(v1 + 152 * a1 + 44);
-  if ( v8 )
+  assoc_obj_ptr = *(volatile uint32_t *)(sta_table_base + 152 * a1 + 44);
+  if ( assoc_obj_ptr )
     goto LABEL_5;
 LABEL_6:
-  mutex_acquire_if_ready((int)v4);
-  return check_kernel_state(dword_117D68, v4);
+  mutex_acquire_if_ready((int)sta_ctx);
+  return check_kernel_state(dword_117D68, sta_ctx);
 }
 
 

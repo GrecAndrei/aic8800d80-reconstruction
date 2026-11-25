@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "send_hci_vendor_cmd",
+ "luna": "hci_vendor_cmd_send",
+ "doc": "Constructs and dispatches a Bluetooth HCI vendor command buffer containing the supplied subcommand, payload length, and payload bytes.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "hci_vendor_cmd_send",
+   "probabilities": [
+    {
+     "value": "send_hci_vendor_cmd",
+     "probability": 0.44
+    },
+    {
+     "value": "hci_vendor_cmd_send",
+     "probability": 0.55
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.33
+  }
+ ],
+ "status": "ok"
+}

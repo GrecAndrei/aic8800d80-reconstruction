@@ -527,14 +527,15 @@ volatile uint32_t *read_hw_status() {
 
 
 // wait_for_hw_data @ 0x103140
+/* luna: Busy-waits until the hardware timer advances by the requested number of ticks. */
 unsigned int wait_for_hw_data(unsigned int result) {
-  volatile unsigned int v1; // r1
-  unsigned int v2; // r3
+  volatile unsigned int start_tick; // r1
+  unsigned int elapsed_ticks; // r3
 
-  v1 = (*(volatile uint32_t *)0x40501010u);
+  start_tick = (*(volatile uint32_t *)0x40501010u);
   do
-    v2 = (*(volatile uint32_t *)0x40501010u) - v1;
-  while ( v2 < result );
+    elapsed_ticks = (*(volatile uint32_t *)0x40501010u) - start_tick;
+  while ( elapsed_ticks < result );
   return result;
 }
 
@@ -1092,28 +1093,29 @@ LABEL_17:
 
 
 // rf_pll_enable @ 0x1039c4
+/* luna: Enables the RF PLL stages, polls their ready status bits, and applies the RF-interface configuration. */
 int rf_pll_enable() {
-  volatile uint32_t *v0; // r2
-  int v1; // r3
-  volatile uint32_t *v2; // r3
+  volatile uint32_t *pll_status_reg; // r2
+  int poll_delay_count; // r3
+  volatile uint32_t *pll_control_reg; // r3
   volatile uint32_t *v3; // r2
   int v4; // r3
-  volatile uint32_t *v5; // r3
-  volatile uint32_t *v6; // r0
+  volatile uint32_t *rf_control_reg; // r3
+  volatile uint32_t *rf_interface_reg; // r0
 
-  v0 = (void *)(uintptr_t)(off_103A54);
+  pll_status_reg = (void *)(uintptr_t)(off_103A54);
   *(volatile uint32_t *)off_103A50 |= 1u;
-  while ( (*v0 & 0x10) == 0 )
+  while ( (*pll_status_reg & 0x10) == 0 )
   {
-    v1 = (v1 & ~0xFFFFu) | ((uint16_t)(50) & 0xFFFFu);
+    poll_delay_count = (poll_delay_count & ~0xFFFFu) | ((uint16_t)(50) & 0xFFFFu);
     do
-      v1 = (uint16_t)(v1 - 1);
-    while ( v1 );
+      poll_delay_count = (uint16_t)(poll_delay_count - 1);
+    while ( poll_delay_count );
   }
-  v2 = (void *)(uintptr_t)(off_103A58);
+  pll_control_reg = (void *)(uintptr_t)(off_103A58);
   v3 = (void *)(uintptr_t)(off_103A54);
   *(volatile uint32_t *)off_103A58 |= 0x80000u;
-  *v2 |= 0x100000u;
+  *pll_control_reg |= 0x100000u;
   while ( (*v3 & 8) == 0 )
   {
     v4 = (v4 & ~0xFFFFu) | ((uint16_t)(50) & 0xFFFFu);
@@ -1121,12 +1123,12 @@ int rf_pll_enable() {
       v4 = (uint16_t)(v4 - 1);
     while ( v4 );
   }
-  v5 = (void *)(uintptr_t)(off_103A60);
-  v6 = (void *)(uintptr_t)(off_103A64);
+  rf_control_reg = (void *)(uintptr_t)(off_103A60);
+  rf_interface_reg = (void *)(uintptr_t)(off_103A64);
   *(volatile uint32_t *)off_103A5C |= 0x20000u;
-  *v5 |= 0x1000000u;
-  *v5 |= 0x8000000u;
-  *v6 |= 0x524u;
+  *rf_control_reg |= 0x1000000u;
+  *rf_control_reg |= 0x8000000u;
+  *rf_interface_reg |= 0x524u;
   return state_check_feature(0x2000, aWfDfeAndRfintf);
 }
 

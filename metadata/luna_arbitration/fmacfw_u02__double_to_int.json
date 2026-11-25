@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "double_to_int",
+ "luna": "double_to_uint",
+ "doc": "Converts a double-precision value to a 32-bit unsigned integer using ARM EABI semantics.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_to_uint",
+   "probabilities": [
+    {
+     "value": "double_to_int",
+     "probability": 0.02
+    },
+    {
+     "value": "double_to_uint",
+     "probability": 0.97
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.96
+  }
+ ],
+ "status": "ok"
+}

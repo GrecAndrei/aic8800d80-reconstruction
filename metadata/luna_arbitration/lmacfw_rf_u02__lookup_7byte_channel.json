@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "lookup_7byte_channel",
+ "luna": "chan_ctxt_del",
+ "doc": "Deletes a channel context by index, performing deletion-state checks and then zeroing the context record while marking it unavailable.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "chan_ctxt_del",
+   "probabilities": [
+    {
+     "value": "lookup_7byte_channel",
+     "probability": 0.22
+    },
+    {
+     "value": "chan_ctxt_del",
+     "probability": 0.74
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.61
+  }
+ ],
+ "status": "ok"
+}

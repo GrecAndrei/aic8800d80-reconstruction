@@ -71,7 +71,7 @@ int main_loop_check() {
     {
       if ( (*(volatile uint32_t *)(v0 + 48) & 0x40) != 0 )
       {
-        init_rf_tables();
+        sm_assoc_req_send();
         v2 = (void *)(uintptr_t)(off_133BD0);
         if ( *((volatile uint8_t *)off_133BD0 + 13) )
         {

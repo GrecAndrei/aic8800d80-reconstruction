@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "rand_gen_u16",
+ "luna": "rxu_cntrl_spurious",
+ "doc": "Handles a suspicious received 802.11 control frame by finding its matching RX context and invoking the deauthentication callback when the transmitter is absent from the context's linked list.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rxu_cntrl_spurious",
+   "probabilities": [
+    {
+     "value": "rand_gen_u16",
+     "probability": 0.21
+    },
+    {
+     "value": "rxu_cntrl_spurious",
+     "probability": 0.73
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

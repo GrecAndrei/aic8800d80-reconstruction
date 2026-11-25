@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "rf_calibration_table_get",
+ "luna": "sta_mgmt_unregister",
+ "doc": "Unregisters the station context for a given station index by clearing its active/registered flag and notifying the associated kernel object under a critical section.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_calibration_table_get",
+   "probabilities": [
+    {
+     "value": "rf_calibration_table_get",
+     "probability": 0.63
+    },
+    {
+     "value": "sta_mgmt_unregister",
+     "probability": 0.27
+    },
+    {
+     "value": "neither",
+     "probability": 0.1
+    }
+   ],
+   "confidence": 0.45
+  }
+ ],
+ "status": "ok"
+}

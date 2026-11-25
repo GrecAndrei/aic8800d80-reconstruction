@@ -21,8 +21,8 @@ void mmio_wait_reg() {
 
 
 
-// ll_seq_update @ 0x1304e0
-unsigned int ll_seq_update() {
+// rf_xtal_cap_adjust @ 0x1304e0
+unsigned int rf_xtal_cap_adjust() {
   volatile uint8_t *v0; // r4
   unsigned int result; // r0
   unsigned int v2; // r3
@@ -179,7 +179,7 @@ int rf_calibrate_value() {
     *((volatile uint8_t *)off_130710 + 3) = v0;
     ke_timeout_to_ticks((char)v0);
   }
-  return ll_seq_update();
+  return rf_xtal_cap_adjust();
 }
 
 
@@ -451,26 +451,27 @@ volatile char * rf_write_pattern_ff23(int a1) {
 
 
 // rf_write_pattern_bf0c @ 0x1309b4
+/* luna: Appends the fixed 14-byte RF pattern beginning with 0xBF 0x0C, followed by fields copied from the global RF parameter table, to the buffer pointer hel */
 int rf_write_pattern_bf0c(int a1) {
-  volatile uint32_t *v2; // r1
-  volatile uint16_t *v3; // r2
-  int16_t v4; // r6
-  int16_t v5; // r5
-  int16_t v6; // r4
+  volatile uint32_t *rf_param_table; // r1
+  volatile uint16_t *out_buf; // r2
+  int16_t param_word_1; // r6
+  int16_t param_word_2; // r5
+  int16_t param_word_3; // r4
 
-  v2 = (void *)(uintptr_t)(off_1309EC);
+  rf_param_table = (void *)(uintptr_t)(off_1309EC);
   **(volatile uint8_t **)a1 = -65;
   *(volatile uint8_t *)(*(volatile uint32_t *)a1 + 1) = 12;
-  *(volatile uint32_t *)(*(volatile uint32_t *)a1 + 2) = v2[12];
-  v3 = *(volatile uint16_t **)a1;
-  v4 = *((volatile uint16_t *)v2 + 26);
-  v5 = *((volatile uint16_t *)v2 + 27);
-  v6 = *((volatile uint16_t *)v2 + 28);
-  v3[6] = *((volatile uint16_t *)v2 + 29);
-  v3[3] = v4;
-  v3[4] = v5;
-  v3[5] = v6;
-  *(volatile uint32_t *)a1 = (int)(uintptr_t)(v3 + 7);
+  *(volatile uint32_t *)(*(volatile uint32_t *)a1 + 2) = rf_param_table[12];
+  out_buf = *(volatile uint16_t **)a1;
+  param_word_1 = *((volatile uint16_t *)rf_param_table + 26);
+  param_word_2 = *((volatile uint16_t *)rf_param_table + 27);
+  param_word_3 = *((volatile uint16_t *)rf_param_table + 28);
+  out_buf[6] = *((volatile uint16_t *)rf_param_table + 29);
+  out_buf[3] = param_word_1;
+  out_buf[4] = param_word_2;
+  out_buf[5] = param_word_3;
+  *(volatile uint32_t *)a1 = (int)(uintptr_t)(out_buf + 7);
   return 14;
 }
 
@@ -930,6 +931,7 @@ LABEL_17:
 
 
 // rf_build_cal_block_v3 @ 0x130f30
+/* luna: Builds a 9-byte version-3 RF calibration block by copying and packing selected fields from a source calibration entry into fixed destination offsets. */
 int rf_build_cal_block_v3(int a1, int a2) {
   int16_t v2; // r3
   int16_t v3; // r4
@@ -976,20 +978,21 @@ int rf_build_cal_block_v3_extra(int a1, int a2, int16_t a3, char a4, int16_t a5)
 
 
 // rf_build_cal_block_v2 @ 0x130fac
+/* luna: Pack a six-byte RF calibration block by writing a constant 0x03/0x02 header, encoding a source byte at bits 12-15 with bit 11 controlled by another so */
 int rf_build_cal_block_v2(int a1, int a2, int16_t a3) {
-  int16_t v3; // r3
-  int v4; // r1
-  int16_t v5; // r3
+  int16_t cal_code; // r3
+  int cal_enable; // r1
+  int16_t encoded_control; // r3
 
   *(volatile uint8_t *)a1 = 3;
   *(volatile uint8_t *)(a1 + 1) = 2;
-  v3 = *(volatile uint8_t *)(a2 + 22);
-  v4 = *(volatile uint8_t *)(a2 + 17);
+  cal_code = *(volatile uint8_t *)(a2 + 22);
+  cal_enable = *(volatile uint8_t *)(a2 + 17);
   *(volatile uint16_t *)(a1 + 4) = a3;
-  v5 = v3 << 12;
-  if ( v4 == 1 )
-    v5 |= 0x800u;
-  *(volatile uint16_t *)(a1 + 2) = v5;
+  encoded_control = cal_code << 12;
+  if ( cal_enable == 1 )
+    encoded_control |= 0x800u;
+  *(volatile uint16_t *)(a1 + 2) = encoded_control;
   return 6;
 }
 

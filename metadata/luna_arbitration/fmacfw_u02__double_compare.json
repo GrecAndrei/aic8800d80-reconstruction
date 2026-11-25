@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "double_compare",
+ "luna": "aeabi_dadd",
+ "doc": "Adds two IEEE-754 double-precision values using the ARM EABI helper implementation.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "aeabi_dadd",
+   "probabilities": [
+    {
+     "value": "double_compare",
+     "probability": 0.11
+    },
+    {
+     "value": "aeabi_dadd",
+     "probability": 0.84
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.76
+  }
+ ],
+ "status": "ok"
+}

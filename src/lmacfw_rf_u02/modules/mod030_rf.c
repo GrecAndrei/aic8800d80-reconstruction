@@ -403,7 +403,7 @@ unsigned int float_to_i24(unsigned int a1) {
 /* libmatch: 630 bytes identical to __aeabi_dadd (libgcc.a:_arm_addsubdf3.o); the library routine is linked */
 
 
-// double_to_float @ 0x12752c
+// aeabi_ui2d @ 0x12752c
 /* libmatch: 30 bytes identical to __aeabi_ui2d (libgcc.a:_arm_addsubdf3.o); the library routine is linked */
 
 
@@ -828,63 +828,64 @@ int i32_abs(int result) {
 
 
 // memcmp @ 0x128288
+/* luna: Compares two memory buffers of length n, using aligned word reads when both pointers are 4-byte aligned and byte reads for the tail or mismatch, retur */
 int memcmp(unsigned int a1, unsigned int a2, unsigned int a3) {
-  volatile int *v3; // r4
-  volatile int *v4; // r3
-  int v5; // r5
+  volatile int *s1_word_ptr; // r4
+  volatile int *s2_word_ptr; // r3
+  int s2_word; // r5
   int v6; // t1
-  int v7; // t1
-  unsigned int v8; // r6
-  volatile char *v9; // r1
-  volatile char *v10; // r4
-  int v11; // r5
+  int s1_word; // t1
+  unsigned int tail_count_minus_1; // r6
+  volatile char *s2_byte_ptr; // r1
+  volatile char *s1_byte_ptr; // r4
+  int s1_byte; // r5
   int v12; // t1
-  int v13; // r2
+  int s2_byte; // r2
   int v14; // t1
 
   if ( a3 <= 3 )
   {
 LABEL_5:
-    v8 = a3 - 1;
+    tail_count_minus_1 = a3 - 1;
     if ( !a3 )
       return 0;
   }
   else
   {
-    v3 = (volatile int *)a1;
-    v4 = (volatile int *)a2;
+    s1_word_ptr = (volatile int *)a1;
+    s2_word_ptr = (volatile int *)a2;
     if ( !((a1 | a2) << 30) )
     {
       while ( 1 )
       {
-        a2 = (unsigned int)v4;
-        a1 = (unsigned int)v3;
-        v6 = *v4++;
-        v5 = v6;
-        v7 = *v3++;
-        if ( v7 != v5 )
+        a2 = (unsigned int)s2_word_ptr;
+        a1 = (unsigned int)s1_word_ptr;
+        v6 = *s2_word_ptr++;
+        s2_word = v6;
+        s1_word = *s1_word_ptr++;
+        if ( s1_word != s2_word )
           break;
         a3 -= 4;
-        a1 = (unsigned int)v3;
-        a2 = (unsigned int)v4;
+        a1 = (unsigned int)s1_word_ptr;
+        a2 = (unsigned int)s2_word_ptr;
         if ( a3 <= 3 )
           goto LABEL_5;
       }
     }
-    v8 = a3 - 1;
+    tail_count_minus_1 = a3 - 1;
   }
-  v9 = (volatile char *)(a2 - 1);
-  v10 = (volatile char *)(a1 - 1);
+  s2_byte_ptr = (volatile char *)(a2 - 1);
+  s1_byte_ptr = (volatile char *)(a1 - 1);
   do
   {
-    v12 = (uint8_t)*++v10;
-    v11 = v12;
-    v14 = (uint8_t)*++v9;
-    v13 = v14;
-    if ( v11 != v14 )
-      return v11 - v13;
+    v12 = (uint8_t)*++s1_byte_ptr;
+    s1_byte = v12;
+    v14 = (uint8_t)*++s2_byte_ptr;
+    s2_byte = v14;
+    if ( s1_byte != v14 )
+      return s1_byte - s2_byte;
   }
-  while ( a1 + v8 - (uint32_t)v10 );
+  while ( a1 + tail_count_minus_1 - (uint32_t)s1_byte_ptr );
   return 0;
 }
 

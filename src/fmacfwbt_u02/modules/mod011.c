@@ -1,43 +1,44 @@
 // scan_process_advertisement @ 0x1163a8
+/* luna: Initializes the transmit descriptor array and assigns each descriptor its corresponding transmit-buffer address. */
 int scan_process_advertisement() {
-  volatile int **v0; // r5
-  volatile uint32_t *v1; // r6
-  volatile int *v2; // r0
-  void *v3; // r8
+  volatile int **tx_desc_array_ref; // r5
+  volatile uint32_t *tx_buffer_base_ref; // r6
+  volatile int *tx_desc_array; // r0
+  void *tx_desc_config; // r8
   int v4; // r7
-  uint16_t v5; // r9
-  volatile int *v6; // r1
+  uint16_t desc_index; // r9
+  volatile int *tx_desc_entry; // r1
   int result; // r0
 
-  v0 = (volatile int **)off_116430;
+  tx_desc_array_ref = (volatile int **)off_116430;
   zero_struct((volatile uint32_t *)dword_11642C);
   if ( **(volatile int16_t **)off_116434 < 0 )
   {
-    v2 = *v0;
-    v1 = (void *)(uintptr_t)(off_116438);
-    if ( !*v0 || !*(volatile uint32_t *)off_116438 )
+    tx_desc_array = *tx_desc_array_ref;
+    tx_buffer_base_ref = (void *)(uintptr_t)(off_116438);
+    if ( !*tx_desc_array_ref || !*(volatile uint32_t *)off_116438 )
     {
       mmio_irq_clear((int)aTxdescArray0Tx, (int)aTxTxdescInit, 90);
-      v2 = *v0;
+      tx_desc_array = *tx_desc_array_ref;
     }
   }
   else
   {
-    v1 = (void *)(uintptr_t)(off_116438);
-    v2 = *v0;
+    tx_buffer_base_ref = (void *)(uintptr_t)(off_116438);
+    tx_desc_array = *tx_desc_array_ref;
   }
-  v3 = (void *)(uintptr_t)(off_116444);
+  tx_desc_config = (void *)(uintptr_t)(off_116444);
   v4 = dword_11642C;
-  memset(v2, 0, 88 * *(volatile uint16_t *)(*(volatile uint32_t *)off_116444 + 8) + 88);
-  v5 = 0;
+  memset(tx_desc_array, 0, 88 * *(volatile uint16_t *)(*(volatile uint32_t *)off_116444 + 8) + 88);
+  desc_index = 0;
   do
   {
-    v6 = &(*v0)[22 * v5];
-    v6[19] = *v1 + 80 * v5;
-    result = check_abort_flag(v4, (void *)(v6));
-    ++v5;
+    tx_desc_entry = &(*tx_desc_array_ref)[22 * desc_index];
+    tx_desc_entry[19] = *tx_buffer_base_ref + 80 * desc_index;
+    result = check_abort_flag(v4, (void *)(tx_desc_entry));
+    ++desc_index;
   }
-  while ( *(volatile uint16_t *)(*(volatile uint32_t *)v3 + 8) >= (unsigned int)v5 );
+  while ( *(volatile uint16_t *)(*(volatile uint32_t *)tx_desc_config + 8) >= (unsigned int)desc_index );
   return result;
 }
 

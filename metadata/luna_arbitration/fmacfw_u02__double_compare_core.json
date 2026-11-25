@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "double_compare_core",
+ "luna": "double_compare",
+ "doc": "Compares two double-precision values and returns the compiler runtime ordering result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_compare",
+   "probabilities": [
+    {
+     "value": "double_compare_core",
+     "probability": 0.17
+    },
+    {
+     "value": "double_compare",
+     "probability": 0.83
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.74
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "j_rf_phy_mmio_poll_n_cb",
+ "luna": "j_pmu_isr_extra",
+ "doc": "Jump stub that tail-calls the PMU extra interrupt service routine and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "j_pmu_isr_extra",
+   "probabilities": [
+    {
+     "value": "j_rf_phy_mmio_poll_n_cb",
+     "probability": 0.2
+    },
+    {
+     "value": "j_pmu_isr_extra",
+     "probability": 0.79
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.69
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "ll_seq_update",
+ "luna": "rf_xtal_cap_adjust",
+ "doc": "Adjust the current XTAL capacitance value by one step toward its target and notify the status via a peripheral update and scheduled trace message.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_xtal_cap_adjust",
+   "probabilities": [
+    {
+     "value": "ll_seq_update",
+     "probability": 0.16
+    },
+    {
+     "value": "rf_xtal_cap_adjust",
+     "probability": 0.83
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.74
+  }
+ ],
+ "status": "ok"
+}

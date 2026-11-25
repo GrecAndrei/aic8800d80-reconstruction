@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "rf_irq_handler_2",
+ "luna": "rf_irq_handler",
+ "doc": "Handles RF interrupt status by dispatching RF state-machine, hardware timer, GPIO/busy, fatal-error, and pending absolute-timer conditions.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_irq_handler",
+   "probabilities": [
+    {
+     "value": "rf_irq_handler_2",
+     "probability": 0.31
+    },
+    {
+     "value": "rf_irq_handler",
+     "probability": 0.69
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.53
+  }
+ ],
+ "status": "ok"
+}

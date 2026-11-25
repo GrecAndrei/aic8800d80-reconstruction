@@ -542,63 +542,64 @@ int absolute_value(int result) {
 
 
 // memcmp @ 0x1437ac
+/* luna: Compares two memory buffers byte-by-byte, using an aligned word fast path and returning the difference between the first mismatched unsigned bytes. */
 int memcmp(unsigned int a1, unsigned int a2, unsigned int a3) {
-  volatile int *v3; // r4
-  volatile int *v4; // r3
-  int v5; // r5
+  volatile int *src1_words; // r4
+  volatile int *src2_words; // r3
+  int word2; // r5
   int v6; // t1
-  int v7; // t1
-  unsigned int v8; // r6
-  volatile char *v9; // r1
-  volatile char *v10; // r4
-  int v11; // r5
+  int word1; // t1
+  unsigned int len_minus_1; // r6
+  volatile char *src2_bytes; // r1
+  volatile char *src1_bytes; // r4
+  int byte1; // r5
   int v12; // t1
-  int v13; // r2
+  int byte2; // r2
   int v14; // t1
 
   if ( a3 <= 3 )
   {
 LABEL_5:
-    v8 = a3 - 1;
+    len_minus_1 = a3 - 1;
     if ( !a3 )
       return 0;
   }
   else
   {
-    v3 = (volatile int *)a1;
-    v4 = (volatile int *)a2;
+    src1_words = (volatile int *)a1;
+    src2_words = (volatile int *)a2;
     if ( !((a1 | a2) << 30) )
     {
       while ( 1 )
       {
-        a2 = (unsigned int)v4;
-        a1 = (unsigned int)v3;
-        v6 = *v4++;
-        v5 = v6;
-        v7 = *v3++;
-        if ( v7 != v5 )
+        a2 = (unsigned int)src2_words;
+        a1 = (unsigned int)src1_words;
+        v6 = *src2_words++;
+        word2 = v6;
+        word1 = *src1_words++;
+        if ( word1 != word2 )
           break;
         a3 -= 4;
-        a1 = (unsigned int)v3;
-        a2 = (unsigned int)v4;
+        a1 = (unsigned int)src1_words;
+        a2 = (unsigned int)src2_words;
         if ( a3 <= 3 )
           goto LABEL_5;
       }
     }
-    v8 = a3 - 1;
+    len_minus_1 = a3 - 1;
   }
-  v9 = (volatile char *)(a2 - 1);
-  v10 = (volatile char *)(a1 - 1);
+  src2_bytes = (volatile char *)(a2 - 1);
+  src1_bytes = (volatile char *)(a1 - 1);
   do
   {
-    v12 = (uint8_t)*++v10;
-    v11 = v12;
-    v14 = (uint8_t)*++v9;
-    v13 = v14;
-    if ( v11 != v14 )
-      return v11 - v13;
+    v12 = (uint8_t)*++src1_bytes;
+    byte1 = v12;
+    v14 = (uint8_t)*++src2_bytes;
+    byte2 = v14;
+    if ( byte1 != v14 )
+      return byte1 - byte2;
   }
-  while ( a1 + v8 - (uint32_t)v10 );
+  while ( a1 + len_minus_1 - (uint32_t)src1_bytes );
   return 0;
 }
 
@@ -609,74 +610,75 @@ LABEL_5:
 
 
 // memmove @ 0x143940
+/* luna: Safely copies a buffer of specified length from source to destination, handling overlapping regions and optimizing aligned transfers with word copies. */
 unsigned int memmove(unsigned int result, unsigned int a2, unsigned int a3) {
-  volatile uint8_t *v3; // r3
-  unsigned int v4; // r2
+  volatile uint8_t *src_end; // r3
+  unsigned int dest_end; // r2
   char v5; // t1
-  unsigned int v6; // r3
-  unsigned int v7; // r4
-  volatile uint8_t *v8; // r4
+  unsigned int dest; // r3
+  unsigned int len_minus_1; // r4
+  volatile uint8_t *src_block_end; // r4
   unsigned int v9; // r3
   char v10; // t1
-  volatile uint8_t *v11; // r4
-  unsigned int v12; // r5
-  unsigned int v13; // r3
+  volatile uint8_t *src_word; // r4
+  unsigned int dst_word; // r5
+  unsigned int word_blocks; // r3
   unsigned int v14; // r4
   unsigned int v15; // r5
   unsigned int v16; // r12
   unsigned int v17; // r4
-  volatile int *v18; // r6
-  int v19; // t1
+  volatile int *tail_src_ptr; // r6
+  int tail_word; // t1
 
-  if ( result <= a2 || (v3 = (volatile uint8_t *)(a2 + a3), a2 + a3 <= result) )
+  if ( result <= a2 || (src_end = (volatile uint8_t *)(a2 + a3), a2 + a3 <= result) )
   {
     if ( a3 > 0xF )
     {
       if ( (result | a2) << 30 )
       {
-        v7 = a3 - 1;
-        v6 = result;
+        len_minus_1 = a3 - 1;
+        dest = result;
 LABEL_10:
-        v8 = (volatile uint8_t *)(v7 + 1 + a2);
-        v9 = v6 - 1;
+        src_block_end = (volatile uint8_t *)(len_minus_1 + 1 + a2);
+        v9 = dest - 1;
         do
         {
           v10 = *(volatile uint8_t *)a2++;
           *(volatile uint8_t *)++v9 = v10;
         }
-        while ( (volatile uint8_t *)a2 != v8 );
+        while ( (volatile uint8_t *)a2 != src_block_end );
         return result;
       }
-      v11 = (volatile uint8_t *)(a2 + 16);
-      v12 = result + 16;
+      src_word = (volatile uint8_t *)(a2 + 16);
+      dst_word = result + 16;
       do
       {
-        *(volatile uint32_t *)(v12 - 16) = *((volatile uint32_t *)v11 - 4);
-        *(volatile uint32_t *)(v12 - 12) = *((volatile uint32_t *)v11 - 3);
-        *(volatile uint32_t *)(v12 - 8) = *((volatile uint32_t *)v11 - 2);
-        *(volatile uint32_t *)(v12 - 4) = *((volatile uint32_t *)v11 - 1);
-        v11 += 16;
-        v12 += 16;
+        *(volatile uint32_t *)(dst_word - 16) = *((volatile uint32_t *)src_word - 4);
+        *(volatile uint32_t *)(dst_word - 12) = *((volatile uint32_t *)src_word - 3);
+        *(volatile uint32_t *)(dst_word - 8) = *((volatile uint32_t *)src_word - 2);
+        *(volatile uint32_t *)(dst_word - 4) = *((volatile uint32_t *)src_word - 1);
+        src_word += 16;
+        dst_word += 16;
       }
-      while ( v11 != (volatile uint8_t *)(a2 + 32 + ((a3 - 16) & 0xFFFFFFF0)) );
-      v13 = ((a3 - 16) >> 4) + 1;
-      a2 += 16 * v13;
-      v6 = result + 16 * v13;
+      while ( src_word != (volatile uint8_t *)(a2 + 32 + ((a3 - 16) & 0xFFFFFFF0)) );
+      word_blocks = ((a3 - 16) >> 4) + 1;
+      a2 += 16 * word_blocks;
+      dest = result + 16 * word_blocks;
       if ( (a3 & 0xC) != 0 )
       {
         v14 = (a3 & 0xF) - 4;
         v15 = v14 >> 2;
-        v16 = (v14 & 0xFFFFFFFC) + v6;
-        v17 = v6 - 4;
-        v18 = (volatile int *)a2;
+        v16 = (v14 & 0xFFFFFFFC) + dest;
+        v17 = dest - 4;
+        tail_src_ptr = (volatile int *)a2;
         do
         {
-          v19 = *v18++;
-          *(volatile uint32_t *)(v17 + 4) = v19;
+          tail_word = *tail_src_ptr++;
+          *(volatile uint32_t *)(v17 + 4) = tail_word;
           v17 += 4;
         }
         while ( v17 != v16 );
-        v6 += 4 * (v15 + 1);
+        dest += 4 * (v15 + 1);
         a2 += 4 * (v15 + 1);
         a3 &= 3u;
       }
@@ -687,22 +689,22 @@ LABEL_10:
     }
     else
     {
-      v6 = result;
+      dest = result;
     }
-    v7 = a3 - 1;
+    len_minus_1 = a3 - 1;
     if ( !a3 )
       return result;
     goto LABEL_10;
   }
   if ( a3 )
   {
-    v4 = result + a3;
+    dest_end = result + a3;
     do
     {
-      v5 = *--v3;
-      *(volatile uint8_t *)--v4 = v5;
+      v5 = *--src_end;
+      *(volatile uint8_t *)--dest_end = v5;
     }
-    while ( (volatile uint8_t *)a2 != v3 );
+    while ( (volatile uint8_t *)a2 != src_end );
   }
   return result;
 }
@@ -721,15 +723,16 @@ int random() {
 
 
 // strchr @ 0x143a54
+/* luna: Optimized strchr that uses word-at-a-time alignment checks and byte-wise fallback to locate a character or terminator. */
 volatile uint8_t * strchr(volatile uint8_t *result, uint8_t a2) {
   volatile uint8_t *v2; // r3
-  int v3; // r6
+  int c_word; // r6
   int v4; // t1
-  int v5; // r3
+  int byte; // r3
   int v6; // t1
   int v7; // r2
   int v8; // t1
-  int v9; // t1
+  int word; // t1
 
   v2 = result;
   if ( a2 )
@@ -753,8 +756,8 @@ volatile uint8_t * strchr(volatile uint8_t *result, uint8_t a2) {
     else
     {
 LABEL_3:
-      v3 = a2 | (a2 << 8) | ((a2 | (a2 << 8)) << 16);
-      if ( ((((v3 ^ *(volatile uint32_t *)result) - 16843009) & ~(v3 ^ *(volatile uint32_t *)result)
+      c_word = a2 | (a2 << 8) | ((a2 | (a2 << 8)) << 16);
+      if ( ((((c_word ^ *(volatile uint32_t *)result) - 16843009) & ~(c_word ^ *(volatile uint32_t *)result)
            | (*(volatile uint32_t *)result - 16843009) & ~*(volatile uint32_t *)result)
           & 0x80808080) == 0 )
       {
@@ -763,22 +766,22 @@ LABEL_3:
           v4 = *((volatile uint32_t *)result + 1);
           result += 4;
         }
-        while ( (((v4 - 16843009) & ~v4 | ((v4 ^ v3) - 16843009) & ~(v4 ^ v3)) & 0x80808080) == 0 );
+        while ( (((v4 - 16843009) & ~v4 | ((v4 ^ c_word) - 16843009) & ~(v4 ^ c_word)) & 0x80808080) == 0 );
       }
-      v5 = *result;
+      byte = *result;
       if ( *result )
       {
-        while ( a2 != v5 )
+        while ( a2 != byte )
         {
           v6 = *++result;
-          v5 = v6;
+          byte = v6;
           if ( !v6 )
-            return (volatile uint8_t *)v5;
+            return (volatile uint8_t *)byte;
         }
       }
       else
       {
-        return (volatile uint8_t *)v5;
+        return (volatile uint8_t *)byte;
       }
     }
   }
@@ -801,10 +804,10 @@ LABEL_18:
     {
       do
       {
-        v9 = *((volatile uint32_t *)result + 1);
+        word = *((volatile uint32_t *)result + 1);
         result += 4;
       }
-      while ( ((v9 - 16843009) & ~v9 & 0x80808080) == 0 );
+      while ( ((word - 16843009) & ~word & 0x80808080) == 0 );
     }
     if ( *result )
     {
@@ -818,6 +821,7 @@ LABEL_18:
 
 
 // strcmp @ 0x143b48
+/* luna: Compares two NUL-terminated byte strings using alignment-aware word loads and returns the signed difference between the first mismatched characters. */
 int strcmp(unsigned int a1, volatile unsigned int *a2) {
 uint32_t _R12;
 uint64_t _R2;
@@ -827,13 +831,13 @@ uint32_t _R5;
 
   int v3; // r2
   int v4; // r3
-  char v7; // r4
-  volatile uint64_t *v8; // r0
-  volatile uint64_t *v9; // r1
+  char s1_align_bits; // r4
+  volatile uint64_t *s1_word_ptr; // r0
+  volatile uint64_t *s2_word_ptr; // r1
   uint64_t v10; // t1
   uint64_t v11; // t1
-  int v12; // r4
-  uint64_t v14; // r6
+  int leading_byte_mask; // r4
+  uint64_t s2_word_masked; // r6
   uint64_t v15; // t1
   uint64_t v16; // t1
   char v30; // r4
@@ -886,49 +890,49 @@ uint32_t _R5;
     goto LABEL_9;
   if ( ((a1 ^ (unsigned int)a2) & 7) == 0 )
   {
-    v7 = a1 & 7;
-    v8 = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
-    v9 = (volatile uint64_t *)((unsigned int)a2 & 0xFFFFFFF8);
-    v10 = *v8;
-    a1 = (unsigned int)(v8 + 2);
+    s1_align_bits = a1 & 7;
+    s1_word_ptr = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
+    s2_word_ptr = (volatile uint64_t *)((unsigned int)a2 & 0xFFFFFFF8);
+    v10 = *s1_word_ptr;
+    a1 = (unsigned int)(s1_word_ptr + 2);
     _R2 = v10;
-    _ZF = (v7 & 4) == 0;
-    v11 = *v9;
-    a2 = (volatile unsigned int *)(v9 + 2);
-    v12 = -1 << (8 * (v7 & 3));
-    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(_R2 | ~v12) & 0xFFFFFFFFULL) << 0);
-    v14 = v11 | (unsigned int)~v12;
+    _ZF = (s1_align_bits & 4) == 0;
+    v11 = *s2_word_ptr;
+    a2 = (volatile unsigned int *)(s2_word_ptr + 2);
+    leading_byte_mask = -1 << (8 * (s1_align_bits & 3));
+    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(_R2 | ~leading_byte_mask) & 0xFFFFFFFFULL) << 0);
+    s2_word_masked = v11 | (unsigned int)~leading_byte_mask;
     if ( !_ZF )
     {
-      _R2 = _R2 | (((uint64_t)(~v12)) << 32);
+      _R2 = _R2 | (((uint64_t)(~leading_byte_mask)) << 32);
       _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
-      v14 = v14 | (((uint64_t)(~v12)) << 32);
-      v14 = (v14 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
+      s2_word_masked = s2_word_masked | (((uint64_t)(~leading_byte_mask)) << 32);
+      s2_word_masked = (s2_word_masked & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
     }
     while ( 1 )
     {
       (void)0;
 
-      _R4 = _R2 ^ v14;
+      _R4 = _R2 ^ s2_word_masked;
       _R4 = (uint32_t)_R4 | __zmask32((uint32_t)_R2);
 
       if ( _R4 )
         break;
       (void)0;
 
-      _R5 = HIDWORD(_R2) ^ HIDWORD(v14);
+      _R5 = HIDWORD(_R2) ^ HIDWORD(s2_word_masked);
       _R5 = (uint32_t)_R5 | __zmask32((uint32_t)(_R2 >> 32));
 
       if ( _R5 )
         goto LABEL_14;
       _R2 = *(volatile uint64_t *)(a1 - 8);
-      v14 = *((volatile uint64_t *)a2 - 1);
+      s2_word_masked = *((volatile uint64_t *)a2 - 1);
       (void)0;
 
-      _R4 = _R2 ^ v14;
+      _R4 = _R2 ^ s2_word_masked;
       _R4 = (uint32_t)_R4 | __zmask32((uint32_t)_R2);
 
-      _R5 = HIDWORD(_R2) ^ HIDWORD(v14);
+      _R5 = HIDWORD(_R2) ^ HIDWORD(s2_word_masked);
       _R5 = (uint32_t)_R5 | __zmask32((uint32_t)(_R2 >> 32));
 
       _R5 = _R5 | _R4;
@@ -938,7 +942,7 @@ uint32_t _R5;
         {
 LABEL_14:
           v30 = __clz(bswap32(_R5)) & 0xF8;
-          return (uint8_t)(HIDWORD(_R2) >> v30) - (uint8_t)(HIDWORD(v14) >> v30);
+          return (uint8_t)(HIDWORD(_R2) >> v30) - (uint8_t)(HIDWORD(s2_word_masked) >> v30);
         }
         break;
       }
@@ -948,10 +952,10 @@ LABEL_9:
       _R2 = v15;
       v16 = *(volatile uint64_t *)a2;
       a2 += 4;
-      v14 = v16;
+      s2_word_masked = v16;
     }
     v31 = __clz(bswap32(_R4)) & 0xF8;
-    return (uint8_t)((unsigned int)_R2 >> v31) - (uint8_t)((unsigned int)v14 >> v31);
+    return (uint8_t)((unsigned int)_R2 >> v31) - (uint8_t)((unsigned int)s2_word_masked >> v31);
   }
   if ( (((uint8_t)a1 ^ (uint8_t)a2) & 3) == 0 )
   {
@@ -1151,73 +1155,74 @@ LABEL_59:
 
 
 // strlen @ 0x143f00
+/* luna: Computes the length of a null-terminated byte string using aligned 64-bit loads and zero-byte detection. */
 unsigned int strlen(unsigned int a1) {
 uint32_t _R12;
 uint64_t _R2;
 uint64_t _R3;
 uint32_t _R4;
 
-  volatile uint64_t *v1; // r1
-  int v3; // r4
-  int v5; // r0
-  int v15; // r5
+  volatile uint64_t *aligned_word_ptr; // r1
+  int misalignment; // r4
+  int length; // r0
+  int misalignment_mask; // r5
 
   __pld((void *)a1);
-  v1 = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
+  aligned_word_ptr = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
   _R12 = -1;
-  v3 = a1 & 7;
+  misalignment = a1 & 7;
   __pld((void *)((a1 & 0xFFFFFFF8) + 32));
   if ( (a1 & 7) != 0 )
   {
-    _R2 = *v1;
-    v5 = -v3;
-    __pld(v1 + 8);
-    v15 = -1 << (8 * (v3 & 3));
-    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(_R2 | ~v15) & 0xFFFFFFFFULL) << 0);
-    if ( (v3 & 4) != 0 )
+    _R2 = *aligned_word_ptr;
+    length = -misalignment;
+    __pld(aligned_word_ptr + 8);
+    misalignment_mask = -1 << (8 * (misalignment & 3));
+    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(_R2 | ~misalignment_mask) & 0xFFFFFFFFULL) << 0);
+    if ( (misalignment & 4) != 0 )
     {
-      _R2 = _R2 | (((uint64_t)(~v15)) << 32);
+      _R2 = _R2 | (((uint64_t)(~misalignment_mask)) << 32);
       _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
     }
     _R4 = 0;
     goto LABEL_4;
   }
   _R4 = 0;
-  v5 = -8;
+  length = -8;
   do
   {
-    _R2 = *v1;
-    __pld(v1 + 8);
-    v5 += 8;
+    _R2 = *aligned_word_ptr;
+    __pld(aligned_word_ptr + 8);
+    length += 8;
 LABEL_4:
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
     if ( HIDWORD(_R2) )
       break;
-    _R2 = v1[1];
+    _R2 = aligned_word_ptr[1];
     (void)0;
 
-    v5 += 8;
+    length += 8;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
     if ( HIDWORD(_R2) )
       break;
-    _R2 = v1[2];
+    _R2 = aligned_word_ptr[2];
     (void)0;
 
-    v5 += 8;
+    length += 8;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
     if ( HIDWORD(_R2) )
       break;
-    _R2 = v1[3];
-    v1 += 4;
+    _R2 = aligned_word_ptr[3];
+    aligned_word_ptr += 4;
     (void)0;
 
-    v5 += 8;
+    length += 8;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | ((uint32_t)_R4 | __zmask32((uint32_t)_R2));
 _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(_R2 >> 32)))) << 32);
 
@@ -1225,56 +1230,57 @@ _R2 = (_R2 & 0xFFFFFFFFULL) | (((uint64_t)((uint32_t)_R2 | __zmask32((uint32_t)(
   while ( !HIDWORD(_R2) );
   if ( !(uint32_t)_R2 )
   {
-    v5 += 4;
+    length += 4;
     _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(HIDWORD(_R2)) & 0xFFFFFFFFULL) << 0);
   }
-  return v5 + (__clz(bswap32(_R2)) >> 3);
+  return length + (__clz(bswap32(_R2)) >> 3);
 }
 
 
 // strncasecmp @ 0x143fdc
+/* luna: Compares up to n characters of two strings case-insensitively using a character mapping table and returns the first signed difference or zero. */
 int strncasecmp(volatile uint8_t *a1, volatile uint8_t *a2, int a3) {
-  volatile uint8_t *v3; // r5
-  volatile uint8_t *v4; // r7
-  int v5; // r3
+  volatile uint8_t *s1_cur; // r5
+  volatile uint8_t *s1_end; // r7
+  int diff; // r3
   int v6; // r3
   int v7; // t1
   int v8; // r2
   int v9; // t1
-  int v10; // r4
+  int c2_case_flags; // r4
   int result; // r0
-  int v12; // r2
+  int c2_lower; // r2
 
   if ( a3 )
   {
-    v3 = a1;
-    v4 = &a1[a3];
+    s1_cur = a1;
+    s1_end = &a1[a3];
     while ( 1 )
     {
-      v7 = *v3++;
+      v7 = *s1_cur++;
       v6 = v7;
       v9 = *a2++;
       v8 = v9;
-      v10 = *(volatile uint8_t *)(dword_14402C + v9) & 3;
+      c2_case_flags = *(volatile uint8_t *)(dword_14402C + v9) & 3;
       if ( (*(volatile uint8_t *)(dword_14402C + v6) & 3) == 1 )
         v6 += 32;
       result = v8;
-      if ( v10 == 1 )
+      if ( c2_case_flags == 1 )
       {
-        v12 = v8 + 32;
-        result = v6 - v12;
-        if ( v6 != v12 )
+        c2_lower = v8 + 32;
+        result = v6 - c2_lower;
+        if ( v6 != c2_lower )
           return result;
       }
       else
       {
-        v5 = v6 - v8;
-        if ( v5 )
-          return v5;
+        diff = v6 - v8;
+        if ( diff )
+          return diff;
         if ( !v8 )
           return result;
       }
-      if ( v3 == v4 )
+      if ( s1_cur == s1_end )
         return 0;
     }
   }
@@ -1284,6 +1290,7 @@ int strncasecmp(volatile uint8_t *a1, volatile uint8_t *a2, int a3) {
 
 
 // empty_isr @ 0x14e180
+/* luna: No-operation placeholder interrupt handler. */
 void empty_isr() {
   ;
 }

@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "process_bt_service_search_event",
+ "luna": "rf_cmd_set_tone_power_offset",
+ "doc": "Command handler that sets per-band RF tone power offsets (2.4 GHz, 5 GHz, BT) from command arguments and logs the result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_cmd_set_tone_power_offset",
+   "probabilities": [
+    {
+     "value": "process_bt_service_search_event",
+     "probability": 0.04
+    },
+    {
+     "value": "rf_cmd_set_tone_power_offset",
+     "probability": 0.96
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.94
+  }
+ ],
+ "status": "ok"
+}

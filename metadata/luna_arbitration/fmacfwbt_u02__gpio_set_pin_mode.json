@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "gpio_set_pin_mode",
+ "luna": "rf_pa_current_calibrate",
+ "doc": "Adjusts the RF resistor and CGM settings until measured PA current approaches its target, returning the applied offset and outputting the selected CGM value.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_pa_current_calibrate",
+   "probabilities": [
+    {
+     "value": "gpio_set_pin_mode",
+     "probability": 0.17
+    },
+    {
+     "value": "rf_pa_current_calibrate",
+     "probability": 0.8
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.7
+  }
+ ],
+ "status": "ok"
+}

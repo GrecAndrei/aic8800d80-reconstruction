@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "parse_pdu_data",
+ "luna": "find_table_entry",
+ "doc": "Scans a fixed-size global table for the highest-priority record whose length-prefixed name matches the supplied key and returns a pointer to that record's data field.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "find_table_entry",
+   "probabilities": [
+    {
+     "value": "parse_pdu_data",
+     "probability": 0.39
+    },
+    {
+     "value": "find_table_entry",
+     "probability": 0.52
+    },
+    {
+     "value": "neither",
+     "probability": 0.09
+    }
+   ],
+   "confidence": 0.28
+  }
+ ],
+ "status": "ok"
+}

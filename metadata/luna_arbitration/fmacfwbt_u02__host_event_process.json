@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "host_event_process",
+ "luna": "ipc_emb_kmsg_fwd",
+ "doc": "Processes and forwards host-originated kernel messages, coordinating destination-buffer allocation and queued-message state.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "host_event_process",
+   "probabilities": [
+    {
+     "value": "host_event_process",
+     "probability": 0.52
+    },
+    {
+     "value": "ipc_emb_kmsg_fwd",
+     "probability": 0.46
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.28
+  }
+ ],
+ "status": "ok"
+}

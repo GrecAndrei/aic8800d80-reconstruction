@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "bt_evt_sched_high",
+ "luna": "usb_wlan_rx_pkt_free_list_init",
+ "doc": "Initializes the USB WLAN RX packet free list by allocating the configured receive buffers and reporting allocation failures.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "usb_wlan_rx_pkt_free_list_init",
+   "probabilities": [
+    {
+     "value": "bt_evt_sched_high",
+     "probability": 0.34
+    },
+    {
+     "value": "usb_wlan_rx_pkt_free_list_init",
+     "probability": 0.59
+    },
+    {
+     "value": "neither",
+     "probability": 0.07
+    }
+   ],
+   "confidence": 0.38
+  }
+ ],
+ "status": "ok"
+}

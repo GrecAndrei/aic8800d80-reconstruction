@@ -162,7 +162,7 @@ int bt_get_current_profile_conn(unsigned int a1) {
 int hci_send_vendor_command(int a1) {
   ke_int_lock((int)(uintptr_t)((volatile char *)0x180A), 6);
   if ( !a1 )
-    return init_rf_tables();
+    return sm_assoc_req_send();
   check_status_bits(256, "ext auth st %x\n", a1);
   return bt_setup_conn_profile(a1);
 }
@@ -231,7 +231,7 @@ int bt_send_acl_event(volatile uint16_t *a1) {
     return bt_setup_conn_profile(v3);
   v5 = a1[6];
   if ( !a1[6] )
-    return init_rf_tables();
+    return sm_assoc_req_send();
   if ( v5 != 1 )
   {
     if ( v5 == 2 )
@@ -242,7 +242,7 @@ int bt_send_acl_event(volatile uint16_t *a1) {
   if ( v6 == 4 )
   {
     wait_timer_ticks(0xBB8u);
-    return init_rf_tables();
+    return sm_assoc_req_send();
   }
   if ( v6 == 2 && *a1 > 0x22u )
     return bt_get_profile_by_id(3, (int)(a1 + 10));

@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "check_kernel_state_alt",
+ "luna": "co_list_push_front",
+ "doc": "Pushes a node onto the front of a RivieraWaves co_list intrusive linked list header, updating node and list front/back links.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "co_list_push_front",
+   "probabilities": [
+    {
+     "value": "check_kernel_state_alt",
+     "probability": 0.25
+    },
+    {
+     "value": "co_list_push_front",
+     "probability": 0.71
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.56
+  }
+ ],
+ "status": "ok"
+}

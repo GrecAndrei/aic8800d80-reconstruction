@@ -1032,7 +1032,7 @@ int struct_load(int a1, volatile float *a2, int a3, int a4) {
         v30 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT((float)(v25 * v25) + 1.0));
         v31 = ((uint64_t (*)())double_subtract)(v29, v30);
         v32 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT(v18));
-        v33 = double_compare(v31, v32);
+        v33 = aeabi_dadd(v31, v32);
         v18 = COERCE_FLOAT(((int (*)(uint64_t))double_to_uint)(v33));
         if ( v22 == v23 )
           goto LABEL_6;

@@ -590,7 +590,7 @@ int clear_tx_buffer() {
   v0 = (void *)(uintptr_t)(off_127224);
   v1 = (void *)(uintptr_t)(off_127228);
   v2 = *((volatile uint32_t *)off_127224 + 11);
-  gpio_init((volatile uint16_t *)(v2 + 4), 0);
+  phy_set_channel((volatile uint16_t *)(v2 + 4), 0);
   util_format_string(*(volatile char *)(v2 + 12));
   *(volatile uint32_t *)off_12722C = v1[*(volatile uint8_t *)(v2 + 4) + 5];
   if ( *(volatile uint8_t *)(v2 + 24) == 3 )

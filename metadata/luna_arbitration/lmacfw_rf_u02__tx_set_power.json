@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "tx_set_power",
+ "luna": "phy_set_channel",
+ "doc": "Apply the supplied channel/radio configuration to PHY radio 0, calibrate the RF path, and copy the configuration into the active radio state.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "tx_set_power",
+   "probabilities": [
+    {
+     "value": "tx_set_power",
+     "probability": 0.53
+    },
+    {
+     "value": "phy_set_channel",
+     "probability": 0.3
+    },
+    {
+     "value": "neither",
+     "probability": 0.17
+    }
+   ],
+   "confidence": 0.3
+  }
+ ],
+ "status": "ok"
+}

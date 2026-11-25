@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "dispatch_by_cmd",
+ "luna": "bt_h4_packet_length",
+ "doc": "Returns the total H:4 frame length from its packet indicator and type-specific payload length field, or -1 for an unsupported packet type.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "dispatch_by_cmd",
+   "probabilities": [
+    {
+     "value": "dispatch_by_cmd",
+     "probability": 0.7
+    },
+    {
+     "value": "bt_h4_packet_length",
+     "probability": 0.18
+    },
+    {
+     "value": "neither",
+     "probability": 0.12
+    }
+   ],
+   "confidence": 0.55
+  }
+ ],
+ "status": "ok"
+}

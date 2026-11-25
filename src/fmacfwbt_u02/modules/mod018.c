@@ -315,77 +315,78 @@ LABEL_15:
 
 
 // llc_tx_start @ 0x11ab00
+/* luna: Starts a Bluetooth LE link-layer TX event by validating connection parameters, computing padded buffer/time requirements, updating the LL descriptor a */
 int llc_tx_start(int a1, volatile int *a2, unsigned int a3, unsigned int a4, uint8_t a5) {
-  int v5; // r7
-  int v6; // r6
+  int event_desc; // r7
+  int llc_desc; // r6
   int result; // r0
-  volatile uint32_t *v12; // r3
-  unsigned int v13; // r2
-  unsigned int v14; // r1
-  int16_t v15; // r12
-  int16_t v16; // r2
-  unsigned int v17; // r4
-  int v18; // r4
-  int v19; // r1
-  int v20; // lr
-  int v21; // r12
+  volatile uint32_t *tx_buf; // r3
+  unsigned int req_size; // r2
+  unsigned int extra_words; // r1
+  int16_t conn_tx_len; // r12
+  int16_t llc_tx_len; // r2
+  unsigned int conn_state_base; // r4
+  int conn_state_new; // r4
+  int event_state_base; // r1
+  int event_buf_ptr; // lr
+  int tx_counter_ptr; // r12
   volatile uint32_t *v22; // [sp+Ch] [bp-8h]
-  unsigned int v23; // [sp+Ch] [bp-8h]
+  unsigned int sched_end; // [sp+Ch] [bp-8h]
 
-  v5 = *a2;
-  v6 = *(volatile uint32_t *)(*a2 + 68);
+  event_desc = *a2;
+  llc_desc = *(volatile uint32_t *)(*a2 + 68);
   v22 = *(volatile uint32_t **)(a1 + 76);
   result = bt_conn_param_compare(a1, *a2, a5);
   if ( result )
   {
-    v12 = v22;
-    v13 = (uint16_t)(((v22[9] + 3) & 0xFFFC) + 4);
-    if ( a4 > v13 )
+    tx_buf = v22;
+    req_size = (uint16_t)(((v22[9] + 3) & 0xFFFC) + 4);
+    if ( a4 > req_size )
     {
-      v14 = ((unsigned int)(uint16_t)(a4 - v13) + 3) >> 2;
-      v13 = (uint16_t)(v13 + 4 * v14);
+      extra_words = ((unsigned int)(uint16_t)(a4 - req_size) + 3) >> 2;
+      req_size = (uint16_t)(req_size + 4 * extra_words);
     }
     else
     {
-      v14 = 0;
+      extra_words = 0;
     }
-    v23 = v13 + *(volatile uint32_t *)(v6 + 40);
-    if ( v23 > a3 && (*(volatile uint32_t *)off_11AC20 & 0x3Fu) <= 0x11 )
+    sched_end = req_size + *(volatile uint32_t *)(llc_desc + 40);
+    if ( sched_end > a3 && (*(volatile uint32_t *)off_11AC20 & 0x3Fu) <= 0x11 )
     {
       return 0;
     }
     else
     {
-      v15 = *(volatile uint16_t *)(a1 + 80);
-      v16 = *(volatile uint16_t *)(v6 + 10);
-      v17 = *(volatile uint32_t *)(a1 + 36) & 0xFFE7FFFF;
+      conn_tx_len = *(volatile uint16_t *)(a1 + 80);
+      llc_tx_len = *(volatile uint16_t *)(llc_desc + 10);
+      conn_state_base = *(volatile uint32_t *)(a1 + 36) & 0xFFE7FFFF;
       --*(volatile uint8_t *)(dword_11AC24 + 84 * a5 + 80);
-      v12[5] = *(volatile uint32_t *)(v6 + 24);
-      v18 = v17 | (v14 << 9);
-      *(volatile uint16_t *)(v6 + 10) = v16 + v15;
-      *(volatile uint32_t *)(v6 + 24) = (int)(uintptr_t)(v12 + 3);
-      *(volatile uint32_t *)(v6 + 40) = v23;
-      *(volatile uint32_t *)(v6 + 268) = a1;
-      *(volatile uint32_t *)(a1 + 36) = v18 | 0x680000;
-      v19 = *(volatile uint32_t *)(v5 + 36);
-      v20 = *(volatile uint32_t *)(v5 + 76);
-      v21 = *(volatile uint32_t *)(*(volatile uint32_t *)(v6 + 324) + 76);
-      *(volatile uint32_t *)(a1 + 68) = v6;
-      v19 &= 0xFFE7FFFF;
-      v12[17] = v18 | 0x680100;
-      v12[12] = 0;
-      *(volatile uint32_t *)(v5 + 36) = v19 | 0x300000;
-      *(volatile uint32_t *)(v20 + 68) = v19 | 0x300100;
-      ++*(volatile uint8_t *)(v21 + 1);
-      if ( v23 > a3 )
+      tx_buf[5] = *(volatile uint32_t *)(llc_desc + 24);
+      conn_state_new = conn_state_base | (extra_words << 9);
+      *(volatile uint16_t *)(llc_desc + 10) = llc_tx_len + conn_tx_len;
+      *(volatile uint32_t *)(llc_desc + 24) = (int)(uintptr_t)(tx_buf + 3);
+      *(volatile uint32_t *)(llc_desc + 40) = sched_end;
+      *(volatile uint32_t *)(llc_desc + 268) = a1;
+      *(volatile uint32_t *)(a1 + 36) = conn_state_new | 0x680000;
+      event_state_base = *(volatile uint32_t *)(event_desc + 36);
+      event_buf_ptr = *(volatile uint32_t *)(event_desc + 76);
+      tx_counter_ptr = *(volatile uint32_t *)(*(volatile uint32_t *)(llc_desc + 324) + 76);
+      *(volatile uint32_t *)(a1 + 68) = llc_desc;
+      event_state_base &= 0xFFE7FFFF;
+      tx_buf[17] = conn_state_new | 0x680100;
+      tx_buf[12] = 0;
+      *(volatile uint32_t *)(event_desc + 36) = event_state_base | 0x300000;
+      *(volatile uint32_t *)(event_buf_ptr + 68) = event_state_base | 0x300100;
+      ++*(volatile uint8_t *)(tx_counter_ptr + 1);
+      if ( sched_end > a3 )
       {
         llc_rx_start(a1, a2, a3, a4, a5);
         return 0;
       }
       else
       {
-        tx_event_handle((volatile int16_t *)v5);
-        *a2 = **(volatile uint32_t **)(v6 + 324);
+        tx_event_handle((volatile int16_t *)event_desc);
+        *a2 = **(volatile uint32_t **)(llc_desc + 324);
         return 1;
       }
     }

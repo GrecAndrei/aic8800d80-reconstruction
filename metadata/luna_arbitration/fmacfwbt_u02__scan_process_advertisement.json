@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "scan_process_advertisement",
+ "luna": "tx_txdesc_init",
+ "doc": "Initializes the transmit descriptor array and assigns each descriptor its corresponding transmit-buffer address.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "tx_txdesc_init",
+   "probabilities": [
+    {
+     "value": "scan_process_advertisement",
+     "probability": 0.32
+    },
+    {
+     "value": "tx_txdesc_init",
+     "probability": 0.6
+    },
+    {
+     "value": "neither",
+     "probability": 0.08
+    }
+   ],
+   "confidence": 0.4
+  }
+ ],
+ "status": "ok"
+}

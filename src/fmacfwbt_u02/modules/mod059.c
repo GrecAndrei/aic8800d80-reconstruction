@@ -229,38 +229,39 @@ BOOL is_pll_freq_6() {
 
 
 // send_hci_vendor_cmd @ 0x135b94
+/* luna: Constructs and dispatches a Bluetooth HCI vendor command buffer containing the supplied subcommand, payload length, and payload bytes. */
 int send_hci_vendor_cmd(char a1, int a2, unsigned int a3) {
-  unsigned int v3; // r4
-  int v6; // r0
+  unsigned int payload_len; // r4
+  int cmd_buf; // r0
   volatile int16_t **v7; // r3
   volatile int16_t *v8; // r3
   int v9; // r5
-  int v10; // r3
-  unsigned int v11; // r4
+  int payload_dst; // r3
+  unsigned int payload_dst_end; // r4
 
-  v3 = a3;
-  v6 = bt_buf_alloc(6152, 13, 6, (uint16_t)(a3 + 4));
+  payload_len = a3;
+  cmd_buf = bt_buf_alloc(6152, 13, 6, (uint16_t)(a3 + 4));
   v7 = (volatile int16_t **)off_135C0C;
-  *(volatile uint8_t *)v6 = a1;
+  *(volatile uint8_t *)cmd_buf = a1;
   v8 = *v7;
-  *(volatile uint16_t *)(v6 + 2) = v3;
-  v9 = v6;
+  *(volatile uint16_t *)(cmd_buf + 2) = payload_len;
+  v9 = cmd_buf;
   if ( *v8 < 0 )
   {
-    if ( v3 >= get_shared_buf_size() - 4 )
+    if ( payload_len >= get_shared_buf_size() - 4 )
       mmio_irq_clear((int)aIndFtIeLenMaci, (int)aSmFtAuthOverAi, 1444);
-    v3 = *(volatile uint16_t *)(v9 + 2);
+    payload_len = *(volatile uint16_t *)(v9 + 2);
   }
-  if ( v3 )
+  if ( payload_len )
   {
-    v10 = v9 + 3;
-    v11 = v3 + v9 + 3;
+    payload_dst = v9 + 3;
+    payload_dst_end = payload_len + v9 + 3;
     do
     {
-      *(volatile uint8_t *)(v10 + 1) = *(volatile uint8_t *)(a2 - 3 - v9 + v10);
-      ++v10;
+      *(volatile uint8_t *)(payload_dst + 1) = *(volatile uint8_t *)(a2 - 3 - v9 + payload_dst);
+      ++payload_dst;
     }
-    while ( v10 != v11 );
+    while ( payload_dst != payload_dst_end );
   }
   hci_cmd_send(6u, 7);
   patch_aware_dispatch(6154, 6, dword_135C10);

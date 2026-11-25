@@ -1032,6 +1032,7 @@ int set_reg_1807fc_bit6(int result) {
 
 
 // set_reg_1807fc_bit20 @ 0x123f78
+/* luna: Set bit 20 of the target register from the low bit of value, clearing it first, and return the original value. */
 int set_reg_1807fc_bit20(int result) {
   *(volatile uint32_t *)off_123F88 = *(volatile uint32_t *)off_123F88 & 0xFFEFFFFF | (result << 20);
   return result;
@@ -1064,6 +1065,7 @@ int set_reg_1807fc_bits24_27(int result) {
 
 
 // set_reg_158a08_bit16 @ 0x123fc8
+/* luna: Shifts the input value into bit 16 of the hardware register referenced by off_123FD8, preserving the other bits below 16, and returns the input value. */
 int set_reg_158a08_bit16(int result) {
   *(volatile uint32_t *)off_123FD8 = *(volatile uint32_t *)off_123FD8 & 0xFFFEFFFF | (result << 16);
   return result;
@@ -1072,6 +1074,7 @@ int set_reg_158a08_bit16(int result) {
 
 
 // set_reg_158a08_bits20_25 @ 0x123fdc
+/* luna: Writes a six-bit field into bits 20 through 25 of the RF/control register referenced by off_123FEC while preserving the other register bits. */
 int set_reg_158a08_bits20_25(int result) {
   *(volatile uint32_t *)off_123FEC = *(volatile uint32_t *)off_123FEC & 0xFC0FFFFF | (result << 20);
   return result;
@@ -1561,28 +1564,29 @@ void ke_state_event_0() {
 
 
 // ke_state_event_1 @ 0x124594
+/* luna: Handles kernel state event 1 by dispatching message queue 1 and incrementing a 16-bit periodic call counter, triggering RF flag 3, zeroing related tim */
 int ke_state_event_1() {
-  volatile uint16_t *v0; // r4
+  volatile uint16_t *msg_counter_ptr; // r4
   int result; // r0
-  int v2; // r3
+  int msg_counter; // r3
   volatile uint32_t *v3; // r2
-  int v4; // r0
+  int mmio_write_base; // r0
 
   if ( *(volatile uint8_t *)off_1245DC != 1 )
   {
-    v0 = (void *)(uintptr_t)(off_1245E0);
+    msg_counter_ptr = (void *)(uintptr_t)(off_1245E0);
     result = ke_handle_message(1u);
-    v2 = (uint16_t)(*v0 + 1);
-    *v0 = v2;
-    if ( v2 == 1000 )
+    msg_counter = (uint16_t)(*msg_counter_ptr + 1);
+    *msg_counter_ptr = msg_counter;
+    if ( msg_counter == 1000 )
     {
       rf_set_flag(3);
       v3 = (void *)(uintptr_t)(off_1245EC);
-      v4 = *(volatile uint32_t *)off_1245E4 + 19968;
+      mmio_write_base = *(volatile uint32_t *)off_1245E4 + 19968;
       *(volatile uint32_t *)off_1245E8 = 0;
-      *v0 = 0;
+      *msg_counter_ptr = 0;
       *v3 = 0;
-      return mmio_write_register(v4 + 32);
+      return mmio_write_register(mmio_write_base + 32);
     }
   }
   return result;
@@ -1995,14 +1999,15 @@ int set_tx_power(int a1, int a2) {
 
 
 // set_adv_interval @ 0x124a88
+/* luna: Implements a BLE advertising-interval set command by parsing three decimal arguments and programming the corresponding hardware registers, with an err */
 int set_adv_interval(int a1, volatile uint32_t *a2) {
   volatile int *v3; // r6
-  unsigned int v4; // r5
+  unsigned int first_numeric_arg; // r5
   int v5; // r3
   volatile uint8_t *v6; // r0
-  int v7; // r4
+  int second_numeric_arg; // r4
   int v8; // r0
-  int v9; // r2
+  int third_numeric_arg; // r2
   int result; // r0
   int v11; // [sp+4h] [bp-4h]
 
@@ -2014,19 +2019,19 @@ int set_adv_interval(int a1, volatile uint32_t *a2) {
   else
   {
     v3 = (volatile int *)off_124AF8;
-    v4 = parse_number((volatile uint8_t *)a2[1], nullptr, 0xAu);
+    first_numeric_arg = parse_number((volatile uint8_t *)a2[1], nullptr, 0xAu);
     v5 = parse_number((volatile uint8_t *)a2[2], nullptr, 0xAu);
     v6 = (volatile uint8_t *)a2[3];
-    v7 = v5;
+    second_numeric_arg = v5;
     v8 = parse_number(v6, nullptr, 0xAu);
-    v9 = v8;
+    third_numeric_arg = v8;
     if ( *v3 )
     {
       v11 = v8;
       init_with_stack(0);
-      v9 = v11;
+      third_numeric_arg = v11;
     }
-    configure_hw_regs(v4, v7, v9);
+    configure_hw_regs(first_numeric_arg, second_numeric_arg, third_numeric_arg);
     dispatch_event_handler_1(asc_130170);
     result = *v3;
     if ( *v3 )

@@ -248,6 +248,7 @@ void irq_disable() {
 
 
 // uart_putc @ 0x10d5f4
+/* luna: Waits until the UART transmit register is ready, writes the character, and returns it. */
 int uart_putc(int result) {
   while ( (*(volatile uint32_t *)off_10D604 & 0x80000) != 0 )
     ;
@@ -258,26 +259,27 @@ int uart_putc(int result) {
 
 
 // uart_puts @ 0x10d60c
+/* luna: Writes a NUL-terminated string to UART, waiting for the transmitter before each byte, and returns a pointer to the terminator. */
 volatile uint8_t * uart_puts(volatile uint8_t *result) {
-  int v1; // r1
-  volatile uint32_t *v2; // r2
-  volatile uint32_t *v3; // r4
-  int v4; // t1
+  int current_char; // r1
+  volatile uint32_t *uart_status_reg; // r2
+  volatile uint32_t *uart_tx_data_reg; // r4
+  int next_char; // t1
 
-  v1 = (uint8_t)*result;
+  current_char = (uint8_t)*result;
   if ( *result )
   {
-    v2 = (void *)(uintptr_t)(off_10D630);
-    v3 = (void *)(uintptr_t)(off_10D634);
+    uart_status_reg = (void *)(uintptr_t)(off_10D630);
+    uart_tx_data_reg = (void *)(uintptr_t)(off_10D634);
     do
     {
-      while ( (*v2 & 0x80000) != 0 )
+      while ( (*uart_status_reg & 0x80000) != 0 )
         ;
-      *v3 = v1;
-      v4 = (uint8_t)*++result;
-      v1 = v4;
+      *uart_tx_data_reg = current_char;
+      next_char = (uint8_t)*++result;
+      current_char = next_char;
     }
-    while ( v4 );
+    while ( next_char );
   }
   return result;
 }
@@ -285,6 +287,7 @@ volatile uint8_t * uart_puts(volatile uint8_t *result) {
 
 
 // uart_getc @ 0x10d638
+/* luna: Busy-waits for the UART receive-ready bit, then reads and returns the received byte. */
 int uart_getc() {
   while ( (*(volatile uint32_t *)off_10D648 & 1) == 0 )
     ;
@@ -294,6 +297,7 @@ int uart_getc() {
 
 
 // uart_rx_ready @ 0x10d650
+/* luna: Returns whether the UART receive-data-ready status bit is set. */
 int uart_rx_ready() {
   return *(volatile uint32_t *)off_10D65C & 1;
 }
@@ -688,6 +692,7 @@ LABEL_48:
 
 
 // printf_wrapper @ 0x10da7c
+/* luna: Forwards variadic arguments to the debug output formatter. */
 int printf_wrapper(const volatile char *fmt, ...) {
   va_list varg_r1; // [sp+14h] [bp+8h] BYREF
 
@@ -754,6 +759,7 @@ int irq_set_priority(int result) {
 
 
 // gpio_clear_bit_reg8 @ 0x10db2c
+/* luna: Clears the selected bit in the GPIO register at offset 8 and returns the bit mask. */
 int gpio_clear_bit_reg8(char a1) {
   int result; // r0
 
@@ -765,6 +771,7 @@ int gpio_clear_bit_reg8(char a1) {
 
 
 // gpio_set_bit_reg8 @ 0x10db44
+/* luna: Sets the bit indexed by the argument in the GPIO register at offset 8 and returns the updated register value. */
 int gpio_set_bit_reg8(char a1) {
   int result; // r0
 
@@ -776,6 +783,7 @@ int gpio_set_bit_reg8(char a1) {
 
 
 // gpio_set_bit_reg0 @ 0x10db58
+/* luna: Sets the bit indexed by the argument in GPIO register 0 and returns the updated register value. */
 int gpio_set_bit_reg0(char a1) {
   int result; // r0
 
@@ -787,6 +795,7 @@ int gpio_set_bit_reg0(char a1) {
 
 
 // gpio_clear_bit_reg0 @ 0x10db6c
+/* luna: Clears the bit selected by bit_index in GPIO register 0 and returns its bit mask. */
 int gpio_clear_bit_reg0(char a1) {
   int result; // r0
 
@@ -798,6 +807,7 @@ int gpio_clear_bit_reg0(char a1) {
 
 
 // gpio_test_bit_reg0 @ 0x10db84
+/* luna: Returns whether the GPIO register 0 bit selected by the bit index is set. */
 BOOL gpio_test_bit_reg0(char a1) {
   return ((1 << a1) & *(volatile uint32_t *)off_10DB98) != 0;
 }
@@ -858,6 +868,7 @@ int gpio_pin_config(int result, int a2, int a3) {
 
 
 // gpio_write_pin2 @ 0x10dc60
+/* luna: Sets GPIO pin 2 when the associated flag is nonzero, otherwise clears it. */
 int gpio_write_pin2() {
   if ( *((volatile uint8_t *)off_10DC74 + 369) )
     return gpio_set_bit_reg0(2);
@@ -1530,8 +1541,8 @@ LABEL_33:
 }
 
 
-// gpio_set_pin_mode @ 0x10e694
-int gpio_set_pin_mode(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
+// rf_pa_current_calibrate @ 0x10e694
+int rf_pa_current_calibrate(unsigned int a1, unsigned int a2, volatile unsigned int *a3) {
   unsigned int v3; // r4
   volatile unsigned int *v4; // r6
   volatile unsigned int *v5; // r5
@@ -1720,6 +1731,7 @@ int gpio_set_alternate(int a1) {
 
 
 // board_init @ 0x10e970
+/* luna: Initializes board-specific MMIO settings and GPIO configuration, temporarily changing control-register bits while setting pin 4 to mode 8. */
 int board_init(int a1) {
   volatile uint32_t *v1; // r2
   int v2; // r7
@@ -1727,13 +1739,13 @@ int board_init(int a1) {
   volatile uint32_t *v4; // r5
   volatile uint32_t *v5; // r10
   int v6; // r6
-  volatile unsigned int *v7; // r4
+  volatile unsigned int *pin_mode_ctrl_reg; // r4
   volatile int *v8; // r1
   int v9; // r0
-  unsigned int v10; // r9
-  unsigned int v11; // r8
-  unsigned int v12; // r7
-  unsigned int v13; // r6
+  unsigned int saved_ctrl_bit_19; // r9
+  unsigned int saved_ctrl_bit_20; // r8
+  unsigned int saved_ctrl_bit_21; // r7
+  unsigned int saved_ctrl_bit_22; // r6
   int result; // r0
   struct __attribute__((packed)) { uint16_t a1a[2]; // [sp+Ch] [bp-Ch] BYREF
   int v17; // [sp+10h] [bp-8h]
@@ -1745,7 +1757,7 @@ int board_init(int a1) {
   v4 = (void *)(uintptr_t)(off_10EA80);
   v5 = (void *)(uintptr_t)(off_10EA98);
   v6 = dword_10EA84;
-  v7 = (volatile unsigned int *)off_10EA88;
+  pin_mode_ctrl_reg = (volatile unsigned int *)off_10EA88;
   _frame.v18 = 0;
   *((volatile uint32_t *)off_10EA94 + 14) = 296;
   v1[3] = v1[3] & 0xE0000000 | v2;
@@ -1754,26 +1766,26 @@ int board_init(int a1) {
   *v4 &= ~1u;
   *(volatile uint32_t *)_frame.a1a = v6;
   _frame.v17 = 5610;
-  gpio_init(_frame.a1a, 0);
+  phy_set_channel(_frame.a1a, 0);
   v8 = (volatile int *)off_10EA8C;
   v9 = dword_10EA90;
   *v5 |= 0x80000000;
   *v8 = v9;
-  v10 = *v7;
-  v11 = *v7;
-  v12 = *v7;
-  v13 = *v7;
-  *v7 &= ~0x80000u;
-  *v7 |= 0x100000u;
-  *v7 |= 0x200000u;
-  *v7 |= 0x400000u;
-  result = gpio_set_pin_mode(4u, 8u, (volatile unsigned int *)a1);
+  saved_ctrl_bit_19 = *pin_mode_ctrl_reg;
+  saved_ctrl_bit_20 = *pin_mode_ctrl_reg;
+  saved_ctrl_bit_21 = *pin_mode_ctrl_reg;
+  saved_ctrl_bit_22 = *pin_mode_ctrl_reg;
+  *pin_mode_ctrl_reg &= ~0x80000u;
+  *pin_mode_ctrl_reg |= 0x100000u;
+  *pin_mode_ctrl_reg |= 0x200000u;
+  *pin_mode_ctrl_reg |= 0x400000u;
+  result = rf_pa_current_calibrate(4u, 8u, (volatile unsigned int *)a1);
   *v5 &= ~0x80000000;
   *v4 &= ~2u;
-  *v7 = v10 & 0x80000 | *v7 & 0xFFF7FFFF;
-  *v7 = v11 & 0x100000 | *v7 & 0xFFEFFFFF;
-  *v7 = v12 & 0x200000 | *v7 & 0xFFDFFFFF;
-  *v7 = v13 & 0x400000 | *v7 & 0xFFBFFFFF;
+  *pin_mode_ctrl_reg = saved_ctrl_bit_19 & 0x80000 | *pin_mode_ctrl_reg & 0xFFF7FFFF;
+  *pin_mode_ctrl_reg = saved_ctrl_bit_20 & 0x100000 | *pin_mode_ctrl_reg & 0xFFEFFFFF;
+  *pin_mode_ctrl_reg = saved_ctrl_bit_21 & 0x200000 | *pin_mode_ctrl_reg & 0xFFDFFFFF;
+  *pin_mode_ctrl_reg = saved_ctrl_bit_22 & 0x400000 | *pin_mode_ctrl_reg & 0xFFBFFFFF;
   return result;
 }
 
@@ -1815,7 +1827,7 @@ int board_init_2() {
   *v5 &= ~1u;
   *(volatile uint32_t *)_frame.a1 = v7;
   _frame.v16 = 2442;
-  gpio_init(_frame.a1, 0);
+  phy_set_channel(_frame.a1, 0);
   v8 = (volatile int *)off_10EBB4;
   v9 = dword_10EBB8;
   v0 += 593954;

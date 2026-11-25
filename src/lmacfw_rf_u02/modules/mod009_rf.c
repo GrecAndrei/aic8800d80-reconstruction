@@ -133,6 +133,7 @@ int mmio_write32(unsigned int a1, int a2) {
 
 
 // rf_get_reg1_bit9 @ 0x113b30
+/* luna: Returns bit 9 of the selected RF register (offset/index 1) read via MMIO. */
 unsigned int rf_get_reg1_bit9() {
   return ((unsigned int)mmio_read32(1u) >> 9) & 1;
 }
@@ -140,6 +141,7 @@ unsigned int rf_get_reg1_bit9() {
 
 
 // rf_set_reg1_bit9 @ 0x113b40
+/* luna: Sets RF register 1 to 0x200 through the MMIO write32 accessor, enabling bit 9 of that register. */
 int rf_set_reg1_bit9() {
   return mmio_write32(1u, 512);
 }
@@ -147,6 +149,7 @@ int rf_set_reg1_bit9() {
 
 
 // rf_get_reg1_bits13_16 @ 0x113b4c
+/* luna: Reads RF register 1 through MMIO and returns the four-bit field extracted from bits 13 through 16. */
 unsigned int rf_get_reg1_bits13_16() {
   return ((unsigned int)mmio_read32(1u) >> 13) & 0xF;
 }
@@ -162,6 +165,7 @@ unsigned int mmio_rmw_field(int a1) {
 
 
 // rf_get_reg2 @ 0x113b78
+/* luna: Reads the 32-bit value from RF register index or MMIO offset 2. */
 int rf_get_reg2() {
   return mmio_read32(2u);
 }
@@ -816,6 +820,7 @@ int rf_get_reg0x11_bits0_2() {
 
 
 // rf_get_reg0x11_bits3_5 @ 0x11414c
+/* luna: Reads the RF/mmio register at offset 0x11 and returns bits 3 through 5. */
 unsigned int rf_get_reg0x11_bits3_5() {
   return ((unsigned int)mmio_read32(0x11u) >> 3) & 7;
 }
@@ -823,6 +828,7 @@ unsigned int rf_get_reg0x11_bits3_5() {
 
 
 // rf_get_reg0x11_bits6_8 @ 0x11415c
+/* luna: Extracts bits 6-8 from RF/MMIO register offset 0x11. */
 unsigned int rf_get_reg0x11_bits6_8() {
   return ((unsigned int)mmio_read32(0x11u) >> 6) & 7;
 }
@@ -878,6 +884,7 @@ LABEL_3:
 
 
 // rf_get_reg0xf_bit18 @ 0x1141cc
+/* luna: Reads RF register 0xF and returns bit 18. */
 unsigned int rf_get_reg0xf_bit18() {
   return ((unsigned int)mmio_read32(0xFu) >> 18) & 1;
 }
@@ -885,6 +892,7 @@ unsigned int rf_get_reg0xf_bit18() {
 
 
 // rf_get_reg0xf_bit19 @ 0x1141dc
+/* luna: Reads RF register 0xF via MMIO and extracts bit 19. */
 unsigned int rf_get_reg0xf_bit19() {
   return ((unsigned int)mmio_read32(0xFu) >> 19) & 1;
 }
@@ -892,6 +900,7 @@ unsigned int rf_get_reg0xf_bit19() {
 
 
 // rf_set_reg0xf_bit19 @ 0x1141ec
+/* luna: Write RF register 0xF with bit 19 (0x80000) set via the MMIO helper. */
 int rf_set_reg0xf_bit19() {
   return mmio_write32(0xFu, 0x80000);
 }
@@ -899,6 +908,7 @@ int rf_set_reg0xf_bit19() {
 
 
 // rf_get_reg0xf_bit20 @ 0x1141f8
+/* luna: Return bit 20 of the RF register located at offset 0xF via an MMIO read. */
 unsigned int rf_get_reg0xf_bit20() {
   return ((unsigned int)mmio_read32(0xFu) >> 20) & 1;
 }

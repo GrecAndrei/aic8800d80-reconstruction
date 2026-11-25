@@ -647,33 +647,34 @@ void *rf_cmd_cancel() {
 
 
 // rf_cmd_wait @ 0x11d348
+/* luna: Polls an RF command status register until completion, updates associated RF control/status bits, and returns the RF command status block. */
 volatile int *rf_cmd_wait() {
-  volatile uint32_t *v0; // r1
+  volatile uint32_t *rf_cmd_status_ptr; // r1
   volatile uint32_t *v1; // r0
   volatile uint32_t *v2; // r1
   volatile uint32_t *v3; // r2
   volatile int *result; // r0
   volatile uint32_t *v5; // r6
   volatile uint32_t *v6; // r4
-  int v7; // r5
+  int rf_cmd_saved_value; // r5
 
-  v0 = (void *)(uintptr_t)(off_11D3C0);
+  rf_cmd_status_ptr = (void *)(uintptr_t)(off_11D3C0);
   v1 = (void *)(uintptr_t)(off_11D3C4);
   *(volatile uint32_t *)off_11D3BC &= ~0x80u;
-  *v0 = 0;
+  *rf_cmd_status_ptr = 0;
   *v1 = 60;
-  while ( *v0 << 28 )
+  while ( *rf_cmd_status_ptr << 28 )
     ;
   v2 = (void *)(uintptr_t)(off_11D3C4);
   v3 = (void *)(uintptr_t)(off_11D3C8);
   result = (volatile int *)off_11D3CC;
   v5 = (void *)(uintptr_t)(off_11D3D0);
   v6 = (void *)(uintptr_t)(off_11D3D4);
-  v7 = dword_11D3D8;
+  rf_cmd_saved_value = dword_11D3D8;
   *(volatile uint32_t *)off_11D3C4 |= 0x10000u;
   *v3 &= 0xFFFFFF00;
   *v5 = -1;
-  *result = v7;
+  *result = rf_cmd_saved_value;
   *v6 |= 0x80000000;
   result[4] |= 0x80000000;
   v2[8197] |= 0x80000000;
@@ -720,50 +721,51 @@ unsigned int rf_shutdown() {
 
 
 // rf_irq_handler_2 @ 0x11d470
+/* luna: Handles RF interrupt status by dispatching RF state-machine, hardware timer, GPIO/busy, fatal-error, and pending absolute-timer conditions. */
 int rf_irq_handler_2() {
-  int v0; // r4
+  int irq_status; // r4
   int result; // r0
-  volatile int *v2; // r4
-  int v3; // r1
+  volatile int *rf_gpio_base; // r4
+  int gpio_status; // r1
 
-  v0 = *(volatile uint32_t *)off_11D59C;
+  irq_status = *(volatile uint32_t *)off_11D59C;
   *(volatile uint32_t *)off_11D5A0 = *(volatile uint32_t *)off_11D59C;
-  if ( (v0 & 0x400) != 0 )
+  if ( (irq_status & 0x400) != 0 )
     rf_state_machine();
-  result = v0 << 23;
-  if ( (v0 & 0x100) != 0 )
+  result = irq_status << 23;
+  if ( (irq_status & 0x100) != 0 )
     result = hw_timer_load();
-  if ( (v0 & 0x200) != 0 )
+  if ( (irq_status & 0x200) != 0 )
   {
-    dispatch_event_handler_1(aErrorThereIsNo, v0 << 22);
+    dispatch_event_handler_1(aErrorThereIsNo, irq_status << 22);
     while ( 1 )
       ;
   }
-  if ( (v0 & 0x800) == 0 )
+  if ( (irq_status & 0x800) == 0 )
   {
-    if ( (v0 & 0x10) == 0 )
+    if ( (irq_status & 0x10) == 0 )
       goto LABEL_8;
 LABEL_23:
     mmio_irq_set(4);
     result = llm_pdu_tx_cfg(4u);
-    if ( (v0 & 0x2F) == 0 )
+    if ( (irq_status & 0x2F) == 0 )
       goto LABEL_13;
     goto LABEL_9;
   }
   result = set_busy_flag_alt(0x2000);
-  if ( (v0 & 0x10) != 0 )
+  if ( (irq_status & 0x10) != 0 )
     goto LABEL_23;
 LABEL_8:
-  if ( (v0 & 0x2F) == 0 )
+  if ( (irq_status & 0x2F) == 0 )
     goto LABEL_13;
 LABEL_9:
   if ( *(volatile uint8_t *)off_11D5A4 )
   {
-    v2 = (void *)(uintptr_t)(off_11D5C0);
+    rf_gpio_base = (void *)(uintptr_t)(off_11D5C0);
     gpio_config(*((volatile uint8_t *)off_11D5C0 + 411));
-    v3 = *((volatile char *)v2 + 411);
-    *(volatile uint8_t *)(off_11D5C4 + 9) = v3;
-    return dispatch_event_handler_1("update:%d\n", v3);
+    gpio_status = *((volatile char *)rf_gpio_base + 411);
+    *(volatile uint8_t *)(off_11D5C4 + 9) = gpio_status;
+    return dispatch_event_handler_1("update:%d\n", gpio_status);
   }
   if ( *(volatile uint8_t *)off_11D5A8 )
   {
@@ -774,34 +776,34 @@ LABEL_9:
 LABEL_13:
   if ( **(volatile int16_t **)off_11D5B0 < 0 )
   {
-    if ( (v0 & 1) != 0 )
+    if ( (irq_status & 1) != 0 )
     {
       return ke_int_lock_1((int)aTimerPendingHa_1, (int)aHalMachwAbsTim, 760);
     }
-    else if ( (v0 & 2) != 0 )
+    else if ( (irq_status & 2) != 0 )
     {
       return ke_int_lock_1((int)aTimerPendingHa_2, (int)aHalMachwAbsTim, 761);
     }
-    else if ( (v0 & 4) != 0 )
+    else if ( (irq_status & 4) != 0 )
     {
       return ke_int_lock_1((int)aTimerPendingHa_3, (int)aHalMachwAbsTim, 762);
     }
     else
     {
-      result = v0 << 28;
-      if ( (v0 & 8) != 0 )
+      result = irq_status << 28;
+      if ( (irq_status & 8) != 0 )
       {
         return ke_int_lock_1((int)aTimerPendingHa_0, (int)aHalMachwAbsTim, 763);
       }
-      else if ( (v0 & 0x80) != 0 )
+      else if ( (irq_status & 0x80) != 0 )
       {
         return ke_int_lock_1((int)aTimerPendingHa_5, (int)aHalMachwAbsTim, 765);
       }
-      else if ( (v0 & 0x40) != 0 )
+      else if ( (irq_status & 0x40) != 0 )
       {
         return ke_int_lock_1((int)aTimerPendingHa_4, (int)aHalMachwAbsTim, 767);
       }
-      else if ( (v0 & 0x20) != 0 )
+      else if ( (irq_status & 0x20) != 0 )
       {
         return ke_int_lock_1((int)aTimerPendingHa, (int)aHalMachwAbsTim, 769);
       }

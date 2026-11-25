@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "is_equal",
+ "luna": "aeabi_fcmpeq",
+ "doc": "ARM EABI helper that compares two single-precision floating-point values for equality and returns the predicate result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "aeabi_fcmpeq",
+   "probabilities": [
+    {
+     "value": "is_equal",
+     "probability": 0.25
+    },
+    {
+     "value": "aeabi_fcmpeq",
+     "probability": 0.71
+    },
+    {
+     "value": "neither",
+     "probability": 0.04
+    }
+   ],
+   "confidence": 0.56
+  }
+ ],
+ "status": "ok"
+}

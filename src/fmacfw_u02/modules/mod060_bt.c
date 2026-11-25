@@ -7,7 +7,7 @@ int bt_send_hci_event(int a1) {
   memcpy((void *)(uintptr_t)(a1), (void *)(uintptr_t)(v1[4]), 54);
   branch_to_12cbc8(v1[4] - 12);
   v1[4] = a1;
-  return init_rf_tables();
+  return sm_assoc_req_send();
 }
 
 
@@ -366,11 +366,10 @@ int ipc_send_msg(int a1, volatile uint16_t *a2, int a3, int a4) {
 }
 
 
-// ipc_register_handler @ 0x1360a4
-/* luna: Processes an APM stop-CAC request, conditionally performs station-related cleanup, and sends a no-parameter kernel response. */
-int ipc_register_handler(int a1, volatile uint8_t *a2, int a3, int a4) {
+// apm_stop_cac_req_handler @ 0x1360a4
+int apm_stop_cac_req_handler(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v6; // r2
-  int sta_info; // r0
+  int v7; // r0
   int v9; // r0
   volatile uint32_t *v10; // r1
   volatile uint32_t *v11; // r4
@@ -382,8 +381,8 @@ int ipc_register_handler(int a1, volatile uint8_t *a2, int a3, int a4) {
 
   event_dispatch("%s\n", aApmStopCacReqH);
   v6 = a3;
-  sta_info = dword_136140 + 1320 * *a2;
-  if ( *(volatile uint8_t *)(sta_info + 106) == 2 && !*(volatile uint8_t *)(sta_info + 108) )
+  v7 = dword_136140 + 1320 * *a2;
+  if ( *(volatile uint8_t *)(v7 + 106) == 2 && !*(volatile uint8_t *)(v7 + 108) )
   {
     v9 = rx_rate_field_parse(7u);
     v6 = a3;

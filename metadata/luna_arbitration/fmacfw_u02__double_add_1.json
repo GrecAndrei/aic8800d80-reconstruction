@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "double_add_1",
+ "luna": "double_multiply",
+ "doc": "Performs IEEE-754 double-precision multiplication using the ARM EABI helper implementation.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_multiply",
+   "probabilities": [
+    {
+     "value": "double_add_1",
+     "probability": 0.01
+    },
+    {
+     "value": "double_multiply",
+     "probability": 0.99
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "status": "ok"
+}

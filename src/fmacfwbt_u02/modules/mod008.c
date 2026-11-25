@@ -1,39 +1,40 @@
 // bt_evt_sched_high @ 0x113670
+/* luna: Initializes the USB WLAN RX packet free list by allocating the configured receive buffers and reporting allocation failures. */
 volatile uint32_t *bt_evt_sched_high() {
   void *v0; // r7
   volatile uint32_t *result; // r0
   volatile int *v2; // r9
-  volatile uint16_t *v3; // r6
+  volatile uint16_t *initialized_buffer_count; // r6
   int v4; // r8
   volatile uint16_t **v5; // r10
-  int16_t v6; // r5
+  int16_t buffer_index; // r5
   unsigned int v7; // r1
-  volatile uint32_t *v8; // r4
+  volatile uint32_t *rx_packet_item; // r4
 
   v0 = (void *)(uintptr_t)(off_1136EC);
   result = zero_struct((volatile uint32_t *)dword_1136F0);
   if ( *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8) )
   {
     v2 = (volatile int *)off_113700;
-    v3 = (void *)(uintptr_t)(off_1136F4);
+    initialized_buffer_count = (void *)(uintptr_t)(off_1136F4);
     v4 = dword_113704;
     v5 = (volatile uint16_t **)off_11370C;
-    v6 = 0;
+    buffer_index = 0;
     do
     {
-      v8 = rx_process_item(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
-      if ( !v8 )
+      rx_packet_item = rx_process_item(v4, (uint16_t)(*((volatile uint16_t *)v2 + 153) - 4));
+      if ( !rx_packet_item )
       {
-        ke_event_schedule_1("usb_wlan_rx_pkt_free_list_init alloc fail: %d\n", v6);
+        ke_event_schedule_1("usb_wlan_rx_pkt_free_list_init alloc fail: %d\n", buffer_index);
         if ( **v5 < 0 )
           mmio_irq_clear(off_1136FC, (int)aUsbWlanRxPktFr_0, 495);
       }
-      result = (volatile uint32_t *)check_abort_flag(dword_1136F0, v8);
+      result = (volatile uint32_t *)check_abort_flag(dword_1136F0, rx_packet_item);
       v7 = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8);
-      ++v6;
-      ++*v3;
+      ++buffer_index;
+      ++*initialized_buffer_count;
     }
-    while ( v7 > v6 );
+    while ( v7 > buffer_index );
   }
   return result;
 }
@@ -188,6 +189,7 @@ int critical_section_enter_no_set(volatile uint32_t *a1) {
 
 
 // is_rf_calib_running @ 0x1138e8
+/* luna: Returns whether the RF calibration-in-progress flag is set. */
 BOOL is_rf_calib_running() {
   return *((volatile uint8_t *)off_1138F8 + 8) == 1;
 }
@@ -687,6 +689,7 @@ void hw_sync_write() {
 
 
 // clear_hw_flag_bit @ 0x114524
+/* luna: Clears bit 1 in the hardware flag word at offset 8 from the configured base address. */
 void clear_hw_flag_bit() {
   *(volatile uint32_t *)(*(volatile uint32_t *)off_114534 + 8) &= ~2u;
 }
@@ -876,11 +879,12 @@ volatile uint32_t *init_osal_objects() {
 
 
 // dispatch_by_cmd @ 0x114790
+/* luna: Returns the total H:4 frame length from its packet indicator and type-specific payload length field, or -1 for an unsupported packet type. */
 int dispatch_by_cmd(volatile uint8_t *a1) {
-  int v1; // r3
+  int packet_type; // r3
 
-  v1 = *a1;
-  switch ( v1 )
+  packet_type = *a1;
+  switch ( packet_type )
   {
     case 1:
       return a1[3] + 4;

@@ -96,7 +96,7 @@ volatile uint32_t * parse_dot_separated(int a1, volatile uint32_t *a2, int a3) {
   if ( v5 )
     v6 = v5 - a1;
   else
-    v6 = memset_ff(a1);
+    v6 = strlen(a1);
   if ( a3 )
   {
     v7 = 0;
@@ -114,7 +114,7 @@ if ( !crc32((void *)(uintptr_t)(a1), (void *)(uintptr_t)(*v8), v6) ) break;
         if ( a3 == v9 )
           goto rf_cmd_dispatch_1ccc;
       }
-      if ( memset_ff(v10) == v6 )
+      if ( strlen(v10) == v6 )
         return v11;
       a2 = v8;
       ++v7;
@@ -161,7 +161,7 @@ int co_list_insert(unsigned int a1, volatile uint8_t *a2, int a3) {
     if ( !a3 )
       goto LABEL_3;
 LABEL_11:
-    v11 = memset_ff(a3);
+    v11 = strlen(a3);
     v12 = (volatile int *)off_121E28;
     v13 = (void *)(uintptr_t)(off_121E30);
     *v3 = (int)a2;
@@ -268,27 +268,28 @@ LABEL_7:
 
 
 // parse_number @ 0x121e3c
+/* luna: Parses a signed integer from a string in an optional radix, auto-detecting decimal, octal, and hexadecimal, and stores the next unparsed pointer if re */
 int parse_number(volatile uint8_t *a1, volatile uint32_t *a2, unsigned int a3) {
   int v3; // r5
-  int v4; // r7
+  int negative; // r7
   int i; // r6
-  unsigned int v6; // r3
-  int v8; // t1
-  int v9; // r3
-  int v10; // r3
+  unsigned int digit_value; // r3
+  int next_ch; // t1
+  int second_lower; // r3
+  int third_ch; // r3
 
   v3 = *a1;
   if ( v3 == 48 )
   {
     v3 = a1[1];
     if ( (unsigned int)(v3 - 65) > 0x19 )
-      v9 = a1[1];
+      second_lower = a1[1];
     else
-      v9 = (uint8_t)(v3 + 32);
-    if ( v9 == 120 && ((v10 = a1[2], (unsigned int)(v10 - 48) <= 9) || (v10 & 0xFFFFFFDF) - 65 <= 5) )
+      second_lower = (uint8_t)(v3 + 32);
+    if ( second_lower == 120 && ((third_ch = a1[2], (unsigned int)(third_ch - 48) <= 9) || (third_ch & 0xFFFFFFDF) - 65 <= 5) )
     {
       a1 += 2;
-      v3 = v10;
+      v3 = third_ch;
       a3 = 16;
     }
     else
@@ -300,7 +301,7 @@ int parse_number(volatile uint8_t *a1, volatile uint32_t *a2, unsigned int a3) {
         if ( v3 != 45 )
           goto LABEL_5;
 rf_mem_write_n_168:
-        v4 = 1;
+        negative = 1;
         v3 = *++a1;
         goto LABEL_6;
       }
@@ -313,26 +314,26 @@ rf_mem_write_n_168:
   if ( v3 == 45 )
     goto rf_mem_write_n_168;
 LABEL_5:
-  v4 = 0;
+  negative = 0;
 LABEL_6:
-  for ( i = 0; ; i = v6 + i * a3 )
+  for ( i = 0; ; i = digit_value + i * a3 )
   {
-    v6 = v3 - 48;
+    digit_value = v3 - 48;
     if ( (uint8_t)(v3 - 48) > 9u )
     {
       if ( (v3 & 0xFFFFFFDF) - 65 > 5 )
         break;
       if ( (unsigned int)(v3 - 97) > 0x19 )
-        v6 = v3 - 55;
+        digit_value = v3 - 55;
       else
-        v6 = (uint8_t)(v3 - 32) - 55;
+        digit_value = (uint8_t)(v3 - 32) - 55;
     }
-    if ( a3 <= v6 )
+    if ( a3 <= digit_value )
       break;
-    v8 = *++a1;
-    v3 = v8;
+    next_ch = *++a1;
+    v3 = next_ch;
   }
-  if ( v4 )
+  if ( negative )
     i = -i;
   if ( a2 )
     *a2 = (int)(uintptr_t)(a1);
@@ -367,7 +368,7 @@ int str_has_extension(int a1) {
   int v3; // r0
   int v5; // r3
 
-  v2 = memset_ff(a1);
+  v2 = strlen(a1);
   if ( v2 <= 2 )
     return 4;
   v3 = v2 + a1;
@@ -628,7 +629,7 @@ int check_message_len(int a1, int a2) {
   struct __attribute__((packed)) { char a1a[4]; // [sp+8h] [bp-Ch] BYREF
   char v26; // [sp+Ch] [bp-8h]
   } _frame;
-  if ( memset_ff(*(volatile uint32_t *)(a2 + 4)) != 12 || memset_ff(*(volatile uint32_t *)(a2 + 8)) != 12 )
+  if ( strlen(*(volatile uint32_t *)(a2 + 4)) != 12 || strlen(*(volatile uint32_t *)(a2 + 8)) != 12 )
     return -2;
   v3 = *(volatile uint32_t *)(a2 + 4);
   memcpy(_frame.a1a, (volatile char *)(v3 + 8), 4u);
@@ -1686,7 +1687,7 @@ int process_queue_message(int a1) {
   {
     if ( v1 )
     {
-      if ( memset_ff(off_123210) != v1 || strcmp(off_123210, (volatile unsigned int *)dword_123208) )
+      if ( strlen(off_123210) != v1 || strcmp(off_123210, (volatile unsigned int *)dword_123208) )
       {
         v4 = list_pop_front(dword_123214);
         v5 = v4;

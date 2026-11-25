@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "is_mgmt_action_frame",
+ "luna": "wlan_is_robust_mgmt_frame",
+ "doc": "Classifies deauthentication, disassociation, and robust action management frames using the action category.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "wlan_is_robust_mgmt_frame",
+   "probabilities": [
+    {
+     "value": "is_mgmt_action_frame",
+     "probability": 0.41
+    },
+    {
+     "value": "wlan_is_robust_mgmt_frame",
+     "probability": 0.52
+    },
+    {
+     "value": "neither",
+     "probability": 0.07
+    }
+   ],
+   "confidence": 0.28
+  }
+ ],
+ "status": "ok"
+}

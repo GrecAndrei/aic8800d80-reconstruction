@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "check_abort_flag",
+ "luna": "co_list_push_back",
+ "doc": "Appends a node to the tail of a RivieraWaves co_list by updating the list first/last pointers and clearing the node's next link, with optional debug logging for invalid input.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "co_list_push_back",
+   "probabilities": [
+    {
+     "value": "check_abort_flag",
+     "probability": 0.38
+    },
+    {
+     "value": "co_list_push_back",
+     "probability": 0.57
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.35
+  }
+ ],
+ "status": "ok"
+}

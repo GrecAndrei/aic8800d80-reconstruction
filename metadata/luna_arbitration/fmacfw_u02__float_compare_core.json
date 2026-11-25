@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "float_compare_core",
+ "luna": "float_compare_single",
+ "doc": "Compares two single-precision floating-point values and returns the libgcc comparison result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_compare_single",
+   "probabilities": [
+    {
+     "value": "float_compare_core",
+     "probability": 0.26
+    },
+    {
+     "value": "float_compare_single",
+     "probability": 0.69
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.53
+  }
+ ],
+ "status": "ok"
+}

@@ -476,22 +476,23 @@ void irq_counter_inc() {
 
 
 // conn_rx @ 0x117ae0
+/* luna: Handles a received 802.11 frame for a connection/channel, validating RF channel and PHY state, updating RX counters and packet descriptors under IRQ c */
 int conn_rx(int a1, int a2) {
-  volatile char *v4; // r7
-  int v5; // r10
-  int v6; // r8
-  int v7; // r11
-  int v8; // r9
+  volatile char *rx_conn_state; // r7
+  int rf_channel; // r10
+  int channel_context_base; // r8
+  int pkt_control; // r11
+  int rf_channel_context; // r9
   int v10; // r3
-  int16_t v11; // r1
-  int v12; // r6
-  int v13; // r3
-  volatile int *v14; // r6
-  int v15; // r2
+  int16_t frame_control_byte; // r1
+  int current_rx_pkt; // r6
+  int channel_expected_pkt; // r3
+  volatile int *rx_irq_counter; // r6
+  int llcp_pending; // r2
   char v16; // r3
   int v17; // r1
   volatile uint8_t *v18; // r3
-  volatile unsigned int v19; // r3
+  volatile unsigned int hw_timestamp; // r3
   int v20; // r3
   int v21; // r2
   int v22; // r2
@@ -502,70 +503,70 @@ int conn_rx(int a1, int a2) {
   int v27; // r2
   int v28; // r3
   int v29; // r2
-  volatile uint32_t *v30; // r3
+  volatile uint32_t *rx_pkt_desc; // r3
   int v31; // [sp+4h] [bp-8h]
 
   if ( a2 == 5 )
-    v4 = (volatile char *)dword_117CCC;
+    rx_conn_state = (volatile char *)dword_117CCC;
   else
-    v4 = (volatile char *)off_117CC8 + 84 * a2;
-  v5 = *(volatile uint8_t *)(a1 + 28);
-  v6 = dword_117D00;
-  v7 = *(volatile uint32_t *)(a1 + 76);
-  v8 = dword_117D00 + 1320 * v5;
-  if ( init_once(v8)
-    && ((v10 = *(volatile uint8_t *)(a1 + 28), *(volatile uint8_t *)(v6 + 1320 * v10 + 106))
+    rx_conn_state = (volatile char *)off_117CC8 + 84 * a2;
+  rf_channel = *(volatile uint8_t *)(a1 + 28);
+  channel_context_base = dword_117D00;
+  pkt_control = *(volatile uint32_t *)(a1 + 76);
+  rf_channel_context = dword_117D00 + 1320 * rf_channel;
+  if ( init_once(rf_channel_context)
+    && ((v10 = *(volatile uint8_t *)(a1 + 28), *(volatile uint8_t *)(channel_context_base + 1320 * v10 + 106))
      || *(volatile uint8_t *)(a1 + 29) > 0x23u
      || *(volatile uint16_t *)(a1 + 4)
-     || (v11 = *(volatile uint16_t *)(*(volatile uint32_t *)(a1 + 72) + 108), (uint8_t)v11 != 192)
-     && (uint8_t)v11 != 176
-     && (v11 & 0xDF) != 0
-     || (v12 = *((volatile uint32_t *)off_117CD0 + 10)) == 0
-     || *(volatile uint8_t *)(v12 + 24) <= 2u
-     || (v13 = *(volatile uint32_t *)(v6 + 1320 * v10 + 72)) == 0
-     || (v31 = v13, ke_event_schedule_1("is_on_chan:%d, %x\n", v12 == v13, (uint8_t)v11), v12 == v31))
+     || (frame_control_byte = *(volatile uint16_t *)(*(volatile uint32_t *)(a1 + 72) + 108), (uint8_t)frame_control_byte != 192)
+     && (uint8_t)frame_control_byte != 176
+     && (frame_control_byte & 0xDF) != 0
+     || (current_rx_pkt = *((volatile uint32_t *)off_117CD0 + 10)) == 0
+     || *(volatile uint8_t *)(current_rx_pkt + 24) <= 2u
+     || (channel_expected_pkt = *(volatile uint32_t *)(channel_context_base + 1320 * v10 + 72)) == 0
+     || (v31 = channel_expected_pkt, ke_event_schedule_1("is_on_chan:%d, %x\n", current_rx_pkt == channel_expected_pkt, (uint8_t)frame_control_byte), current_rx_pkt == v31))
     && phy_check_core_mode(a1) )
   {
-    *(volatile uint32_t *)(v7 + 68) |= 0x100u;
+    *(volatile uint32_t *)(pkt_control + 68) |= 0x100u;
     if ( (__get_CPSR() & 1) == 0 )
     {
       __disable_irq();
       *(volatile uint32_t *)off_117CD8 = 1;
     }
-    v14 = (volatile int *)off_117CDC;
-    v15 = *((volatile uint32_t *)v4 + 11);
-    v16 = v4[80] + 1;
+    rx_irq_counter = (volatile int *)off_117CDC;
+    llcp_pending = *((volatile uint32_t *)rx_conn_state + 11);
+    v16 = rx_conn_state[80] + 1;
     ++*(volatile uint32_t *)off_117CDC;
-    v4[80] = v16;
-    if ( v15 )
+    rx_conn_state[80] = v16;
+    if ( llcp_pending )
       llc_tx_llcp_handler(a2);
-    if ( !*((volatile uint32_t *)v4 + 5) )
+    if ( !*((volatile uint32_t *)rx_conn_state + 5) )
     {
-      v30 = *(volatile uint32_t **)(a1 + 72);
-      v30[4] = dword_117CFC;
-      v30[2] = a1;
-      v30[3] = a1;
+      rx_pkt_desc = *(volatile uint32_t **)(a1 + 72);
+      rx_pkt_desc[4] = dword_117CFC;
+      rx_pkt_desc[2] = a1;
+      rx_pkt_desc[3] = a1;
     }
-    check_abort_flag((int)(v4 + 12), (volatile uint32_t *)a1);
+    check_abort_flag((int)(rx_conn_state + 12), (volatile uint32_t *)a1);
     v17 = *((volatile uint32_t *)off_117CE0 + 8);
     ++*((volatile uint32_t *)off_117CC8 + 126);
     if ( v17 )
     {
       v18 = *(volatile uint8_t **)off_117CE4;
       *(volatile uint32_t *)off_117CE8 = 0x80000000;
-      if ( *v18 == 3 && v17 == v8 )
+      if ( *v18 == 3 && v17 == rf_channel_context )
       {
-        v19 = (*(volatile uint32_t *)0x40501010u);
-        *(volatile uint32_t *)(v6 + 1320 * v5 + 120) = v19;
+        hw_timestamp = (*(volatile uint32_t *)0x40501010u);
+        *(volatile uint32_t *)(channel_context_base + 1320 * rf_channel + 120) = hw_timestamp;
       }
     }
     if ( **(volatile uint8_t **)off_117CF0 == 2 && (*(volatile uint32_t *)off_117CF4 & dword_117CF8) == 0 )
       log_and_check_hw();
-    if ( *v14 )
+    if ( *rx_irq_counter )
     {
-      v20 = *v14 - 1;
+      v20 = *rx_irq_counter - 1;
       v21 = *(volatile uint32_t *)off_117CD8;
-      *v14 = v20;
+      *rx_irq_counter = v20;
       if ( !v20 )
       {
         if ( v21 )
@@ -577,15 +578,15 @@ int conn_rx(int a1, int a2) {
       __disable_irq();
       *(volatile uint32_t *)off_117CD8 = 1;
     }
-    v22 = *v14;
-    v23 = *v14 + 1;
+    v22 = *rx_irq_counter;
+    v23 = *rx_irq_counter + 1;
     v24 = *(volatile uint16_t *)(a1 + 82) | 1;
-    *v14 = v23;
+    *rx_irq_counter = v23;
     *(volatile uint16_t *)(a1 + 82) = v24;
     if ( v23 )
     {
       v25 = (volatile int *)off_117CD8;
-      *v14 = v22;
+      *rx_irq_counter = v22;
       v26 = *v25;
       if ( !v22 )
       {
@@ -599,13 +600,13 @@ int conn_rx(int a1, int a2) {
       *(volatile uint32_t *)off_117CD8 = 1;
     }
     v27 = *(volatile uint32_t *)(a1 + 72);
-    ++*v14;
+    ++*rx_irq_counter;
     mac_set_flag(a1, a1, v27, a2);
-    if ( *v14 )
+    if ( *rx_irq_counter )
     {
-      v28 = *v14 - 1;
+      v28 = *rx_irq_counter - 1;
       v29 = *(volatile uint32_t *)off_117CD8;
-      *v14 = v28;
+      *rx_irq_counter = v28;
       if ( !v28 )
       {
         if ( v29 )
@@ -712,15 +713,16 @@ LABEL_9:
 
 
 // rf_irq_clear @ 0x117e34
+/* luna: Reads pending RF interrupt status bits, maps the highest set bit to an entry, and writes the pending mask to clear the RF IRQ state. */
 int rf_irq_clear() {
-  unsigned int v0; // r4
+  unsigned int pending_rf_irq_bits; // r4
   int result; // r0
 
-  v0 = *(volatile uint32_t *)off_117E5C & 0xF00000;
-  if ( v0 )
+  pending_rf_irq_bits = *(volatile uint32_t *)off_117E5C & 0xF00000;
+  if ( pending_rf_irq_bits )
   {
-    result = get_84_entry((uint8_t)(11 - __clz(v0)));
-    *(volatile uint32_t *)off_117E60 = v0;
+    result = get_84_entry((uint8_t)(11 - __clz(pending_rf_irq_bits)));
+    *(volatile uint32_t *)off_117E60 = pending_rf_irq_bits;
   }
   else
   {
@@ -732,23 +734,24 @@ int rf_irq_clear() {
 
 
 // sleep_critical_enter @ 0x117e64
+/* luna: Enter a nested sleep-critical section by disabling interrupts if enabled, incrementing a global depth, requesting wake bits for controller contexts, a */
 void sleep_critical_enter() {
-  volatile int *v0; // r9
+  volatile int *sleep_depth_ptr; // r9
   volatile uint32_t *v1; // r7
   volatile uint8_t *v2; // r8
   volatile uint32_t *v3; // r5
   volatile uint8_t *v4; // r6
   int i; // r4
-  int v6; // r3
-  int v7; // r3
-  int v8; // r2
+  int depth_before; // r3
+  int depth_after; // r3
+  int irq_disable_saved; // r2
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_117EE8 = 1;
   }
-  v0 = (volatile int *)off_117EF0;
+  sleep_depth_ptr = (volatile int *)off_117EF0;
   v1 = (void *)(uintptr_t)(off_117EEC);
   v2 = (void *)(uintptr_t)(off_117EF4);
   ++*(volatile uint32_t *)off_117EF0;
@@ -765,16 +768,16 @@ void sleep_critical_enter() {
     v3 -= 7;
     v4 -= 84;
   }
-  v6 = *v0;
+  depth_before = *sleep_depth_ptr;
   v2[511] = 1;
-  if ( v6 )
+  if ( depth_before )
   {
-    v7 = v6 - 1;
-    v8 = *(volatile uint32_t *)off_117EE8;
-    *v0 = v7;
-    if ( !v7 )
+    depth_after = depth_before - 1;
+    irq_disable_saved = *(volatile uint32_t *)off_117EE8;
+    *sleep_depth_ptr = depth_after;
+    if ( !depth_after )
     {
-      if ( v8 )
+      if ( irq_disable_saved )
         __enable_irq();
     }
   }

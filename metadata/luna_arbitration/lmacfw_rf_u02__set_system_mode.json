@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "set_system_mode",
+ "luna": "bb_set_dump_mode",
+ "doc": "Selects and enables a baseband debug monitor dump source, using mode-specific register values and trace labels.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "bb_set_dump_mode",
+   "probabilities": [
+    {
+     "value": "set_system_mode",
+     "probability": 0.41
+    },
+    {
+     "value": "bb_set_dump_mode",
+     "probability": 0.57
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.35
+  }
+ ],
+ "status": "ok"
+}

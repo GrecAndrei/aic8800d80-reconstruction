@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "wlc_phy_cal_init",
+ "luna": "wlc_sta_mgmt_unregister",
+ "doc": "Unregisters a station management context by clearing its list/registration state, adjusting interface association counters, flushing LLC queues, and finalizing per-interface transmit setup.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "wlc_phy_cal_init",
+   "probabilities": [
+    {
+     "value": "wlc_phy_cal_init",
+     "probability": 0.54
+    },
+    {
+     "value": "wlc_sta_mgmt_unregister",
+     "probability": 0.38
+    },
+    {
+     "value": "neither",
+     "probability": 0.08
+    }
+   ],
+   "confidence": 0.31
+  }
+ ],
+ "status": "ok"
+}

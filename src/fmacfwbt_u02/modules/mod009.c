@@ -638,6 +638,7 @@ int get_hw_info_field0() {
 
 
 // get_hw_info_field1 @ 0x115158
+/* luna: Returns bits 3–5 of the hardware-information value queried from ROM with selector 17. */
 unsigned int get_hw_info_field1() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(17) >> 3) & 7;
 }
@@ -645,6 +646,7 @@ unsigned int get_hw_info_field1() {
 
 
 // get_hw_info_field2 @ 0x11516c
+/* luna: Returns bits 6–8 of hardware-info value 17 obtained through a ROM routine. */
 unsigned int get_hw_info_field2() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(17) >> 6) & 7;
 }
@@ -674,6 +676,7 @@ int rom_call_extract_byte(volatile uint8_t *a1) {
 
 
 // get_hw_info_bit18 @ 0x1151ac
+/* luna: Returns bit 18 of the hardware information value obtained from the ROM routine. */
 unsigned int get_hw_info_bit18() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(15) >> 18) & 1;
 }
@@ -681,6 +684,7 @@ unsigned int get_hw_info_bit18() {
 
 
 // get_hw_info_bit19 @ 0x1151c0
+/* luna: Returns bit 19 of the value obtained by calling the ROM hardware-info routine with selector 15. */
 unsigned int get_hw_info_bit19() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(15) >> 19) & 1;
 }
@@ -688,6 +692,7 @@ unsigned int get_hw_info_bit19() {
 
 
 // get_hw_info_bit20 @ 0x1151d4
+/* luna: Returns bit 20 of the hardware-info value retrieved from the ROM service using selector 15. */
 unsigned int get_hw_info_bit20() {
   return ((unsigned int)((int (*)())MEMD(0x1FC))(15) >> 20) & 1;
 }
@@ -695,6 +700,7 @@ unsigned int get_hw_info_bit20() {
 
 
 // get_hw_info_1b @ 0x1151e8
+/* luna: Returns hardware-info bit 27 using the registered accessor. */
 int get_hw_info_1b() {
   return ((int (*)())MEMD(0x1FC))(27);
 }

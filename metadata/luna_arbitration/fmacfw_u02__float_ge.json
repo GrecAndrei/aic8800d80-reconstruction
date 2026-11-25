@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "float_ge",
+ "luna": "aeabi_fcmpge",
+ "doc": "Implements the ARM EABI greater-than-or-equal comparison for two single-precision floating-point operands.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "aeabi_fcmpge",
+   "probabilities": [
+    {
+     "value": "float_ge",
+     "probability": 0.44
+    },
+    {
+     "value": "aeabi_fcmpge",
+     "probability": 0.45
+    },
+    {
+     "value": "neither",
+     "probability": 0.11
+    }
+   ],
+   "confidence": 0.18
+  }
+ ],
+ "status": "ok"
+}

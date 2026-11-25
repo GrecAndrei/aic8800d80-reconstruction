@@ -29,15 +29,16 @@ int gpio_init_pin_13() {
 
 
 // gpio_init_pin_12 @ 0x10dce8
+/* luna: Initializes GPIO pin 12 by calling the shared pin-control helper and then updating GPIO configuration registers to enable the pin function and clear c */
 int gpio_init_pin_12() {
   int result; // r0
-  volatile uint32_t *v1; // r3
+  volatile uint32_t *gpio_ctrl_base; // r3
 
   result = call_slot_0x1b8(dword_10DD18, 4096, 15360);
-  v1 = (void *)(uintptr_t)(off_10DD1C);
+  gpio_ctrl_base = (void *)(uintptr_t)(off_10DD1C);
   *((volatile uint32_t *)off_10DD1C + 2) |= 0xFu;
-  v1[2] |= 0x10000000u;
-  v1[3] &= 0xFFFFF7FE;
+  gpio_ctrl_base[2] |= 0x10000000u;
+  gpio_ctrl_base[3] &= 0xFFFFF7FE;
   return result;
 }
 
@@ -67,7 +68,7 @@ unsigned int gpio_port_init() {
   while ( v1[7] != 1 )
     ;
   v1[7] = 1;
-  v4 = double_to_float(v1[4]);
+  v4 = aeabi_ui2d(v1[4]);
   v5 = ((uint64_t (*)())aeabi_dadd)(v4, *(volatile uint64_t *)&dword_10DDA0);
   v6 = ((uint64_t (*)())aeabi_dsub)(v5, *(volatile uint64_t *)&dword_10DDA8);
   v7 = ((uint64_t (*)())double_subtract)(v6, *(volatile uint64_t *)&dword_10DDB0);
@@ -111,7 +112,7 @@ unsigned int sdio_core_reset(unsigned int result, int a2) {
       while ( v2[7] != 1 )
         ;
       v2[7] = 1;
-      v10 = double_to_float(v2[4]);
+      v10 = aeabi_ui2d(v2[4]);
       v11 = ((uint64_t (*)())aeabi_dadd)(v10, v6);
       v12 = ((uint64_t (*)())aeabi_dsub)(v11, v7);
       v13 = ((uint64_t (*)())double_subtract)(v12, *(volatile uint64_t *)&dword_10DE80);
@@ -160,7 +161,7 @@ unsigned int wait_sdio_core_ready() {
     ;
   v0 = (void *)(uintptr_t)(off_10DF50);
   *((volatile uint32_t *)off_10DF50 + 7) = 1;
-  v1 = double_to_float(v0[4]);
+  v1 = aeabi_ui2d(v0[4]);
   v2 = ((uint64_t (*)())aeabi_dadd)(v1, *(volatile uint64_t *)&dword_10DF38);
   v3 = ((uint64_t (*)())aeabi_dsub)(v2, *(volatile uint64_t *)&dword_10DF40);
   v4 = ((uint64_t (*)())double_subtract)(v3, *(volatile uint64_t *)&dword_10DF48);
@@ -232,32 +233,33 @@ float sdio_core_config_1() {
 
 
 // sdio_core_config_2 @ 0x10e0b8
+/* luna: Configures SDIO core control registers and GPIO, waits for the core handshake, and returns a converted timing/status value. */
 float sdio_core_config_2() {
-  volatile uint32_t *v0; // r4
-  volatile uint32_t *v1; // r2
-  int v2; // r3
-  int v3; // r0
-  int v4; // r1
-  unsigned int v5; // r4
+  volatile uint32_t *sdio_core_regs; // r4
+  volatile uint32_t *sdio_config_regs; // r2
+  int sdio_reg3_preserve_mask; // r3
+  int sdio_reg3_select_mask; // r0
+  int sdio_reg3_select_value; // r1
+  unsigned int sdio_status_or_counter; // r4
 
-  v0 = (void *)(uintptr_t)(off_10E14C);
-  v1 = (void *)(uintptr_t)(off_10E150);
-  v2 = dword_10E154;
-  v3 = dword_10E158;
-  v4 = dword_10E15C;
+  sdio_core_regs = (void *)(uintptr_t)(off_10E14C);
+  sdio_config_regs = (void *)(uintptr_t)(off_10E150);
+  sdio_reg3_preserve_mask = dword_10E154;
+  sdio_reg3_select_mask = dword_10E158;
+  sdio_reg3_select_value = dword_10E15C;
   *(volatile uint32_t *)off_10E14C = 0;
-  v1[14] = 296;
-  v0[2] = v0[2] & 0xF000FFFF | 0x2000000;
-  v0[3] = v2 & v0[3] | 0xA06A000;
-  v0[3] = v4 | v3 & v0[3];
+  sdio_config_regs[14] = 296;
+  sdio_core_regs[2] = sdio_core_regs[2] & 0xF000FFFF | 0x2000000;
+  sdio_core_regs[3] = sdio_reg3_preserve_mask & sdio_core_regs[3] | 0xA06A000;
+  sdio_core_regs[3] = sdio_reg3_select_value | sdio_reg3_select_mask & sdio_core_regs[3];
   gpio_init_pin_10();
-  v0[1] = 1;
-  while ( v0[7] != 1 )
+  sdio_core_regs[1] = 1;
+  while ( sdio_core_regs[7] != 1 )
     ;
-  v0[7] = 1;
-  v5 = v0[4];
+  sdio_core_regs[7] = 1;
+  sdio_status_or_counter = sdio_core_regs[4];
   call_slot_0x1b8(dword_10E160, 0, 15360);
-  return (float)((float)((float)((float)v5 / flt_10E164) - 1.0) * flt_10E168) * flt_10E16C;
+  return (float)((float)((float)((float)sdio_status_or_counter / flt_10E164) - 1.0) * flt_10E168) * flt_10E16C;
 }
 
 
@@ -360,7 +362,7 @@ int sdio_core_enable() {
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v1 = double_to_float(v0[4]);
+  v1 = aeabi_ui2d(v0[4]);
   v2 = ((uint64_t (*)())aeabi_dadd)(v1, *(volatile uint64_t *)&dword_10E3E8);
   v3 = ((uint64_t (*)())aeabi_dsub)(v2, *(volatile uint64_t *)&dword_10E3F0);
   v4 = ((uint64_t (*)())double_subtract)(v3, *(volatile uint64_t *)&dword_10E3E8);
@@ -373,7 +375,7 @@ int sdio_core_enable() {
   v6[7] = 1;
   v7 = v6[4];
   check_hw_status(3);
-  v8 = double_to_float(v7);
+  v8 = aeabi_ui2d(v7);
   v9 = ((uint64_t (*)())aeabi_dadd)(v8, *(volatile uint64_t *)&dword_10E3E8);
   v10 = ((uint64_t (*)())aeabi_dsub)(v9, *(volatile uint64_t *)&dword_10E3F0);
   v11 = ((uint64_t (*)())double_subtract)(v10, *(volatile uint64_t *)&dword_10E3E8);
@@ -423,7 +425,7 @@ int sdio_core_set_enable() {
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v1 = double_to_float(v0[4]);
+  v1 = aeabi_ui2d(v0[4]);
   v2 = ((uint64_t (*)())aeabi_dadd)(v1, *(volatile uint64_t *)&dword_10E4A8);
   v3 = ((uint64_t (*)())aeabi_dsub)(v2, *(volatile uint64_t *)&dword_10E4B0);
   v4 = ((uint64_t (*)())double_subtract)(v3, *(volatile uint64_t *)&dword_10E4A8);
@@ -496,7 +498,7 @@ int periph_cmd_write() {
   while ( v1[7] != 1 )
     ;
   v1[7] = 1;
-  v2 = double_to_float(v1[4]);
+  v2 = aeabi_ui2d(v1[4]);
   v3 = ((uint64_t (*)())aeabi_dadd)(v2, *(volatile uint64_t *)&dword_10E750);
   v4 = ((uint64_t (*)())double_subtract)(v3, *(volatile uint64_t *)&dword_10E758);
   v5 = ((int (*)(uint64_t))double_to_float_1)(v4);
@@ -535,7 +537,7 @@ int periph_cmd_write() {
       while ( v15[7] != 1 )
         ;
       v15[7] = 1;
-      v16 = double_to_float(v15[4]);
+      v16 = aeabi_ui2d(v15[4]);
       v17 = ((uint64_t (*)())aeabi_dadd)(v16, *(volatile uint64_t *)&dword_10E750);
       v18 = ((uint64_t (*)())double_subtract)(v17, *(volatile uint64_t *)&dword_10E758);
       v5 = ((int (*)(uint64_t))double_to_float_1)(v18);
@@ -581,7 +583,7 @@ LABEL_19:
     while ( v21[7] != 1 )
       ;
     v21[7] = 1;
-    v26 = double_to_float(v21[4]);
+    v26 = aeabi_ui2d(v21[4]);
     v27 = ((uint64_t (*)())aeabi_dadd)(v26, *(volatile uint64_t *)&dword_10E750);
     v28 = ((uint64_t (*)())double_subtract)(v27, *(volatile uint64_t *)&dword_10E758);
     v37 = ((int (*)(uint64_t))double_to_float_1)(v28);
@@ -608,7 +610,7 @@ LABEL_28:
   while ( v31[7] != 1 )
     ;
   v31[7] = 1;
-  v32 = double_to_float(v31[4]);
+  v32 = aeabi_ui2d(v31[4]);
   v33 = ((uint64_t (*)())aeabi_dadd)(v32, *(volatile uint64_t *)&dword_10E750);
   v34 = ((uint64_t (*)())double_subtract)(v33, *(volatile uint64_t *)&dword_10E758);
   v35 = ((int (*)(uint64_t))double_to_float_1)(v34);
@@ -673,7 +675,7 @@ int periph_cmd_poll() {
   while ( v0[7] != 1 )
     ;
   v0[7] = 1;
-  v3 = double_to_float(v0[4]);
+  v3 = aeabi_ui2d(v0[4]);
   v4 = ((uint64_t (*)())aeabi_dadd)(v3, *(volatile uint64_t *)&dword_10EA30);
   v5 = ((uint64_t (*)())aeabi_dsub)(v4, *(volatile uint64_t *)&dword_10EA38);
   v6 = ((uint64_t (*)())double_subtract)(v5, *(volatile uint64_t *)&dword_10EA30);
@@ -728,7 +730,7 @@ int periph_cmd_poll() {
     while ( v16[7] != 1 )
       ;
     v16[7] = 1;
-    v17 = double_to_float(v16[4]);
+    v17 = aeabi_ui2d(v16[4]);
     v18 = ((uint64_t (*)())aeabi_dadd)(v17, *(volatile uint64_t *)&dword_10EA30);
     v19 = ((uint64_t (*)())aeabi_dsub)(v18, *(volatile uint64_t *)&dword_10EA38);
     v20 = ((uint64_t (*)())double_subtract)(v19, *(volatile uint64_t *)&dword_10EA30);
@@ -758,7 +760,7 @@ int periph_cmd_poll() {
     while ( v23[7] != 1 )
       ;
     v23[7] = 1;
-    v27 = double_to_float(v23[4]);
+    v27 = aeabi_ui2d(v23[4]);
     v28 = ((uint64_t (*)())aeabi_dadd)(v27, *(volatile uint64_t *)&dword_10EA30);
     v29 = ((uint64_t (*)())aeabi_dsub)(v28, *(volatile uint64_t *)&dword_10EA38);
     v30 = ((uint64_t (*)())double_subtract)(v29, *(volatile uint64_t *)&dword_10EA30);
@@ -785,7 +787,7 @@ LABEL_33:
   while ( v34[7] != 1 )
     ;
   v34[7] = 1;
-  v35 = double_to_float(v34[4]);
+  v35 = aeabi_ui2d(v34[4]);
   v36 = ((uint64_t (*)())aeabi_dadd)(v35, *(volatile uint64_t *)&dword_10EA30);
   v37 = ((uint64_t (*)())aeabi_dsub)(v36, *(volatile uint64_t *)&dword_10EA38);
   v38 = ((uint64_t (*)())double_subtract)(v37, *(volatile uint64_t *)&dword_10EA30);
@@ -1123,6 +1125,7 @@ int call_slot_0x1b4() {
 
 
 // call_slot_0x1b8 @ 0x10efb4
+/* luna: Indirect call thunk that invokes the function pointer stored at literal table slot 0x1B8. */
 int call_slot_0x1b8() {
   return ((int (*)())MEMD(0x1B8))();
 }
@@ -1285,6 +1288,7 @@ int mmio_set_reg_0x70001408() {
 
 
 // get_xtal_ftune @ 0x10f15c
+/* luna: Reads the crystal oscillator frequency tuning/trim field from a common register and returns the extracted bits. */
 int get_xtal_ftune() {
   return (uint16_t)critical_enter(dword_10F16C, 1) >> 11;
 }
@@ -1399,29 +1403,30 @@ unsigned int set_tx_power_cal() {
 
 
 // tx_power_temperature_comp @ 0x10f44c
+/* luna: Computes and stores the RF TX power temperature compensation value, clamps negative compensation, updates GPIO configuration, logs the change, and eit */
 int tx_power_temperature_comp() {
-  volatile uint8_t *v0; // r6
-  int v1; // r5
-  int v2; // r4
+  volatile uint8_t *p_temp_comp_state; // r6
+  int temp_base_code; // r5
+  int temp_comp_value; // r4
   int result; // r0
-  volatile unsigned int v4; // r3
+  volatile unsigned int now_tick; // r3
 
-  v0 = (void *)(uintptr_t)(off_10F4AC);
-  v1 = (char)(*((volatile uint8_t *)off_10F4AC + 5) + (*(volatile uint8_t *)off_10F4A8 & 3));
-  v2 = *((volatile char *)off_10F4AC + 7) - v1;
-  if ( v2 < -62 )
-    v2 = (v2 & ~0xFFu) | ((uint8_t)(-62) & 0xFFu);
-  gpio_config(v2);
-  v0[7] = v2;
-  result = dispatch_event_handler_1("update# =%d %d\r\n", (char)v2, v1);
-  if ( (char)v2 < -61 )
+  p_temp_comp_state = (void *)(uintptr_t)(off_10F4AC);
+  temp_base_code = (char)(*((volatile uint8_t *)off_10F4AC + 5) + (*(volatile uint8_t *)off_10F4A8 & 3));
+  temp_comp_value = *((volatile char *)off_10F4AC + 7) - temp_base_code;
+  if ( temp_comp_value < -62 )
+    temp_comp_value = (temp_comp_value & ~0xFFu) | ((uint8_t)(-62) & 0xFFu);
+  gpio_config(temp_comp_value);
+  p_temp_comp_state[7] = temp_comp_value;
+  result = dispatch_event_handler_1("update# =%d %d\r\n", (char)temp_comp_value, temp_base_code);
+  if ( (char)temp_comp_value < -61 )
   {
-    v0[11] = 0;
+    p_temp_comp_state[11] = 0;
   }
   else
   {
-    v4 = (*(volatile uint32_t *)0x40501010u);
-    return ke_enter_critical((volatile uint32_t *)v0 + 3, v4 + 30000 * *((volatile uint16_t *)v0 + 4));
+    now_tick = (*(volatile uint32_t *)0x40501010u);
+    return ke_enter_critical((volatile uint32_t *)p_temp_comp_state + 3, now_tick + 30000 * *((volatile uint16_t *)p_temp_comp_state + 4));
   }
   return result;
 }
@@ -2190,6 +2195,7 @@ LABEL_39:
 
 
 // mem_is_in_heap @ 0x10fe24
+/* luna: Checks whether an address lies within either of two configured heap regions by comparing it against each region's base address and size. */
 BOOL mem_is_in_heap(unsigned int a1) {
   if ( *(volatile uint32_t *)off_10FE54 <= a1 && a1 <= *(volatile uint32_t *)off_10FE54 + *((volatile uint32_t *)off_10FE54 + 1) )
     return 1;

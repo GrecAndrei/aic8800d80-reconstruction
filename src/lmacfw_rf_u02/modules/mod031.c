@@ -1,62 +1,63 @@
 // strchr @ 0x12841c
+/* luna: Searches a NUL-terminated byte string for the first occurrence of a specified byte, using an aligned word-at-a-time scan when the pointer is 4-byte al */
 volatile uint8_t * strchr(volatile uint8_t *result, uint8_t a2) {
-  volatile uint8_t *v2; // r3
-  int v3; // r6
-  int v4; // t1
-  int v5; // r3
+  volatile uint8_t *scan_ptr; // r3
+  int char_word_pattern; // r6
+  int word; // t1
+  int byte; // r3
   int v6; // t1
   int v7; // r2
   int v8; // t1
   int v9; // t1
 
-  v2 = result;
+  scan_ptr = result;
   if ( a2 )
   {
     if ( (uint32_t)result << 30 )
     {
       while ( 1 )
       {
-        result = v2;
-        v8 = *v2++;
+        result = scan_ptr;
+        v8 = *scan_ptr++;
         v7 = v8;
         if ( !v8 )
           return 0;
         if ( v7 == a2 )
           return result;
-        result = v2;
-        if ( !((uint32_t)v2 << 30) )
+        result = scan_ptr;
+        if ( !((uint32_t)scan_ptr << 30) )
           goto LABEL_3;
       }
     }
     else
     {
 LABEL_3:
-      v3 = a2 | (a2 << 8) | ((a2 | (a2 << 8)) << 16);
-      if ( ((((v3 ^ *(volatile uint32_t *)result) - 16843009) & ~(v3 ^ *(volatile uint32_t *)result)
+      char_word_pattern = a2 | (a2 << 8) | ((a2 | (a2 << 8)) << 16);
+      if ( ((((char_word_pattern ^ *(volatile uint32_t *)result) - 16843009) & ~(char_word_pattern ^ *(volatile uint32_t *)result)
            | (*(volatile uint32_t *)result - 16843009) & ~*(volatile uint32_t *)result)
           & 0x80808080) == 0 )
       {
         do
         {
-          v4 = *((volatile uint32_t *)result + 1);
+          word = *((volatile uint32_t *)result + 1);
           result += 4;
         }
-        while ( (((v4 - 16843009) & ~v4 | ((v4 ^ v3) - 16843009) & ~(v4 ^ v3)) & 0x80808080) == 0 );
+        while ( (((word - 16843009) & ~word | ((word ^ char_word_pattern) - 16843009) & ~(word ^ char_word_pattern)) & 0x80808080) == 0 );
       }
-      v5 = *result;
+      byte = *result;
       if ( *result )
       {
-        while ( a2 != v5 )
+        while ( a2 != byte )
         {
           v6 = *++result;
-          v5 = v6;
+          byte = v6;
           if ( !v6 )
-            return (volatile uint8_t *)v5;
+            return (volatile uint8_t *)byte;
         }
       }
       else
       {
-        return (volatile uint8_t *)v5;
+        return (volatile uint8_t *)byte;
       }
     }
   }
@@ -64,11 +65,11 @@ LABEL_3:
   {
     while ( 1 )
     {
-      result = v2++;
+      result = scan_ptr++;
       if ( !*result )
         break;
-      result = v2;
-      if ( !((uint32_t)v2 << 30) )
+      result = scan_ptr;
+      if ( !((uint32_t)scan_ptr << 30) )
         goto LABEL_18;
     }
   }
@@ -96,6 +97,7 @@ LABEL_18:
 
 
 // strcmp @ 0x128508
+/* luna: Compares two null-terminated strings, using aligned word-at-a-time loads and zero-byte detection to return negative, zero, or positive based on the fi */
 int strcmp(unsigned int a1, volatile unsigned int *a2) {
 uint32_t _R12;
 uint64_t _R2;
@@ -105,13 +107,13 @@ uint32_t _R5;
 
   int v3; // r2
   int v4; // r3
-  char v7; // r4
-  volatile uint64_t *v8; // r0
-  volatile uint64_t *v9; // r1
-  uint64_t v10; // t1
-  uint64_t v11; // t1
-  int v12; // r4
-  uint64_t v14; // r6
+  char s1_align_bits; // r4
+  volatile uint64_t *s1_block_ptr; // r0
+  volatile uint64_t *s2_block_ptr; // r1
+  uint64_t s1_word64; // t1
+  uint64_t s2_word64; // t1
+  int align_shift_mask; // r4
+  uint64_t s2_word_cmp; // r6
   uint64_t v15; // t1
   uint64_t v16; // t1
   char v30; // r4
@@ -164,49 +166,49 @@ uint32_t _R5;
     goto LABEL_9;
   if ( ((a1 ^ (unsigned int)a2) & 7) == 0 )
   {
-    v7 = a1 & 7;
-    v8 = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
-    v9 = (volatile uint64_t *)((unsigned int)a2 & 0xFFFFFFF8);
-    v10 = *v8;
-    a1 = (unsigned int)(v8 + 2);
-    _R2 = v10;
-    _ZF = (v7 & 4) == 0;
-    v11 = *v9;
-    a2 = (volatile unsigned int *)(v9 + 2);
-    v12 = -1 << (8 * (v7 & 3));
-    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(_R2 | ~v12) & 0xFFFFFFFFULL) << 0);
-    v14 = v11 | (unsigned int)~v12;
+    s1_align_bits = a1 & 7;
+    s1_block_ptr = (volatile uint64_t *)(a1 & 0xFFFFFFF8);
+    s2_block_ptr = (volatile uint64_t *)((unsigned int)a2 & 0xFFFFFFF8);
+    s1_word64 = *s1_block_ptr;
+    a1 = (unsigned int)(s1_block_ptr + 2);
+    _R2 = s1_word64;
+    _ZF = (s1_align_bits & 4) == 0;
+    s2_word64 = *s2_block_ptr;
+    a2 = (volatile unsigned int *)(s2_block_ptr + 2);
+    align_shift_mask = -1 << (8 * (s1_align_bits & 3));
+    _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(_R2 | ~align_shift_mask) & 0xFFFFFFFFULL) << 0);
+    s2_word_cmp = s2_word64 | (unsigned int)~align_shift_mask;
     if ( !_ZF )
     {
-      _R2 = _R2 | (((uint64_t)(~v12)) << 32);
+      _R2 = _R2 | (((uint64_t)(~align_shift_mask)) << 32);
       _R2 = (_R2 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
-      v14 = v14 | (((uint64_t)(~v12)) << 32);
-      v14 = (v14 & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
+      s2_word_cmp = s2_word_cmp | (((uint64_t)(~align_shift_mask)) << 32);
+      s2_word_cmp = (s2_word_cmp & 0xFFFFFFFF00000000ULL) | (((unsigned long long)(-1) & 0xFFFFFFFFULL) << 0);
     }
     while ( 1 )
     {
       (void)0;
 
-      _R4 = _R2 ^ v14;
+      _R4 = _R2 ^ s2_word_cmp;
       _R4 = (uint32_t)_R4 | __zmask32((uint32_t)_R2);
 
       if ( _R4 )
         break;
       (void)0;
 
-      _R5 = HIDWORD(_R2) ^ HIDWORD(v14);
+      _R5 = HIDWORD(_R2) ^ HIDWORD(s2_word_cmp);
       _R5 = (uint32_t)_R5 | __zmask32((uint32_t)(_R2 >> 32));
 
       if ( _R5 )
         goto LABEL_14;
       _R2 = *(volatile uint64_t *)(a1 - 8);
-      v14 = *((volatile uint64_t *)a2 - 1);
+      s2_word_cmp = *((volatile uint64_t *)a2 - 1);
       (void)0;
 
-      _R4 = _R2 ^ v14;
+      _R4 = _R2 ^ s2_word_cmp;
       _R4 = (uint32_t)_R4 | __zmask32((uint32_t)_R2);
 
-      _R5 = HIDWORD(_R2) ^ HIDWORD(v14);
+      _R5 = HIDWORD(_R2) ^ HIDWORD(s2_word_cmp);
       _R5 = (uint32_t)_R5 | __zmask32((uint32_t)(_R2 >> 32));
 
       _R5 = _R5 | _R4;
@@ -216,7 +218,7 @@ uint32_t _R5;
         {
 LABEL_14:
           v30 = __clz(bswap32(_R5)) & 0xF8;
-          return (uint8_t)(HIDWORD(_R2) >> v30) - (uint8_t)(HIDWORD(v14) >> v30);
+          return (uint8_t)(HIDWORD(_R2) >> v30) - (uint8_t)(HIDWORD(s2_word_cmp) >> v30);
         }
         break;
       }
@@ -226,10 +228,10 @@ LABEL_9:
       _R2 = v15;
       v16 = *(volatile uint64_t *)a2;
       a2 += 4;
-      v14 = v16;
+      s2_word_cmp = v16;
     }
     v31 = __clz(bswap32(_R4)) & 0xF8;
-    return (uint8_t)((unsigned int)_R2 >> v31) - (uint8_t)((unsigned int)v14 >> v31);
+    return (uint8_t)((unsigned int)_R2 >> v31) - (uint8_t)((unsigned int)s2_word_cmp >> v31);
   }
   if ( (((uint8_t)a1 ^ (uint8_t)a2) & 3) == 0 )
   {
@@ -428,8 +430,8 @@ LABEL_59:
 /* libmatch: 186 bytes identical to strcpy (libc.a:libc_a-strcpy.o); the library routine is linked */
 
 
-// memset_ff @ 0x1288c0
-unsigned int memset_ff(unsigned int a1) {
+// strlen @ 0x1288c0
+unsigned int strlen(unsigned int a1) {
 uint32_t _R12;
 uint64_t _R2;
 uint64_t _R3;
@@ -575,6 +577,7 @@ int bt_reg_write() {
 
 
 // noop_130DF4 @ 0x130df4
+/* luna: Empty no-operation stub, likely an unused callback or linker placeholder. */
 void noop_130DF4() {
   ;
 }

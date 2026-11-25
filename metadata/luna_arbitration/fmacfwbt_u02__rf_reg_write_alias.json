@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "rf_reg_write_alias",
+ "luna": "rf_reg_write_wrapper",
+ "doc": "Forwards the register pointer and value unchanged to rf_reg_write and returns its result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_reg_write_wrapper",
+   "probabilities": [
+    {
+     "value": "rf_reg_write_alias",
+     "probability": 0.2
+    },
+    {
+     "value": "rf_reg_write_wrapper",
+     "probability": 0.8
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.7
+  }
+ ],
+ "status": "ok"
+}

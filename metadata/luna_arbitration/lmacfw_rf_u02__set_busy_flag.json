@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "set_busy_flag",
+ "luna": "ke_task_schedule",
+ "doc": "Schedules one kernel message by taking the IRQ/nesting lock, popping a queued message, resolving its handler, dispatching it, and releasing the lock.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_task_schedule",
+   "probabilities": [
+    {
+     "value": "set_busy_flag",
+     "probability": 0.11
+    },
+    {
+     "value": "ke_task_schedule",
+     "probability": 0.88
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.82
+  }
+ ],
+ "status": "ok"
+}

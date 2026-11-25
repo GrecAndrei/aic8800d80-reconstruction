@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "call_helper_bool",
+ "luna": "float_gt",
+ "doc": "Implements the ARM EABI single-precision greater-than comparison helper.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_gt",
+   "probabilities": [
+    {
+     "value": "call_helper_bool",
+     "probability": 0.1
+    },
+    {
+     "value": "float_gt",
+     "probability": 0.89
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.83
+  }
+ ],
+ "status": "ok"
+}

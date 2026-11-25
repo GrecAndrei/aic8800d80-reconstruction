@@ -63,15 +63,16 @@ unsigned int rf_enable_1() {
 
 
 // rf_disable @ 0x118e20
+/* luna: Disables the RF subsystem by clearing its control-enable bits and setting the associated GPIO, while returning the GPIO result. */
 unsigned int rf_disable() {
   unsigned int result; // r0
-  volatile uint32_t *v1; // r2
+  volatile uint32_t *rf_ctrl_ptr; // r2
 
   *(volatile uint32_t *)off_118E48 &= ~2u;
   result = gpio_set_bit10(0);
-  v1 = (void *)(uintptr_t)(off_118E50);
+  rf_ctrl_ptr = (void *)(uintptr_t)(off_118E50);
   *(volatile uint32_t *)off_118E4C = dword_118E54;
-  *v1 &= 0xFFFBFFFE;
+  *rf_ctrl_ptr &= 0xFFFBFFFE;
   return result;
 }
 
@@ -578,6 +579,7 @@ int rx_packet_check(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // send_event_0x70 @ 0x1194f4
+/* luna: Thin wrapper that sends kernel event 0x70 with the supplied event arguments. */
 int send_event_0x70(int a1, int a2, int a3, int a4) {
   ke_evt_handler(112, a4, a3);
   return 0;

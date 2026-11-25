@@ -1,55 +1,58 @@
 // check_kernel_state @ 0x11e724
+/* luna: Appends an entry to the tail of an intrusive kernel list, updating the list first/last pointers and initializing the entry's next pointer. */
 int check_kernel_state(int result, volatile uint32_t *a2) {
-  int v2; // r5
+  int list; // r5
 
-  v2 = result;
+  list = result;
   if ( **(volatile int16_t **)off_11E760 < 0 && !a2 )
     result = flash_ctrl_init((int)aListHdrNull, (int)aCoListPushBack, 72);
-  if ( *(volatile uint32_t *)v2 )
-    **(volatile uint32_t **)(v2 + 4) = (int)(uintptr_t)(a2);
+  if ( *(volatile uint32_t *)list )
+    **(volatile uint32_t **)(list + 4) = (int)(uintptr_t)(a2);
   else
-    *(volatile uint32_t *)v2 = (int)(uintptr_t)(a2);
-  *(volatile uint32_t *)(v2 + 4) = (int)(uintptr_t)(a2);
+    *(volatile uint32_t *)list = (int)(uintptr_t)(a2);
+  *(volatile uint32_t *)(list + 4) = (int)(uintptr_t)(a2);
   *a2 = 0;
   return result;
 }
 
 
 // check_kernel_state_alt @ 0x11e76c
+/* luna: Pushes a node onto the front of a RivieraWaves co_list intrusive linked list header, updating node and list front/back links. */
 int check_kernel_state_alt(int result, volatile uint32_t *a2) {
-  volatile uint32_t *v2; // r5
+  volatile uint32_t *list_hdr; // r5
 
-  v2 = (volatile uint32_t *)result;
+  list_hdr = (volatile uint32_t *)result;
   if ( **(volatile int16_t **)off_11E7A0 < 0 && !a2 )
     result = flash_ctrl_init((int)aListHdrNull, (int)aCoListPushFron, 95);
-  if ( *v2 )
+  if ( *list_hdr )
   {
-    *a2 = *v2;
+    *a2 = *list_hdr;
   }
   else
   {
-    v2[1] = (int)(uintptr_t)(a2);
+    list_hdr[1] = (int)(uintptr_t)(a2);
     *a2 = 0;
   }
-  *v2 = (int)(uintptr_t)(a2);
+  *list_hdr = (int)(uintptr_t)(a2);
   return result;
 }
 
 
 // list_pop_front @ 0x11e7ac
+/* luna: Removes and returns the first node from a head/tail intrusive linked list, updating the head to the next node and clearing the tail if the list become */
 volatile uint32_t * list_pop_front(int a1) {
-  volatile uint32_t *v1; // r3
-  volatile uint32_t *v2; // r2
+  volatile uint32_t *old_head; // r3
+  volatile uint32_t *tail; // r2
 
-  v1 = *(volatile uint32_t **)a1;
+  old_head = *(volatile uint32_t **)a1;
   if ( *(volatile uint32_t *)a1 )
   {
-    v2 = *(volatile uint32_t **)(a1 + 4);
-    *(volatile uint32_t *)a1 = *v1;
-    if ( v2 == v1 )
+    tail = *(volatile uint32_t **)(a1 + 4);
+    *(volatile uint32_t *)a1 = *old_head;
+    if ( tail == old_head )
       *(volatile uint32_t *)(a1 + 4) = 0;
   }
-  return v1;
+  return old_head;
 }
 
 
@@ -185,19 +188,20 @@ volatile uint32_t * list_find(volatile uint32_t *result, volatile uint32_t *a2, 
 
 
 // crc32_update_msb @ 0x11e8b4
+/* luna: Updates a 32-bit CRC32 over a byte buffer by processing each byte through a high-byte-indexed, MSB-first table and returning the new CRC. */
 unsigned int crc32_update_msb(volatile uint8_t *a1, int a2, unsigned int a3) {
-  volatile uint8_t *v3; // r1
-  int v4; // t1
+  volatile uint8_t *end; // r1
+  int byte; // t1
 
   if ( !a2 )
     return a3;
-  v3 = &a1[a2];
+  end = &a1[a2];
   do
   {
-    v4 = *a1++;
-    a3 = *(volatile uint32_t *)(dword_11E8DC + 4 * (v4 ^ HIBYTE(a3))) ^ (a3 << 8);
+    byte = *a1++;
+    a3 = *(volatile uint32_t *)(dword_11E8DC + 4 * (byte ^ HIBYTE(a3))) ^ (a3 << 8);
   }
-  while ( v3 != a1 );
+  while ( end != a1 );
   return a3;
 }
 
@@ -410,19 +414,20 @@ float hash_const_init(float a1) {
 
 
 // crc32_update_lsb @ 0x11eb48
+/* luna: Update a reflected CRC-32 accumulator by processing each byte of a buffer through a 256-entry table. */
 unsigned int crc32_update_lsb(volatile uint8_t *a1, int a2, unsigned int a3) {
-  volatile uint8_t *v3; // r4
-  int v4; // t1
+  volatile uint8_t *end; // r4
+  int byte; // t1
 
   if ( !a2 )
     return a3;
-  v3 = &a1[a2];
+  end = &a1[a2];
   do
   {
-    v4 = *a1++;
-    a3 = *(volatile uint32_t *)(dword_11EB70 + 4 * ((uint8_t)a3 ^ v4)) ^ (a3 >> 8);
+    byte = *a1++;
+    a3 = *(volatile uint32_t *)(dword_11EB70 + 4 * ((uint8_t)a3 ^ byte)) ^ (a3 >> 8);
   }
-  while ( a1 != v3 );
+  while ( a1 != end );
   return a3;
 }
 
@@ -1248,6 +1253,7 @@ int set_global_variable(int result) {
 
 
 // get_event_flags @ 0x11f4c0
+/* luna: Returns the current value of the global 32-bit event flag mask. */
 int get_event_flags() {
   return *(volatile uint32_t *)off_11F4C8;
 }

@@ -2554,6 +2554,7 @@ void trace_sync() {
 
 
 // uart_tx_byte @ 0x10d63c
+/* luna: Polls a UART status register until transmission is ready, writes one byte to the UART transmit data register, and returns the byte. */
 int uart_tx_byte(int result) {
   while ( (*(volatile uint32_t *)off_10D64C & 0x80000) != 0 )
     ;
@@ -2564,26 +2565,27 @@ int uart_tx_byte(int result) {
 
 
 // uart_tx_string @ 0x10d654
+/* luna: Transmits a NUL-terminated string over UART by waiting for the transmitter-ready status bit before writing each character to the UART data register. */
 volatile uint8_t * uart_tx_string(volatile uint8_t *result) {
   int v1; // r1
-  volatile uint32_t *v2; // r2
-  volatile uint32_t *v3; // r4
-  int v4; // t1
+  volatile uint32_t *uart_status; // r2
+  volatile uint32_t *uart_data; // r4
+  int next_ch; // t1
 
   v1 = (uint8_t)*result;
   if ( *result )
   {
-    v2 = (void *)(uintptr_t)(off_10D678);
-    v3 = (void *)(uintptr_t)(off_10D67C);
+    uart_status = (void *)(uintptr_t)(off_10D678);
+    uart_data = (void *)(uintptr_t)(off_10D67C);
     do
     {
-      while ( (*v2 & 0x80000) != 0 )
+      while ( (*uart_status & 0x80000) != 0 )
         ;
-      *v3 = v1;
-      v4 = (uint8_t)*++result;
-      v1 = v4;
+      *uart_data = v1;
+      next_ch = (uint8_t)*++result;
+      v1 = next_ch;
     }
-    while ( v4 );
+    while ( next_ch );
   }
   return result;
 }
@@ -2591,6 +2593,7 @@ volatile uint8_t * uart_tx_string(volatile uint8_t *result) {
 
 
 // uart_rx_byte @ 0x10d680
+/* luna: Polls the UART receive-ready status bit and returns one received byte from the UART data register. */
 int uart_rx_byte() {
   while ( (*(volatile uint32_t *)off_10D690 & 1) == 0 )
     ;
@@ -2600,6 +2603,7 @@ int uart_rx_byte() {
 
 
 // uart_rx_ready @ 0x10d698
+/* luna: Checks whether the UART receiver status register reports data ready to be read. */
 int uart_rx_ready() {
   return *(volatile uint32_t *)off_10D6A4 & 1;
 }
@@ -3021,6 +3025,7 @@ int gpio_cfg_clear(char a1) {
 
 
 // gpio_cfg_set @ 0x10daf0
+/* luna: Sets the configuration bit for the selected GPIO pin by OR-ing a shifted bit mask into the MMIO register at offset 8 from the GPIO base and returns th */
 int gpio_cfg_set(char a1) {
   int result; // r0
 
@@ -3032,6 +3037,7 @@ int gpio_cfg_set(char a1) {
 
 
 // gpio_out_set @ 0x10db04
+/* luna: Reads the GPIO output data register, sets the bit corresponding to the supplied pin number, writes the modified value back, and returns it. */
 int gpio_out_set(char a1) {
   int result; // r0
 
@@ -3043,6 +3049,7 @@ int gpio_out_set(char a1) {
 
 
 // gpio_out_clear @ 0x10db18
+/* luna: Clears the specified GPIO output bit in the mapped pin state register and returns the computed pin mask. */
 int gpio_out_clear(char a1) {
   int result; // r0
 
@@ -3054,6 +3061,7 @@ int gpio_out_clear(char a1) {
 
 
 // gpio_read_pin @ 0x10db30
+/* luna: Return the current input state of the specified GPIO pin by testing its corresponding bit in the GPIO status/input register. */
 BOOL gpio_read_pin(char a1) {
   return ((1 << a1) & *(volatile uint32_t *)off_10DB44) != 0;
 }
@@ -3110,6 +3118,7 @@ int gpio_set_pin_out(char a1) {
 
 
 // gpio_clear_pin_1 @ 0x10dbb8
+/* luna: Clears the specified GPIO bit in the MMIO mask/output register by computing a pin mask and clearing it with a read-modify-write. */
 int gpio_clear_pin_1(char a1) {
   int result; // r0
 
@@ -3121,14 +3130,15 @@ int gpio_clear_pin_1(char a1) {
 
 
 // gpio_get_pin @ 0x10dbd0
+/* luna: Reads the state of a GPIO pin by masking a bit in the port input/status register and returns true if the pin is set. */
 BOOL gpio_get_pin(char a1) {
   return ((1 << a1) & *(volatile uint32_t *)off_10DBE4) != 0;
 }
 
 
 
-// nullsub_1 @ 0x10dbe8
-int nullsub_1(void) {
+// noop @ 0x10dbe8
+int noop(void) {
   return 0;
 }
 

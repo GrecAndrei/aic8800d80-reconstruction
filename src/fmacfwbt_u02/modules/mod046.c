@@ -176,31 +176,32 @@ volatile uint8_t * find_char_0(volatile uint8_t *result, int a2, volatile uint8_
 
 
 // find_char_1 @ 0x12db40
+/* luna: Scan IEEE 802.11 information elements for an SSID element (ID 0), returning its pointer and storing its length if it is well-formed and within the buf */
 volatile uint8_t * find_char_1(volatile uint8_t *result, int a2, volatile uint8_t *a3) {
-  unsigned int v3; // r1
-  int v4; // r5
-  volatile uint8_t *v5; // r6
+  unsigned int end_ptr; // r1
+  int current_ie_len; // r5
+  volatile uint8_t *next_ie_ptr; // r6
 
-  v3 = (unsigned int)&result[a2];
-  if ( v3 <= (unsigned int)(result + 1) )
+  end_ptr = (unsigned int)&result[a2];
+  if ( end_ptr <= (unsigned int)(result + 1) )
     return 0;
   while ( 1 )
   {
-    v4 = result[1];
-    v5 = &result[v4 + 2];
+    current_ie_len = result[1];
+    next_ie_ptr = &result[current_ie_len + 2];
     if ( !*result )
       break;
-    result += v4 + 2;
-    if ( v3 <= (unsigned int)(v5 + 1) )
+    result += current_ie_len + 2;
+    if ( end_ptr <= (unsigned int)(next_ie_ptr + 1) )
       return 0;
   }
-  if ( v3 < (unsigned int)v5 )
+  if ( end_ptr < (unsigned int)next_ie_ptr )
     return (volatile uint8_t *)*result;
   if ( !result )
     return result;
-  if ( (unsigned int)(v4 + 2) > 0x22 )
+  if ( (unsigned int)(current_ie_len + 2) > 0x22 )
     return (volatile uint8_t *)*result;
-  *a3 = v4;
+  *a3 = current_ie_len;
   return result;
 }
 

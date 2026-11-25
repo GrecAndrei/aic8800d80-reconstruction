@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "gpio_init",
+ "luna": "phy_set_channel",
+ "doc": "Validates the requested radio channel configuration, skips unchanged requests, and logs and caches configurations that need updating.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "phy_set_channel",
+   "probabilities": [
+    {
+     "value": "gpio_init",
+     "probability": 0.0
+    },
+    {
+     "value": "phy_set_channel",
+     "probability": 1.0
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 1.0
+  }
+ ],
+ "status": "ok"
+}

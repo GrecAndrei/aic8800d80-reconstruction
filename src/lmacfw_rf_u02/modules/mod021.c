@@ -419,24 +419,25 @@ int env_get(int a1, volatile uint8_t *a2) {
 
 
 // lookup_7byte_channel @ 0x11bd88
+/* luna: Deletes a channel context by index, performing deletion-state checks and then zeroing the context record while marking it unavailable. */
 int lookup_7byte_channel(int a1) {
-  volatile int16_t **v1; // r8
-  int v2; // r5
-  volatile int *v4; // r6
+  volatile int16_t **chan_ctxt_count_ptr; // r8
+  int chan_ctxt_table_base; // r5
+  volatile int *target_chan_ctxt; // r6
   int v5; // r7
   int v6; // r5
   int result; // r0
 
-  v1 = (volatile int16_t **)off_11BE24;
-  v2 = dword_11BE10;
-  v4 = (volatile int *)(dword_11BE10 + 28 * a1);
+  chan_ctxt_count_ptr = (volatile int16_t **)off_11BE24;
+  chan_ctxt_table_base = dword_11BE10;
+  target_chan_ctxt = (volatile int *)(dword_11BE10 + 28 * a1);
   if ( **(volatile int16_t **)off_11BE24 < 0 )
   {
     v5 = 8 * a1;
     if ( *(volatile uint8_t *)(dword_11BE10 + 28 * a1 + 24) != 255
-      || (flash_ctrl_init((int)aCtxtIdxChanCtx, (int)aChanCtxtDel, 3044), **v1 < 0) )
+      || (flash_ctrl_init((int)aCtxtIdxChanCtx, (int)aChanCtxtDel, 3044), **chan_ctxt_count_ptr < 0) )
     {
-      if ( *(volatile uint8_t *)(v2 + 4 * (v5 - a1) + 25) )
+      if ( *(volatile uint8_t *)(chan_ctxt_table_base + 4 * (v5 - a1) + 25) )
         flash_ctrl_init((int)aCtxtNbLinkedVi, (int)aChanCtxtDel, 3046);
     }
   }
@@ -444,9 +445,9 @@ int lookup_7byte_channel(int a1) {
   {
     v5 = 8 * a1;
   }
-  check_kernel_state(dword_11BE14, (void *)(v4));
-  v6 = v2 + 4 * (v5 - a1);
-  result = (int)memset(v4, 0, 0x1Cu);
+  check_kernel_state(dword_11BE14, (void *)(target_chan_ctxt));
+  v6 = chan_ctxt_table_base + 4 * (v5 - a1);
+  result = (int)memset(target_chan_ctxt, 0, 0x1Cu);
   *(volatile uint16_t *)(v6 + 14) = 255;
   *(volatile uint8_t *)(v6 + 24) = -1;
   return result;

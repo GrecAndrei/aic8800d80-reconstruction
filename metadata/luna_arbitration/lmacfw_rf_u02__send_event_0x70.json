@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "send_event_0x70",
+ "luna": "ke_send_event_0x70",
+ "doc": "Thin wrapper that sends kernel event 0x70 with the supplied event arguments.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_send_event_0x70",
+   "probabilities": [
+    {
+     "value": "send_event_0x70",
+     "probability": 0.28
+    },
+    {
+     "value": "ke_send_event_0x70",
+     "probability": 0.71
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.56
+  }
+ ],
+ "status": "ok"
+}

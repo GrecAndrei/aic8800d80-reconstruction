@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "cmp_eq",
+ "luna": "float_compare_equal",
+ "doc": "Implements the ARM EABI single-precision floating-point equality comparison helper.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "cmp_eq",
+   "probabilities": [
+    {
+     "value": "cmp_eq",
+     "probability": 0.51
+    },
+    {
+     "value": "float_compare_equal",
+     "probability": 0.48
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.27
+  }
+ ],
+ "status": "ok"
+}

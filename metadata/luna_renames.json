@@ -5,6 +5,8 @@
   "ble_get_rssi": "rx_dma_advance_cursor",
   "bsscfg_get": "chan_ctxt_unlink",
   "bt_conn_get_role": "bt_count_entries_equal_2",
+  "bt_global_op_0x16acb4": "bt_set_debug_severity_filter",
+  "bt_global_op_0x16acdc": "bt_set_module_filter",
   "bt_packet_parser": "rf_get_tx_power",
   "bt_scan_stop": "p2p_process_noa_ie",
   "btm_chk_state": "send_probe_response",
@@ -68,6 +70,7 @@
   "rx_get_length": "rx_sort_entries_by_key",
   "scan_state_check": "update_vif_dhcp_state",
   "state_check_0x182ba0": "rx_packet_dispatch_wrapper",
+  "sub_12F054": "dump_tx_queue_state",
   "test_arg2_one_12dae0": "find_tlv_0xc7_len1",
   "test_arg2_one_12dd78": "find_ht_operation_ie",
   "timer_get_raw": "sdio_set_phase_config",
@@ -82,6 +85,7 @@
   "wlan_wait_ready": "wlan_configure_tx_queue"
  },
  "fmacfw_u02": {
+  "call_helper_bool": "float_gt",
   "check_event_flag": "handle_reset_event",
   "check_global_flag": "append_tkip_mic",
   "check_mmio_and_mem": "handle_sdio_interrupt",
@@ -92,15 +96,20 @@
   "compare_global_bytes": "rf_xtal_cap_adjust",
   "compare_memory_ranges": "rf_update_am_back_power_diff",
   "copy_global_1672ec": "rf_cmd_read_decode",
+  "double_compare": "aeabi_dadd",
   "enable_radio_controller": "calibrate_mdll_duty_cycle",
+  "float_swap_compare": "float_compare_reverse_le",
   "format_mac_address": "mac_append_ht_capabilities_ie",
   "get_controller_state": "wait_timer_ticks",
+  "init_rf_tables": "sm_assoc_req_send",
+  "ipc_register_handler": "apm_stop_cac_req_handler",
   "is_hci_initialized": "set_user_id",
   "is_valid_rate_code": "wlan_rate_code_to_index",
   "ke_state_get": "usb_wlan_rx_pkt_free_list_init",
   "ke_task_create": "ke_timer_set",
   "kernel_event_wait": "tx_txdesc_init",
   "mmio_bank_read": "read_mmio_bank_bit21",
+  "nullsub_1": "noop_success",
   "parse_hex12": "mac_monitor_set_addresses",
   "patch_check_magic": "patch_apply_if_magic_valid",
   "patch_copy_table": "dump_cortex_m_fault_context",
@@ -121,6 +130,20 @@
   "util_get_struct_offset": "gpio_write_bit2_from_flag",
   "util_get_struct_offset_alt": "gpio_sync_pin1_with_flag"
  },
- "fmacfwbt_u02": {},
- "lmacfw_rf_u02": {}
+ "fmacfwbt_u02": {
+  "check_radio_state": "set_user_id",
+  "gpio_init": "phy_set_channel",
+  "gpio_set_pin_mode": "rf_pa_current_calibrate",
+  "ll_seq_update": "rf_xtal_cap_adjust",
+  "rf_reg_write_alias": "rf_reg_write_wrapper"
+ },
+ "lmacfw_rf_u02": {
+  "double_to_float": "aeabi_ui2d",
+  "init_ram_table": "dump_ram_table",
+  "memset_ff": "strlen",
+  "nullsub_1": "noop",
+  "process_bt_service_search_event": "rf_cmd_set_tone_power_offset",
+  "rf_enable_tx_patch_dup": "rf_enable_tx_patch_wrapper",
+  "set_busy_flag": "ke_task_schedule"
+ }
 }

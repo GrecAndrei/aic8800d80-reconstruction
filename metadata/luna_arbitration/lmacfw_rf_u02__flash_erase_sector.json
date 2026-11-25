@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "flash_erase_sector",
+ "luna": "ke_state_set",
+ "doc": "Sets the kernel task state for a packed task identifier and processes the task's pending kernel message list when the state changes.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_state_set",
+   "probabilities": [
+    {
+     "value": "flash_erase_sector",
+     "probability": 0.41
+    },
+    {
+     "value": "ke_state_set",
+     "probability": 0.58
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.37
+  }
+ ],
+ "status": "ok"
+}

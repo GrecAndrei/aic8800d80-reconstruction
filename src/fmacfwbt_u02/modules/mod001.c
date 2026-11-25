@@ -677,8 +677,8 @@ int flash_init(volatile int *a1) {
 }
 
 
-// gpio_init @ 0x102898
-int gpio_init(volatile uint16_t *a1, int a2) {
+// phy_set_channel @ 0x102898
+int phy_set_channel(volatile uint16_t *a1, int a2) {
   volatile uint8_t *v3; // r0
   int v4; // r1
   int v5; // r1

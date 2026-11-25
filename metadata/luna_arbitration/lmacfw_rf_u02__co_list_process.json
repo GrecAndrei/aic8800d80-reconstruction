@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "co_list_process",
+ "luna": "co_list_extract_if",
+ "doc": "Removes and returns the first node in a singly linked co_list whose predicate callback returns true, updating the list head and tail pointers as needed.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "co_list_extract_if",
+   "probabilities": [
+    {
+     "value": "co_list_process",
+     "probability": 0.37
+    },
+    {
+     "value": "co_list_extract_if",
+     "probability": 0.57
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.35
+  }
+ ],
+ "status": "ok"
+}

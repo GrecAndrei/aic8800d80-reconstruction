@@ -676,6 +676,7 @@ void check_chip_flag() {
 
 
 // configure_external_clock @ 0x1032dc
+/* luna: Enables or disables the external clock source by programming GPIO function muxing when configured and setting or clearing the external clock select bi */
 unsigned int configure_external_clock(unsigned int result) {
   if ( result )
   {
@@ -945,8 +946,9 @@ int disable_bb_timer_irq() {
 
 
 // set_system_mode @ 0x103678
+/* luna: Selects and enables a baseband debug monitor dump source, using mode-specific register values and trace labels. */
 int set_system_mode(int a1) {
-  volatile unsigned int *v1; // r2
+  volatile unsigned int *bb_dump_ctrl_reg; // r2
   volatile int *v2; // r4
   unsigned int v3; // r1
   int v4; // r5
@@ -956,10 +958,10 @@ int set_system_mode(int a1) {
   volatile int *v8; // r5
   int v9; // r6
   volatile unsigned int *v11; // r2
-  volatile int *v12; // r4
-  int v13; // r5
-  int v14; // r1
-  const volatile char *v15; // r0
+  volatile int *bb_dump_aux_reg; // r4
+  int dump_config_value; // r5
+  int bb_dump_ctrl_value; // r1
+  const volatile char *dump_label; // r0
   int v16; // r3
   volatile unsigned int *v17; // r4
   volatile int *v18; // r5
@@ -972,14 +974,14 @@ int set_system_mode(int a1) {
     {
       case 1:
         v11 = (volatile unsigned int *)off_103870;
-        v12 = (volatile int *)off_103874;
-        v13 = dword_10389C;
-        v14 = *(volatile uint32_t *)off_103870;
-        v15 = aDumpDac150m;
+        bb_dump_aux_reg = (volatile int *)off_103874;
+        dump_config_value = dword_10389C;
+        bb_dump_ctrl_value = *(volatile uint32_t *)off_103870;
+        dump_label = aDumpDac150m;
         v16 = *(volatile uint32_t *)off_103870 & 0x70 | 1;
         break;
       case 10:
-        v1 = (volatile unsigned int *)off_103870;
+        bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
         v2 = (volatile int *)off_103874;
         v3 = *(volatile uint32_t *)off_103870;
         v4 = dword_103894;
@@ -987,7 +989,7 @@ int set_system_mode(int a1) {
         v6 = aDumpDpdTxRx;
         goto LABEL_24;
       case 14:
-        v1 = (volatile unsigned int *)off_103870;
+        bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
         v2 = (volatile int *)off_103874;
         v3 = *(volatile uint32_t *)off_103870;
         v4 = dword_1038A4;
@@ -996,17 +998,17 @@ int set_system_mode(int a1) {
         goto LABEL_24;
       case 2:
         v11 = (volatile unsigned int *)off_103870;
-        v12 = (volatile int *)off_103874;
-        v13 = dword_1038AC;
-        v14 = *(volatile uint32_t *)off_103870;
-        v15 = aDumpAdcIn;
+        bb_dump_aux_reg = (volatile int *)off_103874;
+        dump_config_value = dword_1038AC;
+        bb_dump_ctrl_value = *(volatile uint32_t *)off_103870;
+        dump_label = aDumpAdcIn;
         v16 = *(volatile uint32_t *)off_103870 & 0x70 | 2;
         break;
       default:
         switch ( a1 )
         {
           case 3:
-            v1 = (volatile unsigned int *)off_103870;
+            bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
             v2 = (volatile int *)off_103874;
             v3 = *(volatile uint32_t *)off_103870;
             v4 = dword_1038B4;
@@ -1014,7 +1016,7 @@ int set_system_mode(int a1) {
             v6 = aDumpRxDataIq;
             break;
           case 30:
-            v1 = (volatile unsigned int *)off_103870;
+            bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
             v2 = (volatile int *)off_103874;
             v3 = *(volatile uint32_t *)off_103870;
             v4 = dword_1038BC;
@@ -1022,7 +1024,7 @@ int set_system_mode(int a1) {
             v6 = aDumpRcAdcIq;
             break;
           case 31:
-            v1 = (volatile unsigned int *)off_103870;
+            bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
             v2 = (volatile int *)off_103874;
             v3 = *(volatile uint32_t *)off_103870;
             v4 = dword_1038CC;
@@ -1030,7 +1032,7 @@ int set_system_mode(int a1) {
             v6 = aDumpDccancelOu;
             break;
           case 32:
-            v1 = (volatile unsigned int *)off_103870;
+            bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
             v2 = (volatile int *)off_103874;
             v3 = *(volatile uint32_t *)off_103870;
             v4 = dword_1038D4;
@@ -1038,7 +1040,7 @@ int set_system_mode(int a1) {
             v6 = aDumpPreDgcOutI;
             break;
           case 33:
-            v1 = (volatile unsigned int *)off_103870;
+            bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
             v2 = (volatile int *)off_103874;
             v3 = *(volatile uint32_t *)off_103870;
             v4 = dword_1038DC;
@@ -1050,7 +1052,7 @@ int set_system_mode(int a1) {
             {
               if ( a1 == 5 )
               {
-                v1 = (volatile unsigned int *)off_103870;
+                bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
                 v2 = (volatile int *)off_103874;
                 v3 = *(volatile uint32_t *)off_103870;
                 v4 = dword_1038E4;
@@ -1063,7 +1065,7 @@ int set_system_mode(int a1) {
                 switch ( a1 )
                 {
                   case 6:
-                    v1 = (volatile unsigned int *)off_103870;
+                    bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
                     v2 = (volatile int *)off_103874;
                     v3 = *(volatile uint32_t *)off_103870;
                     v4 = dword_1038EC;
@@ -1080,25 +1082,25 @@ int set_system_mode(int a1) {
                     dispatch_event_handler_1(aDumpLpfOutBpfO);
                     goto LABEL_22;
                   case 8:
-                    v1 = (volatile unsigned int *)off_103870;
+                    bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
                     v2 = (volatile int *)off_103874;
                     v4 = dword_103888;
                     v6 = aDumpGainLoft2I;
                     *(volatile uint32_t *)off_103884 = *(volatile uint32_t *)off_103884 & 0xFF00FFFF | 0x570000;
-                    v3 = *v1;
-                    v5 = *v1;
+                    v3 = *bb_dump_ctrl_reg;
+                    v5 = *bb_dump_ctrl_reg;
                     break;
                   case 81:
-                    v1 = (volatile unsigned int *)off_103870;
+                    bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
                     v2 = (volatile int *)off_103874;
                     v4 = dword_103888;
                     v6 = aDumpGainLoftIn;
                     *(volatile uint32_t *)off_103884 = *(volatile uint32_t *)off_103884 & 0xFF00FFFF | 0x30000;
-                    v3 = *v1;
-                    v5 = *v1;
+                    v3 = *bb_dump_ctrl_reg;
+                    v5 = *bb_dump_ctrl_reg;
                     break;
                   default:
-                    v1 = (volatile unsigned int *)off_103870;
+                    bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
                     v2 = (volatile int *)off_103874;
                     v3 = *(volatile uint32_t *)off_103870;
                     v4 = dword_103878;
@@ -1112,7 +1114,7 @@ int set_system_mode(int a1) {
                 break;
               }
             }
-            v1 = (volatile unsigned int *)off_103870;
+            bb_dump_ctrl_reg = (volatile unsigned int *)off_103870;
             v2 = (volatile int *)off_103874;
             v3 = *(volatile uint32_t *)off_103870;
             v4 = dword_1038C4;
@@ -1121,14 +1123,14 @@ int set_system_mode(int a1) {
             break;
         }
 LABEL_24:
-        *v1 = v5 & 0xFFFFFF00 | v3 & 0x70;
+        *bb_dump_ctrl_reg = v5 & 0xFFFFFF00 | v3 & 0x70;
         *v2 = v4;
         dispatch_event_handler_1(v6);
         goto LABEL_22;
     }
-    *v11 = v16 | v14 & 0xFFFFFF00;
-    *v12 = v13;
-    dispatch_event_handler_1(v15);
+    *v11 = v16 | bb_dump_ctrl_value & 0xFFFFFF00;
+    *bb_dump_aux_reg = dump_config_value;
+    dispatch_event_handler_1(dump_label);
     goto LABEL_22;
   }
   v7 = (volatile unsigned int *)off_103884;

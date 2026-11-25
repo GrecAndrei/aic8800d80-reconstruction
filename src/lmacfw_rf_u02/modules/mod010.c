@@ -220,6 +220,7 @@ LABEL_12:
 
 
 // bus_read32 @ 0x114558
+/* luna: Reads a 32-bit value from a bus address by dispatching a bus read request through the kernel task handler. */
 int bus_read32(int a1) {
   return ke_task_handler(1, a1, 4u);
 }
@@ -276,6 +277,7 @@ int mmio_write_8(int a1) {
 
 
 // mmio_read_32 @ 0x1145b8
+/* luna: Reads a 32-bit MMIO value by invoking the kernel task handler with a 4-byte width parameter. */
 int mmio_read_32(int a1) {
   return ke_task_handler(32, a1, 4u);
 }
@@ -515,6 +517,7 @@ LABEL_11:
 
 
 // bus_read_6 @ 0x114820
+/* luna: Read six bytes from bus endpoint/channel 2 into the caller-provided buffer. */
 int bus_read_6(int a1) {
   return bus_read_buf(2, a1, 6u);
 }
@@ -522,6 +525,7 @@ int bus_read_6(int a1) {
 
 
 // bus_write_6 @ 0x11482c
+/* luna: Wrapper that performs a six-byte bus write by passing the supplied buffer pointer to bus_write_buf on bus channel 2. */
 int bus_write_6(int a1) {
   return bus_write_buf(2, (void *)(uintptr_t)(a1), 6u);
 }
@@ -529,6 +533,7 @@ int bus_write_6(int a1) {
 
 
 // bus_read_2 @ 0x114838
+/* luna: Wrapper that reads two bytes from the fixed bus/firmware base address 0x100000 into the caller-provided destination buffer. */
 int bus_read_2(int a1) {
   return bus_read_buf(0x100000, a1, 2u);
 }
@@ -866,8 +871,8 @@ int wait_hw_ready() {
 }
 
 
-// init_ram_table @ 0x114c68
-int init_ram_table() {
+// dump_ram_table @ 0x114c68
+int dump_ram_table() {
   volatile uint32_t *v0; // r7
   volatile int *v1; // r5
   int i; // r4
@@ -1048,7 +1053,7 @@ void cli_process_char(int a1) {
       break;
   }
   log_printf(aContext);
-  init_ram_table();
+  dump_ram_table();
   log_printf(aFaultHandler);
   bt_check_state();
 }

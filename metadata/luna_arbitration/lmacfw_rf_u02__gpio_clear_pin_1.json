@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "gpio_clear_pin_1",
+ "luna": "gpio_clear_pin",
+ "doc": "Clears the specified GPIO bit in the MMIO mask/output register by computing a pin mask and clearing it with a read-modify-write.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "gpio_clear_pin",
+   "probabilities": [
+    {
+     "value": "gpio_clear_pin_1",
+     "probability": 0.22
+    },
+    {
+     "value": "gpio_clear_pin",
+     "probability": 0.76
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.64
+  }
+ ],
+ "status": "ok"
+}

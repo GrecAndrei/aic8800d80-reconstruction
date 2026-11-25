@@ -1132,7 +1132,7 @@ int rf_core_enable() {
   v19 = (v19 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E1D8) << 32);
   v19 = (v19 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v20 = ((uint64_t (*)())double_add_1)(v18, v19);
-  v21 = double_compare(v16, v20);
+  v21 = aeabi_dadd(v16, v20);
   v22 = (v22 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E1DC) << 32);
   v22 = (v22 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v23 = ((uint64_t (*)())double_add_1)(v21, v22);

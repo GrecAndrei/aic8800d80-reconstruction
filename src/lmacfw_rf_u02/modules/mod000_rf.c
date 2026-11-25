@@ -22,83 +22,84 @@ int start() {
 
 
 // memset @ 0x100200
+/* luna: Optimized volatile byte-fill utility that aligns the destination and writes repeated 32-bit byte patterns to initialize a memory region. */
 volatile int * memset(volatile int *result, uint8_t a2, unsigned int a3) {
-  unsigned int v3; // r4
-  volatile int *v4; // r3
-  int v6; // r5
+  unsigned int remaining_bytes; // r4
+  volatile int *dest_ptr; // r3
+  int fill_word; // r5
   volatile uint8_t *v7; // r2
-  volatile int *v8; // r2
-  int v9; // r6
-  volatile int *v10; // r4
+  volatile int *word_dest; // r2
+  int tail_bytes; // r6
+  volatile int *tail_ptr; // r4
 
   if ( (uint32_t)result << 30 )
   {
-    v3 = a3 - 1;
+    remaining_bytes = a3 - 1;
     if ( !a3 )
       return result;
-    v4 = result;
+    dest_ptr = result;
     while ( 1 )
     {
-      *(volatile uint8_t *)v4 = a2;
-      v4 = (volatile int *)((volatile char *)v4 + 1);
-      if ( !((uint32_t)v4 << 30) )
+      *(volatile uint8_t *)dest_ptr = a2;
+      dest_ptr = (volatile int *)((volatile char *)dest_ptr + 1);
+      if ( !((uint32_t)dest_ptr << 30) )
         break;
-      if ( v3-- == 0 )
+      if ( remaining_bytes-- == 0 )
         return result;
     }
   }
   else
   {
-    v3 = a3;
-    v4 = result;
+    remaining_bytes = a3;
+    dest_ptr = result;
   }
-  if ( v3 > 3 )
+  if ( remaining_bytes > 3 )
   {
-    v6 = a2 | (a2 << 8) | ((a2 | (a2 << 8)) << 16);
-    if ( v3 <= 0xF )
+    fill_word = a2 | (a2 << 8) | ((a2 | (a2 << 8)) << 16);
+    if ( remaining_bytes <= 0xF )
     {
-      v8 = v4;
-      v9 = v3;
+      word_dest = dest_ptr;
+      tail_bytes = remaining_bytes;
     }
     else
     {
-      v7 = (void *)(v4 + 4);
+      v7 = (void *)(dest_ptr + 4);
       do
       {
-        *((volatile uint32_t *)v7 - 4) = v6;
-        *((volatile uint32_t *)v7 - 3) = v6;
-        *((volatile uint32_t *)v7 - 2) = v6;
-        *((volatile uint32_t *)v7 - 1) = v6;
+        *((volatile uint32_t *)v7 - 4) = fill_word;
+        *((volatile uint32_t *)v7 - 3) = fill_word;
+        *((volatile uint32_t *)v7 - 2) = fill_word;
+        *((volatile uint32_t *)v7 - 1) = fill_word;
         v7 += 16;
       }
-      while ( v7 != (volatile char *)v4 + ((v3 - 16) & 0xFFFFFFF0) + 32 );
-      v8 = &v4[4 * ((v3 - 16) >> 4) + 4];
-      v9 = v3 & 0xF;
-      if ( (v3 & 0xC) == 0 )
+      while ( v7 != (volatile char *)dest_ptr + ((remaining_bytes - 16) & 0xFFFFFFF0) + 32 );
+      word_dest = &dest_ptr[4 * ((remaining_bytes - 16) >> 4) + 4];
+      tail_bytes = remaining_bytes & 0xF;
+      if ( (remaining_bytes & 0xC) == 0 )
       {
-        v3 &= 0xFu;
-        v4 = v8;
-        if ( !v9 )
+        remaining_bytes &= 0xFu;
+        dest_ptr = word_dest;
+        if ( !tail_bytes )
           return result;
         goto LABEL_16;
       }
     }
-    v4 = (volatile int *)((volatile char *)v8 + ((v9 - 4) & 0xFFFFFFFC) + 4);
+    dest_ptr = (volatile int *)((volatile char *)word_dest + ((tail_bytes - 4) & 0xFFFFFFFC) + 4);
     do
-      *v8++ = v6;
-    while ( v4 != v8 );
-    v3 = v9 & 3;
+      *word_dest++ = fill_word;
+    while ( dest_ptr != word_dest );
+    remaining_bytes = tail_bytes & 3;
   }
-  if ( !v3 )
+  if ( !remaining_bytes )
     return result;
 LABEL_16:
-  v10 = (volatile int *)((volatile char *)v4 + v3);
+  tail_ptr = (volatile int *)((volatile char *)dest_ptr + remaining_bytes);
   do
   {
-    *(volatile uint8_t *)v4 = a2;
-    v4 = (volatile int *)((volatile char *)v4 + 1);
+    *(volatile uint8_t *)dest_ptr = a2;
+    dest_ptr = (volatile int *)((volatile char *)dest_ptr + 1);
   }
-  while ( v10 != v4 );
+  while ( tail_ptr != dest_ptr );
   return result;
 }
 
@@ -1787,6 +1788,7 @@ unsigned int ctrl_bit3_set(int a1) {
 
 
 // sys_status_bit28_get @ 0x101a68
+/* luna: Return bit 28 of the system status word referenced by off_101A74. */
 int sys_status_bit28_get() {
   return (*(volatile uint32_t *)off_101A74 >> 28) & 1;
 }

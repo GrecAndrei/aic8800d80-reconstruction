@@ -281,7 +281,7 @@ LABEL_18:
     v40 = v38;
     v41 = ((uint64_t (*)())aeabi_dsub)(v26, v39);
     v42 = parse_data_field(v41);
-    v43 = double_to_float(v40);
+    v43 = aeabi_ui2d(v40);
     v44 = (v44 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_1021A4) << 32);
     v44 = (v44 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
     v45 = ((uint64_t (*)())aeabi_dadd)(v43, v44);
@@ -327,7 +327,7 @@ LABEL_25:
   v118 = v116;
   v119 = ((uint64_t (*)())aeabi_dsub)(v106, v117);
   v120 = parse_data_field(v119);
-  v121 = double_to_float(v118);
+  v121 = aeabi_ui2d(v118);
   v122 = (v122 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_1024D4) << 32);
   v122 = (v122 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v123 = ((uint64_t (*)())aeabi_dadd)(v121, v122);
@@ -701,20 +701,21 @@ int wifi_set_channel(volatile int *a1) {
 
 
 // tx_set_power @ 0x102908
+/* luna: Apply the supplied channel/radio configuration to PHY radio 0, calibrate the RF path, and copy the configuration into the active radio state. */
 int tx_set_power(volatile uint8_t *a1, int a2) {
   int result; // r0
   int v4; // r1
-  int v5; // r3
+  int radio_state_ptr; // r3
 
   if ( a2 )
     return dispatch_event_handler_1("\x9B\x87%s: radio %d does not exist\n", aPhySetChannel, a2);
   rf_calibrate(*a1, *((volatile uint16_t *)a1 + 1), *((volatile uint16_t *)a1 + 2), a1[1], a1[9], 0);
   result = *(volatile uint32_t *)a1;
   v4 = *((volatile uint32_t *)a1 + 1);
-  v5 = dword_10293C;
+  radio_state_ptr = dword_10293C;
   *(volatile uint32_t *)dword_10293C = *(volatile uint32_t *)a1;
-  *(volatile uint32_t *)(v5 + 4) = v4;
-  *(volatile uint16_t *)(v5 + 8) = *((volatile uint16_t *)a1 + 4);
+  *(volatile uint32_t *)(radio_state_ptr + 4) = v4;
+  *(volatile uint16_t *)(radio_state_ptr + 8) = *((volatile uint16_t *)a1 + 4);
   return result;
 }
 

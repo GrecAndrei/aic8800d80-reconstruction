@@ -2106,7 +2106,7 @@ LABEL_5:
         _frame.a1a[1] = v21;
         _frame.v79 = (_frame.v79 & ~0xFFFFu) | ((uint16_t)(v21) & 0xFFFFu);
         _frame.v79 = (_frame.v79 & ~0xFFFF0000u) | (((uint16_t)(v21) & 0xFFFFu) << 16);
-        gpio_init(_frame.a1a, 0);
+        phy_set_channel(_frame.a1a, 0);
         v67 = validate_value_range(v21);
         _frame.v73 = (void *)(&((volatile uint32_t *)(uintptr_t)off_10B280)[96 * v67]);
         _frame.a2a = (volatile unsigned int *)(a1 + 1264 * (uint8_t)(v67 + 1));
@@ -2118,7 +2118,7 @@ LABEL_5:
         _frame.v79 = (_frame.v79 & ~0xFFFFu) | ((uint16_t)(v21) & 0xFFFFu);
         _frame.a1a[0] = (_frame.a1a[0] & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
         _frame.v80 = (_frame.v80 & ~0xFFu) | ((uint8_t)(0) & 0xFFu);
-        gpio_init(_frame.a1a, 0);
+        phy_set_channel(_frame.a1a, 0);
         _frame.v73 = (volatile int *)off_10B1CC;
         _frame.v72 = a2;
         v46 = 0;
@@ -3865,6 +3865,7 @@ int nullsub_6(void) {
 
 
 // pmu_ctrl_write_8 @ 0x10cae0
+/* luna: Writes the constant 8 to the PMU control register. */
 void pmu_ctrl_write_8() {
   *(volatile uint32_t *)off_10CAE8 = 8;
 }
@@ -3872,6 +3873,7 @@ void pmu_ctrl_write_8() {
 
 
 // pmu_ctrl_write_256 @ 0x10caec
+/* luna: Writes the constant 256 to a volatile register address referenced by a literal. */
 void pmu_ctrl_write_256() {
   *(volatile uint32_t *)off_10CAF8 = 256;
 }
@@ -3879,6 +3881,7 @@ void pmu_ctrl_write_256() {
 
 
 // pmu_ctrl_write_128 @ 0x10cafc
+/* luna: Writes the value 128 to the PMU control register. */
 void pmu_ctrl_write_128() {
   *(volatile uint32_t *)off_10CB04 = 128;
 }
@@ -3983,13 +3986,14 @@ int pmu_isr_extra() {
 
 
 // host_event_process @ 0x10cc2c
+/* luna: Processes and forwards host-originated kernel messages, coordinating destination-buffer allocation and queued-message state. */
 volatile uint32_t * host_event_process(int a1) {
   volatile uint8_t **v1; // r7
   volatile uint8_t *v2; // r2
-  int v3; // r3
+  int host_message_state; // r3
   int v5; // r8
   int v6; // r6
-  volatile uint32_t *v7; // r5
+  volatile uint32_t *allocated_message_buffer; // r5
   volatile uint32_t *v8; // r9
   unsigned int v9; // r2
   int v10; // r3
@@ -4020,8 +4024,8 @@ volatile uint32_t * host_event_process(int a1) {
   int v36; // r0
   int v37; // r3
   int v38; // r2
-  volatile uint32_t *v39; // r5
-  volatile uint32_t *v40; // r0
+  volatile uint32_t *message_ready_flag; // r5
+  volatile uint32_t *queued_message_node; // r0
   int v41; // r3
   int v42; // r3
   volatile int *v43; // r5
@@ -4034,14 +4038,14 @@ volatile uint32_t * host_event_process(int a1) {
 
   v1 = (volatile uint8_t **)off_10CEFC;
   v2 = *(volatile uint8_t **)off_10CEFC;
-  v3 = **(volatile uint8_t **)off_10CEFC;
-  if ( v3 != 3 )
+  host_message_state = **(volatile uint8_t **)off_10CEFC;
+  if ( host_message_state != 3 )
   {
     v5 = 0;
     v6 = 0;
     goto LABEL_3;
   }
-  v39 = (void *)(uintptr_t)(off_10CF04);
+  message_ready_flag = (void *)(uintptr_t)(off_10CF04);
   while ( !*(volatile uint32_t *)off_10CF04 )
     ;
   if ( !*(volatile uint32_t *)(((volatile uint32_t *)(uintptr_t)off_10CF08)[0] + 516) )
@@ -4056,15 +4060,15 @@ volatile uint32_t * host_event_process(int a1) {
     }
     goto LABEL_71;
   }
-  v40 = list_pop_front(((volatile uint32_t *)(uintptr_t)off_10CF08)[0] + 516);
+  queued_message_node = list_pop_front(((volatile uint32_t *)(uintptr_t)off_10CF08)[0] + 516);
   v41 = **(volatile int16_t **)off_10CF00;
-  *v39 = 1;
+  *message_ready_flag = 1;
   if ( v41 < 0 )
   {
-    if ( v40 )
+    if ( queued_message_node )
     {
-      v5 = (int)(v40 + 1);
-      if ( v40 == (volatile uint32_t *)-4 )
+      v5 = (int)(queued_message_node + 1);
+      if ( queued_message_node == (volatile uint32_t *)-4 )
       {
         mmio_irq_clear((int)aHostMsgBuf0, (int)aIpcEmbKmsgFwd, 1567);
         v6 = v5;
@@ -4080,36 +4084,36 @@ LABEL_71:
     v2 = *v1;
     goto LABEL_50;
   }
-  v5 = (int)(v40 + 1);
+  v5 = (int)(queued_message_node + 1);
 LABEL_49:
   v2 = *v1;
   v6 = v5;
 LABEL_50:
   *(volatile uint32_t *)(v6 + 8) = dword_10CF28;
-  v3 = *v2;
+  host_message_state = *v2;
 LABEL_3:
-  if ( v3 == 1 )
+  if ( host_message_state == 1 )
   {
     if ( *(volatile uint16_t *)(a1 + 10) <= 0x6Cu )
-      v7 = (void *)(uintptr_t)(critical_enter_6());
+      allocated_message_buffer = (void *)(uintptr_t)(critical_enter_6());
     else
-      v7 = (volatile uint32_t *)(*(int ( **)(uint32_t))(*(volatile uint32_t *)(*(volatile uint32_t *)off_10CF24 + 8) + 16))(*(volatile uint32_t *)(*(volatile uint32_t *)off_10CF24 + 4));
-    if ( !v7 )
+      allocated_message_buffer = (volatile uint32_t *)(*(int ( **)(uint32_t))(*(volatile uint32_t *)(*(volatile uint32_t *)off_10CF24 + 8) + 16))(*(volatile uint32_t *)(*(volatile uint32_t *)off_10CF24 + 4));
+    if ( !allocated_message_buffer )
       goto LABEL_59;
     v32 = *(volatile uint16_t *)(a1 + 6);
     v33 = *(volatile uint16_t *)(a1 + 8);
-    v7[3] = dword_10CF28;
+    allocated_message_buffer[3] = dword_10CF28;
     v34 = *v1;
-    *((volatile uint16_t *)v7 + 3) = v32;
-    *((volatile uint16_t *)v7 + 4) = v33;
-    v6 = (int)(v7 + 1);
+    *((volatile uint16_t *)allocated_message_buffer + 3) = v32;
+    *((volatile uint16_t *)allocated_message_buffer + 4) = v33;
+    v6 = (int)(allocated_message_buffer + 1);
     if ( *v34 != 2 )
       goto LABEL_5;
   }
   else
   {
-    v7 = nullptr;
-    if ( v3 != 2 )
+    allocated_message_buffer = nullptr;
+    if ( host_message_state != 2 )
     {
 LABEL_5:
       v8 = nullptr;
@@ -4117,10 +4121,10 @@ LABEL_5:
     }
   }
   if ( *(volatile uint16_t *)(a1 + 10) <= 0x6Cu )
-    v7 = (void *)(uintptr_t)(int_disable_set_flag());
+    allocated_message_buffer = (void *)(uintptr_t)(int_disable_set_flag());
   else
-    v7 = (volatile uint32_t *)(*(int ( **)(uint32_t))(*(volatile uint32_t *)(*(volatile uint32_t *)off_10CF24 + 8) + 16))(*(volatile uint32_t *)(*(volatile uint32_t *)off_10CF24 + 4));
-  if ( !v7 )
+    allocated_message_buffer = (volatile uint32_t *)(*(int ( **)(uint32_t))(*(volatile uint32_t *)(*(volatile uint32_t *)off_10CF24 + 8) + 16))(*(volatile uint32_t *)(*(volatile uint32_t *)off_10CF24 + 4));
+  if ( !allocated_message_buffer )
   {
 LABEL_59:
     printf_wrapper(
@@ -4177,10 +4181,10 @@ LABEL_59:
         __enable_irq();
     }
   }
-  *(volatile uint16_t *)v7 = *(volatile uint16_t *)(a1 + 10) + 12;
-  *((volatile uint8_t *)v7 + 2) = 17;
-  *((volatile uint8_t *)v7 + 3) = 0;
-  v6 = (int)(v7 + 1);
+  *(volatile uint16_t *)allocated_message_buffer = *(volatile uint16_t *)(a1 + 10) + 12;
+  *((volatile uint8_t *)allocated_message_buffer + 2) = 17;
+  *((volatile uint8_t *)allocated_message_buffer + 3) = 0;
+  v6 = (int)(allocated_message_buffer + 1);
 LABEL_6:
   v9 = *(volatile uint16_t *)(a1 + 10);
   *(volatile uint16_t *)v6 = *(volatile uint16_t *)(a1 + 4);
@@ -4229,7 +4233,7 @@ LABEL_16:
       v21 = *v20;
       v22 = v13 + 16;
       v23 = v21 + v19;
-      *(volatile uint32_t *)(v23 + 4) = (int)(uintptr_t)(v7);
+      *(volatile uint32_t *)(v23 + 4) = (int)(uintptr_t)(allocated_message_buffer);
       *(volatile uint16_t *)(v21 + v19) = v15 + v22;
       *(volatile uint8_t *)(v23 + 3) = *(volatile uint8_t *)(v21 + v19 + 3) & 0x31 | 4;
       v24 = v16[3074];
@@ -4291,12 +4295,12 @@ LABEL_27:
     printf_wrapper(aSendMsgCfgToHo);
     return (void *)(uintptr_t)(jump_to_tx_entry((int)(uintptr_t)((volatile char *)a1)));
   }
-  *(volatile uint16_t *)v7 = *(volatile uint16_t *)(a1 + 10) + 12;
-  *((volatile uint8_t *)v7 + 2) = 17;
-  *((volatile uint8_t *)v7 + 3) = 0;
+  *(volatile uint16_t *)allocated_message_buffer = *(volatile uint16_t *)(a1 + 10) + 12;
+  *((volatile uint8_t *)allocated_message_buffer + 2) = 17;
+  *((volatile uint8_t *)allocated_message_buffer + 3) = 0;
   v30 = *(volatile uint16_t *)(a1 + 10);
   v29[1] = 0;
-  *v29 = (int)(uintptr_t)(v7);
+  *v29 = (int)(uintptr_t)(allocated_message_buffer);
   v29[2] = (uint16_t)(v30 + 16) | 0x80000000;
   ke_mutex_lock((int)v29);
   return (void *)(uintptr_t)(jump_to_tx_entry((int)(uintptr_t)((volatile char *)a1)));
@@ -4340,6 +4344,7 @@ int hw_reg_write(int a1) {
 
 
 // clock_enable @ 0x10d07c
+/* luna: Enables a hardware clock by writing 0x02000000 to a fixed control register. */
 void clock_enable() {
   *(volatile uint32_t *)off_10D088 = 0x2000000;
 }

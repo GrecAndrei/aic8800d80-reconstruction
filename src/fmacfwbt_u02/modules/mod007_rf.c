@@ -443,18 +443,19 @@ volatile int *ll_hdr_init() {
 
 
 // rf_radio_enable @ 0x111858
+/* luna: Resets and configures the USB device controller, clears endpoint interrupt status, and schedules the USB initialization-complete event. */
 int rf_radio_enable() {
-  volatile uint32_t *v0; // r2
+  volatile uint32_t *usb_regs; // r2
   volatile uint32_t *v1; // r2
   volatile uint32_t *v2; // r1
   volatile uint32_t *v3; // r2
   volatile uint32_t *v4; // r1
-  int v5; // r3
-  volatile uint32_t *v6; // r2
+  int endpoint_index; // r3
+  volatile uint32_t *endpoint_reg_window; // r2
 
-  v0 = (void *)(uintptr_t)(off_11194C);
+  usb_regs = (void *)(uintptr_t)(off_11194C);
   *((volatile uint32_t *)off_11194C + 4) |= 1u;
-  while ( (v0[4] & 1) != 0 )
+  while ( (usb_regs[4] & 1) != 0 )
     ;
   v1 = (void *)(uintptr_t)(off_11194C);
   while ( *((volatile int *)off_11194C + 4) >= 0 )
@@ -474,24 +475,24 @@ int rf_radio_enable() {
   v3[512] &= 0xFFFFE7FC;
   v3[512] |= 0x800004u;
   v3[6] = 0;
-  v5 = 1;
+  endpoint_index = 1;
   v3[5] = -1;
   v3[519] = 0;
   v3[517] = 0;
   v3[516] = 0;
   while ( 1 )
   {
-    v6 = &v4[8 * v5 - 16];
-    if ( v5 != 1 )
+    endpoint_reg_window = &v4[8 * endpoint_index - 16];
+    if ( endpoint_index != 1 )
       break;
     v4[706] = -1;
     v4[578] = -1;
 LABEL_11:
-    ++v5;
+    ++endpoint_index;
   }
-  v6[714] = -1;
-  v6[586] = -1;
-  if ( v5 != 6 )
+  endpoint_reg_window[714] = -1;
+  endpoint_reg_window[586] = -1;
+  if ( endpoint_index != 6 )
     goto LABEL_11;
   v4[6] = dword_111950;
   v4[513] &= ~2u;
@@ -538,50 +539,51 @@ int tx_pkt_set_len(int result, int a2) {
 
 
 // tx_desc_hw_config @ 0x1119c0
+/* luna: Applies set and clear masks to a TX descriptor's hardware control word, performs the required hardware handshake, and clears the corresponding TX head */
 int tx_desc_hw_config(int a1, int a2, int a3) {
-  volatile uint32_t *v3; // r6
-  volatile int *v4; // r5
-  int v5; // r7
-  volatile uint32_t *v6; // r4
+  volatile uint32_t *tx_desc_handshake_word; // r6
+  volatile int *tx_desc_control_word; // r5
+  int previous_control_value; // r7
+  volatile uint32_t *hardware_registers; // r4
 
   if ( a1 )
   {
-    v3 = (volatile uint32_t *)(dword_111A64 + 32 * (a1 - 1) + 8);
-    v4 = (volatile int *)(dword_111A64 + 32 * (a1 - 1));
+    tx_desc_handshake_word = (volatile uint32_t *)(dword_111A64 + 32 * (a1 - 1) + 8);
+    tx_desc_control_word = (volatile int *)(dword_111A64 + 32 * (a1 - 1));
   }
   else
   {
-    v3 = (volatile uint32_t *)dword_111A70;
-    v4 = (volatile int *)dword_111A74;
+    tx_desc_handshake_word = (volatile uint32_t *)dword_111A70;
+    tx_desc_control_word = (volatile int *)dword_111A74;
   }
-  v5 = *v4;
-  if ( (*v4 & 0x80008000) != 0 && ((dword_111A68 & v5) != 0x20000 || a2 != 0x8000000 || a3) )
+  previous_control_value = *tx_desc_control_word;
+  if ( (*tx_desc_control_word & 0x80008000) != 0 && ((dword_111A68 & previous_control_value) != 0x20000 || a2 != 0x8000000 || a3) )
   {
-    v6 = (void *)(uintptr_t)(off_111A6C);
+    hardware_registers = (void *)(uintptr_t)(off_111A6C);
     *((volatile uint32_t *)off_111A6C + 513) |= 0x200u;
-    while ( (v6[5] & 0x80) == 0 )
+    while ( (hardware_registers[5] & 0x80) == 0 )
       ;
-    *v4 |= a2 | 0x8008000;
+    *tx_desc_control_word |= a2 | 0x8008000;
     if ( a3 )
-      *v4 &= ~a3;
+      *tx_desc_control_word &= ~a3;
     if ( !a1 )
       goto LABEL_10;
-    if ( v5 < 0 )
+    if ( previous_control_value < 0 )
     {
-      *v3 = 2;
-      *v4 |= 0x40000000u;
-      while ( (*v3 & 2) == 0 )
+      *tx_desc_handshake_word = 2;
+      *tx_desc_control_word |= 0x40000000u;
+      while ( (*tx_desc_handshake_word & 2) == 0 )
         ;
-      if ( (v5 & 0x8000) != 0 )
+      if ( (previous_control_value & 0x8000) != 0 )
         goto LABEL_10;
     }
-    else if ( (v5 & 0x8000) != 0 )
+    else if ( (previous_control_value & 0x8000) != 0 )
     {
 LABEL_10:
       *((volatile uint32_t *)off_111A6C + 513) |= 0x400u;
       return tx_hdr_clear(a1);
     }
-    *v4 &= ~0x8000u;
+    *tx_desc_control_word &= ~0x8000u;
     goto LABEL_10;
   }
   return tx_hdr_clear(a1);
@@ -589,76 +591,77 @@ LABEL_10:
 
 
 // rx_desc_hw_config @ 0x111a78
+/* luna: Applies set and clear masks to an RX descriptor, performs any required hardware handshake, and clears its RX header when applicable. */
 int rx_desc_hw_config(int a1, int a2, int a3) {
-  int v3; // r6
-  volatile uint32_t *v4; // r4
-  int v5; // r5
-  volatile uint32_t *v6; // r3
-  volatile uint32_t *v7; // r2
+  int descriptor_offset; // r6
+  volatile uint32_t *descriptor_word_ptr; // r4
+  int descriptor_word_snapshot; // r5
+  volatile uint32_t *descriptor_handshake_reg; // r3
+  volatile uint32_t *rx_engine_command_reg; // r2
 
   if ( a1 )
   {
-    v3 = 32 * (a1 - 1);
-    v4 = (volatile uint32_t *)(dword_111B58 + v3);
-    v5 = *(volatile uint32_t *)(v3 + dword_111B58);
-    if ( (v5 & 0x80008000) == 0 )
+    descriptor_offset = 32 * (a1 - 1);
+    descriptor_word_ptr = (volatile uint32_t *)(dword_111B58 + descriptor_offset);
+    descriptor_word_snapshot = *(volatile uint32_t *)(descriptor_offset + dword_111B58);
+    if ( (descriptor_word_snapshot & 0x80008000) == 0 )
       return (int)rx_hdr_clear(a1);
-    v6 = (volatile uint32_t *)(dword_111B58 + v3 + 8);
-    if ( (dword_111B5C & v5) == 0x20000 )
+    descriptor_handshake_reg = (volatile uint32_t *)(dword_111B58 + descriptor_offset + 8);
+    if ( (dword_111B5C & descriptor_word_snapshot) == 0x20000 )
       goto LABEL_4;
     goto LABEL_15;
   }
-  v4 = (void *)(uintptr_t)(off_111B64);
-  v5 = *(volatile uint32_t *)off_111B64;
+  descriptor_word_ptr = (void *)(uintptr_t)(off_111B64);
+  descriptor_word_snapshot = *(volatile uint32_t *)off_111B64;
   if ( (*(volatile uint32_t *)off_111B64 & 0x80008000) != 0 )
   {
-    v6 = (volatile uint32_t *)dword_111B68;
-    if ( (dword_111B5C & v5) == 0x20000 )
+    descriptor_handshake_reg = (volatile uint32_t *)dword_111B68;
+    if ( (dword_111B5C & descriptor_word_snapshot) == 0x20000 )
     {
 LABEL_4:
       if ( a2 == 0x8000000 )
       {
         if ( !a3 )
           goto LABEL_11;
-        *v6 = 64;
-        *v4 |= 0x8008000u;
+        *descriptor_handshake_reg = 64;
+        *descriptor_word_ptr |= 0x8008000u;
 LABEL_27:
-        *v4 &= ~a3;
+        *descriptor_word_ptr &= ~a3;
 LABEL_7:
-        v7 = (void *)(uintptr_t)(off_111B60);
+        rx_engine_command_reg = (void *)(uintptr_t)(off_111B60);
         *((volatile uint32_t *)off_111B60 + 4) = (a1 << 6) | 0x20;
-        while ( (v7[4] & 0x20) != 0 )
+        while ( (rx_engine_command_reg[4] & 0x20) != 0 )
           ;
-        if ( (v5 & 0x8000) == 0 )
-          *v4 &= ~0x8000u;
+        if ( (descriptor_word_snapshot & 0x8000) == 0 )
+          *descriptor_word_ptr &= ~0x8000u;
 LABEL_11:
         if ( !a1 )
           return a1;
         return (int)rx_hdr_clear(a1);
       }
-      *v6 = 64;
-      *v4 |= a2 | 0x8008000;
+      *descriptor_handshake_reg = 64;
+      *descriptor_word_ptr |= a2 | 0x8008000;
 LABEL_6:
       if ( !a3 )
         goto LABEL_7;
       goto LABEL_27;
     }
 LABEL_15:
-    *v6 = 64;
-    *v4 |= a2 | 0x8008000;
-    if ( v5 < 0 )
+    *descriptor_handshake_reg = 64;
+    *descriptor_word_ptr |= a2 | 0x8008000;
+    if ( descriptor_word_snapshot < 0 )
     {
-      if ( (v5 & 0x20000) == 0 )
+      if ( (descriptor_word_snapshot & 0x20000) == 0 )
       {
-        while ( (*v6 & 0x40) == 0 )
+        while ( (*descriptor_handshake_reg & 0x40) == 0 )
           ;
-        *v6 = 64;
+        *descriptor_handshake_reg = 64;
       }
       if ( a3 )
-        *v4 &= ~a3;
-      *v6 = 2;
-      *v4 |= 0x40000000u;
-      while ( (*v6 & 2) == 0 )
+        *descriptor_word_ptr &= ~a3;
+      *descriptor_handshake_reg = 2;
+      *descriptor_word_ptr |= 0x40000000u;
+      while ( (*descriptor_handshake_reg & 2) == 0 )
         ;
       goto LABEL_7;
     }
@@ -742,8 +745,8 @@ volatile int * rf_reg_write_c(volatile int *result, unsigned int a2) {
 
 
 
-// rf_reg_write_alias @ 0x111c10
-volatile int * rf_reg_write_alias(volatile int *result, unsigned int a2) {
+// rf_reg_write_wrapper @ 0x111c10
+volatile int * rf_reg_write_wrapper(volatile int *result, unsigned int a2) {
   return rf_reg_write(result, a2);
 }
 
@@ -2357,7 +2360,7 @@ int global_env_init(int a1, int a2) {
       *(volatile uint8_t *)off_11323C = 1;
       if ( *v2 )
       {
-        ((int (*)())rf_reg_write_alias)(0, 1, 0);
+        ((int (*)())rf_reg_write_wrapper)(0, 1, 0);
         *v3 = 0;
         return -14;
       }
@@ -2413,7 +2416,7 @@ int global_env_init_params(int a1, int a2) {
       *(volatile uint8_t *)off_113300 = 1;
       if ( *v2 )
       {
-        ((int (*)())rf_reg_write_alias)(0, 1, 0);
+        ((int (*)())rf_reg_write_wrapper)(0, 1, 0);
         *v3 = 0;
         return -14;
       }

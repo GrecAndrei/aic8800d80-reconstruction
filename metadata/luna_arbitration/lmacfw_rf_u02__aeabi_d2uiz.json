@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "aeabi_d2uiz",
+ "luna": "aeabi_ul2d",
+ "doc": "ARM AEABI helper that converts an unsigned long integer pair in r0/r1 to a double and returns the result.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "neither",
+   "probabilities": [
+    {
+     "value": "aeabi_d2uiz",
+     "probability": 0.27
+    },
+    {
+     "value": "aeabi_ul2d",
+     "probability": 0.32
+    },
+    {
+     "value": "neither",
+     "probability": 0.41
+    }
+   ],
+   "confidence": 0.11
+  }
+ ],
+ "status": "ok"
+}

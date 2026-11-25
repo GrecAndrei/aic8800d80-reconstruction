@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "float_zero_common",
+ "luna": "aeabi_ul2f",
+ "doc": "Converts an unsigned 64-bit integer to a single-precision floating-point value using the ARM EABI helper routine.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "aeabi_ul2f",
+   "probabilities": [
+    {
+     "value": "float_zero_common",
+     "probability": 0.2
+    },
+    {
+     "value": "aeabi_ul2f",
+     "probability": 0.78
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.67
+  }
+ ],
+ "status": "ok"
+}

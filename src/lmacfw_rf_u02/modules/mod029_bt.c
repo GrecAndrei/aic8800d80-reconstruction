@@ -334,8 +334,9 @@ int set_private_addr(int a1, int a2) {
 
 
 // set_conn_interval @ 0x124f60
+/* luna: BLE command handler that parses a decimal connection-interval value and writes it into the corresponding hardware bit-field, emitting usage/error trac */
 int set_conn_interval(int a1, int a2) {
-  int v2; // r4
+  int conn_interval; // r4
 
   if ( a1 <= 1 )
   {
@@ -344,9 +345,9 @@ int set_conn_interval(int a1, int a2) {
   }
   else
   {
-    v2 = (uint8_t)parse_number(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
-    set_reg_1807fc_bit6(v2);
-    if ( v2 )
+    conn_interval = (uint8_t)parse_number(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
+    set_reg_1807fc_bit6(conn_interval);
+    if ( conn_interval )
       dispatch_event_handler_1(asc_1302EC);
     return 0;
   }
@@ -354,8 +355,9 @@ int set_conn_interval(int a1, int a2) {
 
 
 // set_conn_latency @ 0x124f9c
+/* luna: Handles a Bluetooth/LE connection-latency shell command by reporting usage when no value is supplied or parsing a decimal latency and applying it. */
 int set_conn_latency(int a1, int a2) {
-  uint8_t v2; // r0
+  uint8_t latency; // r0
 
   if ( a1 <= 1 )
   {
@@ -364,8 +366,8 @@ int set_conn_latency(int a1, int a2) {
   }
   else
   {
-    v2 = parse_number(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
-    rf_disable_1(v2);
+    latency = parse_number(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
+    rf_disable_1(latency);
     dispatch_event_handler_1(asc_130320);
     return 0;
   }
@@ -430,8 +432,9 @@ int set_rf_channel_map(int a1, int a2) {
 
 
 // set_rf_byte @ 0x12506c
+/* luna: Command handler that parses a decimal byte argument and writes it to an RF register field, dispatching a usage event when no argument is supplied. */
 int set_rf_byte(int a1, int a2) {
-  uint8_t v2; // r0
+  uint8_t rf_value; // r0
 
   if ( a1 <= 1 )
   {
@@ -440,8 +443,8 @@ int set_rf_byte(int a1, int a2) {
   }
   else
   {
-    v2 = parse_number(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
-    set_reg_158a08_bit16(v2);
+    rf_value = parse_number(*(volatile uint8_t **)(a2 + 4), nullptr, 0xAu);
+    set_reg_158a08_bit16(rf_value);
     dispatch_event_handler_1(asc_130320);
     return 0;
   }
@@ -1111,8 +1114,8 @@ LABEL_45:
 }
 
 
-// process_bt_service_search_event @ 0x125970
-int process_bt_service_search_event(int a1, int a2) {
+// rf_cmd_set_tone_power_offset @ 0x125970
+int rf_cmd_set_tone_power_offset(int a1, int a2) {
   int v4; // r0
   int v5; // r0
   int v6; // r1
@@ -1447,9 +1450,9 @@ int acl_rx_handler(int a1, int a2) {
   }
   else
   {
-    if ( memset_ff(*(volatile uint32_t *)(a2 + 4)) == 1 || memset_ff(*(volatile uint32_t *)(a2 + 4)) == 2 )
+    if ( strlen(*(volatile uint32_t *)(a2 + 4)) == 1 || strlen(*(volatile uint32_t *)(a2 + 4)) == 2 )
     {
-      if ( memset_ff(*(volatile uint32_t *)(a2 + 4)) == 1 )
+      if ( strlen(*(volatile uint32_t *)(a2 + 4)) == 1 )
       {
         v3 = *(volatile uint8_t **)(a2 + 4);
         if ( !v3 || !util_list_find((volatile uint8_t **)off_125ECC, v3) )
@@ -1461,7 +1464,7 @@ LABEL_7:
       }
       else
       {
-        if ( memset_ff(*(volatile uint32_t *)(a2 + 4)) != 2 )
+        if ( strlen(*(volatile uint32_t *)(a2 + 4)) != 2 )
           return 0;
         v5 = *(volatile uint8_t **)(a2 + 4);
         if ( !v5 || !util_list_find((volatile uint8_t **)off_125ED4, v5) )
@@ -1469,14 +1472,14 @@ LABEL_7:
       }
       dispatch_event_handler_1(aSetccSuccess);
       a2a = *(volatile char **)(a2 + 4);
-      v6 = memset_ff((unsigned int)a2a);
+      v6 = strlen((unsigned int)a2a);
       memcpy((volatile char *)dword_125EDC, a2a, v6);
       dispatch_event_handler_1("country code: %s\n", (const volatile char *)dword_125EDC);
       if ( (*(volatile uint32_t *)off_125EE4 & 0x2000000) == 0 )
         mmio_write_100000_2(dword_125EDC);
       return 0;
     }
-    v7 = memset_ff(*(volatile uint32_t *)(a2 + 4));
+    v7 = strlen(*(volatile uint32_t *)(a2 + 4));
     dispatch_event_handler_1("wrong len of countrycode %d\n", v7);
     return -1;
   }
@@ -1521,12 +1524,12 @@ int ll_data_handler(int a1, int a2) {
     dispatch_event_handler_1(asc_1305D8, a2);
     return -1;
   }
-  else if ( memset_ff(*(volatile uint32_t *)(a2 + 4)) == 2 )
+  else if ( strlen(*(volatile uint32_t *)(a2 + 4)) == 2 )
   {
     v3 = *(volatile uint8_t **)(a2 + 4);
 if ( v3 && util_list_find((volatile uint8_t **)((volatile uint32_t *)(uintptr_t)&off_125FDC)[0], v3) ) { dispatch_event_handler_1(aSetccSuccess);
       a2a = *(volatile char **)(a2 + 4);
-      v5 = memset_ff((unsigned int)a2a);
+      v5 = strlen((unsigned int)a2a);
       memcpy((volatile char *)dword_125FE8, a2a, v5);
       dispatch_event_handler_1("country code: %s\n", (const volatile char *)dword_125FE8);
       if ( (*(volatile uint32_t *)off_125FF0 & 0x2000000) == 0 )

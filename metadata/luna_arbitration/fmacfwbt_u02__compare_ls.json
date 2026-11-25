@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "compare_ls",
+ "luna": "float_less_equal",
+ "doc": "Single-precision IEEE 754 less-than-or-equal comparison routine matching the ARM EABI helper __aeabi_fcmple.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_less_equal",
+   "probabilities": [
+    {
+     "value": "compare_ls",
+     "probability": 0.24
+    },
+    {
+     "value": "float_less_equal",
+     "probability": 0.73
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

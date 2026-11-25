@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "nop_return2",
+ "luna": "noop",
+ "doc": "Performs no operation and returns immediately.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "noop",
+   "probabilities": [
+    {
+     "value": "nop_return2",
+     "probability": 0.44
+    },
+    {
+     "value": "noop",
+     "probability": 0.55
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.33
+  }
+ ],
+ "status": "ok"
+}

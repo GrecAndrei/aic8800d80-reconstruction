@@ -826,7 +826,7 @@ int find_free_conn(volatile uint8_t *a1, volatile uint8_t *a2) {
           v16 = v14[10];
           *(volatile uint16_t *)(v13 + 8) = v15;
           if ( v16 == v13 && *((volatile uint8_t *)v14 + 90) == 1 )
-            gpio_init((volatile uint16_t *)(v2 + 28 * i + 4), 0);
+            phy_set_channel((volatile uint16_t *)(v2 + 28 * i + 4), 0);
 LABEL_16:
           *a2 = i;
           return 0;
@@ -933,7 +933,7 @@ int tx_packet_start(volatile uint8_t *a1) {
           __enable_irq();
       }
     }
-    gpio_init((volatile uint16_t *)v3, 0);
+    phy_set_channel((volatile uint16_t *)v3, 0);
     return util_format_string(*(volatile char *)(v4 + 28 * v1 + 12));
   }
   return result;

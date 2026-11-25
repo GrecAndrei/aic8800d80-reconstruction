@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "ke_msg_send_1",
+ "luna": "ke_msg_alloc",
+ "doc": "Allocates a kernel message block, initializes its 12-byte header, and returns a pointer to the zeroed payload area.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_msg_alloc",
+   "probabilities": [
+    {
+     "value": "ke_msg_send_1",
+     "probability": 0.25
+    },
+    {
+     "value": "ke_msg_alloc",
+     "probability": 0.73
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

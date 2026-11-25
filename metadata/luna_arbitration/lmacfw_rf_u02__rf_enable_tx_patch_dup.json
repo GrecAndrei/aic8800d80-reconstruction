@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "rf_enable_tx_patch_dup",
+ "luna": "rf_enable_tx_patch_wrapper",
+ "doc": "Thin wrapper that tail-calls rf_enable_tx_patch to enable the RF TX patch.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "rf_enable_tx_patch_wrapper",
+   "probabilities": [
+    {
+     "value": "rf_enable_tx_patch_dup",
+     "probability": 0.17
+    },
+    {
+     "value": "rf_enable_tx_patch_wrapper",
+     "probability": 0.83
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.74
+  }
+ ],
+ "status": "ok"
+}

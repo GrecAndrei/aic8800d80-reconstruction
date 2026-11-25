@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "check_radio_state",
+ "luna": "set_user_id",
+ "doc": "Stores the supplied user ID in the byte immediately before the selected buffer, logging if the buffer is outside the heap.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "set_user_id",
+   "probabilities": [
+    {
+     "value": "check_radio_state",
+     "probability": 0.01
+    },
+    {
+     "value": "set_user_id",
+     "probability": 0.99
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.99
+  }
+ ],
+ "status": "ok"
+}

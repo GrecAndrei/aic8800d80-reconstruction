@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "mmio_irq_clear",
+ "luna": "ke_assert",
+ "doc": "Reports a kernel assertion failure by emitting the condition/file/line ASSERT message and stalling after interrupts are disabled.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "ke_assert",
+   "probabilities": [
+    {
+     "value": "mmio_irq_clear",
+     "probability": 0.26
+    },
+    {
+     "value": "ke_assert",
+     "probability": 0.72
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.58
+  }
+ ],
+ "status": "ok"
+}

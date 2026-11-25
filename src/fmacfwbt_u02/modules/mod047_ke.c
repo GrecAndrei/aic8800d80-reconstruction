@@ -509,6 +509,7 @@ int ke_int_lock_1(int a1, int a2, int a3) {
 
 
 // mmio_irq_clear @ 0x12f694
+/* luna: Reports a kernel assertion failure by emitting the condition/file/line ASSERT message and stalling after interrupts are disabled. */
 int mmio_irq_clear(int a1, int a2, int a3) {
   int result; // r0
 
@@ -527,28 +528,29 @@ int mmio_field_update(int a1, int a2, int a3) {
 
 
 // ke_int_unlock @ 0x12f6e0
+/* luna: Adjusts kernel IRQ nesting state and conditionally re-enables interrupts when the outermost kernel interrupt lock is released. */
 void ke_int_unlock() {
-  volatile uint32_t *v0; // r3
-  int v1; // r2
-  int v2; // r1
-  volatile uint32_t *v3; // r1
+  volatile uint32_t *irq_nesting_count_ptr; // r3
+  int old_irq_nesting_count; // r2
+  int updated_irq_nesting_count; // r1
+  volatile uint32_t *irq_disable_flag_ptr; // r1
 
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();
     *(volatile uint32_t *)off_12F708 = 1;
   }
-  v0 = (void *)(uintptr_t)(off_12F70C);
-  v1 = *(volatile uint32_t *)off_12F70C;
-  v2 = *(volatile uint32_t *)off_12F70C + 1;
-  *(volatile uint32_t *)off_12F70C = v2;
-  if ( v2 )
+  irq_nesting_count_ptr = (void *)(uintptr_t)(off_12F70C);
+  old_irq_nesting_count = *(volatile uint32_t *)off_12F70C;
+  updated_irq_nesting_count = *(volatile uint32_t *)off_12F70C + 1;
+  *(volatile uint32_t *)off_12F70C = updated_irq_nesting_count;
+  if ( updated_irq_nesting_count )
   {
-    v3 = (void *)(uintptr_t)(off_12F708);
-    *v0 = v1;
-    if ( !v1 )
+    irq_disable_flag_ptr = (void *)(uintptr_t)(off_12F708);
+    *irq_nesting_count_ptr = old_irq_nesting_count;
+    if ( !old_irq_nesting_count )
     {
-      if ( *v3 )
+      if ( *irq_disable_flag_ptr )
         __enable_irq();
     }
   }
@@ -578,6 +580,7 @@ int reset_hci_scratch() {
 
 
 // j_rf_phy_mmio_poll_n_cb @ 0x12f744
+/* luna: Jump stub that tail-calls the PMU extra interrupt service routine and returns its result. */
 int j_rf_phy_mmio_poll_n_cb() {
   return pmu_isr_extra();
 }
@@ -599,6 +602,7 @@ int return_two_stub() {
 
 
 // j_nullsub_6 @ 0x12f750
+/* luna: No-op thunk that tail-calls nullsub_6. */
 int j_nullsub_6(void) {
   return nullsub_6();
 }
@@ -1073,12 +1077,13 @@ LABEL_7:
 
 
 // parse_integer @ 0x12fb74
+/* luna: Parses a numeric string with optional sign and automatic decimal/octal/hex base, returning its integer value and optionally storing a pointer to the t */
 int parse_integer(volatile uint8_t *a1, volatile uint32_t *a2, unsigned int a3) {
   int v3; // r5
-  int v4; // r7
+  int is_negative; // r7
   int i; // r6
-  unsigned int v6; // r3
-  int v8; // t1
+  unsigned int digit; // r3
+  int next_ch; // t1
   int v9; // r3
   int v10; // r3
 
@@ -1105,7 +1110,7 @@ int parse_integer(volatile uint8_t *a1, volatile uint32_t *a2, unsigned int a3) 
         if ( v3 != 45 )
           goto LABEL_5;
 LABEL_25:
-        v4 = 1;
+        is_negative = 1;
         v3 = *++a1;
         goto LABEL_6;
       }
@@ -1118,26 +1123,26 @@ LABEL_25:
   if ( v3 == 45 )
     goto LABEL_25;
 LABEL_5:
-  v4 = 0;
+  is_negative = 0;
 LABEL_6:
-  for ( i = 0; ; i = v6 + i * a3 )
+  for ( i = 0; ; i = digit + i * a3 )
   {
-    v6 = v3 - 48;
+    digit = v3 - 48;
     if ( (uint8_t)(v3 - 48) > 9u )
     {
       if ( (v3 & 0xFFFFFFDF) - 65 > 5 )
         break;
       if ( (unsigned int)(v3 - 97) > 0x19 )
-        v6 = v3 - 55;
+        digit = v3 - 55;
       else
-        v6 = (uint8_t)(v3 - 32) - 55;
+        digit = (uint8_t)(v3 - 32) - 55;
     }
-    if ( a3 <= v6 )
+    if ( a3 <= digit )
       break;
-    v8 = *++a1;
-    v3 = v8;
+    next_ch = *++a1;
+    v3 = next_ch;
   }
-  if ( v4 )
+  if ( is_negative )
     i = -i;
   if ( a2 )
     *a2 = (int)(uintptr_t)(a1);

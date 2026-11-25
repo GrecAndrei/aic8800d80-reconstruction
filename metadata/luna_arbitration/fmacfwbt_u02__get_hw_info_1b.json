@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "get_hw_info_1b",
+ "luna": "get_hw_info_bit27",
+ "doc": "Returns hardware-info bit 27 using the registered accessor.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "get_hw_info_bit27",
+   "probabilities": [
+    {
+     "value": "get_hw_info_1b",
+     "probability": 0.25
+    },
+    {
+     "value": "get_hw_info_bit27",
+     "probability": 0.57
+    },
+    {
+     "value": "neither",
+     "probability": 0.18
+    }
+   ],
+   "confidence": 0.35
+  }
+ ],
+ "status": "ok"
+}

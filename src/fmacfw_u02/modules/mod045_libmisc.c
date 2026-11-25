@@ -362,7 +362,7 @@ int load_bt_config(int a1) {
   v6 = ((uint64_t (*)())double_add_1)(v4, v5);
   v7 = (v7 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_12D5A0) << 32);
   v7 = (v7 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
-  v8 = double_compare(v6, v7);
+  v8 = aeabi_dadd(v6, v7);
   v9 = ((int (*)(uint64_t))double_to_float_1)(v8);
   return v9 & 0x7F800000
        | ((((int64_t)(int32_t)(v9 & 0x7FFFFF) * (int64_t)(int32_t)(_frame.v11[(v9 >> 18) & 0x1F])) >> 23) + *(volatile uint32_t *)&_frame.v12[4 * ((v9 >> 18) & 0x1F)]);

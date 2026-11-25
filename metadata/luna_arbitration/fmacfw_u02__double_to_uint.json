@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "double_to_uint",
+ "luna": "double_to_float",
+ "doc": "Converts a double-precision floating-point value to single precision using the ARM EABI conversion routine.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_to_float",
+   "probabilities": [
+    {
+     "value": "double_to_uint",
+     "probability": 0.07
+    },
+    {
+     "value": "double_to_float",
+     "probability": 0.88
+    },
+    {
+     "value": "neither",
+     "probability": 0.05
+    }
+   ],
+   "confidence": 0.82
+  }
+ ],
+ "status": "ok"
+}

@@ -294,7 +294,7 @@ LABEL_38:
             v25 = __PAIR64__(HIDWORD(v23), v24);
             v26 = int_to_double(v23);
             v27 = ((uint64_t (*)())double_add_1)(v26, *(volatile uint64_t *)&dword_11D628);
-            v28 = double_compare(v25, v27);
+            v28 = aeabi_dadd(v25, v27);
             *(volatile uint8_t *)(_frame.a3 + 689) = ((int (*)(uint64_t))double_to_float_1)(v28);
           }
           return 0;

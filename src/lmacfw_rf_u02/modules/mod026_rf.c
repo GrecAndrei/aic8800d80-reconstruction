@@ -2278,6 +2278,7 @@ int return_2() {
 
 
 // j_nullsub_6 @ 0x121a64
+/* luna: Tail-call thunk that invokes nullsub_6 and returns its value. */
 int j_nullsub_6(void) {
   return nullsub_6();
 }

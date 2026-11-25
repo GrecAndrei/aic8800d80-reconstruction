@@ -782,6 +782,7 @@ int llm_event_wait_next(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // llm_env_reset @ 0x1323e4
+/* luna: Reset the LLM/link-layer environment by clearing its global state block and reinitializing HCI, DMA RX/TX, tx-power state, control flags, and RF queue */
 int llm_env_reset() {
   memset((volatile int *)dword_132414, 0, 0x17Cu);
   hci_cmd_send(5u, 0);

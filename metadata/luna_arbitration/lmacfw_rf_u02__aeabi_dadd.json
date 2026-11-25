@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "aeabi_dadd",
+ "luna": "aeabi_dmul",
+ "doc": "Linked ARM EABI libgcc helper for double-precision multiplication (__aeabi_dmul).",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "aeabi_dmul",
+   "probabilities": [
+    {
+     "value": "aeabi_dadd",
+     "probability": 0.23
+    },
+    {
+     "value": "aeabi_dmul",
+     "probability": 0.54
+    },
+    {
+     "value": "neither",
+     "probability": 0.23
+    }
+   ],
+   "confidence": 0.31
+  }
+ ],
+ "status": "ok"
+}

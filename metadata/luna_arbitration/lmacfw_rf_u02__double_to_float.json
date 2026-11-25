@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "double_to_float",
+ "luna": "aeabi_ui2d",
+ "doc": "ARM EABI soft-float helper that converts an unsigned integer in r0 to an IEEE double returned in r0:r1.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "aeabi_ui2d",
+   "probabilities": [
+    {
+     "value": "double_to_float",
+     "probability": 0.08
+    },
+    {
+     "value": "aeabi_ui2d",
+     "probability": 0.86
+    },
+    {
+     "value": "neither",
+     "probability": 0.06
+    }
+   ],
+   "confidence": 0.79
+  }
+ ],
+ "status": "ok"
+}

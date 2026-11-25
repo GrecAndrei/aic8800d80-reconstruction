@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "double_to_float_1",
+ "luna": "double_to_int",
+ "doc": "Converts a double-precision floating-point value to a signed 32-bit integer using ARM EABI conversion semantics.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "double_to_int",
+   "probabilities": [
+    {
+     "value": "double_to_float_1",
+     "probability": 0.07
+    },
+    {
+     "value": "double_to_int",
+     "probability": 0.9
+    },
+    {
+     "value": "neither",
+     "probability": 0.03
+    }
+   ],
+   "confidence": 0.85
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "float_compare",
+ "luna": "float_add",
+ "doc": "Implements ARM EABI single-precision floating-point addition (__aeabi_fadd).",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_add",
+   "probabilities": [
+    {
+     "value": "float_compare",
+     "probability": 0.06
+    },
+    {
+     "value": "float_add",
+     "probability": 0.87
+    },
+    {
+     "value": "neither",
+     "probability": 0.07
+    }
+   ],
+   "confidence": 0.8
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "init_ram_table",
+ "luna": "dump_ram_table",
+ "doc": "Dumps a saved RAM table of ARM register state, Cortex-M fault/control status, and selected stack or code memory for debug/assert reporting.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "dump_ram_table",
+   "probabilities": [
+    {
+     "value": "init_ram_table",
+     "probability": 0.07
+    },
+    {
+     "value": "dump_ram_table",
+     "probability": 0.92
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.88
+  }
+ ],
+ "status": "ok"
+}

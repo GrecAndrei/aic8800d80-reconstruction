@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "printf_wrapper",
+ "luna": "printf",
+ "doc": "Forwards variadic arguments to the debug output formatter.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "printf",
+   "probabilities": [
+    {
+     "value": "printf_wrapper",
+     "probability": 0.42
+    },
+    {
+     "value": "printf",
+     "probability": 0.58
+    },
+    {
+     "value": "neither",
+     "probability": 0.0
+    }
+   ],
+   "confidence": 0.37
+  }
+ ],
+ "status": "ok"
+}

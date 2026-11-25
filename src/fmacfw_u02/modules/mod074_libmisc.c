@@ -43,7 +43,7 @@ uint64_t double_add(uint64_t a1) {
     }
     else if ( v1 == 2047 )
     {
-      return double_compare(a1, a1);
+      return aeabi_dadd(a1, a1);
     }
   }
   else
@@ -89,7 +89,7 @@ unsigned int float_add(unsigned int a1) {
   if ( unbiased_exponent < 0 )
   {
     v8 = ((int (*)())float_compare)(a1, dword_142728);
-    if ( call_helper_bool(v8, 0) )
+    if ( float_gt(v8, 0) )
     {
       if ( (a1 & 0x80000000) == 0 )
         return 0;
@@ -102,7 +102,7 @@ unsigned int float_add(unsigned int a1) {
   if ( (a1 & (dword_142724 >> unbiased_exponent)) == 0 )
     return a1;
   v6 = ((int (*)())float_compare)(a1, dword_142728);
-  if ( !call_helper_bool(v6, 0) )
+  if ( !float_gt(v6, 0) )
     return a1;
   if ( (a1 & 0x80000000) != 0 )
     result_bits += 0x800000 >> unbiased_exponent;
@@ -114,7 +114,7 @@ unsigned int float_add(unsigned int a1) {
 /* libmatch: 634 bytes identical to __aeabi_dsub (libgcc.a:_arm_addsubdf3.o); the library routine is linked */
 
 
-// double_compare @ 0x14273c
+// aeabi_dadd @ 0x14273c
 /* libmatch: 630 bytes identical to __aeabi_dadd (libgcc.a:_arm_addsubdf3.o); the library routine is linked */
 
 
@@ -206,7 +206,7 @@ unsigned int float_add(unsigned int a1) {
 /* libmatch: 94 bytes identical to __cmpsf2 (libgcc.a:_arm_cmpsf2.o); the library routine is linked */
 
 
-// float_swap_compare @ 0x143398
+// float_compare_reverse_le @ 0x143398
 /* libmatch: 24 bytes identical to __aeabi_cfrcmple (libgcc.a:_arm_cmpsf2.o); the library routine is linked */
 
 
@@ -226,7 +226,7 @@ unsigned int float_add(unsigned int a1) {
 /* libmatch: 18 bytes identical to __aeabi_fcmpge (libgcc.a:_arm_cmpsf2.o); the library routine is linked */
 
 
-// call_helper_bool @ 0x143400
+// float_gt @ 0x143400
 /* libmatch: 18 bytes identical to __aeabi_fcmpgt (libgcc.a:_arm_cmpsf2.o); the library routine is linked */
 
 

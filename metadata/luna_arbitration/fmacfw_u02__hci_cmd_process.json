@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "hci_cmd_process",
+ "luna": "scanu_confirm",
+ "doc": "Builds and sends a SCANU confirmation, selecting its message ID from the scan-operation flag and including the result and scan metadata.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "scanu_confirm",
+   "probabilities": [
+    {
+     "value": "hci_cmd_process",
+     "probability": 0.2
+    },
+    {
+     "value": "scanu_confirm",
+     "probability": 0.78
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.67
+  }
+ ],
+ "status": "ok"
+}

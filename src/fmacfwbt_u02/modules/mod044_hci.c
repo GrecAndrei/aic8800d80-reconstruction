@@ -555,11 +555,12 @@ volatile uint32_t * hci_evt_send(int a1) {
 
 
 // hci_evt_alloc_send @ 0x12cc38
+/* luna: Allocates a Bluetooth HCI event buffer and immediately sends it. */
 int hci_evt_alloc_send(int16_t a1, int16_t a2, int16_t a3) {
-  int v3; // r0
+  int evt_buf; // r0
 
-  v3 = bt_buf_alloc(a1, a2, a3, 0);
-  return (int)(uintptr_t)(hci_evt_send(v3));
+  evt_buf = bt_buf_alloc(a1, a2, a3, 0);
+  return (int)(uintptr_t)(hci_evt_send(evt_buf));
 }
 
 

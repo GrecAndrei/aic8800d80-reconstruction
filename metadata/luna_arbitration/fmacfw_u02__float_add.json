@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "float_add",
+ "luna": "float_floor",
+ "doc": "Returns the IEEE-754 single-precision value rounded down to the greatest integer not exceeding it, preserving signed zero and non-finite values.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "float_floor",
+   "probabilities": [
+    {
+     "value": "float_add",
+     "probability": 0.26
+    },
+    {
+     "value": "float_floor",
+     "probability": 0.72
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.58
+  }
+ ],
+ "status": "ok"
+}

@@ -1,0 +1,29 @@
+{
+ "img": "fmacfw_u02",
+ "fn": "ipc_register_handler",
+ "luna": "apm_stop_cac_req_handler",
+ "doc": "Processes an APM stop-CAC request, conditionally performs station-related cleanup, and sends a no-parameter kernel response.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "apm_stop_cac_req_handler",
+   "probabilities": [
+    {
+     "value": "ipc_register_handler",
+     "probability": 0.04
+    },
+    {
+     "value": "apm_stop_cac_req_handler",
+     "probability": 0.95
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.93
+  }
+ ],
+ "status": "ok"
+}

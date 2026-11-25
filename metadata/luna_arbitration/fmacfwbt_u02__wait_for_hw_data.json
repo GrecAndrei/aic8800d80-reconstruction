@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "wait_for_hw_data",
+ "luna": "hal_delay_ticks",
+ "doc": "Busy-waits until the hardware timer advances by the requested number of ticks.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "hal_delay_ticks",
+   "probabilities": [
+    {
+     "value": "wait_for_hw_data",
+     "probability": 0.38
+    },
+    {
+     "value": "hal_delay_ticks",
+     "probability": 0.61
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.42
+  }
+ ],
+ "status": "ok"
+}

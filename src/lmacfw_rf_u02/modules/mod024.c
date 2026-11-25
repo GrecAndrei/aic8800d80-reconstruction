@@ -86,19 +86,20 @@ int util_byte_to_hex(char a1) {
 
 
 // rf_get_temperature @ 0x11da3c
+/* luna: Reads the RF temperature field from a context, returning an invalid/0x7f raw value when sensor data is unavailable and otherwise returning a processed */
 int rf_get_temperature(int a1, volatile uint8_t *a2, volatile uint8_t *a3) {
-  int v3; // r3
+  int raw_temp; // r3
   int result; // r0
 
-  v3 = *(volatile char *)(a1 + 97);
-  if ( v3 == 127 )
+  raw_temp = *(volatile char *)(a1 + 97);
+  if ( raw_temp == 127 )
     result = *(volatile uint32_t *)off_11DA58;
   else
-    result = (uint8_t)v3;
-  if ( v3 == 127 )
+    result = (uint8_t)raw_temp;
+  if ( raw_temp == 127 )
     result = (uint8_t)result;
   if ( a2 )
-    *a2 = v3;
+    *a2 = raw_temp;
   if ( a3 )
     *a3 = result;
   return result;
@@ -424,21 +425,22 @@ int ke_task_retrieve(int a1, int a2) {
 
 
 // ke_msg_send_1 @ 0x11ddf0
+/* luna: Allocates a kernel message block, initializes its 12-byte header, and returns a pointer to the zeroed payload area. */
 int ke_msg_send_1(int16_t a1, int16_t a2, int16_t a3, unsigned int a4) {
-  int v8; // r0
-  int v9; // r4
+  int msg_block; // r0
+  int msg_header; // r4
 
-  v8 = align_size_plus4(a4 + 12);
-  v9 = v8;
-  if ( **(volatile int16_t **)off_11DE44 < 0 && !v8 )
+  msg_block = align_size_plus4(a4 + 12);
+  msg_header = msg_block;
+  if ( **(volatile int16_t **)off_11DE44 < 0 && !msg_block )
     flash_ctrl_init(dword_11DE4C, dword_11DE48, 145);
-  *(volatile uint16_t *)(v9 + 4) = a1;
-  *(volatile uint16_t *)(v9 + 6) = a2;
-  *(volatile uint16_t *)(v9 + 8) = a3;
-  *(volatile uint16_t *)(v9 + 10) = a4;
-  *(volatile uint32_t *)v9 = 0;
-  memset((volatile int *)(v9 + 12), 0, a4);
-  return v9 + 12;
+  *(volatile uint16_t *)(msg_header + 4) = a1;
+  *(volatile uint16_t *)(msg_header + 6) = a2;
+  *(volatile uint16_t *)(msg_header + 8) = a3;
+  *(volatile uint16_t *)(msg_header + 10) = a4;
+  *(volatile uint32_t *)msg_header = 0;
+  memset((volatile int *)(msg_header + 12), 0, a4);
+  return msg_header + 12;
 }
 
 
@@ -488,44 +490,45 @@ int isr_forward(int a1) {
 
 
 // co_list_process @ 0x11deec
+/* luna: Removes and returns the first node in a singly linked co_list whose predicate callback returns true, updating the list head and tail pointers as neede */
 volatile uint32_t * co_list_process(int a1, int ( *a2)(volatile uint32_t *, int), int a3) {
-  volatile uint32_t *v3; // r4
-  volatile uint32_t *v7; // r8
+  volatile uint32_t *node; // r4
+  volatile uint32_t *prev; // r8
   int i; // r0
-  int v9; // r3
+  int next; // r3
 
-  v3 = *(volatile uint32_t **)a1;
+  node = *(volatile uint32_t **)a1;
   if ( !*(volatile uint32_t *)a1 )
     return 0;
-  v7 = 0;
-  for ( i = a2(v3, a3); ; i = a2(v3, a3) )
+  prev = 0;
+  for ( i = a2(node, a3); ; i = a2(node, a3) )
   {
-    v9 = *v3;
+    next = *node;
     if ( i )
       break;
-    v7 = v3;
-    if ( !v9 )
+    prev = node;
+    if ( !next )
       return 0;
-    v3 = (volatile uint32_t *)*v3;
+    node = (volatile uint32_t *)*node;
   }
-  if ( v7 )
+  if ( prev )
   {
-    *v7 = v9;
-    if ( *v3 )
+    *prev = next;
+    if ( *node )
     {
 LABEL_8:
-      *v3 = 0;
-      return v3;
+      *node = 0;
+      return node;
     }
   }
   else
   {
-    *(volatile uint32_t *)a1 = v9;
-    if ( v9 )
+    *(volatile uint32_t *)a1 = next;
+    if ( next )
       goto LABEL_8;
   }
-  *(volatile uint32_t *)(a1 + 4) = (int)(uintptr_t)(v7);
-  return v3;
+  *(volatile uint32_t *)(a1 + 4) = (int)(uintptr_t)(prev);
+  return node;
 }
 
 
@@ -796,14 +799,15 @@ int process_list_entries(int a1, volatile int *a2, int a3) {
 
 
 // flash_erase_sector @ 0x11e1e4
+/* luna: Sets the kernel task state for a packed task identifier and processes the task's pending kernel message list when the state changes. */
 int flash_erase_sector(unsigned int a1, int a2) {
   volatile int16_t **v2; // r7
-  unsigned int v5; // r9
-  unsigned int v6; // r6
-  volatile uint16_t *v7; // r9
+  unsigned int task_index; // r9
+  unsigned int task_type; // r6
+  volatile uint16_t *state_ptr; // r9
   int result; // r0
-  int ( *v9)(volatile uint32_t *, int); // r8
-  int v10; // r7
+  int ( *callback)(volatile uint32_t *, int); // r8
+  int message_list; // r7
   volatile int *v11; // r6
   volatile int *v12; // r5
   int v13; // r0
@@ -813,8 +817,8 @@ int flash_erase_sector(unsigned int a1, int a2) {
   volatile int *v17; // r6
 
   v2 = (volatile int16_t **)off_11E310;
-  v5 = a1 >> 8;
-  v6 = (uint8_t)a1;
+  task_index = a1 >> 8;
+  task_type = (uint8_t)a1;
   if ( **(volatile int16_t **)off_11E310 >= 0 )
     goto LABEL_2;
   if ( (uint8_t)a1 <= 4u )
@@ -823,16 +827,16 @@ int flash_erase_sector(unsigned int a1, int a2) {
   if ( **v2 >= 0 )
   {
 LABEL_2:
-    v7 = (volatile uint16_t *)(((volatile uint32_t *)(uintptr_t)off_11E314)[4 * v6 + 2] + 2 * v5);
+    state_ptr = (volatile uint16_t *)(((volatile uint32_t *)(uintptr_t)off_11E314)[4 * task_type + 2] + 2 * task_index);
     goto LABEL_3;
   }
-  if ( v6 <= 5 )
+  if ( task_type <= 5 )
   {
 LABEL_15:
     if ( (a1 & 0xFC) == 0 )
     {
-      v17 = (void *)(&((volatile uint32_t *)(uintptr_t)off_11E314)[4 * v6]);
-      if ( *((volatile uint16_t *)v17 + 7) > v5 )
+      v17 = (void *)(&((volatile uint32_t *)(uintptr_t)off_11E314)[4 * task_type]);
+      if ( *((volatile uint16_t *)v17 + 7) > task_index )
         goto LABEL_17;
       goto LABEL_25;
     }
@@ -847,32 +851,32 @@ LABEL_15:
 LABEL_23:
   if ( **v2 >= 0 )
     goto LABEL_2;
-  v17 = (void *)(&((volatile uint32_t *)(uintptr_t)off_11E314)[4 * v6]);
-  if ( *((volatile uint16_t *)v17 + 7) > v5 )
+  v17 = (void *)(&((volatile uint32_t *)(uintptr_t)off_11E314)[4 * task_type]);
+  if ( *((volatile uint16_t *)v17 + 7) > task_index )
   {
 LABEL_17:
-    v7 = (volatile uint16_t *)(v17[2] + 2 * v5);
-    if ( v7 )
+    state_ptr = (volatile uint16_t *)(v17[2] + 2 * task_index);
+    if ( state_ptr )
       goto LABEL_3;
     goto LABEL_18;
   }
 LABEL_25:
   flash_ctrl_init((int)aIdxTaskDescTyp, (int)aKeStateSet, 175);
-  v7 = (volatile uint16_t *)(v17[2] + 2 * v5);
-  if ( **v2 < 0 && !v7 )
+  state_ptr = (volatile uint16_t *)(v17[2] + 2 * task_index);
+  if ( **v2 < 0 && !state_ptr )
 LABEL_18:
     flash_ctrl_init((int)aKeStateidPtr, (int)aKeStateSet, 180);
 LABEL_3:
   result = dispatch_event_handler_1("\x80\x9Dset tsk:%x:%x\n", a1, a2);
-  if ( (uint16_t)*v7 != a2 )
+  if ( (uint16_t)*state_ptr != a2 )
   {
-    v9 = (int ( *)(volatile uint32_t *, int))off_11E348;
-    v10 = dword_11E31C;
+    callback = (int ( *)(volatile uint32_t *, int))off_11E348;
+    message_list = dword_11E31C;
     v11 = (volatile int *)off_11E320;
-    *v7 = a2;
+    *state_ptr = a2;
     while ( 1 )
     {
-      result = (int)co_list_process(v10, v9, a1);
+      result = (int)co_list_process(message_list, callback, a1);
       v16 = (volatile uint32_t *)result;
       if ( !result )
         break;
@@ -1028,8 +1032,8 @@ LABEL_3:
 
 
 
-// set_busy_flag @ 0x11e4d8
-volatile uint32_t *set_busy_flag() {
+// ke_task_schedule @ 0x11e4d8
+volatile uint32_t *ke_task_schedule() {
   volatile int *v0; // r5
   int v1; // r0
   volatile uint32_t *result; // r0

@@ -66,7 +66,7 @@ int read_global_state(int a1, int a2, unsigned int a3, int a4) {
   *(volatile uint32_t *)_frame.a1a = dword_123D80;
   _frame.v12 = 0;
   _frame.v11 = 2484;
-  gpio_init(_frame.a1a, 0);
+  phy_set_channel(_frame.a1a, 0);
   util_format_string(15);
   *((volatile uint16_t *)off_123D84 + 14) = *(volatile uint16_t *)(a2 + 68);
   delay_loop((int)_frame.v13);
@@ -429,7 +429,7 @@ LABEL_67:
           v57 = bt_buf_alloc(17, a4, a3, 2);
           v13 = (void *)(uintptr_t)(off_124508);
           v58 = v57;
-          gpio_init((volatile uint16_t *)a2, a2[10]);
+          phy_set_channel((volatile uint16_t *)a2, a2[10]);
           hci_evt_send(v58);
           v14 = 0;
           goto LABEL_10;

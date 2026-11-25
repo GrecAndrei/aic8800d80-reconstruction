@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "is_rf_calib_running",
+ "luna": "rf_calib_is_running",
+ "doc": "Returns whether the RF calibration-in-progress flag is set.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "is_rf_calib_running",
+   "probabilities": [
+    {
+     "value": "is_rf_calib_running",
+     "probability": 0.73
+    },
+    {
+     "value": "rf_calib_is_running",
+     "probability": 0.25
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.6
+  }
+ ],
+ "status": "ok"
+}

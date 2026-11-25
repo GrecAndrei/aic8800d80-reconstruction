@@ -1,0 +1,29 @@
+{
+ "img": "fmacfwbt_u02",
+ "fn": "j_nullsub_6",
+ "luna": "thunk_nullsub_6",
+ "doc": "No-op thunk that tail-calls nullsub_6.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "thunk_nullsub_6",
+   "probabilities": [
+    {
+     "value": "j_nullsub_6",
+     "probability": 0.22
+    },
+    {
+     "value": "thunk_nullsub_6",
+     "probability": 0.77
+    },
+    {
+     "value": "neither",
+     "probability": 0.01
+    }
+   ],
+   "confidence": 0.66
+  }
+ ],
+ "status": "ok"
+}

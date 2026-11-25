@@ -1,0 +1,29 @@
+{
+ "img": "lmacfw_rf_u02",
+ "fn": "memset_ff",
+ "luna": "strlen",
+ "doc": "Returns the length in bytes of a NUL-terminated string using an unaligned-safe, word-at-a-time zero-byte search with prefetching.",
+ "answers": [
+  {
+   "type": "choice",
+   "name": null,
+   "choice": "strlen",
+   "probabilities": [
+    {
+     "value": "memset_ff",
+     "probability": 0.03
+    },
+    {
+     "value": "strlen",
+     "probability": 0.95
+    },
+    {
+     "value": "neither",
+     "probability": 0.02
+    }
+   ],
+   "confidence": 0.93
+  }
+ ],
+ "status": "ok"
+}
