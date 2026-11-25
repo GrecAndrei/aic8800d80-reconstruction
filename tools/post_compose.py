@@ -28,7 +28,6 @@ STEPS = [
     ("volatile_pointees.py", [], True),
     ("heap_boundary_literal.py", [], True),
     ("patch_tailcall_args.py", [], True),
-    ("find_ext_strncasecmp.py", [], True),
     ("callsite_targets.py", [], True),
     ("periph_symbols.py", [], True),
     ("asm_returns.py", [], True),
@@ -46,6 +45,7 @@ STEPS = [
     ("signed_muls.py", [], True),
     ("signed_halfwords.py", [], True),
     ("libc_names.py", [], True),
+    ("find_ext_strncasecmp.py", [], True),
     ("format_hd_signextend.py", [], True),
     ("format_scratch_frame.py", [], True),
 ]
