@@ -281,6 +281,53 @@ def r0_provenance(cfg: dict, entries: list[int], max_depth: int = 400) -> dict:
     return {"returns": rep, "tail_targets": [hex(t) for _, t in tails if t], "kinds": sorted(kinds)}
 
 
+
+def return_verdict(prov: dict, has_indirect: bool) -> tuple[str, list[str]]:
+    """Fuse per-return provenance and tail targets into a return-contract verdict.
+
+    Machine-grounded rules (evidence: subagent machine analysis of the corpus):
+    * a function whose every return carries input residue and that has no tail
+      path produces no result: void_input_residue.
+    * a tail-only function is transparently its target: handled by the
+      existing tail_alias class, not here.
+    * a conditional tail PLUS a fallthrough return is never transparent:
+      contract is mixed, because the paths must be unioned.
+    * uniform produced/call_passthru across all returns is result evidence,
+      but scratch writes cannot be distinguished locally: it is caller-use
+      evidence that decides whether the value is a semantic result.
+    * anything involving unknown or indirect control flow stays inert.
+    """
+    evidence = []
+    kinds = set(prov.get("kinds", []))
+    tails = prov.get("tail_targets", [])
+    rets = prov.get("returns", [])
+    if "unknown" in kinds or has_indirect:
+        return "unknown", ["indirect or undecidable control flow"]
+    if not rets and tails:
+        return "unknown", ["no direct returns; tail-only handled by alias resolution"]
+    if tails and rets:
+        evidence.append(f"{len(tails)} conditional tail path(s) unioned with fallthrough returns")
+        base = "mixed"
+    else:
+        base = None
+    if kinds == {"input_residue"} and not tails:
+        return "void_input_residue", ["no return path writes or receives a computed r0"]
+    if kinds == {"input_residue"} and tails:
+        return "mixed", evidence + ["fallthrough paths are input residue but tail paths may produce"]
+    if kinds <= {"produced"} and kinds:
+        v = "result_produced" if base is None else base
+        return v, evidence + ["every return path writes r0 locally before returning"]
+    if kinds <= {"call_passthru"} and kinds:
+        v = "result_passthru" if base is None else base
+        return v, evidence + ["every return path yields a callee result"]
+    if kinds <= {"produced", "call_passthru"} and kinds:
+        v = "result_produced" if base is None else base
+        return v, evidence + ["return paths produce r0 locally or through a callee"]
+    if kinds == {"input_residue", "produced"} or kinds == {"input_residue", "call_passthru"}:
+        return "mixed", evidence + ["return paths disagree on whether r0 carries a result"]
+    return ("mixed" if base else "unknown"), evidence or ["unclassified provenance shape"]
+
+
 def analyze_function(blob: bytes, addr: int, end: int, base: int = ANALYSIS_BASE) -> dict:
     insns = disassemble_fn(blob, addr, end, base)
     if not insns:
@@ -289,6 +336,9 @@ def analyze_function(blob: bytes, addr: int, end: int, base: int = ANALYSIS_BASE
     prov = r0_provenance(cfg, [addr])
     indirect = any(b["kind"] == "indirect" for b in cfg.values())
     prov["has_indirect_cf"] = indirect
+    verdict, evidence = return_verdict(prov, indirect)
+    prov["verdict"] = verdict
+    prov["verdict_evidence"] = evidence
     return prov
 
 
