@@ -115,3 +115,17 @@ frame + rom_copy_frames), all scoring improvements active:
   matched prefixes (1964/2078, 1960/2074, 1953/2069, 2238/2251) — the
   fmacfw boot regression is closed in the measurement itself, matching the
   pre-regression baseline exactly.
+
+## Corpus noise decomposition (post-v4 triage, 2026-11-25)
+The 94 failing functions in v4 decompose as: ~34 r0_differ caller-noise
+(r0 residue with no consuming call site anywhere in the image — now excluded
+from scoring by the caller-noise overlay); ~25 shared-state divergence at
+SRAM byte 0x1922a7 concentrated in the timer/ll machinery (stable across
+runs, under root-cause investigation); 15 r0_void_ub cases all in the
+boot_neg vector in small accessors (input-residue noise); 5 exercised
+mmio_differ (mostly boot_neg noise plus small hardware-init sequences);
+remainder genuine but complex defects (mac_isr_handler, find_extension —
+libc-binding/control-flow decompile defects) and boundary artifacts
+(bt_reg_write data-as-code). The genuine-defect count is thus far smaller
+than the raw failing count; the timer-state cluster is the single dominant
+systematic target.
