@@ -10577,7 +10577,7 @@ LABEL_17:
   }
   else
   {
-    ((int (*)())strchr)((void *)(_frame.v82), 0, sizeof(_frame.v82));
+    memset((void *)(_frame.v82), 0, sizeof(_frame.v82));
     v55 = ioctl_cmd_2((int)_frame.v82);
     if ( v55 )
     {
@@ -10608,7 +10608,7 @@ LABEL_17:
       printf_wrapper((const volatile char *)off_1039B4);
       v18[1] |= 1u;
     }
-    ((int (*)())strchr)(_frame.a2, 0, 20);
+    memset(_frame.a2, 0, 20);
     if ( !ioctl_cmd_4((int)_frame.a2) )
     {
       v65 = (void *)(uintptr_t)(off_1039A8);
@@ -15507,7 +15507,7 @@ volatile uint32_t * bt_rf_calibrate( int a1, volatile unsigned int *a2, int a3, 
     _frame.v167[0] = ((volatile uint32_t *)(uintptr_t)off_108710)[0];
     _frame.v167[1] = v31;
     _frame.v167[2] = v32;
-    ((int (*)())strchr)((void *)(_frame.a1a), 0, sizeof(_frame.a1a));
+    memset((void *)(_frame.a1a), 0, sizeof(_frame.a1a));
     v33 = 0;
     _frame.v110 = 6;
     do
@@ -45166,7 +45166,7 @@ LABEL_5:
   v10 = (void *)(uintptr_t)(off_122444);
   v11 = (void *)(uintptr_t)(off_122448);
   *((volatile uint8_t *)off_122440 + 7) = *((volatile uint8_t *)v9 + 409);
-  ((int (*)())strchr)((void *)(&v13[1]), 0, 16);
+  memset((void *)(&v13[1]), 0, 16);
   *v10 = 0;
   v13[0] = 0;
   *v11 = 0;
@@ -46117,7 +46117,7 @@ int send_hci_reset_cmd(int a1, int a2, uint16_t a3, uint16_t a4) {
   }
   else
   {
-    ((int (*)())strchr)((void *)(_frame.v10), 0, 6);
+    memset((void *)(_frame.v10), 0, 6);
     ioctl2_cmd_2((int)_frame.v10);
     v5 = __rev16(LOWORD(_frame.v10[0]));
     v6 = bswap32(*(volatile unsigned int *)((volatile char *)_frame.v10 + 2));
@@ -46992,7 +46992,7 @@ int read_global_state(int a1, int a2, unsigned int a3, int a4) {
   } _frame;
   v4 = (volatile int16_t **)off_123D98;
   v5 = **(volatile int16_t **)off_123D98;
-  ((int (*)())strchr)((void *)(_frame.v13), 0, sizeof(_frame.v13));
+  memset((void *)(_frame.v13), 0, sizeof(_frame.v13));
   if ( v5 < 0 && hci_cmd_send_short(a3) )
     mmio_irq_clear((int)aKeStateGetDest, (int)aMmStartReqHand, 337);
   flash_init((volatile int *)a2);
@@ -68670,8 +68670,8 @@ int llm_reset_notify(int a1, volatile uint8_t *a2) {
     if ( *(volatile uint8_t *)off_134570 )
     {
       v38 = *(volatile uint8_t *)(v4 + 696 * _frame.v51 + 192);
-      ((int (*)())strchr)((void *)(_frame.v55), 0, sizeof(_frame.v55));
-      ((int (*)())strchr)((void *)(_frame.v56), 0, 12);
+      memset((void *)(_frame.v55), 0, sizeof(_frame.v55));
+      memset((void *)(_frame.v56), 0, 12);
       if ( v38 )
       {
         v39 = (void *)(_frame.v55);

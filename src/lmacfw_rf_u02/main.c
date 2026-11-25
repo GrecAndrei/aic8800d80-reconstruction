@@ -13343,7 +13343,7 @@ volatile uint32_t * rf_transmit_packet( int a1, volatile unsigned int *a2, int a
     _frame.v167[0] = ((volatile uint32_t *)(uintptr_t)off_1082A8)[0];
     _frame.v167[1] = v31;
     _frame.v167[2] = v32;
-    ((int (*)())strchr)((void *)(_frame.a1a), 0, sizeof(_frame.a1a));
+    memset((void *)(_frame.a1a), 0, sizeof(_frame.a1a));
     v33 = 0;
     _frame.v110 = 6;
     do
@@ -17607,7 +17607,7 @@ LABEL_22:
       log_printf((const volatile char *)off_10CBC8);
       v58[1] |= 1u;
     }
-    ((int (*)())strchr)(_frame.v95, 0, 20);
+    memset(_frame.v95, 0, 20);
     if ( !mmio_read_4((int)_frame.v95) )
     {
       v68 = (void *)(uintptr_t)(((volatile uint32_t *)(uintptr_t)&off_10CBD8)[0]);
@@ -33397,7 +33397,7 @@ int ke_alloc_msg_0x74(int a1, int a2, uint16_t a3, uint16_t a4) {
   }
   else
   {
-    ((int (*)())strchr)((void *)(_frame.v10), 0, 6);
+    memset((void *)(_frame.v10), 0, 6);
     bus_read_6((int)_frame.v10);
     v5 = __rev16(LOWORD(_frame.v10[0]));
     v6 = bswap32(*(volatile unsigned int *)((volatile char *)_frame.v10 + 2));
@@ -33961,7 +33961,7 @@ int rf_get_rssi_1(int a1, int a2, unsigned int a3, int a4) {
   } _frame;
   v4 = (volatile int16_t **)off_119F0C;
   v5 = **(volatile int16_t **)off_119F0C;
-  ((int (*)())strchr)((void *)(_frame.v13), 0, sizeof(_frame.v13));
+  memset((void *)(_frame.v13), 0, sizeof(_frame.v13));
   if ( v5 < 0 && flash_write_byte(a3) )
     flash_ctrl_init((int)aKeStateGetDest, (int)aMmStartReqHand, 337);
   wifi_set_channel((volatile int *)a2);
@@ -44556,7 +44556,7 @@ LABEL_78:
   }
   if ( !v4 )
   {
-    ((int (*)())strchr)((void *)(_frame.v65), 0, sizeof(_frame.v65));
+    memset((void *)(_frame.v65), 0, sizeof(_frame.v65));
     _frame.v67 = 0;
     _frame.v68 = 0;
     _frame.v69 = 0;

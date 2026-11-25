@@ -48,6 +48,7 @@ STEPS = [
     ("find_ext_strncasecmp.py", [], True),
     ("ipv4_dot_libc.py", [], True),
     ("jump_trampolines.py", [], True),
+    ("uncast_memset_zero.py", [], True),
     ("format_hd_signextend.py", [], True),
     ("format_scratch_frame.py", [], True),
 ]
