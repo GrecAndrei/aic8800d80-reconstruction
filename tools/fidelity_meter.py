@@ -1393,7 +1393,20 @@ def main() -> int:
         bootstate = cs.capture_bootstate(img, 300000)
         boot_results.append(measure_boot_parity(img, elf_info, args.boot_insns))
 
-        main_text = (REPO / "src" / short / "main.c").read_text(errors="replace")
+        # post-demonolith main.c is an umbrella of #include "modules/modNNN.c"
+        # lines — expand them in include order so the parser sees the logical
+        # single-TU text it was written against
+        umbrella = (REPO / "src" / short / "main.c").read_text(errors="replace")
+        parts = []
+        for line in umbrella.splitlines(keepends=True):
+            inc = re.match(r'#include "(modules/mod[^"]+\.c)"\s*$', line)
+            if inc:
+                mod_path = REPO / "src" / short / inc.group(1)
+                if mod_path.exists():
+                    parts.append(mod_path.read_text(errors="replace"))
+                    continue
+            parts.append(line)
+        main_text = "".join(parts)
         parsed = parse_composed_functions(main_text)
         proto_by_addr = {int(r["address"], 16): r for r in prototype_infer.scan_image(img)}
         func_meta = {}
