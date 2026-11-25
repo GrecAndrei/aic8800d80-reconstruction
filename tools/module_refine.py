@@ -73,25 +73,77 @@ def crossing_counts(addrs, edges):
     return counts
 
 
-def split_segment(seg, counts, gaps, min_size=3, max_size=45):
-    """Recursively split at the sparsest gaps while pieces stay plausible."""
-    if len(seg) <= max_size:
-        return [seg]
-    lo, hi = gaps
-    # candidate gaps strictly inside the segment, respecting min_size
-    best, bestpos = None, None
-    for pos in range(min_size, len(seg) - min_size + 1):
-        # cutting after `pos` elements splits between within-segment indices
-        # pos-1 and pos — the global gap index is lo+pos-1
-        gpos = lo + pos - 1
-        c = counts[gpos]
-        if best is None or c < best:
-            best, bestpos = c, pos
-    if bestpos is None:
-        return [seg]
-    left = split_segment(seg[:bestpos], counts, (lo, lo + bestpos), min_size, max_size)
-    right = split_segment(seg[bestpos:], counts, (lo + bestpos, hi), min_size, max_size)
-    return left + right
+def dp_segment(counts, records, gap_range, target=18, min_size=4, max_size=48):
+    """Optimal ordered segmentation by dynamic programming.
+
+    Cost model per candidate file [i, j):
+      - boundary cost: call edges crossing the gap at j (sparse gaps are
+        cheap — real file boundaries), normalized to per-edge units
+      - size penalty: quadratic deviation from the target file size —
+        discourages both the size-3 noise fragmentation of greedy recursion
+        and implausibly large monolith files
+      - line-reset bonus: an embedded __LINE__ monotonicity reset at the
+        boundary is strong independent evidence (negative cost)
+    gap_range restricts boundaries to the coarse segment's interior, keeping
+    the high-confidence coarse breaks exact.
+    """
+    lo, hi = gap_range  # function index span [lo, hi)
+    n = hi - lo
+    if n <= max_size:
+        return [records[lo:hi]]
+
+    INF = float("inf")
+    # dp[k] = min cost to segment records[lo:lo+k]; choice[k] = last cut size
+    dp = [INF] * (n + 1)
+    choice = [0] * (n + 1)
+    dp[0] = 0.0
+    # line-reset evidence per global function index
+    def has_reset(idx):
+        if idx <= lo:
+            return False
+        prev_max = 0
+        for r in records[lo:idx]:
+            m = max(r["lns"], default=0)
+            if m:
+                prev_max = max(prev_max, m)
+        m = max(records[idx]["lns"], default=0) if records[idx]["lns"] else 0
+        return bool(m) and prev_max > 0 and m < prev_max - 200
+
+    def boundary_cost(gidx):
+        # edges crossing gap gidx (gap BEFORE function gidx), scaled so one
+        # crossing edge costs roughly one function's worth of size deviation
+        if lo <= gidx - 1 < hi - 1:
+            return counts[gidx - 1] * 0.35
+        return 0.0
+
+    for k in range(min_size, n + 1):
+        for size in range(min_size, max_size + 1):
+            if size > k:
+                break
+            if k - size != 0 and k - size < min_size:
+                continue  # remainder would be infeasible
+            start = lo + k - size
+            endg = lo + k
+            cost = dp[k - size]
+            cost += (size - target) ** 2 * 0.02
+            if k < n:  # boundary inside the segment — evaluate it
+                cost += boundary_cost(endg)
+                if has_reset(endg):
+                    cost -= 4.0
+            if cost < dp[k]:
+                dp[k] = cost
+                choice[k] = size
+    if dp[n] == INF:
+        return [records[lo:hi]]
+    # walk back
+    out = []
+    k = n
+    while k > 0:
+        size = choice[k] or min(n, max_size)
+        out.append(records[lo + k - size: lo + k])
+        k -= size
+    out.reverse()
+    return out
 
 
 def coarse_segments(records, reset_drop=200):
@@ -132,7 +184,7 @@ def main():
         cursor = 0
         for seg in coarse:
             n = len(seg)
-            pieces = split_segment(seg, counts, (cursor, cursor + n - 1), max_size=args.max_size)
+            pieces = dp_segment(counts, records, (cursor, cursor + n))
             refined.extend(pieces)
             cursor += n
         result[img] = {

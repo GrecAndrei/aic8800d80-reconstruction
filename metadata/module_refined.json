@@ -2,23 +2,16 @@
  "fmacfw_h_u02": {
   "functions": 1283,
   "coarse": 69,
-  "refined_count": 117,
+  "refined_count": 75,
   "modules": [
    {
     "start": "0x1001a8",
-    "end": "0x1002a0",
-    "size": 3,
+    "end": "0x101e7c",
+    "size": 46,
     "names": [
      "start",
      "memset",
-     "mac_event_handler"
-    ]
-   },
-   {
-    "start": "0x100478",
-    "end": "0x101e7c",
-    "size": 43,
-    "names": [
+     "mac_event_handler",
      "mac_state_init",
      "chip_identify",
      "mmio_read32",
@@ -82,82 +75,33 @@
    },
    {
     "start": "0x102b10",
-    "end": "0x102bf8",
-    "size": 3,
+    "end": "0x1044d0",
+    "size": 27,
     "names": [
      "copy_cal_data",
      "patch_interrupt_vector",
-     "rf_clear_control_bit_a"
-    ]
-   },
-   {
-    "start": "0x102c5c",
-    "end": "0x103180",
-    "size": 6,
-    "names": [
+     "rf_clear_control_bit_a",
      "rf_clear_control_bit_b",
      "uart_driver_send",
      "uart_send_data",
      "hci_send_command",
      "radio_is_idle",
-     "read_radio_status_flag"
-    ]
-   },
-   {
-    "start": "0x1031d8",
-    "end": "0x10327c",
-    "size": 3,
-    "names": [
+     "read_radio_status_flag",
      "aes_load_key",
      "crypto_read_status",
-     "crypto_start_operation"
-    ]
-   },
-   {
-    "start": "0x1033f8",
-    "end": "0x103afc",
-    "size": 3,
-    "names": [
+     "crypto_start_operation",
      "crypto_init",
      "rf_set_control_bit",
-     "rf_calibrate"
-    ]
-   },
-   {
-    "start": "0x103b54",
-    "end": "0x103e14",
-    "size": 3,
-    "names": [
+     "rf_calibrate",
      "rf_clear_ana_bits",
      "bb_start_cmd",
-     "tx_wait_ready"
-    ]
-   },
-   {
-    "start": "0x103e90",
-    "end": "0x103ff4",
-    "size": 3,
-    "names": [
+     "tx_wait_ready",
      "scan_enable",
      "mul3",
-     "rf_enable_switch"
-    ]
-   },
-   {
-    "start": "0x104080",
-    "end": "0x104274",
-    "size": 3,
-    "names": [
+     "rf_enable_switch",
      "bt_radio_init",
      "rf_disable",
-     "tx_ring_next_idx"
-    ]
-   },
-   {
-    "start": "0x1042bc",
-    "end": "0x1044d0",
-    "size": 3,
-    "names": [
+     "tx_ring_next_idx",
      "ke_acquire_lock",
      "mac_config_and_start",
      "tx_desc_parse"
@@ -165,60 +109,25 @@
    },
    {
     "start": "0x104500",
-    "end": "0x1048e8",
-    "size": 3,
+    "end": "0x108140",
+    "size": 35,
     "names": [
      "rx_packet_process",
      "rx_packet_alloc",
-     "rf_calibration"
-    ]
-   },
-   {
-    "start": "0x104cc8",
-    "end": "0x105070",
-    "size": 3,
-    "names": [
+     "rf_calibration",
      "float_interp",
      "rf_path_disable",
-     "min_or_max"
-    ]
-   },
-   {
-    "start": "0x105118",
-    "end": "0x105270",
-    "size": 3,
-    "names": [
+     "min_or_max",
      "div_by_20",
      "mem_swap_fields",
-     "rf_calibrate_start"
-    ]
-   },
-   {
-    "start": "0x1058d0",
-    "end": "0x105a88",
-    "size": 3,
-    "names": [
+     "rf_calibrate_start",
      "dma_chan_init",
      "dma_rx_init",
-     "phy_read_regs"
-    ]
-   },
-   {
-    "start": "0x1062dc",
-    "end": "0x1064e0",
-    "size": 4,
-    "names": [
+     "phy_read_regs",
      "hw_rev_check",
      "load_const_table",
      "init_callbacks",
-     "phy_read_table"
-    ]
-   },
-   {
-    "start": "0x107084",
-    "end": "0x108140",
-    "size": 19,
-    "names": [
+     "phy_read_table",
      "mmio_set_bits",
      "mmio_clear_bits",
      "pll_set_clock",
@@ -289,60 +198,25 @@
    },
    {
     "start": "0x10d2d4",
-    "end": "0x10d4e8",
-    "size": 4,
+    "end": "0x10ec98",
+    "size": 45,
     "names": [
      "handle_radio_event",
      "handle_rf_status",
      "configure_radio",
-     "enable_irq"
-    ]
-   },
-   {
-    "start": "0x10d508",
-    "end": "0x10d644",
-    "size": 3,
-    "names": [
+     "enable_irq",
      "kernel_schedule_check",
      "system_ready_check",
-     "nvic_disable_irq15"
-    ]
-   },
-   {
-    "start": "0x10d65c",
-    "end": "0x10d6a0",
-    "size": 3,
-    "names": [
+     "nvic_disable_irq15",
      "radio_tx_write_byte",
      "radio_tx_write_string",
-     "radio_rx_read_byte"
-    ]
-   },
-   {
-    "start": "0x10d6b8",
-    "end": "0x10dae4",
-    "size": 3,
-    "names": [
+     "radio_rx_read_byte",
      "radio_rx_status",
      "stack_struct_init",
-     "debug_printf"
-    ]
-   },
-   {
-    "start": "0x10db00",
-    "end": "0x10db94",
-    "size": 3,
-    "names": [
+     "debug_printf",
      "rf_irq_pending",
      "rf_irq_clear",
-     "rf_irq_disable"
-    ]
-   },
-   {
-    "start": "0x10dbac",
-    "end": "0x10dd54",
-    "size": 9,
-    "names": [
+     "rf_irq_disable",
      "gpio_set_pin",
      "mmio_set_bit_1",
      "mmio_clear_bit_1",
@@ -351,69 +225,34 @@
      "ptr_add_12",
      "ptr_add_12_alt",
      "rf_table_lookup",
-     "rf_chain_enable"
-    ]
-   },
-   {
-    "start": "0x10ddcc",
-    "end": "0x10ddd4",
-    "size": 3,
-    "names": [
+     "rf_chain_enable",
      "nullsub_1",
      "nullsub_2",
-     "nullsub_3"
-    ]
-   },
-   {
-    "start": "0x10ddd8",
-    "end": "0x10deb0",
-    "size": 3,
-    "names": [
+     "nullsub_3",
      "rf_table_update",
      "hw_block_disable",
-     "hw_block_reset"
-    ]
-   },
-   {
-    "start": "0x10df08",
-    "end": "0x10e0a8",
-    "size": 3,
-    "names": [
+     "hw_block_reset",
      "hw_poll_status",
      "hw_block_enable",
-     "hw_ctrl_set"
-    ]
-   },
-   {
-    "start": "0x10e160",
-    "end": "0x10eb04",
-    "size": 6,
-    "names": [
+     "hw_ctrl_set",
      "rf_hw_init",
      "rf_hw_init_alt",
      "gpio_mode_set",
      "gpio_pad_ctrl_set",
      "rf_gpio_init",
-     "rf_gpio_init_alt"
-    ]
-   },
-   {
-    "start": "0x10ec2c",
-    "end": "0x10ec3c",
-    "size": 3,
-    "names": [
+     "rf_gpio_init_alt",
      "call_patch_hook_0",
      "call_patch_hook_1",
-     "call_patch_hook_2"
+     "call_patch_hook_2",
+     "mmio_read32_1",
+     "mmio_read32_variant"
     ]
    },
    {
-    "start": "0x10ec44",
-    "end": "0x10f0c4",
-    "size": 12,
+    "start": "0x10ecec",
+    "end": "0x1111cc",
+    "size": 48,
     "names": [
-     "mmio_read32_1",
-     "mmio_read32_variant",
      "mmio_rmw32",
      "rf_set_frequency",
      "rf_set_channel_1",
@@ -423,14 +262,7 @@
      "rf_enable_rx",
      "rf_cal_init",
      "rf_get_rssi",
-     "rx_copy_stats"
-    ]
-   },
-   {
-    "start": "0x10f11c",
-    "end": "0x1111cc",
-    "size": 38,
-    "names": [
+     "rx_copy_stats",
      "ke_get_state",
      "bt_send_data",
      "tx_store_packet",
@@ -516,8 +348,8 @@
    },
    {
     "start": "0x1134e0",
-    "end": "0x114028",
-    "size": 17,
+    "end": "0x114410",
+    "size": 23,
     "names": [
      "rf_is_sleep",
      "get_handler_by_index",
@@ -535,20 +367,20 @@
      "util_call_deep",
      "util_init_buffer",
      "invoke_callback",
-     "set_config_field"
-    ]
-   },
-   {
-    "start": "0x114088",
-    "end": "0x114ab8",
-    "size": 37,
-    "names": [
+     "set_config_field",
      "check_global_value",
      "rf_power_down",
      "assert_fail",
      "load_bt_config",
      "state_init",
-     "get_config_a",
+     "get_config_a"
+    ]
+   },
+   {
+    "start": "0x11441c",
+    "end": "0x114ab8",
+    "size": 31,
+    "names": [
      "get_config_b",
      "get_config_c",
      "process_event",
@@ -1321,19 +1153,12 @@
    },
    {
     "start": "0x12d648",
-    "end": "0x12d75c",
-    "size": 3,
+    "end": "0x12eb90",
+    "size": 48,
     "names": [
      "safe_snprintf",
      "range_overflow_check",
-     "check_buf_range_12d75c"
-    ]
-   },
-   {
-    "start": "0x12d79c",
-    "end": "0x12e948",
-    "size": 43,
-    "names": [
+     "check_buf_range_12d75c",
      "check_buf_range_12d79c",
      "check_buf_range_12d7d8",
      "check_buf_range_12d818",
@@ -1376,125 +1201,48 @@
      "get_global_field0",
      "get_global_field4",
      "is_id_lt_10",
-     "alloc_tx_event"
-    ]
-   },
-   {
-    "start": "0x12e9d8",
-    "end": "0x12ebb8",
-    "size": 3,
-    "names": [
+     "alloc_tx_event",
      "process_packet_params",
-     "check_feature_flag",
-     "radio_init"
+     "check_feature_flag"
     ]
    },
    {
-    "start": "0x12ebe0",
-    "end": "0x12ec8c",
-    "size": 3,
+    "start": "0x12ebb8",
+    "end": "0x12fed8",
+    "size": 48,
     "names": [
+     "radio_init",
      "pdu_alloc_410",
      "pdu_alloc_40a",
-     "pdu_alloc_424"
-    ]
-   },
-   {
-    "start": "0x12ecd4",
-    "end": "0x12edec",
-    "size": 3,
-    "names": [
+     "pdu_alloc_424",
      "pdu_alloc_40c",
      "send_mcu_cmd_0x412",
-     "send_mcu_cmd_0x401"
-    ]
-   },
-   {
-    "start": "0x12ee38",
-    "end": "0x12eea0",
-    "size": 3,
-    "names": [
+     "send_mcu_cmd_0x401",
      "bt_global_op_0x16acb4",
      "bt_global_op_0x16acdc",
-     "send_mcu_cmd_0x403"
-    ]
-   },
-   {
-    "start": "0x12ef20",
-    "end": "0x12ef94",
-    "size": 3,
-    "names": [
+     "send_mcu_cmd_0x403",
      "bt_coex_check_state",
      "event_sync",
-     "send_event_42d"
-    ]
-   },
-   {
-    "start": "0x12efb0",
-    "end": "0x12f054",
-    "size": 3,
-    "names": [
+     "send_event_42d",
      "send_event_42c",
      "send_mcu_cmd_0x40e",
-     "sub_12F054"
-    ]
-   },
-   {
-    "start": "0x12f2c8",
-    "end": "0x12f35c",
-    "size": 3,
-    "names": [
+     "sub_12F054",
      "unknown_12f2c8",
      "irq_disable_mmio_write",
-     "mmio_write_field"
-    ]
-   },
-   {
-    "start": "0x12f378",
-    "end": "0x12f3c8",
-    "size": 3,
-    "names": [
+     "mmio_write_field",
      "unknown_12f378",
      "lock_init_0x18274c",
-     "timer_init_0x1922d4"
-    ]
-   },
-   {
-    "start": "0x12f3e8",
-    "end": "0x12f3f0",
-    "size": 3,
-    "names": [
+     "timer_init_0x1922d4",
      "phy_rate_map",
      "state_check_0x182ba0",
-     "phy_mode_check"
-    ]
-   },
-   {
-    "start": "0x12f3f4",
-    "end": "0x12f410",
-    "size": 3,
-    "names": [
+     "phy_mode_check",
      "j_nullsub_6",
      "phy_mode_check_1",
-     "list_foreach_1"
-    ]
-   },
-   {
-    "start": "0x12f414",
-    "end": "0x12f4b4",
-    "size": 4,
-    "names": [
+     "list_foreach_1",
      "deref_and_check",
      "state_check_0x182ba0_b",
      "return_fail",
-     "unknown_12f4b4"
-    ]
-   },
-   {
-    "start": "0x12f514",
-    "end": "0x12fd64",
-    "size": 13,
-    "names": [
+     "unknown_12f4b4",
      "get_buffer_size",
      "parse_rx_packet_header",
      "skip_leading_spaces",
@@ -1507,14 +1255,7 @@
      "parse_mac_string",
      "parse_decimal_string",
      "is_compact_mac_string",
-     "parse_format_switch"
-    ]
-   },
-   {
-    "start": "0x12fde0",
-    "end": "0x12fed8",
-    "size": 3,
-    "names": [
+     "parse_format_switch",
      "mode_dispatch",
      "debug_assert",
      "lock_with_timeout"
@@ -1522,49 +1263,21 @@
    },
    {
     "start": "0x130030",
-    "end": "0x130184",
-    "size": 3,
+    "end": "0x131198",
+    "size": 35,
     "names": [
      "rf_calibration_proc",
      "mmio_register_access",
-     "compare_calibration_levels"
-    ]
-   },
-   {
-    "start": "0x1301b8",
-    "end": "0x130234",
-    "size": 3,
-    "names": [
+     "compare_calibration_levels",
      "rf_temp_compensation",
      "fw_version_get",
-     "rf_power_adjust"
-    ]
-   },
-   {
-    "start": "0x130260",
-    "end": "0x130370",
-    "size": 3,
-    "names": [
+     "rf_power_adjust",
      "rf_tx_power_lookup",
      "check_frame_len",
-     "rf_timer_toggle_start"
-    ]
-   },
-   {
-    "start": "0x1303b8",
-    "end": "0x1304d8",
-    "size": 3,
-    "names": [
+     "rf_timer_toggle_start",
      "read_global_signed_flag",
      "set_flag_send_event_42e",
-     "clear_flag_send_event_42e"
-    ]
-   },
-   {
-    "start": "0x130500",
-    "end": "0x131198",
-    "size": 23,
-    "names": [
+     "clear_flag_send_event_42e",
      "write_dash_header",
      "write_hash_header",
      "write_bf_header",
@@ -2047,8 +1760,8 @@
    },
    {
     "start": "0x142494",
-    "end": "0x143d00",
-    "size": 44,
+    "end": "0x14def4",
+    "size": 47,
     "names": [
      "global_table_lookup",
      "double_exp_check",
@@ -2093,14 +1806,7 @@
      "strchr",
      "strcmp",
      "strcpy",
-     "memcpy_aligned"
-    ]
-   },
-   {
-    "start": "0x143ddc",
-    "end": "0x14def4",
-    "size": 3,
-    "names": [
+     "memcpy_aligned",
      "memcpy_fixed",
      "empty_stub_0",
      "empty_stub_1"
@@ -2111,23 +1817,16 @@
  "fmacfw_u02": {
   "functions": 1284,
   "coarse": 69,
-  "refined_count": 117,
+  "refined_count": 75,
   "modules": [
    {
     "start": "0x1001a8",
-    "end": "0x1002a0",
-    "size": 3,
+    "end": "0x101f28",
+    "size": 46,
     "names": [
      "start",
      "memset",
-     "ke_event_handler"
-    ]
-   },
-   {
-    "start": "0x100478",
-    "end": "0x101f28",
-    "size": 43,
-    "names": [
+     "ke_event_handler",
      "queue_init",
      "chip_periph_init",
      "timer_delay",
@@ -2191,82 +1890,33 @@
    },
    {
     "start": "0x102bc0",
-    "end": "0x102ca8",
-    "size": 3,
+    "end": "0x1045e8",
+    "size": 27,
     "names": [
      "check_radio_state",
      "install_isr",
-     "set_wakeup_trigger"
-    ]
-   },
-   {
-    "start": "0x102d0c",
-    "end": "0x103200",
-    "size": 6,
-    "names": [
+     "set_wakeup_trigger",
      "set_wakeup_polarity",
      "peripheral_write_32",
      "peripheral_read_32",
      "call_transfer",
      "is_radio_busy",
-     "get_radio_state"
-    ]
-   },
-   {
-    "start": "0x103258",
-    "end": "0x1032fc",
-    "size": 3,
-    "names": [
+     "get_radio_state",
      "load_and_store_block",
      "get_controller_state",
-     "enable_radio_controller"
-    ]
-   },
-   {
-    "start": "0x103478",
-    "end": "0x103c14",
-    "size": 3,
-    "names": [
+     "enable_radio_controller",
      "init_radio_hw",
      "enable_pa",
-     "configure_gpio_bits"
-    ]
-   },
-   {
-    "start": "0x103c6c",
-    "end": "0x103f2c",
-    "size": 3,
-    "names": [
+     "configure_gpio_bits",
      "clear_chip_ctrl_clk",
      "pmu_write_control",
-     "mac_phy_config"
-    ]
-   },
-   {
-    "start": "0x103fa8",
-    "end": "0x10410c",
-    "size": 3,
-    "names": [
+     "mac_phy_config",
      "mac_irq_enable",
      "parse_table_entry",
-     "mac_reset_control"
-    ]
-   },
-   {
-    "start": "0x104198",
-    "end": "0x10438c",
-    "size": 3,
-    "names": [
+     "mac_reset_control",
      "mac_hw_init",
      "mac_irq_disable",
-     "get_next_sequence"
-    ]
-   },
-   {
-    "start": "0x1043d4",
-    "end": "0x1045e8",
-    "size": 3,
-    "names": [
+     "get_next_sequence",
      "select_fuse_bank",
      "start_arm_boot",
      "lookup_rate_entry"
@@ -2274,60 +1924,25 @@
    },
    {
     "start": "0x104618",
-    "end": "0x104a00",
-    "size": 3,
+    "end": "0x108280",
+    "size": 35,
     "names": [
      "handle_tx_descriptor",
      "alloc_buffer_by_flag",
-     "rf_scan_init"
-    ]
-   },
-   {
-    "start": "0x104de0",
-    "end": "0x105188",
-    "size": 3,
-    "names": [
+     "rf_scan_init",
      "rf_calibrate_power",
      "mac_reset_disable",
-     "compare_memory_ranges"
-    ]
-   },
-   {
-    "start": "0x105230",
-    "end": "0x105388",
-    "size": 3,
-    "names": [
+     "compare_memory_ranges",
      "adc_to_temp_scale",
      "rx_status_shift",
-     "rx_packet_process"
-    ]
-   },
-   {
-    "start": "0x1059e8",
-    "end": "0x105ba0",
-    "size": 3,
-    "names": [
+     "rx_packet_process",
      "mac_event_init",
      "mac_conn_event_init",
-     "rf_phy_regs_snapshot"
-    ]
-   },
-   {
-    "start": "0x1063f4",
-    "end": "0x1065f8",
-    "size": 4,
-    "names": [
+     "rf_phy_regs_snapshot",
      "timer_elapsed_compare",
      "memcpy_from_rodata",
      "runtime_helper_div",
-     "rf_phy_regs_read_cal"
-    ]
-   },
-   {
-    "start": "0x1071c4",
-    "end": "0x108280",
-    "size": 19,
-    "names": [
+     "rf_phy_regs_read_cal",
      "rf_radio_enable",
      "rf_radio_disable",
      "rf_synth_set_freq",
@@ -2398,60 +2013,25 @@
    },
    {
     "start": "0x10d414",
-    "end": "0x10d628",
-    "size": 4,
+    "end": "0x10edd8",
+    "size": 45,
     "names": [
      "read_global_halfword",
      "rf_tx_config",
      "rf_get_lock_status",
-     "irq_install_handler"
-    ]
-   },
-   {
-    "start": "0x10d648",
-    "end": "0x10d784",
-    "size": 3,
-    "names": [
+     "irq_install_handler",
      "is_initialized",
      "nvic_configure",
-     "nvic_set_priority"
-    ]
-   },
-   {
-    "start": "0x10d79c",
-    "end": "0x10d7e0",
-    "size": 3,
-    "names": [
+     "nvic_set_priority",
      "gpio_write_1",
      "read_memory_byte",
-     "gpio_read"
-    ]
-   },
-   {
-    "start": "0x10d7f8",
-    "end": "0x10dc24",
-    "size": 3,
-    "names": [
+     "gpio_read",
      "gpio_read_pin",
      "prepare_debug_buffer",
-     "log_printf"
-    ]
-   },
-   {
-    "start": "0x10dc40",
-    "end": "0x10dcd4",
-    "size": 3,
-    "names": [
+     "log_printf",
      "rf_get_int_status",
      "switch_on_arg",
-     "rf_disable_irq"
-    ]
-   },
-   {
-    "start": "0x10dcec",
-    "end": "0x10de94",
-    "size": 9,
-    "names": [
+     "rf_disable_irq",
      "rf_enable_irq",
      "gpio_set_bit",
      "gpio_clear_bit",
@@ -2460,69 +2040,34 @@
      "util_get_struct_offset",
      "util_get_struct_offset_alt",
      "ble_phy_decode",
-     "gpio_init_sequence"
-    ]
-   },
-   {
-    "start": "0x10df0c",
-    "end": "0x10df14",
-    "size": 3,
-    "names": [
+     "gpio_init_sequence",
      "nullsub_1",
      "nullsub_2",
-     "nullsub_3"
-    ]
-   },
-   {
-    "start": "0x10df18",
-    "end": "0x10dff0",
-    "size": 3,
-    "names": [
+     "nullsub_3",
      "rf_ctrl_config_set",
      "rf_core_reset",
-     "rf_core_reset_alt"
-    ]
-   },
-   {
-    "start": "0x10e048",
-    "end": "0x10e1e8",
-    "size": 3,
-    "names": [
+     "rf_core_reset_alt",
      "rf_core_is_ready",
      "rf_core_enable",
-     "rf_core_power_on"
-    ]
-   },
-   {
-    "start": "0x10e2a0",
-    "end": "0x10ec44",
-    "size": 6,
-    "names": [
+     "rf_core_power_on",
      "rf_event_handler",
      "rf_event_handler_alt",
      "rf_analog_ctrl_set",
      "rf_control_field_set",
      "rf_hardware_init",
-     "rf_hardware_setup"
-    ]
-   },
-   {
-    "start": "0x10ed6c",
-    "end": "0x10ed7c",
-    "size": 3,
-    "names": [
+     "rf_hardware_setup",
      "call_ptr_1b0",
      "call_ptr_1b4",
-     "call_ptr_1b8"
+     "call_ptr_1b8",
+     "mmio_read32",
+     "mmio_write32"
     ]
    },
    {
-    "start": "0x10ed84",
-    "end": "0x10f204",
-    "size": 12,
+    "start": "0x10ee2c",
+    "end": "0x11130c",
+    "size": 48,
     "names": [
-     "mmio_read32",
-     "mmio_write32",
      "mmio_rmw32",
      "rf_set_channel_1",
      "rf_set_frequency",
@@ -2532,14 +2077,7 @@
      "rf_enable_1",
      "rf_save_rssi",
      "rf_update_rx_status",
-     "rf_copy_stats"
-    ]
-   },
-   {
-    "start": "0x10f25c",
-    "end": "0x11130c",
-    "size": 38,
-    "names": [
+     "rf_copy_stats",
      "bt_get_state",
      "ipc_send_message",
      "tx_send_packet",
@@ -2628,8 +2166,8 @@
    },
    {
     "start": "0x113814",
-    "end": "0x114168",
-    "size": 14,
+    "end": "0x114568",
+    "size": 22,
     "names": [
      "ke_state_get",
      "assert_fault",
@@ -2644,14 +2182,7 @@
      "call_checked",
      "timer_delay_1",
      "invoke_callback",
-     "store_byte_field"
-    ]
-   },
-   {
-    "start": "0x1141c8",
-    "end": "0x114bf8",
-    "size": 37,
-    "names": [
+     "store_byte_field",
      "is_current_task",
      "process_task_queue",
      "sub_11428c",
@@ -2659,7 +2190,14 @@
      "init_bt_global",
      "get_global_1671bc",
      "get_global_1671e0",
-     "get_global_167204",
+     "get_global_167204"
+    ]
+   },
+   {
+    "start": "0x114574",
+    "end": "0x114bf8",
+    "size": 29,
+    "names": [
      "process_global_167204",
      "sub_1145ac",
      "load_global_ptr_182558",
@@ -3431,19 +2969,12 @@
    },
    {
     "start": "0x12d788",
-    "end": "0x12d89c",
-    "size": 3,
+    "end": "0x12ecd0",
+    "size": 48,
     "names": [
      "mem_range_setup",
      "mem_range_check",
-     "buf_calc_1"
-    ]
-   },
-   {
-    "start": "0x12d8dc",
-    "end": "0x12ea88",
-    "size": 43,
-    "names": [
+     "buf_calc_1",
      "buf_calc_2",
      "buf_calc_3",
      "buf_calc_4",
@@ -3486,125 +3017,48 @@
      "ipc_get_data0",
      "ipc_get_data1",
      "get_flag_bit",
-     "event_dispatch"
-    ]
-   },
-   {
-    "start": "0x12eb18",
-    "end": "0x12ecf8",
-    "size": 3,
-    "names": [
+     "event_dispatch",
      "send_msg",
-     "check_status_bits",
-     "controller_init"
+     "check_status_bits"
     ]
    },
    {
-    "start": "0x12ed20",
-    "end": "0x12edcc",
-    "size": 3,
+    "start": "0x12ecf8",
+    "end": "0x130018",
+    "size": 48,
     "names": [
+     "controller_init",
      "send_command_event",
      "msg_alloc_0x40a",
-     "msg_alloc_0x424"
-    ]
-   },
-   {
-    "start": "0x12ee14",
-    "end": "0x12ef2c",
-    "size": 3,
-    "names": [
+     "msg_alloc_0x424",
      "msg_alloc_0x40c",
      "msg_alloc_0x412",
-     "msg_alloc_0x401"
-    ]
-   },
-   {
-    "start": "0x12ef78",
-    "end": "0x12efe0",
-    "size": 3,
-    "names": [
+     "msg_alloc_0x401",
      "cb_send_0x16ae04",
      "cb_send_0x16ae2c",
-     "msg_alloc_0x403"
-    ]
-   },
-   {
-    "start": "0x12f060",
-    "end": "0x12f0d4",
-    "size": 3,
-    "names": [
+     "msg_alloc_0x403",
      "state_get_0x42e",
      "read_state_flag_1",
-     "log_event_1069"
-    ]
-   },
-   {
-    "start": "0x12f0f0",
-    "end": "0x12f194",
-    "size": 3,
-    "names": [
+     "log_event_1069",
      "log_event_1068",
      "msg_alloc_0x40e",
-     "sub_12F194"
-    ]
-   },
-   {
-    "start": "0x12f408",
-    "end": "0x12f49c",
-    "size": 3,
-    "names": [
+     "sub_12F194",
      "bad_func_0x12f408",
      "mmio_clear_register",
-     "call_shared_handler"
-    ]
-   },
-   {
-    "start": "0x12f4b8",
-    "end": "0x12f508",
-    "size": 3,
-    "names": [
+     "call_shared_handler",
      "bad_func_0x12f4b8",
      "reset_global_0x18274c",
-     "init_global_0x1922d4"
-    ]
-   },
-   {
-    "start": "0x12f528",
-    "end": "0x12f530",
-    "size": 3,
-    "names": [
+     "init_global_0x1922d4",
      "j_check_mac_status",
      "read_mode_0x182ba0",
-     "get_phy_type"
-    ]
-   },
-   {
-    "start": "0x12f534",
-    "end": "0x12f550",
-    "size": 3,
-    "names": [
+     "get_phy_type",
      "j_nullsub_6",
      "check_rom_state",
-     "j_fmac_tx_dispatch"
-    ]
-   },
-   {
-    "start": "0x12f554",
-    "end": "0x12f5f4",
-    "size": 4,
-    "names": [
+     "j_fmac_tx_dispatch",
      "load_and_process_r0",
      "check_chip_mode",
      "get_chip_opt",
-     "save_context_args"
-    ]
-   },
-   {
-    "start": "0x12f654",
-    "end": "0x12fea4",
-    "size": 13,
-    "names": [
+     "save_context_args",
      "get_dma_ring_bytes",
      "trim_leading_tab",
      "parse_token_until_space",
@@ -3617,14 +3071,7 @@
      "parse_config_entry",
      "parse_hex10",
      "parse_hex12",
-     "is_mode_one"
-    ]
-   },
-   {
-    "start": "0x12ff20",
-    "end": "0x130018",
-    "size": 3,
-    "names": [
+     "is_mode_one",
      "is_mode_one_v2",
      "call_handler",
      "find_by_index"
@@ -3632,49 +3079,21 @@
    },
    {
     "start": "0x130170",
-    "end": "0x1302c4",
-    "size": 3,
+    "end": "0x1312d8",
+    "size": 35,
     "names": [
      "parse_large_ioctl",
      "read_mmio_reg",
-     "compare_global_bytes"
-    ]
-   },
-   {
-    "start": "0x1302f8",
-    "end": "0x130374",
-    "size": 3,
-    "names": [
+     "compare_global_bytes",
      "rf_calibrate_channel_power",
      "call_phy_op",
-     "rf_get_bandwidth"
-    ]
-   },
-   {
-    "start": "0x1303a0",
-    "end": "0x1304b0",
-    "size": 3,
-    "names": [
+     "rf_get_bandwidth",
      "rf_configure_channel",
      "rf_is_channel_valid",
-     "rf_temperature_compensation"
-    ]
-   },
-   {
-    "start": "0x1304f8",
-    "end": "0x130618",
-    "size": 3,
-    "names": [
+     "rf_temperature_compensation",
      "rf_get_channel_calibration",
      "rf_enable_2",
-     "rf_disable"
-    ]
-   },
-   {
-    "start": "0x130640",
-    "end": "0x1312d8",
-    "size": 23,
-    "names": [
+     "rf_disable",
      "format_mac_address",
      "format_bt_address",
      "format_hw_version",
@@ -4157,8 +3576,8 @@
    },
    {
     "start": "0x1425d4",
-    "end": "0x143e40",
-    "size": 44,
+    "end": "0x14e044",
+    "size": 47,
     "names": [
      "read_status_flag",
      "double_add",
@@ -4203,14 +3622,7 @@
      "strchr",
      "strcmp",
      "strcpy",
-     "strlen"
-    ]
-   },
-   {
-    "start": "0x143f1c",
-    "end": "0x14e044",
-    "size": 3,
-    "names": [
+     "strlen",
      "strncasecmp",
      "nop_return",
      "nop_return2"
@@ -4221,7 +3633,7 @@
  "fmacfwbt_u02": {
   "functions": 1285,
   "coarse": 70,
-  "refined_count": 115,
+  "refined_count": 75,
   "modules": [
    {
     "start": "0x1001a8",
@@ -4291,82 +3703,33 @@
    },
    {
     "start": "0x102a38",
-    "end": "0x102b00",
-    "size": 3,
+    "end": "0x104440",
+    "size": 27,
     "names": [
      "check_firmware_state",
      "enable_nvic_irq",
-     "set_radio_ctrl_bits"
-    ]
-   },
-   {
-    "start": "0x102b64",
-    "end": "0x103058",
-    "size": 6,
-    "names": [
+     "set_radio_ctrl_bits",
      "set_radio_ctrl_bits2",
      "radio_event_loop",
      "sub_102d10",
      "copy_config_struct",
      "radio_process_packet",
-     "radio_set_power"
-    ]
-   },
-   {
-    "start": "0x1030b0",
-    "end": "0x103154",
-    "size": 3,
-    "names": [
+     "radio_set_power",
      "read_hw_status",
      "wait_for_hw_data",
-     "hw_init"
-    ]
-   },
-   {
-    "start": "0x1032d0",
-    "end": "0x103a6c",
-    "size": 3,
-    "names": [
+     "hw_init",
      "hw_enable",
      "rf_pll_enable",
-     "mac_irq_disable"
-    ]
-   },
-   {
-    "start": "0x103ac4",
-    "end": "0x103d84",
-    "size": 3,
-    "names": [
+     "mac_irq_disable",
      "rf_lo_cal_clear",
      "ke_sleep_set_mode",
-     "mac_set_rx_timeout"
-    ]
-   },
-   {
-    "start": "0x103e00",
-    "end": "0x103f64",
-    "size": 3,
-    "names": [
+     "mac_set_rx_timeout",
      "mac_tx_enable",
      "mac_tx_wait_ack",
-     "mmio_irq_enable"
-    ]
-   },
-   {
-    "start": "0x103ff0",
-    "end": "0x1041e4",
-    "size": 3,
-    "names": [
+     "mmio_irq_enable",
      "mac_irq_handler",
      "mac_irq_pending_clear",
-     "util_get_hw_index"
-    ]
-   },
-   {
-    "start": "0x10422c",
-    "end": "0x104440",
-    "size": 3,
-    "names": [
+     "util_get_hw_index",
      "util_get_buf_addr",
      "rf_power_on_reset",
      "rx_parse_desc"
@@ -4374,60 +3737,25 @@
    },
    {
     "start": "0x104470",
-    "end": "0x104858",
-    "size": 3,
+    "end": "0x1080d8",
+    "size": 35,
     "names": [
      "tx_parse_desc",
      "scan_set_interval",
-     "bt_ccm_encrypt"
-    ]
-   },
-   {
-    "start": "0x104c38",
-    "end": "0x104fe0",
-    "size": 3,
-    "names": [
+     "bt_ccm_encrypt",
      "bt_encrypt_wrap",
      "mac_tx_disable",
-     "util_compare_time"
-    ]
-   },
-   {
-    "start": "0x105088",
-    "end": "0x1051e0",
-    "size": 3,
-    "names": [
+     "util_compare_time",
      "temp_sensor_convert",
      "ke_timer_adjust",
-     "llm_pdu_handle"
-    ]
-   },
-   {
-    "start": "0x105840",
-    "end": "0x1059f8",
-    "size": 3,
-    "names": [
+     "llm_pdu_handle",
      "ke_task_create",
      "llc_connection_init",
-     "rf_init"
-    ]
-   },
-   {
-    "start": "0x10624c",
-    "end": "0x106450",
-    "size": 4,
-    "names": [
+     "rf_init",
      "llc_state_check",
      "rf_load_calib_data",
      "log_message",
-     "rf_calibrate"
-    ]
-   },
-   {
-    "start": "0x10701c",
-    "end": "0x1080d8",
-    "size": 19,
-    "names": [
+     "rf_calibrate",
      "rf_enable",
      "rf_disable",
      "rf_set_frequency",
@@ -4498,60 +3826,25 @@
    },
    {
     "start": "0x10d26c",
-    "end": "0x10d480",
-    "size": 4,
+    "end": "0x10ed30",
+    "size": 48,
     "names": [
      "ke_event_process",
      "watchdog_kick",
      "watchdog_init",
-     "irq_install"
-    ]
-   },
-   {
-    "start": "0x10d4a0",
-    "end": "0x10d5dc",
-    "size": 3,
-    "names": [
+     "irq_install",
      "event_loop",
      "event_loop_check",
-     "irq_disable"
-    ]
-   },
-   {
-    "start": "0x10d5f4",
-    "end": "0x10d638",
-    "size": 3,
-    "names": [
+     "irq_disable",
      "uart_putc",
      "uart_puts",
-     "uart_getc"
-    ]
-   },
-   {
-    "start": "0x10d650",
-    "end": "0x10da7c",
-    "size": 3,
-    "names": [
+     "uart_getc",
      "uart_rx_ready",
      "debug_printf",
-     "printf_wrapper"
-    ]
-   },
-   {
-    "start": "0x10da98",
-    "end": "0x10db2c",
-    "size": 3,
-    "names": [
+     "printf_wrapper",
      "irq_get_pending",
      "irq_set_priority",
-     "gpio_clear_bit_reg8"
-    ]
-   },
-   {
-    "start": "0x10db44",
-    "end": "0x10dcec",
-    "size": 9,
-    "names": [
+     "gpio_clear_bit_reg8",
      "gpio_set_bit_reg8",
      "gpio_set_bit_reg0",
      "gpio_clear_bit_reg0",
@@ -4560,86 +3853,44 @@
      "gpio_write_pin2",
      "check_radio_flag",
      "set_radio_channel",
-     "init_oscillators"
-    ]
-   },
-   {
-    "start": "0x10dd64",
-    "end": "0x10dd6c",
-    "size": 3,
-    "names": [
+     "init_oscillators",
      "nullsub_1",
      "nullsub_2",
-     "nullsub_3"
-    ]
-   },
-   {
-    "start": "0x10dd70",
-    "end": "0x10de48",
-    "size": 3,
-    "names": [
+     "nullsub_3",
      "set_pin_mux",
      "gpio_init_1",
-     "gpio_reset"
-    ]
-   },
-   {
-    "start": "0x10dea0",
-    "end": "0x10e040",
-    "size": 3,
-    "names": [
+     "gpio_reset",
      "wait_radio_ready",
      "radio_setup",
-     "radio_enable"
-    ]
-   },
-   {
-    "start": "0x10e0f8",
-    "end": "0x10ea9c",
-    "size": 6,
-    "names": [
+     "radio_enable",
      "radio_init_1",
      "system_init_mmio",
      "gpio_set_pin_mode",
      "gpio_set_alternate",
      "board_init",
-     "board_init_2"
-    ]
-   },
-   {
-    "start": "0x10ebc4",
-    "end": "0x10ebd4",
-    "size": 3,
-    "names": [
+     "board_init_2",
      "jump_table_1b0",
      "jump_table_1b4",
-     "call_vector_1b8"
-    ]
-   },
-   {
-    "start": "0x10ebdc",
-    "end": "0x10f05c",
-    "size": 12,
-    "names": [
+     "call_vector_1b8",
      "atomic_reg_read",
      "atomic_reg_read_alt",
      "atomic_reg_write",
      "periph_trigger_write",
-     "periph_field_set",
+     "periph_field_set"
+    ]
+   },
+   {
+    "start": "0x10ed6c",
+    "end": "0x111168",
+    "size": 46,
+    "names": [
      "write_reg_70001408",
      "get_periph_status",
      "set_periph_status",
      "periph_enable",
      "fw_set_cmd",
      "phy_get_status",
-     "copy_stats"
-    ]
-   },
-   {
-    "start": "0x10f0b4",
-    "end": "0x111168",
-    "size": 39,
-    "names": [
+     "copy_stats",
      "check_hw_flag",
      "wait_event",
      "send_msg",
@@ -5542,8 +4793,8 @@
    },
    {
     "start": "0x12d9b0",
-    "end": "0x12ecb0",
-    "size": 45,
+    "end": "0x12ef20",
+    "size": 48,
     "names": [
      "memcpy_opt",
      "memcpy_loop",
@@ -5589,14 +4840,7 @@
      "state_get_flags",
      "state_get_value",
      "state_test_flag",
-     "ke_event_schedule_1"
-    ]
-   },
-   {
-    "start": "0x12ed40",
-    "end": "0x12ef20",
-    "size": 3,
-    "names": [
+     "ke_event_schedule_1",
      "rx_packet_handler_2",
      "state_check_feature",
      "bt_init_controller"
@@ -5604,110 +4848,40 @@
    },
    {
     "start": "0x12ef48",
-    "end": "0x12eff4",
-    "size": 3,
+    "end": "0x13038c",
+    "size": 48,
     "names": [
      "msg_alloc_410",
      "msg_alloc_40a_zero",
-     "msg_alloc_424"
-    ]
-   },
-   {
-    "start": "0x12f03c",
-    "end": "0x12f154",
-    "size": 3,
-    "names": [
+     "msg_alloc_424",
      "msg_alloc_40c",
      "msg_alloc_412",
-     "msg_alloc_401"
-    ]
-   },
-   {
-    "start": "0x12f1a0",
-    "end": "0x12f208",
-    "size": 3,
-    "names": [
+     "msg_alloc_401",
      "ke_event_send_a",
      "ke_event_send_b",
-     "msg_alloc_403"
-    ]
-   },
-   {
-    "start": "0x12f288",
-    "end": "0x12f2fc",
-    "size": 3,
-    "names": [
+     "msg_alloc_403",
      "rf_command_start",
      "task_poll_loop",
-     "send_hci_event_42d"
-    ]
-   },
-   {
-    "start": "0x12f318",
-    "end": "0x12f3bc",
-    "size": 3,
-    "names": [
+     "send_hci_event_42d",
      "send_hci_event_42c",
      "tx_power_config",
-     "radio_init_2"
-    ]
-   },
-   {
-    "start": "0x12f630",
-    "end": "0x12f6c4",
-    "size": 3,
-    "names": [
+     "radio_init_2",
      "ke_int_lock_1",
      "mmio_irq_clear",
-     "mmio_field_update"
-    ]
-   },
-   {
-    "start": "0x12f6e0",
-    "end": "0x12f730",
-    "size": 3,
-    "names": [
+     "mmio_field_update",
      "ke_int_unlock",
      "timer_clear",
-     "reset_hci_scratch"
-    ]
-   },
-   {
-    "start": "0x12f744",
-    "end": "0x12f74c",
-    "size": 3,
-    "names": [
+     "reset_hci_scratch",
      "j_rf_phy_mmio_poll_n_cb",
      "patch_jump",
-     "return_two_stub"
-    ]
-   },
-   {
-    "start": "0x12f750",
-    "end": "0x12f76c",
-    "size": 3,
-    "names": [
+     "return_two_stub",
      "j_nullsub_6",
      "state_ready_check",
-     "jump_to_10ca3c"
-    ]
-   },
-   {
-    "start": "0x12f770",
-    "end": "0x12f810",
-    "size": 4,
-    "names": [
+     "jump_to_10ca3c",
      "process_pending_queue",
      "dispatch_if_ready",
      "jump_to_10c824_zero",
-     "irq_lock_save_1"
-    ]
-   },
-   {
-    "start": "0x12f870",
-    "end": "0x1300c0",
-    "size": 13,
-    "names": [
+     "irq_lock_save_1",
      "get_shared_buf_size",
      "rx_packet_process",
      "parse_space_token",
@@ -5720,64 +4894,29 @@
      "packet_header_parse",
      "buf_clear10",
      "l2cap_pdu_check",
-     "buf_array_clear_multiple"
-    ]
-   },
-   {
-    "start": "0x13013c",
-    "end": "0x130234",
-    "size": 3,
-    "names": [
+     "buf_array_clear_multiple",
      "buf_array_clear_single",
      "ke_irq_lock",
-     "ke_malloc"
+     "ke_malloc",
+     "ke_event_send_1"
     ]
    },
    {
-    "start": "0x13038c",
-    "end": "0x1304e0",
-    "size": 3,
+    "start": "0x1304a4",
+    "end": "0x1314f4",
+    "size": 34,
     "names": [
-     "ke_event_send_1",
      "mmio_wait_reg",
-     "ll_seq_update"
-    ]
-   },
-   {
-    "start": "0x130514",
-    "end": "0x130590",
-    "size": 3,
-    "names": [
+     "ll_seq_update",
      "rf_map_channel",
      "rf_temp_sensor_start",
-     "ke_event_handler"
-    ]
-   },
-   {
-    "start": "0x1305bc",
-    "end": "0x1306cc",
-    "size": 3,
-    "names": [
+     "ke_event_handler",
      "log_mac_state",
      "ke_timeout_to_ticks",
-     "rf_calibrate_value"
-    ]
-   },
-   {
-    "start": "0x130714",
-    "end": "0x130834",
-    "size": 3,
-    "names": [
+     "rf_calibrate_value",
      "mmio_init_check",
      "rf_afe_enable",
-     "rf_afe_disable"
-    ]
-   },
-   {
-    "start": "0x13085c",
-    "end": "0x1314f4",
-    "size": 23,
-    "names": [
+     "rf_afe_disable",
      "build_tx_packet_1",
      "rf_write_pattern_ff23",
      "rf_write_pattern_bf0c",
@@ -6254,8 +5393,8 @@
    },
    {
     "start": "0x142670",
-    "end": "0x143f00",
-    "size": 44,
+    "end": "0x14e18c",
+    "size": 47,
     "names": [
      "softfloat_double_op",
      "softfloat_float_op",
@@ -6300,14 +5439,7 @@
      "strchr",
      "strcmp",
      "strcpy",
-     "strlen"
-    ]
-   },
-   {
-    "start": "0x143fdc",
-    "end": "0x14e18c",
-    "size": 3,
-    "names": [
+     "strlen",
      "strncasecmp",
      "empty_isr",
      "empty_isr_alt"
@@ -6318,7 +5450,7 @@
  "lmacfw_rf_u02": {
   "functions": 866,
   "coarse": 24,
-  "refined_count": 96,
+  "refined_count": 32,
   "modules": [
    {
     "start": "0x1001a8",
@@ -6384,144 +5516,60 @@
    },
    {
     "start": "0x102a1c",
-    "end": "0x102adc",
-    "size": 3,
+    "end": "0x1043d8",
+    "size": 31,
     "names": [
      "check_button",
      "nvic_enable_irq",
-     "gpio_set_pin"
-    ]
-   },
-   {
-    "start": "0x102b40",
-    "end": "0x102de0",
-    "size": 4,
-    "names": [
+     "gpio_set_pin",
      "gpio_clear_pin",
      "periph_wait_status",
      "memcpy_advance",
-     "get_reset_reason"
-    ]
-   },
-   {
-    "start": "0x102e04",
-    "end": "0x1032dc",
-    "size": 5,
-    "names": [
+     "get_reset_reason",
      "dma_init",
      "gpio_set_high",
      "clock_set_source",
      "check_chip_flag",
-     "configure_external_clock"
-    ]
-   },
-   {
-    "start": "0x103334",
-    "end": "0x103540",
-    "size": 3,
-    "names": [
+     "configure_external_clock",
      "save_rf_context",
      "rf_init_regs",
-     "poll_rf_status"
-    ]
-   },
-   {
-    "start": "0x1035e8",
-    "end": "0x103678",
-    "size": 3,
-    "names": [
+     "poll_rf_status",
      "configure_bb_clock",
      "disable_bb_timer_irq",
-     "set_system_mode"
-    ]
-   },
-   {
-    "start": "0x103900",
-    "end": "0x103a00",
-    "size": 3,
-    "names": [
+     "set_system_mode",
      "enable_bb_clock",
      "bb_reset",
-     "configure_bb_winsize"
-    ]
-   },
-   {
-    "start": "0x103ae0",
-    "end": "0x103c6c",
-    "size": 3,
-    "names": [
+     "configure_bb_winsize",
      "enable_rf_dll",
      "bb_hw_init",
-     "disable_rx_path"
-    ]
-   },
-   {
-    "start": "0x103d60",
-    "end": "0x103eb4",
-    "size": 3,
-    "names": [
+     "disable_rx_path",
      "sub_103d60",
      "wait_rf_ready",
-     "load_patch_data"
-    ]
-   },
-   {
-    "start": "0x103fbc",
-    "end": "0x104200",
-    "size": 3,
-    "names": [
+     "load_patch_data",
      "lookup_rf_table",
      "apply_tx_power",
-     "tx_power_calibrate"
+     "tx_power_calibrate",
+     "wlan_init_globals"
     ]
    },
    {
-    "start": "0x1043d8",
-    "end": "0x104a98",
-    "size": 3,
+    "start": "0x1047b8",
+    "end": "0x10ac18",
+    "size": 46,
     "names": [
-     "wlan_init_globals",
      "heap_calloc",
-     "prcm_set_mask"
-    ]
-   },
-   {
-    "start": "0x104b60",
-    "end": "0x104cc0",
-    "size": 3,
-    "names": [
+     "prcm_set_mask",
      "min_u32",
      "scale_f32",
-     "list_remove"
-    ]
-   },
-   {
-    "start": "0x104d60",
-    "end": "0x105578",
-    "size": 4,
-    "names": [
+     "list_remove",
      "rx_packet_handler",
      "mac_get_params",
      "phy_set_txpower",
-     "prcm_stop"
-    ]
-   },
-   {
-    "start": "0x105dcc",
-    "end": "0x105fd0",
-    "size": 4,
-    "names": [
+     "prcm_stop",
      "validate_handle",
      "load_device_desc",
      "malloc_wrapper",
-     "prcm_start"
-    ]
-   },
-   {
-    "start": "0x106bb4",
-    "end": "0x107c70",
-    "size": 19,
-    "names": [
+     "prcm_start",
      "clk_enable",
      "clk_disable",
      "clk_set_divider",
@@ -6540,34 +5588,13 @@
      "rx_queue_pop_packet",
      "rf_get_cca_status",
      "rf_get_rx_rssi",
-     "rf_transmit_packet"
-    ]
-   },
-   {
-    "start": "0x108cb8",
-    "end": "0x109100",
-    "size": 3,
-    "names": [
+     "rf_transmit_packet",
      "rf_wait_for_command",
      "rf_core_init",
-     "mac_frame_parse_fcf"
-    ]
-   },
-   {
-    "start": "0x109120",
-    "end": "0x109368",
-    "size": 3,
-    "names": [
+     "mac_frame_parse_fcf",
      "atomic_write_if_zero",
      "swar_bit_count",
-     "float_compare"
-    ]
-   },
-   {
-    "start": "0x109480",
-    "end": "0x10ac18",
-    "size": 8,
-    "names": [
+     "float_compare",
      "memzero_words",
      "compare_float_samples",
      "invoke_handler_14a99c",
@@ -6580,173 +5607,68 @@
    },
    {
     "start": "0x10b048",
-    "end": "0x10c1ec",
-    "size": 4,
+    "end": "0x10dc40",
+    "size": 48,
     "names": [
      "apply_dsp_transform",
      "parse_packet_control",
      "call_tx_function",
-     "call_rx_function"
-    ]
-   },
-   {
-    "start": "0x10c2e4",
-    "end": "0x10cc98",
-    "size": 3,
-    "names": [
+     "call_rx_function",
      "configure_dma_engine",
      "config_uart_control",
-     "clear_buffer_180a0c"
-    ]
-   },
-   {
-    "start": "0x10cd24",
-    "end": "0x10ce80",
-    "size": 3,
-    "names": [
+     "clear_buffer_180a0c",
      "wait_for_uart_event",
      "handle_interrupt_save",
-     "check_uart_flags"
-    ]
-   },
-   {
-    "start": "0x10cec0",
-    "end": "0x10cf28",
-    "size": 3,
-    "names": [
+     "check_uart_flags",
      "lookup_mac_descriptor",
      "poll_hw_status",
-     "nullsub_6"
-    ]
-   },
-   {
-    "start": "0x10cf2c",
-    "end": "0x10cf48",
-    "size": 3,
-    "names": [
+     "nullsub_6",
      "enable_uart",
      "rf_enable",
-     "bt_event_process"
-    ]
-   },
-   {
-    "start": "0x10d02c",
-    "end": "0x10d4c8",
-    "size": 6,
-    "names": [
+     "bt_event_process",
      "rf_irq_handler",
      "mac_ll_scheduler",
      "clear_mac_info",
      "rf_phy_irq",
      "rf_phy_init",
-     "panic_fatal"
-    ]
-   },
-   {
-    "start": "0x10d4e8",
-    "end": "0x10d624",
-    "size": 3,
-    "names": [
+     "panic_fatal",
      "mac_tx_work",
      "mac_tx_irq",
-     "trace_sync"
-    ]
-   },
-   {
-    "start": "0x10d63c",
-    "end": "0x10d680",
-    "size": 3,
-    "names": [
+     "trace_sync",
      "uart_tx_byte",
      "uart_tx_string",
-     "uart_rx_byte"
-    ]
-   },
-   {
-    "start": "0x10d698",
-    "end": "0x10da6c",
-    "size": 3,
-    "names": [
+     "uart_rx_byte",
      "uart_rx_ready",
      "hci_cmd_init",
-     "log_printf"
-    ]
-   },
-   {
-    "start": "0x10da88",
-    "end": "0x10daf0",
-    "size": 3,
-    "names": [
+     "log_printf",
      "rf_channel_valid",
      "gpio_cfg_clear",
-     "gpio_cfg_set"
-    ]
-   },
-   {
-    "start": "0x10db04",
-    "end": "0x10db30",
-    "size": 3,
-    "names": [
+     "gpio_cfg_set",
      "gpio_out_set",
      "gpio_out_clear",
-     "gpio_read_pin"
-    ]
-   },
-   {
-    "start": "0x10db48",
-    "end": "0x10db90",
-    "size": 3,
-    "names": [
+     "gpio_read_pin",
      "pinmux_config_1",
      "gpio_disable_interrupt",
-     "gpio_set_pin_1"
-    ]
-   },
-   {
-    "start": "0x10dba4",
-    "end": "0x10dbd0",
-    "size": 3,
-    "names": [
+     "gpio_set_pin_1",
      "gpio_set_pin_out",
      "gpio_clear_pin_1",
-     "gpio_get_pin"
-    ]
-   },
-   {
-    "start": "0x10dbe8",
-    "end": "0x10dbf0",
-    "size": 3,
-    "names": [
+     "gpio_get_pin",
      "nullsub_1",
      "nullsub_2",
-     "nullsub_3"
-    ]
-   },
-   {
-    "start": "0x10dbf4",
-    "end": "0x10dc78",
-    "size": 3,
-    "names": [
+     "nullsub_3",
      "check_hw_status",
-     "gpio_init_pin_11",
-     "gpio_init_pin_10"
+     "gpio_init_pin_11"
     ]
    },
    {
-    "start": "0x10dcb0",
-    "end": "0x10dd20",
-    "size": 3,
+    "start": "0x10dc78",
+    "end": "0x10feac",
+    "size": 48,
     "names": [
+     "gpio_init_pin_10",
      "gpio_init_pin_13",
      "gpio_init_pin_12",
-     "gpio_port_init"
-    ]
-   },
-   {
-    "start": "0x10ddc8",
-    "end": "0x10feac",
-    "size": 44,
-    "names": [
+     "gpio_port_init",
      "sdio_core_reset",
      "sdio_core_reset_alt",
      "wait_sdio_core_ready",
@@ -6868,8 +5790,8 @@
    },
    {
     "start": "0x112ef4",
-    "end": "0x113694",
-    "size": 15,
+    "end": "0x1138f4",
+    "size": 24,
     "names": [
      "map_event_type",
      "lookup_table_value",
@@ -6885,37 +5807,23 @@
      "refresh_config_params",
      "check_and_process",
      "dispatch_event_handler",
-     "prepare_and_dispatch"
-    ]
-   },
-   {
-    "start": "0x1136f4",
-    "end": "0x1137b8",
-    "size": 3,
-    "names": [
+     "prepare_and_dispatch",
      "lookup_task_id",
      "controller_state_machine",
-     "enter_critical_section"
-    ]
-   },
-   {
-    "start": "0x113810",
-    "end": "0x113854",
-    "size": 3,
-    "names": [
+     "enter_critical_section",
      "send_hci_event",
      "fw_sub_1213824_load_struct_call",
-     "bt_module_init"
+     "bt_module_init",
+     "memory_barrier_write",
+     "clear_irq_flag",
+     "check_rx_active"
     ]
    },
    {
-    "start": "0x1138d0",
+    "start": "0x11394c",
     "end": "0x1142e0",
-    "size": 44,
+    "size": 41,
     "names": [
-     "memory_barrier_write",
-     "clear_irq_flag",
-     "check_rx_active",
      "get_device_state",
      "mmio_read32",
      "mmio_write32",
@@ -6961,8 +5869,8 @@
    },
    {
     "start": "0x114318",
-    "end": "0x1145dc",
-    "size": 14,
+    "end": "0x11532c",
+    "size": 48,
     "names": [
      "ke_task_handler",
      "ke_task_process",
@@ -6977,14 +5885,7 @@
      "mmio_read_32",
      "mmio_read_64",
      "mmio_write_64",
-     "mmio_read_128"
-    ]
-   },
-   {
-    "start": "0x1145e8",
-    "end": "0x11532c",
-    "size": 34,
-    "names": [
+     "mmio_read_128",
      "mmio_write_128",
      "bus_read_buf",
      "bus_write_buf",
@@ -7429,8 +6330,8 @@
    },
    {
     "start": "0x121be0",
-    "end": "0x122c94",
-    "size": 20,
+    "end": "0x1230e8",
+    "size": 26,
     "names": [
      "str_skip_spaces",
      "parse_dot_separated",
@@ -7451,24 +6352,10 @@
      "get_elapsed_ticks",
      "check_system_flag",
      "init_system",
-     "check_radio_status"
-    ]
-   },
-   {
-    "start": "0x122db8",
-    "end": "0x122fa4",
-    "size": 3,
-    "names": [
+     "check_radio_status",
      "pack_control_data",
      "check_address_alignment",
-     "lookup_entry"
-    ]
-   },
-   {
-    "start": "0x123020",
-    "end": "0x1230e8",
-    "size": 3,
-    "names": [
+     "lookup_entry",
      "handle_state_change",
      "enter_critical_section_2",
      "process_queue_message"
@@ -7476,8 +6363,8 @@
    },
    {
     "start": "0x123240",
-    "end": "0x123f04",
-    "size": 14,
+    "end": "0x124a88",
+    "size": 48,
     "names": [
      "exit_critical_section",
      "wait_hw_interrupt_flag",
@@ -7492,14 +6379,7 @@
      "build_hci_event",
      "init_timer_slot",
      "wait_for_state",
-     "format_message"
-    ]
-   },
-   {
-    "start": "0x123f4c",
-    "end": "0x124a10",
-    "size": 32,
-    "names": [
+     "format_message",
      "set_state_checked",
      "set_reg_1807fc_bit6",
      "set_reg_1807fc_bit20",
@@ -7531,165 +6411,60 @@
      "mmio_enable_clock",
      "mmio_read_timer",
      "mmio_check_status",
-     "set_channel"
-    ]
-   },
-   {
-    "start": "0x124a50",
-    "end": "0x124b04",
-    "size": 3,
-    "names": [
+     "set_channel",
      "set_tx_power",
-     "set_adv_interval",
-     "set_adv_type"
+     "set_adv_interval"
     ]
    },
    {
-    "start": "0x124c70",
-    "end": "0x124e60",
-    "size": 3,
+    "start": "0x124b04",
+    "end": "0x126da4",
+    "size": 48,
     "names": [
+     "set_adv_type",
      "set_adv_data",
      "set_adv_channel_map",
-     "set_scan_params"
-    ]
-   },
-   {
-    "start": "0x124f20",
-    "end": "0x124f60",
-    "size": 3,
-    "names": [
+     "set_scan_params",
      "set_random_addr",
      "set_private_addr",
-     "set_conn_interval"
-    ]
-   },
-   {
-    "start": "0x124f9c",
-    "end": "0x125004",
-    "size": 3,
-    "names": [
+     "set_conn_interval",
      "set_conn_latency",
      "set_super_timeout",
-     "set_adv_timeout"
-    ]
-   },
-   {
-    "start": "0x125038",
-    "end": "0x1250a0",
-    "size": 3,
-    "names": [
+     "set_adv_timeout",
      "set_rf_channel_map",
      "set_rf_byte",
-     "set_rx_gain"
-    ]
-   },
-   {
-    "start": "0x1250d4",
-    "end": "0x12513c",
-    "size": 3,
-    "names": [
+     "set_rx_gain",
      "set_tx_offset",
      "set_clock_offset",
-     "set_bdaddr"
-    ]
-   },
-   {
-    "start": "0x12529c",
-    "end": "0x12537c",
-    "size": 3,
-    "names": [
+     "set_bdaddr",
      "rf_store_cal_byte",
      "set_local_name",
-     "bt_conditional_action"
-    ]
-   },
-   {
-    "start": "0x1253bc",
-    "end": "0x125970",
-    "size": 3,
-    "names": [
+     "bt_conditional_action",
      "process_bt_connection_event",
      "process_bt_inquiry_event",
-     "process_bt_service_search_event"
-    ]
-   },
-   {
-    "start": "0x125abc",
-    "end": "0x125bfc",
-    "size": 3,
-    "names": [
+     "process_bt_service_search_event",
      "bt_control_block_cleanup",
      "bt_state_machine_dispatch",
-     "process_bt_ble_event"
-    ]
-   },
-   {
-    "start": "0x125d18",
-    "end": "0x125e0c",
-    "size": 4,
-    "names": [
+     "process_bt_ble_event",
      "bt_conn_init",
      "parse_bt_name_field",
      "check_mmio_status_flag",
-     "bt_msg_send_if_allocated"
-    ]
-   },
-   {
-    "start": "0x125e18",
-    "end": "0x125f58",
-    "size": 3,
-    "names": [
+     "bt_msg_send_if_allocated",
      "acl_rx_handler",
      "poll_radio_status",
-     "ll_data_handler"
-    ]
-   },
-   {
-    "start": "0x125ffc",
-    "end": "0x126104",
-    "size": 3,
-    "names": [
+     "ll_data_handler",
      "check_radio_flag",
      "pkt_buf_clear",
-     "rf_is_ready"
-    ]
-   },
-   {
-    "start": "0x126174",
-    "end": "0x12632c",
-    "size": 3,
-    "names": [
+     "rf_is_ready",
      "radio_timer_snapshot",
      "ll_state_process",
-     "ll_state_reset"
-    ]
-   },
-   {
-    "start": "0x12645c",
-    "end": "0x1264dc",
-    "size": 3,
-    "names": [
+     "ll_state_reset",
      "rf_flag_is_set",
      "rf_set_flag",
-     "mmio_write_register"
-    ]
-   },
-   {
-    "start": "0x126538",
-    "end": "0x126764",
-    "size": 3,
-    "names": [
+     "mmio_write_register",
      "mmio_set_control",
      "rf_state_machine",
-     "rf_config_load"
-    ]
-   },
-   {
-    "start": "0x12686c",
-    "end": "0x126da4",
-    "size": 4,
-    "names": [
+     "rf_config_load",
      "tx_descriptor_config",
      "init_with_stack",
      "mmio_bit_set",
@@ -7698,113 +6473,43 @@
    },
    {
     "start": "0x126dd8",
-    "end": "0x126e80",
-    "size": 4,
+    "end": "0x1282e8",
+    "size": 47,
     "names": [
      "tx_packet_pointer",
      "jump_10de98",
      "mac_packet_dispatch",
-     "rf_param_build"
-    ]
-   },
-   {
-    "start": "0x126f10",
-    "end": "0x126fd8",
-    "size": 3,
-    "names": [
+     "rf_param_build",
      "freq_offset_to_channel",
      "rf_set_frequency_2",
-     "rf_cmd_check"
-    ]
-   },
-   {
-    "start": "0x12704c",
-    "end": "0x12716c",
-    "size": 3,
-    "names": [
+     "rf_cmd_check",
      "rf_read_trim",
      "rf_enable_2",
-     "rf_disable_2"
-    ]
-   },
-   {
-    "start": "0x127194",
-    "end": "0x1272b0",
-    "size": 3,
-    "names": [
+     "rf_disable_2",
      "parse_data_field",
      "float_to_i24",
-     "double_subtract"
-    ]
-   },
-   {
-    "start": "0x1272b4",
-    "end": "0x12754c",
-    "size": 3,
-    "names": [
+     "double_subtract",
      "double_add",
      "double_to_float",
-     "aeabi_i2d"
-    ]
-   },
-   {
-    "start": "0x127570",
-    "end": "0x127620",
-    "size": 3,
-    "names": [
+     "aeabi_i2d",
      "aeabi_d2f",
      "aeabi_d2uiz",
-     "aeabi_dadd"
-    ]
-   },
-   {
-    "start": "0x1277fc",
-    "end": "0x1279e2",
-    "size": 3,
-    "names": [
+     "aeabi_dadd",
      "aeabi_dadd_internal",
      "aeabi_dsub",
-     "double_unordered"
-    ]
-   },
-   {
-    "start": "0x127a54",
-    "end": "0x127b18",
-    "size": 6,
-    "names": [
+     "double_unordered",
      "double_compare",
      "double_reverse_compare",
      "double_compare_flags",
      "double_eq",
      "double_lt",
-     "double_le"
-    ]
-   },
-   {
-    "start": "0x127b2c",
-    "end": "0x127b54",
-    "size": 3,
-    "names": [
+     "double_le",
      "double_ge",
      "double_gt",
-     "double_to_float_1"
-    ]
-   },
-   {
-    "start": "0x127ba4",
-    "end": "0x127c90",
-    "size": 3,
-    "names": [
+     "double_to_float_1",
      "aeabi_d2iz",
      "aeabi_dmul",
-     "aeabi_ddiv"
-    ]
-   },
-   {
-    "start": "0x127e14",
-    "end": "0x127f78",
-    "size": 8,
-    "names": [
+     "aeabi_ddiv",
      "aeabi_dcmp",
      "util_cmp_core",
      "util_cmp_rev",
@@ -7812,45 +6517,24 @@
      "is_lower_unsigned",
      "is_lower_or_equal_unsigned",
      "util_cmp_gt",
-     "util_cmp_ge"
-    ]
-   },
-   {
-    "start": "0x127f8c",
-    "end": "0x128288",
-    "size": 4,
-    "names": [
+     "util_cmp_ge",
      "util_is_zero",
      "util_memcpy",
      "i32_abs",
-     "memcmp"
+     "memcmp",
+     "memcpy"
     ]
    },
    {
-    "start": "0x1282e8",
-    "end": "0x128508",
-    "size": 3,
+    "start": "0x12841c",
+    "end": "0x138562",
+    "size": 10,
     "names": [
-     "memcpy",
      "strchr",
-     "strcmp"
-    ]
-   },
-   {
-    "start": "0x1287dc",
-    "end": "0x12899c",
-    "size": 3,
-    "names": [
+     "strcmp",
      "strcpy",
      "memset_ff",
-     "crc32"
-    ]
-   },
-   {
-    "start": "0x12f954",
-    "end": "0x138562",
-    "size": 5,
-    "names": [
+     "crc32",
      "bt_reg_write",
      "noop_130DF4",
      "noop_130E00",
