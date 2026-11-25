@@ -1,4 +1,5 @@
 // mmio_update @ 0x122184
+/* luna: Applies table-driven PHY register values, using caller-provided values for selected entries, then initializes related PHY state. */
 int mmio_update(int a1) {
   volatile int *v1; // r3
   int v2; // r6
@@ -57,6 +58,7 @@ LABEL_5:
 
 
 // mmio_masked_write @ 0x12221c
+/* luna: Merges PHY register templates with per-configuration override words, applies the resulting register block, performs additional PHY setup, and dispatch */
 int mmio_masked_write(int a1) {
   int v1; // r4
   volatile int *v2; // r2
@@ -119,6 +121,7 @@ int mmio_masked_write(int a1) {
 
 
 // poll_register_bit @ 0x1222c0
+/* luna: Adds 15000 to each of six volatile 32-bit register slots whose corresponding mask bit is set, then returns the register-array base. */
 int poll_register_bit() {
   volatile uint32_t *v0; // r1
   int result; // r0
@@ -137,6 +140,7 @@ int poll_register_bit() {
 
 
 // rf_tx_power_calc @ 0x1222f4
+/* luna: Evaluates a calibrated measurement against a configured target and hysteresis band, then updates the power-control state. */
 volatile uint32_t * rf_tx_power_calc(volatile uint32_t *result, int a2) {
   unsigned int v2; // r4
   int v3; // r7
@@ -330,6 +334,7 @@ LABEL_22:
 
 
 // hci_send_cmd_0x59 @ 0x1225dc
+/* luna: Allocates an HCI message with ID 0x59, copies two parameter bytes into it, and sends it to task 13. */
 int hci_send_cmd_0x59(char a1, char a2) {
   volatile uint8_t *v4; // r0
 
@@ -342,6 +347,7 @@ int hci_send_cmd_0x59(char a1, char a2) {
 
 
 // rx_process_packet @ 0x1225fc
+/* luna: Processes a received beacon-like frame by checking its channel IE, extracting its TIM IE, updating RSSI and a TIM-excluding content fingerprint, and f */
 int rx_process_packet(int a1, int a2, int a3, volatile int *a4) {
   int v4; // r7
   int v5; // r11
@@ -454,6 +460,7 @@ LABEL_8:
 
 
 // read_config_byte @ 0x122794
+/* luna: Processes an active WLAN receive cycle, dispatching a received frame and otherwise advancing retry, channel, or transmit handling. */
 volatile char * read_config_byte(volatile char *result) {
   int v1; // r4
   int v2; // r6
@@ -511,6 +518,7 @@ volatile char * read_config_byte(volatile char *result) {
 
 
 // check_hw_version @ 0x122884
+/* luna: Reads status bits 23–24, conditionally performs a clear operation for a special hardware state, forwards the bits to a helper, and returns a value fro */
 volatile char *check_hw_version() {
   int v0; // r4
 
@@ -527,6 +535,7 @@ volatile char *check_hw_version() {
 
 
 // get_phy_channel @ 0x1228e8
+/* luna: Counts nested-list nodes for records with a non-null child list and a byte at offset 116 other than 0xff; returns zero if any outer record has a nonze */
 int get_phy_channel() {
   volatile int *v0; // r2
   int result; // r0
@@ -565,6 +574,7 @@ int get_phy_channel() {
 
 
 // hci_send_cmd_0x0b @ 0x122930
+/* luna: Invokes the firmware handler and sends a kernel message containing its return byte and two output bytes. */
 int hci_send_cmd_0x0b(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v5; // r4
 

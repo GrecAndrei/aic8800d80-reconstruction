@@ -46,7 +46,11 @@ def load_batch():
 
 
 def module_files(img):
-    return sorted(glob.glob(f"src/{img}/modules/mod*.c"))
+    # the umbrella main.c carries the forward declarations — a rename that
+    # does not reach it leaves the prototype under the noise name while the
+    # definition and call sites move, breaking callers with implicit-
+    # declaration errors (dump_tx_queue_state was the first measured case)
+    return sorted(glob.glob(f"src/{img}/modules/mod*.c")) + [f"src/{img}/main.c"]
 
 
 def apply_image(img, batch, check=False):
@@ -76,6 +80,9 @@ def apply_image(img, batch, check=False):
     renames = {}
     collisions = 0
     skipped = 0
+    assigned = set()  # names taken by this pass itself — two noise-named
+    # trivial functions can draw the same obvious candidate (noop_success
+    # collided across modules this way)
     for disp, (f, addr) in sorted(defs.items()):
         d = batch.get((img, disp))
         if not d:
@@ -86,10 +93,11 @@ def apply_image(img, batch, check=False):
         if conf != "high" or not new or new == disp or not re.fullmatch(r"[a-z][a-z0-9_]{2,40}", new):
             skipped += 1
             continue
-        if new in taken and new != disp:
+        if (new in taken and new != disp) or new in assigned:
             collisions += 1
             continue
         renames[disp] = new
+        assigned.add(new)
 
     if check:
         return len(renames), skipped, collisions, {}

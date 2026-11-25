@@ -1,15 +1,16 @@
 // rf_rx_check @ 0x11d320
+/* luna: Handles an incoming RXL header descriptor, including its packet buffer and receive-status checks. */
 BOOL rf_rx_check(int a1) {
   volatile int16_t **v1; // r10
-  int v2; // r8
+  int first_pbd; // r8
   int v3; // r3
-  volatile uint32_t *v5; // r9
-  int16_t v6; // r11
-  unsigned int v7; // r6
+  volatile uint32_t *first_pbd_data; // r9
+  int16_t frame_control; // r11
+  unsigned int rx_status; // r6
   int v8; // r5
   int v10; // r2
-  unsigned int v11; // r7
-  int v12; // r3
+  unsigned int hw_key_index; // r7
+  int key_entry; // r3
   volatile unsigned int v13; // r1
   unsigned int v14; // r3
   volatile uint8_t *v15; // r5
@@ -58,32 +59,32 @@ BOOL rf_rx_check(int a1) {
   if ( *(volatile uint16_t *)(a1 + 48) )
   {
     v1 = (volatile int16_t **)off_11D66C;
-    v2 = *(volatile uint32_t *)(a1 + 28);
+    first_pbd = *(volatile uint32_t *)(a1 + 28);
     v3 = **(volatile int16_t **)off_11D66C;
-    if ( v3 < 0 && !v2 )
+    if ( v3 < 0 && !first_pbd )
     {
       v8 = 0;
       bad_func_0x12f408((int)aRhdFirstPbdPtr, (int)aRxlFrameHandle, 423);
       return v8;
     }
-    v5 = *(volatile uint32_t **)(v2 + 8);
-    v6 = *(volatile uint16_t *)v5;
-    v7 = *(volatile uint32_t *)(a1 + 84);
+    first_pbd_data = *(volatile uint32_t **)(first_pbd + 8);
+    frame_control = *(volatile uint16_t *)first_pbd_data;
+    rx_status = *(volatile uint32_t *)(a1 + 84);
     if ( LOBYTE(((volatile uint32_t *)(uintptr_t)off_11D630)[102])
       && (*((volatile uint32_t *)off_11D634 + 1) & 0x40) != 0
       && (*(volatile uint32_t *)(a1 + 84) & 0x600) == 0x200 )
     {
-      if ( (v6 & 0xFC) == 0xC4 )
+      if ( (frame_control & 0xFC) == 0xC4 )
         ++*(volatile uint32_t *)off_11D650;
     }
     else
     {
-      if ( (dword_11D638 & ~v7) != 0 )
+      if ( (dword_11D638 & ~rx_status) != 0 )
         return 0;
-      *(volatile uint32_t *)(a1 + 84) = v7 & 0xFEFFFFFF;
+      *(volatile uint32_t *)(a1 + 84) = rx_status & 0xFEFFFFFF;
       if ( v3 < 0 )
       {
-        v8 = (v7 >> 15) & 0x1F0;
+        v8 = (rx_status >> 15) & 0x1F0;
         if ( !v8 )
         {
           bad_func_0x12f408((int)aKeyIdxHwMmSecD, (int)aRxlFrameHandle, 475);
@@ -91,68 +92,68 @@ BOOL rf_rx_check(int a1) {
         }
       }
       v10 = dword_11D63C;
-      v11 = (uint8_t)((v7 >> 15) - 16);
-      v12 = dword_11D63C + 696 * v11;
-      v8 = *(volatile uint8_t *)(v12 + 37);
-      if ( !*(volatile uint8_t *)(v12 + 37) )
+      hw_key_index = (uint8_t)((rx_status >> 15) - 16);
+      key_entry = dword_11D63C + 696 * hw_key_index;
+      v8 = *(volatile uint8_t *)(key_entry + 37);
+      if ( !*(volatile uint8_t *)(key_entry + 37) )
       {
-        *(volatile uint32_t *)(a1 + 84) = v7 & 0xFCFFFFFF;
+        *(volatile uint32_t *)(a1 + 84) = rx_status & 0xFCFFFFFF;
         return v8;
       }
-      if ( v11 <= 0x23 )
+      if ( hw_key_index <= 0x23 )
       {
         v13 = (*(volatile uint32_t *)0x40501010u);
-        *(volatile uint32_t *)(v12 + 664) = v13;
+        *(volatile uint32_t *)(key_entry + 664) = v13;
       }
-      v14 = v10 + 696 * v11;
+      v14 = v10 + 696 * hw_key_index;
       if ( *(volatile uint16_t *)(v14 + 32) == 0xFFFF )
       {
-        if ( (v6 & 0xFC) != 0x80 )
+        if ( (frame_control & 0xFC) != 0x80 )
         {
-          *(volatile uint32_t *)(a1 + 84) = v7 & 0xFCFFFFFF;
+          *(volatile uint32_t *)(a1 + 84) = rx_status & 0xFCFFFFFF;
           return 0;
         }
         _frame.a3 = *(volatile uint32_t *)(v14 + 44);
-        *(volatile uint32_t *)(a1 + 84) = v7 & 0xFE007FFF | ((*(volatile uint8_t *)(_frame.a3 + 35) + 16) << 15);
+        *(volatile uint32_t *)(a1 + 84) = rx_status & 0xFE007FFF | ((*(volatile uint8_t *)(_frame.a3 + 35) + 16) << 15);
       }
       else
       {
-        _frame.a3 = v10 + 696 * v11;
+        _frame.a3 = v10 + 696 * hw_key_index;
       }
       _frame.v54 = *(volatile uint8_t *)(_frame.a3 + 34);
       v15 = (volatile uint8_t *)(dword_11D644 + 1320 * _frame.v54);
       _frame.v55 = 1320 * _frame.v54;
-      radio_event_loop(v5, v11, v15[107]);
+      radio_event_loop(first_pbd_data, hw_key_index, v15[107]);
       if ( !v15[108] )
         return 0;
       v16 = v15[106];
       v17 = dword_11D644;
       if ( v15[106] )
       {
-        if ( (v6 & 4) != 0 )
+        if ( (frame_control & 4) != 0 )
           goto LABEL_38;
         goto LABEL_36;
       }
-      if ( (v6 & 0x300) != 0x200 )
+      if ( (frame_control & 0x300) != 0x200 )
       {
-        v8 = v6 & 4;
-        if ( (v6 & 4) != 0 )
+        v8 = frame_control & 4;
+        if ( (frame_control & 4) != 0 )
           goto LABEL_19;
         goto LABEL_36;
       }
-      v29 = memcmp((unsigned int)(v5 + 4), _frame.v55 + 100 + dword_11D644, 6u);
+      v29 = memcmp((unsigned int)(first_pbd_data + 4), _frame.v55 + 100 + dword_11D644, 6u);
       v17 = dword_11D644;
       if ( v29 )
       {
-        v8 = v6 & 4;
-        if ( (v6 & 4) != 0 )
+        v8 = frame_control & 4;
+        if ( (frame_control & 4) != 0 )
         {
 LABEL_37:
           v16 = *(volatile uint8_t *)(v17 + 1320 * _frame.v54 + 106);
           if ( !*(volatile uint8_t *)(v17 + 1320 * _frame.v54 + 106) )
           {
 LABEL_19:
-            v18 = v6 & 0xFC;
+            v18 = frame_control & 0xFC;
             v19 = _frame.v55 + v17;
             v20 = (volatile uint8_t *)(_frame.v55 + v17);
             if ( v18 == 128 )
@@ -162,7 +163,7 @@ LABEL_19:
               wlc_ioctl_handler((unsigned int)_frame.a4, *(volatile uint16_t *)(a1 + 48), (int)v20);
               get_radio_state_1((int)v20);
               if ( v43 )
-                llc_conn_idx_valid(v20, v2, a1 + 20);
+                llc_conn_idx_valid(v20, first_pbd, a1 + 20);
               return v43 == 0;
             }
             if ( v18 == 80 )
@@ -260,16 +261,16 @@ LABEL_19:
             {
               if ( v18 == 132 )
               {
-                wlc_bus_state((void *)(uintptr_t)((int)v5), v7, v19);
+                wlc_bus_state((void *)(uintptr_t)((int)first_pbd_data), rx_status, v19);
                 return 0;
               }
             }
             else
             {
-              wlc_bus_state((void *)(uintptr_t)((int)v5), v7, v19);
+              wlc_bus_state((void *)(uintptr_t)((int)first_pbd_data), rx_status, v19);
               if ( *(volatile uint8_t *)(dword_11D644 + 1320 * _frame.v54 + 1224) && v18 == 208 )
               {
-                hci_cmd_preprocess((int)v20, *(volatile uint8_t **)(v2 + 8), *(volatile uint16_t *)(a1 + 48), *(volatile uint32_t *)(a1 + 52));
+                hci_cmd_preprocess((int)v20, *(volatile uint8_t **)(first_pbd + 8), *(volatile uint16_t *)(a1 + 48), *(volatile uint32_t *)(a1 + 52));
                 return v8;
               }
             }
@@ -299,7 +300,7 @@ LABEL_38:
           return 0;
         }
 LABEL_36:
-        tx_len_check(*(volatile uint8_t *)(v17 + 1320 * _frame.v54 + 107), v11, 1);
+        tx_len_check(*(volatile uint8_t *)(v17 + 1320 * _frame.v54 + 107), hw_key_index, 1);
         v17 = dword_11D644;
         v8 = 0;
         goto LABEL_37;
@@ -311,6 +312,7 @@ LABEL_36:
 
 
 // rf_counter_inc @ 0x11d7b0
+/* luna: Increments the RF counter and resets it after it exceeds the configured threshold, invoking a stub hook on rollover. */
 int rf_counter_inc() {
   volatile uint8_t *v0; // r4
   unsigned int v1; // r2
@@ -332,6 +334,7 @@ int rf_counter_inc() {
 
 
 // rf_counter_get @ 0x11d7d4
+/* luna: Updates RF counter status and clears bit 8 in a control register, conditionally invoking a placeholder helper. */
 int rf_counter_get() {
   volatile uint8_t *v0; // r4
   volatile unsigned int *v1; // r2
@@ -351,6 +354,7 @@ int rf_counter_get() {
 
 
 // rf_poll @ 0x11d7fc
+/* luna: Reads the radio FIFO, stores the zero-based PHY type in two state bytes, and invokes Bluetooth module initialization. */
 int rf_poll() {
   volatile uint8_t *v0; // r4
   int v1; // r0
@@ -374,6 +378,7 @@ int nullsub_4(void) {
 
 
 // set_event_200000 @ 0x11d828
+/* luna: Sets the MAC event indicated by bit 0x200000 through a shared event-setting routine. */
 int set_event_200000() {
   return unknown_func_12d104(0x200000);
 }
@@ -381,6 +386,7 @@ int set_event_200000() {
 
 
 // mac_wait_rx @ 0x11d830
+/* luna: Processes pending receive-related callbacks and schedules a follow-up event when the receive counters differ. */
 int mac_wait_rx() {
   volatile uint16_t *v0; // r5
   int v1; // r4
@@ -448,6 +454,7 @@ int mac_wait_rx() {
 
 
 // mac_wait_tx @ 0x11d8ec
+/* luna: Processes queued MAC transmit-wait callbacks under a nested interrupt critical section and handles deferred host-buffer recovery. */
 int mac_wait_tx() {
   volatile int *v0; // r5
   int v1; // r4
@@ -517,6 +524,7 @@ int mac_wait_tx() {
 
 
 // mac_wait_scan @ 0x11d9a4
+/* luna: Waits for the MAC scan event, processes ready queued callbacks while tracking IRQ-protected activity, and handles deferred host-buffer recovery. */
 int mac_wait_scan() {
   volatile int *v0; // r6
   int v1; // r4
@@ -589,6 +597,7 @@ int mac_wait_scan() {
 
 
 // radio_init @ 0x11da70
+/* luna: Polls radio status, checks pending receive work, and dispatches scan, transmit, and completion handling until no status remains. */
 int radio_init(int a1) {
   volatile uint32_t *v1; // r7
   volatile int *v2; // r9
@@ -704,6 +713,7 @@ LABEL_22:
 
 
 // mac_rx_handler @ 0x11dc0c
+/* luna: Consumes data from chained RX buffers, records the consumed segments in an RX descriptor ring, and updates the caller’s buffer and offset state. */
 int mac_rx_handler(volatile int *a1, int a2, volatile uint16_t *a3) {
   volatile uint8_t *v3; // r7
   int v4; // r6
@@ -816,6 +826,7 @@ LABEL_10:
 
 
 // mac_tx_handler @ 0x11dd44
+/* luna: Walks a linked transmit-buffer chain, packs the requested byte range into linked control entries, and updates the caller’s buffer cursor and offset. */
 volatile uint32_t * mac_tx_handler(volatile uint32_t *a1, int a2, volatile uint16_t *a3) {
   volatile int *v3; // r7
   int v4; // r10
@@ -915,6 +926,7 @@ LABEL_16:
 
 
 // mac_mlme_request @ 0x11de64
+/* luna: Advances a chained MAC buffer cursor across up to 1600 bytes and, in DMA mode, links per-segment descriptors to copy the data to a contiguous destinat */
 volatile uint32_t * mac_mlme_request(volatile uint32_t *a1, unsigned int a2, int a3, volatile uint32_t *a4, int a5) {
   volatile uint8_t **v5; // r9
   volatile uint32_t *v6; // r7
@@ -1006,6 +1018,7 @@ volatile uint32_t * mac_mlme_request(volatile uint32_t *a1, unsigned int a2, int
 
 
 // get_connection_state @ 0x11df7c
+/* luna: Walks the RX descriptor chain to an entry with status bit 0 set (or uses the fallback endpoint), then updates the RX cursor and shared ring wrap state */
 int get_connection_state(int a1, int a2) {
   int result; // r0
   unsigned int v3; // r3
@@ -1049,6 +1062,7 @@ LABEL_9:
 
 
 // radio_read_fifo @ 0x11dff0
+/* luna: Programs address ranges for two radio FIFO regions and updates the associated peripheral control register. */
 int radio_read_fifo() {
   volatile int *v0; // r2
   int v1; // r0
@@ -1101,6 +1115,7 @@ int radio_read_fifo() {
 
 
 // radio_set_peripheral_field @ 0x11e080
+/* luna: Sets or clears bit 10 in one radio control register and bit 19 in another according to the input’s least-significant bit. */
 unsigned int radio_set_peripheral_field(int a1) {
   volatile unsigned int *v1; // r1
   unsigned int result; // r0
@@ -1115,6 +1130,7 @@ unsigned int radio_set_peripheral_field(int a1) {
 
 
 // radio_get_status @ 0x11e0b4
+/* luna: Updates the selected radio counter with the supplied value, toggling bit 31 when the value rolls below the previous low-31-bit count. */
 int radio_get_status(int result) {
   unsigned int v1; // r3
   unsigned int v2; // r2
@@ -1141,6 +1157,7 @@ int radio_get_status(int result) {
 
 
 // rf_tx_frame @ 0x11e100
+/* luna: Processes an RX control-frame descriptor, applies subtype-specific PHY/status updates, advances its buffer cursor, and returns the radio status. */
 int rf_tx_frame(int a1) {
   int v1; // r4
   int v2; // r2
@@ -1209,6 +1226,7 @@ int rf_tx_frame(int a1) {
 
 
 // mem_is_null @ 0x11e1d0
+/* luna: Copies a requested byte range from a linked chain of MAC data segments into a contiguous destination, honoring an initial offset and advancing across  */
 int mem_is_null(int result, int a2, int a3, int a4) {
   int v4; // r7
   volatile int16_t **v5; // r10
@@ -1279,6 +1297,7 @@ int mem_is_null(int result, int a2, int a3, int a4) {
 
 
 // mac_get_flag @ 0x11e270
+/* luna: Appends an item to a shared MAC batch, updates its accumulated counters, and dispatches the batch when a configured threshold is reached. */
 int mac_get_flag(int a1) {
   volatile uint32_t *v1; // r4
   int result; // r0
@@ -1314,6 +1333,7 @@ int mac_get_flag(int a1) {
 
 
 // mac_mcps_request @ 0x11e2c8
+/* luna: Queues receive-frame metadata and conditionally dispatches the frame to the MAC receive handler when the interface is active. */
 int mac_mcps_request(int a1, int a2, int a3, uint16_t a4, int a5, int a6) {
   volatile uint32_t *v6; // r8
   volatile uint8_t **v7; // r7
@@ -1555,6 +1575,7 @@ LABEL_2:
 
 
 // mac_mlme_scan @ 0x11e604
+/* luna: Handles MAC MLME scan work, dispatching pending FMAC transmissions and taking a no-buffer path when request resources are unavailable. */
 int mac_mlme_scan(int a1) {
   volatile uint32_t *v1; // r8
   int v2; // r10
@@ -1931,6 +1952,7 @@ LABEL_41:
 
 
 // llm_evt_queue_pop @ 0x11eaa0
+/* luna: Updates connection state, dispatches a pending command when available, and otherwise returns the radio status. */
 int llm_evt_queue_pop(int a1) {
   void *v2; // r0
   volatile uint32_t *v3; // r1
@@ -1961,6 +1983,7 @@ int llm_evt_queue_pop(int a1) {
 
 
 // rf_status_poll @ 0x11eaf8
+/* luna: Reads the RF tick/status word and returns its 31-bit count, refreshing the stored count and epoch marker when it nears the configured threshold. */
 unsigned int rf_status_poll() {
   int v0; // r3
   unsigned int result; // r0
@@ -2028,6 +2051,7 @@ int ke_task_state_get(int result) {
 
 
 // rf_ctrl_enable @ 0x11ebc4
+/* luna: Initiates RF control enable and conditionally polls the resulting hardware status. */
 int rf_ctrl_enable() {
   volatile uint32_t *v0; // r2
   int result; // r0
@@ -2044,6 +2068,7 @@ int rf_ctrl_enable() {
 
 
 // rf_irq_status_check @ 0x11ebfc
+/* luna: Services pending RXBUF2 entries while the read and write cursors differ, wrapping the tagged read cursor near the ring end and dispatching each buffer */
 void rf_irq_status_check() {
   volatile uint32_t *v0; // r5
   volatile uint32_t *v1; // r6

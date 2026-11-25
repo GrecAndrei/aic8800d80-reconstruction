@@ -1,4 +1,5 @@
 // log_message @ 0x122b28
+/* luna: Copies a 69-byte message into a shared buffer and posts a parameterless kernel message to notify another task. */
 int log_message(int a1, int a2, int a3, int a4) {
   memcpy((void *)(uintptr_t)(dword_122B44), (void *)(uintptr_t)(a2), 69);
   ke_msg_send_no_param(120, a4, a3);
@@ -8,6 +9,7 @@ int log_message(int a1, int a2, int a3, int a4) {
 
 
 // store_hci_event @ 0x122b48
+/* luna: Copies the first 10 bytes of the supplied HCI event into a shared buffer, then posts a parameterless kernel message using the supplied task IDs. */
 int store_hci_event(int a1, volatile uint32_t *a2, int a3, int a4) {
   int v4; // r0
   volatile uint32_t *v5; // r5
@@ -29,6 +31,7 @@ int store_hci_event(int a1, volatile uint32_t *a2, int a3, int a4) {
 
 
 // parse_hci_packet @ 0x122b68
+/* luna: Optionally copies a nonempty HCI packet into shared storage, then posts message 122 from the source task to the destination task. */
 int parse_hci_packet(int a1, volatile int *a2, int a3, int a4) {
   volatile char *v7; // r7
   volatile uint32_t *v8; // r3
@@ -65,6 +68,7 @@ int parse_hci_packet(int a1, volatile int *a2, int a3, int a4) {
 
 
 // hci_read_command @ 0x122bc0
+/* luna: Copies two request bytes into the indexed Bluetooth connection context, clears its trailing control byte, conditionally acknowledges a hardware regist */
 int hci_read_command(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v4; // r7
   int v6; // r4

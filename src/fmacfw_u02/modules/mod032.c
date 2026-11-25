@@ -297,6 +297,7 @@ int lookup_connection_entry(int a1, int a2, int a3, int a4) {
 
 
 // read_controller_info @ 0x12315c
+/* luna: Allocates and sends a controller-info message containing a 36-byte global string with a one-byte length prefix and a trailing NUL. */
 int read_controller_info(int a1, int a2, int a3, int a4) {
   volatile uint8_t *v4; // r4
   int v5; // r1
@@ -316,6 +317,7 @@ int read_controller_info(int a1, int a2, int a3, int a4) {
 
 
 // send_cmd_85 @ 0x123194
+/* luna: Allocates and sends a confirmation containing the Wi-Fi disable state derived from the inverted register bit 16. */
 int send_cmd_85(int a1, int a2, uint16_t a3, uint16_t a4) {
   volatile uint8_t *v4; // r4
   unsigned int v5; // r0
@@ -332,6 +334,7 @@ int send_cmd_85(int a1, int a2, uint16_t a3, uint16_t a4) {
 
 
 // send_cmd_88 @ 0x1231d4
+/* luna: Handles radio configuration commands for BCMC settings, temperature compensation, and external flags, then sends a kernel-message response. */
 int send_cmd_88(int a1, volatile uint32_t *a2, uint16_t a3, uint16_t a4) {
   int v5; // r6
   int v6; // r0
@@ -682,6 +685,7 @@ int debug_byte_cb(int a1, volatile uint8_t *a2, int a3, uint16_t a4) {
 
 
 // queue_remove_item @ 0x123678
+/* luna: Removes the supplied item from its intrusive queue and returns 1. */
 int queue_remove_item(int a1, int a2) {
   co_list_remove(a2);
   return 1;

@@ -906,7 +906,7 @@ volatile uint32_t * rx_packet_pending(int a1, int a2) {
   volatile unsigned int v19; // r3
 
   if ( (**(volatile uint16_t **)dword_1157F4 & 1) != 0 )
-    sub_12F054();
+    dump_tx_queue_state();
   if ( (__get_CPSR() & 1) == 0 )
   {
     __disable_irq();

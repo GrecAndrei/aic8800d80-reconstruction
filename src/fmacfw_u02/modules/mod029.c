@@ -1,4 +1,5 @@
 // hci_send_cmd_0x76 @ 0x122958
+/* luna: Allocates and sends message 118, copying a word from the connection context and selecting an accompanying byte according to the associated context sta */
 int hci_send_cmd_0x76(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v5; // r0
   int v6; // r3
@@ -30,6 +31,7 @@ LABEL_4:
 
 
 // scan_process_report @ 0x1229bc
+/* luna: Stores the DHCP status and associated 32-bit value in the selected VIF context, performs pending VIF handling, and sends a completion message. */
 int scan_process_report(int a1, int a2, int a3, int a4) {
   int v4; // r9
   int v6; // r5
@@ -61,6 +63,7 @@ int scan_process_report(int a1, int a2, int a3, int a4) {
 
 
 // parse_byte_param @ 0x122a64
+/* luna: Updates BLE scan-related controller settings from the parameter block and queues a parameterless kernel message to apply the change. */
 int parse_byte_param(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v4; // r4
   volatile uint8_t *v7; // r4
@@ -111,6 +114,7 @@ int parse_byte_param(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // hci_send_cmd_0x68 @ 0x122b18
+/* luna: Sends the no-parameter kernel message 0x68 using the supplied destination and source task IDs. */
 int hci_send_cmd_0x68(int a1, int a2, int a3, int a4) {
   ke_msg_send_no_param(104, a4, a3);
   return 0;

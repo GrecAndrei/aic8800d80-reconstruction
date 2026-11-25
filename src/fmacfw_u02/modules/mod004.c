@@ -3885,7 +3885,6 @@ int controller_config_read() {
 
 
 // nullsub_6 @ 0x10cc84
-/* luna: Stub function that performs no operation and returns zero. */
 int nullsub_6(void) {
   return 0;
 }

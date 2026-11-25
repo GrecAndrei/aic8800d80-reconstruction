@@ -64,6 +64,7 @@ LABEL_9:
 
 
 // process_control_event @ 0x11b578
+/* luna: Scans the selected connection’s nonzero slot-timing entries and encodes them into a capacity-checked output. */
 int process_control_event(int a1) {
   volatile uint32_t *v1; // r8
   volatile char *v2; // r6
@@ -618,6 +619,7 @@ int get_connection_by_slot(int a1, int a2) {
 
 
 // process_radio_state @ 0x11bc00
+/* luna: Aggregates eight radio measurements for a selected connection slot into category totals and overall and peak values. */
 volatile uint8_t * process_radio_state(volatile uint8_t *result) {
   unsigned int v1; // r4
   int v2; // r5

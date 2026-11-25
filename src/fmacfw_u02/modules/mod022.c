@@ -456,6 +456,7 @@ LABEL_3:
 
 
 // remove_tx_buffer @ 0x11c490
+/* luna: Writes four packed TX-buffer entries to a hardware register bank, merges optional per-entry bits, and triggers the update. */
 int remove_tx_buffer(int a1) {
   volatile uint8_t *v1; // r6
   int v2; // r7
@@ -505,6 +506,7 @@ volatile uint8_t * set_short_address(volatile uint8_t *result) {
 
 
 // get_pair_by_id @ 0x11c4f8
+/* luna: If the indexed record's gate field is set, marks the record and conditionally stores the supplied value, then returns that value. */
 int get_pair_by_id(int result, int a2) {
   int v2; // r2
   int v3; // r3
@@ -523,6 +525,7 @@ int get_pair_by_id(int result, int a2) {
 
 
 // arm_timer @ 0x11c528
+/* luna: Stores the caller-supplied value in a timer context and submits it with a deadline 5000 units after a retrieved time value. */
 int arm_timer(int a1) {
   volatile uint32_t *v1; // r3
   int v2; // r1
@@ -537,6 +540,7 @@ int arm_timer(int a1) {
 
 
 // check_channel_busy @ 0x11c550
+/* luna: Delegates packet checking when the indexed entry has a valid 16-bit value and the global mode is not 2; otherwise it returns the original pointer. */
 volatile unsigned int * check_channel_busy(volatile unsigned int *result) {
   int v1; // r2
 
@@ -549,6 +553,7 @@ volatile unsigned int * check_channel_busy(volatile unsigned int *result) {
 
 
 // wait_channel_clear @ 0x11c588
+/* luna: When the indexed channel measurement is valid and the mode permits it, checks each of four packet slots against an associated context value. */
 volatile unsigned int * wait_channel_clear(volatile unsigned int *result) {
   int v1; // r2
   int v2; // r5

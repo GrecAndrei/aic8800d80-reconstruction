@@ -208,9 +208,8 @@ int send_mcu_cmd_0x401(int a1, volatile uint32_t *a2, int a3, int a4) {
 }
 
 
-// bt_global_op_0x16acb4 @ 0x12ee38
-/* luna: Sets the Bluetooth debug severity filter and updates the associated MAC header word. */
-int bt_global_op_0x16acb4(int a1, volatile uint32_t *a2, int a3, int a4) {
+// bt_set_debug_severity_filter @ 0x12ee38
+int bt_set_debug_severity_filter(int a1, volatile uint32_t *a2, int a3, int a4) {
   alloc_tx_event("\x9D\x81""DBG: Setting severity filter: 0x%08x\n", *a2);
   *((volatile uint32_t *)off_12EE68 + 1) = *a2;
   mac_write_header_word(1031, a4, a3);
@@ -218,9 +217,8 @@ int bt_global_op_0x16acb4(int a1, volatile uint32_t *a2, int a3, int a4) {
 }
 
 
-// bt_global_op_0x16acdc @ 0x12ee6c
-/* luna: Stores the requested Bluetooth module filter and writes the corresponding response header. */
-int bt_global_op_0x16acdc(int a1, volatile uint32_t *a2, int a3, int a4) {
+// bt_set_module_filter @ 0x12ee6c
+int bt_set_module_filter(int a1, volatile uint32_t *a2, int a3, int a4) {
   alloc_tx_event("\x9D\x81""DBG: Setting module filter: 0x%08x\n", *a2);
   *(volatile uint32_t *)off_12EE9C = *a2;
   mac_write_header_word(1029, a4, a3);
@@ -378,16 +376,15 @@ int send_mcu_cmd_0x40e(int a1, volatile int *a2, int a3, int a4) {
 }
 
 
-// sub_12F054 @ 0x12f054
-/* luna: Logs TX queue pointers and status, selects a pending packet from the hardware status bits, and dumps its descriptor and packet data. */
-int sub_12F054() {
+// dump_tx_queue_state @ 0x12f054
+int dump_tx_queue_state() {
   volatile uint32_t *v0; // r4
-  volatile uint32_t *tx_list_cptr_reg; // r10
-  volatile uint32_t *ac0_sptr_reg; // r6
-  volatile uint32_t *ac1_sptr_reg; // r7
-  volatile uint32_t *ac2_sptr_reg; // r8
-  volatile uint32_t *ac3_sptr_reg; // r9
-  volatile uint32_t *hiq_sptr_reg; // r5
+  volatile uint32_t *v1; // r10
+  volatile uint32_t *v2; // r6
+  volatile uint32_t *v3; // r7
+  volatile uint32_t *v4; // r8
+  volatile uint32_t *v5; // r9
+  volatile uint32_t *v6; // r5
   int v7; // r0
   int v8; // r3
   volatile uint32_t *v9; // r7
@@ -397,20 +394,20 @@ int sub_12F054() {
   volatile uint32_t **v14; // r3
 
   v0 = (void *)(uintptr_t)(off_12F21C);
-  tx_list_cptr_reg = (void *)(uintptr_t)(off_12F2B8);
-  ac0_sptr_reg = (void *)(uintptr_t)(off_12F220);
-  ac1_sptr_reg = (void *)(uintptr_t)(off_12F224);
-  ac2_sptr_reg = (void *)(uintptr_t)(off_12F2BC);
-  ac3_sptr_reg = (void *)(uintptr_t)(off_12F2C0);
-  hiq_sptr_reg = (void *)(uintptr_t)(off_12F228);
+  v1 = (void *)(uintptr_t)(off_12F2B8);
+  v2 = (void *)(uintptr_t)(off_12F220);
+  v3 = (void *)(uintptr_t)(off_12F224);
+  v4 = (void *)(uintptr_t)(off_12F2BC);
+  v5 = (void *)(uintptr_t)(off_12F2C0);
+  v6 = (void *)(uintptr_t)(off_12F228);
   alloc_tx_event("\x9B""current state is %d\r\n", *(volatile uint32_t *)off_12F214 & 0xF);
   alloc_tx_event("\x9B""40328188=%08x, 4032818c=%x\r\n", *v0, *(volatile uint32_t *)off_12F22C);
-  alloc_tx_event("txlist cptr 40128540=%08x \r\n", *tx_list_cptr_reg);
-  alloc_tx_event("ac0 sptr 40328528=%08x \r\n", *ac0_sptr_reg);
-  alloc_tx_event("ac1 sptr 4032852c=%08x \r\n", *ac1_sptr_reg);
-  alloc_tx_event("ac2 sptr 40328530=%08x \r\n", *ac2_sptr_reg);
-  alloc_tx_event("ac3 sptr 40328534=%08x \r\n", *ac3_sptr_reg);
-  alloc_tx_event("hiq sptr 4032853c=%08x \r\n", *hiq_sptr_reg);
+  alloc_tx_event("txlist cptr 40128540=%08x \r\n", *v1);
+  alloc_tx_event("ac0 sptr 40328528=%08x \r\n", *v2);
+  alloc_tx_event("ac1 sptr 4032852c=%08x \r\n", *v3);
+  alloc_tx_event("ac2 sptr 40328530=%08x \r\n", *v4);
+  alloc_tx_event("ac3 sptr 40328534=%08x \r\n", *v5);
+  alloc_tx_event("hiq sptr 4032853c=%08x \r\n", *v6);
   alloc_tx_event(
     "\x9B""ac0header=%08x, ac1header=%08x, ac2header=%08x, ac3header=%08x, hiqheader=%x\r\n",
     *(volatile uint32_t *)off_12F24C,
@@ -418,14 +415,14 @@ int sub_12F054() {
     *(volatile uint32_t *)off_12F254,
     *(volatile uint32_t *)off_12F258,
     *(volatile uint32_t *)off_12F2C4);
-  alloc_tx_event("\x9Bstatus of 0x40328528=%08x\r\n", *(volatile uint32_t *)(*ac0_sptr_reg + 60));
-  alloc_tx_event("\x9Bstatus of 0x4032852c=%08x\r\n", *(volatile uint32_t *)(*ac1_sptr_reg + 60));
-  alloc_tx_event("\x9Bstatus of 0x40328530=%08x\r\n", *(volatile uint32_t *)(*ac2_sptr_reg + 60));
-  alloc_tx_event("\x9Bstatus of 0x40328534=%08x\r\n", *(volatile uint32_t *)(*ac3_sptr_reg + 60));
-  alloc_tx_event("\x9Bstatus of 0x4032853c=%08x\r\n", *(volatile uint32_t *)(*hiq_sptr_reg + 60));
+  alloc_tx_event("\x9Bstatus of 0x40328528=%08x\r\n", *(volatile uint32_t *)(*v2 + 60));
+  alloc_tx_event("\x9Bstatus of 0x4032852c=%08x\r\n", *(volatile uint32_t *)(*v3 + 60));
+  alloc_tx_event("\x9Bstatus of 0x40328530=%08x\r\n", *(volatile uint32_t *)(*v4 + 60));
+  alloc_tx_event("\x9Bstatus of 0x40328534=%08x\r\n", *(volatile uint32_t *)(*v5 + 60));
+  alloc_tx_event("\x9Bstatus of 0x4032853c=%08x\r\n", *(volatile uint32_t *)(*v6 + 60));
   if ( (*v0 & 0x2000000) != 0 )
   {
-    v0 = (volatile uint32_t *)*hiq_sptr_reg;
+    v0 = (volatile uint32_t *)*v6;
   }
   else if ( (*v0 & 0x200000) != 0 )
   {
@@ -433,19 +430,19 @@ int sub_12F054() {
   }
   else if ( (*v0 & 0x20) != 0 )
   {
-    v0 = (volatile uint32_t *)*ac0_sptr_reg;
+    v0 = (volatile uint32_t *)*v2;
   }
   else if ( (*v0 & 0x200) != 0 )
   {
-    v0 = (volatile uint32_t *)*ac1_sptr_reg;
+    v0 = (volatile uint32_t *)*v3;
   }
   else if ( (*v0 & 0x2000) != 0 )
   {
-    v0 = (volatile uint32_t *)*ac2_sptr_reg;
+    v0 = (volatile uint32_t *)*v4;
   }
   else if ( (*v0 & 0x20000) != 0 )
   {
-    v0 = (volatile uint32_t *)*ac3_sptr_reg;
+    v0 = (volatile uint32_t *)*v5;
   }
   else
   {
@@ -454,7 +451,7 @@ int sub_12F054() {
     if ( (*v0 & 2) != 0 )
       v14 = (volatile uint32_t **)dword_12F2B4;
     else
-      v0 = (volatile uint32_t *)*tx_list_cptr_reg;
+      v0 = (volatile uint32_t *)*v1;
     if ( v13 )
       v0 = *v14;
   }

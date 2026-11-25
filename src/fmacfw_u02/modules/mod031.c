@@ -1,4 +1,5 @@
 // hci_read_variant @ 0x122c34
+/* luna: Copies command parameters into an indexed HCI context, conditionally clears an MMIO register, and queues kernel message 76. */
 int hci_read_variant(int a1, volatile uint8_t *a2, int a3, int a4) {
   int v4; // r7
   int v6; // r5
@@ -18,6 +19,7 @@ int hci_read_variant(int a1, volatile uint8_t *a2, int a3, int a4) {
 
 
 // get_patch_table_entry @ 0x122ca0
+/* luna: Copies the input halfword into offset 1222 of the record selected by the input index, then posts message 112. */
 int get_patch_table_entry(int a1, int a2, int a3, int a4) {
   *(volatile uint16_t *)(dword_122CC0 + 1320 * *(volatile uint8_t *)(a2 + 2) + 1222) = *(volatile uint16_t *)a2;
   ke_msg_send_no_param(112, a4, a3);
@@ -27,6 +29,7 @@ int get_patch_table_entry(int a1, int a2, int a3, int a4) {
 
 
 // set_mmio_and_send_cmd @ 0x122cc4
+/* luna: Writes the pointed-to 32-bit value to a fixed volatile address, then sends parameterless kernel message 114. */
 int set_mmio_and_send_cmd(int a1, volatile uint32_t *a2, int a3, int a4) {
   *(volatile uint32_t *)off_122CD8 = *a2;
   ke_msg_send_no_param(114, a4, a3);
@@ -36,6 +39,7 @@ int set_mmio_and_send_cmd(int a1, volatile uint32_t *a2, int a3, int a4) {
 
 
 // handle_special_packet @ 0x122cdc
+/* luna: Applies an HCI-provided PLL calibration request and aggregation/RX disable flags, then sends message 100. */
 int handle_special_packet(int a1, volatile char *a2, int a3, int a4) {
   int v4; // r0
   int v8; // r1

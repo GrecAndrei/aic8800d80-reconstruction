@@ -968,9 +968,8 @@ int gpio_init_sequence() {
 
 
 
-// nullsub_1 @ 0x10df0c
-/* luna: Returns zero without performing any operation. */
-int nullsub_1(void) {
+// noop_success @ 0x10df0c
+int noop_success(void) {
   return 0;
 }
 

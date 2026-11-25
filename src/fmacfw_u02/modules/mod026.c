@@ -1,4 +1,5 @@
 // update_object_index @ 0x120038
+/* luna: Populate an indexed descriptor-table entry, initialize its type-specific payload, and publish its payload pointer in the owning group. */
 uint64_t update_object_index(volatile uint8_t *a1, char a2) {
   int v3; // r6
   int v4; // r8
@@ -68,6 +69,7 @@ LABEL_3:
 
 
 // adjust_table_pointers @ 0x12018c
+/* luna: Marks the indexed table entry inactive and, if it was selected, reselects the first active entry in its group or clears that group’s cursor. */
 int adjust_table_pointers(int result, int a2) {
   int v2; // r3
   int v3; // r4
@@ -116,6 +118,7 @@ int adjust_table_pointers(int result, int a2) {
 
 
 // read_descriptor @ 0x120214
+/* luna: Walks the linked list rooted at offset 0xF0 of the LLC context and calls the CCM encryption routine for each node. */
 int read_descriptor(int result) {
   volatile uint32_t *v1; // r4
   int v2; // r5
@@ -137,6 +140,7 @@ int read_descriptor(int result) {
 
 
 // configure_mmio @ 0x120230
+/* luna: Passes the object member at byte offset 48 and a global-derived deadline (global word plus 10000) to a worker. */
 int configure_mmio(int a1) {
   return unknown_worker((void *)(uintptr_t)(a1 + 48), *((volatile uint32_t *)off_120240 + 4) + 10000);
 }
@@ -144,6 +148,7 @@ int configure_mmio(int a1) {
 
 
 // get_radio_state_1 @ 0x120244
+/* luna: When the global mode condition is active and the context word at offset 4 is zero, invokes the handler with context+48 and returns the BLE link-manage */
 int get_radio_state_1(int result) {
   int v1; // r4
 
@@ -162,6 +167,7 @@ int get_radio_state_1(int result) {
 
 
 // set_attribute_word @ 0x120270
+/* luna: Stores a context value, selects the minimum registered value as the shared base, and updates each listed context's normalized quotient and active mark */
 int set_attribute_word(int result, unsigned int a2) {
   volatile uint32_t *v2; // r5
   volatile uint8_t *v3; // r3
@@ -225,6 +231,7 @@ int set_attribute_word(int result, unsigned int a2) {
 
 
 // alloc_kernel_message @ 0x120314
+/* luna: Prepares and temperature-compensates scan-related configuration, checks for an available slot, reports the result in a kernel message, and sends the f */
 int alloc_kernel_message(int a1) {
   volatile uint8_t *v2; // r5
   int v3; // r0
@@ -282,6 +289,7 @@ int alloc_kernel_message(int a1) {
 
 
 // is_radio_ready @ 0x1203f4
+/* luna: Returns the stored radio context only when exactly one of the two state bytes is set and the context flag at offset 106 is clear. */
 int is_radio_ready() {
   int result; // r0
 
@@ -296,6 +304,7 @@ int is_radio_ready() {
 
 
 // clear_irq_if_idle @ 0x120418
+/* luna: Clears a 32-bit status word and calls `scan_active_get` when the bytes at offsets 17 and 18 sum to at most one. */
 void clear_irq_if_idle() {
   int v0; // r3
 
@@ -353,6 +362,7 @@ LABEL_10:
 
 
 // alloc_bt_message @ 0x12048c
+/* luna: Allocates message ID 143 for destination task 0 with a four-byte payload, stores the supplied value, and sends it. */
 int alloc_bt_message(int a1) {
   volatile uint32_t *v2; // r0
 
@@ -364,6 +374,7 @@ int alloc_bt_message(int a1) {
 
 
 // read_hw_register @ 0x1204a8
+/* luna: Reads four register fields, substitutes 150 for values outside 1–150, stores them in the output array with the last value duplicated, and returns the  */
 int read_hw_register() {
   int result; // r0
   volatile uint32_t *v1; // r1
@@ -412,6 +423,7 @@ int read_hw_register() {
 
 
 // clear_transmit_context @ 0x120548
+/* luna: Resets a shared Bluetooth context, conditionally dispatches handler 472 based on status and interrupt bits, and records a hardware-register readback i */
 int clear_transmit_context() {
   volatile uint8_t *v0; // r4
   int v1; // r3
@@ -442,6 +454,7 @@ int clear_transmit_context() {
 
 
 // poll_rf_interrupts @ 0x1205bc
+/* luna: Programs Bluetooth radio control registers from the active configuration and clears pending status fields. */
 volatile uint32_t *poll_rf_interrupts() {
   volatile int *v0; // r4
   volatile int *v1; // r5
@@ -468,7 +481,7 @@ volatile uint32_t *poll_rf_interrupts() {
   v0 = (volatile int *)off_1206D8;
   v1 = (volatile int *)off_1206DC;
   v2 = (volatile int *)off_1206E0;
-  v3 = nullsub_1();
+  v3 = noop_success();
   v4 = ((int (*)())nullsub_2)(v3);
   ((int (*)())nullsub_3)(v4);
   v5 = (void *)(uintptr_t)(off_1206E4);
@@ -521,6 +534,7 @@ volatile uint32_t *poll_rf_interrupts() {
 
 
 // get_bt_state @ 0x120720
+/* luna: Initializes and resets shared wireless subsystems, conditionally enabling the baseband and polling RF before returning the interrupt-poll result. */
 volatile uint32_t *get_bt_state() {
   volatile uint8_t *v0; // r4
   volatile int *v1; // r0
@@ -559,6 +573,7 @@ volatile uint32_t *get_bt_state() {
 
 
 // is_valid_id @ 0x12077c
+/* luna: Checks active BT context-list entries for specific state-byte values and writes a corresponding status marker. */
 volatile int * is_valid_id(volatile int *result, int a2, int a3) {
   volatile int *v3; // r3
   volatile unsigned int *v4; // r3
@@ -622,6 +637,7 @@ LABEL_4:
 
 
 // handle_rx_data @ 0x120840
+/* luna: Calculates frame airtime using rate and arbiter parameters, querying the MAC hardware time-on-air register when applicable. */
 int handle_rx_data(int a1, int a2, int a3, int a4, int a5, int a6) {
   unsigned int v8; // r9
   int v9; // r3
@@ -828,6 +844,7 @@ if ( *((volatile uint32_t *)off_120B70 + 8) != a4 || (v42 = (void *)(uintptr_t)(
 
 
 // wait_for_hw_flag @ 0x120bd0
+/* luna: Processes pending wireless event flags, including channel-timer updates and MAC status or receive-filter handling. */
 int wait_for_hw_flag() {
   unsigned int v0; // r10
   int v1; // r8
@@ -1139,6 +1156,7 @@ LABEL_43:
 
 
 // radio_is_ready @ 0x1210b4
+/* luna: Returns the RX PHY-status result using a mode selected by the RX rate-field value, setting a related global to 48 when the value is 1. */
 int radio_is_ready() {
   if ( rx_rate_field_parse(0) != 1 )
     return rx_phy_status_parse(0, 0);
@@ -1148,6 +1166,7 @@ int radio_is_ready() {
 
 
 // set_clock_divisor @ 0x1210e4
+/* luna: Writes the fixed value 48 to a volatile register and returns the result of calling the RX PHY-status helper with arguments 0 and 1. */
 int set_clock_divisor() {
   *(volatile uint32_t *)off_1210F4 = 48;
   return rx_phy_status_parse(0, 1);
@@ -1155,6 +1174,7 @@ int set_clock_divisor() {
 
 
 // event_queue_drain @ 0x1210f8
+/* luna: Walks active MAC contexts, advances their TBTT-related countdowns, handles expired deadlines, and dispatches pending kernel events. */
 void event_queue_drain() {
   unsigned int v0; // r6
   int v1; // r4
@@ -1342,6 +1362,7 @@ int jump_to_12ad08(int a1) {
 
 
 // mac_core_setup @ 0x121340
+/* luna: Loads the selected channel's RF parameters, clears stale channel state when needed, and issues the requested RF command. */
 int mac_core_setup(int a1, int a2) {
   int v2; // r6
   volatile uint32_t *v3; // r3
@@ -1403,6 +1424,7 @@ int mac_core_setup(int a1, int a2) {
 
 
 // rx_packet_parse_header @ 0x121418
+/* luna: Selects a pairwise or group key slot and copies the supplied key material into the MAC hardware security registers. */
 int rx_packet_parse_header(volatile char *a1, int a2, int a3, int a4) {
   unsigned int v4; // r7
   int v5; // r5
@@ -1556,6 +1578,7 @@ LABEL_22:
 
 
 // get_core_rev @ 0x121674
+/* luna: Resolves a BLE link-layer entry and, when it is not handled by an alternate mapping or reset path, configures an indexed controller access and polls i */
 volatile uint32_t * get_core_rev(int a1) {
   int v2; // r1
   volatile uint32_t *v3; // r5
@@ -1607,6 +1630,7 @@ volatile uint32_t * get_core_rev(int a1) {
 
 
 // delay_and_clear_flag @ 0x121764
+/* luna: Waits for the RX status path, clears bit 2 of its status word, and returns the parsed PHY status. */
 int delay_and_clear_flag() {
   unknown_func_12d14c(0x2000000);
   *((volatile uint32_t *)off_121784 + 1) &= ~4u;
