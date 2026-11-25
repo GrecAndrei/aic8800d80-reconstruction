@@ -30,14 +30,28 @@ def load_key(path=KEY_PATH):
 
 
 def complete(prompt, instructions, model="qwen3.8-flash", effort="xhigh",
-             timeout=300, key=None, max_tokens=16384):
+             timeout=300, key=None, max_tokens=16384, explicit_cache=False):
     """Single-turn completion via chat completions. Instructions go in the
     system message — it is the head of the shared prefix, which is what the
-    implicit cache keys on. Returns (text, usage_dict)."""
+    implicit cache keys on. Returns (text, usage_dict).
+
+    explicit_cache: place a prompt_cache_breakpoint on the system content,
+    making the shared instructions a deterministic cache block (5-min TTL,
+    resets on hit; hits bill ~10% vs ~20% implicit; creation +25% once).
+    Worth it when many jobs share the prefix inside a tight window —
+    exactly the batch shape. Researched from the Alibaba Model Studio
+    explicit-cache guide 2026-11-25."""
+    if explicit_cache:
+        system_content = [
+            {"type": "text", "text": instructions,
+             "prompt_cache_breakpoint": {"mode": "explicit"}},
+        ]
+    else:
+        system_content = instructions
     body = {
         "model": model,
         "messages": [
-            {"role": "system", "content": instructions},
+            {"role": "system", "content": system_content},
             {"role": "user", "content": prompt},
         ],
         "max_tokens": max_tokens,
