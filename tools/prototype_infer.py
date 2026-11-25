@@ -18,6 +18,7 @@ import json
 from pathlib import Path
 
 from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_MCLASS
+from capstone.arm_const import ARM_REG_R0, ARM_REG_R1, ARM_REG_R2, ARM_REG_R3
 
 REPO = Path(__file__).resolve().parent.parent
 ANALYSIS_BASE = 0x100000
@@ -47,6 +48,250 @@ def load_funcs(image: str) -> list[dict]:
     return dedup
 
 
+ARG_REGS = (ARM_REG_R0, ARM_REG_R1, ARM_REG_R2, ARM_REG_R3)
+ARG_INDEX = {r: i for i, r in enumerate(ARG_REGS)}
+CONTROL_FLOW_MNEMONICS = {
+    "b", "b.w", "bx", "bl", "blx", "cbz", "cbnz", "pop", "ldmia",
+}
+
+
+def prologue_inputs(image: bytes, addr: int, limit: int = 32) -> list[int] | None:
+    """Conservative upward-exposed argument-register evidence from the entry.
+
+    Scan only the straight-line prologue before the first control-flow transfer.
+    A register is an input when it is read before the function writes it. This
+    is deliberately an underapproximation: branches/calls stop the scan and
+    complex cases remain unknown rather than inventing a prototype.
+    """
+    off = addr - ANALYSIS_BASE
+    if not 0 <= off < len(image):
+        return None
+    md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+    md.detail = True
+    used: set[int] = set()
+    written: set[int] = set()
+    for ins in md.disasm(image[off:off + 160], addr, count=limit):
+        mnemonic = ins.mnemonic
+        if mnemonic in {"b", "b.w", "bx", "bl", "blx", "cbz", "cbnz"} or mnemonic.startswith("b") and mnemonic not in {"bf", "bic"}:
+            break
+        try:
+            reads, writes = ins.regs_access()
+        except Exception:
+            break
+        # A prologue push preserves argument registers; it is not evidence
+        # that their values are semantic inputs. Likewise a later epilogue
+        # pop restores them rather than defining machine-level results here.
+        if mnemonic in {"push", "pop"}:
+            continue
+        for reg in reads:
+            if reg in ARG_INDEX and reg not in written:
+                used.add(ARG_INDEX[reg])
+        for reg in writes:
+            if reg in ARG_INDEX:
+                written.add(reg)
+    return sorted(used)
+
+
+
+# ---------------------------------------------------------------------------
+# CFG-aware r0 return-provenance analysis
+# ---------------------------------------------------------------------------
+#
+# For every return point (bx lr, or a pop/ldmia that includes pc), determine
+# what the caller observes in r0 by walking the backwards-reachable straight-
+# line instruction DAG:
+#
+#   input_residue   no write to r0 dominates the return on any path: the
+#                   caller sees whatever it passed in r0. Machine proof that
+#                   the function produces no result.
+#   produced        every path's most recent r0 event is a local write
+#                   (mov/ldr/alu/vmov) with no call in between.
+#   call_passthru   the most recent r0 event on some path is a bl/blx: the
+#                   caller sees that callee's result.
+#   tail_target     the return is an unconditional branch to another function.
+#   mixed           paths disagree (e.g. a conditional tail call plus an
+#                   input-residue fallthrough): not transparently anything.
+#   unknown         indirect control flow, jump tables, or excessive depth.
+#
+# Scratch writes that are consumed locally (``movs r0,#1; strb r0,[r2]``)
+# still count as writes: provenance answers "what does the caller see", and
+# only caller-use evidence decides whether that value is a semantic result.
+# The two evidences combine in the verdict logic, never in the machine scan.
+
+RETURN_MNEMONICS = {"bx"}
+COND_BRANCH = tuple("b" + c for c in (
+    "eq", "ne", "cs", "hs", "cc", "lo", "mi", "pl", "vs", "vc",
+    "hi", "ls", "ge", "lt", "gt", "le", "al"))
+
+
+def _parse_branch_target(op_str: str) -> int | None:
+    s = op_str.strip().lstrip("#")
+    try:
+        return int(s, 0)
+    except ValueError:
+        return None
+
+
+def disassemble_fn(blob: bytes, addr: int, end: int, base: int = ANALYSIS_BASE) -> list:
+    """Linear-sweep capstone instructions covering [addr, end)."""
+    md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+    md.detail = True
+    off, off_end = addr - base, end - base
+    if not 0 <= off < off_end <= len(blob):
+        return []
+    return list(md.disasm(blob[off:off_end], addr))
+
+
+def build_cfg(insns: list) -> dict:
+    """Return {addr: {succ, kind, ins}} per instruction.
+
+    kind: ret (bx lr), rettail (unconditional branch out of scanning range or
+    to another entry), branch, cbranch, call, popret, fallthrough, indirect.
+    Successors are instruction addresses inside the function; call successors
+    point at the next instruction (the call clobber is handled in provenance).
+    """
+    by_addr = {i.address: i for i in insns}
+    addrs = sorted(by_addr)
+    if not addrs:
+        return {}
+    idx = {a: n for n, a in enumerate(addrs)}
+    last = addrs[-1]
+    out = {}
+    for n, a in enumerate(addrs):
+        ins = by_addr[a]
+        mn = ins.mnemonic
+        nxt = addrs[n + 1] if n + 1 < len(addrs) else None
+        kind = "fallthrough"
+        succ = []
+        if mn == "bx" and "lr" in ins.op_str:
+            kind, succ = "ret", []
+        elif mn == "bx":
+            kind, succ = "indirect", []
+        elif mn in ("pop", "ldmia") and "pc" in ins.op_str:
+            kind, succ = "popret", []
+        elif mn in ("b", "b.w"):
+            kind = "branch"
+            tgt = _parse_branch_target(ins.op_str)
+            succ = [tgt] if tgt in by_addr else []
+            if tgt not in by_addr:
+                kind = "rettail"      # leaves the function: tail call or dead-end
+                out[a] = {"succ": succ, "kind": kind, "ins": ins, "tail_target": tgt}
+                continue
+        elif mn in COND_BRANCH or mn in ("cbz", "cbnz"):
+            kind = "cbranch"
+            tgt = _parse_branch_target(ins.op_str)
+            succ = [x for x in (tgt, nxt) if x in by_addr]
+        elif mn in ("tbb", "tbh"):
+            kind, succ = "indirect", []
+        elif mn in ("bl", "blx"):
+            kind = "call"
+            succ = [nxt] if nxt in by_addr else []
+            tgt = _parse_branch_target(ins.op_str)
+            out[a] = {"succ": succ, "kind": kind, "ins": ins, "call_target": tgt}
+            continue
+        else:
+            succ = [nxt] if nxt in by_addr else []
+            if nxt is None and mn not in ("bx",):
+                kind = "fallthrough"
+        out[a] = {"succ": succ, "kind": kind, "ins": ins}
+    return out
+
+
+def r0_provenance(cfg: dict, entries: list[int], max_depth: int = 400) -> dict:
+    """Backward r0-provenance at every return point.
+
+    Returns {kind-set, returns: [{addr, prov}], tail_targets}. entries limits
+    analysis to blocks reachable from the function entry; unreachable trailing
+    literal pools never disassemble cleanly enough to matter here.
+    """
+    returns = []
+    tails = []
+    for a, blk in cfg.items():
+        if blk["kind"] in ("ret", "popret"):
+            returns.append(a)
+        elif blk["kind"] == "rettail":
+            tails.append((a, blk.get("tail_target")))
+
+    def backtrack(start: int) -> str:
+        """Walk backward from the return; classify the nearest r0 event."""
+        # forward reachability order is approximated by iterating predecessors
+        # breadth-first backward; a small depth cap keeps loops finite.
+        preds: dict[int, list[int]] = {}
+        for a, blk in cfg.items():
+            for s in blk["succ"]:
+                preds.setdefault(s, []).append(a)
+        seen_states = set()
+        frontier = [(start, 0)]
+        provs = set()
+        steps = 0
+        while frontier and steps < max_depth:
+            steps += 1
+            cur, depth = frontier.pop()
+            if depth > 120:
+                provs.add("unknown")
+                continue
+            state = cur
+            if state in seen_states and depth:
+                # loop with no r0 event on this cycle: the event dominating the
+                # loop entry dominates here too; treat as undecided residue of
+                # the continuing walk (bounded by depth cap).
+                continue
+            seen_states.add(state)
+            blk = cfg.get(cur)
+            if blk is None:
+                provs.add("unknown")
+                continue
+            ins = blk["ins"]
+            try:
+                reads, writes = ins.regs_access()
+            except Exception:
+                reads, writes = (), ()
+            r0w = ARM_REG_R0 in writes
+            if blk["kind"] == "call":
+                # a call defines r0 as the callee's result
+                provs.add("call_passthru")
+                continue
+            if blk["kind"] == "popret" and cur != start:
+                pass
+            if r0w:
+                provs.add("produced")
+                continue
+            if blk["kind"] in ("ret", "popret") and cur != start:
+                # reached a different return without an r0 event: multi-exit
+                # tangle; conservative
+                provs.add("unknown")
+                continue
+            ps = preds.get(cur, [])
+            if not ps:
+                # walked back to the entry with no write and no call
+                provs.add("input_residue")
+                continue
+            for p in ps:
+                frontier.append((p, depth + 1))
+        if steps >= max_depth:
+            provs.add("unknown")
+        return "+".join(sorted(provs)) if provs else "unknown"
+
+    rep = []
+    for r in returns:
+        rep.append({"addr": hex(r), "prov": backtrack(r)})
+    kinds = set()
+    for x in rep:
+        kinds.update(x["prov"].split("+"))
+    return {"returns": rep, "tail_targets": [hex(t) for _, t in tails if t], "kinds": sorted(kinds)}
+
+
+def analyze_function(blob: bytes, addr: int, end: int, base: int = ANALYSIS_BASE) -> dict:
+    insns = disassemble_fn(blob, addr, end, base)
+    if not insns:
+        return {"cfg_kind": "empty", "kinds": ["unknown"]}
+    cfg = build_cfg(insns)
+    prov = r0_provenance(cfg, [addr])
+    indirect = any(b["kind"] == "indirect" for b in cfg.values())
+    prov["has_indirect_cf"] = indirect
+    return prov
+
+
 def scan_image(image: str) -> list[dict]:
     blob = (REPO / "inputs" / "firmware" / f"{image}.bin").read_bytes()
     funcs = load_funcs(image)
@@ -63,6 +308,7 @@ def scan_image(image: str) -> list[dict]:
             "address": hex(addr),
             "scan_name": row.get("name", ""),
             "class": "unknown",
+            "machine_inputs": prologue_inputs(blob, addr),
             "evidence": [],
         }
         if len(body) >= 2 and body[:2] == b"\x70\x47":
