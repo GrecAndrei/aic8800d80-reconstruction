@@ -43684,8 +43684,8 @@ LABEL_26:
 
 
 // jump_0x12abc8 @ 0x1211fc
-int jump_0x12abc8() {
-  return ((int (*)())get_acl_flag)();
+int jump_0x12abc8(int a1) {
+  return get_acl_flag(a1);
 }
 
 

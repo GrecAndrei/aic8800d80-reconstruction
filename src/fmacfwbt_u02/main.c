@@ -44132,8 +44132,8 @@ LABEL_22:
 
 
 // jump_to_12af2c @ 0x12159c
-int jump_to_12af2c() {
-  return ((int (*)())bt_conn_set_bit)();
+int jump_to_12af2c(int a1) {
+  return bt_conn_set_bit(a1);
 }
 
 

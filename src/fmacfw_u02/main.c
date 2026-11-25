@@ -43788,8 +43788,8 @@ LABEL_26:
 
 
 // jump_to_12ad08 @ 0x12133c
-int jump_to_12ad08() {
-  return ((int (*)())ctx_byte_get)();
+int jump_to_12ad08(int a1) {
+  return ctx_byte_get(a1);
 }
 
 
