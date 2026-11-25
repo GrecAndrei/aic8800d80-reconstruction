@@ -71,9 +71,15 @@ static inline uint8_t __OFADD__(int32_t a, int32_t b) { int32_t r; return __buil
 static inline uint8_t __OFSUB__(int32_t a, int32_t b) { int32_t r; return __builtin_sub_overflow(a, b, &r); }
 
 /* ARM CPSR & IRQ Intrinsics Stub */
-static inline uint32_t __get_CPSR(void) { return 0; }
-static inline void __disable_irq(void) { __asm__ volatile("" ::: "memory"); }
-static inline void __enable_irq(void) { __asm__ volatile("" ::: "memory"); }
+/* PRIMASK shadow state: the original binary reads MRS PRIMASK (interrupt-mask
+ * bit 0) and mutates it with cpsid/cpsie; nested osal_int_enter/exit pairs
+ * depend on that state (measured: osal_int_exit diverges without it). Each
+ * image is a single translation unit, so the static shadow is per-image. */
+static volatile uint32_t __aic8800d80_primask_state = 0;
+static inline uint32_t __get_PRIMASK(void) { return __aic8800d80_primask_state; }
+static inline uint32_t __get_CPSR(void) { return __aic8800d80_primask_state; }
+static inline void __disable_irq(void) { __aic8800d80_primask_state = 1; __asm__ volatile("" ::: "memory"); }
+static inline void __enable_irq(void) { __aic8800d80_primask_state = 0; __asm__ volatile("" ::: "memory"); }
 static inline void __pld(const void *p) { (void)p; }
 
 /* ARMv7-M Intrinsics (Hex-Rays output) */
