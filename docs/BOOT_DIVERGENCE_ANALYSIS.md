@@ -142,3 +142,15 @@ is closed in the measurement itself.
 v6 (tick_signed_cmps repaired): EXERCISED_ALL_MATCH 3475/4720 = 73.62%,
 3 improved / 0 regressed / 0 lateral vs v5 (all DIFFER->MATCH); failing
 functions 74 -> 71 corpus-wide. The tick-delta repair class is closed.
+
+## Caller-noise fusion + heap-boundary validation (fidelity v7, 2026-11-25)
+v7 (caller-use fusion wired into scan_image + heap_boundary_literal repair):
+EXERCISED_ALL_MATCH 3103/4720 = 65.74% true non-trivial fidelity; VACUOUS 1255.
+**46 improved / 0 regressed / 0 lateral** vs v6 — all DIFFER->MATCH.
+Failing functions collapsed 71 -> **25 corpus-wide** (fmacfw_h 8, fmacfw_u02 8,
+fmacfwbt 6, lmac 3). patch_alignment @ 0x12c954 DIFFER->MATCH — the heap
+free-list boundary repair is validated. The exercised/vacuous rebalancing
+(3475->3103 exercised, 837->1255 vacuous) is the caller-noise exclusion
+working as intended: r0 differences with no consuming caller no longer count
+as observable traffic, so noise-only functions move to vacuous-match. The
+65.74% figure is a cleaner measure of true behavioral fidelity.
