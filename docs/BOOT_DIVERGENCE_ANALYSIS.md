@@ -236,3 +236,13 @@ functions 10 -> **6 corpus-wide** (fmacfw_h 2: uart_driver_send,
 get_bss_by_index; fmacfw_u02 1: get_object_by_index; fmacfwbt 1:
 wlc_phy_attach; lmac 2: osal_int_exit, rf_config_load). Series progression:
 25 -> 22 -> 17 -> 14 -> 12 -> 10 -> **6** failing across v7..v14.
+
+## Wild-high typed-pointer invalid-input extension (fidelity v15, 2026-11-25)
+v15 (typed-pointer wild-high classification): EXERCISED_ALL_MATCH 3121/4718
+= 66.15%. **1 improved / 0 regressed / 0 lateral** vs v14 — uart_driver_send
+@ 0x102ccc DIFFER->MATCH. Its only divergence was boot_neg injecting
+0xffffffff into the composed volatile uint16_t *a2 parameter; the original
+typed-pointer check covered only values < 0x10000. Failing functions 6 ->
+**5 corpus-wide** (fmacfw_h get_bss_by_index; fmacfw_u02 get_object_by_index;
+fmacfwbt wlc_phy_attach; lmac osal_int_exit, rf_config_load). Series
+progression: 25 -> 22 -> 17 -> 14 -> 12 -> 10 -> 6 -> **5** across v7..v15.
