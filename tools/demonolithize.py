@@ -60,8 +60,15 @@ def split_image(img, meta):
             if a0 <= addr <= a1:
                 addr_to_mod[addr] = mi
 
+    labels = meta[img].get("labels", {})
+
     outdir = f"src/{img}/modules"
     os.makedirs(outdir, exist_ok=True)
+    # remove stale slices from prior runs (renamed labels or shifted
+    # boundaries) — leaving them duplicates every symbol at compile time
+    for stale in os.listdir(outdir):
+        if stale.startswith("mod") and stale.endswith(".c"):
+            os.unlink(os.path.join(outdir, stale))
     includes = []
     written = 0
     cur_mod = None
@@ -70,7 +77,8 @@ def split_image(img, meta):
         nonlocal written, buf
         if not buf:
             return
-        fn = f"mod{mi:03d}.c"
+        label = labels.get(str(mi), "")
+        fn = f"mod{mi:03d}_{label}.c" if label else f"mod{mi:03d}.c"
         with open(os.path.join(outdir, fn), "w") as f:
             f.write("".join(buf))
         includes.append(fn)
