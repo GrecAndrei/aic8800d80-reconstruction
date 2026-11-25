@@ -7241,7 +7241,7 @@ int timer_set(int a1) {
     while ( v3-- )
       ;
   }
-  while ( *((volatile uint32_t *)off_10066C + 4) - result < 0 );
+  while ( (int)(*((volatile uint32_t *)off_10066C + 4) - result) < 0 );
   return result;
 }
 
@@ -45525,7 +45525,7 @@ LABEL_8:
   }
   v12 = (void *)(uintptr_t)(off_1229BC);
   *(volatile uint8_t *)(v7 + 141) = 1;
-  if ( dword_1229C0 - v12[4] + *(volatile uint32_t *)(v7 + 120) < 0 && !phy_channel_validate(*(volatile uint8_t *)(v7 + 116), 0, 0) )
+  if ( (int)(dword_1229C0 - v12[4] + *(volatile uint32_t *)(v7 + 120)) < 0 && !phy_channel_validate(*(volatile uint8_t *)(v7 + 116), 0, 0) )
     *(volatile uint32_t *)(v7 + 120) = *((volatile uint32_t *)off_1229BC + 4);
   v23 = *(volatile char *)(v4 + 45);
   sys_mode_get_low();
@@ -52394,7 +52394,7 @@ LABEL_23:
           v11 = *(volatile uint32_t *)(v3 + 36);
           *(volatile uint32_t *)(v3 + 80) = v11;
           result = return_1000();
-          if ( v11 - *(volatile uint32_t *)(v6 + 4) - result - 4000 < 0 )
+          if ( (int)(v11 - *(volatile uint32_t *)(v6 + 4) - result - 4000) < 0 )
           {
             v12 = *(volatile uint32_t *)(v3 + 80);
             result = return_1000();
@@ -55474,7 +55474,7 @@ volatile uint8_t * bt_dev_update(int a1) {
             *(volatile uint64_t *)(a1 + 36) = v19;
             if ( HIDWORD(v19) )
             {
-              if ( v8 - *((volatile uint32_t *)off_12ACDC + 4) - 5000 >= 0 )
+              if ( (int)(v8 - *((volatile uint32_t *)off_12ACDC + 4) - 5000) >= 0 )
               {
                 v3 = 1;
                 v16 = *(volatile uint8_t *)(v13 + 112);
@@ -55487,7 +55487,7 @@ volatile uint8_t * bt_dev_update(int a1) {
               if ( v15 )
                 *(volatile uint32_t *)(a1 + 40) = 0x80000000 / v15 - 1;
               set_flag_byte(*(volatile uint8_t *)(dword_12ACD0 + 1320 * v21 + 107), 3);
-              if ( v8 - *((volatile uint32_t *)off_12ACDC + 4) - 5000 >= 0 )
+              if ( (int)(v8 - *((volatile uint32_t *)off_12ACDC + 4) - 5000) >= 0 )
               {
                 v3 = 1;
                 v16 = *(volatile uint8_t *)(v1 + 140 * v2 + 112);
@@ -55497,7 +55497,7 @@ LABEL_27:
               v14 = *(volatile uint32_t *)(a1 + 24);
             }
           }
-          else if ( v8 - *((volatile uint32_t *)off_12ACDC + 4) - 5000 >= 0 )
+          else if ( (int)(v8 - *((volatile uint32_t *)off_12ACDC + 4) - 5000) >= 0 )
           {
             v22 = *(volatile uint8_t *)(v13 + 112);
             ke_event_lock((void *)(uintptr_t)(a1), v8);
@@ -55509,14 +55509,14 @@ LABEL_27:
             goto LABEL_30;
           }
         }
-        else if ( v8 - *((volatile uint32_t *)off_12ACDC + 4) - 5000 >= 0 )
+        else if ( (int)(v8 - *((volatile uint32_t *)off_12ACDC + 4) - 5000) >= 0 )
         {
           v3 = 1;
           goto LABEL_35;
         }
         v8 += v14;
       }
-      while ( v8 - *((volatile uint32_t *)off_12ACDC + 4) - 5000 < 0 );
+      while ( (int)(v8 - *((volatile uint32_t *)off_12ACDC + 4) - 5000) < 0 );
       v3 = 2;
       if ( *(volatile uint8_t *)(v1 + 140 * v2 + 112) )
         goto LABEL_36;
@@ -55532,7 +55532,7 @@ LABEL_42:
       v9 = (volatile int16_t **)off_12ACD4;
       v10 = dword_12ACD8;
     }
-    if ( v8 - v11[4] - 5000 >= 0 )
+    if ( (int)(v8 - v11[4] - 5000) >= 0 )
       break;
     if ( !v3 )
       goto LABEL_10;
@@ -56889,10 +56889,10 @@ int mac_isr_handler() {
 
   v0 = (*(volatile uint32_t *)off_12C040 >> 25) & 1;
   if ( (*(volatile uint32_t *)off_12C040 & 0x2000000) == 0
-    && 32 * *(volatile uint32_t *)off_12C048
+    && (int)(32 * *(volatile uint32_t *)off_12C048
      - 2000
      - *((volatile uint16_t *)off_12C04C + 92)
-     - *((volatile uint16_t *)off_12C04C + 93) < 0 )
+     - *((volatile uint16_t *)off_12C04C + 93)) < 0 )
   {
     return v0;
   }
@@ -56902,9 +56902,9 @@ int mac_isr_handler() {
   v2 = (volatile uint16_t *)off_12C04C;
   v3 = *(volatile uint32_t *)(v1 + 12);
   v4 = *((volatile uint16_t *)off_12C04C + 93);
-  if ( v3 - *((volatile uint32_t *)off_12C044 + 4) - 2000 - *((volatile uint16_t *)off_12C04C + 92) - v4 < 0 )
+  if ( (int)(v3 - *((volatile uint32_t *)off_12C044 + 4) - 2000 - *((volatile uint16_t *)off_12C04C + 92) - v4) < 0 )
   {
-    if ( **(volatile int16_t **)off_12C058 < 0 && v3 - *((volatile uint32_t *)off_12C044 + 4) + 5000 < 0 )
+    if ( **(volatile int16_t **)off_12C058 < 0 && (int)(v3 - *((volatile uint32_t *)off_12C044 + 4) + 5000) < 0 )
     {
       mmio_irq_clear(dword_12C060, dword_12C05C, 575);
       return 0;
@@ -56915,7 +56915,7 @@ int mac_isr_handler() {
   {
     if ( **(volatile uint8_t **)off_12C054 != 1 )
       return 1;
-    if ( **(volatile int16_t **)off_12C058 < 0 && v3 - *((volatile uint32_t *)off_12C044 + 4) - v4 < 0 )
+    if ( **(volatile int16_t **)off_12C058 < 0 && (int)(v3 - *((volatile uint32_t *)off_12C044 + 4) - v4) < 0 )
     {
       mmio_irq_clear(dword_12C064, dword_12C05C, 580);
       v3 = *(volatile uint32_t *)(v1 + 12);

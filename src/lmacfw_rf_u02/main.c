@@ -5180,7 +5180,7 @@ int write_timer_reg(int a1) {
     while ( v3-- )
       ;
   }
-  while ( *((volatile uint32_t *)off_100588 + 4) - result < 0 );
+  while ( (int)(*((volatile uint32_t *)off_100588 + 4) - result) < 0 );
   return result;
 }
 
@@ -36582,7 +36582,7 @@ LABEL_14:
   v8 = *(volatile uint32_t *)(v2 + 36);
   *(volatile uint32_t *)(v2 + 80) = v8;
   result = os_get_tick_hz();
-  if ( v8 - *(volatile uint32_t *)(v3 + 4) - result - 4000 < 0 )
+  if ( (int)(v8 - *(volatile uint32_t *)(v3 + 4) - result - 4000) < 0 )
   {
     v9 = *(volatile uint32_t *)(v2 + 80);
     result = os_get_tick_hz();
@@ -38428,7 +38428,7 @@ int ke_int_lock(int result, int a2) {
       if ( v8 )
       {
         ke_enter_critical((void *)(uintptr_t)(v9), *(volatile uint32_t *)(v8 + 8));
-        if ( **(volatile int16_t **)off_11DD00 < 0 && *(volatile uint32_t *)(v8 + 8) - *((volatile uint32_t *)off_11DD04 + 4) < 0 )
+        if ( **(volatile int16_t **)off_11DD00 < 0 && (int)(*(volatile uint32_t *)(v8 + 8) - *((volatile uint32_t *)off_11DD04 + 4)) < 0 )
           flash_ctrl_init(dword_11DD0C, dword_11DD08, 232);
       }
       else
