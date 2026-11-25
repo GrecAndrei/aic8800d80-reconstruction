@@ -213,3 +213,13 @@ ran against an intermediate over-eaten state (the first drop regex consumed
 four sibling functions per image) that was corrected before v12. Exercised
 fidelity rose purely through denominator correction — proof that the two
 fragment rows were measurement artifacts, not genuine defects.
+
+## Validate-forward chain validation (fidelity v13, 2026-11-25)
+v13 (validate_forward_args repair): EXERCISED_ALL_MATCH 3116/4718 = 66.04%.
+**2 improved / 0 regressed / 0 lateral** vs v12 — all DIFFER->MATCH and
+exactly the two byte-identical phy-status clones (get_phy_status_byte @
+0x13275c, patch_check_version @ 0x13289c). Both had failed every comparable
+vector since the first corpus measurement. Failing functions 12 -> **10
+corpus-wide** (fmacfw_h 3, fmacfw_u02 2, fmacfwbt 2, lmac 3). Series
+progression: 25 -> 22 -> 17 -> 14 -> 12 -> 10 failing across v7..v13, every
+repair machine-verified before landing.
