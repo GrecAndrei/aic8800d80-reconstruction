@@ -355,6 +355,18 @@ def parse_composed_functions(text: str) -> dict[int, dict]:
                 and not RESULT_WRITE_RE.search(body)
             )
         )
+        libmatch_desc = None
+        libmatch_target = None
+        libmatch_linked = False
+        libmatch_dropped = False
+        lm = re.search(r"/\* libmatch: ([^*]+)\*/", block)
+        if lm:
+            libmatch_desc = lm.group(1).strip()
+            libmatch_linked = "library routine is linked" in libmatch_desc
+            libmatch_dropped = "dropped" in libmatch_desc
+            tm = re.search(r"identical to ([^ ;]+)", libmatch_desc)
+            if tm:
+                libmatch_target = tm.group(1)
         out[addr] = {
             "addr": addr,
             "marker": marker_name,
@@ -366,6 +378,9 @@ def parse_composed_functions(text: str) -> dict[int, dict]:
             "has_varargs": sig["has_varargs"],
             "has_c_body": sig["has_c_body"],
             "body": body,
+            "libmatch_target": libmatch_target,
+            "libmatch_linked": libmatch_linked,
+            "libmatch_dropped": libmatch_dropped,
         }
     return out
 
@@ -884,6 +899,9 @@ def build_func_meta(parsed: dict[int, dict], proto_by_addr: dict[int, dict]) -> 
             "contract": contract,
             "param_types": v["param_types"],
             "r0_exclude": r0_exclude,
+            "libmatch_target": v.get("libmatch_target"),
+            "libmatch_linked": v.get("libmatch_linked", False),
+            "libmatch_dropped": v.get("libmatch_dropped", False),
         }
     return func_meta
 
@@ -1041,6 +1059,14 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
     max_insns = _CTX["max_insns"]
 
     linked_addr = elf["by_name"].get(name)
+    evaluation_symbol = name
+    if linked_addr is None and meta.get("libmatch_linked") and meta.get("libmatch_target"):
+        # Libmatch-only blocks intentionally have no C body: compose proved the
+        # original bytes identical to a compiler/libc routine and links that
+        # routine under a __libmatch_ prefix. Evaluate that exact linked routine
+        # instead of discarding the unit as not-in-linked-image.
+        evaluation_symbol = "__libmatch_" + meta["libmatch_target"]
+        linked_addr = elf["by_name"].get(evaluation_symbol)
     vec_results: dict[str, dict] = {}
 
     for vname in _CTX["vectors"]:
@@ -1165,6 +1191,10 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
         "function": name,
         "is_void": is_void,
         "machine_class": machine_class,
+        "evaluation_symbol": evaluation_symbol,
+        "libmatch_target": meta.get("libmatch_target"),
+        "libmatch_linked": meta.get("libmatch_linked", False),
+        "libmatch_dropped": meta.get("libmatch_dropped", False),
         "vectors": vec_results,
     }
 

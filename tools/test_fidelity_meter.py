@@ -53,7 +53,7 @@ class StaticScannerTests(unittest.TestCase):
             "  return a1;\n"
             "}\n"
             "// double_subtract @ 0x1272b0\n"
-            "/* libmatch: 634 bytes identical */\n"
+            "/* libmatch: 634 bytes identical to __aeabi_dsub (libgcc.a:_arm_addsubdf3.o); the library routine is linked */\n"
         )
         funcs = fm.parse_composed_functions(src)
         self.assertIn(0x119F10, funcs)
@@ -61,6 +61,12 @@ class StaticScannerTests(unittest.TestCase):
         self.assertTrue(funcs[0x119F10]["has_c_body"])
         self.assertEqual(funcs[0x119F10]["param_count"], 3)
         self.assertFalse(funcs[0x1272B0]["has_c_body"])
+        self.assertTrue(funcs[0x1272B0]["libmatch_linked"])
+        self.assertFalse(funcs[0x1272B0]["libmatch_dropped"])
+        self.assertEqual(funcs[0x1272B0]["libmatch_target"], "__aeabi_dsub")
+        meta = fm.build_func_meta(funcs, {})
+        self.assertEqual(meta[0x1272B0]["libmatch_target"], "__aeabi_dsub")
+        self.assertTrue(meta[0x1272B0]["libmatch_linked"])
 
 
 class RamAndVerdictTests(unittest.TestCase):
