@@ -278,7 +278,8 @@ logging/formatter functions execute `f3ef 8605 = mrs r6, IPSR` at +8:
 suppressed the final UART-ready write `0x40035040=1` after a log line when
 called inside a critical section, producing the six remaining fmac boot-vector
 `mmio_differ` rows. `tools/mrs_ipsr.py` is the address-keyed post-compose
-repair. Do not replace the PRIMASK shadow globally: many critical-section
+repair; after validation all six rows match every vector and the full corpus
+has zero proven behavioral divergences. Do not replace the PRIMASK shadow globally: many critical-section
 functions genuinely execute sysreg 0x10 (`MRS PRIMASK`).
 
 ## Defect class: frame-object overlap (recurring, machine-proven)

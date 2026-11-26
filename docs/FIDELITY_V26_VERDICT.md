@@ -86,5 +86,8 @@ ordered-write traces showed only the UART-ready write `0x40035040=1` missing
 after log output; the original instruction is byte-verified as IPSR
 (`f3ef 8605`) in all three images. `tools/mrs_ipsr.py` now rewrites those
 three functions to a real `__get_IPSR()` intrinsic. Static rule tests pass
-and the intrinsic was assembler-verified. Dynamic corpus revalidation is
-still pending and must not be assumed from the static fix alone.
+and the intrinsic was assembler-verified. After rebuilding both object and
+linked-run artifacts, targeted probes showed all six formerly failing rows
+matching every vector, and the full four-image corpus meter now reports
+**0 failing functions / 100% comparable-all-match** (4,718 functions,
+3,181 exercised all-match, 1,320 vacuous all-match, 217 never-comparable).

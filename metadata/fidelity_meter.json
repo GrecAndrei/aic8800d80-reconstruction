@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-26T20:39:38Z",
-  "elapsed_sec": 1504.7,
+  "generated_at": "2026-11-26T23:05:10Z",
+  "elapsed_sec": 1478.0,
   "vectors": [
     "bare_zero",
     "boot_zero",
@@ -1789,78 +1789,70 @@
         "diff_reasons": {}
       },
       "boot_zero": {
-        "match": 3566,
-        "exercised_match": 1839,
+        "match": 3569,
+        "exercised_match": 1842,
         "vacuous_match": 1727,
         "asserted_match": 8,
-        "differ": 3,
+        "differ": 0,
         "mmio_only_hidden_differ": 0,
         "not_run": 1149,
-        "diff_reasons": {
-          "mmio_differ": 3
-        }
+        "diff_reasons": {}
       },
       "boot_scalar": {
-        "match": 3653,
-        "exercised_match": 2076,
+        "match": 3656,
+        "exercised_match": 2079,
         "vacuous_match": 1577,
         "asserted_match": 20,
-        "differ": 3,
+        "differ": 0,
         "mmio_only_hidden_differ": 0,
         "not_run": 1059,
-        "diff_reasons": {
-          "mmio_differ": 3
-        }
+        "diff_reasons": {}
       },
       "boot_neg": {
-        "match": 3576,
-        "exercised_match": 1997,
+        "match": 3579,
+        "exercised_match": 2000,
         "vacuous_match": 1579,
         "asserted_match": 20,
-        "differ": 3,
+        "differ": 0,
         "mmio_only_hidden_differ": 0,
         "not_run": 1135,
-        "diff_reasons": {
-          "mmio_differ": 3
-        }
+        "diff_reasons": {}
       },
       "boot_ptr": {
-        "match": 3417,
-        "exercised_match": 2034,
+        "match": 3423,
+        "exercised_match": 2040,
         "vacuous_match": 1383,
         "asserted_match": 16,
-        "differ": 6,
+        "differ": 0,
         "mmio_only_hidden_differ": 0,
         "not_run": 1289,
-        "diff_reasons": {
-          "mmio_differ": 6
-        }
+        "diff_reasons": {}
       }
     },
     "per_image": {
       "fmacfw_h_u02": {
         "total": 1283,
-        "exercised_all_match": 835,
+        "exercised_all_match": 837,
         "vacuous_all_match": 389,
-        "failing_any_vector": 2,
+        "failing_any_vector": 0,
         "never_comparable": 57,
-        "exercised_coverage_pct": 65.08
+        "exercised_coverage_pct": 65.24
       },
       "fmacfw_u02": {
         "total": 1284,
-        "exercised_all_match": 834,
+        "exercised_all_match": 836,
         "vacuous_all_match": 391,
-        "failing_any_vector": 2,
+        "failing_any_vector": 0,
         "never_comparable": 57,
-        "exercised_coverage_pct": 64.95
+        "exercised_coverage_pct": 65.11
       },
       "fmacfwbt_u02": {
         "total": 1285,
-        "exercised_all_match": 841,
+        "exercised_all_match": 843,
         "vacuous_all_match": 385,
-        "failing_any_vector": 2,
+        "failing_any_vector": 0,
         "never_comparable": 57,
-        "exercised_coverage_pct": 65.45
+        "exercised_coverage_pct": 65.6
       },
       "lmacfw_rf_u02": {
         "total": 866,
@@ -1873,82 +1865,15 @@
     },
     "aggregate": {
       "machine_nullsub_excluded": 36,
-      "exercised_all_match": 3175,
+      "exercised_all_match": 3181,
       "vacuous_all_match": 1320,
-      "failing_any_vector": 6,
+      "failing_any_vector": 0,
       "never_comparable": 217,
-      "strict_all_match_pct": 95.27,
-      "comparable_all_match_pct": 99.87,
-      "exercised_coverage_pct": 67.3
+      "strict_all_match_pct": 95.4,
+      "comparable_all_match_pct": 100.0,
+      "exercised_coverage_pct": 67.42
     },
-    "top_differs": [
-      {
-        "image": "fmacfw_h_u02",
-        "address": "0x10fba0",
-        "function": "buffer_release",
-        "vector": "boot_ptr",
-        "reason": "mmio_differ",
-        "mmio_match": false,
-        "orig_r0": "0xffffffff",
-        "recon_r0": "0xffffffff",
-        "ram_diff_addr": null
-      },
-      {
-        "image": "fmacfw_h_u02",
-        "address": "0x115698",
-        "function": "rx_packet_pending",
-        "vector": "boot_zero",
-        "reason": "mmio_differ",
-        "mmio_match": false,
-        "orig_r0": "0x188410",
-        "recon_r0": "0x188410",
-        "ram_diff_addr": null
-      },
-      {
-        "image": "fmacfw_u02",
-        "address": "0x10fce0",
-        "function": "util_is_nonnull",
-        "vector": "boot_ptr",
-        "reason": "mmio_differ",
-        "mmio_match": false,
-        "orig_r0": "0xffffffff",
-        "recon_r0": "0xffffffff",
-        "ram_diff_addr": null
-      },
-      {
-        "image": "fmacfw_u02",
-        "address": "0x1157d8",
-        "function": "handle_reset_event",
-        "vector": "boot_zero",
-        "reason": "mmio_differ",
-        "mmio_match": false,
-        "orig_r0": "0x188410",
-        "recon_r0": "0x188410",
-        "ram_diff_addr": null
-      },
-      {
-        "image": "fmacfwbt_u02",
-        "address": "0x10fb38",
-        "function": "list_insert",
-        "vector": "boot_ptr",
-        "reason": "mmio_differ",
-        "mmio_match": false,
-        "orig_r0": "0xffffffff",
-        "recon_r0": "0xffffffff",
-        "ram_diff_addr": null
-      },
-      {
-        "image": "fmacfwbt_u02",
-        "address": "0x115d28",
-        "function": "mac_status_check",
-        "vector": "boot_zero",
-        "reason": "mmio_differ",
-        "mmio_match": false,
-        "orig_r0": "0x188cd4",
-        "recon_r0": "0x188cd4",
-        "ram_diff_addr": null
-      }
-    ]
+    "top_differs": []
   },
   "axis4_truth_lane": {
     "total_targets": 25,
