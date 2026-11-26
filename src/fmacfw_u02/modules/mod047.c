@@ -643,7 +643,7 @@ int j_fmac_tx_dispatch() {
 
 
 // load_and_process_r0 @ 0x12f554
-volatile int * load_and_process_r0(volatile int *result, int a2) {
+volatile int * load_and_process_r0(volatile int *result) {
   volatile uint32_t *v2; // r4
   volatile int *v3; // r6
   volatile int *v4; // r5

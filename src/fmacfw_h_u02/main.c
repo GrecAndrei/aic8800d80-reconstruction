@@ -6336,7 +6336,7 @@ int phy_mode_check();
 int j_nullsub_6(void);
 int phy_mode_check_1();
 int list_foreach_1();
-volatile int * deref_and_check(volatile int *result, int a2);
+volatile int * deref_and_check(volatile int *result);
 int state_check_0x182ba0_b(int result);
 int return_fail();
 int unknown_12f4b4(unsigned int a1, int a2);

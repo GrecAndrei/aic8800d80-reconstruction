@@ -633,7 +633,7 @@ int jump_to_10ca3c() {
 
 
 // process_pending_queue @ 0x12f770
-volatile int * process_pending_queue(volatile int *result, int a2) {
+volatile int * process_pending_queue(volatile int *result) {
   volatile uint32_t *v2; // r4
   volatile int *v3; // r6
   volatile int *v4; // r5

@@ -647,7 +647,7 @@ int list_foreach_1() {
 
 
 // deref_and_check @ 0x12f414
-volatile int * deref_and_check(volatile int *result, int a2) {
+volatile int * deref_and_check(volatile int *result) {
   volatile uint32_t *v2; // r4
   volatile int *v3; // r6
   volatile int *v4; // r5

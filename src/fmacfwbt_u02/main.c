@@ -6317,7 +6317,7 @@ int return_two_stub();
 int j_nullsub_6(void);
 int state_ready_check();
 int jump_to_10ca3c();
-volatile int * process_pending_queue(volatile int *result, int a2);
+volatile int * process_pending_queue(volatile int *result);
 int dispatch_if_ready(int result);
 int jump_to_10c824_zero();
 int irq_lock_save_1(unsigned int a1, int a2);

@@ -841,7 +841,7 @@ class PostCompose(unittest.TestCase):
              "format_hd_signextend.py", "format_scratch_frame.py",
              "heap_boundary_literal.py", "ipv4_dot_libc.py", "jump_trampolines.py",
              "luna_rename_apply.py", "luna_semantics_apply.py",
-             "patch_tailcall_args.py", "fmac_zero_inputs.py", "rx_queue_contract.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
+             "patch_tailcall_args.py", "single_input_contracts.py", "fmac_zero_inputs.py", "rx_queue_contract.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
              "spilled_scalar_inputs.py", "libc_names.py", "tick_signed_cmps.py",
              "timer_signed_diffs.py", "uncast_memset_zero.py", "validate_forward_args.py"}
 

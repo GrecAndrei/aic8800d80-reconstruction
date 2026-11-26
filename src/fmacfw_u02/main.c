@@ -6314,7 +6314,7 @@ int get_phy_type();
 int j_nullsub_6(void);
 int check_rom_state();
 int j_fmac_tx_dispatch();
-volatile int * load_and_process_r0(volatile int *result, int a2);
+volatile int * load_and_process_r0(volatile int *result);
 int check_chip_mode(int result);
 int get_chip_opt();
 int save_context_args(unsigned int a1, int a2);

@@ -50,7 +50,7 @@ int tx_power_set(int a1) {
   tx_power_lookup(0, 4, *(volatile uint32_t *)(a1 + 20));
   cmd_handler_c(v1, (volatile uint32_t *)a1);
   co_list_push_back(v1 - 8, (volatile uint32_t *)a1);
-  return (int)load_and_process_r0((volatile int *)(v1 - 32), v3);
+  return (int)load_and_process_r0((volatile int *)(v1 - 32));
 }
 
 
@@ -1854,7 +1854,7 @@ LABEL_57:
   if ( v3 != 255 && !v5 )
     goto LABEL_4;
 LABEL_5:
-  load_and_process_r0((volatile int *)dword_13A240, v6);
+  load_and_process_r0((volatile int *)dword_13A240);
   return v5;
 }
 

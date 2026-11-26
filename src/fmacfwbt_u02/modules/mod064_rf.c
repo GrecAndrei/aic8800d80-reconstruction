@@ -50,7 +50,7 @@ int tx_power_cal_apply(int a1) {
   tx_power_cal_read(0, 4, *(volatile uint32_t *)(a1 + 20));
   check_abort_flag_3(v1, (volatile uint32_t *)a1);
   check_abort_flag(v1 - 8, (volatile uint32_t *)a1);
-  return (int)process_pending_queue((volatile int *)(v1 - 32), v3);
+  return (int)process_pending_queue((volatile int *)(v1 - 32));
 }
 
 
@@ -1833,7 +1833,7 @@ LABEL_57:
   if ( v3 != 255 && !v5 )
     goto LABEL_4;
 LABEL_5:
-  process_pending_queue((volatile int *)dword_13A2DC, v6);
+  process_pending_queue((volatile int *)dword_13A2DC);
   return v5;
 }
 

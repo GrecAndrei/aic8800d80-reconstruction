@@ -50,7 +50,7 @@ int rf_set_tx_power(int a1) {
   rf_lookup_tx_power(0, 4, *(volatile uint32_t *)(a1 + 20));
   wlan_ioctl_handler_3(v1, (volatile uint32_t *)a1);
   co_list_push_back(v1 - 8, (volatile uint32_t *)a1);
-  return (int)deref_and_check((volatile int *)(v1 - 32), v3);
+  return (int)deref_and_check((volatile int *)(v1 - 32));
 }
 
 
@@ -1854,7 +1854,7 @@ LABEL_57:
   if ( v3 != 255 && !v5 )
     goto LABEL_4;
 LABEL_5:
-  deref_and_check((volatile int *)dword_13A100, v6);
+  deref_and_check((volatile int *)dword_13A100);
   return v5;
 }
 
