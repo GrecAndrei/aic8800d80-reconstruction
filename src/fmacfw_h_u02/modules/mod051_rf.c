@@ -461,7 +461,7 @@ int handle_rx_packet(volatile uint8_t *a1, int a2) {
     {
       if ( a2 && (v8[1] & 0x80u) == 0 )
         goto LABEL_6;
-      ((int (*)())cmd_char_validate)();
+      cmd_char_validate(v8[1]);
       if ( **v3 < 0 )
         break;
       if ( v10 <= 11 )
