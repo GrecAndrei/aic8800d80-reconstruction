@@ -671,6 +671,32 @@ class RfConfigFrame(unittest.TestCase):
         self.assertNotIn("vars0", body)
 
 
+
+class MrsIpsr(unittest.TestCase):
+    def test_machine_proven_ipsr_read_is_distinct_from_primask(self):
+        import mrs_ipsr
+        sample = (
+            "  unsigned int CPSR; // r6\n"
+            "  int v4; // r0\n"
+            "  CPSR = __get_CPSR();\n"
+            "  if ( !CPSR )\n"
+            "    *(volatile uint32_t *)off_10D998 = 1;\n"
+        )
+        out, n = mrs_ipsr.transform_body(sample)
+        self.assertEqual(n, 1)
+        self.assertIn("unsigned int IPSR; // r6", out)
+        self.assertIn("IPSR = __get_IPSR();", out)
+        self.assertIn("if ( !IPSR )", out)
+        self.assertNotIn("__get_CPSR()", out)
+        self.assertEqual(mrs_ipsr.transform_body(out), (out, 0))
+
+    def test_tracked_sources_are_at_the_ipsr_fixed_point(self):
+        import mrs_ipsr
+        for short, addr in mrs_ipsr.TARGETS.items():
+            n, seen = mrs_ipsr.apply_one(short, addr, True)
+            self.assertTrue(seen)
+            self.assertEqual(n, 0)
+
 class PostCompose(unittest.TestCase):
     RULES = {"callsite_targets.py", "periph_symbols.py", "asm_returns.py",
              "call_cast_returns.py", "double_args.py", "float_bits.py",
@@ -682,7 +708,7 @@ class PostCompose(unittest.TestCase):
              "format_hd_signextend.py", "format_scratch_frame.py",
              "heap_boundary_literal.py", "ipv4_dot_libc.py", "jump_trampolines.py",
              "luna_rename_apply.py", "luna_semantics_apply.py",
-             "patch_tailcall_args.py", "rf_config_frame.py", "rom_copy_frames.py",
+             "patch_tailcall_args.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
              "spilled_scalar_inputs.py", "libc_names.py", "tick_signed_cmps.py",
              "timer_signed_diffs.py", "uncast_memset_zero.py", "validate_forward_args.py"}
 

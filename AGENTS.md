@@ -264,6 +264,23 @@ release tarball
   `sub_<ADDR>` file (pre-rename decompile with real data symbols) over
   LLM-renamed re-decompiles (`cmd/fwstruct/compose.go::readFunctionUnits`).
 
+## Defect class: IPSR/PRIMASK conflation (machine-proven)
+
+Hex-Rays prints both `mrs rN, IPSR` and `mrs rN, PRIMASK` as
+`__get_CPSR()`. These are not interchangeable: IPSR is the active exception
+number (zero in thread mode even when interrupts are masked), while PRIMASK
+bit 0 is the interrupt-mask state mutated by `cpsid/cpsie`. The shared header
+therefore keeps the PRIMASK shadow for `__get_CPSR()` but now provides a real
+`__get_IPSR()` (`mrs %0, ipsr`). Machine evidence: all three fmac-family
+logging/formatter functions execute `f3ef 8605 = mrs r6, IPSR` at +8:
+`stack_struct_init` 0x10d6c8 (fmacfw_h), `prepare_debug_buffer` 0x10d808
+(fmacfw), and `debug_printf` 0x10d660 (fmacfwbt). Treating that as PRIMASK
+suppressed the final UART-ready write `0x40035040=1` after a log line when
+called inside a critical section, producing the six remaining fmac boot-vector
+`mmio_differ` rows. `tools/mrs_ipsr.py` is the address-keyed post-compose
+repair. Do not replace the PRIMASK shadow globally: many critical-section
+functions genuinely execute sysreg 0x10 (`MRS PRIMASK`).
+
 ## Defect class: frame-object overlap (recurring, machine-proven)
 
 Three independent high-blast-radius defects shared one root cause: Hex-Rays

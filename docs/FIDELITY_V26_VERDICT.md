@@ -76,3 +76,15 @@ artifacts, not behavioral defects:
   measurement-inherent noise in bulk, not behavioral defect. Genuine
   behavioral divergence requiring per-function forensics: osal_int_exit
   (documented) and tx_acl_queue_process only
+
+## 2026-11-26 fmac boot-vector forensic update
+
+The six remaining fmac-family `mmio_differ` rows share one machine-proven
+root cause: Hex-Rays conflated `mrs r6, IPSR` with the PRIMASK-shaped
+`__get_CPSR()` intrinsic in the three logging/formatter clones. Original
+ordered-write traces showed only the UART-ready write `0x40035040=1` missing
+after log output; the original instruction is byte-verified as IPSR
+(`f3ef 8605`) in all three images. `tools/mrs_ipsr.py` now rewrites those
+three functions to a real `__get_IPSR()` intrinsic. Static rule tests pass
+and the intrinsic was assembler-verified. Dynamic corpus revalidation is
+still pending and must not be assumed from the static fix alone.

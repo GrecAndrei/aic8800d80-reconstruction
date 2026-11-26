@@ -307,7 +307,7 @@ int radio_rx_status() {
 // stack_struct_init @ 0x10d6c8
 int stack_struct_init(volatile uint8_t *a1, volatile unsigned int *a2) {
   volatile uint32_t *v2; // r4
-  unsigned int CPSR; // r6
+  unsigned int IPSR; // r6
   signed int v4; // r0
   int v5; // r7
   signed int v6; // r5
@@ -384,7 +384,7 @@ int stack_struct_init(volatile uint8_t *a1, volatile unsigned int *a2) {
   struct __attribute__((packed)) { volatile int *v78; // [sp+Ch] [bp-108h]
   char a1a[260]; // [sp+10h] [bp-104h] BYREF
   } _frame;
-  CPSR = __get_CPSR();
+  IPSR = __get_IPSR();
   v4 = rx_process_packet_2(_frame.a1a, 256, 0, a1, a2);
   v5 = v4;
   if ( v4 <= 0 )
@@ -392,13 +392,13 @@ int stack_struct_init(volatile uint8_t *a1, volatile unsigned int *a2) {
   v6 = v4;
   if ( *(volatile uint32_t *)off_10D994 )
   {
-    if ( CPSR )
+    if ( IPSR )
       goto LABEL_5;
   }
   else
   {
     kernel_schedule_check();
-    if ( CPSR )
+    if ( IPSR )
       goto LABEL_5;
   }
   while ( !*(volatile uint32_t *)off_10D998 )
@@ -512,7 +512,7 @@ LABEL_19:
       goto LABEL_19;
     }
 LABEL_13:
-    if ( !CPSR )
+    if ( !IPSR )
       *(volatile uint32_t *)off_10D998 = 1;
     return v5;
   }

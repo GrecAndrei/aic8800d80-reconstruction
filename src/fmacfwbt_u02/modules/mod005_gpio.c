@@ -307,7 +307,7 @@ int uart_rx_ready() {
 // debug_printf @ 0x10d660
 int debug_printf(volatile uint8_t *a1, volatile unsigned int *a2) {
   volatile uint32_t *v2; // r4
-  unsigned int CPSR; // r6
+  unsigned int IPSR; // r6
   signed int v4; // r0
   int v5; // r7
   signed int v6; // r5
@@ -383,7 +383,7 @@ int debug_printf(volatile uint8_t *a1, volatile unsigned int *a2) {
   struct __attribute__((packed)) { volatile int *v77; // [sp+Ch] [bp-108h]
   char a1a[260]; // [sp+10h] [bp-104h] BYREF
   } _frame;
-  CPSR = __get_CPSR();
+  IPSR = __get_IPSR();
   v4 = main_loop_dispatch(_frame.a1a, 256, 0, a1, a2);
   v5 = v4;
   if ( v4 <= 0 )
@@ -391,13 +391,13 @@ int debug_printf(volatile uint8_t *a1, volatile unsigned int *a2) {
   v6 = v4;
   if ( *(volatile uint32_t *)off_10D92C )
   {
-    if ( CPSR )
+    if ( IPSR )
       goto LABEL_5;
   }
   else
   {
     event_loop();
-    if ( CPSR )
+    if ( IPSR )
       goto LABEL_5;
   }
   while ( !*(volatile uint32_t *)off_10D930 )
@@ -510,7 +510,7 @@ LABEL_19:
       goto LABEL_19;
     }
 LABEL_13:
-    if ( !CPSR )
+    if ( !IPSR )
       *(volatile uint32_t *)off_10D930 = 1;
     return v5;
   }
