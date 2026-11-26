@@ -677,25 +677,33 @@ def compare_ram_states(
                 canon_map[(la & ~1) + 1] = ana + 1  # thumb-bit form -> analysis thumb form
 
     def canon_words(buf: bytes, base: int, is_recon: bool) -> bytes:
+        # symmetric: BOTH sides may hold runtime-space pointers (bootstate is
+        # injected identically into both), so both canonicalize the same way;
+        # only the recon side additionally holds LINK_BASE-space pointers
+        # written by its own code, reverse-mapped through canon_map.
         b = bytearray(buf)
         for off in range(0, len(buf) - 3, 4):
             v = int.from_bytes(buf[off:off + 4], "little")
-            if is_recon and v in canon_map:
-                b[off:off + 4] = canon_map[v].to_bytes(4, "little")
-            elif not is_recon and 0x120001 <= v < 0x1A0000 and (v & 1):
+            if 0x120001 <= v < 0x1A0000 and (v & 1):
                 b[off:off + 4] = (v - 0x20000).to_bytes(4, "little")
+            elif is_recon and v in canon_map:
+                b[off:off + 4] = canon_map[v].to_bytes(4, "little")
         return bytes(b)
 
     for base, size in RAM_WINDOWS:
-        o_buf = canon_words(bytes(orig_plat.mu.mem_read(base, size)), base, False)
-        r_buf = canon_words(bytes(recon_plat.mu.mem_read(base, size)), base, True)
+        # raw buffers drive mutation detection vs the raw baseline; canonicalized
+        # copies are used only for the orig-vs-recon equality check
+        o_buf = bytes(orig_plat.mu.mem_read(base, size))
+        r_buf = bytes(recon_plat.mu.mem_read(base, size))
+        o_cmp = canon_words(o_buf, base, False) if o_buf != r_buf else o_buf
+        r_cmp = canon_words(r_buf, base, True) if o_buf != r_buf else r_buf
         b_buf = baseline[base]
         if o_buf != b_buf:
             orig_mutated = True
         if r_buf != b_buf:
             recon_mutated = True
-        if o_buf != r_buf and ram_match:
-            d = _first_byte_diff(o_buf, r_buf, base, orig_img, elf_info)
+        if o_cmp != r_cmp and ram_match:
+            d = _first_byte_diff(o_cmp, r_cmp, base, orig_img, elf_info)
             if d is not None:
                 ram_match = False
                 first_diff = d
