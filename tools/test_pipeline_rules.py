@@ -673,6 +673,33 @@ class RfConfigFrame(unittest.TestCase):
 
 
 
+
+class ZeroInputPrototypes(unittest.TestCase):
+    def test_machine_proven_process_event_is_zero_input(self):
+        import zero_input_prototypes
+        spec = zero_input_prototypes.TARGETS["lmacfw_rf_u02"]
+        sample = (
+            "int process_event(int a1, int a2);\n"
+            "int process_event(int a1, int a2) {\n"
+            "  v4 = ((int (*)())list_count)((void *)(uintptr_t)(off_112E1C), a2);\n"
+            "}\n"
+            "int caller() { return ((int (*)())process_event)(); }\n"
+        )
+        out, n = zero_input_prototypes.transform_text(sample, spec["replacements"])
+        self.assertEqual(n, 4)
+        self.assertIn("int process_event() {", out)
+        self.assertIn("int process_event();", out)
+        self.assertIn("list_count((volatile uint32_t **)(uintptr_t)off_112E1C)", out)
+        self.assertIn("return process_event();", out)
+        self.assertEqual(zero_input_prototypes.transform_text(out, spec["replacements"]), (out, 0))
+
+    def test_tracked_source_is_at_the_zero_input_fixed_point(self):
+        import zero_input_prototypes
+        for short, spec in zero_input_prototypes.TARGETS.items():
+            n, seen = zero_input_prototypes.apply_image(short, spec, True)
+            self.assertTrue(seen)
+            self.assertEqual(n, 0)
+
 class TimerTargetForward(unittest.TestCase):
     def test_machine_proven_timer_object_is_forwarded_in_r0(self):
         import timer_target_forward
@@ -726,7 +753,7 @@ class PostCompose(unittest.TestCase):
              "format_hd_signextend.py", "format_scratch_frame.py",
              "heap_boundary_literal.py", "ipv4_dot_libc.py", "jump_trampolines.py",
              "luna_rename_apply.py", "luna_semantics_apply.py",
-             "patch_tailcall_args.py", "timer_target_forward.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
+             "patch_tailcall_args.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
              "spilled_scalar_inputs.py", "libc_names.py", "tick_signed_cmps.py",
              "timer_signed_diffs.py", "uncast_memset_zero.py", "validate_forward_args.py"}
 

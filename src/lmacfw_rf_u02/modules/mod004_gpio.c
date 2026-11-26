@@ -2205,7 +2205,7 @@ LABEL_59:
     }
     v43 = (volatile int *)off_10D418;
     ++*(volatile uint32_t *)off_10D418;
-    v44 = ((int (*)())process_event)();
+    v44 = process_event();
     if ( *v43 )
     {
       v45 = *v43 - 1;
@@ -2314,7 +2314,7 @@ LABEL_16:
       v26 = dword_10D35C;
       ++*(volatile uint32_t *)off_10D358;
       check_kernel_state(v26, v8);
-      ((int (*)())process_event)();
+      process_event();
       if ( *v25 )
       {
         v27 = *v25 - 1;
@@ -2966,7 +2966,7 @@ LABEL_30:
     v49 = dword_10D9B0;
     ++*(volatile uint32_t *)off_10D9AC;
     check_kernel_state(v49, v2);
-    ((int (*)())process_event)();
+    process_event();
     if ( *v48 )
     {
       v50 = *v48 - 1;

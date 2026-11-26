@@ -1479,7 +1479,7 @@ int tx_acl_queue_process(int a1) {
       }
       v46 = (volatile int *)off_117948;
       ++*(volatile uint32_t *)off_117948;
-      v47 = ((int (*)())process_event)();
+      v47 = process_event();
       if ( *v46 )
       {
         v48 = *v46 - 1;
@@ -1652,7 +1652,7 @@ LABEL_15:
           v18 = dword_117888;
           ++*(volatile uint32_t *)off_117884;
           check_kernel_state(v18, v3);
-          ((int (*)())process_event)();
+          process_event();
           if ( *v17 )
           {
             v19 = *v17 - 1;

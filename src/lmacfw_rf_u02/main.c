@@ -4194,7 +4194,7 @@ int tick_counter_update(volatile uint8_t *a1, unsigned int a2, int a3);
 int wait_rf_ready_1(int a1);
 int send_data_packet(int a1, int a2);
 int send_control_packet(int a1, int a2);
-int process_event(int a1, int a2);
+int process_event();
 int set_event_mode(int a1, int a2, int a3);
 volatile uint32_t * map_event_type(int a1);
 int lookup_table_value(unsigned int a1);

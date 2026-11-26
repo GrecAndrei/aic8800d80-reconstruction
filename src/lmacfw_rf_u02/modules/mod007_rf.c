@@ -2387,7 +2387,7 @@ int send_control_packet(int a1, int a2) {
 
 
 // process_event @ 0x112d84
-int process_event(int a1, int a2) {
+int process_event() {
   volatile uint8_t *v2; // r6
   volatile int **v3; // r4
   char v4; // r0
@@ -2406,7 +2406,7 @@ int process_event(int a1, int a2) {
   if ( *(volatile uint8_t *)off_112E18 )
     return -99;
   v3 = (volatile int **)off_112E1C;
-  v4 = ((int (*)())list_count)((void *)(uintptr_t)(off_112E1C), a2);
+  v4 = list_count((volatile uint32_t **)(uintptr_t)off_112E1C);
   v5 = (void *)(uintptr_t)(off_112E24);
   *(volatile uint8_t *)off_112E24 = v4;
   if ( v4 )
@@ -2511,7 +2511,7 @@ int set_event_mode(int a1, int a2, int a3) {
       while ( *v5 );
     }
 LABEL_12:
-    ((int (*)())process_event)();
+    process_event();
     return 1;
   }
   else

@@ -170,7 +170,7 @@ volatile uint32_t * wlan_hw_init(unsigned int a1, int a2) {
               ++*(volatile uint32_t *)off_116324;
               dispatch_event_handler_1("cfms: %x, sn=%d, st=%d\r\n", v5, v23, v24);
               check_kernel_state(dword_11630C, v14);
-              ((int (*)())process_event)();
+              process_event();
               if ( *v22 )
               {
                 v25 = *v22 - 1;
