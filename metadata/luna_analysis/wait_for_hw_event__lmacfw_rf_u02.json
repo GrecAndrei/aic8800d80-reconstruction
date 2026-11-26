@@ -1,0 +1,9 @@
+{
+ "fn": "wait_for_hw_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12373c",
+ "seg": 23,
+ "key": "wait_for_hw_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_poll_cal_event\",\"confidence\":\"medium\",\"docstring\":\"Polls timer event objects, applies the carried RF calibration offset, and dispatches matching calibration/command events.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"cal_reg_ptr\",\"v1\":\"cal_out_ptr\",\"v2\":\"rf_cmd_ctx\",\"v4\":\"event\",\"v6\":\"cal_byte\",\"v7\":\"event_buf\",\"v8\":\"chip_rev\",\"v9\":\"cal_avg\",\"v12\":\"pkt_hdr\",\"v13\":\"pkt_key\",\"v14\":\"payload_offset_u16\",\"v15\":\"cmd_payload\",\"v16\":\"cmd_state\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"pointer to event packet/buffer\"},{\"offset\":65,\"meaning\":\"raw RF calibration byte\"}]}"
+}

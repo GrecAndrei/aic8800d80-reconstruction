@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_channel_freq",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136f8c",
+ "seg": 57,
+ "key": "rf_set_channel_freq__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel_freq\",\"confidence\":\"medium\",\"docstring\":\"Stores channel-related values from the supplied configuration in shared RF state and sends a channel-control packet unless the selector is 6 or 11.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"channel_config\",\"a4\":\"channel_selector\",\"v4\":\"rf_state\",\"v6\":\"channel_config_value\",\"v8\":\"channel_pdu\"},\"struct_hints\":[{\"offset\":352,\"meaning\":\"64-bit channel configuration value copied into shared RF state\"},{\"offset\":366,\"meaning\":\"Byte copied into the outgoing channel-control payload\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy",
+ "img": "fmacfwbt_u02",
+ "addr": "0x14380c",
+ "seg": 69,
+ "key": "memcpy__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"memcpy\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Standard library memcpy implementation copying bytes from a source to a destination memory block.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

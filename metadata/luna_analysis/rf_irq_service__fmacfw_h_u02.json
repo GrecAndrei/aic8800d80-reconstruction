@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_service",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12b460",
+ "seg": 39,
+ "key": "rf_irq_service__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_clock_rate\",\"confidence\":\"medium\",\"docstring\":\"Sets the RF clock rate and proportionally rescales related timing fields and divider settings.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"new_clock_rate\",\"v2\":\"current_clock_rate\",\"v1\":\"clock_config_reg\"}}"
+}

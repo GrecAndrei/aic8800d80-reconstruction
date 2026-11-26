@@ -1,0 +1,9 @@
+{
+ "fn": "set_rf_byte",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12506c",
+ "seg": 23,
+ "key": "set_rf_byte__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_rf_byte\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Command handler that parses a decimal byte argument and writes it to an RF register field, dispatching a usage event when no argument is supplied.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v2\": \"rf_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"argv[1] pointer to the command argument string\"\n    }\n  ]\n}"
+}

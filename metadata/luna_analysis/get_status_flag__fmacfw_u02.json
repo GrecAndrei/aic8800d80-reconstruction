@@ -1,0 +1,9 @@
+{
+ "fn": "get_status_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x1112f4",
+ "seg": 3,
+ "key": "get_status_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_status_flag\",\"confidence\":\"medium\",\"docstring\":\"Returns 1 if the byte referenced by off_111304 is nonzero; otherwise returns the byte referenced by off_111308.\",\"subsystem\":\"rf\"}"
+}

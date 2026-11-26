@@ -1,0 +1,9 @@
+{
+ "fn": "set_reg_180800_bit9",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124094",
+ "seg": 23,
+ "key": "set_reg_180800_bit9__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_reg_180800_bit9\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Set or clear bit 9 of the 0x180800 register using the provided value, preserving other bits.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"bit9_value\"\n  },\n  \"struct_hints\": []\n}"
+}

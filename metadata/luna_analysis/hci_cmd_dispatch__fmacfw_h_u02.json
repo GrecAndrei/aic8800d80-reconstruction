@@ -1,0 +1,9 @@
+{
+ "fn": "hci_cmd_dispatch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13264a",
+ "seg": 45,
+ "key": "hci_cmd_dispatch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_hci_memory_capacity_exceeded_status\",\"confidence\":\"medium\",\"docstring\":\"Returns HCI status code 0x07, Memory Capacity Exceeded.\",\"subsystem\":\"bt\"}"
+}

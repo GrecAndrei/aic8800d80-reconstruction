@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_configure",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10779c",
+ "seg": 2,
+ "key": "pmu_configure__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_config\",\"confidence\":\"medium\",\"docstring\":\"Temporarily enables the RF/PMU register-access path, applies packed control settings from the descriptor, writes the supplied payload to the selected host address, and clears the temporary access controls.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"config\",\"a2\":\"payload\",\"a3\":\"payload_len\",\"v8\":\"packed_config\",\"v11\":\"host_addr_reg_value\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Packed 64-bit control descriptor; its low 12 bits provide a field value and its upper word supplies a mask for another control field.\"}]}"
+}

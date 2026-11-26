@@ -1,0 +1,9 @@
+{
+ "fn": "set_pin_mux",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10dd70",
+ "seg": 3,
+ "key": "set_pin_mux__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_set_pin_mux\",\"confidence\":\"medium\",\"docstring\":\"Sets the mux-selection bits in the configuration register for each of 16 GPIO entries, then invokes a follow-up GPIO configuration helper.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"mux_selection\",\"v1\":\"config_register_cursor\",\"v2\":\"mux_field_value\",\"v3\":\"register_end\"}}"
+}

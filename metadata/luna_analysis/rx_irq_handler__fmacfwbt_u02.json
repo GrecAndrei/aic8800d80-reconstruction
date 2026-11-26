@@ -1,0 +1,9 @@
+{
+ "fn": "rx_irq_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ffe4",
+ "seg": 3,
+ "key": "rx_irq_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_rx_irq_handler\",\"confidence\":\"medium\",\"docstring\":\"Processes each pending receive item, checks the abort state, and advances the receive interrupt counter.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"rx_queue_state_ref\",\"v2\":\"rx_irq_counter_ref\",\"v3\":\"rx_process_context\",\"v5\":\"processed_item_count\",\"v6\":\"rx_item_result\",\"v7\":\"pending_item_count\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"pending receive-item count\"}]}"
+}

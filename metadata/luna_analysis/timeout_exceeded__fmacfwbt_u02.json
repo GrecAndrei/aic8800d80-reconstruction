@@ -1,0 +1,9 @@
+{
+ "fn": "timeout_exceeded",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c7dc",
+ "seg": 41,
+ "key": "timeout_exceeded__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_timeout_exceeded\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns true if the unsigned tick difference between the two provided timestamps exceeds the configured timeout threshold.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a3\": \"start_time\",\n    \"a4\": \"now_time\"\n  }\n}"
+}

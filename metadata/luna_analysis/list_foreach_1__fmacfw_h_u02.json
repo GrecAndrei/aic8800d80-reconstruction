@@ -1,0 +1,9 @@
+{
+ "fn": "list_foreach_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f410",
+ "seg": 42,
+ "key": "list_foreach_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"event_handler_thunk\",\"confidence\":\"medium\",\"docstring\":\"Forwards the call to the event handler and returns its result.\",\"subsystem\":\"rf\"}"
+}

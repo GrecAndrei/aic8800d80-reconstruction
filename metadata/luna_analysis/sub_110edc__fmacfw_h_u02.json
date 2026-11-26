@@ -1,0 +1,9 @@
+{
+ "fn": "sub_110edc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x110edc",
+ "seg": 3,
+ "key": "sub_110edc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_mmio_write\",\"confidence\":\"medium\",\"docstring\":\"Submits a serialized RF-interface write transaction, performing guarded MMIO setup and waiting for the hardware interface to become ready.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"critical_section_depth_ptr\",\"v8\":\"critical_section_depth\"},\"struct_hints\":[{\"offset\":369,\"meaning\":\"Boolean selecting whether MMIO bit 1 is cleared or set.\"},{\"offset\":374,\"meaning\":\"Mode byte; value 1 enables the guarded MMIO setup path.\"}]}"
+}

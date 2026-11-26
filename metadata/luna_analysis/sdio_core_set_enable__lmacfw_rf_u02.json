@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_core_set_enable",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10e420",
+ "seg": 2,
+ "key": "sdio_core_set_enable__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_core_cmd_get_scaled_status\",\"confidence\":\"medium\",\"docstring\":\"Writes a fixed SDIO core command, polls and acknowledges the command status, then reads and scales the result register to produce an integer value.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"core_base\",\"v1\":\"raw_value_double\",\"v5\":\"scaled_value_double\",\"v14\":\"converted_value_double\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"command/request register (written with 1)\"},{\"offset\":16,\"meaning\":\"data/result register used for scaling\"},{\"offset\":28,\"meaning\":\"status/ack register polled then set\"}]}"
+}

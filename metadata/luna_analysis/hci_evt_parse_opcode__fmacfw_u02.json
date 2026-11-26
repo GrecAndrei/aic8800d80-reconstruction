@@ -1,0 +1,9 @@
+{
+ "fn": "hci_evt_parse_opcode",
+ "img": "fmacfw_u02",
+ "addr": "0x13387c",
+ "seg": 46,
+ "key": "hci_evt_parse_opcode__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"patch_wlan_mgmt_frame_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches selected 802.11 management-frame subtypes to handlers, with additional rate and byte-value checks.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v2\":\"frame_subtype\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Frame-control subtype bits, masked with 0xFC\"},{\"offset\":12,\"meaning\":\"Byte checked for value 8 in the action-frame branch\"}]}"
+}

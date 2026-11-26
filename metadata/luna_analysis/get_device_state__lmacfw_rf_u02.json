@@ -1,0 +1,9 @@
+{
+ "fn": "get_device_state",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11394c",
+ "seg": 5,
+ "key": "get_device_state__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"debug_dump_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dumps interrupt status, CPU/control state, stack contents, and selected hardware registers to the host via IPC debug requests.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"state_ptr\",\n    \"v1\": \"irq_status\",\n    \"v7\": \"dump_sp\",\n    \"v8\": \"dump_words\",\n    \"v9\": \"dump_word_limit\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"status word read for interrupt/debug state dump\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"debug flag set when bit0 of the status word is asserted\"\n    }\n  ]\n}"
+}

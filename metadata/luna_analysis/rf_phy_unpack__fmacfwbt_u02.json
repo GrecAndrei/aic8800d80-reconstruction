@@ -1,0 +1,9 @@
+{
+ "fn": "rf_phy_unpack",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1314cc",
+ "seg": 43,
+ "key": "rf_phy_unpack__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_unpack_cal_params\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Extracts two packed 3-bit RF calibration parameters from the result of parse_pct_u16 into output fields, defaulting to 3 and 5 when parsing fails.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"input\",\n    \"a2\": \"input_arg\",\n    \"a3\": \"out_fields\",\n    \"result\": \"parsed_entry\",\n    \"v5\": \"packed_field\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3,\n      \"meaning\": \"packed byte containing two 3-bit calibration fields\"\n    }\n  ]\n}"
+}

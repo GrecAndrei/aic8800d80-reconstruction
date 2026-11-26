@@ -1,0 +1,9 @@
+{
+ "fn": "bt_parse_adv_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13ca3c",
+ "seg": 60,
+ "key": "bt_parse_adv_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_crypto_gf128_double\",\"confidence\":\"high\",\"docstring\":\"Doubles a 128-bit block in GF(2^128), applying the 0x87 reduction polynomial when the high bit is set.\",\"subsystem\":\"bt\",\"var_renames\":{\"result\":\"block\",\"v1\":\"middle_words\",\"v2\":\"carry_mask\",\"v3\":\"first_word\",\"v4\":\"last_word\",\"v5\":\"shifted_last_word\"}}"
+}

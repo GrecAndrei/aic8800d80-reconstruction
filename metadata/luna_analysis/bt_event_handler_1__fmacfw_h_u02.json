@@ -1,0 +1,9 @@
+{
+ "fn": "bt_event_handler_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x126f74",
+ "seg": 32,
+ "key": "bt_event_handler_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_process_rx_event\",\"confidence\":\"medium\",\"docstring\":\"Processes a kernel event through LLC receive completion and falls back to testing LLC flag bit 3 when completion returns zero.\",\"subsystem\":\"llc\",\"var_renames\":{\"v0\":\"event_result\",\"result\":\"rx_completion_status\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_complete_handle",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12580c",
+ "seg": 31,
+ "key": "tx_complete_handle__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_tx_complete_handle\", \"confidence\": \"medium\", \"docstring\": \"Handle completion of a Bluetooth transmit descriptor, updating link/packet length and status fields, refreshing transmission counters, and sending an HCI transmit-complete event when appropriate.\", \"subsystem\": \"bt\", \"var_renames\": {\"v1\": \"tx_desc\", \"v2\": \"link_tx_state\", \"v4\": \"link_tx_flags\", \"v5\": \"scan_done_arg\", \"v6\": \"bt_link_info\", \"v7\": \"tx_pkt_buf\", \"v10\": \"tx_status\", \"v12\": \"pending_tx_count\", \"v13\": \"status_byte_offset\", \"v14\": \"tx_retry_count\", \"v15\": \"conn_or_tx_delta\", \"v16\": \"link_tx_stats\", \"v18\": \"link_index\", \"v19\": \"hci_event_buf\"}, \"struct_hints\": [{\"offset\": 107, \"meaning\": \"BT link index / connection slot\"}, {\"offset\": 192, \"meaning\": \"pointer to transmit DMA or packet descriptor\"}, {\"offset\": 227, \"meaning\": \"transmit attempt or credit counter\"}, {\"offset\": 230, \"meaning\": \"transmit status/flag byte\"}, {\"offset\": 231, \"meaning\": \"pending transmit-complete counter\"}, {\"offset\": 232, \"meaning\": \"offset in packet buffer for status byte\"}, {\"offset\": 233, \"meaning\": \"secondary status byte offset\"}, {\"offset\": 28, \"meaning\": \"transmit packet data pointer\"}, {\"offset\": 36, \"meaning\": \"total packet length for transmit descriptor\"}]}"
+}

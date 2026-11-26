@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_call_6_ret5",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1338c8",
+ "seg": 47,
+ "key": "ipc_call_6_ret5__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_state_check_hci_result\",\"confidence\":\"medium\",\"docstring\":\"When handler 6 returns 5\u20138, clears the byte flag at offset 34 if set, or emits an assertion trace if it is clear.\",\"subsystem\":\"ble\",\"struct_hints\":[{\"offset\":34,\"meaning\":\"byte flag consumed when handler 6 returns 5\u20138\"}]}"
+}

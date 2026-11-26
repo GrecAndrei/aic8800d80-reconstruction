@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_power",
+ "img": "fmacfw_h_u02",
+ "addr": "0x139c54",
+ "seg": 58,
+ "key": "rf_set_power__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_filter_packet\",\"confidence\":\"medium\",\"docstring\":\"Parses an 802.11 data frame\u2019s LLC/IP payload to filter selected multicast and discovery traffic, rate-limiting IPv6 router advertisements per interface.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"frame\",\"a3\":\"vif_index\",\"v6\":\"ethertype_offset\",\"v7\":\"ethertype_ptr\",\"v8\":\"is_multicast\",\"v12\":\"udp_header\",\"v13\":\"vif_state\",\"v14\":\"router_lifetime\"},\"struct_hints\":[{\"offset\":690,\"meaning\":\"Cached IPv6 router-advertisement lifetime\"},{\"offset\":692,\"meaning\":\"Tick of the last accepted router advertisement\"}]}"
+}

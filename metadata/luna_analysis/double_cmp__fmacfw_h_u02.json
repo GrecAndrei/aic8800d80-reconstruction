@@ -1,0 +1,9 @@
+{
+ "fn": "double_cmp",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1432d4",
+ "seg": 68,
+ "key": "double_cmp__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"uint64_div\",\"confidence\":\"high\",\"docstring\":\"Returns the unsigned 64-bit quotient, yielding UINT64_MAX for a nonzero dividend divided by zero and zero for 0 divided by 0.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"dividend\",\"a2\":\"divisor\",\"v2\":\"remainder\"}}"
+}

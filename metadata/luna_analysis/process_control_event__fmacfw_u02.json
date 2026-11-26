@@ -1,0 +1,9 @@
+{
+ "fn": "process_control_event",
+ "img": "fmacfw_u02",
+ "addr": "0x11b578",
+ "seg": 17,
+ "key": "process_control_event__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_process_slot_timing_data\",\"confidence\":\"medium\",\"docstring\":\"Scans the selected connection\u2019s nonzero slot-timing entries and encodes them into a capacity-checked output.\",\"subsystem\":\"bt\",\"var_renames\":{\"v10\":\"slot_index\",\"v14\":\"required_output_size\",\"v15\":\"slot_time_cursor\",\"v19\":\"encoded_slot_time\",\"v20\":\"slot_time\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"pointer to the input data\"},{\"offset\":8,\"meaning\":\"output buffer capacity in bytes\"},{\"offset\":18,\"meaning\":\"input data length in bytes\"}]}"
+}

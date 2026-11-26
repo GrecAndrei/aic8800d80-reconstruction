@@ -1,0 +1,9 @@
+{
+ "fn": "osal_int_enter",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1149bc",
+ "seg": 6,
+ "key": "osal_int_enter__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"osal_run_critical_hook\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Runs a registered OSAL hook inside a nesting-aware IRQ-disabled critical section, restoring interrupts only when the nesting count returns to zero.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"critical_nesting_ptr\",\n    \"v1\": \"critical_hook_fn\",\n    \"result\": \"hook_result\",\n    \"v3\": \"next_nesting\",\n    \"v4\": \"irq_was_disabled\"\n  },\n  \"struct_hints\": []\n}"
+}

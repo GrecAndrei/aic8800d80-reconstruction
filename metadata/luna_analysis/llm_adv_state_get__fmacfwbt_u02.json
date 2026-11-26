@@ -1,0 +1,9 @@
+{
+ "fn": "llm_adv_state_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132418",
+ "seg": 45,
+ "key": "llm_adv_state_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_adv_state_get\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns a pointer to a six-byte BLE advertising/scan state entry by searching the selected state array for a matching uint16 handle.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"list_sel\",\n    \"a2\": \"handle\",\n    \"v3\": \"entry\",\n    \"v4\": \"entry_end\",\n    \"v5\": \"entry_handle\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 118,\n      \"meaning\": \"base of list_sel=0 state array; six-byte entries\"\n    },\n    {\n      \"offset\": 202,\n      \"meaning\": \"base of list_sel=1 state array; six-byte entries\"\n    },\n    {\n      \"offset\": 370,\n      \"meaning\": \"uint8 count of entries in the state array at offset 118\"\n    },\n    {\n      \"offset\": 371,\n      \"meaning\": \"uint8 count of entries in the state array at offset 202\"\n    }\n  ]\n}"
+}

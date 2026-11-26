@@ -1,0 +1,9 @@
+{
+ "fn": "llm_scan_pdu_cfg",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x115b60",
+ "seg": 8,
+ "key": "llm_scan_pdu_cfg__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_scan_pdu_cfg\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configures a BLE link-layer scan PDU descriptor from its type-specific configuration table, then schedules, enables, or updates its RX/status state.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"pdu_desc\",\n    \"a2\": \"pdu_type\",\n    \"v4\": \"cfg_base\",\n    \"v5\": \"cfg_entry\",\n    \"v6\": \"irq_lock_ptr\",\n    \"v16\": \"pdu_queue_ptr\",\n    \"v20\": \"target_idx\",\n    \"v21\": \"llm_ctx_base\",\n    \"v22\": \"pdu_link_node\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 14,\n      \"meaning\": \"byte PDU type assigned from a2\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"byte target/connection index; 0xFF indicates invalid or no target\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"pointer to PDU queue/list node or packet buffer reference\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"parent packet descriptor; its +64 field holds status bits\"\n    },\n    {\n      \"offset\": 38,\n      \"meaning\": \"uint16 PDU status/flag word\"\n    },\n    {\n      \"offset\": 53,\n      \"meaning\": \"byte PDU active or enabled flag\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_vendor_cmd_guard",
+ "img": "fmacfw_u02",
+ "addr": "0x136338",
+ "seg": 55,
+ "key": "bt_vendor_cmd_guard__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_vendor_cmd_guard\",\"confidence\":\"medium\",\"docstring\":\"Checks Bluetooth command state, conditionally clears a hardware register, and then invokes the vendor send routine.\",\"subsystem\":\"bt\"}"
+}

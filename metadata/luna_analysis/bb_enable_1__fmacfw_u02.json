@@ -1,0 +1,9 @@
+{
+ "fn": "bb_enable_1",
+ "img": "fmacfw_u02",
+ "addr": "0x12b8bc",
+ "seg": 39,
+ "key": "bb_enable_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_baseband_enable\",\"confidence\":\"medium\",\"docstring\":\"Initializes and enables baseband/RF hardware, including loading calibration offsets and configuring radio control fields.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"irq_status\"}}"
+}

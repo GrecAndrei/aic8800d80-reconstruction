@@ -1,0 +1,9 @@
+{
+ "fn": "update_entries_from_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x128aac",
+ "seg": 35,
+ "key": "update_entries_from_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"vif_chan_link_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates the VIF-to-channel-context link by attaching the selected channel entry, maintaining link/reference counters, and refreshing channel/link state flags.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"vif_idx\",\n    \"a2\": \"chan_idx\",\n    \"v3\": \"chan_ctxt_table\",\n    \"v4\": \"vif_table\",\n    \"v7\": \"chan_ctxt\",\n    \"v9\": \"chan_ctxt\",\n    \"v10\": \"link_state\",\n    \"v11\": \"vif_ctxt\",\n    \"v12\": \"link_count\",\n    \"v13\": \"vif_ctxt\",\n    \"v14\": \"vif_chan_marker\",\n    \"v19\": \"sched_link_count\",\n    \"v21\": \"new_sched_link_count\",\n    \"v22\": \"old_sched_ctxt\",\n    \"v24\": \"vif_table_end\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"channel context validity/state byte; 0xFF appears to mark an unlinked or invalid entry\"\n    },\n    {\n      \"offset\": 25,\n      \"meaning\": \"channel context link/reference count\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"channel context active/link-added flag\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"VIF context field holding the linked channel-context pointer\"\n    },\n    {\n      \"offset\": 85,\n      \"meaning\": \"VIF context channel/link flag byte or bitfield\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"VIF context current channel/link state byte\"\n    },\n    {\n      \"offset\": 1225,\n      \"meaning\": \"VIF context byte used as an index into an associated STA/context table\"\n    }\n  ]\n}"
+}

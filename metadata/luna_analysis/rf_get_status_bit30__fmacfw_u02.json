@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_status_bit30",
+ "img": "fmacfw_u02",
+ "addr": "0x101a58",
+ "seg": 0,
+ "key": "rf_get_status_bit30__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_status_bit30\",\"confidence\":\"high\",\"docstring\":\"Returns bit 30 of the RF status register.\",\"subsystem\":\"rf\"}"
+}

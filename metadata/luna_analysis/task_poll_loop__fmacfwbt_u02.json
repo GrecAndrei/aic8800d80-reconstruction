@@ -1,0 +1,9 @@
+{
+ "fn": "task_poll_loop",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f2f0",
+ "seg": 43,
+ "key": "task_poll_loop__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_task_loop\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Performs an RF mode switch and peripheral trigger, then remains in a non-returning task loop.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_mode_result\"\n  }\n}"
+}

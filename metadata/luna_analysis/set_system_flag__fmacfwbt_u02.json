@@ -1,0 +1,9 @@
+{
+ "fn": "set_system_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d21c",
+ "seg": 41,
+ "key": "set_system_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ipc_msg_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pop a message from the IPC/kernel receive list under interrupt protection, look up and invoke its task handler with source/destination/message identifiers, and return to the transmit path when unhandled or rejected.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"v0\": \"lock_count_ptr\",\n    \"v1\": \"rx_msg_list\",\n    \"v3\": \"msg\",\n    \"v6\": \"msg_handler\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"intrusive list link / next pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"message id\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"destination task id\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"source task id\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"message payload/body\"\n    }\n  ]\n}"
+}

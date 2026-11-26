@@ -1,0 +1,9 @@
+{
+ "fn": "check_feature_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12eb90",
+ "seg": 42,
+ "key": "check_feature_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"test_log_if_enabled\",\"confidence\":\"medium\",\"docstring\":\"Formats and emits a test message when the supplied flag intersects the enabled-test mask; otherwise returns the flag unchanged.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"test_flag\",\"fmt\":\"format_string\"}}"
+}

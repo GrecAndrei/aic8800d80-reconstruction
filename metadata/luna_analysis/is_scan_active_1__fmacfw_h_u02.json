@@ -1,0 +1,9 @@
+{
+ "fn": "is_scan_active_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x131838",
+ "seg": 44,
+ "key": "is_scan_active_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"prepare_hci_command\",\"confidence\":\"medium\",\"docstring\":\"Performs command-state checks, optionally writes a configured header word, and invokes HCI command preprocessing.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"header_word_value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_regs_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x117410",
+ "seg": 10,
+ "key": "ipc_regs_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ipc_regs_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes IPC/host-interface shared-memory window registers by programming base/end addresses and setting the associated control bits.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"v0\": \"base_addr\",\n    \"v11\": \"saved_ctrl\",\n    \"v12\": \"addr_pair\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"primary IPC base register\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"primary IPC base/window mirror register\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"secondary IPC window base register\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"secondary IPC window end/high address pair\"\n    }\n  ]\n}"
+}

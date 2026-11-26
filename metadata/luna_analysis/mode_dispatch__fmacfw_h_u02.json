@@ -1,0 +1,9 @@
+{
+ "fn": "mode_dispatch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12fde0",
+ "seg": 42,
+ "key": "mode_dispatch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_temp_compensation_command\",\"confidence\":\"medium\",\"docstring\":\"Parses temperature-compensation enable and optional period values, updates shared RF state and signals changes, or invokes the transmit-power lookup when argc is 1.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v6\":\"enabled\",\"v7\":\"enable_value\",\"v8\":\"temp_comp_state\"},\"struct_hints\":[{\"offset\":363,\"meaning\":\"Temperature-compensation enable flag\"},{\"offset\":364,\"meaning\":\"Temperature-compensation period in milliseconds\"}]}"
+}

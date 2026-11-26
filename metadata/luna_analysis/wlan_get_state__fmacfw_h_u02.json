@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_get_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x112b24",
+ "seg": 4,
+ "key": "wlan_get_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_notify_usb_suspend\",\"confidence\":\"medium\",\"docstring\":\"Queues a USB-suspend notification through the selected transmit path and then marks the suspend flag set.\",\"subsystem\":\"wlan\",\"struct_hints\":[{\"offset\":176,\"meaning\":\"Status or configuration word; bit 30 selects the USB-suspend notification transmit path.\"}]}"
+}

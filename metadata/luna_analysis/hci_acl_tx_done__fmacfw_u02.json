@@ -1,0 +1,9 @@
+{
+ "fn": "hci_acl_tx_done",
+ "img": "fmacfw_u02",
+ "addr": "0x1255e8",
+ "seg": 30,
+ "key": "hci_acl_tx_done__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_acl_tx_done\",\"confidence\":\"medium\",\"docstring\":\"Finalizes an HCI ACL transmission by updating its descriptor and per-link transmit state, conditionally queuing a status message, and checking RF temperature.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"tx_descriptor\",\"v2\":\"per_link_tx_state\",\"v6\":\"link_env\",\"v7\":\"tx_buffer\",\"v12\":\"tx_count\",\"v14\":\"remaining_tx_count\",\"v15\":\"calibration_value\",\"v18\":\"link_id\"},\"struct_hints\":[{\"offset\":107,\"meaning\":\"Link index used to select per-link state and included in the queued message.\"},{\"offset\":192,\"meaning\":\"Pointer to the transmit descriptor being updated.\"},{\"offset\":227,\"meaning\":\"Transmit countdown copied into per-link state and decremented.\"},{\"offset\":230,\"meaning\":\"Transmit status bits that affect the per-link flag and returned status.\"},{\"offset\":231,\"meaning\":\"Counter decremented during completion processing and used for packet updates and message handling.\"},{\"offset\":232,\"meaning\":\"Byte offset in the transmit buffer where the remaining count is written.\"},{\"offset\":233,\"meaning\":\"Optional second byte offset in the transmit buffer where the remaining count is written.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "log_18630c",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ab0c",
+ "seg": 14,
+ "key": "log_18630c__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"global_list_init\",\"confidence\":\"low\",\"docstring\":\"Initializes the linked-list object referenced by the global pointer dword_11AB14 by calling list_init_1.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

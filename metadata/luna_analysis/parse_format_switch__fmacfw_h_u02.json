@@ -1,0 +1,9 @@
+{
+ "fn": "parse_format_switch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12fd64",
+ "seg": 42,
+ "key": "parse_format_switch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"debug_severity_command\",\"confidence\":\"high\",\"docstring\":\"Displays the current debug severity when no command is selected, or sets it to a validated index from 0 through 5.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v4\":\"command\",\"v5\":\"current_severity\",\"v7\":\"severity_index\"}}"
+}

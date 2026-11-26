@@ -1,0 +1,9 @@
+{
+ "fn": "check_op_mode",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115990",
+ "seg": 7,
+ "key": "check_op_mode__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"debug_uart_rx_loop\",\"confidence\":\"medium\",\"docstring\":\"Prints a panic/debug banner, conditionally switches RF mode when the configured mode byte is 2, then polls UART and posts an allocation sized by each received byte through a kernel event.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"rx_byte\",\"v1\":\"allocated_buffer\",\"v3\":\"rf_mode_result\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"operating-mode byte; value 2 triggers an RF mode switch\"}]}"
+}

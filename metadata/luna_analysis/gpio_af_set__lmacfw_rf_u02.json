@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_af_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10ec2c",
+ "seg": 2,
+ "key": "gpio_af_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_i_pa_cal_tune\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Tunes a 3-bit RF PA/i_PA register by stepping its value and sampling feedback until the measured current approaches the stored target, returning the selected offset from the initial setting.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"initial_pa_setting\",\n    \"v1\": \"target_i_pa_ptr\",\n    \"v2\": \"pa_setting\",\n    \"v3\": \"prev_i_pa\",\n    \"v4\": \"target_i_pa\",\n    \"v5\": \"i_pa_config_reg\",\n    \"v6\": \"cal_tries\",\n    \"v7\": \"cal_offset\",\n    \"v8\": \"pa_reg_bits\",\n    \"v9\": \"current_i_pa\",\n    \"v10\": \"target_i_pa_value\",\n    \"v11\": \"current_i_pa_error\",\n    \"v12\": \"prev_i_pa_error\",\n    \"v14\": \"prev_i_pa_abs_error\",\n    \"v15\": \"selected_i_pa\",\n    \"a4\": \"step_direction\",\n    \"v17\": \"initial_pa_setting_saved\"\n  }\n}"
+}

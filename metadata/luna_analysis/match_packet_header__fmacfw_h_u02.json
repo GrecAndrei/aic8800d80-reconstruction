@@ -1,0 +1,9 @@
+{
+ "fn": "match_packet_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c488",
+ "seg": 40,
+ "key": "match_packet_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"packet_header_matches\",\"confidence\":\"high\",\"docstring\":\"Returns true when the 16-bit fields at offsets 4 and 6 match the high and low halves of the expected header, respectively.\",\"subsystem\":\"hci\",\"var_renames\":{\"a1\":\"packet\",\"a2\":\"expected_header\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit header word compared with the high half of expected_header\"},{\"offset\":6,\"meaning\":\"16-bit header word compared with the low half of expected_header\"}]}"
+}

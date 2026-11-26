@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_link_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b3c8",
+ "seg": 40,
+ "key": "bt_get_link_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_send_link_acl_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends an ACL packet for the current Bluetooth link entry, applies a link-dependent timeout, maps the entry frequency to a channel value, and issues an HCI command.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"bt_link_context_base\",\n    \"v2\": \"bt_link_entry\",\n    \"v3\": \"bt_link_entry_offset\",\n    \"v4\": \"bt_link_entry_flags\",\n    \"v5\": \"acl_packet_timeout\",\n    \"v6\": \"hci_cmd_buffer\",\n    \"v7\": \"bt_link_entry_type\",\n    \"v8\": \"bt_link_frequency\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"bt_link_entry.u16 frequency_or_channel\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"bt_link_entry.u8 type_or_role\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"bt_link_entry.u8 state_flags\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"bt_link_context_base.u8 current_link_index\"\n    },\n    {\n      \"offset\": 366,\n      \"meaning\": \"bt_link_context_base.u8 packet_class_or_vif_id\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"hci_cmd_buffer.u8 channel_or_link_value\"\n    }\n  ]\n}"
+}

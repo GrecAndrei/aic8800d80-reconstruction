@@ -1,0 +1,9 @@
+{
+ "fn": "pll_enable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100aa8",
+ "seg": 0,
+ "key": "pll_enable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_pll_enable\",\"confidence\":\"medium\",\"docstring\":\"Sequences PLL-related MMIO control bits while copying an 8 KiB block from the configured source address to its destination.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"mmio_base\",\"v1\":\"source_word\",\"v2\":\"source_end\",\"result\":\"destination_source_delta\",\"v4\":\"copied_word\",\"v5\":\"destination_word\",\"v6\":\"mmio_base\"},\"struct_hints\":[{\"offset\":19584,\"meaning\":\"MMIO control register with bit 29 asserted during the sequence\"}]}"
+}

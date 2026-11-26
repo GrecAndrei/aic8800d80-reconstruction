@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_update_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b6f0",
+ "seg": 16,
+ "key": "rf_reg_update_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_sched_select_rate\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans the TX descriptor list after clearing a scheduler-pending flag and returns the fast rate-index lookup for eligible queued frames.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"tx_desc\",\n    \"v1\": \"sched_target\",\n    \"result\": \"rate_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"next_tx_descriptor\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"scheduler_match_word\"\n    },\n    {\n      \"offset\": 94,\n      \"meaning\": \"retry_or_flags_byte\"\n    },\n    {\n      \"offset\": 96,\n      \"meaning\": \"ready_or_active_byte\"\n    },\n    {\n      \"offset\": 102,\n      \"meaning\": \"rate_or_mcs_byte\"\n    }\n  ]\n}"
+}

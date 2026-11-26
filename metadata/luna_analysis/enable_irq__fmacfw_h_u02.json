@@ -1,0 +1,9 @@
+{
+ "fn": "enable_irq",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d4e8",
+ "seg": 3,
+ "key": "enable_irq__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_enable_irq\",\"confidence\":\"medium\",\"docstring\":\"Enables the radio peripheral interrupt source and unmasks its NVIC interrupt (IRQ 21).\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"nvic_enable_set\"},\"struct_hints\":[{\"offset\":148,\"meaning\":\"Radio peripheral interrupt enable register\"}]}"
+}

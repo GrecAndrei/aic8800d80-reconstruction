@@ -1,0 +1,9 @@
+{
+ "fn": "ll_state_check",
+ "img": "fmacfw_u02",
+ "addr": "0x117d30",
+ "seg": 10,
+ "key": "ll_state_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_operation_error_notify\",\"confidence\":\"medium\",\"docstring\":\"When an operation has a negative status, packages its error details into a queued confirmation command and logs the status.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"completion_status\",\"v3\":\"firmware_state\",\"v4\":\"operation_context\",\"v6\":\"error_message_buffer\",\"v10\":\"command_descriptor\",\"v11\":\"queue_index\",\"v16\":\"queue_entry\",\"v18\":\"sequence_number\",\"v19\":\"status_code\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"sequence number used in the diagnostic log\"},{\"offset\":84,\"meaning\":\"signed operation completion status and associated error details\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_state_machine",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126588",
+ "seg": 23,
+ "key": "rf_state_machine__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cob_state_machine\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Advances the RF COB state machine by handling the enabled state-2 transition, computing and storing COB table values, logging the state change, and otherwise resetting or post-processing the COB context.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"cob_enable_flag\",\n    \"v1\": \"cob_state_ptr\",\n    \"v2\": \"cob_entry_count_ptr\",\n    \"v3\": \"cob_entry_table_ptr\",\n    \"v4\": \"last_entry_index\",\n    \"v5\": \"cob_last_entry_ptr\",\n    \"v6\": \"cob_entry_byte_offset\",\n    \"v18\": \"cob_last_entry_ptr\",\n    \"v25\": \"cob_entry_table_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"COB context state byte (first byte of object referenced by off_126734); the COB table pointer may also expose a 16-bit field at the first entry offset.\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"COB table entry byte offset 2: u8 field used as a divisor/scale in the non-enabled processing path.\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"COB table entry byte offset 4: result byte written during entry processing in the non-enabled path.\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"COB table entry byte offset 5: result byte written for the first entry during the state-2 completion path.\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_antenna_cfg",
+ "img": "fmacfw_h_u02",
+ "addr": "0x137114",
+ "seg": 57,
+ "key": "rf_set_antenna_cfg__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_parse_factory_mode_config\",\"confidence\":\"medium\",\"docstring\":\"Validates an RF configuration blob and maps recognized factory-mode identifiers into bitfields in the caller's state.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"config_blob\",\"a2\":\"config_length\",\"a3\":\"parse_flags\",\"a4\":\"output_state\",\"v8\":\"validated_config\",\"v11\":\"bytes_remaining\",\"v37\":\"validated_length\"},\"struct_hints\":[{\"offset\":48,\"meaning\":\"32-bit bitmap of identifiers recognized by the factory-mode A classifier\"},{\"offset\":52,\"meaning\":\"16-bit bitmap for the initial identifier recognized by the factory-mode B classifier\"},{\"offset\":54,\"meaning\":\"16-bit bitmap of counted identifiers recognized by the factory-mode B classifier\"}]}"
+}

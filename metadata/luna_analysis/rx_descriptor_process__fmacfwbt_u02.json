@@ -1,0 +1,9 @@
+{
+ "fn": "rx_descriptor_process",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1198e8",
+ "seg": 14,
+ "key": "rx_descriptor_process__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"phy_rx_descriptor_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Decodes PHY/rate fields from an RX descriptor, selects rate information from per-table entries and callbacks, and clears related MMIO interrupt bits on error conditions.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"a1\": \"rx_desc\",\n    \"a3\": \"out_info\",\n    \"v3\": \"error_status_ptr\",\n    \"v5\": \"desc_status_word\",\n    \"v9\": \"phy_mode\",\n    \"v10\": \"is_phy_mode_4\",\n    \"v22\": \"desc_status_word\",\n    \"v23\": \"phy_table_index\",\n    \"v24\": \"masked_rate_word\",\n    \"v34\": \"phy_table_base\",\n    \"v14\": \"rate_callback\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"RX descriptor status/info word with PHY mode and rate-related bitfields\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"index into 696-byte PHY/rate configuration table\"\n    },\n    {\n      \"offset\": 344,\n      \"meaning\": \"RX descriptor bitfield; bit 5 is used in the high-mode rate-index path\"\n    },\n    {\n      \"offset\": 34,\n      \"meaning\": \"output context status/mode byte\"\n    }\n  ]\n}"
+}

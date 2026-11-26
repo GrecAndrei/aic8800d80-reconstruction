@@ -1,0 +1,9 @@
+{
+ "fn": "rf_temp_sensor_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13058c",
+ "seg": 43,
+ "key": "rf_temp_sensor_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_temp_sensor_start\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Wrapper that invokes gpio_reset and returns its status, likely to reset or start an RF temperature-sensor GPIO.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

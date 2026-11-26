@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd6_read",
+ "img": "fmacfw_u02",
+ "addr": "0x114868",
+ "seg": 5,
+ "key": "rf_cmd6_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cmd6_read\",\"confidence\":\"high\",\"docstring\":\"Calls the command-6 hook, writes its high byte when nonzero or otherwise its low byte, and returns 0, 1, or 2 according to the result.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"out_value\",\"v2\":\"hook_result\"}}"
+}

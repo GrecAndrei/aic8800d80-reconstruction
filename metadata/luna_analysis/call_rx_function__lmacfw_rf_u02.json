@@ -1,0 +1,9 @@
+{
+ "fn": "call_rx_function",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10c1ec",
+ "seg": 2,
+ "key": "call_rx_function__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_rx_packet_process\",\"confidence\":\"medium\",\"docstring\":\"Calibrates the RF path and drives an RX packet-control transfer, toggling GPIO/DMA enable bits and polling completion for the selected interface mode.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rx_mode\",\"a2\":\"rf_channel\",\"a3\":\"packet_ctrl\",\"a4\":\"packet_status\",\"a5\":\"wait_flag\",\"v10\":\"rx_mode_control_reg\",\"v11\":\"dma_rx_strobe_reg\"}}"
+}

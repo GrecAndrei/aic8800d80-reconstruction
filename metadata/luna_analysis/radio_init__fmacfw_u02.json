@@ -1,0 +1,9 @@
+{
+ "fn": "radio_init",
+ "img": "fmacfw_u02",
+ "addr": "0x11da70",
+ "seg": 20,
+ "key": "radio_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_wait_rx\",\"confidence\":\"medium\",\"docstring\":\"Polls radio status, checks pending receive work, and dispatches scan, transmit, and completion handling until no status remains.\",\"subsystem\":\"mac\",\"var_renames\":{\"i\":\"poll_count\",\"v11\":\"rx_event\",\"v13\":\"completion_callback\",\"v16\":\"completion_entry\",\"v10\":\"mac_wait_state\",\"v4\":\"rx_write_ptr\",\"v5\":\"rx_read_ptr\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"completion callback function pointer\"},{\"offset\":8,\"meaning\":\"completion callback argument\"},{\"offset\":12,\"meaning\":\"associated RX event pointer\"},{\"offset\":16,\"meaning\":\"completion-entry flags, with bit 0 indicating active\"}]}"
+}

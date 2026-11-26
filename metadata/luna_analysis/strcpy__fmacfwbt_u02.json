@@ -1,0 +1,9 @@
+{
+ "fn": "strcpy",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143e1c",
+ "seg": 69,
+ "key": "strcpy__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"strcpy\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Copies a null-terminated string from source to destination and returns the destination pointer.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

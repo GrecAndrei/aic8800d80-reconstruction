@@ -1,0 +1,9 @@
+{
+ "fn": "f32_compare",
+ "img": "fmacfw_h_u02",
+ "addr": "0x109620",
+ "seg": 2,
+ "key": "f32_compare__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"compare_f32_triplets\",\"confidence\":\"medium\",\"docstring\":\"Returns 2 if any strict pairwise ordering in the first triplet is reversed or tied in the second; otherwise returns 1 when the second triplet is entirely positive or entirely negative, and 0 otherwise.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"first_triplet\",\"a2\":\"second_triplet\",\"v2\":\"first_value\",\"v3\":\"second_value\",\"v4\":\"third_value\"}}"
+}

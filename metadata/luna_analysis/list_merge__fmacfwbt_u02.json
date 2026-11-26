@@ -1,0 +1,9 @@
+{
+ "fn": "list_merge",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d658",
+ "seg": 42,
+ "key": "list_merge__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"list_merge\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Merges a source list onto the tail of a destination list, using an O(1) tail append when non-empty or a head/tail copy when empty, then clears the source list head.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"dst_list\",\n    \"a2\": \"src_list\",\n    \"v3\": \"src_head\",\n    \"v4\": \"dst_head_tail\",\n    \"v5\": \"src_tail\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"list head pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"list tail pointer\"\n    }\n  ]\n}"
+}

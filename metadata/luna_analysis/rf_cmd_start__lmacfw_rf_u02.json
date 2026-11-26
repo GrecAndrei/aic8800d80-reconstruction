@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_start",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1108c0",
+ "seg": 3,
+ "key": "rf_cmd_start__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_start\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Starts an RF command sequence by programming RF control registers and polls command-status/IO-enable bits until completion.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_cmd_reg\",\n    \"v1\": \"rf_status_reg\",\n    \"v10\": \"rf_timeout_reg\"\n  },\n  \"struct_hints\": []\n}"
+}

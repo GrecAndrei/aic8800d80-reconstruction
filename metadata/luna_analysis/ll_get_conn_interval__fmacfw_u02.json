@@ -1,0 +1,9 @@
+{
+ "fn": "ll_get_conn_interval",
+ "img": "fmacfw_u02",
+ "addr": "0x131100",
+ "seg": 42,
+ "key": "ll_get_conn_interval__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_get_conn_params\",\"confidence\":\"medium\",\"docstring\":\"Copies a validated link-layer connection-parameter record into the caller-provided output buffer.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"packet_data\",\"a3\":\"conn_params_out\",\"v5\":\"dst_cursor\"}}"
+}

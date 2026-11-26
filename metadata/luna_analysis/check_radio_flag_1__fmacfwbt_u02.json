@@ -1,0 +1,9 @@
+{
+ "fn": "check_radio_flag_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114408",
+ "seg": 5,
+ "key": "check_radio_flag_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_timer_gate_check\",\"confidence\":\"medium\",\"docstring\":\"Checks timer-based permission conditions, logs a denial when they fail, and updates the hardware-control flag.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"timer_context\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Value passed to the timer-denial diagnostic\"},{\"offset\":12,\"meaning\":\"Timer deadline or timestamp used in the permission check\"}]}"
+}

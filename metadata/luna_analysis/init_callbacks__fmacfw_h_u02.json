@@ -1,0 +1,9 @@
+{
+ "fn": "init_callbacks",
+ "img": "fmacfw_h_u02",
+ "addr": "0x106450",
+ "seg": 2,
+ "key": "init_callbacks__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"apply_rf_table_adjustment\",\"confidence\":\"medium\",\"docstring\":\"Derives an adjustment from the input, reports saturation or SMA threshold violations, updates the indexed RF table entry, and loads its constant table.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_context\",\"a2\":\"input_value\",\"a3\":\"entry_index\",\"v9\":\"existing_entry\",\"v12\":\"computed_adjustment\",\"v13\":\"sma_threshold\"},\"struct_hints\":[{\"offset\":140,\"meaning\":\"Indexed RF table entry being adjusted\"},{\"offset\":164,\"meaning\":\"Adjustment baseline in the low 32 bits of the loaded 64-bit value\"},{\"offset\":168,\"meaning\":\"Saturation threshold in the high 32 bits of the loaded value\"},{\"offset\":172,\"meaning\":\"SMA threshold\"}]}"
+}

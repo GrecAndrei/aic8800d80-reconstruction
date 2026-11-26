@@ -1,0 +1,9 @@
+{
+ "fn": "ble_clear_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1342f4",
+ "seg": 51,
+ "key": "ble_clear_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_clear_state\",\"confidence\":\"high\",\"docstring\":\"Clears the BLE state block, dispatches two stored pointers through `tx_process_jump` when the first is nonzero, then invokes HCI preprocessing with selector 6.\",\"subsystem\":\"ble\",\"struct_hints\":[{\"offset\":7,\"meaning\":\"byte cleared during state reset\"},{\"offset\":16,\"meaning\":\"pointer checked for nonzero and passed to `tx_process_jump` after subtracting 12\"},{\"offset\":17,\"meaning\":\"byte cleared during state reset\"},{\"offset\":18,\"meaning\":\"16-bit field cleared during state reset\"},{\"offset\":20,\"meaning\":\"pointer passed to `tx_process_jump` after subtracting 12 when offset 16 is nonzero\"}]}"
+}

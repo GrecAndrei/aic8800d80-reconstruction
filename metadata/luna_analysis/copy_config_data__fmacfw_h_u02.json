@@ -1,0 +1,9 @@
+{
+ "fn": "copy_config_data",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1229e8",
+ "seg": 26,
+ "key": "copy_config_data__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"copy_config_data\",\"confidence\":\"medium\",\"docstring\":\"Copies 69 bytes from the supplied buffer into a global buffer, then writes a header word using the remaining arguments.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"source_data\"}}"
+}

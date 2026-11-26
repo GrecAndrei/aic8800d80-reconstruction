@@ -1,0 +1,9 @@
+{
+ "fn": "hci_buffer_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12b3e8",
+ "seg": 39,
+ "key": "hci_buffer_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_get_event_buffer\",\"confidence\":\"medium\",\"docstring\":\"Returns the event payload, using an alternate buffer when bits 0 or 2 are set in the event header byte at offset 3.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"hci_event\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"Event header byte whose bits 0 and 2 select the alternate buffer\"},{\"offset\":20,\"meaning\":\"Pointer to the alternate event buffer\"}]}"
+}

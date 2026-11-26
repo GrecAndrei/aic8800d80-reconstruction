@@ -1,0 +1,9 @@
+{
+ "fn": "bt_patch_set_delay",
+ "img": "fmacfw_u02",
+ "addr": "0x134df0",
+ "seg": 52,
+ "key": "bt_patch_set_delay__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_dispatch_conn_state_or_hci_buffer_init\",\"confidence\":\"medium\",\"docstring\":\"Calls the connection-state getter when the control byte at offset 4 is nonzero, otherwise calls the HCI-buffer initializer.\",\"subsystem\":\"bt\"}"
+}

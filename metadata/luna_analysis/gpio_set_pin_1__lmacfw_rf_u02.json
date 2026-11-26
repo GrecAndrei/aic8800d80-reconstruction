@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_pin_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10db90",
+ "seg": 2,
+ "key": "gpio_set_pin_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_set_pin\",\"confidence\":\"medium\",\"docstring\":\"Sets a single GPIO output bit by ORing a bit mask for the given pin number into the GPIO data/set register.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"pin\",\"result\":\"reg_val\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"word offset to the GPIO data/set register within the GPIO register block\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "calc_channel_rate",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12adc8",
+ "seg": 38,
+ "key": "calc_channel_rate__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"calc_channel_rate\",\"confidence\":\"medium\",\"docstring\":\"Computes a scaled rate from the two input values, stores it (or 1 if the result is zero) in the indexed 32-byte channel record, and returns that record.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"channel_index\",\"v4\":\"calculated_rate\",\"result\":\"channel_entry\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Stored calculated channel-rate value\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llm_env_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11831c",
+ "seg": 11,
+ "key": "llm_env_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"llm_env_init\", \"confidence\": \"medium\", \"docstring\": \"Initializes the LLM environment by clearing its 40-byte global state and reinitializing five embedded member objects.\", \"subsystem\": \"ble\", \"var_renames\": {\"v0\": \"env_ptr\"}}"
+}

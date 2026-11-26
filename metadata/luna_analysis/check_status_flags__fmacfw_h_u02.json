@@ -1,0 +1,9 @@
+{
+ "fn": "check_status_flags",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11a6f8",
+ "seg": 14,
+ "key": "check_status_flags__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"normalize_rx_status\",\"confidence\":\"medium\",\"docstring\":\"When status bits 14\u201316 are clear, rewrites the encoded status class and refreshes the auxiliary status byte from a class-indexed table.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"original_status\",\"v3\":\"status_subcode\",\"v4\":\"class_flag_bits\",\"v5\":\"table_entry_offset\",\"v6\":\"auxiliary_word\",\"v7\":\"table_entry_address\"},\"struct_hints\":[{\"offset\":198,\"meaning\":\"Table byte copied into bits 8\u201315 of the auxiliary word; the selected entry may be at offset 198, 202, or 206.\"}]}"
+}

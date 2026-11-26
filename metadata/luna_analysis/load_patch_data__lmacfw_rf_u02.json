@@ -1,0 +1,9 @@
+{
+ "fn": "load_patch_data",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103eb4",
+ "seg": 2,
+ "key": "load_patch_data__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_load_patch_data\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Loads an RF calibration/patch data block into the radio hardware by setting mode and address registers and polling the transfer completion status.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_ctrl_base\",\n    \"v1\": \"rf_mode_reg\",\n    \"v2\": \"patch_value\",\n    \"v3\": \"saved_rf_state\",\n    \"v4\": \"patch_addr_reg\",\n    \"v5\": \"patch_status_reg\"\n  }\n}"
+}

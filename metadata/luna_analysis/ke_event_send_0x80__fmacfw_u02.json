@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_send_0x80",
+ "img": "fmacfw_u02",
+ "addr": "0x114d64",
+ "seg": 6,
+ "key": "ke_event_send_0x80__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_event_send_0x80\",\"confidence\":\"medium\",\"docstring\":\"Forwards its argument to the kernel task handler with selector 64 and a four-byte payload size.\",\"subsystem\":\"ke\"}"
+}

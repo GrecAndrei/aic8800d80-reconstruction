@@ -1,0 +1,9 @@
+{
+ "fn": "rf_analog_ctrl_set",
+ "img": "fmacfw_u02",
+ "addr": "0x10e83c",
+ "seg": 3,
+ "key": "rf_analog_ctrl_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_pa_current_calibrate\",\"confidence\":\"high\",\"docstring\":\"Adjusts the RF RES and CGM analog codes in single-count steps to bring measured PA current toward its target, returning the RES-code offset and writing the chosen CGM code through the output pointer.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"initial_res_code\",\"a2\":\"initial_cgm_code\",\"a3\":\"cgm_code_out\",\"v3\":\"cgm_code\",\"v8\":\"target_pa_current_ptr\",\"v9\":\"measured_pa_current\",\"v10\":\"target_pa_current\",\"v13\":\"res_code\",\"v14\":\"remaining_steps\",\"v15\":\"previous_pa_current\",\"v20\":\"res_code_offset\",\"v21\":\"initial_res_code_saved\",\"v22\":\"initial_total_code\",\"v23\":\"adjustment_direction\",\"v24\":\"previous_res_code\",\"v25\":\"previous_cgm_code\"},\"struct_hints\":[]}"
+}

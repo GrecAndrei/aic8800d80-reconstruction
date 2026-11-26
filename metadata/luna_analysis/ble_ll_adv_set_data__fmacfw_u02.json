@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_adv_set_data",
+ "img": "fmacfw_u02",
+ "addr": "0x140204",
+ "seg": 63,
+ "key": "ble_ll_adv_set_data__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_event_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a BLE connection event by handling transmit and receive PDUs and updating connection-event state.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"connection_index\",\"v2\":\"event_context\",\"v3\":\"connection_table\",\"v4\":\"connection_context\",\"v7\":\"tick_state\",\"v11\":\"connection_entry\",\"v14\":\"tx_result\",\"v15\":\"event_counter\"},\"struct_hints\":[{\"offset\":29,\"meaning\":\"Connection-table index in the event context\"},{\"offset\":36,\"meaning\":\"Event flags; bit 0x200000 controls connection-event behavior\"},{\"offset\":54,\"meaning\":\"Event status or result byte\"},{\"offset\":0,\"meaning\":\"Last connection-event tick in the connection context\"},{\"offset\":166,\"meaning\":\"Connection-context flags\"},{\"offset\":167,\"meaning\":\"Two-bit event counter\"},{\"offset\":168,\"meaning\":\"Connection-event status bits\"},{\"offset\":340,\"meaning\":\"Connection-context pointer in a connection-table entry\"},{\"offset\":350,\"meaning\":\"Connection-entry event flags\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_init_structures",
+ "img": "fmacfwbt_u02",
+ "addr": "0x116188",
+ "seg": 7,
+ "key": "ke_init_structures__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_main_loop\",\"confidence\":\"medium\",\"docstring\":\"Initializes runtime chip state, enables interrupts, and continuously dispatches kernel events while servicing receive-buffer and link-layer work.\",\"subsystem\":\"ke\",\"struct_hints\":[{\"offset\":3,\"meaning\":\"Byte flag controlling hardware-sync writes and related hardware-flag clearing.\"},{\"offset\":4,\"meaning\":\"16-bit startup value passed to init_chip_state.\"},{\"offset\":6,\"meaning\":\"Byte mode/state field set to 2 when the external mode is 2.\"},{\"offset\":8,\"meaning\":\"Optional 16-bit value passed to periph_field_set.\"}]}"
+}

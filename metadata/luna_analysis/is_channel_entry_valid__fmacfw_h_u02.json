@@ -1,0 +1,9 @@
+{
+ "fn": "is_channel_entry_valid",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12aa40",
+ "seg": 37,
+ "key": "is_channel_entry_valid__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_channel_entry_code\",\"confidence\":\"medium\",\"docstring\":\"Returns zero if the entry marker at offset 113 is 0xFF or the gate at offset 132 is zero; otherwise returns the 8-bit value 13 times the byte at offset 136 plus 11.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"entry_index\",\"v1\":\"entry\"},\"struct_hints\":[{\"offset\":113,\"meaning\":\"Entry marker; 0xFF causes the entry to be rejected.\"},{\"offset\":132,\"meaning\":\"Nonzero gate required to produce a code.\"},{\"offset\":136,\"meaning\":\"Byte transformed into the returned code as 13*x+11.\"}]}"
+}

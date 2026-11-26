@@ -1,0 +1,9 @@
+{
+ "fn": "ll_data_handler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x125f58",
+ "seg": 23,
+ "key": "ll_data_handler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"handle_set_country_code\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a set-country-code request by requiring a two-character code from the supported list, copying it to the global regulatory buffer, and writing it to radio state when the related status bit is clear.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"country_code_ptr\",\n    \"v5\": \"country_code_len\",\n    \"a2a\": \"country_code_str\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"pointer to the supplied country-code string at a2 + 4\"\n    }\n  ]\n}"
+}

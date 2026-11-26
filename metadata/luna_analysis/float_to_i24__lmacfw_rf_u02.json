@@ -1,0 +1,9 @@
+{
+ "fn": "float_to_i24",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127228",
+ "seg": 23,
+ "key": "float_to_i24__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"float_floor\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Round a raw IEEE-754 single-precision float toward negative infinity, producing an integer-valued float by clearing the mantissa fractional bits.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"f_bits\",\n    \"v1\": \"exp\",\n    \"v3\": \"abs_bits\",\n    \"v4\": \"result_bits\",\n    \"v5\": \"frac_mask\"\n  },\n  \"struct_hints\": []\n}"
+}

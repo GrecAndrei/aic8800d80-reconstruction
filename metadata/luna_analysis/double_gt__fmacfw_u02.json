@@ -1,0 +1,9 @@
+{
+ "fn": "double_gt",
+ "img": "fmacfw_u02",
+ "addr": "0x142fc8",
+ "seg": 68,
+ "key": "double_gt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_gt\",\"confidence\":\"high\",\"docstring\":\"Returns whether the first double-precision operand is greater than the second using ARM EABI comparison semantics.\",\"subsystem\":\"libmisc\"}"
+}

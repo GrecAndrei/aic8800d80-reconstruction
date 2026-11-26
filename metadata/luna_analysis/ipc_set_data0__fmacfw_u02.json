@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_set_data0",
+ "img": "fmacfw_u02",
+ "addr": "0x12ea2c",
+ "seg": 42,
+ "key": "ipc_set_data0__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_set_data0\",\"confidence\":\"high\",\"docstring\":\"Writes a value to IPC data register 0 and returns the written value.\",\"subsystem\":\"ipc\"}"
+}

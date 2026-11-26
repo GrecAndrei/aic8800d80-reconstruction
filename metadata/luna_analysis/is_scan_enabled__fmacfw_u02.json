@@ -1,0 +1,9 @@
+{
+ "fn": "is_scan_enabled",
+ "img": "fmacfw_u02",
+ "addr": "0x1102bc",
+ "seg": 3,
+ "key": "is_scan_enabled__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"is_scan_enabled\",\"confidence\":\"medium\",\"docstring\":\"Returns the shared scan-state word after reading it under the IRQ-nesting lock.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"irq_lock_nesting_count\",\"v1\":\"state_word_address\",\"result\":\"scan_state\"}}"
+}

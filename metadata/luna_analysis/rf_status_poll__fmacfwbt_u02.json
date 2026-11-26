@@ -1,0 +1,9 @@
+{
+ "fn": "rf_status_poll",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125ae4",
+ "seg": 31,
+ "key": "rf_status_poll__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_link_poll\",\"confidence\":\"medium\",\"docstring\":\"Scans linked Bluetooth link contexts to process TX completions, link activity, and BLE event dispatch.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"link_ctx\",\"v1\":\"status_blk\",\"v3\":\"tick_ptr\",\"v4\":\"now_ticks\",\"v5\":\"event_count\",\"v7\":\"link_active\",\"v8\":\"event_sent\",\"v9\":\"active_count\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"link_ctx: next pointer in connection list\"},{\"offset\":106,\"meaning\":\"link_ctx: connection state byte, required to be 2\"},{\"offset\":108,\"meaning\":\"link_ctx: TX-valid/enable byte\"},{\"offset\":116,\"meaning\":\"link_ctx: BLE event dispatch context\"},{\"offset\":144,\"meaning\":\"link_ctx: saved activity byte from offset 107\"},{\"offset\":145,\"meaning\":\"link_ctx: activity reset byte\"},{\"offset\":224,\"meaning\":\"link_ctx: queue/head or activity index compared with offset 225\"},{\"offset\":225,\"meaning\":\"link_ctx: queue/tail or activity index compared with offset 224\"},{\"offset\":226,\"meaning\":\"link_ctx: link ready/active byte\"},{\"offset\":4,\"meaning\":\"status_blk: active event/link counter word\"},{\"offset\":8,\"meaning\":\"status_blk: processed/poll flag byte\"},{\"offset\":9,\"meaning\":\"status_blk: pending event flag byte\"}]}"
+}

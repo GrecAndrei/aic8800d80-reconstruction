@@ -1,0 +1,9 @@
+{
+ "fn": "get_bss_by_index",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11fa78",
+ "seg": 21,
+ "key": "get_bss_by_index__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"unregister_vif_by_index\",\"confidence\":\"high\",\"docstring\":\"Tears down the indexed virtual interface, clears its current-interface reference, and cleans up per-channel state.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"vif_index\",\"v3\":\"vif_entry\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Interface state byte; value 2 selects the teardown path.\"}]}"
+}

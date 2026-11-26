@@ -1,0 +1,9 @@
+{
+ "fn": "bt_encrypt_wrap",
+ "img": "fmacfwbt_u02",
+ "addr": "0x104c38",
+ "seg": 2,
+ "key": "bt_encrypt_wrap__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_temperature_calibration_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a temperature delta and floating-point calibration values, logging the temperature reading and scaled vector components.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"temp_delta_integer\",\"v7\":\"temperature_reading\",\"v15\":\"x2_scaled_milli\",\"v20\":\"x1_scaled_milli\",\"v22\":\"x0_scaled_milli\"}}"
+}

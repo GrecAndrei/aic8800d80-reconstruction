@@ -1,0 +1,9 @@
+{
+ "fn": "list_pop_front",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d4f8",
+ "seg": 42,
+ "key": "list_pop_front__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"list_pop_front\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Remove and return the first node from a singly linked list whose head and tail are stored in the provided list control block.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"list\",\n    \"v1\": \"popped_node\",\n    \"v2\": \"tail\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"list head pointer or node next pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"list tail pointer\"\n    }\n  ]\n}"
+}

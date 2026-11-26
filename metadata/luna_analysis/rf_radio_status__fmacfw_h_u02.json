@@ -1,0 +1,9 @@
+{
+ "fn": "rf_radio_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12bc00",
+ "seg": 39,
+ "key": "rf_radio_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_is_radio_ready\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the radio is ready based on its status bit and timing state, disabling pending interrupts in specific timing windows.\",\"subsystem\":\"rf\"}"
+}

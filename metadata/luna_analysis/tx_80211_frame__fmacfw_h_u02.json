@@ -1,0 +1,9 @@
+{
+ "fn": "tx_80211_frame",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11d1e0",
+ "seg": 20,
+ "key": "tx_80211_frame__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_handle_80211_frame\",\"confidence\":\"medium\",\"docstring\":\"Handles an incoming 802.11 frame by validating its receive metadata and resolving key state indicated by the RX status.\",\"subsystem\":\"rx\",\"var_renames\":{\"v2\":\"first_pbd\",\"v5\":\"frame_header\",\"v6\":\"frame_control\",\"v7\":\"rx_status_flags\",\"v11\":\"key_slot_index\",\"v12\":\"key_entry\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Pointer to the first RX packet buffer descriptor\"},{\"offset\":84,\"meaning\":\"RX status and security flags\"}]}"
+}

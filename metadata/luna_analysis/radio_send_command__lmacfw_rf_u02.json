@@ -1,0 +1,9 @@
+{
+ "fn": "radio_send_command",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c9a4",
+ "seg": 19,
+ "key": "radio_send_command__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_scan_start_req_enqueue\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks the RF/scan command state, rejects scan-start requests with status 8 when busy, otherwise stores the request context and enqueues the scan-start command while sending a status message.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"scan_req\",\n    \"v6\": \"resp_msg\",\n    \"v8\": \"scan_cmd_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"scan request/context pointer stored in the pending scan command structure\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"16-bit scan request parameter or identifier stored in the pending scan command structure\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"byte flag cleared in the pending scan command structure\"\n    }\n  ]\n}"
+}

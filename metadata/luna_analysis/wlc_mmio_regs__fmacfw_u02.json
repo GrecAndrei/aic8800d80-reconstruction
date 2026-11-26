@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_mmio_regs",
+ "img": "fmacfw_u02",
+ "addr": "0x129394",
+ "seg": 34,
+ "key": "wlc_mmio_regs__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_ps_upm_enter\",\"confidence\":\"medium\",\"docstring\":\"Configures MMIO power-management registers and selects the UPM entry sequence based on the current state.\",\"subsystem\":\"hal\",\"var_renames\":{\"v9\":\"upm_state\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_poll",
+ "img": "fmacfw_u02",
+ "addr": "0x1267e0",
+ "seg": 32,
+ "key": "ke_task_poll__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_ctrl_cmd_queue_drain\",\"confidence\":\"medium\",\"docstring\":\"When pending work is present, clears a controller-context field and repeatedly dispatches pending command entries until none remain.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"ctrl_context\",\"v2\":\"pending_cmd\",\"v3\":\"dispatch_context\",\"v4\":\"pending_cmd_ptr\",\"a2\":\"first_pending_cmd\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"context passed to the command dispatcher\"},{\"offset\":32,\"meaning\":\"pointer to the pending item, re-read after each dispatch\"},{\"offset\":72,\"meaning\":\"field cleared before processing pending items, likely a dispatch or status flag\"}]}"
+}

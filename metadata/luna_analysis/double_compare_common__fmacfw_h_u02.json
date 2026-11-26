@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare_common",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142968",
+ "seg": 68,
+ "key": "double_compare_common__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_multiply\",\"confidence\":\"high\",\"docstring\":\"Multiplies two IEEE-754 binary64 values using the ARM EABI double-precision helper.\",\"subsystem\":\"libmisc\"}"
+}

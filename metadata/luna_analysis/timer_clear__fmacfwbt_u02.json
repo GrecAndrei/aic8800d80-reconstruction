@@ -1,0 +1,9 @@
+{
+ "fn": "timer_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f710",
+ "seg": 43,
+ "key": "timer_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_clear\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears an 8-byte timer state at a global address and reinitializes its 64-bit value with the 33-bit mask 0x2FFFFFFFF.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"timer_state_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"64-bit timer state/reset value, zeroed then written with 0x2FFFFFFFF\"\n    }\n  ]\n}"
+}

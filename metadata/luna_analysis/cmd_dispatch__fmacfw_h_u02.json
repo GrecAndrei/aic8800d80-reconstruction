@@ -1,0 +1,9 @@
+{
+ "fn": "cmd_dispatch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x124b74",
+ "seg": 29,
+ "key": "cmd_dispatch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_vendor_command\",\"confidence\":\"medium\",\"docstring\":\"Dispatches recognized vendor command opcodes using the request payload, then writes a command-response header.\",\"subsystem\":\"hal\",\"var_renames\":{\"a2\":\"request\",\"v6\":\"ap_ps_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"command opcode\"},{\"offset\":4,\"meaning\":\"opcode-specific payload\"}]}"
+}

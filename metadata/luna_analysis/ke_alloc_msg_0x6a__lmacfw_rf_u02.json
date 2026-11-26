@@ -1,0 +1,9 @@
+{
+ "fn": "ke_alloc_msg_0x6a",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11954c",
+ "seg": 13,
+ "key": "ke_alloc_msg_0x6a__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_send_xtal_cap_msg\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates an RF calibration message, resolves crystal coarse/fine capacitance from efuse/register/user configuration, programs XTAL tuning bits, and hands the filled message to the rx event handler.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v5\": \"xtal_msg\",\n    \"a2\": \"xtal_user_cfg\",\n    \"v6\": \"xtal_coarse_cap\",\n    \"v7\": \"xtal_fine_cap\",\n    \"v8\": \"xtal_ftune_val\",\n    \"v9\": \"message_payload64\",\n    \"v10\": \"message_data_ptr\",\n    \"v12\": \"xtal_fine_cap\",\n    \"v13\": \"xtal_fine_reg_field\",\n    \"_frame.a1a\": \"xtal_cap_packed\",\n    \"_frame.a3a\": \"xtal_reg_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"message buffer first word, assigned a pointer or payload word before rx_irq_handler_1\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"64-bit message payload assembled from globals off_119674/off_119678\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"32-bit message field copied from off_11967C\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"user-supplied xtal coarse capacitance byte\"\n    },\n    {\n      \"offset\": 21,\n      \"meaning\": \"user-supplied xtal fine capacitance byte\"\n    }\n  ]\n}"
+}

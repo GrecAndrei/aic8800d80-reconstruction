@@ -1,0 +1,9 @@
+{
+ "fn": "ll_ccm_decrypt",
+ "img": "fmacfw_u02",
+ "addr": "0x13b390",
+ "seg": 59,
+ "key": "ll_ccm_decrypt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_rf_channel_param_lookup\",\"confidence\":\"low\",\"docstring\":\"Calls the RF channel-parameter accessor with the third argument shifted right by eight, then returns zero; no decryption work is visible.\",\"subsystem\":\"ble\"}"
+}

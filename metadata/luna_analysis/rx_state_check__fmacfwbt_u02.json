@@ -1,0 +1,9 @@
+{
+ "fn": "rx_state_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1196a4",
+ "seg": 13,
+ "key": "rx_state_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"vif_scan_probe_send\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Validates the virtual interface type and allocates, fills, and dispatches a scan probe event from the per-channel probe buffer.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"vif\",\n    \"a2\": \"mac_addr\",\n    \"v3\": \"scan_ctx\",\n    \"v6\": \"scan_ctx_state\",\n    \"v7\": \"event_type\",\n    \"v8\": \"probe_len_table\",\n    \"v9\": \"event\",\n    \"v10\": \"event\",\n    \"v11\": \"event_payload\",\n    \"v12\": \"seq_counter_ptr\",\n    \"v13\": \"seq_counter\",\n    \"v14\": \"vif_aux16\",\n    \"v15\": \"vif_aux32\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"uint8 virtual interface type; expected value 2\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"uint8 channel or scan index selecting the probe buffer\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"pointer to scan/probe context\"\n    },\n    {\n      \"offset\": 100,\n      \"meaning\": \"32-bit virtual-interface field copied into the event payload\"\n    },\n    {\n      \"offset\": 104,\n      \"meaning\": \"16-bit virtual-interface field copied into the event payload\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"state/flag byte ORed with scan context state to derive event_type\"\n    }\n  ]\n}"
+}

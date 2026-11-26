@@ -1,0 +1,9 @@
+{
+ "fn": "util_format",
+ "img": "fmacfw_u02",
+ "addr": "0x12c484",
+ "seg": 40,
+ "key": "util_format__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_poll_register\",\"confidence\":\"medium\",\"docstring\":\"Passes the input byte to the RF poll handler and writes its two output bytes into the low 16 bits of a hardware register.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"register_ptr\"}}"
+}

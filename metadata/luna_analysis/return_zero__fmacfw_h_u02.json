@@ -1,0 +1,9 @@
+{
+ "fn": "return_zero",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12cfbc",
+ "seg": 40,
+ "key": "return_zero__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"return_zero\",\"confidence\":\"high\",\"docstring\":\"Returns the constant value zero.\",\"subsystem\":\"libmisc\"}"
+}

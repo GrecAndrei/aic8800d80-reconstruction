@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_out_clear",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10db18",
+ "seg": 2,
+ "key": "gpio_out_clear__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"gpio_out_clear\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Clears the specified GPIO output bit in the mapped pin state register and returns the computed pin mask.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"pin\",\n    \"result\": \"pin_mask\"\n  }\n}"
+}

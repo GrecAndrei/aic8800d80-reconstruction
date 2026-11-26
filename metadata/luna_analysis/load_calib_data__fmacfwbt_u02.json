@@ -1,0 +1,9 @@
+{
+ "fn": "load_calib_data",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114f5c",
+ "seg": 6,
+ "key": "load_calib_data__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calib_data_load\",\"confidence\":\"medium\",\"docstring\":\"Loads a selected packed calibration word, decodes its three signed values into the output buffer, and returns per-value status codes.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"calibration_index\",\"a2\":\"output_values\",\"v5\":\"packed_calibration\",\"v6\":\"value_index\",\"v7\":\"value_status_codes\",\"v8\":\"encoded_byte\",\"v9\":\"decoded_value\",\"v10\":\"encoded_component\",\"v11\":\"sign_multiplier\",\"v12\":\"output_byte\"}}"
+}

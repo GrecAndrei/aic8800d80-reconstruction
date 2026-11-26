@@ -1,0 +1,9 @@
+{
+ "fn": "rf_map_channel",
+ "img": "fmacfwbt_u02",
+ "addr": "0x130514",
+ "seg": 43,
+ "key": "rf_map_channel__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_update_channel_deltas\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Computes and stores per-channel RF calibration deltas by comparing the requested and current channel entries in the radio calibration tables.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"channel\",\n    \"v1\": \"rf_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"current channel index\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"calibration delta 0\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"calibration delta 1\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"calibration delta 2\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"alternate calibration delta 0\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"alternate calibration delta 1\"\n    },\n    {\n      \"offset\": 13,\n      \"meaning\": \"alternate calibration delta 2\"\n    }\n  ]\n}"
+}

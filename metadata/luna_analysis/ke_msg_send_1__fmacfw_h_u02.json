@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_send_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1357f0",
+ "seg": 53,
+ "key": "ke_msg_send_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_ext_auth_state\",\"confidence\":\"medium\",\"docstring\":\"Selects the zero-state path or logs and forwards a nonzero external-authentication state.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"ext_auth_state\"}}"
+}

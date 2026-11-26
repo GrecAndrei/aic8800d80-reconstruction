@@ -1,0 +1,9 @@
+{
+ "fn": "get_buffer_size",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f514",
+ "seg": 42,
+ "key": "get_buffer_size__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_buffer_size\",\"confidence\":\"medium\",\"docstring\":\"Returns the fixed buffer size of 1024 bytes.\",\"subsystem\":\"rf\"}"
+}

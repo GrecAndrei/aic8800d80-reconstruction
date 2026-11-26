@@ -1,0 +1,9 @@
+{
+ "fn": "ioctl_cmd_4",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115388",
+ "seg": 7,
+ "key": "ioctl_cmd_4__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ioctl_cmd_4\",\"confidence\":\"high\",\"docstring\":\"Dispatches ioctl command 4 with the supplied argument buffer and a 0x14-byte payload.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"arg_buffer\"}}"
+}

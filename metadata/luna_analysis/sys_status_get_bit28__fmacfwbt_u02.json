@@ -1,0 +1,9 @@
+{
+ "fn": "sys_status_get_bit28",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1018c4",
+ "seg": 0,
+ "key": "sys_status_get_bit28__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sys_status_get_bit28\",\"confidence\":\"high\",\"docstring\":\"Returns bit 28 of the system status register.\",\"subsystem\":\"hal\"}"
+}

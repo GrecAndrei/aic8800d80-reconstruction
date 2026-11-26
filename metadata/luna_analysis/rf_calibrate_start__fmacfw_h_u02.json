@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibrate_start",
+ "img": "fmacfw_h_u02",
+ "addr": "0x105270",
+ "seg": 2,
+ "key": "rf_calibrate_start__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibrate_start\",\"confidence\":\"low\",\"docstring\":\"Runs an RF calibration routine using the supplied arguments and calibration data.\",\"subsystem\":\"rf\"}"
+}

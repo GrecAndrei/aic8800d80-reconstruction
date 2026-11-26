@@ -1,0 +1,9 @@
+{
+ "fn": "abs_i32",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12bb80",
+ "seg": 39,
+ "key": "abs_i32__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_adjust_timebase\",\"confidence\":\"medium\",\"docstring\":\"Validates and applies a signed adjustment to the RF timebase value while protecting the register update with interrupt-state handling.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"adjustment_magnitude\",\"v6\":\"current_timebase_value\",\"v10\":\"adjusted_timebase_value\"}}"
+}

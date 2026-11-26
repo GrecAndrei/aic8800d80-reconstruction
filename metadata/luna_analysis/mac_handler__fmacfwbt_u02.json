@@ -1,0 +1,9 @@
+{
+ "fn": "mac_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125cd4",
+ "seg": 32,
+ "key": "mac_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"mac_cmd_complete_handler\", \"confidence\": \"medium\", \"docstring\": \"Completes a queued MAC/WLC command by updating the outstanding-command count, issuing the HCI completion event, performing BSSCFG teardown if requested, and flushing TX/RX/timer work.\", \"subsystem\": \"mac\", \"var_renames\": {\"v1\": \"mac_ctx\", \"v2\": \"pending_count\", \"v3\": \"msg_ptr\", \"v4\": \"remaining_count\", \"v5\": \"bsscfg_table\", \"v15\": \"cmd_complete_flag_ptr\", \"v16\": \"ifidx\", \"v17\": \"queue_flush_flag_ptr\", \"v18\": \"rx_list_ptr\", \"i\": \"tx_qid\", \"v20\": \"bsscfg_ptr\", \"v23\": \"evt_buf\", \"v24\": \"target_bsscfg\", \"v19\": \"rx_frame_ptr\", \"v22\": \"tx_frame\", \"v25\": \"unexpected_tx_frame\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"mac_ctx timer/list pointer\"}, {\"offset\": 4, \"meaning\": \"pending command count\"}, {\"offset\": 10, \"meaning\": \"timer work pending flag\"}, {\"offset\": 12, \"meaning\": \"RX work pending count or list indicator\"}, {\"offset\": 20, \"meaning\": \"per-interface TX/power state byte base\"}, {\"offset\": 53, \"meaning\": \"BSSCFG flags; bit 2 checked before teardown\"}, {\"offset\": 54, \"meaning\": \"BSSCFG state byte\"}, {\"offset\": 107, \"meaning\": \"MAC message interface/index byte\"}, {\"offset\": 231, \"meaning\": \"MAC message status/trigger byte\"}, {\"offset\": 584, \"meaning\": \"BSSCFG TX frame list head/array base\"}, {\"offset\": 624, \"meaning\": \"BSSCFG secondary TX/pending frame list array\"}]}"
+}

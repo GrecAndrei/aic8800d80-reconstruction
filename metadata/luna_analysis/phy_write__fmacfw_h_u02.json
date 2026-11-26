@@ -1,0 +1,9 @@
+{
+ "fn": "phy_write",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13a840",
+ "seg": 59,
+ "key": "phy_write__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_pack_write_record\",\"confidence\":\"medium\",\"docstring\":\"Conditionally packs a PHY write payload into the supplied word buffer using the active PHY format and updates the associated state word.\",\"subsystem\":\"phy\",\"var_renames\":{\"v6\":\"record_start\",\"v7\":\"format_config\",\"v13\":\"state_word_ptr\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"byte-swapped channel specification used to suppress duplicate writes\"},{\"offset\":28,\"meaning\":\"index selecting the per-context PHY state\"},{\"offset\":29,\"meaning\":\"index selecting the PHY-format configuration\"},{\"offset\":56,\"meaning\":\"start of the format-dependent halfword write payload, continuing at offsets 58, 60, and 62\"},{\"offset\":96,\"meaning\":\"write-record format selector\"},{\"offset\":97,\"meaning\":\"format-specific tag inserted into the encoded record\"},{\"offset\":98,\"meaning\":\"value merged into the associated state word\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "handle_tx_descriptor",
+ "img": "fmacfw_u02",
+ "addr": "0x104618",
+ "seg": 2,
+ "key": "handle_tx_descriptor__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"packed_vector_to_phase\",\"confidence\":\"medium\",\"docstring\":\"Extracts two signed 12-bit components from the selected packed word and converts their quadrant-aware arctangent to a 12-bit phase value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"packed_components\",\"v4\":\"low_component\",\"v5\":\"high_component\",\"v6\":\"high_component_sign\",\"v7\":\"low_component_sign\",\"v8\":\"high_component_magnitude\",\"v9\":\"low_component_magnitude\"}}"
+}

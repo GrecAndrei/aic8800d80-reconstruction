@@ -1,0 +1,9 @@
+{
+ "fn": "rf_regf_mask_shift",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114194",
+ "seg": 5,
+ "key": "rf_regf_mask_shift__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_regf_write_first_clear_byte\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads RF register 0xF and writes the supplied value into the first clear lower byte lane, shifted by 0 or 8 bits, returning the selected lane or -1 when neither lane is clear.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"regf_old\",\n    \"v3\": \"shift\",\n    \"v4\": \"lane_result\"\n  }\n}"
+}

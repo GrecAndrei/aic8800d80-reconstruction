@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_0x40c",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1213a4",
+ "seg": 22,
+ "key": "rf_write_0x40c__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_write_0x40c\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a 0x40C RF write/memory-write message by copying the inline payload to the destination pointer, setting an alignment/status reply, dispatching an event on the written range, and sending the four-byte reply message.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v5\": \"reply\",\n    \"v6\": \"dest_ptr\",\n    \"v7\": \"dest_aligned\",\n    \"v8\": \"length\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"command destination pointer; low two bits checked for word alignment\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"payload byte count\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"event callback/context field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"inline payload data following the command descriptor\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "poll_rf_register_done",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122180",
+ "seg": 24,
+ "key": "poll_rf_register_done__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"extend_rf_poll_deadlines\",\"confidence\":\"medium\",\"docstring\":\"Adds 15000 to each of six RF polling deadline entries selected by a global bitmask and returns the deadline array base.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"poll_mask_ptr\",\"result\":\"deadline_array\",\"i\":\"entry_index\"}}"
+}

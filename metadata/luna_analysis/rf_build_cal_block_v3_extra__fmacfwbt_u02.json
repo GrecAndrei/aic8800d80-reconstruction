@@ -1,0 +1,9 @@
+{
+ "fn": "rf_build_cal_block_v3_extra",
+ "img": "fmacfwbt_u02",
+ "addr": "0x130f68",
+ "seg": 43,
+ "key": "rf_build_cal_block_v3_extra__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_build_cal_block_type3\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Constructs a fixed 9-byte RF calibration block of type 3 from caller fields, masks the supplied 16-bit value according to a global calibration-table flag, and conditionally fills a trailing 16-bit field from a source structure.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cal_block\",\n    \"a2\": \"cal_source\",\n    \"a3\": \"cal_value_u16\",\n    \"a4\": \"cal_byte_field\",\n    \"a5\": \"cal_word_field\",\n    \"v5\": \"rf_cal_global\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"destination calibration block type byte (always 3)\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"destination calibration block subtype/version byte (always 1)\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"destination calibration block caller-supplied byte field\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"destination calibration block caller-supplied 16-bit field/selector\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"destination calibration block 16-bit value; LSB forced clear when rf_cal_global[371] is zero\"\n    },\n    {\n      \"offset\": 7,\n      \"meaning\": \"destination calibration block 16-bit auxiliary field; zeroed when offset-3 field is nonzero, otherwise copied from source offset 14\"\n    },\n    {\n      \"offset\": 371,\n      \"meaning\": \"rf_cal_global flag byte controlling the LSB mask of cal_value_u16\"\n    }\n  ]\n}"
+}

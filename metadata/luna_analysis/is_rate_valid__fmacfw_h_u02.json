@@ -1,0 +1,9 @@
+{
+ "fn": "is_rate_valid",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13a3c4",
+ "seg": 58,
+ "key": "is_rate_valid__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"is_rate_valid\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the selected rate-table entry has a zero value in its 16-bit field at offset 76.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[{\"offset\":76,\"meaning\":\"16-bit per-entry field tested for zero as the rate-validity condition\"}]}"
+}

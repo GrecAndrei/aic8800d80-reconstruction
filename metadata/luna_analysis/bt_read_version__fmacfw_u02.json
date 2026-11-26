@@ -1,0 +1,9 @@
+{
+ "fn": "bt_read_version",
+ "img": "fmacfw_u02",
+ "addr": "0x13641c",
+ "seg": 55,
+ "key": "bt_read_version__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_read_remote_version_req_handler\",\"confidence\":\"medium\",\"docstring\":\"Handles a Bluetooth remote-version request by checking the indexed link and starting the version exchange, or sending a failure response when the link is unavailable.\",\"subsystem\":\"bt\",\"var_renames\":{\"v7\":\"conn_ctx\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Per-link state; the handler requires value 2.\"},{\"offset\":108,\"meaning\":\"Per-link eligibility flag; the handler requires it to be nonzero.\"}]}"
+}

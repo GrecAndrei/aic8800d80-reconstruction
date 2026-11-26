@@ -1,0 +1,9 @@
+{
+ "fn": "mem_pool_init",
+ "img": "fmacfw_u02",
+ "addr": "0x117bbc",
+ "seg": 10,
+ "key": "mem_pool_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init\",\"confidence\":\"medium\",\"docstring\":\"Configures five RF transmit entries, locks the PLL and processes radio completion, then resets associated records and a fixed-size pool.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_context_base\",\"v1\":\"tx_config_cursor\",\"v2\":\"rf_record_cursor\",\"v3\":\"temp_record_cursor\",\"v4\":\"rf_setup_record_cursor\",\"v5\":\"temp_config_cursor\",\"v6\":\"config_index\",\"v8\":\"rf_record_end\",\"v10\":\"saved_context_field\",\"v13\":\"connection_context\",\"v14\":\"pool_boundary\",\"v16\":\"pool_zero_cursor\",\"v17\":\"temp_record_array\",\"i\":\"radio_index\"},\"struct_hints\":[{\"offset\":508,\"meaning\":\"16-bit context field preserved across a bulk clear\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_pdu_process",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131820",
+ "seg": 44,
+ "key": "rx_pdu_process__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"llc_conn_rx_pdu_process\", \"confidence\": \"medium\", \"docstring\": \"Processes a received Bluetooth link-layer PDU by updating the LLC connection context state and forwarding the result as HCI events.\", \"subsystem\": \"ble\", \"var_renames\": {\"v4\": \"conn_handle\", \"v7\": \"conn_ctx\", \"v8\": \"local_role\", \"v10\": \"hci_evt_buf\"}, \"struct_hints\": [{\"offset\": 34, \"meaning\": \"local_role\"}, {\"offset\": 52, \"meaning\": \"connection_state\"}]}"
+}

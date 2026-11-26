@@ -1,0 +1,9 @@
+{
+ "fn": "poll_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a18c",
+ "seg": 37,
+ "key": "poll_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_offset_poll\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates and initializes one of two RF channel-offset polling descriptors for the specified channel/offset index, sets ready flags, optionally marks the offset table entry active, and returns the descriptor slot or 0xff if no slot is free.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"rf_channel_table_base\",\n    \"v5\": \"slot_index\",\n    \"v7\": \"slot_ptr\",\n    \"v12\": \"slot_ptr\",\n    \"v13\": \"rf_channel_entry_base\",\n    \"v14\": \"poll_sequence_byte_ptr\",\n    \"v15\": \"rf_channel_entry_ptr\",\n    \"v16\": \"rf_channel_entry_flags\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 112,\n      \"meaning\": \"polling mode or operation parameter\"\n    },\n    {\n      \"offset\": 113,\n      \"meaning\": \"channel/offset index, or 0xff when the slot is free\"\n    },\n    {\n      \"offset\": 66,\n      \"meaning\": \"ready/pending flag\"\n    },\n    {\n      \"offset\": 133,\n      \"meaning\": \"ready/pending flag\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"pointer to descriptor sub-object at offset 48\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"self/descriptor pointer\"\n    },\n    {\n      \"offset\": 104,\n      \"meaning\": \"self/descriptor pointer\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "util_store_u16_return_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x130a54",
+ "seg": 43,
+ "key": "util_store_u16_return_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_write_u16\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Writes a 16-bit value to the supplied volatile destination and returns the consumed size (2).\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"dest\",\n    \"a2\": \"value\"\n  },\n  \"struct_hints\": []\n}"
+}

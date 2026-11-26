@@ -1,0 +1,9 @@
+{
+ "fn": "btm_get_conn_entry",
+ "img": "fmacfw_h_u02",
+ "addr": "0x119d88",
+ "seg": 13,
+ "key": "btm_get_conn_entry__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"btm_process_conn_entry\",\"confidence\":\"medium\",\"docstring\":\"Processes the indexed BTM connection entry, updating its link and ACL state and dispatching state-dependent event or PHY work.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"connection_index\",\"v2\":\"entry\",\"v3\":\"link_context\",\"v4\":\"acl_record\",\"v13\":\"rate_limit_arg\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"pointer to the associated ACL record\"},{\"offset\":52,\"meaning\":\"pointer to the per-link context\"},{\"offset\":77,\"meaning\":\"entry state byte; value 1 selects the pending-event path\"},{\"offset\":78,\"meaning\":\"byte passed as an ACL update parameter\"},{\"offset\":34,\"meaning\":\"link-context connection identifier\"},{\"offset\":36,\"meaning\":\"link-context status flags\"},{\"offset\":82,\"meaning\":\"link-context event/status flags\"}]}"
+}

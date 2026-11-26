@@ -1,0 +1,9 @@
+{
+ "fn": "load_multiple_globals",
+ "img": "fmacfw_u02",
+ "addr": "0x114748",
+ "seg": 5,
+ "key": "load_multiple_globals__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"log_interrupt_and_stack_state\",\"confidence\":\"medium\",\"docstring\":\"Logs interrupt and Cortex-M control/stack state, dumps a bounded MSP memory range and selected interrupt/timer registers, then initializes patches.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"interrupt_status\",\"CPSR\":\"control_register\",\"v4\":\"xpsr\",\"v5\":\"psp\",\"v6\":\"msp\",\"v7\":\"aligned_msp_dump_start\",\"v8\":\"msp_dump_word_count\",\"v9\":\"bounded_msp_dump_word_count\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Set to 1 when bit 0 of the interrupt status word is set.\"},{\"offset\":16,\"meaning\":\"Interrupt status word that is read and logged.\"}]}"
+}

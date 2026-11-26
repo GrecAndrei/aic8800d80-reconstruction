@@ -1,0 +1,9 @@
+{
+ "fn": "rf_stop",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133afc",
+ "seg": 47,
+ "key": "rf_stop__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_stop\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Stops the radio by issuing HCI command 6, then checks hardware-ready status or clears the associated interrupt if the command does not complete with the expected status.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"irq_clear_status\"\n  }\n}"
+}

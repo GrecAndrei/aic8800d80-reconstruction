@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x100478",
+ "seg": 0,
+ "key": "ke_task_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_system_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes WLAN startup state and platform hardware, configures the RF channel and startup mode, then initializes kernel structures.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v0\":\"system_config\"},\"struct_hints\":[{\"offset\":76,\"meaning\":\"Host type identifier, logged and checked for host-specific setup.\"},{\"offset\":363,\"meaning\":\"Flag that gates MMIO validation and RF AFE enablement.\"}]}"
+}

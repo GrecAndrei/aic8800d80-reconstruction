@@ -1,0 +1,9 @@
+{
+ "fn": "rx_buf_align_desc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11c350",
+ "seg": 18,
+ "key": "rx_buf_align_desc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"configure_rx_buffer_descriptors\",\"confidence\":\"medium\",\"docstring\":\"Consumes four packed RX descriptor words, writes encoded fields to four 28-byte-stride records while merging an optional masked per-record value, then sets an update flag.\",\"subsystem\":\"rx\",\"var_renames\":{\"a1\":\"packed_values\",\"result\":\"input_cursor\",\"v1\":\"rx_config_base\",\"v2\":\"descriptor_mask\",\"v3\":\"override_table\",\"v5\":\"rx_config_base\",\"v6\":\"override_cursor\",\"v7\":\"packed_value\",\"v8\":\"encoded_value\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Pointer to optional per-record override values\"},{\"offset\":40,\"meaning\":\"Encoded descriptor word in each 28-byte-stride record\"},{\"offset\":44,\"meaning\":\"Byte copied from bits 16\u201323 of the packed input word\"},{\"offset\":160,\"meaning\":\"Update or ready flag set after the records are written\"}]}"
+}

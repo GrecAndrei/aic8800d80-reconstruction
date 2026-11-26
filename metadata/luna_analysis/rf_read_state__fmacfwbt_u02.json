@@ -1,0 +1,9 @@
+{
+ "fn": "rf_read_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a3bc",
+ "seg": 37,
+ "key": "rf_read_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_state_value\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads an RF state table entry selected by a context record index and sub-index, returning either one 32-bit field or the sum of two fields based on the entry status byte.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"ctx\",\n    \"a2\": \"sub_index\",\n    \"v5\": \"record_index\",\n    \"v6\": \"rf_state_table\",\n    \"v7\": \"state_entry\",\n    \"v9\": \"entry_status\",\n    \"v11\": \"entry_status\",\n    \"v12\": \"state_entry\",\n    \"v13\": \"state_entry\",\n    \"v14\": \"entry_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1224,\n      \"meaning\": \"context flag gating direct RF state table access\"\n    },\n    {\n      \"offset\": 1225,\n      \"meaning\": \"record index selecting a 140-byte RF state record\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"first 32-bit field of a 48-byte state entry\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"status byte of a 48-byte state entry\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"second 32-bit field of a 48-byte state entry\"\n    }\n  ]\n}"
+}

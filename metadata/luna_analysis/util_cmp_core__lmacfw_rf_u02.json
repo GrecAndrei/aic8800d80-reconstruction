@@ -1,0 +1,9 @@
+{
+ "fn": "util_cmp_core",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127eb0",
+ "seg": 23,
+ "key": "util_cmp_core__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__cmpsf2\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Compares two single-precision floating-point values and returns an integer ordering result, matching the linked libgcc __cmpsf2 routine.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_cal_bytes",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131364",
+ "seg": 43,
+ "key": "rf_get_cal_bytes__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_cal_bytes\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Retrieves a parsed RF calibration entry and copies its 12-byte payload starting at entry+2 into a caller-supplied 32-bit/16-bit output structure, returning success if the entry was found.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"cal_entry\",\n    \"a3\": \"out_struct\",\n    \"v9\": \"entry_u32_at_2\",\n    \"v7\": \"entry_u16_at_6\",\n    \"v8\": \"entry_u16_at_8\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"cal_entry field: 32-bit value copied to out_struct+0\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"cal_entry field: 16-bit value copied to out_struct+4\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"cal_entry field: 16-bit value copied to out_struct+6\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"cal_entry field: 16-bit value copied to out_struct+8\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"cal_entry field: 16-bit value copied to out_struct+10\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"out_struct field: 32-bit calibration value\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"out_struct field: 16-bit calibration value\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"out_struct field: 16-bit calibration value\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"out_struct field: 16-bit calibration value\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"out_struct field: 16-bit calibration value\"\n    }\n  ]\n}"
+}

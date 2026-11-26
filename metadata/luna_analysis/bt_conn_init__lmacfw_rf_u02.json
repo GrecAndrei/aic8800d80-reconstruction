@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x125d18",
+ "seg": 23,
+ "key": "bt_conn_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_ll_state_set_from_param\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses a numeric parameter from the supplied context and updates the BLE link-layer state, defaulting to zero when no valid parameter is present.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"param_count\",\n    \"a2\": \"param_context\",\n    \"v3\": \"ll_state_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"pointer to byte string or numeric field used to derive link-layer state\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_iq_calibrate",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122358",
+ "seg": 24,
+ "key": "rf_iq_calibrate__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_threshold_hysteresis_notify\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates a threshold/hysteresis state for a monitored RF byte value and sends a Bluetooth HCI event when the value crosses the configured thresholds.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"ctx\",\n    \"a2\": \"value\",\n    \"v2\": \"threshold\",\n    \"v5\": \"margin\",\n    \"v6\": \"state\",\n    \"v7\": \"new_value\",\n    \"v8\": \"evt_buf\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 107, \"meaning\": \"event code or context identifier\"},\n    {\"offset\": 142, \"meaning\": \"previous monitored value\"},\n    {\"offset\": 143, \"meaning\": \"threshold center value\"},\n    {\"offset\": 144, \"meaning\": \"hysteresis margin\"},\n    {\"offset\": 145, \"meaning\": \"threshold state bit\"}\n  ]\n}"
+}

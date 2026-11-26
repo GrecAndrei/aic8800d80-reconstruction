@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_irq",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10d614",
+ "seg": 2,
+ "key": "mac_tx_irq__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_tx_work_try\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Calls the MAC transmit worker only when a volatile guard flag indicates that transmit processing is idle or permitted.\",\n  \"subsystem\": \"mac\"\n}"
+}

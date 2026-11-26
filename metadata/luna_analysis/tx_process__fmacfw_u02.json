@@ -1,0 +1,9 @@
+{
+ "fn": "tx_process",
+ "img": "fmacfw_u02",
+ "addr": "0x1199c8",
+ "seg": 13,
+ "key": "tx_process__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_queue_process\",\"confidence\":\"medium\",\"docstring\":\"Processes TX descriptors for a matching PHY channel, updating buffer-length accounting and stopping when available buffer or hardware limits are reached.\",\"subsystem\":\"mac\",\"var_renames\":{\"v7\":\"tx_descriptor\",\"v16\":\"tx_control_word\",\"v19\":\"aligned_tx_length\",\"v21\":\"descriptor_length\",\"v25\":\"total_tx_length\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"TX control word containing length/count and configuration bits.\"},{\"offset\":80,\"meaning\":\"16-bit descriptor length or byte count used for TX buffer accounting.\"}]}"
+}

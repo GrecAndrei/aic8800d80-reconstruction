@@ -1,0 +1,9 @@
+{
+ "fn": "update_hw_config",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113374",
+ "seg": 5,
+ "key": "update_hw_config__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"update_hw_config\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes hardware descriptor and buffer configuration registers from driver context and stored configuration, including USB inbound aggregation parameters.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"config_word\",\n    \"v1\": \"ctx\",\n    \"v3\": \"buffer_desc_base\",\n    \"v6\": \"buffer_block_base\",\n    \"v10\": \"hw_config\",\n    \"v11\": \"config_u16_164\",\n    \"v12\": \"config_u16_154\",\n    \"v13\": \"config_multiplier\",\n    \"v17\": \"computed_size\",\n    \"v16\": \"config_u8_321\",\n    \"v18\": \"config_u8_320\",\n    \"v21\": \"usb_in_agg_cnt\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"context pointer to hardware buffer descriptor base\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"context pointer to hardware buffer block base\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"context buffer size or configuration limit\"\n    },\n    {\n      \"offset\": 153,\n      \"meaning\": \"uint16 hardware configuration field\"\n    },\n    {\n      \"offset\": 154,\n      \"meaning\": \"uint16 hardware configuration field\"\n    },\n    {\n      \"offset\": 164,\n      \"meaning\": \"uint16 hardware configuration multiplier input\"\n    },\n    {\n      \"offset\": 320,\n      \"meaning\": \"uint8 hardware configuration register value\"\n    },\n    {\n      \"offset\": 321,\n      \"meaning\": \"uint8 hardware configuration register value\"\n    },\n    {\n      \"offset\": 368,\n      \"meaning\": \"USB inbound aggregation count\"\n    }\n  ]\n}"
+}

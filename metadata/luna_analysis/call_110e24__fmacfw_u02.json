@@ -1,0 +1,9 @@
+{
+ "fn": "call_110e24",
+ "img": "fmacfw_u02",
+ "addr": "0x110794",
+ "seg": 3,
+ "key": "call_110e24__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_write_config_callback\",\"confidence\":\"low\",\"docstring\":\"Calls the MMIO configuration writer and returns 1 to indicate success.\",\"subsystem\":\"mmio\"}"
+}

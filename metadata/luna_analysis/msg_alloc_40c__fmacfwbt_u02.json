@@ -1,0 +1,9 @@
+{
+ "fn": "msg_alloc_40c",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f03c",
+ "seg": 43,
+ "key": "msg_alloc_40c__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_evt_send_40c\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocate and send a 0x40c BT/HCI event message, copying the descriptor payload to its target buffer and setting the event code/status from target-pointer and length low-bit checks.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"evt_desc\",\n    \"v5\": \"evt_msg\",\n    \"v6\": \"dst_buf\",\n    \"v7\": \"dst_aligned\",\n    \"v8\": \"payload_len\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"target/dst buffer pointer for the payload copy\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"payload length in bytes\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"inline payload start/first payload argument following the descriptor header\"\n    }\n  ]\n}"
+}

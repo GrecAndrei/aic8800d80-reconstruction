@@ -1,0 +1,9 @@
+{
+ "fn": "bus_write_buf",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1146e4",
+ "seg": 6,
+ "key": "bus_write_buf__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bus_write_buf\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a bus context, copies flag-selected payload fields from a source buffer into the context frame, dispatches the resulting event, and writes the context back through the bus interface.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"bus_flags\",\n    \"a2\": \"src_buf\",\n    \"a3\": \"src_len\",\n    \"v6\": \"bus_base_ptr\",\n    \"v7\": \"ctx_tag\",\n    \"v8\": \"payload_off\",\n    \"v9\": \"event_arg0\",\n    \"v10\": \"event_arg1\",\n    \"v11\": \"event_arg2\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"context tag/magic\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"bus frame command flags\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"context status/reserved field zeroed on tag miss\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"fixed first 6-byte copied field\"\n    },\n    {\n      \"offset\": 140,\n      \"meaning\": \"context field zeroed on tag miss\"\n    },\n    {\n      \"offset\": 268,\n      \"meaning\": \"context field zeroed on tag miss\"\n    },\n    {\n      \"offset\": 292,\n      \"meaning\": \"2-byte optional field selected by flag 0x100000\"\n    },\n    {\n      \"offset\": 296,\n      \"meaning\": \"8-byte optional field selected by flag 0x200000\"\n    },\n    {\n      \"offset\": 304,\n      \"meaning\": \"4-byte optional field selected by flag 0x400000\"\n    },\n    {\n      \"offset\": 308,\n      \"meaning\": \"2-byte optional field selected by flag 0x800000\"\n    },\n    {\n      \"offset\": 310,\n      \"meaning\": \"10-byte optional field selected by flag 0x1000000\"\n    }\n  ]\n}"
+}

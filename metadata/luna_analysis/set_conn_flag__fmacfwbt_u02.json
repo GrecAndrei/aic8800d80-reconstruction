@@ -1,0 +1,9 @@
+{
+ "fn": "set_conn_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x141f70",
+ "seg": 68,
+ "key": "set_conn_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_conn_flag\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sets a connection/link flag, optionally schedules a TX packet when ready bits are present, locks the associated kernel event, and clears the global active-link bitmap if the link is inactive.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"conn_flags\",\n    \"v3\": \"link_state_table\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"link/connection flags; bit3 checked and bit6 set\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"link validity/active flag\"\n    },\n    {\n      \"offset\": 47,\n      \"meaning\": \"link/connection index used for global bitmap clearing\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"kernel event lock/context associated with this link\"\n    }\n  ]\n}"
+}

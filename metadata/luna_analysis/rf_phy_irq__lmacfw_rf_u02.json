@@ -1,0 +1,9 @@
+{
+ "fn": "rf_phy_irq",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10d44c",
+ "seg": 2,
+ "key": "rf_phy_irq__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_phy_irq_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles RF PHY interrupt status by programming the PHY event register for selected IRQ bits and raising a busy flag for the 0x20000000 condition.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"irq_status\",\n    \"result\": \"ret\",\n    \"off_10D470\": \"rf_phy_regs\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"RF PHY interrupt status register (bits 0x8000 and 0x400 tested)\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"RF PHY interrupt/event set register\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_send_packet",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x117164",
+ "seg": 10,
+ "key": "tx_send_packet__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_tx_send_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Appends WLAN transmit descriptor segments to a global TX queue and radio state, maintaining descriptor links and packet/byte counters under IRQ-disabled critical sections.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a1\": \"desc_inout\",\n    \"a2\": \"pkt_len\",\n    \"a3\": \"frag_state\",\n    \"v3\": \"txq_ctrl\",\n    \"v5\": \"desc\",\n    \"v6\": \"coex_state\",\n    \"v7\": \"prev_queued_desc\",\n    \"v12\": \"bytes_queued\",\n    \"v13\": \"queued_desc\",\n    \"v14\": \"txq_count\",\n    \"v15\": \"coex_priority\",\n    \"v16\": \"desc_flags\",\n    \"v17\": \"desc_next\",\n    \"v18\": \"desc_start\",\n    \"v19\": \"desc_end_plus1\",\n    \"v20\": \"desc_span\",\n    \"v22\": \"remaining_len\",\n    \"v25\": \"processed_desc\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"TX queue head descriptor\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"TX queue descriptor count\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"TX queue tail descriptor\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"TX queue byte count\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"TX queue active flag\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"descriptor next pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"descriptor flags or radio selector\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"descriptor segment end word\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"descriptor segment start (16-bit)\"\n    }\n  ]\n}"
+}

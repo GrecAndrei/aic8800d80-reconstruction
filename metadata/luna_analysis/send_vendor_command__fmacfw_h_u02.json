@@ -1,0 +1,9 @@
+{
+ "fn": "send_vendor_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12af40",
+ "seg": 39,
+ "key": "send_vendor_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_send_vendor_command\",\"confidence\":\"medium\",\"docstring\":\"Builds and submits a vendor-command PDU, recording the request context and parameter in shared RF state on the alternate path.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"request_context\",\"v6\":\"command_pdu\",\"v7\":\"handler_result\",\"v8\":\"pending_command_state\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"request context pointer saved in the pending-command state\"},{\"offset\":8,\"meaning\":\"parameter saved from the a4 argument\"},{\"offset\":10,\"meaning\":\"byte cleared in the pending-command state\"},{\"offset\":367,\"meaning\":\"flag checked to skip the conditional interrupt-disable path\"}]}"
+}

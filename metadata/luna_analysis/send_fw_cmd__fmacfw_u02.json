@@ -1,0 +1,9 @@
+{
+ "fn": "send_fw_cmd",
+ "img": "fmacfw_u02",
+ "addr": "0x122014",
+ "seg": 23,
+ "key": "send_fw_cmd__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_msg_send_byte_to_task6\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends message ID 67 to task 6 with a one-byte payload copied from source offset 107.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"source_context\",\"v2\":\"message_payload\"},\"struct_hints\":[{\"offset\":107,\"meaning\":\"byte copied into the outgoing message payload\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_entry_by_index",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1287e0",
+ "seg": 35,
+ "key": "get_entry_by_index__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_entry_unlink_chan_ctxt\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Unlink an indexed RF entry from its channel context, decrement the context reference count, and remove or reassign the context owner when appropriate.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"entry_idx\",\n    \"v2\": \"entry_table\",\n    \"v3\": \"entry_byte_off\",\n    \"v4\": \"chan_ctxt\",\n    \"v6\": \"entry\",\n    \"v7\": \"rf_state\",\n    \"v8\": \"entry_state\",\n    \"v12\": \"ctxt_ref_count\",\n    \"v14\": \"other_owner_idx\",\n    \"v24\": \"other_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 72,\n      \"meaning\": \"entry.chan_ctxt pointer\"\n    },\n    {\n      \"offset\": 85,\n      \"meaning\": \"entry.state/flags byte\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"entry.owner/channel index\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"chan_ctxt.type or owner mode\"\n    },\n    {\n      \"offset\": 25,\n      \"meaning\": \"chan_ctxt.reference_count\"\n    },\n    {\n      \"offset\": 27,\n      \"meaning\": \"chan_ctxt.current_owner\"\n    }\n  ]\n}"
+}

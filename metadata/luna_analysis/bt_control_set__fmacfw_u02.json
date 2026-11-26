@@ -1,0 +1,9 @@
+{
+ "fn": "bt_control_set",
+ "img": "fmacfw_u02",
+ "addr": "0x1009dc",
+ "seg": 0,
+ "key": "bt_control_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_load_config\",\"confidence\":\"medium\",\"docstring\":\"Copies a fixed configuration block through a four-bank hardware window, then programs 24 MAC reset-control values from paired input words.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"configuration_data\",\"a2\":\"reset_control_values\",\"v7\":\"bank_index\",\"v8\":\"bank_word_count\",\"v11\":\"source_word_address\",\"v12\":\"destination_window_address\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"control value for the even-indexed MAC reset control\"},{\"offset\":4,\"meaning\":\"control value for the following odd-indexed MAC reset control\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "check_flag_and_proceed",
+ "img": "fmacfw_u02",
+ "addr": "0x1343ec",
+ "seg": 51,
+ "key": "check_flag_and_proceed__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_controller_check_and_clear\",\"confidence\":\"medium\",\"docstring\":\"Clears an MMIO register when the signed state is negative and a gate flag is set, then zeroes and returns an 8-byte buffer.\",\"subsystem\":\"bt\",\"var_renames\":{},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Gate flag checked before the conditional MMIO clear\"}]}"
+}

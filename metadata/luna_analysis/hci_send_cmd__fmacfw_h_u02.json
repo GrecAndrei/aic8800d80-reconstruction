@@ -1,0 +1,9 @@
+{
+ "fn": "hci_send_cmd",
+ "img": "fmacfw_h_u02",
+ "addr": "0x131198",
+ "seg": 42,
+ "key": "hci_send_cmd__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_low_power_mode\",\"confidence\":\"medium\",\"docstring\":\"Applies the requested low-power mode and filter setting to firmware state and hardware.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"lp_config\"},\"struct_hints\":[{\"offset\":412,\"meaning\":\"disable_filter setting\"}]}"
+}

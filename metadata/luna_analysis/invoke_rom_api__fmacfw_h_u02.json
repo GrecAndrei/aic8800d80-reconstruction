@@ -1,0 +1,9 @@
+{
+ "fn": "invoke_rom_api",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114a04",
+ "seg": 5,
+ "key": "invoke_rom_api__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"read_rf_reg_0x0f\",\"confidence\":\"medium\",\"docstring\":\"Calls the ROM accessor for RF selector 0x0F, stores the high byte when nonzero or otherwise the low byte, and returns the corresponding status code.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"out_value\"}}"
+}

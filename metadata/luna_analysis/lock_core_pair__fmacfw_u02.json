@@ -1,0 +1,9 @@
+{
+ "fn": "lock_core_pair",
+ "img": "fmacfw_u02",
+ "addr": "0x12c33c",
+ "seg": 39,
+ "key": "lock_core_pair__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_lock_pair_reset\",\"confidence\":\"medium\",\"docstring\":\"Clears two adjacent 8-byte regions beginning at the fixed storage address for the core lock pair.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v0\":\"lock_pair_base\"}}"
+}

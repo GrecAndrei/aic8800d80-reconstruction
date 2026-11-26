@@ -1,0 +1,9 @@
+{
+ "fn": "clear_shared_mem",
+ "img": "fmacfw_h_u02",
+ "addr": "0x137490",
+ "seg": 57,
+ "key": "clear_shared_mem__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_clear_shared_mem\",\"confidence\":\"medium\",\"docstring\":\"Preprocesses HCI command 4 and zeroes the 0xFC0-byte shared-memory region.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "call_patch_hook_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10ec34",
+ "seg": 3,
+ "key": "call_patch_hook_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"invoke_patch_hook_1\",\"confidence\":\"high\",\"docstring\":\"Calls the function pointer stored at address 0x1B4 and returns its result.\",\"subsystem\":\"rf\"}"
+}

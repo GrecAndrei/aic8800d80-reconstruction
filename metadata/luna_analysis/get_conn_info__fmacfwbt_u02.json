@@ -1,0 +1,9 @@
+{
+ "fn": "get_conn_info",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1352ec",
+ "seg": 53,
+ "key": "get_conn_info__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"handle_tx_cfm\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a TX confirmation event, logs the pending state and descriptor status, and dispatches a BLE completion when the expected HCI status condition is met.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"tx_context\",\n    \"a2\": \"event_arg\",\n    \"v2\": \"tx_desc\",\n    \"v3\": \"pending_state\",\n    \"v7\": \"tx_status_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 34,\n      \"meaning\": \"pending TX confirmation flag in global state\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"pointer to TX descriptor/state within context\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"TX status word (uint16) in TX descriptor\"\n    },\n    {\n      \"offset\": 98,\n      \"meaning\": \"BLE event-dispatched or completion flag in context\"\n    }\n  ]\n}"
+}

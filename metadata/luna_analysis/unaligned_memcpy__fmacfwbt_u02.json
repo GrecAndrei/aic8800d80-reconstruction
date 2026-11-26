@@ -1,0 +1,9 @@
+{
+ "fn": "unaligned_memcpy",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13384c",
+ "seg": 47,
+ "key": "unaligned_memcpy__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hash_mix_unaligned\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Mixes an unaligned byte source into a hash context by assembling 32-bit words and calling hash_mix_words for each completed word.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"hash_ctx\",\n    \"a2\": \"src\",\n    \"a3\": \"len\",\n    \"v3\": \"src_word_ptr\",\n    \"v4\": \"src_byte_offset\",\n    \"v5\": \"first_src_word\",\n    \"v6\": \"buf_len\",\n    \"v7\": \"buf_word\",\n    \"v8\": \"head_len\",\n    \"v9\": \"src_after_head\",\n    \"v10\": \"head_bytes\",\n    \"v11\": \"tail_src_ptr\",\n    \"v13\": \"full_word_count\",\n    \"v14\": \"remaining_bytes\",\n    \"v15\": \"word_len\",\n    \"v16\": \"carry_word\",\n    \"v20\": \"src_word_cursor\",\n    \"v21\": \"next_src_word\",\n    \"v22\": \"mixed_word\",\n    \"v23\": \"tail_len\",\n    \"v26\": \"new_buf_len\",\n    \"v29\": \"tail_mixed_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"current 32-bit partial word accumulator in hash context\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"byte count of valid data in partial word accumulator\"\n    }\n  ]\n}"
+}

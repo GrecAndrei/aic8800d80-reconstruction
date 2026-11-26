@@ -1,0 +1,9 @@
+{
+ "fn": "llc_conn_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x126f8c",
+ "seg": 32,
+ "key": "llc_conn_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_set_connection\",\"confidence\":\"medium\",\"docstring\":\"Queues a requested connection if a switch is already pending; otherwise updates the active connection and processes the connection command.\",\"subsystem\":\"llc\",\"var_renames\":{\"result\":\"requested_connection\",\"v1\":\"llc_context\",\"v3\":\"current_connection\",\"v8\":\"connection_command_payload\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Connection state marker, set to 4 for an already-active connection or 2 when starting a switch.\"},{\"offset\":24,\"meaning\":\"Connection state byte copied into an outgoing notification unless its value is 3.\"},{\"offset\":40,\"meaning\":\"Pointer to the currently active connection context.\"},{\"offset\":44,\"meaning\":\"Pending connection context to apply after the current command completes.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_desc_parse",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1044d0",
+ "seg": 2,
+ "key": "tx_desc_parse__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_iq_sample_power\",\"confidence\":\"medium\",\"docstring\":\"Reads the selected packed ring entry and returns the sum of squares of its two sign-extended 12-bit components.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"packed_iq_sample\",\"v4\":\"high_component\",\"v5\":\"low_component\"}}"
+}

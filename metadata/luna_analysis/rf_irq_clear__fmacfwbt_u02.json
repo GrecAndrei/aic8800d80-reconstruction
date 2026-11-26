@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x117e34",
+ "seg": 11,
+ "key": "rf_irq_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_irq_clear\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Reads pending RF interrupt status bits, maps the highest set bit to an entry, and writes the pending mask to clear the RF IRQ state.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"pending_rf_irq_bits\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "log_two_strings",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11d8d4",
+ "seg": 19,
+ "key": "log_two_strings__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_queue_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the two adjacent list/queue heads in the RF command state structure.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_cmd_state_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first list or queue head\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"second list or queue head\"\n    }\n  ]\n}"
+}

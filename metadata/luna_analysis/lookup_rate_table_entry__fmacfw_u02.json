@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_rate_table_entry",
+ "img": "fmacfw_u02",
+ "addr": "0x13c518",
+ "seg": 60,
+ "key": "lookup_rate_table_entry__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_tx_power_mgmt_frame\",\"confidence\":\"medium\",\"docstring\":\"Classifies management frames and validates matching payload data before updating an associated transmit-power record.\",\"subsystem\":\"rf\",\"var_renames\":{\"v4\":\"frame_body_offset\",\"v5\":\"frame_control\",\"v6\":\"frame_body_code\",\"v15\":\"matched_ie\",\"v16\":\"power_record_type\",\"v17\":\"power_record\",\"v27\":\"frame_subtype\",\"a4\":\"classification_out\"}}"
+}

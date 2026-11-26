@@ -1,0 +1,9 @@
+{
+ "fn": "bt_link_connected",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b22c",
+ "seg": 40,
+ "key": "bt_link_connected__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_start_link\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Issues Bluetooth link-start HCI commands, logs the start status, and updates the connection state if the selected link table entry is not marked connected.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"link_table_base\",\n    \"v1\": \"link_idx\",\n    \"v2\": \"start_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"Global link/connection state table base pointer\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"Selected Bluetooth link index or slot identifier\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"Per-link entry state byte; bit 0 appears to indicate connection validity/linked state\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "set_hw_cfg_a",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111c04",
+ "seg": 4,
+ "key": "set_hw_cfg_a__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_hw_cfg_bit27\",\"confidence\":\"medium\",\"docstring\":\"For selectors 0\u20135, dispatches to one of two handlers with bit 27 and zero, choosing the handler based on whether the input pointer is non-null; otherwise returns the input pointer.\",\"subsystem\":\"phy\",\"var_renames\":{\"a2\":\"selector\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "util_memcmp",
+ "img": "fmacfw_h_u02",
+ "addr": "0x140a38",
+ "seg": 64,
+ "key": "util_memcmp__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_device_filter_match\",\"confidence\":\"high\",\"docstring\":\"Returns true if no filter is configured, its address criterion passes, and any configured name criterion matches the supplied length-prefixed name; a missing name buffer is treated as a pass.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"device_addr\",\"a2\":\"name_field\",\"a3\":\"filter\",\"v6\":\"filter_name_len\"},\"struct_hints\":[{\"offset\":50,\"meaning\":\"Nonzero skips the address comparison.\"},{\"offset\":52,\"meaning\":\"First 16-bit chunk of the filtered device address.\"},{\"offset\":54,\"meaning\":\"Second 16-bit chunk of the filtered device address.\"},{\"offset\":56,\"meaning\":\"Third 16-bit chunk of the filtered device address.\"},{\"offset\":58,\"meaning\":\"Length of the configured name pattern.\"},{\"offset\":59,\"meaning\":\"Configured name-pattern bytes.\"}]}"
+}

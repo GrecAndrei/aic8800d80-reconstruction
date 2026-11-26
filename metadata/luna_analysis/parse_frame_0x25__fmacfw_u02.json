@@ -1,0 +1,9 @@
+{
+ "fn": "parse_frame_0x25",
+ "img": "fmacfw_u02",
+ "addr": "0x12df80",
+ "seg": 42,
+ "key": "parse_frame_0x25__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_frame_validate_type_4\",\"confidence\":\"medium\",\"docstring\":\"Runs the buffer range check with parameter 37 and accepts the buffer only if the first returned 16-bit value is 4.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"frame\",\"a2\":\"frame_len\",\"v3\":\"range_info\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "state_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1141b8",
+ "seg": 5,
+ "key": "state_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_state_init\",\"confidence\":\"medium\",\"docstring\":\"Stores the argument in an RF state slot, clears several associated state words and a halfword, and returns 1.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_state\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Word storing the initialization argument\"},{\"offset\":0,\"meaning\":\"State word cleared during initialization\"},{\"offset\":4,\"meaning\":\"State word cleared during initialization\"},{\"offset\":12,\"meaning\":\"State word cleared during initialization\"},{\"offset\":16,\"meaning\":\"State word cleared during initialization\"},{\"offset\":20,\"meaning\":\"State word cleared during initialization\"}]}"
+}

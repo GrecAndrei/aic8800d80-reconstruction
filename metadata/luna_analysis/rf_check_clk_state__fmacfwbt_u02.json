@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_clk_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ba2c",
+ "seg": 40,
+ "key": "rf_check_clk_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_trigger_idle_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Triggers an RF idle event request, arms a short tick-based timeout, clears the event status register, and returns the critical-section nesting count.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"rf_tick\",\n    \"v2\": \"saved_nesting_count\",\n    \"result\": \"rf_event_count\",\n    \"v10\": \"irq_disabled_flag_ptr\",\n    \"v11\": \"irq_disabled_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"RF control word accessed via off_12BAC4; bit 2 is set as part of the idle event trigger\"\n    }\n  ]\n}"
+}

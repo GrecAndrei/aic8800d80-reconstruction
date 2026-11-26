@@ -1,0 +1,9 @@
+{
+ "fn": "update_connection_stats",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13f8d0",
+ "seg": 63,
+ "key": "update_connection_stats__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"update_connection_stats\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates per-connection station/link statistics and associated rate-control counters from the connection context.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"conn_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 35,\n      \"meaning\": \"uint8 field, likely a rate/state index or count\"\n    },\n    {\n      \"offset\": 336,\n      \"meaning\": \"pointer to associated per-connection data/table\"\n    }\n  ]\n}"
+}

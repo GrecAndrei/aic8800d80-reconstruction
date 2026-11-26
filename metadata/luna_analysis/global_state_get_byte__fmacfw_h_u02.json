@@ -1,0 +1,9 @@
+{
+ "fn": "global_state_get_byte",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1006cc",
+ "seg": 0,
+ "key": "global_state_get_byte__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_read8_offset1\",\"confidence\":\"medium\",\"docstring\":\"Reads one volatile byte from offset 1 of a fixed address.\",\"subsystem\":\"hal\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_bit_reg8",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10db44",
+ "seg": 3,
+ "key": "gpio_set_bit_reg8__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_set_bit_reg8\",\"confidence\":\"high\",\"docstring\":\"Sets the bit indexed by the argument in the GPIO register at offset 8 and returns the updated register value.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"bit_index\"}}"
+}

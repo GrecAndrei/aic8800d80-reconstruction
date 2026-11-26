@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_chan_cfg",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13bac0",
+ "seg": 61,
+ "key": "rf_get_chan_cfg__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_apply_chan_cfg\", \"confidence\": \"medium\", \"docstring\": \"Returns the selected RF channel configuration entry while programming a mode-specific RF table byte based on the entry's selector fields.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"cfg_idx\", \"v2\": \"table_row_idx\", \"v3\": \"table_col_idx\"}, \"struct_hints\": [{\"offset\": 16, \"meaning\": \"gain or RF table row index byte\"}, {\"offset\": 17, \"meaning\": \"mode/flag selector byte (0 or 1)\"}, {\"offset\": 22, \"meaning\": \"gain or RF table column index byte\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_processing",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b4e8",
+ "seg": 16,
+ "key": "tx_processing__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes the head of the TX scheduler queue, advancing channel/next-context state and clearing pending scheduler flags.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v1\": \"global_tx_state_ptr\",\n    \"v2\": \"tx_pending_flag\",\n    \"v4\": \"popped_tx_ctx\",\n    \"v5\": \"popped_tx_ctx\",\n    \"v6\": \"pending_flag_value\",\n    \"v7\": \"tx_sched_ctrl\",\n    \"v8\": \"current_tx_ctx\",\n    \"v9\": \"pending_ctrl_count\",\n    \"v10\": \"zero_val\",\n    \"v11\": \"ctrl_state_byte_90\",\n    \"v22\": \"switch_flags_byte\",\n    \"v23\": \"cb_arg\",\n    \"v24\": \"selected_tx_ctx\",\n    \"v25\": \"old_next_tx_ctx\",\n    \"v26\": \"old_current_tx_ctx\",\n    \"v27\": \"selected_ctx_state_24\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"context state/active flag\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"context sub-state or channel-switch state\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"tx scheduler current context\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"tx scheduler next context\"\n    },\n    {\n      \"offset\": 80,\n      \"meaning\": \"pending scheduler/control event count\"\n    },\n    {\n      \"offset\": 88,\n      \"meaning\": \"scheduler flags used for channel/context switching\"\n    },\n    {\n      \"offset\": 90,\n      \"meaning\": \"scheduler callback/control state byte\"\n    }\n  ]\n}"
+}

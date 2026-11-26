@@ -1,0 +1,9 @@
+{
+ "fn": "reset_global_0x18274c",
+ "img": "fmacfw_u02",
+ "addr": "0x12f4e8",
+ "seg": 42,
+ "key": "reset_global_0x18274c__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_global_mask_init\",\"confidence\":\"low\",\"docstring\":\"Sets an 8-byte global value to 0x00000002FFFFFFFF and returns the address written.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"global_value_ptr\"}}"
+}

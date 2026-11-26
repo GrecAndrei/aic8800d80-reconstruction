@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable_global_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12cfc4",
+ "seg": 40,
+ "key": "irq_disable_global_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"irq_safe_or_global_flags\",\"confidence\":\"medium\",\"docstring\":\"ORs the supplied mask into a shared flag word inside an IRQ-protected critical section and returns the updated word.\",\"subsystem\":\"hal\",\"var_renames\":{\"v3\":\"previous_irq_depth\",\"v4\":\"incremented_irq_depth\",\"result\":\"updated_flags\"}}"
+}

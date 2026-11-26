@@ -1,0 +1,9 @@
+{
+ "fn": "find_extension",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f9a4",
+ "seg": 43,
+ "key": "find_extension__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"find_extension_record\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Searches a table of candidate filename/extension records for a case-insensitive prefix match to the leading part of the supplied filename, returning the exact or unique prefix-match record pointer.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"filename\",\n    \"a2\": \"candidate_records\",\n    \"a3\": \"record_count\",\n    \"v5\": \"dot_pos\",\n    \"v6\": \"stem_len\",\n    \"v7\": \"prefix_match_count\",\n    \"v8\": \"record_ptr\",\n    \"v9\": \"processed_count\",\n    \"v10\": \"candidate_name\",\n    \"v11\": \"match_record\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"char *candidate_name\"\n    }\n  ]\n}"
+}

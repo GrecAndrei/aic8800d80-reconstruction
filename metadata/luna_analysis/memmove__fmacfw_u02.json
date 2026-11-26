@@ -1,0 +1,9 @@
+{
+ "fn": "memmove",
+ "img": "fmacfw_u02",
+ "addr": "0x1438a4",
+ "seg": 68,
+ "key": "memmove__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"memmove\",\"confidence\":\"high\",\"docstring\":\"Copies a byte range from source to destination while preserving correctness when the ranges overlap, using aligned word copies when possible.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v3\":\"source_end\",\"v5\":\"copied_byte\",\"v8\":\"source_end\",\"v9\":\"destination_cursor\",\"v10\":\"copied_byte\",\"v11\":\"source_cursor\",\"v18\":\"source_word_cursor\"}}"
+}

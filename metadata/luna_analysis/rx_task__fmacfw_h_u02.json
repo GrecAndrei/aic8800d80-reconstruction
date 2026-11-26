@@ -1,0 +1,9 @@
+{
+ "fn": "rx_task",
+ "img": "fmacfw_h_u02",
+ "addr": "0x110b20",
+ "seg": 3,
+ "key": "rx_task__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"drain_rx_pending_queue\",\"confidence\":\"medium\",\"docstring\":\"Drains queued RX batches, replenishes their DMA-ring buffers, and restores deferred interrupt state after queue processing.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"rx_context\",\"v1\":\"irq_lock_count\",\"v2\":\"irq_restore_pending\",\"v3\":\"rx_pending_list\",\"v4\":\"rx_work_item\",\"v5\":\"buffer_count\",\"v6\":\"buffer_node\",\"v7\":\"buffers_processed\",\"v10\":\"current_buffer_node\",\"v17\":\"current_buffer_node\"},\"struct_hints\":[{\"offset\":3074,\"meaning\":\"RX context pending-work item count, decremented once per popped item.\"},{\"offset\":3080,\"meaning\":\"RX context pending-work list head or sentinel.\"},{\"offset\":4,\"meaning\":\"Queued RX item buffer-chain head; the same offset in each buffer node is its next pointer.\"},{\"offset\":8,\"meaning\":\"Queued RX item buffer-chain entry count.\"},{\"offset\":11,\"meaning\":\"Buffer-node byte whose low 7 bits advance the batch allocation counter.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "return_zero",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119308",
+ "seg": 12,
+ "key": "return_zero__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"stub_return_zero\",\n  \"confidence\": \"low\",\n  \"docstring\": \"A stub function that returns zero, likely a default callback or disabled feature placeholder.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_sm_validate",
+ "img": "fmacfw_u02",
+ "addr": "0x13f244",
+ "seg": 61,
+ "key": "ble_ll_conn_sm_validate__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_sm_set_active\",\"confidence\":\"medium\",\"docstring\":\"Updates a connection state machine\u2019s active flag and, when activating it, rebuilds per-entry scheduling state before processing the resulting lists.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"conn_index\",\"a2\":\"active\",\"v4\":\"conn_context\",\"v7\":\"entry_index\",\"v8\":\"entry_count\",\"v10\":\"entry_ptr\",\"v12\":\"entry_descriptor\",\"v20\":\"entry_results\"},\"struct_hints\":[{\"offset\":166,\"meaning\":\"Connection-context flags; bit 5 defers the update and causes bit 7 to be set.\"},{\"offset\":182,\"meaning\":\"Active-state flag compared with the requested state.\"},{\"offset\":184,\"meaning\":\"Number of scheduling entries processed.\"},{\"offset\":8,\"meaning\":\"Per-entry scheduling value, cleared for skipped entries.\"},{\"offset\":10,\"meaning\":\"Per-entry descriptor used for channel and validity checks.\"},{\"offset\":13,\"meaning\":\"Per-entry scheduling status or count.\"},{\"offset\":14,\"meaning\":\"Per-entry enabled marker.\"}]}"
+}

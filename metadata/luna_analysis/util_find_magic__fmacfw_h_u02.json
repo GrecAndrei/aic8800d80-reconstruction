@@ -1,0 +1,9 @@
+{
+ "fn": "util_find_magic",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13f370",
+ "seg": 61,
+ "key": "util_find_magic__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_compute_frame_metric\",\"confidence\":\"medium\",\"docstring\":\"Computes a scaled metric from an indexed MAC record using an FCF-derived value and optionally applies a lookup-table correction.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"record_index\",\"a3\":\"apply_correction\",\"v5\":\"record_measurement\",\"v6\":\"record_control\",\"v13\":\"overhead_adjustment\",\"result\":\"scaled_metric\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Start of MAC frame data used to extract the FCF-derived value\"},{\"offset\":8,\"meaning\":\"16-bit measurement used in the calculation and correction selection\"},{\"offset\":10,\"meaning\":\"16-bit control field used to select an overhead adjustment\"},{\"offset\":148,\"meaning\":\"32-bit timing/configuration value whose high halfword is used as a divisor\"}]}"
+}

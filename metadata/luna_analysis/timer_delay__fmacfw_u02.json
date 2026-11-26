@@ -1,0 +1,9 @@
+{
+ "fn": "timer_delay",
+ "img": "fmacfw_u02",
+ "addr": "0x100644",
+ "seg": 0,
+ "key": "timer_delay__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_delay_ticks\",\"confidence\":\"high\",\"docstring\":\"Busy-waits until the free-running hardware timer reaches its initial value plus the requested number of ticks.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"delay_ticks\",\"result\":\"deadline\",\"v3\":\"spin_count\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"free-running timer counter register\"}]}"
+}

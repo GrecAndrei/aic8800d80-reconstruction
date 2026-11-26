@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_read",
+ "img": "fmacfwbt_u02",
+ "addr": "0x137228",
+ "seg": 58,
+ "key": "rf_cmd_read__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_scan_cancel_cfm\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends a scan-cancel confirmation event from the radio command path and dispatches the associated event byte.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v4\": \"evt_buf\",\n    \"a2\": \"cmd_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3848,\n      \"meaning\": \"scan-cancel confirmation status field (uint16_t at byte offset 3848 from the global state base)\"\n    }\n  ]\n}"
+}

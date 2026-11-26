@@ -1,0 +1,9 @@
+{
+ "fn": "double_ge",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127b2c",
+ "seg": 23,
+ "key": "double_ge__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_dcmpge\",\n  \"confidence\": \"high\",\n  \"docstring\": \"ARM EABI double-precision comparison helper that evaluates the greater-than-or-equal relation between two doubles and returns an integer result.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

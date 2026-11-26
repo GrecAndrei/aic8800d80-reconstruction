@@ -1,0 +1,9 @@
+{
+ "fn": "memchr",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11eb74",
+ "seg": 21,
+ "key": "memchr__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ieee80211_find_ds_param_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans an information-element buffer for a valid 802.11 DS Parameter Set element (type 3, length 1), returning its address or NULL if absent/invalid.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"result\": \"ie_ptr\",\n    \"a2\": \"ie_len\",\n    \"v2\": \"ie_end\",\n    \"v3\": \"next_ie\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"information element type/ID\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"information element length byte\"\n    }\n  ]\n}"
+}

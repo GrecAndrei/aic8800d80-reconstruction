@@ -1,0 +1,9 @@
+{
+ "fn": "set_reg_180800_bits7_8",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12407c",
+ "seg": 23,
+ "key": "set_reg_180800_bits7_8__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_reg_180800_bits_7_8\",\"confidence\":\"medium\",\"docstring\":\"Programs bits 7-8 of register 0x180800 by reading the register, clearing those field bits, and OR-ing in the shifted argument value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "lock_global_mutex",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f6d0",
+ "seg": 42,
+ "key": "lock_global_mutex__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"test_console_handle_key\",\"confidence\":\"high\",\"docstring\":\"Processes a console keystroke, updating the input line and returning its completion or cancellation status.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"key_code\",\"a2\":\"line_buffer\"}}"
+}

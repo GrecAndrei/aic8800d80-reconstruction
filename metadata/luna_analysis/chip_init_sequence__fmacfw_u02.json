@@ -1,0 +1,9 @@
+{
+ "fn": "chip_init_sequence",
+ "img": "fmacfw_u02",
+ "addr": "0x116e7c",
+ "seg": 9,
+ "key": "chip_init_sequence__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_chip_init\",\"confidence\":\"medium\",\"docstring\":\"Configures chip hardware and radio data, initializes buffers, and clears the fixed runtime state table.\",\"subsystem\":\"hal\",\"var_renames\":{\"v2\":\"entry_ptr\",\"v3\":\"entries_end\",\"v5\":\"state_base\"}}"
+}

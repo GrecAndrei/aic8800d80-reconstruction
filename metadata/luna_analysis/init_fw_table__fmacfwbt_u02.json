@@ -1,0 +1,9 @@
+{
+ "fn": "init_fw_table",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10f208",
+ "seg": 3,
+ "key": "init_fw_table__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_firmware_tables\",\"confidence\":\"medium\",\"docstring\":\"Initializes several firmware control regions, calls the abort-flag checker for each of 512 words, and clears a 1,152-byte region in 36-byte chunks.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"control_region\",\"v1\":\"table_cursor\",\"v2\":\"table_end\",\"v3\":\"table_end_addr\",\"v4\":\"table_entry\",\"v5\":\"clear_chunk_end\",\"v7\":\"clear_word_ptr\",\"result\":\"clear_region_end\"},\"struct_hints\":[{\"offset\":3072,\"meaning\":\"16-bit sentinel set to 0xC0BF\"},{\"offset\":3074,\"meaning\":\"byte cleared during initialization\"},{\"offset\":3076,\"meaning\":\"32-bit word cleared during initialization\"},{\"offset\":3080,\"meaning\":\"region passed to zero_struct\"},{\"offset\":6160,\"meaning\":\"16-bit sentinel set to 0xC0BF\"},{\"offset\":6162,\"meaning\":\"byte cleared during initialization\"},{\"offset\":6164,\"meaning\":\"32-bit word cleared during initialization\"},{\"offset\":6176,\"meaning\":\"byte cleared during initialization\"},{\"offset\":8244,\"meaning\":\"16-bit field cleared during initialization\"}]}"
+}

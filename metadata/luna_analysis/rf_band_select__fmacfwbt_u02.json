@@ -1,0 +1,9 @@
+{
+ "fn": "rf_band_select",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122290",
+ "seg": 24,
+ "key": "rf_band_select__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_band_switch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles an RF band-switch sequence, arming a timeout when requested and otherwise advancing or validating the switch, including BT/coexistence and PHY completion paths.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_ctx\",\n    \"a2\": \"flags\",\n    \"v3\": \"switch_seq\",\n    \"v4\": \"band_state_ptr\",\n    \"v7\": \"timer_now\",\n    \"v8\": \"timer_state\",\n    \"v9\": \"timer_handle\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"RF/PHY context flags; bit 0x200 is cleared during band-switch handling\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"BT/coexistence connection selector or index\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"BT/coexistence or alternate-path flag\"\n    },\n    {\n      \"offset\": 115,\n      \"meaning\": \"Band-switch retry/sequence counter\"\n    },\n    {\n      \"offset\": 128,\n      \"meaning\": \"Band-switch pending/cancel flag\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"Timer/context data field storing rf_ctx\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"Timer/event identifier field (uint16_t)\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"Timer flag cleared before arming the band-switch timer\"\n    }\n  ]\n}"
+}

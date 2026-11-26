@@ -1,0 +1,9 @@
+{
+ "fn": "phy_is_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13c014",
+ "seg": 61,
+ "key": "phy_is_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_ready_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns the RF/PHY ready status code, inspecting pending status messages and the RX queue, flushing stale RX data, and refreshing channel information when necessary.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_ctx\",\n    \"result\": \"front_status\",\n    \"v2\": \"rx_flush_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"RF status/message list head or pending-message pointer; nonzero indicates an entry is available\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"ready/force-complete or abort flag that short-circuits the status query\"\n    },\n    {\n      \"offset\": 26,\n      \"meaning\": \"status/message ID byte in a popped RF status list entry\"\n    }\n  ]\n}"
+}

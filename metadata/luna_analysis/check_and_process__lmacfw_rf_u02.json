@@ -1,0 +1,9 @@
+{
+ "fn": "check_and_process",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113630",
+ "seg": 5,
+ "key": "check_and_process__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"main_event_dispatch_if_ready\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches to the main event handler only when a runtime gate byte is clear, forwarding the handler arguments and current gate value.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

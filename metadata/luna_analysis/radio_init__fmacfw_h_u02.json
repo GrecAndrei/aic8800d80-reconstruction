@@ -1,0 +1,9 @@
+{
+ "fn": "radio_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ebb8",
+ "seg": 42,
+ "key": "radio_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_test_init\",\"confidence\":\"medium\",\"docstring\":\"Queues a USB-off TX event, invokes a handler with selector 0x42F, and clears bit 1 in a global state word.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":80,\"meaning\":\"state flags word; bit 1 is cleared\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_params",
+ "img": "fmacfw_u02",
+ "addr": "0x1350d0",
+ "seg": 52,
+ "key": "bt_get_conn_params__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_tx_confirm_handle\",\"confidence\":\"medium\",\"docstring\":\"Processes a transmit confirmation, filters selected rate and status combinations, and updates the Bluetooth TX-path state.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"tx_status_ctx\",\"v3\":\"tx_cfm_state\",\"v7\":\"tx_status_bits\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Pointer to the context containing the TX status word\"},{\"offset\":98,\"meaning\":\"Byte flag set when the TX path is active or valid\"},{\"offset\":108,\"meaning\":\"16-bit status field in the referenced TX context\"}]}"
+}

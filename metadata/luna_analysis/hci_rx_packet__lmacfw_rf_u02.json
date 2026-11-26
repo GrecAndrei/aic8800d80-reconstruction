@@ -1,0 +1,9 @@
+{
+ "fn": "hci_rx_packet",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1149b0",
+ "seg": 6,
+ "key": "hci_rx_packet__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hci_rx_packet\", \"confidence\": \"medium\", \"docstring\": \"Wrapper that receives an HCI packet by forwarding the caller buffer to hci_rx_data with a fixed 64-byte size and selector 1.\", \"subsystem\": \"bt\", \"var_renames\": {\"a1\": \"packet_buffer\"}}"
+}

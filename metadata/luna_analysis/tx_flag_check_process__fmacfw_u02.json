@@ -1,0 +1,9 @@
+{
+ "fn": "tx_flag_check_process",
+ "img": "fmacfw_u02",
+ "addr": "0x13e4e0",
+ "seg": 61,
+ "key": "tx_flag_check_process__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_desc_queue_process\",\"confidence\":\"medium\",\"docstring\":\"Updates the descriptor queue when flag bit 4 is set, selecting or appending the entry matching the stored key, and otherwise validates the selected RX descriptor.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"queue_ctx\",\"v1\":\"state_flags\",\"v2\":\"pending_flag\",\"v4\":\"entry_count\",\"v5\":\"lookup_key\",\"v6\":\"entry_index\",\"v7\":\"next_entry_index\",\"v8\":\"last_entry_index\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Per-entry field cleared during queue processing (12-byte entry stride).\"},{\"offset\":6,\"meaning\":\"Per-entry field cleared during queue processing (12-byte entry stride).\"},{\"offset\":8,\"meaning\":\"Per-entry field initialized when assigning a new entry.\"},{\"offset\":10,\"meaning\":\"Per-entry key compared with the stored lookup key.\"},{\"offset\":136,\"meaning\":\"Selected descriptor index.\"},{\"offset\":138,\"meaning\":\"Descriptor queue index updated with the selected entry.\"},{\"offset\":140,\"meaning\":\"Descriptor queue index updated with the selected entry.\"},{\"offset\":166,\"meaning\":\"State flags; bit 4 triggers queue selection and transitions to bit 5.\"},{\"offset\":184,\"meaning\":\"Number of descriptor queue entries.\"},{\"offset\":190,\"meaning\":\"Key used to find or assign a queue entry.\"}]}"
+}

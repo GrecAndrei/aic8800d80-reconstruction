@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_state",
+ "img": "fmacfw_u02",
+ "addr": "0x134a90",
+ "seg": 52,
+ "key": "bt_get_conn_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_prepare_conn_tx_path\",\"confidence\":\"medium\",\"docstring\":\"Prepares a Bluetooth connection transmit buffer and updates its transmit-path metadata, falling back to HCI-buffer initialization when setup or path submission fails.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"conn_ctx\",\"v2\":\"conn_index\",\"v5\":\"bt_ctx\",\"v6\":\"tx_buffer\",\"v8\":\"conn_entry\",\"v14\":\"tx_header\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Pointer to the transmit buffer whose fields are populated.\"},{\"offset\":76,\"meaning\":\"Pointer to transmit-path metadata updated before submission.\"}]}"
+}

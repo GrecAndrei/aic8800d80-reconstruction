@@ -1,0 +1,9 @@
+{
+ "fn": "double_lt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127b04",
+ "seg": 23,
+ "key": "double_lt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_dcmplt\",\n  \"confidence\": \"high\",\n  \"docstring\": \"ARM EABI helper that compares two doubles and reports whether the first is less than the second.\",\n  \"subsystem\": \"libmisc\"\n}"
+}

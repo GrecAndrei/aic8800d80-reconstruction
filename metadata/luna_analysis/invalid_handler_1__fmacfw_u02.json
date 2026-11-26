@@ -1,0 +1,9 @@
+{
+ "fn": "invalid_handler_1",
+ "img": "fmacfw_u02",
+ "addr": "0x11b3b8",
+ "seg": 16,
+ "key": "invalid_handler_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_link_slot_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a link slot's pending context and countdown state, dispatching its worker while maintaining the interrupt guard.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"slot_index\",\"v4\":\"slot_table_base\",\"v5\":\"guard_depth_ptr\",\"v6\":\"slot_state\",\"v7\":\"context_update_pending\",\"v8\":\"guard_depth\",\"v9\":\"slot_context_value\",\"v11\":\"irq_restore_required\",\"v12\":\"countdown_remaining\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"Context passed to the slot worker.\"},{\"offset\":24,\"meaning\":\"32-bit slot state cleared when the slot becomes idle or its countdown expires.\"},{\"offset\":40,\"meaning\":\"Value used to update the slot context mapping when an update is pending.\"},{\"offset\":44,\"meaning\":\"Countdown reload value.\"},{\"offset\":45,\"meaning\":\"Active countdown, decremented until expiration.\"},{\"offset\":46,\"meaning\":\"Boolean latch set when the context value does not trigger a context update.\"},{\"offset\":47,\"meaning\":\"Pending context-update flag.\"}]}"
+}

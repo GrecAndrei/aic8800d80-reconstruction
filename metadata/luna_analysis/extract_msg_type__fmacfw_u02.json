@@ -1,0 +1,9 @@
+{
+ "fn": "extract_msg_type",
+ "img": "fmacfw_u02",
+ "addr": "0x12d5a4",
+ "seg": 41,
+ "key": "extract_msg_type__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"fast_log2_approx\",\"confidence\":\"medium\",\"docstring\":\"Interprets the input as an IEEE-754 single-precision bit pattern and estimates its base-2 logarithm using a piecewise-linear mantissa correction.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"float_bits\",\"v1\":\"mantissa_bits\",\"v2\":\"mantissa_bits\",\"v3\":\"exponent_field\",\"v4\":\"mantissa_log_approx\",\"result\":\"result_bits\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "memset",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100200",
+ "seg": 0,
+ "key": "memset__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"memset\",\"confidence\":\"high\",\"docstring\":\"Fills the requested byte range with the specified byte value and returns the original destination pointer.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"destination\",\"a2\":\"fill_byte\",\"a3\":\"length\",\"v3\":\"remaining_length\",\"v4\":\"current_destination\",\"v6\":\"fill_word\",\"v7\":\"bulk_store_pointer\",\"v8\":\"word_tail_pointer\",\"v9\":\"tail_length\",\"v10\":\"tail_end\"}}"
+}

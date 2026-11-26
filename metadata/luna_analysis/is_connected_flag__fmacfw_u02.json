@@ -1,0 +1,9 @@
+{
+ "fn": "is_connected_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x110390",
+ "seg": 3,
+ "key": "is_connected_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"is_connected\",\"confidence\":\"medium\",\"docstring\":\"Queries the Bluetooth connection-state flag through the shared command handler while protecting the call with an interrupt-safe critical section.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"critical_section_depth_ptr\",\"v5\":\"critical_section_depth\",\"v6\":\"remaining_nesting_depth\",\"v7\":\"irq_disable_flag\"}}"
+}

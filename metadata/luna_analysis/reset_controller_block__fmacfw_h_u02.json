@@ -1,0 +1,9 @@
+{
+ "fn": "reset_controller_block",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11f5e4",
+ "seg": 21,
+ "key": "reset_controller_block__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"reset_bss_contexts\",\"confidence\":\"medium\",\"docstring\":\"Clears the global MAC state and reinitializes four per-BSS contexts with default values.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"global_state\",\"v1\":\"bss_context\",\"v2\":\"shared_context\",\"v3\":\"context_array_end\",\"v4\":\"bss_context_ptr\"},\"struct_hints\":[{\"offset\":52,\"meaning\":\"Pointer initialized to a shared context\"},{\"offset\":56,\"meaning\":\"Self-pointer initialized to the current context\"}]}"
+}

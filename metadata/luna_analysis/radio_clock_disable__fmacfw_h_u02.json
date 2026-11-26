@@ -1,0 +1,9 @@
+{
+ "fn": "radio_clock_disable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100b90",
+ "seg": 0,
+ "key": "radio_clock_disable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_clock_disable\",\"confidence\":\"high\",\"docstring\":\"Clears radio-related clock and control bits in several MMIO registers and zeros a final control byte.\",\"subsystem\":\"rf\"}"
+}

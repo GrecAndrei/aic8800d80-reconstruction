@@ -1,0 +1,9 @@
+{
+ "fn": "ke_evt_wait5",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1318a4",
+ "seg": 44,
+ "key": "ke_evt_wait5__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_llc_rx_pdu_event_notify\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Notifies the host of a link-layer receive PDU or its error status from the selected connection slot, optionally sending an extra HCI event before the main completion event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"conn_env\",\n    \"v7\": \"evt_buf\",\n    \"v15\": \"extra_evt_buf\",\n    \"v8\": \"conn_slot_idx\",\n    \"v9\": \"conn_slot\",\n    \"v10\": \"pending_pdu\",\n    \"v14\": \"mailbox_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"conn_env 32-bit value copied into the event buffer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"conn_env 32-bit value copied into the event buffer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"conn_env 16-bit value copied into the event buffer (possibly handle-like field)\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"conn_env byte flag selecting the extra-event path when the pending list has one entry\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"conn_env byte used as an RF/control selector passed to rf_control_set_bit3\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"connection-slot pointer to a pending received PDU/event object\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"pending-PDU byte copied into event buffer offset 0 (likely status/reason)\"\n    }\n  ]\n}"
+}

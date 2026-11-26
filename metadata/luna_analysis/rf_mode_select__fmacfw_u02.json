@@ -1,0 +1,9 @@
+{
+ "fn": "rf_mode_select",
+ "img": "fmacfw_u02",
+ "addr": "0x107584",
+ "seg": 2,
+ "key": "rf_mode_select__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_measure_power\",\"confidence\":\"medium\",\"docstring\":\"Configures the RF measurement path for the selected mode, captures a 15-bit power reading into the output structure, and restores the control bits.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"mode_select\",\"v6\":\"measured_power\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"captured RF power reading\"}]}"
+}

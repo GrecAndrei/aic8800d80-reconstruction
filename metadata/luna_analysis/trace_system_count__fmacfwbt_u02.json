@@ -1,0 +1,9 @@
+{
+ "fn": "trace_system_count",
+ "img": "fmacfwbt_u02",
+ "addr": "0x108040",
+ "seg": 2,
+ "key": "trace_system_count__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_loft_i_calibration_update\",\"confidence\":\"medium\",\"docstring\":\"Logs the LOFT I calibration value, adds it to the current correction field, and triggers the hardware update.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"loft_i_register\",\"v1\":\"loft_i_register_value\",\"v2\":\"loft_i_calibration_value\",\"v4\":\"calibration_control_register\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "is_rf_calib_running",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1138e8",
+ "seg": 5,
+ "key": "is_rf_calib_running__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calib_is_running\",\"confidence\":\"high\",\"docstring\":\"Returns whether the RF calibration-in-progress flag is set.\",\"subsystem\":\"rf\",\"var_renames\":{}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "double_ge",
+ "img": "fmacfw_u02",
+ "addr": "0x142fb4",
+ "seg": 68,
+ "key": "double_ge__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_ge\",\"confidence\":\"high\",\"docstring\":\"Returns whether the first double-precision value is greater than or equal to the second.\",\"subsystem\":\"libmisc\"}"
+}

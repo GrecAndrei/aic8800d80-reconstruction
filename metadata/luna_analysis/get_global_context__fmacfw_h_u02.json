@@ -1,0 +1,9 @@
+{
+ "fn": "get_global_context",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114ab8",
+ "seg": 5,
+ "key": "get_global_context__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_rf_global_context\",\"confidence\":\"medium\",\"docstring\":\"Lazily initializes the RF context base and a derived address, then marks the context initialized.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_release",
+ "img": "fmacfw_u02",
+ "addr": "0x1389c8",
+ "seg": 57,
+ "key": "ke_msg_release__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_counter_inc_after_field_clear\",\"confidence\":\"low\",\"docstring\":\"Clears the 16-bit field at offset 8 of the supplied object, then returns the result of `rf_counter_inc()`.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":8,\"meaning\":\"16-bit field cleared to zero; its purpose is unknown\"}]}"
+}

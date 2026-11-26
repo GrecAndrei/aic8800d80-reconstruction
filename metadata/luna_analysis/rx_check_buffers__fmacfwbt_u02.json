@@ -1,0 +1,9 @@
+{
+ "fn": "rx_check_buffers",
+ "img": "fmacfwbt_u02",
+ "addr": "0x116034",
+ "seg": 7,
+ "key": "rx_check_buffers__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_low_power_status_check\",\"confidence\":\"medium\",\"docstring\":\"Updates the low-power ignore flag from linked-entry state and, for applicable WLAN and Bluetooth states, polls status and schedules idle-related events.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"lp_state_slot\",\"v2\":\"lp_state\",\"v3\":\"idle_mode_state\",\"v4\":\"ignore_flag\",\"v5\":\"context_list_entry\",\"v6\":\"idle_mode_state_slot\",\"v7\":\"status_result\",\"v8\":\"status_result\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next pointer used to traverse the linked list.\"},{\"offset\":106,\"meaning\":\"Byte state discriminator; the code checks whether it equals 2.\"},{\"offset\":108,\"meaning\":\"Byte flag checked for nonzero when the state discriminator is not 2.\"}]}"
+}

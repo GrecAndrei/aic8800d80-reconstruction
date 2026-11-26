@@ -1,0 +1,9 @@
+{
+ "fn": "write_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x129768",
+ "seg": 36,
+ "key": "write_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_evt_send_entry_info\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a 16-byte HCI event buffer, populates it from a 48-byte BT context entry, and dispatches it via hci_evt_send.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"bt_ctx\",\n    \"a2\": \"entry_idx\",\n    \"v4\": \"evt_buf\",\n    \"v5\": \"entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 113,\n      \"meaning\": \"bt_ctx byte copied to event buffer byte 0\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"entry validity flag controlling whether extra fields are emitted\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"entry byte copied to event buffer byte 3 and gates payload copy\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"entry 8-byte block copied to event buffer bytes 4-11\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"entry byte copied to event buffer byte 2 when byte 20 is nonzero\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"entry dword copied to event buffer bytes 12-15\"\n    }\n  ]\n}"
+}

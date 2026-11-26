@@ -1,0 +1,9 @@
+{
+ "fn": "shared_call_check",
+ "img": "fmacfw_u02",
+ "addr": "0x111db4",
+ "seg": 4,
+ "key": "shared_call_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"flash_erase_main_forwarder\",\"confidence\":\"high\",\"docstring\":\"Forwards both arguments unchanged to flash_erase_main and returns its result.\",\"subsystem\":\"hal\"}"
+}

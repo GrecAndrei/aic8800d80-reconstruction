@@ -1,0 +1,9 @@
+{
+ "fn": "tx_power_temperature_comp",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f44c",
+ "seg": 2,
+ "key": "tx_power_temperature_comp__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_power_temperature_comp\",\"confidence\":\"high\",\"docstring\":\"Computes and stores the RF TX power temperature compensation value, clamps negative compensation, updates GPIO configuration, logs the change, and either disables compensation or schedules the next periodic update.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"p_temp_comp_state\",\"v1\":\"temp_base_code\",\"v2\":\"temp_comp_value\",\"v4\":\"now_tick\"},\"struct_hints\":[{\"offset\":5,\"meaning\":\"stored temperature/base calibration byte\"},{\"offset\":7,\"meaning\":\"current TX power temperature compensation value\"},{\"offset\":11,\"meaning\":\"temperature compensation disabled flag byte\"},{\"offset\":12,\"meaning\":\"timer/deadline field passed to scheduler\"},{\"offset\":16,\"meaning\":\"16-bit periodic update interval scaled by 30000 ticks\"}]}"
+}

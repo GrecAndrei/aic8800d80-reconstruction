@@ -1,0 +1,9 @@
+{
+ "fn": "radio_disabled_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x127fdc",
+ "seg": 33,
+ "key": "radio_disabled_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_rx_event_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a timed LLC RX event, applying pending RF-mode changes and saving events that do not match the active context.\",\"subsystem\":\"llc\",\"var_renames\":{\"v2\":\"event_flags\",\"v3\":\"event_record\",\"v6\":\"active_event_context\",\"v9\":\"previous_event_time\",\"v10\":\"current_event_time\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"current event timestamp\"},{\"offset\":80,\"meaning\":\"previously tracked event timestamp\"},{\"offset\":85,\"meaning\":\"event control flags\"}]}"
+}

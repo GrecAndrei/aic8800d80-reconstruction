@@ -1,0 +1,9 @@
+{
+ "fn": "phy_txpower_calc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x121fb8",
+ "seg": 24,
+ "key": "phy_txpower_calc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_rf_calibration_apply\",\"confidence\":\"medium\",\"docstring\":\"Applies per-vif RF calibration table pointers, issues WLC calibration commands, and triggers PHY calibration when the calibration state indicates it is required.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"phy_state_base\",\"v2\":\"phy_vif_state\",\"v3\":\"rf_cal_ctx_idx\",\"v4\":\"vif_idx\",\"v5\":\"rf_calib_ptr\",\"v6\":\"rf_cal_unit_idx\",\"v7\":\"rf_cal_unit\",\"v8\":\"rf_calib_enable_2\",\"v10\":\"rf_cal_state_base\",\"v11\":\"rf_cal_state\",\"v12\":\"rf_cal_ready_flag\",\"v19\":\"rf_channel_profile_ptr\",\"v22\":\"rf_cal_cmd_value\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"RF calibration context selector, such as band/channel table index\"},{\"offset\":584,\"meaning\":\"First per-vif RF calibration table/array slot, used as a 5-entry table\"},{\"offset\":624,\"meaning\":\"Second per-vif RF calibration table/array slot, used as a 5-entry table\"},{\"offset\":44,\"meaning\":\"Pointer to additional channel or RF calibration profile\"},{\"offset\":36,\"meaning\":\"Calibration mode or periodic-calibration flag\"},{\"offset\":106,\"meaning\":\"RF calibration context valid/ready byte\"},{\"offset\":116,\"meaning\":\"RF calibration context status byte, reset to -1 before start\"},{\"offset\":234,\"meaning\":\"RF calibration periodic countdown or interval byte\"},{\"offset\":107,\"meaning\":\"RF calibration counter adjacent to periodic state\"}]}"
+}

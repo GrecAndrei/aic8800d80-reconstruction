@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10f77c",
+ "seg": 3,
+ "key": "ke_msg_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mm_buffer_chain_prepare\",\"confidence\":\"medium\",\"docstring\":\"Builds per-segment descriptors and initializes native-buffer metadata at the corresponding buffer addresses.\",\"subsystem\":\"mm\",\"var_renames\":{\"a2\":\"segment_table\",\"a3\":\"alignment\",\"v10\":\"segment_index\",\"v13\":\"segment_length\",\"v14\":\"output_segment_descriptor\",\"v15\":\"buffer_metadata_address\",\"v28\":\"aligned_buffer_address\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Base buffer address used to derive the aligned buffer address\"},{\"offset\":8,\"meaning\":\"Flag indicating whether segment processing is enabled\"},{\"offset\":12,\"meaning\":\"Pointer to the output segment-descriptor array\"}]}"
+}

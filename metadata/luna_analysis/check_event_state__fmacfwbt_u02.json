@@ -1,0 +1,9 @@
+{
+ "fn": "check_event_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10294c",
+ "seg": 1,
+ "key": "check_event_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_scan_rssi_process_entries\",\"confidence\":\"medium\",\"docstring\":\"Initializes the radio, then invokes the RSSI scan comparator for each linked-list entry whose byte at offset 108 is nonzero.\",\"subsystem\":\"mac\",\"var_renames\":{\"i\":\"entry\",\"result\":\"last_result\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Linked-list next pointer\"},{\"offset\":108,\"meaning\":\"Nonzero flag gating RSSI scan processing\"}]}"
+}

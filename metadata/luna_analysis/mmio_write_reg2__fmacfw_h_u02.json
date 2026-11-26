@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_reg2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x109188",
+ "seg": 2,
+ "key": "mmio_write_reg2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_read_result_pair\",\"confidence\":\"medium\",\"docstring\":\"Triggers the RF result interface, waits for a ready indication, and stores its two signed 15-bit fields through the output pointers.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"upper_value_out\",\"a2\":\"lower_value_out\"}}"
+}

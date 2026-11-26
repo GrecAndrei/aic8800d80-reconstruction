@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_wait_ready_alt",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111fbc",
+ "seg": 4,
+ "key": "wlan_wait_ready_alt__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_ack_status_flag\",\"confidence\":\"medium\",\"docstring\":\"If bit 31 is set in the register at base+0xB00, writes it back with bit 31 cleared and bit 26 set, then returns the register address.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"register_address\",\"v2\":\"register_value\"}}"
+}

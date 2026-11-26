@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_bsscfg_down",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f704",
+ "seg": 21,
+ "key": "wlc_bsscfg_down__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_bsscfg_process_config_list\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes queued WLC BSS configuration command entries by validating PHY/core mode, applying TX-power configuration, and dispatching each entry up to an optional limit.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a2\": \"bsscfg\",\n    \"a3\": \"max_entries\",\n    \"v3\": \"cfg_entry\",\n    \"v4\": \"processed\",\n    \"v8\": \"cfg_list_head\",\n    \"v10\": \"entry\",\n    \"v12\": \"status\",\n    \"v9\": \"cmd_byte\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 572,\n      \"meaning\": \"bsscfg pending configuration command list head\"\n    },\n    {\n      \"offset\": 27,\n      \"meaning\": \"configuration entry command/mode byte\"\n    },\n    {\n      \"offset\": 97,\n      \"meaning\": \"configuration entry pending/processed flag\"\n    }\n  ]\n}"
+}

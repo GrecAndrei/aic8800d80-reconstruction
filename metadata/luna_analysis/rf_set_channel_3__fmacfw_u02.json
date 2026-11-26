@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_channel_3",
+ "img": "fmacfw_u02",
+ "addr": "0x13bc28",
+ "seg": 60,
+ "key": "rf_set_channel_3__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel\",\"confidence\":\"medium\",\"docstring\":\"Programs the RF configuration for a channel index, selects the register and callback path based on the entry mode and index range, and returns the parsed PHY status.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"channel_index\",\"v1\":\"channel_request\",\"v3\":\"channel_table_base\",\"v4\":\"channel_entry\",\"v5\":\"entry_mode\",\"v8\":\"channel_entry_ptr\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Byte selector scaled by 696 when computing the control-register address.\"},{\"offset\":17,\"meaning\":\"Mode byte: zero writes at register offset 452, while value 1 additionally writes at offset 453.\"},{\"offset\":22,\"meaning\":\"Byte selector scaled by 12 when computing the control-register address.\"}]}"
+}

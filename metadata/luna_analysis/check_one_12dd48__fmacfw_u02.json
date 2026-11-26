@@ -1,0 +1,9 @@
+{
+ "fn": "check_one_12dd48",
+ "img": "fmacfw_u02",
+ "addr": "0x12dd48",
+ "seg": 42,
+ "key": "check_one_12dd48__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_multiple_bssid_ie\",\"confidence\":\"medium\",\"docstring\":\"Scans an 802.11 information-element sequence for element ID 71 and returns it only if its body is at least four bytes and fully in bounds.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"ie_cursor\",\"a2\":\"buffer_len\",\"v2\":\"buffer_end\",\"v3\":\"element_total_len\",\"v4\":\"element_end\"}}"
+}

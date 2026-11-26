@@ -1,0 +1,9 @@
+{
+ "fn": "memcmp",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1435d0",
+ "seg": 68,
+ "key": "memcmp__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"memcmp\",\"confidence\":\"high\",\"docstring\":\"Compares two byte sequences lexicographically, using aligned 32-bit loads when possible, and returns the first differing unsigned-byte difference.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"lhs_ptr\",\"a2\":\"rhs_ptr\",\"a3\":\"remaining_len\",\"v3\":\"lhs_word_ptr\",\"v4\":\"rhs_word_ptr\",\"v9\":\"rhs_byte_ptr\",\"v10\":\"lhs_byte_ptr\"}}"
+}

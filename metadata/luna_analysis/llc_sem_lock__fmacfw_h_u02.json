@@ -1,0 +1,9 @@
+{
+ "fn": "llc_sem_lock",
+ "img": "fmacfw_h_u02",
+ "addr": "0x126cdc",
+ "seg": 32,
+ "key": "llc_sem_lock__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_process_procedure_request\",\"confidence\":\"medium\",\"docstring\":\"Processes the current LLC procedure request, updates the active procedure, and prepares a control response when required.\",\"subsystem\":\"llc\",\"var_renames\":{\"v0\":\"llc_context\",\"v2\":\"procedure_request\",\"v3\":\"control_pdu\",\"v6\":\"matches_active_procedure\",\"v7\":\"active_procedure\",\"v8\":\"procedure_kind\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Procedure selector or identity field used for lookup and matching.\"},{\"offset\":6,\"meaning\":\"Field compared when matching the request to the active procedure.\"},{\"offset\":8,\"meaning\":\"Field compared when matching the request to the active procedure.\"},{\"offset\":10,\"meaning\":\"Field compared when matching the request to the active procedure.\"},{\"offset\":13,\"meaning\":\"Field compared when matching the request to the active procedure.\"},{\"offset\":16,\"meaning\":\"Procedure status, set when the request becomes active or is superseded.\"},{\"offset\":24,\"meaning\":\"Procedure kind discriminator; value 3 takes a special handling path.\"},{\"offset\":26,\"meaning\":\"Request byte copied into the generated control PDU.\"}]}"
+}

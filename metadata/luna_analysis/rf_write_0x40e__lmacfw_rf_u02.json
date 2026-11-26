@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_0x40e",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121654",
+ "seg": 22,
+ "key": "rf_write_0x40e__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_boot_cmd_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles an RF boot command by logging auto/custom boot addresses or a delay, waiting in the kernel event loop, storing an MMIO/fuse status byte in a response message, and sending it.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"unused\",\n    \"a2\": \"boot_cmd\",\n    \"v5\": \"msg\",\n    \"v6\": \"boot_type\",\n    \"v7\": \"response_buf\",\n    \"v9\": \"delay\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"boot argument: boot address, pointer to boot table, or delay value\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"boot command type: 1=auto, 2=custom, 3=delay\"\n    }\n  ]\n}"
+}

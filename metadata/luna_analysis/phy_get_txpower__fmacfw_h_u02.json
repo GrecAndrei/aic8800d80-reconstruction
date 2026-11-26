@@ -1,0 +1,9 @@
+{
+ "fn": "phy_get_txpower",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13adfc",
+ "seg": 59,
+ "key": "phy_get_txpower__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_select_rf_channel\",\"confidence\":\"medium\",\"docstring\":\"Selects an RF channel for the indexed PHY state when its status byte is 1, otherwise returning the input unchanged.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"phy_state\"},\"struct_hints\":[{\"offset\":29,\"meaning\":\"PHY slot index used to locate the per-slot state\"},{\"offset\":80,\"meaning\":\"RF channel-selection data passed to rf_channel_select\"},{\"offset\":96,\"meaning\":\"Status byte; RF channel selection runs only when it equals 1\"}]}"
+}

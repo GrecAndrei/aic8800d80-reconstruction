@@ -1,0 +1,9 @@
+{
+ "fn": "rf_pll_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1039c4",
+ "seg": 2,
+ "key": "rf_pll_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_pll_enable\",\"confidence\":\"high\",\"docstring\":\"Enables the RF PLL stages, polls their ready status bits, and applies the RF-interface configuration.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"pll_status_reg\",\"v1\":\"poll_delay_count\",\"v2\":\"pll_control_reg\",\"v3\":\"pll_status_reg\",\"v4\":\"poll_delay_count\",\"v5\":\"rf_control_reg\",\"v6\":\"rf_interface_reg\"}}"
+}

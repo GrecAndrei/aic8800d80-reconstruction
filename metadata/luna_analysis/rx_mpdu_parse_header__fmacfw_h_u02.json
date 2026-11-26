@@ -1,0 +1,9 @@
+{
+ "fn": "rx_mpdu_parse_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x131548",
+ "seg": 43,
+ "key": "rx_mpdu_parse_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_connection_report\",\"confidence\":\"medium\",\"docstring\":\"Queues a connection report using either caller-provided data or the active connection\u2019s stored data, with an extra notification when only one connection is present.\",\"subsystem\":\"bt\",\"var_renames\":{\"v7\":\"report_message\",\"v8\":\"connection_index\",\"v9\":\"connection_entry\",\"v10\":\"connection_context\",\"v15\":\"extra_notification\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"per-slot pointer to the active connection context\"},{\"offset\":24,\"meaning\":\"connection identifier copied into the report\"},{\"offset\":10,\"meaning\":\"selects the caller-provided data path when nonzero\"},{\"offset\":11,\"meaning\":\"value passed to the RF control-bit setter\"}]}"
+}

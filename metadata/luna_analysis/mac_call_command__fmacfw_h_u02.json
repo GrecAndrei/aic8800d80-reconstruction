@@ -1,0 +1,9 @@
+{
+ "fn": "mac_call_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13e9cc",
+ "seg": 61,
+ "key": "mac_call_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_call_command\",\"confidence\":\"medium\",\"docstring\":\"Calls mac_handle_command with the unsigned difference a2 - a3, a fixed mode value of 1, and forwards a1 and a4.\",\"subsystem\":\"mac\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "zero_struct",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d468",
+ "seg": 41,
+ "key": "zero_struct__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"clear_two_u32\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Zero-initializes two consecutive 32-bit volatile words in a structure or buffer and returns the destination pointer.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"dst\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first zeroed 32-bit word\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"second zeroed 32-bit word\"\n    }\n  ]\n}"
+}

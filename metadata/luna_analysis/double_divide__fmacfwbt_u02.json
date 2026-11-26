@@ -1,0 +1,9 @@
+{
+ "fn": "double_divide",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1434e0",
+ "seg": 69,
+ "key": "double_divide__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"u64_divmod\",\"confidence\":\"medium\",\"docstring\":\"Performs unsigned 64-bit division with normalized long division and optionally stores the unnormalized remainder through the third argument.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v3\":\"dividend\",\"v4\":\"dividend_hi\",\"v32\":\"normalized_divisor_hi\",\"v33\":\"normalized_divisor_hi_top16\",\"v36\":\"quotient_part_hi16\",\"v42\":\"quotient_part_lo16\",\"a4\":\"remainder_ptr\"}}"
+}

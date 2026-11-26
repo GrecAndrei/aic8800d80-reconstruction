@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_band_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13ab90",
+ "seg": 60,
+ "key": "rf_set_band_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_schedule_retransmit_txu\",\"confidence\":\"medium\",\"docstring\":\"Appends a TX descriptor/queue entry under a reentrant IRQ lock and schedules a RetransmitTxuD event when the TXU discard status bit is set.\",\"subsystem\":\"mac\",\"var_renames\":{\"v6\":\"txu_status_bits\",\"v7\":\"retransmit_event_bit\",\"v8\":\"list_append_counter_ptr\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"list head used by list_append for the TXU queue\"},{\"offset\":27,\"meaning\":\"TXU index/slot\"},{\"offset\":30,\"meaning\":\"TXU status bits; bit 0 indicates a discard/retransmit condition\"},{\"offset\":32,\"meaning\":\"TXU discard/error count or related status field\"}]}"
+}

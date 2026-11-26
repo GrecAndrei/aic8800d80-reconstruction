@@ -1,0 +1,9 @@
+{
+ "fn": "hw_config_init_0688",
+ "img": "fmacfwbt_u02",
+ "addr": "0x100688",
+ "seg": 0,
+ "key": "hw_config_init_0688__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"timer_config_entry_init\",\"confidence\":\"medium\",\"docstring\":\"Uses a timer-derived index to select a 16-byte configuration entry, initializes related global state from its fields, and returns the selected entry address.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"state_record\",\"v1\":\"entry_index\",\"v3\":\"entry_field_6\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit value copied to a global configuration word\"},{\"offset\":6,\"meaning\":\"16-bit value whose low byte initializes state_record[1]\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_reg0xf_bit19",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1141ec",
+ "seg": 5,
+ "key": "rf_set_reg0xf_bit19__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_reg0xf_bit19\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Write RF register 0xF with bit 19 (0x80000) set via the MMIO helper.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

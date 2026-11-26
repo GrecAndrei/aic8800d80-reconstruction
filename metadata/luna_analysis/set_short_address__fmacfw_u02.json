@@ -1,0 +1,9 @@
+{
+ "fn": "set_short_address",
+ "img": "fmacfw_u02",
+ "addr": "0x11c4e4",
+ "seg": 18,
+ "key": "set_short_address__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_short_address\",\"confidence\":\"medium\",\"docstring\":\"Copies the supplied two-byte short address into a global context field and returns the original pointer.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"short_address\",\"v1\":\"global_context\"},\"struct_hints\":[{\"offset\":164,\"meaning\":\"two-byte short address\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_power_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f334",
+ "seg": 43,
+ "key": "tx_power_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_hci_event_40e\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds and sends the BT/HCI event associated with buffer/message ID 0x40E, logging auto-boot, custom-boot, or delay parameters and invoking patch-aware dispatch for delayed boot requests.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"boot_args\",\n    \"v5\": \"event_buf\",\n    \"v6\": \"boot_type\",\n    \"v7\": \"event_payload\",\n    \"v9\": \"delay\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"boot type selector in the argument vector\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"boot parameter word: target address for auto/custom boot, or delay value\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"auto-boot target address inside the pointed-to parameter block\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"status/version byte stored at the start of the allocated HCI event buffer\"\n    }\n  ]\n}"
+}

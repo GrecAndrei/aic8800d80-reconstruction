@@ -1,0 +1,9 @@
+{
+ "fn": "send_cmd_040d",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10f764",
+ "seg": 3,
+ "key": "send_cmd_040d__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_send_event_040d\",\"confidence\":\"medium\",\"docstring\":\"Allocates the Bluetooth message buffer with identifier 0x040D and submits it through the HCI event path.\",\"subsystem\":\"bt\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "wait_hw_ready",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114b5c",
+ "seg": 6,
+ "key": "wait_hw_ready__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_soft_reset_wait_done\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pulses RF soft-reset control registers, waits for the reset-complete status bit to clear, synchronizes trace and RX state, then disables interrupts and returns the selected hardware status.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"status\",\n    \"v6\": \"soft_reset_base\",\n    \"v4\": \"rf_reset_strobe_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2052,\n      \"meaning\": \"soft-reset control bit register at reset base\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"soft-reset busy/status bit polled until clear\"\n    },\n    {\n      \"offset\": 136,\n      \"meaning\": \"RF reset/strobe control register\"\n    }\n  ]\n}"
+}

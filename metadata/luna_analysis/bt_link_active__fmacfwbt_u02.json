@@ -1,0 +1,9 @@
+{
+ "fn": "bt_link_active",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1286b4",
+ "seg": 34,
+ "key": "bt_link_active__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_link_is_active\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns true when the owner's BT link context matches the globally recorded active BT link context fields.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"owner\",\n    \"v1\": \"active_link\",\n    \"v2\": \"owner_link\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 72,\n      \"meaning\": \"pointer to the owner's BT link/connection context\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"link context field 16-bit identifier, likely connection handle\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"link context 16-bit parameter compared with active link\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"link context 16-bit parameter compared with active link\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"link context 16-bit parameter, likely timeout/connection parameter\"\n    },\n    {\n      \"offset\": 13,\n      \"meaning\": \"link context byte field compared with active link, likely type/state/role\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "dma_tx_setup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1223b8",
+ "seg": 25,
+ "key": "dma_tx_setup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"dma_tx_setup\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes a transmit DMA descriptor table by merging TX buffer/control words with a template control array, then updates TX status bytes, waits briefly, and schedules an EDCA MAC0 event.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"tx_desc_array\",\n    \"v1\": \"dma_tx_desc_ptr\",\n    \"v2\": \"dma_tx_desc_mask\",\n    \"v3\": \"dma_tx_desc_end\",\n    \"v4\": \"tx_src_desc_ptr\",\n    \"v5\": \"tx_dma_template_ptr\",\n    \"v6\": \"tx_desc_word\",\n    \"v7\": \"tx_template_word\",\n    \"v8\": \"tx_template_low12\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"first template/control descriptor word used to populate the TX DMA descriptor table\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"TX descriptor source word/array pointer used by the DMA table initialization loop\"\n    }\n  ]\n}"
+}

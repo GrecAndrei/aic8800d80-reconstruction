@@ -1,0 +1,9 @@
+{
+ "fn": "patch_dispatch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10cb70",
+ "seg": 2,
+ "key": "patch_dispatch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dispatch_rx_packet\",\"confidence\":\"medium\",\"docstring\":\"Wraps the supplied packet in an allocated buffer, performs RF-event bookkeeping and IRQ handling, then passes its payload to the RX processor.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"packet_desc\",\"v4\":\"event_state\",\"v5\":\"packet_buf\",\"v6\":\"payload_len\",\"v7\":\"packet_code\",\"v13\":\"sequence_counter\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit metadata copied into the wrapped packet\"},{\"offset\":6,\"meaning\":\"packet code used for IRQ-handling thresholds\"},{\"offset\":8,\"meaning\":\"optional sequence field, updated from a shared counter in state 3\"},{\"offset\":10,\"meaning\":\"payload length\"},{\"offset\":12,\"meaning\":\"payload data\"}]}"
+}

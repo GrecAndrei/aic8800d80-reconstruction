@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_bit_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10dbc0",
+ "seg": 3,
+ "key": "mmio_set_bit_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_set_bit\",\"confidence\":\"high\",\"docstring\":\"Sets the bit at the given index in a fixed memory-mapped register and returns the updated register value.\",\"subsystem\":\"mmio\",\"var_renames\":{\"a1\":\"bit_index\",\"result\":\"updated_value\"}}"
+}

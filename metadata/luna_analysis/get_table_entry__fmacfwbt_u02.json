@@ -1,0 +1,9 @@
+{
+ "fn": "get_table_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x129f8c",
+ "seg": 37,
+ "key": "get_table_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_table_entry\",\"confidence\":\"medium\",\"docstring\":\"Looks up a table entry and, when present, locks the associated event and sets the table control block's busy/locked flag.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"table\",\"v5\":\"entry\",\"v6\":\"entry\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"volatile busy/locked flag in the table control structure\"}]}"
+}

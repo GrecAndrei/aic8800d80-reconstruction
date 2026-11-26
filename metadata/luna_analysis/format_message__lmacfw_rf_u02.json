@@ -1,0 +1,9 @@
+{
+ "fn": "format_message",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123f04",
+ "seg": 23,
+ "key": "format_message__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_kernel_message\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a 72-byte kernel message, conditionally copies a chip-specific 33-byte template into it, writes 0xFF to a late message field, and dispatches the buffer through the receive/message handler.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v5\": \"msg_ptr\",\n    \"v6\": \"msg_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 64,\n      \"meaning\": \"message field set to 0xFF, likely a terminator/marker field\"\n    }\n  ]\n}"
+}

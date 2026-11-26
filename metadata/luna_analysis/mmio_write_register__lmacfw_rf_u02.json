@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_register",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1264dc",
+ "seg": 23,
+ "key": "mmio_write_register__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_flag_atomic\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Atomically stores an RF command/state value and sets the RF status bit 0x400, strobing the RF control register with 0x400 when the bit was previously clear.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v4\": \"rf_status_val\",\n    \"v6\": \"rf_bit_400_set\"\n  },\n  \"struct_hints\": []\n}"
+}

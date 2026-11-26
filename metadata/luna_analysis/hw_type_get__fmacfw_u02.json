@@ -1,0 +1,9 @@
+{
+ "fn": "hw_type_get",
+ "img": "fmacfw_u02",
+ "addr": "0x116e50",
+ "seg": 9,
+ "key": "hw_type_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hw_controller_mode_query\",\"confidence\":\"medium\",\"docstring\":\"When the 16-bit field at offset 4 is nonzero, checks the stored pointer and, if flag 0x200000 is clear, queries controller mode and clears that pointer.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"context\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit gate field\"},{\"offset\":36,\"meaning\":\"flags word; bit 21 suppresses the controller-mode query\"},{\"offset\":72,\"meaning\":\"stored pointer, cleared after the controller-mode query\"}]}"
+}

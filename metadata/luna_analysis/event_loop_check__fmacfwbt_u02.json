@@ -1,0 +1,9 @@
+{
+ "fn": "event_loop_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d5cc",
+ "seg": 3,
+ "key": "event_loop_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"event_loop_poll\",\"confidence\":\"medium\",\"docstring\":\"Calls event_loop() only when the volatile 32-bit value at off_10D5D8 is zero.\",\"subsystem\":\"ke\"}"
+}

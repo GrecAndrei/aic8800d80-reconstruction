@@ -1,0 +1,9 @@
+{
+ "fn": "f32_compare",
+ "img": "fmacfw_u02",
+ "addr": "0x109760",
+ "seg": 2,
+ "key": "f32_compare__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"compare_f32_triplets\",\"confidence\":\"medium\",\"docstring\":\"Compares the pairwise ordering of two three-float arrays, returning 2 on an ordering conflict and otherwise 1 only when all values in the second array are strictly positive or all strictly negative.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"first_triplet\",\"a2\":\"second_triplet\",\"v2\":\"first_value\",\"v3\":\"second_value\",\"v4\":\"third_value\"}}"
+}

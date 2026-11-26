@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_validate",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a568",
+ "seg": 37,
+ "key": "bt_conn_validate__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wifi_find_vendor_subelement\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"When the WiFi context is enabled, scans a received 802.11 management frame's information elements for a vendor-specific element subtype 0x09 containing subelement ID 0x0C and returns that subelement pointer or NULL.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"wifi_ctx\",\n    \"a2\": \"pkt_desc\",\n    \"a3\": \"pkt_info\",\n    \"v3\": \"attr_ptr\",\n    \"v5\": \"ctx_subid\",\n    \"v8\": \"frame_ptr\",\n    \"v9\": \"ie_ptr\",\n    \"v10\": \"ie_end\",\n    \"v11\": \"ie_len\",\n    \"v12\": \"ie_type\",\n    \"v13\": \"ie_start\",\n    \"v14\": \"vendor_data_end\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1224,\n      \"meaning\": \"wifi_ctx: enabled/valid flag checked before parsing\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"wifi_ctx: flag that bypasses the vendor IE scan when set\"\n    },\n    {\n      \"offset\": 1225,\n      \"meaning\": \"wifi_ctx: subtype/lookup identifier passed to get_struct_ptr\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"pkt_desc: pointer to the frame buffer/header\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"frame: offset from frame_ptr to the first information element\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"pkt_info: 16-bit information element payload length\"\n    }\n  ]\n}"
+}

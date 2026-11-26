@@ -1,0 +1,9 @@
+{
+ "fn": "send_event_0x70",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1194f4",
+ "seg": 12,
+ "key": "send_event_0x70__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_send_event_0x70\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Thin wrapper that sends kernel event 0x70 with the supplied event arguments.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a3\": \"event_arg1\",\n    \"a4\": \"event_arg0\"\n  },\n  \"struct_hints\": []\n}"
+}

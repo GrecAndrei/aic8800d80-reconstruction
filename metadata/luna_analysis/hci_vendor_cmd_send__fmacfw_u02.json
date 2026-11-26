@@ -1,0 +1,9 @@
+{
+ "fn": "hci_vendor_cmd_send",
+ "img": "fmacfw_u02",
+ "addr": "0x11ec94",
+ "seg": 21,
+ "key": "hci_vendor_cmd_send__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_msg_copy_send\",\"confidence\":\"medium\",\"docstring\":\"Copies a 24-byte payload into kernel message 139 for destination task 13 and sends it.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"payload\",\"v4\":\"message\"}}"
+}

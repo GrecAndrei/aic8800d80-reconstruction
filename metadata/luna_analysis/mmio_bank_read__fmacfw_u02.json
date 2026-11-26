@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_bank_read",
+ "img": "fmacfw_u02",
+ "addr": "0x111d10",
+ "seg": 4,
+ "key": "mmio_bank_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"read_mmio_bank_bit21\",\"confidence\":\"high\",\"docstring\":\"Selects one of two MMIO bases, reads the 32-bit register at the requested 32-byte bank index, and returns bit 21.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"base_selector\",\"a2\":\"bank_index\"}}"
+}

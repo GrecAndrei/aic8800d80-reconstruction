@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_poll_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12bad0",
+ "seg": 40,
+ "key": "mmio_write_poll_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_mmio_write_and_wait_clear\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes 1 to a hardware register and busy-waits until its low byte reads back as zero.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"reg_ptr\"\n  }\n}"
+}

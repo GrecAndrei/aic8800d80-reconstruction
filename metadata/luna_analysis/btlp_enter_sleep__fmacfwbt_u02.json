@@ -1,0 +1,9 @@
+{
+ "fn": "btlp_enter_sleep",
+ "img": "fmacfwbt_u02",
+ "addr": "0x119120",
+ "seg": 13,
+ "key": "btlp_enter_sleep__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_lp_enter_sleep\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks the BLE sleep abort condition and requests sleep by setting system flag bit 0x20000.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"abort_flag\"\n  },\n  \"struct_hints\": []\n}"
+}

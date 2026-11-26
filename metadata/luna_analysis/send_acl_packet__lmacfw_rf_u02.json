@@ -1,0 +1,9 @@
+{
+ "fn": "send_acl_packet",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118674",
+ "seg": 11,
+ "key": "send_acl_packet__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_mac_calc_time_on_air\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs the MAC hardware time-on-air engine and returns the computed air-time duration for a frame/rate configuration.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a2\": \"bb_command\",\n    \"a3\": \"phy_params\",\n    \"a6\": \"frame_desc\",\n    \"v10\": \"time_multiplier\",\n    \"v11\": \"payload_len\",\n    \"v13\": \"bb_rate_table\",\n    \"v14\": \"bb_cmd_reg\",\n    \"v15\": \"bb_ctrl_reg\",\n    \"v17\": \"pre_duration_us\",\n    \"v21\": \"result_duration_us\",\n    \"v22\": \"duration_delta_us\",\n    \"v38\": \"air_time_units\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"a6 byte field containing a primary packet length byte for time-on-air calculation\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"a6 fallback packet length byte used when offset 2 is zero\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"a3 byte field: bit 0 selects fixed duration path, bit 7 controls bb_cmd_reg bit 20\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"a3 byte field: high nibble indexes the baseband rate/duration table\"\n    }\n  ]\n}"
+}

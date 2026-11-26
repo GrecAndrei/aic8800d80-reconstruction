@@ -1,0 +1,9 @@
+{
+ "fn": "load_phy_table",
+ "img": "fmacfw_h_u02",
+ "addr": "0x107620",
+ "seg": 2,
+ "key": "load_phy_table__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_load_phy_table\",\"confidence\":\"medium\",\"docstring\":\"Selects firmware-resident PHY table entries using the supplied configuration and applies them to the hardware.\",\"subsystem\":\"rf\"}"
+}

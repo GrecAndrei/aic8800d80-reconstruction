@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_15",
+ "img": "fmacfw_u02",
+ "addr": "0x111b64",
+ "seg": 4,
+ "key": "unknown_15__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_update_bits\",\"confidence\":\"medium\",\"docstring\":\"Applies set and clear masks to a selected MMIO control word, performs any required hardware handshakes, and returns the corresponding table entry.\",\"subsystem\":\"mmio\",\"var_renames\":{\"a1\":\"entry_index\",\"a2\":\"set_mask\",\"a3\":\"clear_mask\",\"v3\":\"handshake_reg\",\"v4\":\"control_reg\",\"v5\":\"old_control_value\",\"v6\":\"mmio_regs\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Per-entry control word; bits 31 and 15 govern synchronization behavior.\"},{\"offset\":8,\"meaning\":\"Per-entry handshake register; bit 1 is polled during synchronization.\"}]}"
+}

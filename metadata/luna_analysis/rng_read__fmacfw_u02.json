@@ -1,0 +1,9 @@
+{
+ "fn": "rng_read",
+ "img": "fmacfw_u02",
+ "addr": "0x100e24",
+ "seg": 0,
+ "key": "rng_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_rng_configure\",\"confidence\":\"medium\",\"docstring\":\"Configures the RF-side random source registers and conditionally pulses a control bit when the input is zero and the existing mode field is not 7.\",\"subsystem\":\"rf\"}"
+}

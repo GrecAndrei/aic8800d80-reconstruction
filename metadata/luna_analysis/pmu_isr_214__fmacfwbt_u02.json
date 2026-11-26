@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_isr_214",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10caa8",
+ "seg": 2,
+ "key": "pmu_isr_214__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"pmu_wait_pop_pending\",\"confidence\":\"medium\",\"docstring\":\"Polls a PMU status word until nonzero, removes the first entry from the context's linked list if present, writes 1 to the status word, and returns the entry payload pointer or zero when the list is empty.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"status_word\",\"result\":\"entry_ptr\"},\"struct_hints\":[{\"offset\":532,\"meaning\":\"Linked-list head containing pending entries\"}]}"
+}

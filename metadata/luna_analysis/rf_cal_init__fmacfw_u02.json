@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_init",
+ "img": "fmacfw_u02",
+ "addr": "0x12e11c",
+ "seg": 42,
+ "key": "rf_cal_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"vsnprintf\",\"confidence\":\"medium\",\"docstring\":\"Parses a printf-style format string and emits bounded formatted text, including custom conversions.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v7\":\"format_char\",\"v8\":\"format_cursor\",\"v9\":\"output_buffer\",\"v10\":\"output_count\",\"v11\":\"output_limit\"}}"
+}

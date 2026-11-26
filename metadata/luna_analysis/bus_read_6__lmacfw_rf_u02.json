@@ -1,0 +1,9 @@
+{
+ "fn": "bus_read_6",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114820",
+ "seg": 6,
+ "key": "bus_read_6__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bus_read_6\",\"confidence\":\"high\",\"docstring\":\"Read six bytes from bus endpoint/channel 2 into the caller-provided buffer.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"dst\"}}"
+}

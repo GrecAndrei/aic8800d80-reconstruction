@@ -1,0 +1,9 @@
+{
+ "fn": "aeabi_dmul",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127be4",
+ "seg": 23,
+ "key": "aeabi_dmul__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_d2f\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Converts a double-precision floating-point value to a single-precision floating-point value using the libgcc __aeabi_d2f routine.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

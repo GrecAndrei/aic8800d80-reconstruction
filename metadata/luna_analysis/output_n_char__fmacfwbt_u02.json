@@ -1,0 +1,9 @@
+{
+ "fn": "output_n_char",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123b34",
+ "seg": 29,
+ "key": "output_n_char__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_hci_evt_after_rf_channel_set\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Wrapper that calls an RF-channel setter with a byte pointer and then sends a vendor HCI event (code 110/0x6e), likely to report the result; exact behavior is ambiguous.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"rf_channel_data\"\n  },\n  \"struct_hints\": []\n}"
+}

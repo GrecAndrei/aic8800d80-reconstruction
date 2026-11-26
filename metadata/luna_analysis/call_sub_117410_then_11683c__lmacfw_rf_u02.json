@@ -1,0 +1,9 @@
+{
+ "fn": "call_sub_117410_then_11683c",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116c94",
+ "seg": 10,
+ "key": "call_sub_117410_then_11683c__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ipc_regs_init_and_update_events\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the IPC register block and then refreshes the event counter state.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

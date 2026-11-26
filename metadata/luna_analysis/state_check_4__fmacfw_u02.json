@@ -1,0 +1,9 @@
+{
+ "fn": "state_check_4",
+ "img": "fmacfw_u02",
+ "addr": "0x111efc",
+ "seg": 4,
+ "key": "state_check_4__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"queue_peripheral_channel_request\",\"confidence\":\"medium\",\"docstring\":\"Queues a data or control request for a valid peripheral channel, updating its MMIO registers, FIFO descriptor state, and pending bits.\",\"subsystem\":\"hal\",\"var_renames\":{\"a2\":\"channel_id\",\"a3\":\"request_flags\",\"a4\":\"transfer_length\",\"v7\":\"programmed_length\",\"v13\":\"fifo_offset\",\"v15\":\"pending_channel_mask\"}}"
+}

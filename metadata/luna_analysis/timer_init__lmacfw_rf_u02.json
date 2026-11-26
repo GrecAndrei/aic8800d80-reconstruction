@@ -1,0 +1,9 @@
+{
+ "fn": "timer_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1112e4",
+ "seg": 4,
+ "key": "timer_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"timer_init\",\"confidence\":\"medium\",\"docstring\":\"Initialize the timer subsystem by clearing and resetting timer entries one through five.\",\"subsystem\":\"hal\",\"var_renames\":{\"i\":\"timer_entry_id\"}}"
+}

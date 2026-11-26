@@ -1,0 +1,9 @@
+{
+ "fn": "bsscfg_indexed_lookup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123af4",
+ "seg": 29,
+ "key": "bsscfg_indexed_lookup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_send_scan_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects a BT scan context by the first parameter byte, updates its scan/RSSI field, packs the context into an HCI event buffer, and sends the event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"params\",\n    \"v4\": \"scan_ctx\",\n    \"v6\": \"evt_buf\",\n    \"v7\": \"evt_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 110,\n      \"meaning\": \"byte field updated from params[1] before scan_rssi_compare; likely scan RSSI/state byte\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_control_cmd",
+ "img": "fmacfw_h_u02",
+ "addr": "0x137500",
+ "seg": 57,
+ "key": "rf_control_cmd__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_control_cmd\",\"confidence\":\"low\",\"docstring\":\"Handles an RF-control request using the supplied 16-bit-word buffer.\",\"subsystem\":\"rf\"}"
+}

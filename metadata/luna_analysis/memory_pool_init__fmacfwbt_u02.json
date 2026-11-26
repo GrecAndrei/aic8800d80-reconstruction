@@ -1,0 +1,9 @@
+{
+ "fn": "memory_pool_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12599c",
+ "seg": 31,
+ "key": "memory_pool_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"memory_pool_reset\", \"confidence\": \"medium\", \"docstring\": \"Reset or initialize the per-slot buffer pool and queue control block, wiring the queue header to its backing tables and clearing associated state.\", \"subsystem\": \"mm\", \"var_renames\": {\"v4\": \"slot_idx\", \"v6\": \"queue_ctl_base\", \"v7\": \"slot_state_base\", \"v8\": \"queue_hdr\", \"v10\": \"slot_state_ptr\", \"v11\": \"queue_ctl\", \"v12\": \"desc_array_ptr\"}, \"struct_hints\": [{\"offset\": 107, \"meaning\": \"uint8 pool/slot index\"}, {\"offset\": 116, \"meaning\": \"pool context or table destination\"}, {\"offset\": 192, \"meaning\": \"pointer to linked queue/context structure\"}, {\"offset\": 204, \"meaning\": \"assigned pool table or operation pointer\"}, {\"offset\": 208, \"meaning\": \"self pointer\"}, {\"offset\": 227, \"meaning\": \"zeroed queue byte copied into queue header\"}, {\"offset\": 229, \"meaning\": \"byte offset into zeroed slot state\"}, {\"offset\": 1224, \"meaning\": \"flag selecting additional pool reset table\"}]}"
+}

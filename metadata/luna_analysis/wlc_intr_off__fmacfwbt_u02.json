@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_intr_off",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1205a8",
+ "seg": 23,
+ "key": "wlc_intr_off__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"wlc_update_minrate\", \"confidence\": \"medium\", \"docstring\": \"Under an interrupt-locked section, assign a PHY rate to a controller object/bsscfg, update the global minimum active rate, and refresh rate-ratio fields for all linked objects.\", \"subsystem\": \"mac\", \"var_renames\": {\"result\": \"bsscfg\", \"a2\": \"new_rate\", \"v2\": \"lock_count_ptr\", \"v3\": \"wlc\", \"v4\": \"old_lock_count\", \"v6\": \"new_lock_count\", \"v7\": \"min_rate\", \"i\": \"iter_bsscfg\", \"v9\": \"iter_rate\", \"v10\": \"irq_save_ptr\", \"v11\": \"irq_save\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"object next-pointer in linked list\"}, {\"offset\": 8, \"meaning\": \"controller list-head pointer\"}, {\"offset\": 18, \"meaning\": \"controller state/count field selecting single vs multi-object path\"}, {\"offset\": 20, \"meaning\": \"controller current minimum-rate table index\"}, {\"offset\": 107, \"meaning\": \"object rate-table index/unit\"}, {\"offset\": 222, \"meaning\": \"object rate-table entry PHY rate (uint16)\"}, {\"offset\": 224, \"meaning\": \"object uint16 rate-ratio/flag field: low byte ratio, high byte enabled/valid flag\"}, {\"offset\": 225, \"meaning\": \"object rate flag byte, high byte of offset 224\"}]}"
+}

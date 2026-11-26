@@ -1,0 +1,9 @@
+{
+ "fn": "rx_queue_pop_packet",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x107a70",
+ "seg": 2,
+ "key": "rx_queue_pop_packet__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_rx_timestamp\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Retrieves RF core RX timestamp registers, normalizes packed 32-bit tick counters with division-by-three and modulo-3 corrections, optionally clears the RF core interrupt, and returns the adjusted timestamp.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_core_base\",\n    \"a2\": \"timestamp_regs\",\n    \"a3\": \"rx_ctx\",\n    \"v5\": \"timestamp_tick_pair\",\n    \"v6\": \"timestamp_counter\",\n    \"v9\": \"low_ticks_div3\",\n    \"v10\": \"high_ticks_div3\",\n    \"v11\": \"normalized_timestamp\",\n    \"v14\": \"adjusted_timestamp\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"RF core timestamp/status counter used for IRQ and elapsed checks\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"64-bit base timestamp in RF tick units\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"Packed pair of 32-bit RF tick counters normalized by division-by-three\"\n    }\n  ]\n}"
+}

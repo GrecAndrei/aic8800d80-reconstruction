@@ -1,0 +1,9 @@
+{
+ "fn": "hw_init_magic",
+ "img": "fmacfwbt_u02",
+ "addr": "0x116614",
+ "seg": 8,
+ "key": "hw_init_magic__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"init_hw_descriptor_tables\", \"confidence\": \"medium\", \"docstring\": \"Initializes two fixed-size tables of 64-byte descriptor entries by writing common tag/status/flash-size fields and a byte-swapped magic word, with the second table leaving trailing magic/length fields zero.\", \"subsystem\": \"hal\", \"var_renames\": {\"v0\": \"first_table_cur\", \"v4\": \"first_table_end\", \"v1\": \"entry_tag\", \"v2\": \"entry_config\", \"v3\": \"magic_word_src\", \"v5\": \"flash_size\", \"v6\": \"magic_word\", \"v7\": \"second_table_cur\", \"v8\": \"second_entry_tag\", \"v9\": \"second_entry_config\", \"v10\": \"magic_word_src2\", \"v11\": \"second_table_end\", \"v13\": \"magic_raw\", \"v14\": \"magic_raw\", \"result\": \"flash_size_ret\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"descriptor entry tag/control word\"}, {\"offset\": 4, \"meaning\": \"status/command word formed from IRQ/hardware status result shifted left by 14\"}, {\"offset\": 8, \"meaning\": \"flash size or boot parameter\"}, {\"offset\": 16, \"meaning\": \"descriptor configuration constant\"}, {\"offset\": 36, \"meaning\": \"byte-swapped magic/version word\"}, {\"offset\": 40, \"meaning\": \"repeated magic/version word or zero\"}, {\"offset\": 44, \"meaning\": \"repeated magic/version word or zero\"}, {\"offset\": 48, \"meaning\": \"repeated magic/version word or zero\"}, {\"offset\": 52, \"meaning\": \"small constant/length field (0x2200) or zero\"}, {\"offset\": 56, \"meaning\": \"large constant/length field (0x3F0000)\"}]}"
+}

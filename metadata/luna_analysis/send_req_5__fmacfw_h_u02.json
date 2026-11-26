@@ -1,0 +1,9 @@
+{
+ "fn": "send_req_5",
+ "img": "fmacfw_h_u02",
+ "addr": "0x131ff4",
+ "seg": 44,
+ "key": "send_req_5__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_le_scan_enable\",\"confidence\":\"medium\",\"docstring\":\"Updates the active LE scan modes keyed by duplicate-filter setting and requests controller processing when the scan state changes.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"scan_enable_params\",\"v7\":\"scan_enable_state\",\"v9\":\"request_pdu\",\"v10\":\"duplicate_filter_mode\",\"v11\":\"active_mode_mask\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"bitmask of active scan modes\"}]}"
+}

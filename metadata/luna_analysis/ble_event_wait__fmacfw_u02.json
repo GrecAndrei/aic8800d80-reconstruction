@@ -1,0 +1,9 @@
+{
+ "fn": "ble_event_wait",
+ "img": "fmacfw_u02",
+ "addr": "0x11ef08",
+ "seg": 21,
+ "key": "ble_event_wait__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_conn_create\",\"confidence\":\"medium\",\"docstring\":\"Allocates and initializes an LLM connection context from the supplied parameters, optionally linking a paired context, and returns its slot index.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"source_connection_index\",\"v6\":\"connection_context\",\"v7\":\"connection_pool_base\",\"v13\":\"connection_slot_index\",\"v15\":\"connection_runtime_state\",\"v35\":\"paired_connection_context\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Source connection index\"},{\"offset\":35,\"meaning\":\"Connection pool slot index\"},{\"offset\":44,\"meaning\":\"Reciprocal link to a paired connection context\"}]}"
+}

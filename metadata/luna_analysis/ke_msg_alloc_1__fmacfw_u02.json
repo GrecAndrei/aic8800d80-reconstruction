@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_alloc_1",
+ "img": "fmacfw_u02",
+ "addr": "0x131a60",
+ "seg": 44,
+ "key": "ke_msg_alloc_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_connection_message_prepare\",\"confidence\":\"medium\",\"docstring\":\"Allocates a three-byte kernel message and processes it according to flags and the indexed Bluetooth connection state.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"conn_info\",\"v5\":\"message\",\"v7\":\"conn_idx\",\"v8\":\"flags\",\"v9\":\"flag_mask\",\"v36\":\"conn_state\"},\"struct_hints\":[{\"offset\":120,\"meaning\":\"Flags selecting connection-message handling paths.\"},{\"offset\":129,\"meaning\":\"Connection index used to locate the per-connection context.\"},{\"offset\":106,\"meaning\":\"Per-connection state/status byte used to select a handling path.\"}]}"
+}

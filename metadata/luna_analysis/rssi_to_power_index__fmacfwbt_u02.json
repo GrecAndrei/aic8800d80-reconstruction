@@ -1,0 +1,9 @@
+{
+ "fn": "rssi_to_power_index",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e328",
+ "seg": 43,
+ "key": "rssi_to_power_index__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rssi_to_power_index\",\"confidence\":\"medium\",\"docstring\":\"Maps an RSSI value in dBm to an 8-bit power/index value, clamping signals below -110 dBm to zero and positive values to 220.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rssi_dbm\"}}"
+}

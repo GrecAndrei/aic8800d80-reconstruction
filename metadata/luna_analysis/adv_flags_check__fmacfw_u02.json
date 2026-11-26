@@ -1,0 +1,9 @@
+{
+ "fn": "adv_flags_check",
+ "img": "fmacfw_u02",
+ "addr": "0x13b688",
+ "seg": 60,
+ "key": "adv_flags_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_adv_flags_mask_check\",\"confidence\":\"low\",\"docstring\":\"Returns the bitwise intersection of the byte at offset 0x108 and the sum of the caller-supplied value and the byte at offset 0x106.\",\"subsystem\":\"ble\",\"struct_hints\":[{\"offset\":262,\"meaning\":\"Byte added to the caller-supplied value when forming the mask.\"},{\"offset\":264,\"meaning\":\"Byte mask intersected with the computed value.\"}]}"
+}

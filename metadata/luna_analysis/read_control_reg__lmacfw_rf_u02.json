@@ -1,0 +1,9 @@
+{
+ "fn": "read_control_reg",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1004cc",
+ "seg": 0,
+ "key": "read_control_reg__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_get_control_status_code\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads and decodes control/status register bits together with system status and initialization flags into a mode-specific status code, and initializes flash control for unsupported query modes.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"query_mode\",\n    \"v4\": \"initialized\",\n    \"v5\": \"sys_status_bit21\",\n    \"v6\": \"control_field\",\n    \"v7\": \"control_flag\"\n  },\n  \"struct_hints\": []\n}"
+}

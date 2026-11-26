@@ -1,0 +1,9 @@
+{
+ "fn": "llc_get_conn_idx",
+ "img": "fmacfw_u02",
+ "addr": "0x12a284",
+ "seg": 36,
+ "key": "llc_get_conn_idx__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_conn_event_schedule\",\"confidence\":\"medium\",\"docstring\":\"Updates the selected connection's event scheduling state and dispatches work for its next event or a short deferral.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"time_base\",\"v2\":\"conn_idx\",\"v3\":\"conn_table_base\",\"v4\":\"conn_entry_addr\",\"v5\":\"event_delay_units\",\"v6\":\"context_flags_without_bit_6\",\"v7\":\"conn_entry_offset\",\"v8\":\"conn_entry\",\"v9\":\"next_event_time\",\"v10\":\"defer_until\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Runtime-context flags; bit 6 is cleared.\"},{\"offset\":112,\"meaning\":\"Connection scheduling flag checked before selecting the scheduling path.\"},{\"offset\":114,\"meaning\":\"Connection scheduling state, set to 1 or 2.\"},{\"offset\":115,\"meaning\":\"Timing value scaled by 1024 and added to the supplied time base.\"},{\"offset\":116,\"meaning\":\"Stored scheduled event time.\"},{\"offset\":134,\"meaning\":\"Connection flag set when scheduling is updated.\"},{\"offset\":1224,\"meaning\":\"Runtime-context validity or enable flag.\"},{\"offset\":1225,\"meaning\":\"Selected connection index.\"}]}"
+}

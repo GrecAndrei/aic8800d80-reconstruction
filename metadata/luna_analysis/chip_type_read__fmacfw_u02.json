@@ -1,0 +1,9 @@
+{
+ "fn": "chip_type_read",
+ "img": "fmacfw_u02",
+ "addr": "0x117924",
+ "seg": 10,
+ "key": "chip_type_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_radio_irq_handler\",\"confidence\":\"medium\",\"docstring\":\"Reads and acknowledges PHY status events, then dispatches RX handling, radio-core reset, or radio switching as indicated by the status bits.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"phy_status\",\"v2\":\"rx_event_mask\",\"v3\":\"radio_event_mask\",\"v4\":\"radio_index\"}}"
+}

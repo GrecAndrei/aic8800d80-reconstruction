@@ -1,0 +1,9 @@
+{
+ "fn": "is_global_flag_set",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d320",
+ "seg": 41,
+ "key": "is_global_flag_set__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"list_remove_node\",\"confidence\":\"high\",\"docstring\":\"Removes a node from a singly linked list, updates the head or tail as needed, and clears the removed node\u2019s next pointer.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"list\",\"a2\":\"previous_node\",\"a3\":\"node\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"List head pointer; also the next pointer in a list node.\"},{\"offset\":4,\"meaning\":\"List tail pointer.\"}]}"
+}

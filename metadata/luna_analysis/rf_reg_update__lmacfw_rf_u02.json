@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_update",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x110c7c",
+ "seg": 3,
+ "key": "rf_reg_update__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sdio_phase_cfg_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates the SDIO phase configuration register by applying phase bits and mode handshake values, then logs the resulting phase setting.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"phase_cfg\",\n    \"v1\": \"phase_reg\",\n    \"v2\": \"phase_val\",\n    \"v3\": \"old_phase_val\",\n    \"v4\": \"reg_write_val\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_bus_state",
+ "img": "fmacfw_u02",
+ "addr": "0x129208",
+ "seg": 34,
+ "key": "wlc_bus_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_frame_activity_update\",\"confidence\":\"medium\",\"docstring\":\"Updates per-context flags from the 802.11 frame-control and multicast fields, scheduling deferred work when the associated state changes.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"frame\",\"a2\":\"input_flags\",\"a3\":\"frame_context\",\"v3\":\"global_state\",\"v4\":\"frame_control\",\"v8\":\"context_flags\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"32-bit context flag word; bit 1 is toggled in the multicast path and bit 2 in the other path.\"},{\"offset\":114,\"meaning\":\"Byte predicate that suppresses setting the multicast More Data flag.\"},{\"offset\":20,\"meaning\":\"Saved frame-context pointer in the global state structure.\"},{\"offset\":29,\"meaning\":\"Deferred-work state byte; values 0, 2, and 5 are used.\"}]}"
+}

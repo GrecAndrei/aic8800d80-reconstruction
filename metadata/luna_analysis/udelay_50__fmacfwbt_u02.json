@@ -1,0 +1,9 @@
+{
+ "fn": "udelay_50",
+ "img": "fmacfwbt_u02",
+ "addr": "0x109120",
+ "seg": 2,
+ "key": "udelay_50__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_read_measurement_pair\",\"confidence\":\"medium\",\"docstring\":\"Triggers the device, waits for its ready bit (confirming it across two delayed reads when initially clear), and stores two sign-extended 15-bit result fields.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"result_status_word\",\"v7\":\"upper_signed_field\",\"v8\":\"lower_signed_field\",\"result\":\"upper_field_out\",\"a2\":\"lower_field_out\"}}"
+}

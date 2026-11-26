@@ -1,0 +1,9 @@
+{
+ "fn": "log_boot_message",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115214",
+ "seg": 6,
+ "key": "log_boot_message__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_rf_calibration_commands\",\"confidence\":\"medium\",\"docstring\":\"Prints the panic diagnostic, conditionally sets the RF frequency from the current PHY state, and then polls received bytes for RF calibration processing.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"received_byte\",\"v3\":\"phy_state\"}}"
+}

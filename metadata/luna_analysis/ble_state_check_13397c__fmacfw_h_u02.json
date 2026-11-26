@@ -1,0 +1,9 @@
+{
+ "fn": "ble_state_check_13397c",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13397c",
+ "seg": 48,
+ "key": "ble_state_check_13397c__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_state_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches BLE state-dependent link-layer work, including DMA/RF handling and completion of pending HCI or received-event processing.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"ble_state_context\",\"v1\":\"ble_state\",\"v5\":\"header_write_pending\",\"v6\":\"parse_event_pending\"},\"struct_hints\":[{\"offset\":13,\"meaning\":\"Flag indicating pending BLE event work\"},{\"offset\":15,\"meaning\":\"BLE event status bits; bit 0 dispatches event 6155 and bit 1 is set for state 3\"},{\"offset\":33,\"meaning\":\"Selects BLE address/event parsing when nonzero, otherwise HCI command preprocessing is used\"},{\"offset\":48,\"meaning\":\"BLE state-context flags; bit 0x40 selects the DMA setup path\"},{\"offset\":59,\"meaning\":\"BLE state value, with dedicated handling for values 2 and 3\"}]}"
+}

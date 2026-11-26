@@ -1,0 +1,9 @@
+{
+ "fn": "ke_process_event",
+ "img": "fmacfw_u02",
+ "addr": "0x1278c8",
+ "seg": 33,
+ "key": "ke_process_event__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_chip_state_update\",\"confidence\":\"medium\",\"docstring\":\"Advances the context's chip state, updates the RF power table for the resulting state, and sets a state-related flag field.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_context\",\"v2\":\"chip_state\",\"result\":\"power_table_result\"},\"struct_hints\":[{\"offset\":85,\"meaning\":\"Byte flags with bits 5\u20136 rewritten to 01.\"},{\"offset\":88,\"meaning\":\"Chip state passed to chip_state_handler and replaced with its result.\"}]}"
+}

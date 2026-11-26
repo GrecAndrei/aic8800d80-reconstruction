@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_le_meta_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122818",
+ "seg": 25,
+ "key": "send_hci_le_meta_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_hci_le_meta_event\",\"confidence\":\"medium\",\"docstring\":\"Builds an LE meta-event packet using the indexed context fields and passes it to the packet processor.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"context_index_ptr\",\"v5\":\"event_packet\",\"v6\":\"source_env\",\"v7\":\"context_index\",\"v8\":\"indexed_env\",\"v9\":\"indexed_env_flag\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Index into the 1320-byte context table; 0xFF indicates no indexed context.\"},{\"offset\":336,\"meaning\":\"Pointer to a nested context whose word at offset 20 is copied into the event packet.\"},{\"offset\":689,\"meaning\":\"Fallback byte copied to event-packet offset 8 when the indexed-context flag is set.\"},{\"offset\":106,\"meaning\":\"Flag selecting which context byte is copied to event-packet offset 8.\"},{\"offset\":142,\"meaning\":\"Alternate byte copied to event-packet offset 8 when the flag at offset 106 is clear.\"}]}"
+}

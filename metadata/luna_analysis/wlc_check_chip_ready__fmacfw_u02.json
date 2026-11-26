@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_check_chip_ready",
+ "img": "fmacfw_u02",
+ "addr": "0x127ad0",
+ "seg": 33,
+ "key": "wlc_check_chip_ready__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_scan_start\",\"confidence\":\"medium\",\"docstring\":\"Copies the supplied parameters into the shared scan-control context and submits a scan-start request.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"scan_request_context\",\"v7\":\"request_value\"},\"struct_hints\":[{\"offset\":88,\"meaning\":\"request byte copied from input offset 2\"},{\"offset\":90,\"meaning\":\"16-bit input value from offset 0\"},{\"offset\":92,\"meaning\":\"duplicate of the 16-bit input value from offset 0\"},{\"offset\":96,\"meaning\":\"request byte copied from input offset 4\"},{\"offset\":97,\"meaning\":\"request byte copied from input offset 3\"},{\"offset\":98,\"meaning\":\"initialized to 0xFF before scan submission\"},{\"offset\":100,\"meaning\":\"set to 1 before scan submission\"},{\"offset\":104,\"meaning\":\"stores the caller-supplied second argument\"},{\"offset\":108,\"meaning\":\"set to 3 before scan submission\"},{\"offset\":110,\"meaning\":\"stores the caller-supplied third argument\"}]}"
+}

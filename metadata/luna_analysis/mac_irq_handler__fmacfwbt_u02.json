@@ -1,0 +1,9 @@
+{
+ "fn": "mac_irq_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x103ff0",
+ "seg": 2,
+ "key": "mac_irq_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_hw_configure\",\"confidence\":\"medium\",\"docstring\":\"Programs radio and baseband control registers and starts timer 2 during hardware setup.\",\"subsystem\":\"rf\"}"
+}

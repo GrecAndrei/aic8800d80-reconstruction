@@ -1,0 +1,9 @@
+{
+ "fn": "find_ll_item",
+ "img": "fmacfw_h_u02",
+ "addr": "0x140370",
+ "seg": 64,
+ "key": "find_ll_item__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_ll_item_is_allowed\",\"confidence\":\"medium\",\"docstring\":\"Checks whether the LL opcode, or the secondary code selected by opcode 0xFF, is allowed by the configured lists; returns true when both lists are empty.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"ll_opcode\",\"a2\":\"ll_subopcode\",\"a3\":\"ll_item_config\",\"v3\":\"opcode_count\",\"v4\":\"subopcode_count\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"number of LL opcodes in the byte array at offset 12\"},{\"offset\":12,\"meaning\":\"LL opcode byte array\"},{\"offset\":20,\"meaning\":\"number of secondary codes in the byte array at offset 24\"},{\"offset\":24,\"meaning\":\"secondary-code byte array\"}]}"
+}

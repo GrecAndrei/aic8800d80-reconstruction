@@ -1,0 +1,9 @@
+{
+ "fn": "prcm_set_mask",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x104a98",
+ "seg": 2,
+ "key": "prcm_set_mask__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_pwr_amp_backoff_measure\",\"confidence\":\"medium\",\"docstring\":\"Measures an RF power-amplifier backoff value via strobed register reads and stores it into a pwr_amp_back table, warning if the reading exceeds the saturation threshold.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"amp_code\",\"a2\":\"pwr_amp_back_table\",\"a3\":\"amp_col_index\",\"a4\":\"amp_row_index\",\"v4\":\"rf_ctrl_reg\",\"v5\":\"rf_amp_code_reg\",\"v6\":\"rf_amp_code_reg_mask\",\"v7\":\"rf_strobe_reg\",\"v12\":\"rf_adc_data_reg\",\"v13\":\"pwr_amp_backoff\",\"v14\":\"rf_ctrl_reg_next\"}}"
+}

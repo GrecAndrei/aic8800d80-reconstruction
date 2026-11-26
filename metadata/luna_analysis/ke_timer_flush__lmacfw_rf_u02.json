@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_flush",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ca94",
+ "seg": 19,
+ "key": "ke_timer_flush__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_flash_prepare_sector2\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Clears a small state buffer, erases flash sector 2, and initializes a control block with a global value and a pointer to a following data region.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v1\": \"ctrl_block\",\n    \"result\": \"erase_result\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"control word initialized from a global value\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"zeroed field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"pointer set to data region just after the control block\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"zeroed field\"\n    }\n  ]\n}"
+}

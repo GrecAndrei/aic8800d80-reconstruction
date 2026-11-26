@@ -1,0 +1,9 @@
+{
+ "fn": "get_rf_field_lo",
+ "img": "fmacfw_h_u02",
+ "addr": "0x101a40",
+ "seg": 0,
+ "key": "get_rf_field_lo__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_rf_field_lo\",\"confidence\":\"high\",\"docstring\":\"Returns the low four bits of the RF field register minus one, truncated to 8 bits.\",\"subsystem\":\"rf\"}"
+}

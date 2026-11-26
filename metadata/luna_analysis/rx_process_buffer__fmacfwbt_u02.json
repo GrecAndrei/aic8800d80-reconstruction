@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process_buffer",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b438",
+ "seg": 61,
+ "key": "rx_process_buffer__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sdio_hci_rx_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a received SDIO HCI buffer for a per-function context, storing a timestamp, checking state/abort flags, and dispatching BT HCI events, host commands, or RF/MAC configuration paths.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"a2\": \"sdio_rx_data\",\n    \"a3\": \"sdio_cmd_hdr\",\n    \"v6\": \"sdio_ctx\",\n    \"v7\": \"ctx_event_len\",\n    \"v8\": \"timer_val\",\n    \"v9\": \"pkt_byte0\",\n    \"v10\": \"pkt_byte1\",\n    \"v11\": \"hci_evt_buf\",\n    \"v13\": \"sdio_ctx\",\n    \"v14\": \"timer_val\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"timestamp stored from timer register 0x40501010\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"SDIO function or channel identifier used for debug and table indexing\"\n    },\n    {\n      \"offset\": 17,\n      \"meaning\": \"per-function state machine state\"\n    },\n    {\n      \"offset\": 18,\n      \"meaning\": \"state flag packed into debug mask\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"buffer or HCI payload length field; low byte is used to size an event buffer\"\n    },\n    {\n      \"offset\": 22,\n      \"meaning\": \"state flag packed into debug mask\"\n    },\n    {\n      \"offset\": 23,\n      \"meaning\": \"state or debug byte passed to tracing\"\n    }\n  ]\n}"
+}

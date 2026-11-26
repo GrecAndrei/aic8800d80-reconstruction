@@ -1,0 +1,9 @@
+{
+ "fn": "rf_config_chan_table",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132fa4",
+ "seg": 46,
+ "key": "rf_config_chan_table__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_update_channel_table\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates an RF channel-table entry by clamping a channel parameter, copying a calibrated or connection-derived value from a secondary table, clearing associated RF status interrupts, and marking the entry modified.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"table_index\",\n    \"a2\": \"limit\",\n    \"v2\": \"channel_table_base\",\n    \"v4\": \"table_entry\",\n    \"v6\": \"subtable_index\",\n    \"v7\": \"rf_status_base\",\n    \"v16\": \"entry_bytes\",\n    \"v17\": \"clamped_current_value\",\n    \"v18\": \"connection_id\",\n    \"v19\": \"calibrated_value\",\n    \"v21\": \"rf_status_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"channel-table entry flags\"\n    },\n    {\n      \"offset\": 34,\n      \"meaning\": \"index into secondary calibration or connection table\"\n    },\n    {\n      \"offset\": 35,\n      \"meaning\": \"connection identifier passed to get_connection_state\"\n    },\n    {\n      \"offset\": 244,\n      \"meaning\": \"RF status field scanned when flag bit 0x04 is set\"\n    },\n    {\n      \"offset\": 270,\n      \"meaning\": \"RF status field scanned when flag bit 0x20 is set\"\n    },\n    {\n      \"offset\": 308,\n      \"meaning\": \"current channel-table parameter clamped by caller limit\"\n    },\n    {\n      \"offset\": 309,\n      \"meaning\": \"output channel-table parameter written from calibrated/minimized value\"\n    },\n    {\n      \"offset\": 350,\n      \"meaning\": \"entry modified flag; bit 8 set on update\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_tail_write",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c650",
+ "seg": 41,
+ "key": "mmio_tail_write__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_tail_write_ack\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears bit 0 of the MMIO register at dword_12C668 + 0x1248, then sets system flag 0x400, acknowledging or completing a tail-write operation.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"dword_12C668\": \"mmio_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4680,\n      \"meaning\": \"MMIO register offset containing the tail-write acknowledge/control bit cleared by bit 0\"\n    }\n  ]\n}"
+}

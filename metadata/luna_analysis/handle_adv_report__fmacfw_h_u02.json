@@ -1,0 +1,9 @@
+{
+ "fn": "handle_adv_report",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1314c4",
+ "seg": 43,
+ "key": "handle_adv_report__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_adv_report\",\"confidence\":\"medium\",\"docstring\":\"Updates the indexed advertising-report state, conditionally creates a follow-up packet for its associated connection, and writes a MAC header word.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"report_index\",\"v7\":\"report_entry\",\"v8\":\"connection_index\",\"v9\":\"connection_record_flag\",\"v10\":\"packet_buffer\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Associated connection index used to select a connection record.\"},{\"offset\":52,\"meaning\":\"Advertising-report state set to 1 or 2.\"},{\"offset\":106,\"meaning\":\"Connection-record flag checked before creating the follow-up packet.\"}]}"
+}

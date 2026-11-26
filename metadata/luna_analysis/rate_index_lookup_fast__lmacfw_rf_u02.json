@@ -1,0 +1,9 @@
+{
+ "fn": "rate_index_lookup_fast",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116838",
+ "seg": 10,
+ "key": "rate_index_lookup_fast__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rate_index_lookup_fast\",\"confidence\":\"medium\",\"docstring\":\"Thin wrapper that forwards its three arguments to rate_index_lookup, likely serving as a fast-path or exported entry point for rate-index lookup.\",\"subsystem\":\"mac\",\"var_renames\":{},\"struct_hints\":[]}"
+}

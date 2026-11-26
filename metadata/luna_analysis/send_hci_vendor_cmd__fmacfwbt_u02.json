@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_vendor_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x135b94",
+ "seg": 54,
+ "key": "send_hci_vendor_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hci_vendor_cmd_send\", \"confidence\": \"high\", \"docstring\": \"Constructs and dispatches a Bluetooth HCI vendor command buffer containing the supplied subcommand, payload length, and payload bytes.\", \"subsystem\": \"bt\", \"var_renames\": {\"a1\": \"vendor_subcmd\", \"a2\": \"payload_data\", \"a3\": \"payload_len\", \"v3\": \"payload_len\", \"v6\": \"cmd_buf\", \"v9\": \"cmd_buf\", \"v10\": \"payload_dst\", \"v11\": \"payload_dst_end\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"vendor subcommand identifier byte\"}, {\"offset\": 2, \"meaning\": \"vendor command payload length field\"}, {\"offset\": 4, \"meaning\": \"start of vendor command payload copy\"}]}"
+}

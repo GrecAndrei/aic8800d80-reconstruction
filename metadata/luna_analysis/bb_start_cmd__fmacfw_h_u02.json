@@ -1,0 +1,9 @@
+{
+ "fn": "bb_start_cmd",
+ "img": "fmacfw_h_u02",
+ "addr": "0x103b8c",
+ "seg": 2,
+ "key": "bb_start_cmd__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bb_start_signal_dump\",\"confidence\":\"medium\",\"docstring\":\"Selects a baseband debug signal and configures the controls used to capture and dump it.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"dump_selector\"}}"
+}

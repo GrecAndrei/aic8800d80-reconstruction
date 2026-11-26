@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_handler_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111ea4",
+ "seg": 4,
+ "key": "ke_msg_handler_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_tx_queue_submit\",\"confidence\":\"medium\",\"docstring\":\"Validates a TX queue and aligned buffer, prepares a bounded DMA transfer, and starts the hardware queue.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"queue_id\",\"a2\":\"buffer_addr\",\"a3\":\"transfer_len\",\"v3\":\"queue_slot_index\",\"v4\":\"queue_state\",\"v5\":\"tx_queue_control_reg\",\"v6\":\"descriptor_table\",\"v7\":\"tx_descriptor\",\"v8\":\"max_transfer_len\",\"v9\":\"queue_descriptor_reg\",\"v10\":\"descriptor_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Per-queue state record: submitted buffer address\"},{\"offset\":4,\"meaning\":\"Per-queue state record: transfer length\"},{\"offset\":8,\"meaning\":\"Per-queue state record: in-flight flag\"},{\"offset\":0,\"meaning\":\"TX DMA descriptor: transfer length (16-bit)\"},{\"offset\":3,\"meaning\":\"TX DMA descriptor: control flags\"},{\"offset\":4,\"meaning\":\"TX DMA descriptor: source buffer address\"}]}"
+}

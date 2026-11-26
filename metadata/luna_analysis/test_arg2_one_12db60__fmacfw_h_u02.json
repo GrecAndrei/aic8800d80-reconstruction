@@ -1,0 +1,9 @@
+{
+ "fn": "test_arg2_one_12db60",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12db60",
+ "seg": 42,
+ "key": "test_arg2_one_12db60__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_mobility_domain_ie\",\"confidence\":\"high\",\"docstring\":\"Scans a bounded information-element buffer for element ID 54 with length 3 and returns its address, or NULL if none is found.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"ie_cursor\",\"a2\":\"buffer_length\",\"v2\":\"buffer_end\",\"v3\":\"next_ie\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Information element ID\"},{\"offset\":1,\"meaning\":\"Information element length\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_rssi",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114d38",
+ "seg": 6,
+ "key": "get_rssi__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_rssi\",\"confidence\":\"high\",\"docstring\":\"Queries RSSI through the 0x400000 extension command and returns its result.\",\"subsystem\":\"mac\"}"
+}

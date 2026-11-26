@@ -1,0 +1,9 @@
+{
+ "fn": "check_hw_version",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1218d4",
+ "seg": 23,
+ "key": "check_hw_version__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_apply_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Applies a radio channel index by configuring band/channel registers, resetting the associated TX DMA queue when required, and waiting for the hardware channel-switch command to complete.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"channel_idx\",\n    \"v2\": \"tx_dma_base\",\n    \"v8\": \"channel_entry\",\n    \"v9\": \"dma_context_idx\",\n    \"v5\": \"chan_cmd_reg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 34,\n      \"meaning\": \"associated DMA/TX context index used by the channel entry\"\n    },\n    {\n      \"offset\": 38,\n      \"meaning\": \"low 16 bits of channel configuration value written to the first channel register\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"high 16 bits of channel configuration value written to the first channel register\"\n    },\n    {\n      \"offset\": 42,\n      \"meaning\": \"16-bit channel configuration value written to the second channel register\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"TX/DMA context state byte; value 2 indicates the context is already configured\"\n    }\n  ]\n}"
+}

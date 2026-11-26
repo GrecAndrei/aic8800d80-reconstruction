@@ -1,0 +1,9 @@
+{
+ "fn": "ke_enter_critical",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ab18",
+ "seg": 15,
+ "key": "ke_enter_critical__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_timer_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates a kernel timer's absolute expiry time, adjusts the timer list and next-timer state while briefly holding the critical section, then re-arms scheduling.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"timer\",\n    \"a2\": \"expiry_time\",\n    \"v4\": \"critical_nesting_ptr\",\n    \"v5\": \"timer_state\",\n    \"v6\": \"current_time\",\n    \"v7\": \"timer_list_head\",\n    \"v8\": \"timer_insert_cb\",\n    \"v10\": \"new_head_timer\",\n    \"v12\": \"irq_disabled_flag\",\n    \"v13\": \"timer_insert_cb\",\n    \"v14\": \"timer_state\",\n    \"v15\": \"head_timer_time\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"timer intrusive list next pointer\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"timer callback or task context pointer\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"absolute expiry time stored on the timer object\"\n    }\n  ]\n}"
+}

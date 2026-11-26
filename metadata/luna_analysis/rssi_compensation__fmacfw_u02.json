@@ -1,0 +1,9 @@
+{
+ "fn": "rssi_compensation",
+ "img": "fmacfw_u02",
+ "addr": "0x122124",
+ "seg": 23,
+ "key": "rssi_compensation__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_rssi_threshold_update\",\"confidence\":\"medium\",\"docstring\":\"Stores the latest RSSI sample and sends a kernel message when it crosses the configured threshold beyond the hysteresis band.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"current_rssi\",\"v2\":\"rssi_threshold\",\"v5\":\"rssi_hysteresis\",\"v6\":\"threshold_crossing_state\",\"v7\":\"current_rssi_byte\",\"v8\":\"indication_payload\"},\"struct_hints\":[{\"offset\":142,\"meaning\":\"Previous signed RSSI sample, overwritten with the current sample\"},{\"offset\":143,\"meaning\":\"Signed RSSI threshold; zero disables threshold monitoring\"},{\"offset\":144,\"meaning\":\"Hysteresis margin around the RSSI threshold\"},{\"offset\":145,\"meaning\":\"State tracking which side of the threshold the RSSI occupies\"}]}"
+}

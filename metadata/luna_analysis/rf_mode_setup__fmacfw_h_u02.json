@@ -1,0 +1,9 @@
+{
+ "fn": "rf_mode_setup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x125d38",
+ "seg": 31,
+ "key": "rf_mode_setup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_mode_setup\",\"confidence\":\"medium\",\"docstring\":\"Looks up the associated record and updates its mode-related state when the controlling feature is enabled.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":72,\"meaning\":\"Pointer to an associated record whose byte at offset 27 is updated.\"},{\"offset\":106,\"meaning\":\"Configuration selector; value 2 selects a special setup path.\"},{\"offset\":107,\"meaning\":\"Byte copied into the associated record's offset-27 field.\"}]}"
+}

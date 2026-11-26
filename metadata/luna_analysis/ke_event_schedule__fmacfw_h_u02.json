@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_schedule",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123544",
+ "seg": 28,
+ "key": "ke_event_schedule__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_event_schedule\",\"confidence\":\"medium\",\"docstring\":\"Sets the kernel event identified by the second argument and returns 1.\",\"subsystem\":\"ke\",\"var_renames\":{\"a2\":\"event_id\"}}"
+}

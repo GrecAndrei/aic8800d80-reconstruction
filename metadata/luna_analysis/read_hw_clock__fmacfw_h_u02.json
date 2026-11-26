@@ -1,0 +1,9 @@
+{
+ "fn": "read_hw_clock",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11ec18",
+ "seg": 21,
+ "key": "read_hw_clock__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"read_hardware_clock\",\"confidence\":\"medium\",\"docstring\":\"Reads a volatile hardware-register snapshot, passes it to a helper, and uses an alternate handler when the first word\u2019s low nibble is 2.\",\"subsystem\":\"bt\"}"
+}

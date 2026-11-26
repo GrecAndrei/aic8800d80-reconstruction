@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_event_process",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a4a8",
+ "seg": 37,
+ "key": "bt_conn_event_process__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_conn_event_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes pending Bluetooth connection events by clearing the event flag and scheduling or stepping the connection state machine accordingly.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v2\": \"conn_index\",\n    \"v3\": \"conn_table_base\",\n    \"v4\": \"conn_ctx\",\n    \"v5\": \"event_code\",\n    \"v6\": \"event_flags_clear\",\n    \"v7\": \"conn_offset\",\n    \"v8\": \"conn_ctx\",\n    \"v9\": \"event_timeout\",\n    \"v10\": \"default_timeout\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 1224, \"meaning\": \"event_pending_flag\"},\n    {\"offset\": 1225, \"meaning\": \"conn_index\"},\n    {\"offset\": 4, \"meaning\": \"event_flags\"},\n    {\"offset\": 112, \"meaning\": \"event_pending\"},\n    {\"offset\": 114, \"meaning\": \"event_state\"},\n    {\"offset\": 115, \"meaning\": \"event_code\"},\n    {\"offset\": 116, \"meaning\": \"event_timeout\"},\n    {\"offset\": 134, \"meaning\": \"event_handled\"},\n    {\"offset\": 96, \"meaning\": \"event_lock\"}\n  ]\n}"
+}

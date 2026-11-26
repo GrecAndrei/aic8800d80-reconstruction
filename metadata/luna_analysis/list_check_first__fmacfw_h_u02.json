@@ -1,0 +1,9 @@
+{
+ "fn": "list_check_first",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123954",
+ "seg": 29,
+ "key": "list_check_first__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_configure_channel\",\"confidence\":\"medium\",\"docstring\":\"Programs the RF from the supplied channel configuration, waits for hardware readiness, and performs channel-dependent MAC and command post-processing.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"channel_config\",\"a3\":\"hci_command\"},\"struct_hints\":[{\"offset\":68,\"meaning\":\"RF channel-related value copied into global state\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "convert_handle_index",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118c90",
+ "seg": 11,
+ "key": "convert_handle_index__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_link_write_handle_command\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Resolves a Bluetooth link handle through its 152-byte context entry, fills command-data registers from that entry, writes a busy command word to the link command register, and waits for the busy bit to clear.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"handle\",\n    \"v1\": \"link_entry\",\n    \"v5\": \"cmd_reg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"byte index into a 224-byte secondary link/peer table\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"low 16 bits of the first command operand\"\n    },\n    {\n      \"offset\": 38,\n      \"meaning\": \"high 16 bits of the first command operand\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"second command operand\"\n    },\n    {\n      \"offset\": 94,\n      \"meaning\": \"state/validity byte in the secondary link/peer table\"\n    }\n  ]\n}"
+}

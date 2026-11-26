@@ -1,0 +1,9 @@
+{
+ "fn": "rf_rx_check",
+ "img": "fmacfw_u02",
+ "addr": "0x11d320",
+ "seg": 20,
+ "key": "rf_rx_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rxl_frame_handle\",\"confidence\":\"high\",\"docstring\":\"Handles an incoming RXL header descriptor, including its packet buffer and receive-status checks.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"rhd\",\"v2\":\"first_pbd\",\"v5\":\"first_pbd_data\",\"v6\":\"frame_control\",\"v7\":\"rx_status\",\"v11\":\"hw_key_index\",\"v12\":\"key_entry\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Pointer to the first packet buffer descriptor\"},{\"offset\":84,\"meaning\":\"Receive status and control bits\"}]}"
+}

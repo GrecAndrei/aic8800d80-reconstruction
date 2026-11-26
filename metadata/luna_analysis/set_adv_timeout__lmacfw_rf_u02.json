@@ -1,0 +1,9 @@
+{
+ "fn": "set_adv_timeout",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x125004",
+ "seg": 23,
+ "key": "set_adv_timeout__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_adv_timeout\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a set advertising-timeout command by parsing argv[1] as a decimal byte and writing it to the advertising-timeout register field.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v2\": \"timeout_byte\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"argv[1] pointer to timeout value string\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_bits",
+ "img": "fmacfwbt_u02",
+ "addr": "0x109e48",
+ "seg": 2,
+ "key": "mmio_set_bits__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_buffer_process\",\"confidence\":\"medium\",\"docstring\":\"Processes the indexed calibration buffer, optionally saving or restoring three 128-word regions before applying the data to the transmit path.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"calibration_index\",\"a2\":\"calibration_buffer\",\"a8\":\"save_calibration_data\"}}"
+}

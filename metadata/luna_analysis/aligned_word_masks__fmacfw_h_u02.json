@@ -1,0 +1,9 @@
+{
+ "fn": "aligned_word_masks",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10943c",
+ "seg": 2,
+ "key": "aligned_word_masks__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_estimate_curve_slope\",\"confidence\":\"medium\",\"docstring\":\"Segments the sample array at large downward steps, filters candidate intervals using value bounds, and derives a representative per-sample change.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"sample_count\",\"a2\":\"drop_threshold\",\"a3\":\"samples\",\"v6\":\"segment_index\",\"v7\":\"sample_index\"}}"
+}

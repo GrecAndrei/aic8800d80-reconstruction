@@ -1,0 +1,9 @@
+{
+ "fn": "parse_hex_or_dec",
+ "img": "fmacfw_u02",
+ "addr": "0x12f958",
+ "seg": 42,
+ "key": "parse_hex_or_dec__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_integer\",\"confidence\":\"medium\",\"docstring\":\"Parses a signed integer using the supplied base, recognizes a valid 0x prefix, and optionally stores the pointer to the first unconsumed character.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"input_cursor\",\"a2\":\"end_ptr_out\",\"a3\":\"base\",\"v3\":\"current_char\",\"v4\":\"is_negative\",\"i\":\"parsed_value\",\"v6\":\"digit_value\",\"v8\":\"next_char\",\"v9\":\"normalized_prefix_char\",\"v10\":\"first_hex_digit\"}}"
+}

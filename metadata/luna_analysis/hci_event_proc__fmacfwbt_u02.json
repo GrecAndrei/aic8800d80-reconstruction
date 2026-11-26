@@ -1,0 +1,9 @@
+{
+ "fn": "hci_event_proc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x128340",
+ "seg": 34,
+ "key": "hci_event_proc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_scan_event_proc\",\"confidence\":\"medium\",\"docstring\":\"Processes BLE advertising scan events, dispatches per-channel scan state, handles advertising reports, and schedules the next scan deadline.\",\"subsystem\":\"ble\",\"var_renames\":{\"result\":\"evt\",\"v1\":\"ble_ctx\",\"v2\":\"evt_flags\",\"v3\":\"evt\",\"v4\":\"scan_channel_entry\",\"v5\":\"adv_channel_idx\",\"v6\":\"scan_ctx\",\"v9\":\"next_timestamp\",\"v10\":\"current_timestamp\",\"v11\":\"current_timestamp\",\"v13\":\"queued_ctx\",\"v14\":\"timer_count_ptr\"},\"struct_hints\":[{\"offset\":85,\"meaning\":\"event flag byte; bit 4 selects scan-channel processing, bit 2 controls report suppression\"},{\"offset\":36,\"meaning\":\"event timestamp/current tick field\"},{\"offset\":76,\"meaning\":\"event payload pointer compared with scan context\"},{\"offset\":80,\"meaning\":\"scheduled next scan timestamp/deadline\"},{\"offset\":24,\"meaning\":\"scan channel entry validity field (0xFF invalid)\"},{\"offset\":27,\"meaning\":\"BLE advertising channel index\"}]}"
+}

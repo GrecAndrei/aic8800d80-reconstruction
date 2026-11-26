@@ -1,0 +1,9 @@
+{
+ "fn": "chip_id_get",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1019d4",
+ "seg": 0,
+ "key": "chip_id_get__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"chip_id_get\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads two hardware chip identification registers and stores their values into caller-provided output pointers.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"chip_id_out\",\n    \"a2\": \"chip_revision_out\",\n    \"v2\": \"chip_revision_reg\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "memcmp",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x128288",
+ "seg": 23,
+ "key": "memcmp__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"memcmp\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Compares two memory buffers of length n, using aligned word reads when both pointers are 4-byte aligned and byte reads for the tail or mismatch, returning the first unsigned byte difference or 0.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"s1\",\n    \"a2\": \"s2\",\n    \"a3\": \"n\",\n    \"v3\": \"s1_word_ptr\",\n    \"v4\": \"s2_word_ptr\",\n    \"v5\": \"s2_word\",\n    \"v7\": \"s1_word\",\n    \"v8\": \"tail_count_minus_1\",\n    \"v9\": \"s2_byte_ptr\",\n    \"v10\": \"s1_byte_ptr\",\n    \"v11\": \"s1_byte\",\n    \"v13\": \"s2_byte\"\n  },\n  \"struct_hints\": []\n}"
+}

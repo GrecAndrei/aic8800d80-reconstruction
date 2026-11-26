@@ -1,0 +1,9 @@
+{
+ "fn": "pack_control_data",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x122db8",
+ "seg": 22,
+ "key": "pack_control_data__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_xtal_cap_read_write\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches RF crystal trim read/set operations: mode 0 reads coarse/fine caps, mode 1 writes coarse xtal_cap, mode 2 writes fine xtal_cap to EFuse or flash, and returns packed cap/remain data.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"action\",\n    \"a2\": \"xtal_cap_value\",\n    \"v2\": \"xtal_calib_src_flags\",\n    \"v3\": \"use_efuse_xtal_calib\",\n    \"v6\": \"coarse_cap_remain\",\n    \"v7\": \"fine_cap_remain\",\n    \"v8\": \"packed_fine_remain\",\n    \"v9\": \"packed_coarse_remain\",\n    \"v11\": \"flash_read_result\",\n    \"v12\": \"packed_return_value\",\n    \"v13\": \"saved_coarse_xtal_cap\",\n    \"v15\": \"xtal_calib_status_byte\",\n    \"v16\": \"efuse_coarse_field_result\",\n    \"v18\": \"efuse_fine_field_result\",\n    \"v19\": \"xtal_cap_value_echo\",\n    \"v20\": \"xtal_cap_value_echo\",\n    \"_frame\": \"cap_storage\",\n    \"_frame.a1a\": \"packed_xtal_caps\",\n    \"_frame.a3\": \"efuse_flash_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"coarse xtal_cap byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"fine xtal_cap byte\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"EFuse/flash 32-bit calibration word\"\n    }\n  ]\n}"
+}

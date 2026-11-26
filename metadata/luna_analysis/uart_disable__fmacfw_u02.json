@@ -1,0 +1,9 @@
+{
+ "fn": "uart_disable",
+ "img": "fmacfw_u02",
+ "addr": "0x12c428",
+ "seg": 40,
+ "key": "uart_disable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"uart_disable\",\"confidence\":\"medium\",\"docstring\":\"Clears a peripheral enable bit and calls a wait helper with 1024, likely as part of UART shutdown.\",\"subsystem\":\"hal\"}"
+}

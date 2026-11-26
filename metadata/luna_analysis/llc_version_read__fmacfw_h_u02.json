@@ -1,0 +1,9 @@
+{
+ "fn": "llc_version_read",
+ "img": "fmacfw_h_u02",
+ "addr": "0x127528",
+ "seg": 33,
+ "key": "llc_version_read__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_channel_switch_timer_handler\",\"confidence\":\"medium\",\"docstring\":\"Handles a channel-timer switch by reconciling the current and pending descriptors and advancing the selected descriptor's state.\",\"subsystem\":\"llc\",\"var_renames\":{\"v7\":\"channel_switch_env\",\"v24\":\"selected_descriptor\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"Current channel-switch descriptor pointer\"},{\"offset\":44,\"meaning\":\"Pending channel-switch descriptor pointer\"},{\"offset\":88,\"meaning\":\"Flags selecting channel-switch descriptor behavior\"},{\"offset\":16,\"meaning\":\"Descriptor lifecycle state\"},{\"offset\":24,\"meaning\":\"Descriptor state code used to decide whether to notify HCI\"}]}"
+}

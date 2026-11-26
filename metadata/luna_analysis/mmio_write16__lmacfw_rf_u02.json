@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write16",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f5fc",
+ "seg": 2,
+ "key": "mmio_write16__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_state_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes a radio driver context block, clears and validates its state array, and sets up associated kernel/list structures.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"ctx_base\",\n    \"v1\": \"state_base\",\n    \"v2\": \"state_end\",\n    \"v3\": \"state_end\",\n    \"v4\": \"state_item\",\n    \"v5\": \"clear_start\",\n    \"result\": \"clear_end\",\n    \"v7\": \"clear_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3072,\n      \"meaning\": \"16-bit context tag/magic, written as 0xC0BF\"\n    },\n    {\n      \"offset\": 3074,\n      \"meaning\": \"8-bit context flag cleared during initialization\"\n    },\n    {\n      \"offset\": 3076,\n      \"meaning\": \"32-bit context field cleared before list initialization\"\n    },\n    {\n      \"offset\": 3080,\n      \"meaning\": \"co_list head initialized by list_init_1\"\n    },\n    {\n      \"offset\": 6160,\n      \"meaning\": \"second 16-bit context tag/magic, written as 0xC0BF\"\n    },\n    {\n      \"offset\": 6162,\n      \"meaning\": \"second 8-bit context flag cleared during initialization\"\n    },\n    {\n      \"offset\": 6164,\n      \"meaning\": \"second 32-bit context field cleared during initialization\"\n    },\n    {\n      \"offset\": 8244,\n      \"meaning\": \"16-bit context field zeroed during initialization\"\n    }\n  ]\n}"
+}

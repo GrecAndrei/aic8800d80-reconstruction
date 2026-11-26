@@ -1,0 +1,9 @@
+{
+ "fn": "enable_rf_dll",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103ae0",
+ "seg": 2,
+ "key": "enable_rf_dll__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_dll_configure\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Temporarily enables the RF DLL clock, writes a data value, programs a control field, and pulses the update/load strobes to configure the RF DLL.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"rf_ctrl_reg\",\n    \"v3\": \"rf_dll_reg\",\n    \"v4\": \"saved_rf_ctrl\",\n    \"v5\": \"rf_data_reg\"\n  },\n  \"struct_hints\": []\n}"
+}

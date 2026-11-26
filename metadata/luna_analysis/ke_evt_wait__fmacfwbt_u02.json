@@ -1,0 +1,9 @@
+{
+ "fn": "ke_evt_wait",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1295b8",
+ "seg": 35,
+ "key": "ke_evt_wait__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_ps_upm_enter\",\"confidence\":\"medium\",\"docstring\":\"Programs RF/baseband control registers to enter a power-save UPM state and returns the selected UPM state code.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"rf_reg_base\",\"v4\":\"upm_power_code\",\"v6\":\"upm_state_pp\",\"v8\":\"upm_state_p\",\"v9\":\"upm_state\"},\"struct_hints\":[{\"offset\":184,\"meaning\":\"RF UPM control/status word used to derive the power code\"},{\"offset\":189,\"meaning\":\"PS UPM feature flag byte\"}]}"
+}

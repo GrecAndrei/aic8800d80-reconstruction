@@ -1,0 +1,9 @@
+{
+ "fn": "radio_set_peripheral_field",
+ "img": "fmacfw_u02",
+ "addr": "0x11e080",
+ "seg": 20,
+ "key": "radio_set_peripheral_field__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_set_control_bits\",\"confidence\":\"medium\",\"docstring\":\"Sets or clears bit 10 in one radio control register and bit 19 in another according to the input\u2019s least-significant bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"value\",\"v1\":\"second_control_reg\",\"result\":\"updated_reg_value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_byte",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1249fc",
+ "seg": 29,
+ "key": "mmio_read_byte__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"write_scaled_mmio_params\",\"confidence\":\"medium\",\"docstring\":\"Writes six byte parameters to designated MMIO registers, scaling the first three by a register-derived byte, then allocates a vendor-timestamp TX event and processes the parameter packet.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"params\",\"v3\":\"scale_factor\"}}"
+}

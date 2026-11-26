@@ -1,0 +1,9 @@
+{
+ "fn": "update_rx_credits",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11898c",
+ "seg": 11,
+ "key": "update_rx_credits__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"link_update_rx_credits\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects a hardware link context, programs its indirect access fields, and writes the RX-credit value through the link command/status register.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"link_index\",\n    \"a2\": \"rx_credits\",\n    \"v2\": \"link_context_table\",\n    \"v7\": \"link_entry\",\n    \"v9\": \"link_cmd_status\",\n    \"v10\": \"target_link_id\",\n    \"v11\": \"status_high_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 36,\n      \"meaning\": \"per-link context word written to the indirect access address register\"\n    },\n    {\n      \"offset\": 38,\n      \"meaning\": \"high 16-bit per-link context word paired with offset 36\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"additional per-link context word programmed before the write command\"\n    }\n  ]\n}"
+}

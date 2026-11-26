@@ -1,0 +1,9 @@
+{
+ "fn": "short_delay",
+ "img": "fmacfw_h_u02",
+ "addr": "0x139168",
+ "seg": 58,
+ "key": "short_delay__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_consume_ring_entries\",\"confidence\":\"medium\",\"docstring\":\"Advances the 64-slot ring by the requested count, clears nonzero entries encountered and decrements the pending count, then returns the entry for the updated 12-bit index.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"ring_state\",\"a2\":\"advance_count\",\"v2\":\"iteration_count\",\"v3\":\"initial_cursor\",\"v4\":\"pending_count\",\"v5\":\"slot_index\",\"v8\":\"updated_index\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"12-bit logical index, advanced by the requested count\"},{\"offset\":10,\"meaning\":\"6-bit cursor into the 64-slot ring\"},{\"offset\":11,\"meaning\":\"count of pending ring entries\"},{\"offset\":16,\"meaning\":\"base of the 64-entry array of 32-bit slot values\"}]}"
+}

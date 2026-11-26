@@ -1,0 +1,9 @@
+{
+ "fn": "send_msg",
+ "img": "fmacfw_u02",
+ "addr": "0x12eb18",
+ "seg": 42,
+ "key": "send_msg__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dump_memory\",\"confidence\":\"medium\",\"docstring\":\"Prints a memory range in aligned 16-byte rows of hexadecimal values, optionally appending printable ASCII.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"start_address\",\"a2\":\"element_count\",\"a3\":\"element_width\",\"a4\":\"show_ascii\",\"v4\":\"access_width\",\"v5\":\"row_address\",\"v6\":\"row_byte_count\",\"v7\":\"read_cursor\",\"v8\":\"row_offset\",\"v9\":\"loaded_value\",\"v16\":\"ascii_index\",\"v17\":\"ascii_char\",\"v20\":\"remaining_byte_count\"},\"struct_hints\":[]}"
+}

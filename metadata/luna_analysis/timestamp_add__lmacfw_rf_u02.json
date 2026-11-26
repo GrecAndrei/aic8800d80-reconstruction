@@ -1,0 +1,9 @@
+{
+ "fn": "timestamp_add",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116ca4",
+ "seg": 10,
+ "key": "timestamp_add__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"event_timestamp_capture\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Records two timestamp counter values into event timestamp state and updates the associated event count.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"timestamp_state\",\n    \"v1\": \"timestamp_val0\",\n    \"v2\": \"timestamp_val1\"\n  },\n  \"struct_hints\": []\n}"
+}

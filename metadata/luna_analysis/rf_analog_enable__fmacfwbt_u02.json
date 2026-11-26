@@ -1,0 +1,9 @@
+{
+ "fn": "rf_analog_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x100e54",
+ "seg": 0,
+ "key": "rf_analog_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_analog_enable\",\"confidence\":\"high\",\"docstring\":\"Powers up and configures the RF analog circuitry for the requested frequency and mode, applying band-dependent settings and initializing the radio.\",\"subsystem\":\"rf\",\"var_renames\":{\"v11\":\"band_profile_offset\",\"v15\":\"band_profile_entry\"}}"
+}

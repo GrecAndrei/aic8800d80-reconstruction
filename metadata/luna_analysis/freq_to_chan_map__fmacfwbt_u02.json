@@ -1,0 +1,9 @@
+{
+ "fn": "freq_to_chan_map",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e1fc",
+ "seg": 43,
+ "key": "freq_to_chan_map__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_freq_to_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Translate an RF frequency/channel code into a WiFi channel index, returning 255 for unsupported codes.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"freq_code\",\n    \"result\": \"channel\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare_eq",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1425fc",
+ "seg": 68,
+ "key": "double_compare_eq__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_add\",\"confidence\":\"high\",\"docstring\":\"Adds two IEEE-754 double-precision operands using the ARM EABI double-add routine.\",\"subsystem\":\"libmisc\"}"
+}

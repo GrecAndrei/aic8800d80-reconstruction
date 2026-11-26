@@ -1,0 +1,9 @@
+{
+ "fn": "ble_encrypt_data",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1362dc",
+ "seg": 55,
+ "key": "ble_encrypt_data__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_handle_link_encryption\",\"confidence\":\"medium\",\"docstring\":\"Requests an HCI operation for a referenced connection in state 2 with its security flag set, otherwise writes the supplied values through the MAC header interface.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"connection_id_ptr\",\"v7\":\"connection_ctx\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Connection state; value 2 selects the HCI-operation path.\"},{\"offset\":108,\"meaning\":\"Nonzero security or encryption status flag.\"}]}"
+}

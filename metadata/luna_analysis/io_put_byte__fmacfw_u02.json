@@ -1,0 +1,9 @@
+{
+ "fn": "io_put_byte",
+ "img": "fmacfw_u02",
+ "addr": "0x13153c",
+ "seg": 43,
+ "key": "io_put_byte__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_buf_alloc_from_size_ptr\",\"confidence\":\"medium\",\"docstring\":\"Requests a kernel buffer allocation using the byte pointed to by the second argument as the size, discards the allocation result, and returns zero.\",\"subsystem\":\"ke\",\"var_renames\":{\"a2\":\"size_ptr\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mm_state_idle",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12911c",
+ "seg": 35,
+ "key": "mm_state_idle__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_state_idle\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Resets the MAC-manager idle-state structure, initializes its associated ring, and sets a configuration word plus an idle/ready flag.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v0\": \"mm_state\",\n    \"v1\": \"mm_state\",\n    \"result\": \"ring_init_ret\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"ring/state configuration field loaded from a global\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"idle-state or initialization-complete flag\"\n    }\n  ]\n}"
+}

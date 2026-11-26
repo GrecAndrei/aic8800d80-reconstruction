@@ -1,0 +1,9 @@
+{
+ "fn": "double_le",
+ "img": "fmacfw_u02",
+ "addr": "0x142fa0",
+ "seg": 68,
+ "key": "double_le__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_le\",\"confidence\":\"high\",\"docstring\":\"Returns whether the first double-precision operand is less than or equal to the second using ARM EABI comparison semantics.\",\"subsystem\":\"libmisc\"}"
+}

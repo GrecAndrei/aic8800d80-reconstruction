@@ -1,0 +1,9 @@
+{
+ "fn": "mac_update_flags",
+ "img": "fmacfw_h_u02",
+ "addr": "0x116974",
+ "seg": 9,
+ "key": "mac_update_flags__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_prepare_tx_frame\",\"confidence\":\"medium\",\"docstring\":\"Prepares a transmit MAC frame by updating interface protection state and assigning a sequence number to frames without a station-specific sequence context.\",\"subsystem\":\"mac\",\"var_renames\":{\"v5\":\"packet_length\",\"v10\":\"frame\",\"v15\":\"fragment_number\",\"v16\":\"sequence_number\",\"v17\":\"packet_flags\",\"v21\":\"receiver_address_copy\"},\"struct_hints\":[{\"offset\":82,\"meaning\":\"Processing flags; this function sets bit 2.\"},{\"offset\":4,\"meaning\":\"Packet length.\"},{\"offset\":27,\"meaning\":\"Station index; 0xFF selects the station-less sequence-number path.\"},{\"offset\":28,\"meaning\":\"Virtual-interface index.\"},{\"offset\":30,\"meaning\":\"Packet processing flags.\"},{\"offset\":36,\"meaning\":\"Packet status flags; bit 0x200000 suppresses the main processing path.\"},{\"offset\":76,\"meaning\":\"Pointer to a context whose offset 28 contains the MAC frame pointer.\"},{\"offset\":0,\"meaning\":\"MAC frame control field.\"},{\"offset\":4,\"meaning\":\"First receiver/destination address in the MAC frame.\"},{\"offset\":22,\"meaning\":\"MAC sequence-control field.\"},{\"offset\":26,\"meaning\":\"MAC frame field checked as part of the four-address-frame condition.\"}]}"
+}

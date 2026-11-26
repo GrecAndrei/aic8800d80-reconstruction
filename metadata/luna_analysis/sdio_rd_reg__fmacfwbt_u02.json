@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_rd_reg",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13bcc4",
+ "seg": 61,
+ "key": "sdio_rd_reg__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sdio_cmd52_rd\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Issues an SDIO function-register read command for the given register offset and updates the associated descriptor/status state before sending the command.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"reg\",\n    \"v1\": \"cmd\",\n    \"v3\": \"table_base\",\n    \"v4\": \"entry\",\n    \"v5\": \"entry_flag\",\n    \"v6\": \"row_idx\",\n    \"v7\": \"col_idx\",\n    \"v8\": \"entry\",\n    \"a2\": \"entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"row index selecting a status-table entry\"\n    },\n    {\n      \"offset\": 17,\n      \"meaning\": \"flag/type selecting which status byte to update\"\n    },\n    {\n      \"offset\": 22,\n      \"meaning\": \"column index within the status-table entry\"\n    },\n    {\n      \"offset\": 452,\n      \"meaning\": \"status byte used when the descriptor flag is zero\"\n    },\n    {\n      \"offset\": 453,\n      \"meaning\": \"status byte used when the descriptor flag equals one\"\n    }\n  ]\n}"
+}

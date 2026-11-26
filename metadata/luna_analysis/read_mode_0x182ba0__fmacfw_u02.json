@@ -1,0 +1,9 @@
+{
+ "fn": "read_mode_0x182ba0",
+ "img": "fmacfw_u02",
+ "addr": "0x12f52c",
+ "seg": 42,
+ "key": "read_mode_0x182ba0__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_state_process\",\"confidence\":\"medium\",\"docstring\":\"Forwards the input pointer to rx_state_process and returns its result.\",\"subsystem\":\"wlan\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "wait_sdio_core_ready",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10def0",
+ "seg": 2,
+ "key": "wait_sdio_core_ready__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_core_wait_ready\",\"confidence\":\"medium\",\"docstring\":\"Waits until the SDIO core ready/control word is 1, writes 1 to that word, and returns a floating-point value computed from the core register at word index 4 and nearby constants.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"sdio_core_regs\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"SDIO core ready/control word at volatile uint32_t index 7\"},{\"offset\":16,\"meaning\":\"SDIO core input word at volatile uint32_t index 4 used by the returned computation\"}]}"
+}

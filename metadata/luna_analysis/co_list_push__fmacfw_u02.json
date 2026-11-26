@@ -1,0 +1,9 @@
+{
+ "fn": "co_list_push",
+ "img": "fmacfw_u02",
+ "addr": "0x125a98",
+ "seg": 30,
+ "key": "co_list_push__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_task_register\",\"confidence\":\"medium\",\"docstring\":\"Stores the supplied value in a kernel-global slot, calls the task initializer when the adjacent word is zero, and otherwise sets a flag byte at offset 10.\",\"subsystem\":\"ke\",\"var_renames\":{},\"struct_hints\":[{\"offset\":4,\"meaning\":\"word checked for zero to select the initialization path\"},{\"offset\":10,\"meaning\":\"byte flag set to 1 on the alternate path\"}]}"
+}

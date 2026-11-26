@@ -1,0 +1,9 @@
+{
+ "fn": "lll_conn_phy_ld_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a424",
+ "seg": 37,
+ "key": "lll_conn_phy_ld_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lll_conn_phy_ld_get\",\"confidence\":\"medium\",\"docstring\":\"Selects the connection\u2019s PHY link-data entry, performs pending cleanup, and returns the state selected from that entry.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"conn\",\"v1\":\"phy_ld_table\",\"v2\":\"phy_ld_index\",\"v3\":\"phy_ld\",\"v4\":\"cleanup_pending\",\"v5\":\"phy_ld_base\",\"v6\":\"state_selector\"},\"struct_hints\":[{\"offset\":113,\"meaning\":\"State value passed to the state lookup helper\"},{\"offset\":114,\"meaning\":\"Nonzero cleanup indicator, cleared after cleanup\"},{\"offset\":115,\"meaning\":\"Field cleared during lookup\"},{\"offset\":121,\"meaning\":\"Boolean selecting state lookup argument 2 or 3\"},{\"offset\":1225,\"meaning\":\"Connection\u2019s PHY link-data entry index\"}]}"
+}

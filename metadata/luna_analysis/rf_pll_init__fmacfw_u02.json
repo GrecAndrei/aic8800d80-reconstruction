@@ -1,0 +1,9 @@
+{
+ "fn": "rf_pll_init",
+ "img": "fmacfw_u02",
+ "addr": "0x124ea4",
+ "seg": 30,
+ "key": "rf_pll_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rwip_timer_schedule\",\"confidence\":\"medium\",\"docstring\":\"Arms the system timer for the earliest queued deadline and invokes callbacks whose deadlines are already due.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"timer_queue_head_ptr\",\"v1\":\"irq_lock_depth\",\"v2\":\"restore_irq_on_unlock\",\"v3\":\"timer_registers\",\"v4\":\"timer_queue_head_ptr\",\"v6\":\"timer_entry\",\"v7\":\"updated_irq_lock_depth\",\"v8\":\"expiration_time\",\"v11\":\"callback\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"timer callback function pointer\"},{\"offset\":8,\"meaning\":\"callback argument\"},{\"offset\":12,\"meaning\":\"absolute expiration time\"}]}"
+}

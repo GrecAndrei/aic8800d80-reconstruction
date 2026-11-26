@@ -1,0 +1,9 @@
+{
+ "fn": "set_busy_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e4d8",
+ "seg": 20,
+ "key": "set_busy_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_task_schedule\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Schedules one kernel message by taking the IRQ/nesting lock, popping a queued message, resolving its handler, dispatching it, and releasing the lock.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"sched_lock_count_ptr\",\n    \"v1\": \"msg_queue_head\",\n    \"v3\": \"msg\",\n    \"v4\": \"lock_count_after_dec\",\n    \"v5\": \"irq_disabled_flag\",\n    \"v6\": \"msg_handler\",\n    \"v9\": \"lock_count_after_dec\",\n    \"v10\": \"irq_disabled_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"message word used as dispatch trace msg id and handler lookup word\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"message word used as destination task in trace and handler lookup word\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"message word used as source task in dispatch trace\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"message payload/data pointer passed to the handler\"\n    }\n  ]\n}"
+}

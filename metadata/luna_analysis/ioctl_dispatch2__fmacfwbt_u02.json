@@ -1,0 +1,9 @@
+{
+ "fn": "ioctl_dispatch2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1153b8",
+ "seg": 7,
+ "key": "ioctl_dispatch2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ioctl2_read_selected_fields\",\"confidence\":\"medium\",\"docstring\":\"Loads a validated 320-byte record and copies the payload segments selected by the request mask into the caller buffer.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"request_mask\",\"a2\":\"output_buffer\",\"a3\":\"output_capacity\",\"v6\":\"copied_length\",\"v8\":\"record_magic\",\"v9\":\"available_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Record magic checked against the expected constant.\"},{\"offset\":4,\"meaning\":\"Flags indicating which requested data is available.\"},{\"offset\":20,\"meaning\":\"Six-byte payload copied when request bit 0x2 is available.\"},{\"offset\":292,\"meaning\":\"Two-byte payload selected by request bit 0x100000.\"},{\"offset\":296,\"meaning\":\"Eight-byte payload selected by request bit 0x200000.\"},{\"offset\":304,\"meaning\":\"Four-byte payload selected by request bit 0x400000.\"},{\"offset\":308,\"meaning\":\"Two-byte payload selected by request bit 0x800000.\"},{\"offset\":310,\"meaning\":\"Ten-byte payload selected by request bit 0x1000000.\"}]}"
+}

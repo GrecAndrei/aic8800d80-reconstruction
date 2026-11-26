@@ -1,0 +1,9 @@
+{
+ "fn": "get_config_c",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114428",
+ "seg": 5,
+ "key": "get_config_c__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"make_lp_level_power_error_event\",\"confidence\":\"medium\",\"docstring\":\"Allocates and returns a transmit event containing the fixed LP-level-power error message.\",\"subsystem\":\"rf\"}"
+}

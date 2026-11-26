@@ -1,0 +1,9 @@
+{
+ "fn": "dma_ring_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11d930",
+ "seg": 20,
+ "key": "dma_ring_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dma_rx_ring_process\",\"confidence\":\"medium\",\"docstring\":\"Polls firmware-provided RX buffers, dispatches packets, replenishes DMA ring entries, and completes matching queued callbacks.\",\"subsystem\":\"dma\",\"var_renames\":{\"i\":\"retry_count\",\"v11\":\"rx_buffer\",\"v13\":\"completion_callback\",\"v16\":\"rx_completion_item\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Completion callback function pointer in the queued RX completion item.\"},{\"offset\":8,\"meaning\":\"Argument passed to the completion callback.\"},{\"offset\":12,\"meaning\":\"RX buffer pointer matched against the current buffer.\"},{\"offset\":16,\"meaning\":\"Completion-item active byte, cleared before invoking its callback.\"},{\"offset\":16,\"meaning\":\"RX buffer control byte; bit 0 is checked before processing a queued completion.\"}]}"
+}

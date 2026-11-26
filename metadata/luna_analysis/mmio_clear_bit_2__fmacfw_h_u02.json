@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_clear_bit_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c304",
+ "seg": 40,
+ "key": "mmio_clear_bit_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_mmio_bit_and_disable_irq\",\"confidence\":\"medium\",\"docstring\":\"Clears bit 0 of the MMIO register at the base plus 0x12C8, then disables interrupt mask 0x40000000.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_reset_controller",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b394",
+ "seg": 40,
+ "key": "bt_reset_controller__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_reset_controller\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Zeroes controller state, sends Bluetooth HCI reset command code 2, and initializes the associated command descriptor.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"hci_cmd_status\",\n    \"v1\": \"reset_cmd_desc\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"stores pointer to payload/header tail at descriptor+20 (v1+5 words)\"\n    }\n  ]\n}"
+}

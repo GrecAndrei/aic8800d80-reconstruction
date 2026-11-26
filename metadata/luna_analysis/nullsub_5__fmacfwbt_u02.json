@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_5",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1286b0",
+ "seg": 34,
+ "key": "nullsub_5__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_hci_null_stub\", \"confidence\": \"low\", \"docstring\": \"Trivial stub returning zero, likely an unimplemented BT/HCI event hook placed in a Bluetooth link-order cluster.\", \"subsystem\": \"bt\", \"var_renames\": {}, \"struct_hints\": []}"
+}

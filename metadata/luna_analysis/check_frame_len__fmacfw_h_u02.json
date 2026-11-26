@@ -1,0 +1,9 @@
+{
+ "fn": "check_frame_len",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1302f0",
+ "seg": 42,
+ "key": "check_frame_len__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_temperature_tx_power_compensation\",\"confidence\":\"medium\",\"docstring\":\"Maps a temperature reading to a clamped compensation bucket, adjusts the configured TX-power level by the bucket\u2019s calibration delta, and conditionally refreshes RF TX power.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"temperature\",\"v1\":\"temperature_bucket\",\"v2\":\"adjusted_tx_power\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Reference temperature-compensation bucket used to calculate the calibration delta.\"},{\"offset\":4,\"meaning\":\"Nominal TX-power level before temperature adjustment.\"},{\"offset\":5,\"meaning\":\"Clamped TX-power level after temperature adjustment.\"}]}"
+}

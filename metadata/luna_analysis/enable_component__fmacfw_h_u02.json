@@ -1,0 +1,9 @@
+{
+ "fn": "enable_component",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11a31c",
+ "seg": 14,
+ "key": "enable_component__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"enable_stream\",\"confidence\":\"medium\",\"docstring\":\"Enables a stream component, resets its state, and accounts for aligned record sizes while initializing flow state as needed.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v5\":\"component_state\",\"v7\":\"component\",\"v10\":\"stream_descriptor\",\"v12\":\"aligned_unit_count\",\"v13\":\"accumulated_size\",\"v17\":\"base_record_size\",\"v18\":\"computed_record_size\",\"v19\":\"bounded_record_size\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Component status and packed size/count flags.\"},{\"offset\":68,\"meaning\":\"Pointer to the component state.\"},{\"offset\":76,\"meaning\":\"Pointer to the stream descriptor.\"},{\"offset\":80,\"meaning\":\"16-bit amount added to the component state's accumulator.\"},{\"offset\":10,\"meaning\":\"16-bit component-state accumulator, reset and incremented here.\"},{\"offset\":14,\"meaning\":\"Component enable byte, set to 1.\"},{\"offset\":40,\"meaning\":\"Component-state word saved and restored on an early path.\"},{\"offset\":324,\"meaning\":\"Owner component pointer stored in the component state.\"}]}"
+}

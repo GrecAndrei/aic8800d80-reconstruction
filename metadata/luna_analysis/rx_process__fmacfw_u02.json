@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process",
+ "img": "fmacfw_u02",
+ "addr": "0x11a6c0",
+ "seg": 14,
+ "key": "rx_process__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_process_fragment\",\"confidence\":\"medium\",\"docstring\":\"Accumulates an aligned fragment in the transmit buffer chain, updates its transfer state, and starts transmission when the accumulated extent exceeds the supplied limit.\",\"subsystem\":\"mac\",\"var_renames\":{\"v6\":\"transfer_context\",\"v12\":\"buffer_descriptor\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"descriptor control and ownership flags\"},{\"offset\":68,\"meaning\":\"pointer to the shared transfer context\"},{\"offset\":76,\"meaning\":\"pointer to an associated buffer descriptor\"},{\"offset\":80,\"meaning\":\"16-bit fragment length\"}]}"
+}

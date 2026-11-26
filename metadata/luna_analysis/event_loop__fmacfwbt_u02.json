@@ -1,0 +1,9 @@
+{
+ "fn": "event_loop",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d4a0",
+ "seg": 3,
+ "key": "event_loop__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clock_divider_update\",\"confidence\":\"medium\",\"docstring\":\"Reads a hardware capture value, derives and programs a scaled divider when the capture is active, then triggers the register update.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"capture_status_count\",\"v6\":\"capture_count\",\"v7\":\"reference_count\",\"v8\":\"divider_ratio\"}}"
+}

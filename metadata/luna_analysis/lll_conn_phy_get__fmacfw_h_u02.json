@@ -1,0 +1,9 @@
+{
+ "fn": "lll_conn_phy_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a3e8",
+ "seg": 37,
+ "key": "lll_conn_phy_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lll_conn_phy_get\",\"confidence\":\"medium\",\"docstring\":\"Selects the per-connection PHY record, stores the supplied PHY value and sets its flag before returning the record.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"phy_table_base\",\"v3\":\"connection_slot_index\",\"v4\":\"phy_record\"},\"struct_hints\":[{\"offset\":1225,\"meaning\":\"Connection-table slot index used to select the PHY record.\"},{\"offset\":114,\"meaning\":\"PHY-record flag set to 1.\"},{\"offset\":115,\"meaning\":\"PHY value copied from the second argument.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "read_memory_byte",
+ "img": "fmacfw_u02",
+ "addr": "0x10d7b4",
+ "seg": 3,
+ "key": "read_memory_byte__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"debug_write_string\",\"confidence\":\"medium\",\"docstring\":\"Writes a null-terminated string to a memory-mapped transmit register, waiting for the status bit to clear before each byte, and returns a pointer to the terminator.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"text\",\"v1\":\"current_byte\",\"v2\":\"status_reg\",\"v3\":\"data_reg\",\"v4\":\"next_byte\"}}"
+}

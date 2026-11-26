@@ -1,0 +1,9 @@
+{
+ "fn": "set_local_name",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1252b8",
+ "seg": 23,
+ "key": "set_local_name__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"cmd_efuse\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Command handler that parses an operation selector from argv to either write an eFuse word via MMIO or read one or more eFuse words and print the values.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v4\": \"efuse_op\",\n    \"v6\": \"read_start_word\",\n    \"v7\": \"read_value\",\n    \"v8\": \"write_addr\",\n    \"v9\": \"write_value\",\n    \"v10\": \"read_end_word\",\n    \"v11\": \"read_value\",\n    \"v12\": \"read_word_addr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"argv[1]: eFuse operation selector (1=write, 2=read)\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"argv[2]: eFuse word/address string\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"argv[3]: write value or read count string\"\n    }\n  ]\n}"
+}

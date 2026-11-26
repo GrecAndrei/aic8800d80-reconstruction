@@ -1,0 +1,9 @@
+{
+ "fn": "irq_lock_small",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12cb00",
+ "seg": 41,
+ "key": "irq_lock_small__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_tx_queue_drain_locked\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Drains the HCI transmit packet queue under interrupt masking and a recursive drain lock.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"drain_depth_ptr\",\n    \"v1\": \"hci_tx_queue_head\",\n    \"result\": \"hci_packet\",\n    \"v3\": \"next_drain_depth\",\n    \"v4\": \"need_irq_restore\"\n  },\n  \"struct_hints\": []\n}"
+}

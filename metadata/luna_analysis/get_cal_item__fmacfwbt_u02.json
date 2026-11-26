@@ -1,0 +1,9 @@
+{
+ "fn": "get_cal_item",
+ "img": "fmacfwbt_u02",
+ "addr": "0x116af4",
+ "seg": 9,
+ "key": "get_cal_item__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"txl_cntrl_new_head\",\"confidence\":\"medium\",\"docstring\":\"Sets the hardware transmit-list head for the selected access category and triggers the queue update, waiting briefly if the queue is active.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"new_head\",\"a2\":\"ac_index\"}}"
+}

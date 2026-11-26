@@ -1,0 +1,9 @@
+{
+ "fn": "phy_dispatch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x118800",
+ "seg": 11,
+ "key": "phy_dispatch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_process_work_list\",\"confidence\":\"medium\",\"docstring\":\"Drains a PHY work list, updates each item's descriptor status, and dispatches valid items according to whether the radio can be switched.\",\"subsystem\":\"phy\",\"var_renames\":{\"v7\":\"work_item\",\"v8\":\"status_descriptor\",\"a2\":\"work_list\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit item field checked to determine whether the item is valid for dispatch.\"},{\"offset\":68,\"meaning\":\"Flag selecting the initial status value written to the associated descriptor.\"},{\"offset\":76,\"meaning\":\"Pointer to the item's status descriptor.\"},{\"offset\":4,\"meaning\":\"Status/control word in the associated descriptor; updated and passed to calibration-status checking.\"}]}"
+}

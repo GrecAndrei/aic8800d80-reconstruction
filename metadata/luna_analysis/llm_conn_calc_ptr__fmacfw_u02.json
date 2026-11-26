@@ -1,0 +1,9 @@
+{
+ "fn": "llm_conn_calc_ptr",
+ "img": "fmacfw_u02",
+ "addr": "0x11f12c",
+ "seg": 21,
+ "key": "llm_conn_calc_ptr__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_conn_cleanup\",\"confidence\":\"medium\",\"docstring\":\"Cleans up a link-manager connection entry and its associated state, then refreshes CCM and radio configuration.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"sta_idx\",\"v6\":\"conn_entry\",\"v7\":\"context_idx\",\"v9\":\"conn_state\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Index used to select the associated connection-state block\"},{\"offset\":37,\"meaning\":\"Byte flag cleared during connection cleanup\"},{\"offset\":44,\"meaning\":\"Pointer to an associated connection entry\"}]}"
+}

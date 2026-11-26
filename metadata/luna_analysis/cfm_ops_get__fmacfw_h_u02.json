@@ -1,0 +1,9 @@
+{
+ "fn": "cfm_ops_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x128350",
+ "seg": 33,
+ "key": "cfm_ops_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"cfm_ops_match\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the global CFM operations descriptor matches the descriptor referenced at offset 72 in the supplied object.\",\"subsystem\":\"cfm\",\"var_renames\":{\"v1\":\"global_ops_desc\",\"v2\":\"candidate_ops_desc\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"pointer to the candidate operations descriptor\"},{\"offset\":4,\"meaning\":\"16-bit descriptor comparison key\"},{\"offset\":6,\"meaning\":\"16-bit descriptor comparison key\"},{\"offset\":8,\"meaning\":\"16-bit descriptor comparison key\"},{\"offset\":10,\"meaning\":\"16-bit descriptor comparison key\"},{\"offset\":13,\"meaning\":\"8-bit descriptor comparison key\"}]}"
+}

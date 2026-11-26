@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_offset_apply",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1179c8",
+ "seg": 10,
+ "key": "rf_cal_offset_apply__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ll_event_timer_offset_apply\", \"confidence\": \"medium\", \"docstring\": \"Adjusts a Bluetooth link-layer event timer offset based on mode/interval bits in the node and marks the event node ready.\", \"subsystem\": \"bt\", \"var_renames\": {\"v1\": \"event_node\", \"v2\": \"timer_ticks\"}, \"struct_hints\": [{\"offset\": 48, \"meaning\": \"timer countdown or offset value\"}, {\"offset\": 84, \"meaning\": \"mode/interval field; low bits masked with 0x7C\"}, {\"offset\": 16, \"meaning\": \"state byte set to ready/active\"}, {\"offset\": 152, \"meaning\": \"flag byte cleared\"}]}"
+}

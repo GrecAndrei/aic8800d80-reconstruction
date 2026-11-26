@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_lock_acquire",
+ "img": "fmacfw_u02",
+ "addr": "0x12c1e0",
+ "seg": 39,
+ "key": "ipc_lock_acquire__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_coex_status_handle\",\"confidence\":\"medium\",\"docstring\":\"Processes pending Wi-Fi/Bluetooth coexistence status bits, updates radio-control registers, and performs a timed unlock sequence.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"pending_status\",\"v8\":\"start_tick\",\"v17\":\"unlock_deadline\"}}"
+}

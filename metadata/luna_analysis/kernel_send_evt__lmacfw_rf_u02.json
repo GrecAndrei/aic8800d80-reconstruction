@@ -1,0 +1,9 @@
+{
+ "fn": "kernel_send_evt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119170",
+ "seg": 12,
+ "key": "kernel_send_evt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_send_state_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends a kernel message to the RX event handler containing the one-byte state field at offset 95 of the supplied RF context.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_ctx\",\n    \"v2\": \"msg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 95,\n      \"meaning\": \"one-byte RF state field\"\n    }\n  ]\n}"
+}

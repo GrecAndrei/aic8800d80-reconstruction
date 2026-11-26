@@ -1,0 +1,9 @@
+{
+ "fn": "nop_function",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c8e0",
+ "seg": 40,
+ "key": "nop_function__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_process_packet_with_prefix\",\"confidence\":\"medium\",\"docstring\":\"Writes three caller-supplied 16-bit values into slots immediately before the packet pointer, then invokes the RX packet processor.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"packet_data\",\"a2\":\"prefix_halfword_0\",\"a3\":\"prefix_halfword_1\",\"a4\":\"prefix_halfword_2\"},\"struct_hints\":[{\"offset\":-8,\"meaning\":\"First caller-supplied 16-bit prefix field.\"},{\"offset\":-6,\"meaning\":\"Second caller-supplied 16-bit prefix field.\"},{\"offset\":-4,\"meaning\":\"Third caller-supplied 16-bit prefix field.\"}]}"
+}

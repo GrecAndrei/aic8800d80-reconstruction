@@ -1,0 +1,9 @@
+{
+ "fn": "hci_vendor_get_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x135c9c",
+ "seg": 55,
+ "key": "hci_vendor_get_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_vendor_patch_state_get\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Copies the current 54-byte vendor/patch state entry to the caller, releases or advances its associated TX entry under an interrupt lock, installs the caller buffer as current, and tail-calls an RF index lookup.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"vendor_state_table\",\n    \"a1\": \"state_out\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"pointer to current vendor/patch state entry\"\n    }\n  ]\n}"
+}

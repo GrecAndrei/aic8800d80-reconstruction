@@ -1,0 +1,9 @@
+{
+ "fn": "rx_scan_timing_update",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11601c",
+ "seg": 9,
+ "key": "rx_scan_timing_update__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_rx_timing_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes pending RX timing queue entries for a specified slot while holding interrupt-locked kernel handling.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a1\": \"timing_slot\",\n    \"v1\": \"timing_queue_array_base\",\n    \"v2\": \"timing_slot_flags\",\n    \"v4\": \"timing_queue_head\",\n    \"v6\": \"pending_timing_entry\",\n    \"v7\": \"timing_status_block\",\n    \"v8\": \"timing_lock_count\",\n    \"v9\": \"irq_disabled_by_this_call\",\n    \"v10\": \"remaining_timing_count\",\n    \"v11\": \"saved_irq_disable_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 144,\n      \"meaning\": \"timing update busy or pending flag\"\n    }\n  ]\n}"
+}

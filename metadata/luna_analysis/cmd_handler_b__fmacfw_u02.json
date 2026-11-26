@@ -1,0 +1,9 @@
+{
+ "fn": "cmd_handler_b",
+ "img": "fmacfw_u02",
+ "addr": "0x12d290",
+ "seg": 41,
+ "key": "cmd_handler_b__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"list_push_front\",\"confidence\":\"medium\",\"docstring\":\"Prepends a node to a head-and-tail singly linked list, setting the tail when the list is empty, and conditionally clears an MMIO register when a global flag is negative and the node argument is null.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"list\",\"a2\":\"new_node\",\"v2\":\"list\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"List head pointer; the node\u2019s first field is its next pointer.\"},{\"offset\":4,\"meaning\":\"List tail pointer, initialized when adding the first node.\"}]}"
+}

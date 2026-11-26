@@ -1,0 +1,9 @@
+{
+ "fn": "rf_init_bb",
+ "img": "fmacfwbt_u02",
+ "addr": "0x112844",
+ "seg": 4,
+ "key": "rf_init_bb__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_baseband_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the baseband register blocks, applies per-block control bits, and polls hardware handshakes for completion.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"bb_regs\",\"v3\":\"block_ctrl_regs\",\"v4\":\"control_set_mask\",\"v5\":\"first_block_ctrl_reg\",\"i\":\"block_index\",\"v7\":\"control_snapshot\",\"v9\":\"block_ctrl_regs\",\"v10\":\"first_handshake_reg_addr\",\"v11\":\"control_set_mask\",\"v12\":\"block_ctrl_reg\",\"v13\":\"block_index\",\"v14\":\"control_snapshot\",\"v15\":\"block_ctrl_reg\",\"v16\":\"handshake_reg\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Per-block control register used to configure the block and trigger a handshake.\"},{\"offset\":8,\"meaning\":\"Per-block handshake/status register written with command values and polled for completion.\"}]}"
+}

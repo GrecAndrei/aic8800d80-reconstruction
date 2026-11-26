@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_handler_b",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111f78",
+ "seg": 4,
+ "key": "ke_msg_handler_b__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_tx_buffer_submit\",\"confidence\":\"medium\",\"docstring\":\"Validates a transmit queue and aligned buffer, fills its descriptor, and starts the corresponding hardware queue.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"queue_id\",\"a2\":\"buffer_addr\",\"a3\":\"buffer_len\",\"v3\":\"queue_index\",\"v4\":\"queue_slot\",\"v5\":\"channel_ctrl_addr\",\"v6\":\"descriptor_table\",\"v7\":\"tx_descriptor\",\"v8\":\"max_buffer_len\",\"v9\":\"descriptor_reg_addr\",\"v10\":\"descriptor_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Queue-slot buffer address; zero indicates the slot is free.\"},{\"offset\":4,\"meaning\":\"Queue-slot submitted buffer length.\"},{\"offset\":8,\"meaning\":\"Queue-slot active flag.\"},{\"offset\":0,\"meaning\":\"Transmit descriptor length (16-bit).\"},{\"offset\":3,\"meaning\":\"Transmit descriptor control flags.\"},{\"offset\":4,\"meaning\":\"Transmit descriptor buffer address.\"}]}"
+}

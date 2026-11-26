@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1105fc",
+ "seg": 3,
+ "key": "ke_event_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_state_init\",\"confidence\":\"low\",\"docstring\":\"Initializes two global state blocks, writes the input value into the first block, calls rf_isr with both blocks, and returns 1.\",\"subsystem\":\"hal\",\"struct_hints\":[{\"offset\":8,\"meaning\":\"field initialized from the function argument\"}]}"
+}

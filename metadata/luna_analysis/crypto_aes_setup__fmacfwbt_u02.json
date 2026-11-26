@@ -1,0 +1,9 @@
+{
+ "fn": "crypto_aes_setup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11bc08",
+ "seg": 18,
+ "key": "crypto_aes_setup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"crypto_aes_setup\", \"confidence\": \"medium\", \"docstring\": \"Configures and submits an AES crypto operation by loading descriptor fields from the input context, clearing status/mode bits, setting a timeout, and raising the crypto start doorbell.\", \"subsystem\": \"bt\", \"var_renames\": {\"v2\": \"input_buffer_ptr\", \"v5\": \"aes_descriptor_base\", \"v4\": \"aes_engine_base\", \"v1\": \"aes_mode_reg_ptr\", \"v3\": \"aes_control_reg_ptr\", \"v9\": \"start_doorbell_ptr\"}, \"struct_hints\": [{\"offset\": 4, \"meaning\": \"context status/result field cleared by setup\"}, {\"offset\": 36, \"meaning\": \"input buffer/context pointer, overwritten with AES descriptor pointer\"}, {\"offset\": 60, \"meaning\": \"mode/flags field with low bits cleared\"}]}"
+}

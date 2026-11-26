@@ -1,0 +1,9 @@
+{
+ "fn": "process_tx_packet",
+ "img": "fmacfw_u02",
+ "addr": "0x116324",
+ "seg": 8,
+ "key": "process_tx_packet__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_channel_configure\",\"confidence\":\"medium\",\"docstring\":\"Configures channel-related radio state and delegates completion to the channel-clear wait routine.\",\"subsystem\":\"radio\",\"var_renames\":{\"v2\":\"request_flags\",\"v3\":\"phy_context\",\"v4\":\"radio_state\",\"v5\":\"channel_mode_flags\",\"v15\":\"channel_options\",\"v17\":\"channel_entry\",\"v19\":\"channel_entry_flags\",\"v20\":\"enable_channel_option\",\"v21\":\"channel_control\"},\"struct_hints\":[{\"offset\":30,\"meaning\":\"16-bit option field; bits 0 and 3 are tested\"},{\"offset\":36,\"meaning\":\"request flags; bit 21 selects a channel mode\"},{\"offset\":72,\"meaning\":\"pointer to PHY context state\"},{\"offset\":76,\"meaning\":\"pointer to radio state\"}]}"
+}

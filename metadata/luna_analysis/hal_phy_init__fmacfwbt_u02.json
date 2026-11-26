@@ -1,0 +1,9 @@
+{
+ "fn": "hal_phy_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1208f4",
+ "seg": 23,
+ "key": "hal_phy_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"phy_init_registers\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs PHY/baseband MMIO control, timing, gain, mask, and feature-enable fields from a PHY configuration context during hardware bring-up.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"v2\": \"phy_config_ptr\",\n    \"v5\": \"phy_ctrl_base\",\n    \"v6\": \"phy_aux_base\",\n    \"v7\": \"phy_field_cfg_reg\",\n    \"v8\": \"field_clear_mask\",\n    \"v9\": \"phy_config\",\n    \"v10\": \"phy_flags\",\n    \"v12\": \"phy_cfg_reg_old\",\n    \"v13\": \"phy_cfg_reg_new\",\n    \"v14\": \"phy_alt_reg_base\",\n    \"v15\": \"phy_mask_reg0\",\n    \"v16\": \"phy_mask_reg1\",\n    \"v17\": \"phy_mask_reg2\",\n    \"result\": \"phy_mask_reg3\",\n    \"v19\": \"phy_variant_ptr\",\n    \"v20\": \"phy_variant\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"PHY/context byte flag that gates setting a register bit (0x40 enable).\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"PHY/context flag byte: bit 0 and bit 4 select PHY register fields/features.\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "process_entry_list",
+ "img": "fmacfw_u02",
+ "addr": "0x13e1d0",
+ "seg": 61,
+ "key": "process_entry_list__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_sort_entries_by_key\",\"confidence\":\"medium\",\"docstring\":\"In-place sorts 12-byte entries by their corresponding 32-bit keys in ascending order, using an entry flag to break ties between zero keys.\",\"subsystem\":\"ble\",\"var_renames\":{\"result\":\"list_context\",\"a2\":\"key_array\",\"v2\":\"sort_bound\",\"v4\":\"entry_array\",\"v5\":\"neighbor_index\",\"v6\":\"current_index\",\"v7\":\"key_ptr\",\"v8\":\"entry_ptr\",\"v9\":\"last_swap_index\",\"v10\":\"adjacent_keys\",\"v11\":\"next_key\",\"v12\":\"saved_key_pair\",\"v13\":\"entry_temp\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Base of the 12-byte entry array sorted in place\"},{\"offset\":184,\"meaning\":\"16-bit entry count\"},{\"offset\":9,\"meaning\":\"Per-entry byte flag used to order entries with equal zero keys\"}]}"
+}

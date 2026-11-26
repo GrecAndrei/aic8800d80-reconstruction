@@ -1,0 +1,9 @@
+{
+ "fn": "check_hw_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10dbf4",
+ "seg": 2,
+ "key": "check_hw_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_configure_pins\",\"confidence\":\"medium\",\"docstring\":\"Selects the GPIO configuration base from hardware status bits and writes the given mode value into the bits 2:3 field of each 12-byte register slot.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"mode\",\"v1\":\"gpio_reg_base\",\"v2\":\"mode_bits\",\"v3\":\"reg_ptr\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"GPIO pin/function mode field, bits 2:3; entries appear to be spaced 12 bytes apart\"}]}"
+}

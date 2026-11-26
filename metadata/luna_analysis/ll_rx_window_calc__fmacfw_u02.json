@@ -1,0 +1,9 @@
+{
+ "fn": "ll_rx_window_calc",
+ "img": "fmacfw_u02",
+ "addr": "0x141d4c",
+ "seg": 67,
+ "key": "ll_rx_window_calc__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llcp_rx_window_timer_start\",\"confidence\":\"medium\",\"docstring\":\"Computes a connection-relative receive-window delay and arms the associated link-layer timer.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"window_time_delta\"},\"struct_hints\":[{\"offset\":47,\"meaning\":\"Connection index used to look up the connection context.\"},{\"offset\":48,\"meaning\":\"Connection timing interval or period scaled by the supplied multiplier.\"},{\"offset\":52,\"meaning\":\"Timer object passed to the timer worker.\"}]}"
+}

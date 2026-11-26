@@ -1,0 +1,9 @@
+{
+ "fn": "event_dispatch_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x135020",
+ "seg": 53,
+ "key": "event_dispatch_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_connect_ind_event_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches a connect indication event into the host command buffer, updates connection-context and AID fields, and forwards the prepared indication through the transmit entry.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"connect_status\",\n    \"v5\": \"connect_ind_msg\",\n    \"v39\": \"connect_ind_msg\",\n    \"v6\": \"conn_idx\",\n    \"v7\": \"host_cmd_buf\",\n    \"v8\": \"conn_ctx\",\n    \"v11\": \"pending_tx_msg\",\n    \"v16\": \"active_conn_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 61,\n      \"meaning\": \"connection index field in connect indication message\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"connection index field in host command buffer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"authenticated/encrypted state byte derived from pending TX message\"\n    },\n    {\n      \"offset\": 820,\n      \"meaning\": \"AID field in host command buffer\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"connection context state byte\"\n    }\n  ]\n}"
+}

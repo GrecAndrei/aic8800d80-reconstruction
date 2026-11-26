@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_800000_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114874",
+ "seg": 6,
+ "key": "mmio_write_800000_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bus_write_16_to_800000\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes two bytes from the supplied pointer into the bus/MMIO window at 0x800000.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"src\"\n  },\n  \"struct_hints\": []\n}"
+}

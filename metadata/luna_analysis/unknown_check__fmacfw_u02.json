@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_check",
+ "img": "fmacfw_u02",
+ "addr": "0x12ac98",
+ "seg": 37,
+ "key": "unknown_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_tx_queue_control\",\"confidence\":\"medium\",\"docstring\":\"Sets or clears a per-context queue flag, or fetches the context's front queue entry when the flag permits it.\",\"subsystem\":\"ble\",\"var_renames\":{\"result\":\"context_index\",\"a2\":\"operation\"},\"struct_hints\":[{\"offset\":113,\"meaning\":\"Queue identifier passed to ke_queue_front\"},{\"offset\":132,\"meaning\":\"Queue-access flag set or cleared by operations and checked before fetching an entry\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "set_wakeup_trigger",
+ "img": "fmacfw_u02",
+ "addr": "0x102ca8",
+ "seg": 2,
+ "key": "set_wakeup_trigger__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_wakeup_trigger\",\"confidence\":\"medium\",\"docstring\":\"Selects one of two wakeup-trigger configurations in the control register using staged writes and short settling delays.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"trigger_mode\"}}"
+}

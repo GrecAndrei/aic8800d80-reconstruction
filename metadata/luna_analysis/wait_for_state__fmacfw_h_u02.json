@@ -1,0 +1,9 @@
+{
+ "fn": "wait_for_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10fec8",
+ "seg": 3,
+ "key": "wait_for_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"pkt_mem_free\",\"confidence\":\"high\",\"docstring\":\"Validates a packet-buffer pointer and dispatches it to the appropriate allocator-specific release routine using the allocator mode and the tag preceding the buffer.\",\"subsystem\":\"mm\",\"var_renames\":{\"a1\":\"buffer\",\"v3\":\"allocation_tag\",\"v4\":\"allocator_mode\",\"v5\":\"allocator_mode\"},\"struct_hints\":[{\"offset\":-4,\"meaning\":\"Allocation-type tag immediately preceding the buffer\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_afe_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1307d0",
+ "seg": 43,
+ "key": "rf_afe_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_afe_enable\",\"confidence\":\"medium\",\"docstring\":\"Sets the RF AFE enable flag; if no matching active item/HCI connection is found, it resets GPIO, runs RF calibration, adjusts xtal capacitance when needed, and schedules patch-aware follow-up work.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_afe_state\",\"result\":\"existing_item\",\"v2\":\"target_xtal_cap\"},\"struct_hints\":[{\"offset\":1,\"meaning\":\"AFE enable/running flag\"},{\"offset\":5,\"meaning\":\"target xtal capacitance value\"},{\"offset\":6,\"meaning\":\"current xtal capacitance or peripheral status value\"}]}"
+}

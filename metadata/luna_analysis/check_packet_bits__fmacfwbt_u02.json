@@ -1,0 +1,9 @@
+{
+ "fn": "check_packet_bits",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11b510",
+ "seg": 16,
+ "key": "check_packet_bits__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"table_check_packet_bits\", \"confidence\": \"low\", \"docstring\": \"Checks selected bits of a packet status word against a threshold table and conditionally rewrites the word's control and error bits.\", \"subsystem\": \"mac\", \"var_renames\": {\"v3\": \"packet_status\", \"v4\": \"status_field_bits_7_8\", \"v7\": \"updated_packet_status\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_clr_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x13d47c",
+ "seg": 61,
+ "key": "bt_clr_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_link_flag_update\",\"confidence\":\"medium\",\"docstring\":\"Clears bit 2 of the context flags, then conditionally reasserts it based on a control byte and status/value fields in the selected table entry.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"context_flags\",\"v5\":\"selected_entry\",\"v6\":\"entry_status_word\",\"v7\":\"entry_value\"},\"struct_hints\":[{\"offset\":136,\"meaning\":\"Start of a list of 16-bit indices into the 12-byte entry table; the first three indices are checked directly.\"},{\"offset\":166,\"meaning\":\"Context flags byte; bit 2 is cleared and conditionally set, while bit 5 is also tested.\"},{\"offset\":168,\"meaning\":\"Selector used to read an index from the 16-bit entry-index list beginning at offset 136.\"},{\"offset\":177,\"meaning\":\"Control byte; values greater than 11 cause bit 2 to be set.\"},{\"offset\":8,\"meaning\":\"16-bit value in each 12-byte table entry, checked against thresholds.\"},{\"offset\":10,\"meaning\":\"Packed status word in each 12-byte table entry.\"}]}"
+}

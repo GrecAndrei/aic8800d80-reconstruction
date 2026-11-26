@@ -1,0 +1,9 @@
+{
+ "fn": "hexstr_to_bytes",
+ "img": "fmacfw_u02",
+ "addr": "0x130db8",
+ "seg": 42,
+ "key": "hexstr_to_bytes__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_parse_supported_rates\",\"confidence\":\"medium\",\"docstring\":\"Combines two rate-element payloads into a count-prefixed output, filtering reserved encodings and limiting the extended portion to keep a valid rate set within 12 entries.\",\"subsystem\":\"mac\",\"var_renames\":{\"v7\":\"rate_count\",\"v8\":\"rates\",\"v9\":\"rates_end\",\"v10\":\"rate\",\"v11\":\"extended_rates\",\"v12\":\"extended_rates_end\",\"v13\":\"rate\",\"v14\":\"next_rate_count\",\"v15\":\"element_length\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Rate-element payload begins after the two-byte element header\"}]}"
+}

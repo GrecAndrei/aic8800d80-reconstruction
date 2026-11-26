@@ -1,0 +1,9 @@
+{
+ "fn": "ke_int_lock",
+ "img": "fmacfwbt_u02",
+ "addr": "0x110e78",
+ "seg": 3,
+ "key": "ke_int_lock__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"critical_section_update\",\"confidence\":\"medium\",\"docstring\":\"Performs a nested interrupt-masked update, optionally managing a GPIO/event indicator and serializing the supplied values through a lock.\",\"subsystem\":\"ke\",\"var_renames\":{\"v6\":\"critical_nesting_ptr\",\"v8\":\"critical_nesting_depth\",\"v10\":\"lock_status_reg\",\"v13\":\"remaining_nesting_depth\",\"v14\":\"irq_restore_pending\"},\"struct_hints\":[]}"
+}

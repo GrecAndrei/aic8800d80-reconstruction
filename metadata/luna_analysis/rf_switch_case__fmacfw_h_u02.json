@@ -1,0 +1,9 @@
+{
+ "fn": "rf_switch_case",
+ "img": "fmacfw_h_u02",
+ "addr": "0x116574",
+ "seg": 8,
+ "key": "rf_switch_case__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_queue_set_head\",\"confidence\":\"high\",\"docstring\":\"Sets the hardware head pointer for the selected access-category TX queue and kicks that queue.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"new_head\",\"a2\":\"access_category\"},\"struct_hints\":[]}"
+}

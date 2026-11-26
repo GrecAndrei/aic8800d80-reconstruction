@@ -1,0 +1,9 @@
+{
+ "fn": "get_slot_context",
+ "img": "fmacfw_u02",
+ "addr": "0x11b368",
+ "seg": 16,
+ "key": "get_slot_context__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_slot_context_validate\",\"confidence\":\"medium\",\"docstring\":\"Clears a pending slot marker and, unless the slot is currently active, validates and clears its associated stored value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"slot_state_base\",\"v2\":\"slot_state_ptr\",\"v3\":\"radio_state_flags\",\"v4\":\"slot_index\",\"v6\":\"slot_context\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Per-slot value passed to radio_band_validate and then cleared\"},{\"offset\":46,\"meaning\":\"Per-slot pending marker, cleared when set\"}]}"
+}

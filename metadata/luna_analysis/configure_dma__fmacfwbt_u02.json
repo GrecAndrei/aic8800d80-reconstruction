@@ -1,0 +1,9 @@
+{
+ "fn": "configure_dma",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c968",
+ "seg": 19,
+ "key": "configure_dma__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"dma_configure\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configure the DMA event descriptor with a caller-supplied parameter and acquire it with a computed timeout.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v1\": \"dma_evt\",\n    \"v2\": \"timeout_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"event configuration word initialized from constant\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"caller-supplied DMA/event argument\"\n    }\n  ]\n}"
+}

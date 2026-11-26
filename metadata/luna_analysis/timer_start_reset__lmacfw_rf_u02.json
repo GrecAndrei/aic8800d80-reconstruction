@@ -1,0 +1,9 @@
+{
+ "fn": "timer_start_reset",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119d58",
+ "seg": 13,
+ "key": "timer_start_reset__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ke_evt_handler_1_flash_erase\", \"confidence\": \"low\", \"docstring\": \"Dispatches kernel event 1 using two supplied arguments and then performs a flash-sector erase, returning success.\", \"subsystem\": \"ke\", \"var_renames\": {}, \"struct_hints\": []}"
+}

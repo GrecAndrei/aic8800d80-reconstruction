@@ -1,0 +1,9 @@
+{
+ "fn": "empty_isr",
+ "img": "fmacfwbt_u02",
+ "addr": "0x14e180",
+ "seg": 69,
+ "key": "empty_isr__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"empty_isr\", \"confidence\": \"high\", \"docstring\": \"No-operation placeholder interrupt handler.\", \"subsystem\": \"hal\", \"var_renames\": {}, \"struct_hints\": []}"
+}

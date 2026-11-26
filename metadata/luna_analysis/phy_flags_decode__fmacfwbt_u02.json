@@ -1,0 +1,9 @@
+{
+ "fn": "phy_flags_decode",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1388ec",
+ "seg": 58,
+ "key": "phy_flags_decode__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_flags_decode\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Unpacks radio command/PDU length flags into the global RF state buffer, writing packed parameter words and computing a timing value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"data_ptr\",\n    \"a2\": \"length_flags\",\n    \"v2\": \"rf_state\",\n    \"v3\": \"cursor\",\n    \"v4\": \"length_code\",\n    \"v5\": \"extended_mode\",\n    \"v6\": \"read_ptr\",\n    \"v8\": \"settle_time\",\n    \"v9\": \"status_flags\",\n    \"v10\": \"word0\",\n    \"v11\": \"word2\",\n    \"v12\": \"settle_time2\",\n    \"v14\": \"status_flags2\",\n    \"v15\": \"word6\",\n    \"v16\": \"word0_case4\",\n    \"v17\": \"word6_case4\",\n    \"v18\": \"status_flags_case4\",\n    \"v19\": \"settle_time_case4\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"uint8 cursor/index into the data buffer or parse state\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"byte mode/channel parameter used for non-extended timing\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"byte mode/channel parameter used for extended timing\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"uint32 packed radio command/PDU fields\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"uint32 additional radio command/PDU word\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"uint32 computed RF timing/settling value\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"uint8 field-valid/status flags\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "load_and_process_r0",
+ "img": "fmacfw_u02",
+ "addr": "0x12f554",
+ "seg": 42,
+ "key": "load_and_process_r0__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_command_list\",\"confidence\":\"medium\",\"docstring\":\"Processes entries rooted at the supplied list pointer, dispatching entries with a nonzero field at offset 0x0C and clearing a 16-bit field in the associated object otherwise.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v2\":\"current_entry\",\"v3\":\"dispatch_context\",\"v4\":\"list_head_ptr\",\"v5\":\"associated_object\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Entry pointer to an associated object\"},{\"offset\":12,\"meaning\":\"Nonzero value gates dispatch to the command handler\"},{\"offset\":8,\"meaning\":\"16-bit field in the associated object that is cleared on the non-dispatch path\"}]}"
+}

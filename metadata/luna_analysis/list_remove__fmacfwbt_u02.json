@@ -1,0 +1,9 @@
+{
+ "fn": "list_remove",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125ac8",
+ "seg": 31,
+ "key": "list_remove__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"list_item_process\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Handles a single list or buffer item by either invoking abort checking on its associated descriptor or parsing its received frame header, depending on a global flag.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"a1\": \"list_item\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": -12,\n      \"meaning\": \"descriptor associated with the list item, passed to check_abort_flag\"\n    }\n  ]\n}"
+}

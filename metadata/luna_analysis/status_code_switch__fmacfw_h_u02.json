@@ -1,0 +1,9 @@
+{
+ "fn": "status_code_switch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132632",
+ "seg": 45,
+ "key": "status_code_switch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_status_code\",\"confidence\":\"medium\",\"docstring\":\"Returns the fixed status code value 9.\",\"subsystem\":\"bt\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_control_bit_26",
+ "img": "fmacfw_u02",
+ "addr": "0x10d234",
+ "seg": 2,
+ "key": "mmio_set_control_bit_26__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"write_control_bit_26_mask\",\"confidence\":\"high\",\"docstring\":\"Writes the bit-26 mask (0x04000000) to the MMIO register at off_10D240.\",\"subsystem\":\"rf\"}"
+}

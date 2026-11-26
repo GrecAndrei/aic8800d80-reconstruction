@@ -1,0 +1,9 @@
+{
+ "fn": "check_wait_status_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13b4f8",
+ "seg": 60,
+ "key": "check_wait_status_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_check_wait_status_2\",\"confidence\":\"medium\",\"docstring\":\"If the HCI command handler reports state 2, dispatches the table entry indexed by the command's upper byte and preprocesses the command; always returns zero.\",\"subsystem\":\"bt\",\"var_renames\":{\"a3\":\"packed_command\"}}"
+}

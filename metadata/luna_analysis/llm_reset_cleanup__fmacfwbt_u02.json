@@ -1,0 +1,9 @@
+{
+ "fn": "llm_reset_cleanup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134608",
+ "seg": 52,
+ "key": "llm_reset_cleanup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_reset_cleanup\",\"confidence\":\"medium\",\"docstring\":\"Conditionally clears the pending low-level MAC reset interrupt and returns a zeroed LLM control block.\",\"subsystem\":\"mac\",\"var_renames\":{},\"struct_hints\":[]}"
+}

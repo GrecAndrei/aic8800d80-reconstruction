@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_bus_cmd",
+ "img": "fmacfw_u02",
+ "addr": "0x129544",
+ "seg": 35,
+ "key": "wlc_bus_cmd__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_send_slot_metadata\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends message 85 to task 13 with the context byte, slot index, and conditionally copied metadata from the indexed 48-byte slot.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"context\",\"a2\":\"slot_index\",\"v4\":\"message\",\"v5\":\"slot\",\"v6\":\"slot_value\"},\"struct_hints\":[{\"offset\":113,\"meaning\":\"Context byte copied to the first message byte.\"},{\"offset\":16,\"meaning\":\"Slot-presence gate for copying slot metadata.\"},{\"offset\":20,\"meaning\":\"Slot byte copied to the message and used as a gate for additional metadata.\"},{\"offset\":24,\"meaning\":\"Eight-byte slot metadata copied into the message.\"},{\"offset\":32,\"meaning\":\"Slot byte copied into the message when the offset-20 value is nonzero.\"},{\"offset\":36,\"meaning\":\"Four-byte slot metadata copied into the message.\"}]}"
+}

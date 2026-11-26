@@ -1,0 +1,9 @@
+{
+ "fn": "store_rx_info",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122a08",
+ "seg": 26,
+ "key": "store_rx_info__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"store_rx_metadata\",\"confidence\":\"high\",\"docstring\":\"Copies two 32-bit words and a trailing 16-bit field from an RX-info record into configured storage, then updates MAC header word 138.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"rx_info_src\",\"v6\":\"rx_info_dst\",\"v4\":\"rx_info_word0\",\"v7\":\"rx_info_word1\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"First 32-bit RX-info word\"},{\"offset\":4,\"meaning\":\"Second 32-bit RX-info word\"},{\"offset\":8,\"meaning\":\"16-bit RX-info field\"}]}"
+}

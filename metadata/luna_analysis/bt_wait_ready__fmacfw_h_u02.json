@@ -1,0 +1,9 @@
+{
+ "fn": "bt_wait_ready",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11316c",
+ "seg": 4,
+ "key": "bt_wait_ready__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_set_band_retry\",\"confidence\":\"medium\",\"docstring\":\"Initializes WLAN setup state, reports valid USB vendor and product IDs when available, and retries setting the requested band until the operation succeeds.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"wlan_config\",\"v2\":\"usb_ids\",\"v3\":\"product_id\",\"v4\":\"vendor_id\",\"v7\":\"band_selector\",\"v8\":\"set_band_result\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"32-bit WLAN configuration value copied to global state\"},{\"offset\":8,\"meaning\":\"Band selector normalized to a boolean and passed to wlan_set_band\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "load_three_bytes",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12391c",
+ "seg": 29,
+ "key": "load_three_bytes__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_send_band_channel_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Validates a three-byte RF band/channel request and sends an HCI event containing the band, channel, and success/failure status.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"req\",\n    \"v5\": \"request_mode\",\n    \"v6\": \"band\",\n    \"v7\": \"channel\",\n    \"v9\": \"band_ok\",\n    \"v11\": \"event_status\",\n    \"v12\": \"event_buf\",\n    \"v14\": \"channel_ok\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 354,\n      \"meaning\": \"per-channel uint16 status field within the band context\"\n    },\n    {\n      \"offset\": 453,\n      \"meaning\": \"per-channel byte field used to index band information within the band context\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "update_ll_flags",
+ "img": "fmacfw_h_u02",
+ "addr": "0x141d94",
+ "seg": 67,
+ "key": "update_ll_flags__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_ll_event_flags\",\"confidence\":\"medium\",\"docstring\":\"If context flags include 0x08, sets 0x40 and calls handle_ll_event only when the global gate is set and the original flags include 0x01; then it invokes mem_set_util at offset 52 and clears the indexed global bitmap bit when byte 4 is zero.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"old_flags\",\"v3\":\"global_ll_state\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"LL context flags\"},{\"offset\":4,\"meaning\":\"context state byte; zero triggers global bitmap cleanup\"},{\"offset\":47,\"meaning\":\"bit index used to clear a bit in the global bitmap\"},{\"offset\":52,\"meaning\":\"subobject passed to mem_set_util\"}]}"
+}

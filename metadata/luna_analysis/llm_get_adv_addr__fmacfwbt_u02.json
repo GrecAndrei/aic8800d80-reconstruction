@@ -1,0 +1,9 @@
+{
+ "fn": "llm_get_adv_addr",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13267c",
+ "seg": 46,
+ "key": "llm_get_adv_addr__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"llm_get_htvht_pa\", \"confidence\": \"medium\", \"docstring\": \"Calculates and caches the HT/VHT power-amplifier index by intersecting peer HT/VHT capability bits with RF configuration limits.\", \"subsystem\": \"mac\", \"var_renames\": {\"v2\": \"rf_cfg_table\", \"v3\": \"cfg_primary_limit\", \"v4\": \"cfg_aux_limit\", \"v7\": \"link_caps\", \"v8\": \"vht_cap_byte\", \"v16\": \"ht_cap_word\", \"v13\": \"negotiated_primary_limit\", \"v14\": \"current_aux_limit\"}, \"struct_hints\": [{\"offset\": 4, \"meaning\": \"HT/VHT capability flags\"}, {\"offset\": 208, \"meaning\": \"rate or PHY bitmap\"}, {\"offset\": 240, \"meaning\": \"HT capability/MCS field\"}, {\"offset\": 258, \"meaning\": \"VHT capability byte\"}, {\"offset\": 260, \"meaning\": \"VHT/HT auxiliary capability byte\"}, {\"offset\": 265, \"meaning\": \"VHT/HT auxiliary capability byte\"}, {\"offset\": 308, \"meaning\": \"cached negotiated HT/VHT PA index\"}]}"
+}

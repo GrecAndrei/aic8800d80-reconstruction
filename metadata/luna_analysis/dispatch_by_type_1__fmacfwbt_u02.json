@@ -1,0 +1,9 @@
+{
+ "fn": "dispatch_by_type_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13e35c",
+ "seg": 62,
+ "key": "dispatch_by_type_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"get_frame_type_status\", \"confidence\": \"medium\", \"docstring\": \"Switches on a descriptor byte at offset 169 and encodes nearby descriptor fields into a 16-bit frame/status word.\", \"subsystem\": \"mac\", \"var_renames\": {\"a1\": \"desc\", \"v2\": \"field_177\", \"v3\": \"field_194_flag\"}, \"struct_hints\": [{\"offset\": 169, \"meaning\": \"frame/type selector byte\"}, {\"offset\": 177, \"meaning\": \"type-dependent status/parameter field; zero selects 0x0400\"}, {\"offset\": 182, \"meaning\": \"optional flag encoded as bit 10 for type 0/1\"}, {\"offset\": 183, \"meaning\": \"optional flag selecting 0x3A80 versus 0x2A00 for type 5\"}, {\"offset\": 194, \"meaning\": \"optional flag ORed as bit 14\"}]}"
+}

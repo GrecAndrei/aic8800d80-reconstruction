@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11dacc",
+ "seg": 20,
+ "key": "rx_packet_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dma_rx_enqueue_packet\",\"confidence\":\"medium\",\"docstring\":\"Enqueues an RX packet as one or more buffer segments, advancing to linked buffers when the packet exceeds the current buffer.\",\"subsystem\":\"dma\",\"var_renames\":{\"a1\":\"current_buffer_ptr\",\"a2\":\"remaining_length\",\"a3\":\"buffer_offset_ptr\",\"v3\":\"rx_packet_state\",\"v4\":\"current_buffer\",\"v5\":\"buffer_offset\",\"v7\":\"ring_write_index_ptr\",\"v9\":\"packet_bytes_enqueued\",\"v10\":\"length_after_buffer\",\"v11\":\"ring_slot_index\",\"v13\":\"ring_entry\",\"v18\":\"next_buffer\",\"v25\":\"ring_entries\",\"v26\":\"previous_buffer\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"RX buffer descriptor's next-buffer pointer\"},{\"offset\":8,\"meaning\":\"RX buffer's current data offset, also stored in the ring entry\"},{\"offset\":12,\"meaning\":\"RX buffer's last valid data index\"},{\"offset\":0,\"meaning\":\"Ring entry segment length\"},{\"offset\":3,\"meaning\":\"Ring entry flags; bit 2 marks the final segment\"},{\"offset\":4,\"meaning\":\"Ring entry's RX buffer data offset\"},{\"offset\":2,\"meaning\":\"RX packet state completion indicator\"},{\"offset\":3,\"meaning\":\"RX packet state segment counter\"},{\"offset\":8,\"meaning\":\"RX packet state pointer to the current ring entry\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_bus_reset",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10c490",
+ "seg": 2,
+ "key": "sdio_bus_reset__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_clock_config\",\"confidence\":\"medium\",\"docstring\":\"Programs the chip\u2019s clock-control registers, waiting for a status condition before applying a calculated clock value.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"clock_control_regs\",\"v1\":\"clock_config_reg\",\"v2\":\"system_control_regs\",\"v3\":\"clock_config_mask\",\"v4\":\"computed_clock_value\",\"v5\":\"clock_config_with_enable\"}}"
+}

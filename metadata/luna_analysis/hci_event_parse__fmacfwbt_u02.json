@@ -1,0 +1,9 @@
+{
+ "fn": "hci_event_parse",
+ "img": "fmacfwbt_u02",
+ "addr": "0x135ccc",
+ "seg": 55,
+ "key": "hci_event_parse__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_event_get_nested_param\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Locates a sufficiently long element in an HCI event buffer and extracts a 16-bit parameter from nested 4-byte length fields.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"event_data\",\n    \"a2\": \"event_len\",\n    \"result\": \"matched_element\",\n    \"v9\": \"element_len\",\n    \"v3\": \"first_table_bytes\",\n    \"v4\": \"remaining_after_first_table\",\n    \"v6\": \"second_table_bytes\",\n    \"v7\": \"remaining_after_second_table\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"u16 first nested count/size, multiplied by 4 to obtain byte size\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"start of first nested table/element\"\n    }\n  ]\n}"
+}

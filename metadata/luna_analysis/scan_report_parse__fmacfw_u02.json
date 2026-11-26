@@ -1,0 +1,9 @@
+{
+ "fn": "scan_report_parse",
+ "img": "fmacfw_u02",
+ "addr": "0x131548",
+ "seg": 43,
+ "key": "scan_report_parse__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_scan_report_update\",\"confidence\":\"medium\",\"docstring\":\"Updates flags on the indexed scan entry, emits a four-byte report when the entry qualifies, and forwards a parameterless message to the supplied task pair.\",\"subsystem\":\"ble\",\"var_renames\":{\"v5\":\"scan_entry_index\",\"v6\":\"scan_entries_base\",\"v11\":\"entry_state\",\"v15\":\"scan_entry\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"16-bit value copied into the first two bytes of the emitted report\"},{\"offset\":34,\"meaning\":\"byte copied into the fourth byte of the emitted report\"},{\"offset\":53,\"meaning\":\"flags byte with bits 0 and 2 updated according to the input mode and value\"},{\"offset\":310,\"meaning\":\"state byte that must equal 15 to emit a report in the nonzero input mode\"}]}"
+}

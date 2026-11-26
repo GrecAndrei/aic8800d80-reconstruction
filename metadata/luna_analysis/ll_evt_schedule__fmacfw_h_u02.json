@@ -1,0 +1,9 @@
+{
+ "fn": "ll_evt_schedule",
+ "img": "fmacfw_h_u02",
+ "addr": "0x135028",
+ "seg": 52,
+ "key": "ll_evt_schedule__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_sm_auth_send\",\"confidence\":\"medium\",\"docstring\":\"Builds a per-connection transmit descriptor and copies an authentication payload into the BLE link-layer event buffer.\",\"subsystem\":\"ble\",\"var_renames\":{\"v5\":\"connection_index\",\"v6\":\"connection_context\",\"v9\":\"event_index\",\"v11\":\"tx_lock_context\",\"v12\":\"link_context\",\"v13\":\"tx_buffer\",\"v15\":\"event_record\",\"a2\":\"payload\"},\"struct_hints\":[{\"offset\":54,\"meaning\":\"Send-control block: payload length, used when the send mode is 2.\"},{\"offset\":59,\"meaning\":\"Send-control block: send mode or type.\"},{\"offset\":61,\"meaning\":\"Send-control block: connection index used to select the link context.\"},{\"offset\":116,\"meaning\":\"Link context: event index used to select the event record.\"},{\"offset\":1224,\"meaning\":\"Link context flag selecting the unconditional lock-acquisition path.\"}]}"
+}

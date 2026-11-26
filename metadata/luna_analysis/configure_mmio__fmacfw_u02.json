@@ -1,0 +1,9 @@
+{
+ "fn": "configure_mmio",
+ "img": "fmacfw_u02",
+ "addr": "0x120230",
+ "seg": 22,
+ "key": "configure_mmio__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_wait_for_object\",\"confidence\":\"medium\",\"docstring\":\"Passes the object member at byte offset 48 and a global-derived deadline (global word plus 10000) to a worker.\",\"subsystem\":\"ke\",\"struct_hints\":[{\"offset\":48,\"meaning\":\"Member address passed to the worker as its target.\"}]}"
+}

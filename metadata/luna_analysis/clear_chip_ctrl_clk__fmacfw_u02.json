@@ -1,0 +1,9 @@
+{
+ "fn": "clear_chip_ctrl_clk",
+ "img": "fmacfw_u02",
+ "addr": "0x103c6c",
+ "seg": 2,
+ "key": "clear_chip_ctrl_clk__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"toggle_chip_ctrl_clock\",\"confidence\":\"medium\",\"docstring\":\"Cycles two chip-control clock bits with short delays between transitions.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"chip_ctrl_reg\"}}"
+}

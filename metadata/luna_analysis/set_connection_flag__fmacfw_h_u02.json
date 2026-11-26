@@ -1,0 +1,9 @@
+{
+ "fn": "set_connection_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11f158",
+ "seg": 21,
+ "key": "set_connection_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"initialize_connection_context\",\"confidence\":\"medium\",\"docstring\":\"Initializes an indexed link-layer connection context, clearing its control buffer and populating mode-dependent metadata from the supplied parameters.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"connection_index\",\"v3\":\"connection_table_base\",\"v4\":\"connection_context\",\"v5\":\"control_buffer\",\"v11\":\"context_address\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Index used to access a related controller record\"},{\"offset\":64,\"meaning\":\"Control buffer cleared during initialization\"},{\"offset\":136,\"meaning\":\"Mode-dependent 64-bit metadata\"},{\"offset\":144,\"meaning\":\"Type-specific four-word parameter block\"},{\"offset\":160,\"meaning\":\"Connection mode or type\"},{\"offset\":161,\"meaning\":\"Byte copied from the input descriptor\"},{\"offset\":162,\"meaning\":\"Caller-supplied connection flag\"},{\"offset\":163,\"meaning\":\"Initialized/enabled marker set to 1\"},{\"offset\":164,\"meaning\":\"Copied 64-bit configuration value\"},{\"offset\":172,\"meaning\":\"Copied 32-bit configuration value\"},{\"offset\":176,\"meaning\":\"Copied 32-bit configuration value\"},{\"offset\":180,\"meaning\":\"Byte copied from the input descriptor\"},{\"offset\":184,\"meaning\":\"Pointer to the control buffer at offset 64\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_crypto_permute",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13c694",
+ "seg": 60,
+ "key": "bt_crypto_permute__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_aes_encrypt_block\",\"confidence\":\"high\",\"docstring\":\"Encrypts a 128-bit block in place using an expanded AES key schedule.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"expanded_key\",\"a2\":\"block_state\"}}"
+}

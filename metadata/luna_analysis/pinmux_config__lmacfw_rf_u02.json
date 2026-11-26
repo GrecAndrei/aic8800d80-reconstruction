@@ -1,0 +1,9 @@
+{
+ "fn": "pinmux_config",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x106f74",
+ "seg": 2,
+ "key": "pinmux_config__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_read_power\", \"confidence\": \"medium\", \"docstring\": \"Programs the RF/baseband mode and control bits together with the clock divider, pulses an enable strobe, samples the 15-bit power-detector counter, stores it into the context and logs 'rd_pwr', then restores the control registers.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"ctx\", \"v2\": \"cfg_reg\", \"v3\": \"ctrl_reg\", \"v5\": \"pwr_det_reg\", \"v6\": \"pwr_val\"}, \"struct_hints\": [{\"offset\": 44, \"meaning\": \"last sampled RF power reading (rd_pwr)\"}]}"
+}

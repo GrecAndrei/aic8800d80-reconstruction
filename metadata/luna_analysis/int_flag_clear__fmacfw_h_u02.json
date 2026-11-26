@@ -1,0 +1,9 @@
+{
+ "fn": "int_flag_clear",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115384",
+ "seg": 6,
+ "key": "int_flag_clear__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_interrupt_flag\",\"confidence\":\"medium\",\"docstring\":\"Clears the volatile interrupt-flag byte and returns the result of allocating a transmit event with a fixed message constant.\",\"subsystem\":\"hal\"}"
+}

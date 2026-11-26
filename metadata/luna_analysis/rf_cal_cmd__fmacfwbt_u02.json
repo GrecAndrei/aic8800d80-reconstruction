@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136448",
+ "seg": 56,
+ "key": "rf_cal_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cal_cmd_process\",\"confidence\":\"medium\",\"docstring\":\"Process a pending RF calibration command by issuing short command 7, clearing the calibration IRQ when appropriate, and querying TX power state once the command returns state 3.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

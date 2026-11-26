@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calib_required",
+ "img": "fmacfw_u02",
+ "addr": "0x12a700",
+ "seg": 37,
+ "key": "rf_calib_required__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calib_required\",\"confidence\":\"medium\",\"docstring\":\"Checks the indexed RF entry and services an eligible pending per-path operation by updating its counters and queues and issuing the bus command.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"rf_entry_index\",\"v4\":\"rf_entry_table\",\"v7\":\"path_entry\",\"v8\":\"path_entry\",\"v10\":\"path_state\",\"v11\":\"remaining_count\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Per-path pending marker, cleared when the operation is serviced.\"},{\"offset\":32,\"meaning\":\"Per-path state flag used to determine eligibility and whether to decrement the secondary counter.\"},{\"offset\":112,\"meaning\":\"Entry gate; processing continues only when its value is 1.\"},{\"offset\":113,\"meaning\":\"Queue identifier passed to ke_queue_front.\"},{\"offset\":115,\"meaning\":\"Condition selecting which queue-front mode to use.\"},{\"offset\":121,\"meaning\":\"Counter decremented when the operation is serviced.\"},{\"offset\":122,\"meaning\":\"Secondary counter decremented when the per-path state flag is 1.\"}]}"
+}

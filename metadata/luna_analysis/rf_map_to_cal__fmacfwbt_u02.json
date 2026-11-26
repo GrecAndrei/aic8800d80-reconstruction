@@ -1,0 +1,9 @@
+{
+ "fn": "rf_map_to_cal",
+ "img": "fmacfwbt_u02",
+ "addr": "0x135d18",
+ "seg": 55,
+ "key": "rf_map_to_cal__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_map_to_cal\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Finds a valid RF/calibration mapping for the indexed context and, when the scan/event flag is set, updates the associated channel/scan event buffer with the selected calibration entry.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"ctx_idx\",\n    \"v3\": \"ctx_table\",\n    \"v4\": \"cal_table\",\n    \"v5\": \"cal_table_idx\",\n    \"v6\": \"cal_row\",\n    \"v9\": \"cal_candidate\",\n    \"v10\": \"candidate_status\",\n    \"v11\": \"selected_cal_idx\",\n    \"v12\": \"selected_cal_idx_or_neg1\",\n    \"v13\": \"ctx_entry\",\n    \"v15\": \"event_buf\",\n    \"v16\": \"scan_event_payload\",\n    \"v19\": \"cal_entry_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 116,\n      \"meaning\": \"RF context table uint8_t calibration-row selector\"\n    },\n    {\n      \"offset\": 412,\n      \"meaning\": \"RF context table uint8_t flag enabling scan/event notification\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"event buffer uint32_t pointer field to channel/scan payload\"\n    },\n    {\n      \"offset\": 35,\n      \"meaning\": \"calibration row uint8_t sub-channel/table selector\"\n    },\n    {\n      \"offset\": 184,\n      \"meaning\": \"calibration row uint32_t saved/lookup value\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"calibration entry uint16_t counter incremented modulo 0x1000\"\n    }\n  ]\n}"
+}

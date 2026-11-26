@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_clear_irqs",
+ "img": "fmacfw_u02",
+ "addr": "0x12bb20",
+ "seg": 39,
+ "key": "mmio_clear_irqs__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_clear_bit31\",\"confidence\":\"medium\",\"docstring\":\"Clears bit 31 in three fixed MMIO registers and returns the first register address.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"mmio_reg_2\",\"v2\":\"mmio_reg_3\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare_condition",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142e28",
+ "seg": 68,
+ "key": "double_compare_condition__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_compare_condition\",\"confidence\":\"high\",\"docstring\":\"Compares two double-precision operands and sets the condition flags as required by the EABI helper.\",\"subsystem\":\"libmisc\",\"var_renames\":{}}"
+}

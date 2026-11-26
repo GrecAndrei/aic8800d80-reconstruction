@@ -1,0 +1,9 @@
+{
+ "fn": "increment_event_counter",
+ "img": "fmacfwbt_u02",
+ "addr": "0x141520",
+ "seg": 66,
+ "key": "increment_event_counter__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"increment_adv_event_counter\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Increments an advertising event counter, normalizes per-context 16-bit state/power fields, and issues an HCI command or event based on a configured threshold.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v0\": \"adv_ctx_base\",\n    \"v1\": \"adv_event_count\",\n    \"v2\": \"ctx_cursor\",\n    \"result\": \"hci_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 6480,\n      \"meaning\": \"advertising event counter (uint32)\"\n    },\n    {\n      \"offset\": 6484,\n      \"meaning\": \"advertising event count threshold (uint32)\"\n    }\n  ]\n}"
+}

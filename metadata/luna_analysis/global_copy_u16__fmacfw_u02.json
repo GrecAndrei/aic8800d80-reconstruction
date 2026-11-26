@@ -1,0 +1,9 @@
+{
+ "fn": "global_copy_u16",
+ "img": "fmacfw_u02",
+ "addr": "0x11211c",
+ "seg": 4,
+ "key": "global_copy_u16__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"periph_dma_submit\",\"confidence\":\"medium\",\"docstring\":\"Validates a 1-based peripheral DMA channel and aligned buffer, caps the transfer length, then fills its descriptor and programs the channel registers to start the transfer.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"channel_id\",\"a2\":\"buffer_address\",\"a3\":\"requested_length\",\"v3\":\"channel_index\",\"v4\":\"request_slot\",\"v7\":\"dma_descriptor\",\"v8\":\"max_transfer_length\",\"v9\":\"channel_mmio_base\",\"v10\":\"descriptor_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Per-channel request slot stores the buffer address; the pointed DMA descriptor stores a 16-bit transfer length.\"},{\"offset\":3,\"meaning\":\"DMA descriptor control flags.\"},{\"offset\":4,\"meaning\":\"Per-channel request slot stores the transfer length; the DMA descriptor stores the buffer address.\"},{\"offset\":8,\"meaning\":\"Per-channel request slot active flag.\"}]}"
+}

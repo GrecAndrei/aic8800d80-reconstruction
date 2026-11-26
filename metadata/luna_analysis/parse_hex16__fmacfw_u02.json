@@ -1,0 +1,9 @@
+{
+ "fn": "parse_hex16",
+ "img": "fmacfw_u02",
+ "addr": "0x12fa60",
+ "seg": 42,
+ "key": "parse_hex16__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_memory_access\",\"confidence\":\"medium\",\"docstring\":\"Parses a memory-access command and reads and logs 8-, 16-, or 32-bit values, including special RF-mapped addresses, or forwards the requested operation.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v4\":\"address\",\"v5\":\"access_width_bytes\",\"v7\":\"is_read_request\",\"v8\":\"read_value\",\"a2a\":\"command_value\"}}"
+}

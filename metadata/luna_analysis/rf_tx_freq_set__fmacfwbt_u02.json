@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_freq_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x118e38",
+ "seg": 12,
+ "key": "rf_tx_freq_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"btlp_event_queue_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes queued Bluetooth low-power event entries by updating the state word referenced by each entry, clearing the associated IRQ when a global status word is negative, entering btlp sleep for entries without the processing flag, and returning to system initialization when the queue empties.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"event_queue\",\n    \"v2\": \"global_status_ptr\",\n    \"v6\": \"first_entry\",\n    \"v7\": \"ctx_state_value\",\n    \"v8\": \"entry\",\n    \"v9\": \"entry_ctx\",\n    \"v10\": \"next_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"entry flag/state; zero causes btlp_enter_sleep() for this entry\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"entry selector flag; nonzero selects 0x7C000000 for the linked context state word\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"pointer to the associated context/state object whose offset 4 word is updated\"\n    }\n  ]\n}"
+}

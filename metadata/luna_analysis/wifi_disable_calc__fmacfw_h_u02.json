@@ -1,0 +1,9 @@
+{
+ "fn": "wifi_disable_calc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x127cc0",
+ "seg": 33,
+ "key": "wifi_disable_calc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"cfm_chan_ctx_delete\",\"confidence\":\"high\",\"docstring\":\"Notifies the hardware about channel-context removal when needed, then clears the indexed 28-byte context entry.\",\"subsystem\":\"cfm\",\"var_renames\":{\"a1\":\"chan_ctx_idx\",\"v2\":\"chan_ctx_table\",\"v4\":\"chan_ctx\"},\"struct_hints\":[{\"offset\":14,\"meaning\":\"16-bit field reset to the 0x00FF sentinel when the context is cleared.\"},{\"offset\":24,\"meaning\":\"Byte field whose 0xFF sentinel is checked to decide whether to notify hardware about context removal.\"},{\"offset\":25,\"meaning\":\"Nonzero flag that gates a hardware update associated with the linked-VIF count.\"},{\"offset\":27,\"meaning\":\"Byte field reset to the 0xFF sentinel when the context is cleared.\"}]}"
+}

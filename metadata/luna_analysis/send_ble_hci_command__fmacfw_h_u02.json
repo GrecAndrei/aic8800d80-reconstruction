@@ -1,0 +1,9 @@
+{
+ "fn": "send_ble_hci_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13688c",
+ "seg": 56,
+ "key": "send_ble_hci_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_ble_connection_state\",\"confidence\":\"medium\",\"docstring\":\"Sends per-link control messages, selects radio parameters from another eligible link, and performs link-specific low-power cleanup.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"current_conn\",\"v2\":\"initial_msg_payload\",\"v4\":\"followup_msg_payload\",\"v5\":\"candidate_conn\",\"v7\":\"optional_msg_payload\",\"v13\":\"active_conn_msg_payload\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Nonzero value gates sending an additional control message.\"},{\"offset\":107,\"meaning\":\"Connection handle or index placed in control messages and used to index link state.\"},{\"offset\":108,\"meaning\":\"Connection state flag used to gate control-message handling.\"},{\"offset\":413,\"meaning\":\"Byte combined with another candidate-link field when selecting radio parameters.\"},{\"offset\":416,\"meaning\":\"16-bit candidate-link parameter passed to bt_set_address when within range.\"},{\"offset\":1224,\"meaning\":\"Flag guarding link-specific low-power-exit handling.\"}]}"
+}

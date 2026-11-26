@@ -1,0 +1,9 @@
+{
+ "fn": "parse_data_7",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e078",
+ "seg": 43,
+ "key": "parse_data_7__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tlv_find_tag_bf\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a bounds-checked type/length TLV buffer for tag 0xBF, returning a pointer to the first matching element only when its length byte is 12, otherwise NULL.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"tlv\",\n    \"a2\": \"buf_len\",\n    \"v2\": \"end_ptr\",\n    \"v3\": \"next_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"TLV tag/type byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"TLV length byte; expected to be 12 for tag 0xBF\"\n    }\n  ]\n}"
+}

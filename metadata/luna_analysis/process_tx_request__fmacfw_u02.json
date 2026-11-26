@@ -1,0 +1,9 @@
+{
+ "fn": "process_tx_request",
+ "img": "fmacfw_u02",
+ "addr": "0x11ae30",
+ "seg": 15,
+ "key": "process_tx_request__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_process_command_request\",\"confidence\":\"medium\",\"docstring\":\"Checks the request buffer size, applies an optional four-byte header adjustment, and lazily allocates a context before invoking its indexed handler.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"request_handle_out\",\"a3\":\"request_size\",\"a5\":\"handler_index\",\"v5\":\"request_flags\",\"v6\":\"buffer_ctx\",\"v14\":\"existing_request_handle\",\"v22\":\"allocated_request_ctx\",\"v23\":\"request_ctx\",\"v26\":\"header_marker\",\"v29\":\"aligned_required_size\",\"v30\":\"buffer_write_cursor\"},\"struct_hints\":[{\"offset\":68,\"meaning\":\"Pointer to the lazily attached request context.\"},{\"offset\":76,\"meaning\":\"Pointer to the buffer context.\"},{\"offset\":28,\"meaning\":\"In the buffer context, pointer to a 16-bit header marker.\"},{\"offset\":32,\"meaning\":\"In the buffer context, buffer write cursor.\"},{\"offset\":36,\"meaning\":\"In the buffer context, buffer length.\"}]}"
+}

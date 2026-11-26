@@ -1,0 +1,9 @@
+{
+ "fn": "get_connection_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1369c8",
+ "seg": 56,
+ "key": "get_connection_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_connection_state\",\"confidence\":\"medium\",\"docstring\":\"Returns 0 only when the indexed context and connection records meet their state checks and the connection record\u2019s low two flag bits are clear, setting bit 12 in the caller record on that path.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"connection_index\",\"v2\":\"connection_record\",\"v3\":\"connection_state\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit value whose zero value triggers a special-case check\"},{\"offset\":28,\"meaning\":\"Context index used to select an entry in the context-state table\"},{\"offset\":29,\"meaning\":\"Connection-table index, valid from 0 through 35\"},{\"offset\":30,\"meaning\":\"16-bit caller flags; bit 12 is set on the zero-return path\"},{\"offset\":36,\"meaning\":\"Connection-record state byte, compared with 1\"},{\"offset\":54,\"meaning\":\"Connection-record flags; the low two bits are tested\"},{\"offset\":106,\"meaning\":\"Context-table status byte, compared with 2\"}]}"
+}

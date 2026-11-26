@@ -1,0 +1,9 @@
+{
+ "fn": "bt_scan_start",
+ "img": "fmacfw_h_u02",
+ "addr": "0x129f50",
+ "seg": 36,
+ "key": "bt_scan_start__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rsn_prepare_and_parse_ie\",\"confidence\":\"medium\",\"docstring\":\"When the selected security context is enabled and parsing is not suppressed, clears its marked subrecords and transient state bytes, then calls `rsn_parse_ie` on that context.\",\"subsystem\":\"sec\",\"var_renames\":{\"v2\":\"context_index\",\"v3\":\"context_table\",\"v4\":\"security_context\",\"v5\":\"context_offset\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Nonzero triggers cleanup of the subrecord at offset 0, then is cleared.\"},{\"offset\":64,\"meaning\":\"Nonzero triggers cleanup of the subrecord at offset 48, then is cleared.\"},{\"offset\":114,\"meaning\":\"Nonzero triggers cleanup of the subrecord at offset 96, then is cleared.\"},{\"offset\":115,\"meaning\":\"Transient byte cleared during reset.\"},{\"offset\":120,\"meaning\":\"Transient byte cleared during reset.\"},{\"offset\":132,\"meaning\":\"Transient byte cleared during reset.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "format_mac_address",
+ "img": "fmacfw_u02",
+ "addr": "0x130640",
+ "seg": 42,
+ "key": "format_mac_address__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_append_ht_capabilities_ie\",\"confidence\":\"high\",\"docstring\":\"Appends the 28-byte 802.11 HT Capabilities information element (ID 45, length 26), patches fields from the firmware template, and advances the output cursor.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"output_cursor_ref\",\"v1\":\"ht_capabilities_template\",\"v2\":\"ht_capability_info\",\"v5\":\"template_cursor\",\"v7\":\"tx_beamforming_capabilities_src\",\"v9\":\"output_cursor\",\"v10\":\"output_end\"}}"
+}

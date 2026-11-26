@@ -1,0 +1,9 @@
+{
+ "fn": "sub_1007a4",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1007a4",
+ "seg": 0,
+ "key": "sub_1007a4__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_table_adjust\",\"confidence\":\"medium\",\"docstring\":\"Transforms selected 32-word groups by replacing each non-sentinel entry with the following cyclic entry and adjusting its low byte, while copying unselected groups unchanged.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"source_table\",\"a2\":\"destination_table\",\"a4\":\"group_mask\",\"v22\":\"group_index\",\"v7\":\"group_start\",\"v10\":\"iteration_index\",\"v14\":\"entry_index\",\"v15\":\"current_entry\",\"v12\":\"next_entry\",\"v13\":\"adjusted_byte\"}}"
+}

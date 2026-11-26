@@ -1,0 +1,9 @@
+{
+ "fn": "store_hci_event",
+ "img": "fmacfw_u02",
+ "addr": "0x122b48",
+ "seg": 26,
+ "key": "store_hci_event__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_event_store\",\"confidence\":\"medium\",\"docstring\":\"Copies the first 10 bytes of the supplied HCI event into a shared buffer, then posts a parameterless kernel message using the supplied task IDs.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"event_data\",\"v6\":\"event_buffer\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"First 4 bytes of the copied HCI event\"},{\"offset\":4,\"meaning\":\"Next 4 bytes of the copied HCI event\"},{\"offset\":8,\"meaning\":\"Final 2 bytes of the copied HCI event\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "strlen",
+ "img": "fmacfw_u02",
+ "addr": "0x143e40",
+ "seg": 68,
+ "key": "strlen__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"strlen\",\"confidence\":\"high\",\"docstring\":\"Returns the number of bytes before the terminating NUL using aligned word-at-a-time scanning.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v1\":\"aligned_scan_ptr\",\"v3\":\"initial_alignment_offset\",\"v5\":\"length_offset\",\"v15\":\"prefix_byte_mask\"}}"
+}

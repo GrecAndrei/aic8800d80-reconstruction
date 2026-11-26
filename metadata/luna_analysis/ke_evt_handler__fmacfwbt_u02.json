@@ -1,0 +1,9 @@
+{
+ "fn": "ke_evt_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1002a0",
+ "seg": 0,
+ "key": "ke_evt_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sys_mem_init\",\"confidence\":\"medium\",\"docstring\":\"Builds runtime memory-region pointers from configured counts, logs the BSS pointer, and checks it against the stack boundary.\",\"subsystem\":\"sys\",\"var_renames\":{\"v8\":\"configured_count\",\"v11\":\"stack_start\",\"v14\":\"bss_ptr\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"configured entry count used to size runtime memory regions\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "set_mmio_base",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d004",
+ "seg": 40,
+ "key": "set_mmio_base__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_mmio_base\",\"confidence\":\"low\",\"docstring\":\"Passes the fixed value 0x10000000 to the helper and returns its result.\",\"subsystem\":\"hal\"}"
+}

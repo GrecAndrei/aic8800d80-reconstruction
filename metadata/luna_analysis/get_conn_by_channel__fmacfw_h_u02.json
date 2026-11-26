@@ -1,0 +1,9 @@
+{
+ "fn": "get_conn_by_channel",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11ba74",
+ "seg": 17,
+ "key": "get_conn_by_channel__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"register_connection_for_channel\",\"confidence\":\"medium\",\"docstring\":\"Pops the current channel's list, registers the supplied object for that channel, and updates the channel record when the object's 0x380000 flag bits are all set.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"channel_table_base\",\"v3\":\"channel_index\",\"v6\":\"channel_entry\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Per-channel list head passed to list_pop.\"},{\"offset\":26,\"meaning\":\"Channel-entry state byte set to 2 when the source flag test succeeds.\"},{\"offset\":36,\"meaning\":\"Channel-entry field populated from the source object's offset 68 when the source flag test succeeds.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "parse_hex_string",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f920",
+ "seg": 42,
+ "key": "parse_hex_string__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"test_memory_access\",\"confidence\":\"medium\",\"docstring\":\"Parses a test memory-access command and either prints a volatile read of the requested width or forwards the supplied value to the packet-parameter handler.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v4\":\"address\",\"v5\":\"access_width_bytes\",\"a2a\":\"input_value\",\"v8\":\"read_value\"}}"
+}

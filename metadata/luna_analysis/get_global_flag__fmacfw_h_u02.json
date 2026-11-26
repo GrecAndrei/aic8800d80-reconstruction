@@ -1,0 +1,9 @@
+{
+ "fn": "get_global_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x112f84",
+ "seg": 4,
+ "key": "get_global_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_global_flag\",\"confidence\":\"medium\",\"docstring\":\"Returns the current value of the global flag.\",\"subsystem\":\"libmisc\"}"
+}

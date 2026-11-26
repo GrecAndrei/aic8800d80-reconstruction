@@ -1,0 +1,9 @@
+{
+ "fn": "critical_enter3",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f064",
+ "seg": 2,
+ "key": "critical_enter3__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_nested_critical_call\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Executes the linked indirect routine inside a nested interrupt-disabled critical section, optionally spinning on a shared flag before the call and restoring IRQ state afterward.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v4\": \"nesting_counter\",\n    \"v5\": \"spin_flag\",\n    \"v7\": \"remaining_nesting\",\n    \"v8\": \"irq_was_disabled\",\n    \"a4\": \"wait_for_spin_flag\",\n    \"result\": \"target_return_value\"\n  },\n  \"struct_hints\": []\n}"
+}

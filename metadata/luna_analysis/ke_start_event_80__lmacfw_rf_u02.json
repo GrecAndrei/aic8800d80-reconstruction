@@ -1,0 +1,9 @@
+{
+ "fn": "ke_start_event_80",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1245f0",
+ "seg": 23,
+ "key": "ke_start_event_80__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_handle_periodic_event_80\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes kernel event 0x80 while its enable flag is set, counts invocations, and on every tenth invocation raises an RF flag and strobes an RF register at base offset 0x9c40.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"event_counter_ptr\",\n    \"v2\": \"event_count\",\n    \"v3\": \"rf_reg_addr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 39936,\n      \"meaning\": \"RF register bank offset 0x9c00 from base loaded from off_124634\"\n    },\n    {\n      \"offset\": 64,\n      \"meaning\": \"RF control register offset 0x40 within that bank\"\n    }\n  ]\n}"
+}

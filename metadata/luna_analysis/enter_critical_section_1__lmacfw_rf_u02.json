@@ -1,0 +1,9 @@
+{
+ "fn": "enter_critical_section_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e628",
+ "seg": 20,
+ "key": "enter_critical_section_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_enter_critical_mask\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enter a kernel interrupt-critical section by disabling interrupts, updating the critical nesting counter, clearing bits in the event/IRQ mask, and conditionally restoring interrupts.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"mask_bits\",\n    \"v1\": \"irq_lock_count_ptr\",\n    \"v2\": \"irq_mask_ptr\",\n    \"v3\": \"old_irq_lock_count\",\n    \"v4\": \"new_irq_lock_count\",\n    \"result\": \"updated_irq_mask\",\n    \"v6\": \"irq_disable_flag_ptr\",\n    \"v7\": \"irq_disable_flag\"\n  }\n}"
+}

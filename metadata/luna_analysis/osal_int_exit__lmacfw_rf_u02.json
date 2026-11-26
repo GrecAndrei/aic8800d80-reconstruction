@@ -1,0 +1,9 @@
+{
+ "fn": "osal_int_exit",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1149fc",
+ "seg": 6,
+ "key": "osal_int_exit__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"osal_int_exit\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Exits an OSAL interrupt-protected section by invoking the registered exit hook, decrementing the nested lock count, and restoring interrupts after the outermost lock is released.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v1\": \"exit_hook_arg\",\n    \"v2\": \"lock_count_ptr\",\n    \"v3\": \"exit_hook\",\n    \"v5\": \"lock_count_new\",\n    \"v6\": \"irq_disabled_here\"\n  }\n}"
+}

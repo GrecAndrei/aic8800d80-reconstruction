@@ -1,0 +1,9 @@
+{
+ "fn": "dec_retry_count",
+ "img": "fmacfw_u02",
+ "addr": "0x11a2d0",
+ "seg": 13,
+ "key": "dec_retry_count__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_retry_count_dec\",\"confidence\":\"medium\",\"docstring\":\"Decrements an object's retry counter and invokes its handler when the counter reaches zero.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"retry_context\",\"v1\":\"remaining_retries\"},\"struct_hints\":[{\"offset\":14,\"meaning\":\"retry counter\"},{\"offset\":340,\"meaning\":\"argument forwarded to the handler when retries reach zero\"}]}"
+}

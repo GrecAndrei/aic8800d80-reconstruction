@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibrate_value",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1306cc",
+ "seg": 43,
+ "key": "rf_calibrate_value__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_calibration_value\",\"confidence\":\"medium\",\"docstring\":\"Logs the radio-ready calibration value and updates the stored calibration byte when its absolute change exceeds four units, then returns the link-sequence update result.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"cal_value\",\"v1\":\"abs_delta\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"stored previous calibration value/temperature byte\"}]}"
+}

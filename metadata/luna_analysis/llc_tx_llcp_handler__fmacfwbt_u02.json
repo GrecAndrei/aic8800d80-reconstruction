@@ -1,0 +1,9 @@
+{
+ "fn": "llc_tx_llcp_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11a308",
+ "seg": 14,
+ "key": "llc_tx_llcp_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llc_tx_llcp_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes TX-side link-layer control protocol (LLCP) activity for an LLC slot, updating status descriptors and dispatching LLCP/BLE connection handling.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"slot_idx\",\n    \"v2\": \"llc_slot\",\n    \"v3\": \"llc_status_desc\",\n    \"v4\": \"llc_ctx\",\n    \"v8\": \"llc_state_flags\",\n    \"v20\": \"llc_slot_saved\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 44,\n      \"meaning\": \"llc_slot+44: pointer to LLC/BLE control block\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"llc_slot+52: pointer to TX/status descriptor\"\n    },\n    {\n      \"offset\": 77,\n      \"meaning\": \"llc_slot+77: LLCP TX state or completion byte\"\n    },\n    {\n      \"offset\": 78,\n      \"meaning\": \"llc_slot+78: BLE connection index or related parameter\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"llc_status_desc+36: status/flag word\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"llc_status_desc+68: descriptor size or buffer offset\"\n    },\n    {\n      \"offset\": 82,\n      \"meaning\": \"llc_status_desc+82: event/ready bitfield\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"llc_status_desc+28: channel/vif index used for table lookup\"\n    },\n    {\n      \"offset\": 34,\n      \"meaning\": \"llc_status_desc+34: BLE connection or interval parameter\"\n    }\n  ]\n}"
+}

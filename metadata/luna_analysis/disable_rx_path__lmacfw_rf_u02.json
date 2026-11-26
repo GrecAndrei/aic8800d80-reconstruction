@@ -1,0 +1,9 @@
+{
+ "fn": "disable_rx_path",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103c6c",
+ "seg": 2,
+ "key": "disable_rx_path__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_disable_rx_path\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Disables the RF receive path by clearing receiver-enable bits and programming associated baseband/RF control fields during initialization.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"rx_path_ctrl_base\",\n    \"result\": \"rf_rx_ctrl_reg\",\n    \"v3\": \"rf_zero_reg\"\n  }\n}"
+}

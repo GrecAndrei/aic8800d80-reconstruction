@@ -1,0 +1,9 @@
+{
+ "fn": "rf_chan_load",
+ "img": "fmacfw_h_u02",
+ "addr": "0x125638",
+ "seg": 30,
+ "key": "rf_chan_load__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_channel_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the transmit-channel bookkeeping and per-channel buffers for the slot selected by the object's channel index.\",\"subsystem\":\"tx\",\"var_renames\":{\"v2\":\"shared_queue_marker\",\"v4\":\"channel_index\",\"v8\":\"channel_config\",\"v10\":\"channel_buffer\",\"v11\":\"channel_descriptor\",\"v12\":\"channel_queue\",\"v19\":\"auxiliary_control_words\"},\"struct_hints\":[{\"offset\":107,\"meaning\":\"Channel index used to select per-channel state and buffers.\"},{\"offset\":116,\"meaning\":\"Embedded state region passed to the per-channel initializer.\"},{\"offset\":192,\"meaning\":\"Pointer to auxiliary control words.\"},{\"offset\":208,\"meaning\":\"Back-pointer to the containing object.\"},{\"offset\":229,\"meaning\":\"Byte offset into the per-channel buffer used to position a data pointer.\"},{\"offset\":1224,\"meaning\":\"Flag enabling initialization of an auxiliary per-channel table.\"}]}"
+}

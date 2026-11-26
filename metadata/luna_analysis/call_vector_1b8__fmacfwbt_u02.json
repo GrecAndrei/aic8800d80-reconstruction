@@ -1,0 +1,9 @@
+{
+ "fn": "call_vector_1b8",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ebd4",
+ "seg": 3,
+ "key": "call_vector_1b8__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"call_vector_1b8\",\"confidence\":\"low\",\"docstring\":\"Calls the function pointer stored in vector slot 0x1B8 and returns its result.\",\"subsystem\":\"hal\"}"
+}

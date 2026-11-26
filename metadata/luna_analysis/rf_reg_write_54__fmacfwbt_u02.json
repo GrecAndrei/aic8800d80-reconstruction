@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_write_54",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1237b0",
+ "seg": 29,
+ "key": "rf_reg_write_54__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_send_conn_flag_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates an HCI event buffer, validates a connection index, invokes the Bluetooth connection flag get/set operation, and sends the resulting status event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v3\": \"event_buf\",\n    \"v4\": \"event_buf\",\n    \"v5\": \"conn_idx\",\n    \"a2\": \"cmd_params\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"command parameter connection index\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"command parameter flag selector or value\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"per-connection table valid or active byte\"\n    }\n  ]\n}"
+}

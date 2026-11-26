@@ -1,0 +1,9 @@
+{
+ "fn": "phy_check_core_mode",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136c34",
+ "seg": 57,
+ "key": "phy_check_core_mode__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_core_mode_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks an RF/PHY core-mode and channel table configuration, returning 1 for bypass/error-like cases and returning 0 only when the selected channel entry has mode byte 1 but its low two flag bits are clear, in which case it sets bit 0x1000 in the context flag word.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"channel_idx\",\n    \"v2\": \"channel_entry\",\n    \"v3\": \"result\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"core-mode table index\"\n    },\n    {\n      \"offset\": 29,\n      \"meaning\": \"channel table index\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"context flag word; bit 0x1000 is set when the selected channel entry has no low mode-flag bits set\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_create",
+ "img": "fmacfw_u02",
+ "addr": "0x12c5e4",
+ "seg": 40,
+ "key": "ke_task_create__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_timer_set\",\"confidence\":\"high\",\"docstring\":\"Creates or updates a kernel timer keyed by timer ID and task ID, reorders it by expiry time, and reschedules the timer event when the queue head changes.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"timer_id\",\"a2\":\"task_id\",\"a3\":\"delay_ticks\",\"v7\":\"critical_section_depth\",\"v9\":\"old_head_was_timer\",\"v10\":\"timer_entry\",\"v13\":\"expiration_tick\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"timer ID\"},{\"offset\":6,\"meaning\":\"task ID\"},{\"offset\":8,\"meaning\":\"absolute expiration tick\"},{\"offset\":20,\"meaning\":\"timer-list head pointer in the timer environment\"}]}"
+}

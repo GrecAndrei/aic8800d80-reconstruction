@@ -1,0 +1,9 @@
+{
+ "fn": "radio_event_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1177e4",
+ "seg": 10,
+ "key": "radio_event_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_irq_handler\",\"confidence\":\"medium\",\"docstring\":\"Reads and acknowledges pending radio/PHY interrupt bits, handles DMA and firmware-ready causes, and dispatches remaining PHY events.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"irq_status\",\"v2\":\"firmware_ready_irq_mask\",\"v3\":\"pending_phy_events\",\"v4\":\"phy_event_index\"}}"
+}

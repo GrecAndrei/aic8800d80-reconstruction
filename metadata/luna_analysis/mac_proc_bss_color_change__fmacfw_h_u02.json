@@ -1,0 +1,9 @@
+{
+ "fn": "mac_proc_bss_color_change",
+ "img": "fmacfw_h_u02",
+ "addr": "0x135528",
+ "seg": 52,
+ "key": "mac_proc_bss_color_change__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_process_bss_color_change\",\"confidence\":\"medium\",\"docstring\":\"Processes a BSS color change request, rejecting unsupported modes or mismatched colors and scheduling a timer when the corresponding color entry is active.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"bss_color\",\"v4\":\"color_entry\",\"v5\":\"reason_code\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"BSS color\"},{\"offset\":12,\"meaning\":\"reason code\"}]}"
+}

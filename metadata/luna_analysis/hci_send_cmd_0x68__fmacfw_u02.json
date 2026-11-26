@@ -1,0 +1,9 @@
+{
+ "fn": "hci_send_cmd_0x68",
+ "img": "fmacfw_u02",
+ "addr": "0x122b18",
+ "seg": 25,
+ "key": "hci_send_cmd_0x68__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_send_cmd_0x68\",\"confidence\":\"high\",\"docstring\":\"Sends the no-parameter kernel message 0x68 using the supplied destination and source task IDs.\",\"subsystem\":\"bt\",\"var_renames\":{\"a3\":\"src_task_id\",\"a4\":\"dest_task_id\"}}"
+}

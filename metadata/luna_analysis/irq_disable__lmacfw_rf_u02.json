@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1101ac",
+ "seg": 3,
+ "key": "irq_disable__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"irq_disable_list_pop_front\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pops and returns the front entry from a shared list under a temporary IRQ-disable critical section, restoring interrupts when the nesting count returns to zero.\",\n  \"subsystem\": \"irq\",\n  \"var_renames\": {\n    \"v0\": \"irq_nesting_ptr\",\n    \"v1\": \"list_head\",\n    \"result\": \"popped_item\",\n    \"v3\": \"irq_nesting_next\",\n    \"v4\": \"irq_disabled_flag\"\n  }\n}"
+}

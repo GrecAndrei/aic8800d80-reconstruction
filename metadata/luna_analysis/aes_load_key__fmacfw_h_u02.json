@@ -1,0 +1,9 @@
+{
+ "fn": "aes_load_key",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1031d8",
+ "seg": 2,
+ "key": "aes_load_key__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_configure_clock_dividers\",\"confidence\":\"medium\",\"docstring\":\"Computes a clock-derived value from mode flags and calibration data, then stores two successive divider values.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"clock_scale\",\"v4\":\"calibration_entry_ptr\",\"v5\":\"signed_calibration_byte\",\"v6\":\"calibration_divisor\",\"v7\":\"intermediate_clock_value\",\"v9\":\"final_divider_out\",\"v10\":\"divided_clock_value\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Control flags; bit 1 selects the calibrated path and bit 2 selects the clock scale.\"},{\"offset\":32,\"meaning\":\"Byte-sized divisor applied to the computed clock value.\"},{\"offset\":36,\"meaning\":\"Control-block selector; its low nibble indexes the 16-byte calibration record.\"},{\"offset\":36,\"meaning\":\"Returned clock table byte used as the final divisor.\"}]}"
+}

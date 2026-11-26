@@ -1,0 +1,9 @@
+{
+ "fn": "call_tx_function",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10c1b4",
+ "seg": 2,
+ "key": "call_tx_function__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_start\",\"confidence\":\"medium\",\"docstring\":\"Applies RF calibration and packet-control programming, then polls the selected status register to initiate a radio transmit.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"mode\",\"a2\":\"radio_param\",\"a3\":\"packet_ctl\",\"a4\":\"status_ptr\",\"v7\":\"status_reg\"},\"struct_hints\":[]}"
+}

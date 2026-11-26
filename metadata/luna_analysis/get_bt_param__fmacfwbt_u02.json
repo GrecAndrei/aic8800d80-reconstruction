@@ -1,0 +1,9 @@
+{
+ "fn": "get_bt_param",
+ "img": "fmacfwbt_u02",
+ "addr": "0x116de0",
+ "seg": 9,
+ "key": "get_bt_param__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"get_rf_path_param\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Fetches or updates the RF parameter entry for a given path, switching RF paths or consulting calibration state when required.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v4\": \"param_ptr\",\n    \"v6\": \"path_entry\",\n    \"v7\": \"active_param_ptr\",\n    \"v8\": \"rf_info_ptr\",\n    \"v9\": \"rf_path_active\",\n    \"v10\": \"rf_ctrl_word\",\n    \"v11\": \"rf_info_obj\",\n    \"a2\": \"path_ctx\",\n    \"a3\": \"path_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"RF path table entry active parameter/context pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"RF path table entry saved parameter/context pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"RF path table entry saved-pointer valid flag\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"off_116EF0 RF path state byte at +1; active/selected indicator\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"a2 context flags: bit 0x200000 controls whether param_ptr is saved into path_entry[1]\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"off_116EE0 per-path entries base (28-byte stride)\"\n    },\n    {\n      \"offset\": 46,\n      \"meaning\": \"off_116EE0 per-path entry flag byte at offset 10 from entry base\"\n    },\n    {\n      \"offset\": 190,\n      \"meaning\": \"off_116EE0 current RF path index\"\n    },\n    {\n      \"offset\": 208,\n      \"meaning\": \"off_116EE0 RF control word; bit 0 participates in path-switching condition\"\n    }\n  ]\n}"
+}

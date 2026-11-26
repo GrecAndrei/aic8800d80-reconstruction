@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_write_ctrl",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102828",
+ "seg": 1,
+ "key": "pmu_write_ctrl__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_calibrate_default\", \"confidence\": \"medium\", \"docstring\": \"Checks the TX path, pulses three RF control commands through a busy-polled strobe register, invokes default 2412 MHz RF calibration, and updates resulting RF status registers.\", \"subsystem\": \"rf\", \"var_renames\": {\"v0\": \"rf_cmd_busy_reg\", \"v1\": \"rf_cmd_busy_reg\", \"v2\": \"rf_cmd_busy_reg\"}, \"struct_hints\": []}"
+}

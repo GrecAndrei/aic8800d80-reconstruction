@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_irq_status",
+ "img": "fmacfw_u02",
+ "addr": "0x12b5a0",
+ "seg": 39,
+ "key": "rf_get_irq_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_clock_rate\",\"confidence\":\"medium\",\"docstring\":\"Updates the RF/baseband clock rate and rescales dependent MMIO timing fields to preserve their effective durations.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"clock_rate_reg\",\"v2\":\"current_clock_rate\",\"v6\":\"new_clock_rate\"},\"struct_hints\":[]}"
+}

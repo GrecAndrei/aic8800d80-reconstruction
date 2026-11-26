@@ -1,0 +1,9 @@
+{
+ "fn": "dispatch_function_ptr",
+ "img": "fmacfwbt_u02",
+ "addr": "0x113f70",
+ "seg": 5,
+ "key": "dispatch_function_ptr__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_data_receive\",\"confidence\":\"medium\",\"docstring\":\"Retrieves a WLAN data buffer through a callback, submits its payload to the environment initializer, and frees the buffer if initialization fails.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v0\":\"data_buffer\",\"v1\":\"data_buffer\",\"result\":\"status\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Callback-table entry used to retrieve WLAN data\"}]}"
+}

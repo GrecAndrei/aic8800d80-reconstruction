@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_3",
+ "img": "fmacfw_h_u02",
+ "addr": "0x110380",
+ "seg": 3,
+ "key": "mmio_write_3__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_ioctl_handler_irq_guarded\",\"confidence\":\"medium\",\"docstring\":\"Calls the WLAN ioctl handler with interrupts disabled for the outermost nested invocation, restoring them only if this wrapper disabled them.\",\"subsystem\":\"hal\",\"var_renames\":{\"v2\":\"ioctl_nesting_count\",\"v5\":\"remaining_nesting_count\",\"v6\":\"irq_disabled_by_wrapper\"}}"
+}

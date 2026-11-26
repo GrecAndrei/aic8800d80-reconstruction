@@ -1,0 +1,9 @@
+{
+ "fn": "crypto_mix_round",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133470",
+ "seg": 46,
+ "key": "crypto_mix_round__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tkip_michael_mix_block\",\"confidence\":\"high\",\"docstring\":\"Applies one TKIP Michael MIC mixing step to the left and right state words using the supplied message word.\",\"subsystem\":\"crypto\",\"var_renames\":{\"result\":\"left_state\",\"a2\":\"right_state\",\"a3\":\"message_word\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_prepare_frame_path",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13ac44",
+ "seg": 60,
+ "key": "tx_prepare_frame_path__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_prepare_tx_path\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prepares and validates the transmit RF path descriptor, bandwidth/rate context, and calibration settings, falling back to rf_set_band_config for invalid parameters.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"tx_ctx\",\n    \"a2\": \"band_cfg\",\n    \"v2\": \"bandwidth_or_path\",\n    \"v5\": \"rate_index\",\n    \"v6\": \"rate_table\",\n    \"v7\": \"rate_entry\",\n    \"v9\": \"tx_flags\",\n    \"v13\": \"tx_flags\",\n    \"v14\": \"bandwidth_entry\",\n    \"v32\": \"tx_path_ptr\",\n    \"v33\": \"bt_conn_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"transmit bandwidth/path index, valid range 0-3\"\n    },\n    {\n      \"offset\": 29,\n      \"meaning\": \"rate/MCS index; 0xff indicates unspecified rate\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"transmit path flags; bits 0x08, 0x10, and 0x80 are interpreted specially\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"selected TX path descriptor or function-pointer slot\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"pointer to associated radio/TX context; subfields near 164/172 hold rate tables\"\n    }\n  ]\n}"
+}

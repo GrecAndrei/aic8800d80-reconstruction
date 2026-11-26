@@ -1,0 +1,9 @@
+{
+ "fn": "get_phy_status_byte",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13275c",
+ "seg": 45,
+ "key": "get_phy_status_byte__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_rf_mode_from_status_bytes\",\"confidence\":\"high\",\"docstring\":\"Selects the largest 7-bit value in the context\u2019s status-byte list, validates it, applies it as the RF mode, and clears the byte at offset 350.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_context\",\"v2\":\"status_count\",\"v3\":\"status_ptr\",\"v4\":\"status_end\",\"v5\":\"max_status_value\",\"v6\":\"status_byte\",\"v8\":\"validated_mode\"},\"struct_hints\":[{\"offset\":192,\"meaning\":\"Count of status bytes stored immediately after this field.\"}]}"
+}

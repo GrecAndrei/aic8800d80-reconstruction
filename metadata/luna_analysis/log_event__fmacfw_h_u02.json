@@ -1,0 +1,9 @@
+{
+ "fn": "log_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10fe2c",
+ "seg": 3,
+ "key": "log_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_rx_event\",\"confidence\":\"medium\",\"docstring\":\"Builds and dispatches a 32-byte RX event record, initializes a related control block, and returns the 0x40000 status value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"rx_event_buffer\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Word copied from the second argument before RX dispatch\"},{\"offset\":4,\"meaning\":\"Word copied from the third argument before RX dispatch\"},{\"offset\":8,\"meaning\":\"Byte set to 4 before RX dispatch\"},{\"offset\":12,\"meaning\":\"Word initialized from a fixed global constant\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "check_state_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x133960",
+ "seg": 47,
+ "key": "check_state_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_rx_rate_state\",\"confidence\":\"medium\",\"docstring\":\"Checks RX rate-field value 6, conditionally clears a register for a flagged unsupported rate, and invokes a helper when the rate is 4 or 10.\",\"subsystem\":\"wlan\",\"var_renames\":{\"value\":\"rx_rate_code\"}}"
+}

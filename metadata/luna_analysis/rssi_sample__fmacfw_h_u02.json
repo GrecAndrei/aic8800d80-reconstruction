@@ -1,0 +1,9 @@
+{
+ "fn": "rssi_sample",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115e28",
+ "seg": 7,
+ "key": "rssi_sample__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"txdesc_pool_init\",\"confidence\":\"high\",\"docstring\":\"Clears and initializes the TX descriptor pool, assigning each descriptor its 80-byte backing buffer and passing it to the descriptor handler.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"txdesc_array\",\"v1\":\"tx_buffer_base_ptr\",\"v3\":\"descriptor_config_ptr\",\"v5\":\"descriptor_index\",\"v6\":\"descriptor_entry\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Descriptor count, used as the highest index when initializing count plus one entries.\"},{\"offset\":76,\"meaning\":\"Pointer to this descriptor's 80-byte backing buffer.\"}]}"
+}

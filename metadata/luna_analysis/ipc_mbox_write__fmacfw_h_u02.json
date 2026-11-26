@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_mbox_write",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122b84",
+ "seg": 27,
+ "key": "ipc_mbox_write__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_mailbox_write\",\"confidence\":\"high\",\"docstring\":\"Writes the 32-bit value from the source pointer to the mailbox data register, then writes header word 114 using the supplied header arguments.\",\"subsystem\":\"ipc\",\"var_renames\":{\"a2\":\"word_src\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "__aeabi_dcmplt",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143028",
+ "seg": 69,
+ "key": "__aeabi_dcmplt__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"__aeabi_dcmplt\", \"confidence\": \"high\", \"docstring\": \"ARM AEABI double-precision helper that compares two IEEE-754 doubles and returns true when the first argument is less than the second.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"a1\": \"lhs\", \"a2\": \"rhs\"}}"
+}

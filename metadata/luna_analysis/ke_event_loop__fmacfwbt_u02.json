@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_loop",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11838c",
+ "seg": 12,
+ "key": "ke_event_loop__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txl_desc_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes the next TX descriptor popped from a per-queue list, marking it as handled, validating Block-Ack/aggregation information when present, preparing the packet, and copying header/control bytes into an inline descriptor field for selected frame types.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"pbd\",\n    \"v4\": \"queue_id\",\n    \"v6\": \"desc_popped\",\n    \"v7\": \"agg_desc_count_ptr\",\n    \"v8\": \"tx_desc\",\n    \"v9\": \"tx_info\",\n    \"v13\": \"hdr_type\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 48,\n      \"meaning\": \"pbd.hdr_type: frame type code; 52 or 28 trigger inline header/control copy\"\n    },\n    {\n      \"offset\": 84,\n      \"meaning\": \"pbd.tx_info: packed TX control/status word containing queue bits, BA sequence bits, and BA-valid flag\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"tx_desc.flags: bit 0x20 set after descriptor pop, bit 0x40 set after packet preparation/header copy\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"tx_desc.agg_seq_offset: byte compared with Block-Ack sequence derived from tx_info\"\n    },\n    {\n      \"offset\": 13,\n      \"meaning\": \"tx_desc.tid: byte compared with QoS/BA header field during header copy\"\n    },\n    {\n      \"offset\": 224,\n      \"meaning\": \"tx_desc.hdr_copy_ptr: set to tx_desc + 228 when a header/control snapshot is copied inline\"\n    },\n    {\n      \"offset\": 228,\n      \"meaning\": \"tx_desc.hdr_inline: 34-byte inline buffer receiving copied header/control bytes\"\n    }\n  ]\n}"
+}

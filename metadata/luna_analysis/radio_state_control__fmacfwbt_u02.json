@@ -1,0 +1,9 @@
+{
+ "fn": "radio_state_control",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1371d0",
+ "seg": 58,
+ "key": "radio_state_control__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_state_cmd_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a radio/BT state command by recording the command and context in a control block, sending an HCI event for general commands, and scheduling the periodic task handler.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"link_ctx\",\n    \"a4\": \"state_or_cmd\",\n    \"v4\": \"ctrl_base\",\n    \"v6\": \"ctx_arg64\",\n    \"v8\": \"evt_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 352,\n      \"meaning\": \"64-bit context value read from link_ctx and passed to the periodic task handler\"\n    },\n    {\n      \"offset\": 366,\n      \"meaning\": \"byte copied into the first payload position of the HCI event buffer\"\n    }\n  ]\n}"
+}

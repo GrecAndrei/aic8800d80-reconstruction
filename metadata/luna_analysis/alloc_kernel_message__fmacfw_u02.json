@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_kernel_message",
+ "img": "fmacfw_u02",
+ "addr": "0x120314",
+ "seg": 22,
+ "key": "alloc_kernel_message__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_scan_configure\",\"confidence\":\"medium\",\"docstring\":\"Prepares and temperature-compensates scan-related configuration, checks for an available slot, reports the result in a kernel message, and sends the firmware command when eligible.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"message\",\"v3\":\"station_index\",\"v5\":\"slot_found\",\"v6\":\"slot_index\",\"v7\":\"mode\",\"v10\":\"slot_index\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Mode selector controlling the command and no-slot handling paths.\"},{\"offset\":107,\"meaning\":\"Station index used for station lookup and copied into the outgoing message.\"},{\"offset\":1212,\"meaning\":\"Start of the scan-related configuration data used for slot lookup and copied into working configuration fields.\"}]}"
+}

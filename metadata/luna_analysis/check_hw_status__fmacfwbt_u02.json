@@ -1,0 +1,9 @@
+{
+ "fn": "check_hw_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c750",
+ "seg": 19,
+ "key": "check_hw_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txpacket_check_hw_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks whether the transmit hardware status is ready by testing a global enable bit, a kernel event state, and system status bit 21, then caches the event state and sets a ready flag in the status register when both conditions are satisfied.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v1\": \"event_state\",\n    \"v2\": \"status_reg_ptr\",\n    \"v3\": \"status_reg_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"cached_event_state field in the structure or register block referenced by off_11C788\"\n    }\n  ]\n}"
+}

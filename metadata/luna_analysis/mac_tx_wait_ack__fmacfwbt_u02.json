@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_wait_ack",
+ "img": "fmacfwbt_u02",
+ "addr": "0x103e84",
+ "seg": 2,
+ "key": "mac_tx_wait_ack__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_table_block_load\",\"confidence\":\"medium\",\"docstring\":\"Optionally initializes a 12-word table block with default values, then copies it into the banked hardware table window.\",\"subsystem\":\"rf\",\"var_renames\":{\"v4\":\"table_word_start\",\"v5\":\"bank_select_reg\",\"v6\":\"table_window_base\",\"v7\":\"bank_window_offset\",\"v8\":\"table_data_base\",\"v10\":\"chunk_word_start\",\"v12\":\"table_word_end\",\"v13\":\"chunk_word_count\",\"v14\":\"chunk_word_end\",\"v15\":\"table_word_index\",\"v16\":\"table_block_ptr\",\"result\":\"bank_index\"}}"
+}

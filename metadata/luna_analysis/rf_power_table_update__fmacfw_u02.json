@@ -1,0 +1,9 @@
+{
+ "fn": "rf_power_table_update",
+ "img": "fmacfw_u02",
+ "addr": "0x12aad4",
+ "seg": 37,
+ "key": "rf_power_table_update__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_work_timeout_check\",\"confidence\":\"medium\",\"docstring\":\"Checks two selected RF-associated work slots for timeout, dispatches expired work, and resumes TX processing when work is dispatched.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"context\",\"v5\":\"tx_context_base\",\"v9\":\"work_slot\",\"v10\":\"timeout_dispatched\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Time value used in the timeout comparison\"},{\"offset\":16,\"meaning\":\"Must be set for the work slot to be considered\"},{\"offset\":32,\"meaning\":\"Must be clear for the work slot to be considered\"},{\"offset\":88,\"meaning\":\"Context state cleared before dispatching expired work\"},{\"offset\":1225,\"meaning\":\"Index selecting the 140-byte-stride context entry\"}]}"
+}

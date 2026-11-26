@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_dev_info",
+ "img": "fmacfw_u02",
+ "addr": "0x13c7d4",
+ "seg": 60,
+ "key": "bt_get_dev_info__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_aes_encrypt_block\",\"confidence\":\"medium\",\"docstring\":\"Encrypts a 16-byte block in place using the expanded AES round-key schedule.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"round_keys\",\"a2\":\"block_words\",\"v44\":\"state_word_0\",\"v41\":\"state_word_1\",\"v46\":\"state_word_2\",\"v45\":\"state_word_3\"}}"
+}

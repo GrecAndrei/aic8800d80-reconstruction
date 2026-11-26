@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_dispatch_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x135940",
+ "seg": 54,
+ "key": "ke_msg_dispatch_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"install_tx_process_hook\",\"confidence\":\"medium\",\"docstring\":\"Copies the saved TX-processing routine into the supplied buffer, updates the stored routine pointer, invokes the jump helper on the original entry region, and then sets up MAC DMA.\",\"subsystem\":\"patch\",\"var_renames\":{\"a1\":\"relocated_tx_routine\",\"v1\":\"tx_patch_state\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Pointer to the TX-processing routine or its relocated copy\"}]}"
+}

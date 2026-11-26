@@ -1,0 +1,9 @@
+{
+ "fn": "write_rf_cal_data",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1019bc",
+ "seg": 0,
+ "key": "write_rf_cal_data__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"write_rf_calibration_data\",\"confidence\":\"high\",\"docstring\":\"Copies two words from the first input and four from the second into six consecutive RF calibration storage words at a fixed address.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"first_words\",\"a2\":\"additional_words\"}}"
+}

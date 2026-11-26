@@ -1,0 +1,9 @@
+{
+ "fn": "process_state_update",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1002a0",
+ "seg": 0,
+ "key": "process_state_update__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hal_check_memory_layout\", \"confidence\": \"medium\", \"docstring\": \"Validates early memory-layout bounds for BSS, MAC shared regions, stack, and host base, logging and handling overlaps or limit crossings.\", \"subsystem\": \"hal\", \"var_renames\": {\"v0\": \"layout_cfg_ptr\", \"v1\": \"bss_base\", \"v2\": \"stack_start\", \"v5\": \"bss_size\", \"v6\": \"layout_copy_dst\", \"v7\": \"ptr_bss\", \"v8\": \"debug_flag_ptr\", \"v9\": \"macsh_ctrl_ptr\", \"v10\": \"emacsh\", \"v11\": \"macsh_size\", \"v13\": \"ptr_macsh\", \"v16\": \"lmacsh_limit\", \"v18\": \"host_cfg_ptr\", \"v19\": \"host_mode\", \"v20\": \"host_base\", \"result\": \"retval\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"layout/host mode flag (1 or 2)\"}, {\"offset\": 8, \"meaning\": \"BSS region count used as 44*count+44\"}, {\"offset\": 12, \"meaning\": \"copied layout config field\"}, {\"offset\": 16, \"meaning\": \"host_base used when mode is 2\"}, {\"offset\": 20, \"meaning\": \"host_base used when mode is 1\"}, {\"offset\": 36, \"meaning\": \"copied 64-bit layout config value\"}, {\"offset\": 44, \"meaning\": \"copied 64-bit layout config value\"}]}"
+}

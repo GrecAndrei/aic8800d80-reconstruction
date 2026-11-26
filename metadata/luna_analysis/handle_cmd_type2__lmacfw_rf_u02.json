@@ -1,0 +1,9 @@
+{
+ "fn": "handle_cmd_type2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1236fc",
+ "seg": 23,
+ "key": "handle_cmd_type2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_issue_command_type2\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Issues RF command type 2 by optionally staging its payload bytes when the command subtype matches a cached identifier, then triggers the corresponding radio register write.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"cmd\",\n    \"v1\": \"cmd_buf\",\n    \"v2\": \"cmd_byte3\",\n    \"v3\": \"cmd_byte4\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"command type byte, valid when 2\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"command subtype or selector byte compared against a cached global value\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"command payload byte staged into destination buffer offset 2\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"command payload byte staged into destination buffer offset 3\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"command payload byte staged into destination buffer offset 4\"\n    }\n  ]\n}"
+}

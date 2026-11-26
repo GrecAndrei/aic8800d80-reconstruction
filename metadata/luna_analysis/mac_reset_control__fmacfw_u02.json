@@ -1,0 +1,9 @@
+{
+ "fn": "mac_reset_control",
+ "img": "fmacfw_u02",
+ "addr": "0x10410c",
+ "seg": 2,
+ "key": "mac_reset_control__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_reset\",\"confidence\":\"medium\",\"docstring\":\"Runs the MAC reset-control sequence, writes the reset parameter, installs the value in bits 16\u201320, and restores the auxiliary control bit to its original state.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"aux_control_reg\",\"v3\":\"reset_control_reg\",\"v4\":\"saved_aux_control\",\"v5\":\"reset_parameter_reg\",\"result\":\"reset_control_value\"}}"
+}

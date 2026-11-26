@@ -1,0 +1,9 @@
+{
+ "fn": "rx_ring_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x120f08",
+ "seg": 23,
+ "key": "rx_ring_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_rx_filter_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes or updates the MM RX filter and RX-state logic, clearing pending RX bits and programming the Rx-filter register during radio/WLAN startup.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v0\": \"coex_global\",\n    \"v1\": \"coex_ctx\",\n    \"v3\": \"mm_rx_state_ptr\",\n    \"v4\": \"mm_rx_flags\",\n    \"v5\": \"mm_rx_ctrl_ptr\",\n    \"v8\": \"timer_ctx\",\n    \"v9\": \"current_tick\",\n    \"v25\": \"rx_filter_val\",\n    \"v26\": \"coex_metric\",\n    \"v27\": \"updated_rx_filter_val\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"pointer to coexistence or RX initialization context in the global control block\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"BLE connection handle/index passed to ble_conn_get\"\n    },\n    {\n      \"offset\": 120,\n      \"meaning\": \"coexistence timestamp in ticks\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"RX state/flags byte in the MM RX control block\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"MM RX filter setting word\"\n    }\n  ]\n}"
+}

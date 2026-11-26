@@ -1,0 +1,9 @@
+{
+ "fn": "util_call_deep",
+ "img": "fmacfw_h_u02",
+ "addr": "0x113f18",
+ "seg": 5,
+ "key": "util_call_deep__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"irq_mask_update_critical\",\"confidence\":\"medium\",\"docstring\":\"Runs the mask-128 IRQ operation inside a nesting-aware critical section and restores interrupts when the outermost call exits.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"nesting_count_ptr\",\"v2\":\"remaining_nesting\",\"v3\":\"restore_irqs\"}}"
+}

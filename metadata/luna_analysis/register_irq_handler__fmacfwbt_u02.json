@@ -1,0 +1,9 @@
+{
+ "fn": "register_irq_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1207c4",
+ "seg": 23,
+ "key": "register_irq_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hci_evt_send_u32_arg\", \"confidence\": \"medium\", \"docstring\": \"Allocates a single-word HCI event buffer, stores the supplied handler or argument value, and sends it as an HCI event.\", \"subsystem\": \"bt\", \"var_renames\": {\"v2\": \"event_buf\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"first 32-bit HCI event payload word, carrying the handler/value argument\"}]}"
+}

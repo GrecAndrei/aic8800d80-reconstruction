@@ -1,0 +1,9 @@
+{
+ "fn": "size_to_class",
+ "img": "fmacfw_h_u02",
+ "addr": "0x116d30",
+ "seg": 9,
+ "key": "size_to_class__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_size_to_class\",\"confidence\":\"high\",\"docstring\":\"Maps a size to class 2 when it is at most 0x2000, or class 4 when it is larger.\",\"subsystem\":\"rx\",\"var_renames\":{\"a1\":\"size\"}}"
+}

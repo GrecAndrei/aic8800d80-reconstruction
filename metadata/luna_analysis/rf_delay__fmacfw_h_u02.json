@@ -1,0 +1,9 @@
+{
+ "fn": "rf_delay",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12bd00",
+ "seg": 39,
+ "key": "rf_delay__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_time\",\"confidence\":\"medium\",\"docstring\":\"Reads and returns a volatile RF timing value while conditionally masking interrupts.\",\"subsystem\":\"rf\"}"
+}

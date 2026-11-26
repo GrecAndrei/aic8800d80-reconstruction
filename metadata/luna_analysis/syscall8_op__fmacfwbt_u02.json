@@ -1,0 +1,9 @@
+{
+ "fn": "syscall8_op",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114f00",
+ "seg": 6,
+ "key": "syscall8_op__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_hw_info\",\"confidence\":\"medium\",\"docstring\":\"Fetches hardware information through syscall results, preferring the 8/9 pair and falling back to the 7/8 pair when the preferred result is absent.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"info_word0_out\",\"a2\":\"info_word1_out\",\"v4\":\"syscall8_result\",\"v5\":\"syscall9_result\",\"v6\":\"syscall8_upper_half\",\"v7\":\"fallback_syscall7_result\",\"v8\":\"fallback_syscall8_result\",\"result\":\"status\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_clear_bits",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11a72c",
+ "seg": 14,
+ "key": "mmio_clear_bits__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_set_txop_limits\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes the four 802.11 EDCA TXOP limits (BK, BE, VI, VO) into MMIO MAC registers, polls hardware status, and logs the configured TXOP values.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"txop_limits\",\n    \"v1\": \"txop_field_preserve_mask\",\n    \"v2\": \"txop_reg_base0\",\n    \"v4\": \"bk_txop_limit\",\n    \"v5\": \"txop_reg_alt_base0\",\n    \"v6\": \"txop_reg_alt_base1\",\n    \"v7\": \"vi_txop_limit\",\n    \"v8\": \"be_txop_limit\",\n    \"v9\": \"vo_txop_limit\",\n    \"v10\": \"txop_reg_alt_base2\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"BK EDCA TXOP limit\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"BE EDCA TXOP limit\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"VI EDCA TXOP limit\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"VO EDCA TXOP limit\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_parse_packet_header",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13cc18",
+ "seg": 61,
+ "key": "rx_parse_packet_header__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"gf128_xtime\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Performs the AES CMAC/XTS xtime primitive: left-shifts a 16-byte big-endian GF(2^128) buffer by one bit and XORs 0x87 into the least significant byte when the MSB was set.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"state\",\n    \"v1\": \"w1_w2\",\n    \"v2\": \"carry_bit_mask\",\n    \"v3\": \"in_w0\",\n    \"v4\": \"in_w3\",\n    \"v5\": \"out_w3\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"state word 0, bytes 0-3; bit7 is the MSB carry\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"state word 1, bytes 4-7\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"state word 2, bytes 8-11\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"state word 3, bytes 12-15; polynomial feedback byte\"\n    }\n  ]\n}"
+}

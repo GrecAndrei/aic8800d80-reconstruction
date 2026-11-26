@@ -1,0 +1,9 @@
+{
+ "fn": "hci_process_acl",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133fd4",
+ "seg": 50,
+ "key": "hci_process_acl__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_sync_connection_state\",\"confidence\":\"medium\",\"docstring\":\"On a successful connection indication, refreshes the indexed HCI connection record from lower-layer state, copying fields selected by lower-layer flags.\",\"subsystem\":\"hci\",\"var_renames\":{\"v3\":\"status\",\"v4\":\"hci_connection_table\",\"v5\":\"lower_layer_connection_table\",\"v6\":\"hci_connection\",\"v7\":\"lower_layer_connection_index\",\"v8\":\"lower_layer_connection\",\"v13\":\"lower_layer_state_flags\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"HCI connection flags updated by this handler\"},{\"offset\":34,\"meaning\":\"lower-layer connection index used to locate the corresponding connection record\"},{\"offset\":472,\"meaning\":\"lower-layer state flags controlling which connection fields are copied\"}]}"
+}

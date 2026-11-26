@@ -1,0 +1,9 @@
+{
+ "fn": "nvic_disable_irq15",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d644",
+ "seg": 3,
+ "key": "nvic_disable_irq15__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"disable_irq15\",\"confidence\":\"high\",\"docstring\":\"Disables NVIC interrupt 15 and synchronizes the change with data and instruction barriers.\",\"subsystem\":\"hal\"}"
+}

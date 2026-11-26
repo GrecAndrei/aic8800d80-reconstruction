@@ -1,0 +1,9 @@
+{
+ "fn": "copy_config_data",
+ "img": "fmacfw_u02",
+ "addr": "0x12de90",
+ "seg": 42,
+ "key": "copy_config_data__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_config_value_check\",\"confidence\":\"medium\",\"docstring\":\"Runs the input range check, rejects parsed values outside 24\u201357, and writes the accepted value minus 3 to the output byte.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"config_data\",\"a2\":\"config_data_len\",\"a3\":\"output_value\",\"v5\":\"parsed_value\"}}"
+}

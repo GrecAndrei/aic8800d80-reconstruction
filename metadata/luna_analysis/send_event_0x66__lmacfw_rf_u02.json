@@ -1,0 +1,9 @@
+{
+ "fn": "send_event_0x66",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1193e0",
+ "seg": 12,
+ "key": "send_event_0x66__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_evt_dispatch_0x66\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches kernel event 0x66 by invoking ke_evt_handler with the supplied handler arguments and returning zero.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

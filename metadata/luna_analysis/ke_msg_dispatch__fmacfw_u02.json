@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_dispatch",
+ "img": "fmacfw_u02",
+ "addr": "0x138958",
+ "seg": 57,
+ "key": "ke_msg_dispatch__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_event_queue_drain\",\"confidence\":\"medium\",\"docstring\":\"Consumes consecutive nonzero entries from a 64-slot link-layer ring, clearing each slot and advancing its cursor and event counter.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"pending_count\",\"v5\":\"queue_context\",\"v6\":\"slot_index\",\"v7\":\"event_counter\",\"v9\":\"next_slot_index\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"12-bit event counter advanced for each consumed entry\"},{\"offset\":10,\"meaning\":\"Ring cursor wrapping modulo 64\"},{\"offset\":11,\"meaning\":\"8-bit pending-entry countdown\"},{\"offset\":16,\"meaning\":\"64-slot array of 32-bit ring entries\"}]}"
+}

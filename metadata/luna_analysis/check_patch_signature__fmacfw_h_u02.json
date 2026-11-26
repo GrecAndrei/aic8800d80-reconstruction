@@ -1,0 +1,9 @@
+{
+ "fn": "check_patch_signature",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114d6c",
+ "seg": 6,
+ "key": "check_patch_signature__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"apply_patch_image\",\"confidence\":\"medium\",\"docstring\":\"Checks the patch header signature and, if it matches, applies its address/value writes and configured word-copy operations.\",\"subsystem\":\"phy\",\"var_renames\":{\"v0\":\"patch_header\",\"v1\":\"write_table\",\"v2\":\"write_index\",\"v3\":\"write_value\",\"v4\":\"write_destination\",\"v5\":\"relocation_cursor\",\"v7\":\"relocation_destination\",\"v9\":\"relocation_source\",\"v10\":\"copy_index\",\"v11\":\"destination_offset\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Expected patch signature magic\"},{\"offset\":4,\"meaning\":\"Pointer to address/value write entries\"},{\"offset\":8,\"meaning\":\"Companion signature marker, expected to equal the magic plus a fixed constant\"},{\"offset\":12,\"meaning\":\"Number of address/value write entries\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_driver_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x115018",
+ "seg": 6,
+ "key": "bt_driver_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_driver_run\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the Bluetooth controller driver, enables interrupts, and enters the infinite event-processing loop.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"bt_ctrl_ptr\",\n    \"v1\": \"bt_ctrl_base\",\n    \"v2\": \"event_pending\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3,\n      \"meaning\": \"irq/event status flag\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"argument passed to bt_module_init\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"driver mode/state field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"clock control mask\"\n    }\n  ]\n}"
+}

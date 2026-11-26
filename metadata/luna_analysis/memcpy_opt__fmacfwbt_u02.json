@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy_opt",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d9b0",
+ "seg": 43,
+ "key": "memcpy_opt__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_find_vendor_specific_ie\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans an 802.11 information-element buffer for a vendor-specific element (ID 0xDD) whose payload matches the supplied pattern, returning the element start and writing its total length.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a1\": \"ie_buf\",\n    \"a2\": \"ie_buf_len\",\n    \"a3\": \"vendor_pattern\",\n    \"a4\": \"pattern_len\",\n    \"a5\": \"out_ie_len\",\n    \"v5\": \"buf_end\",\n    \"v6\": \"buf_end\",\n    \"v7\": \"pattern_plus_header_len\",\n    \"v8\": \"pattern_end\",\n    \"v9\": \"ie_tag\",\n    \"v10\": \"ie_total_len\",\n    \"v11\": \"candidate_ie\",\n    \"v13\": \"pattern_cursor\",\n    \"v15\": \"pattern_byte\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"802.11 element ID (0xDD vendor-specific)\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"802.11 element data length\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"vendor-specific payload start compared with pattern\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x101d58",
+ "seg": 0,
+ "key": "rx_packet_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calc_tx_power\",\"confidence\":\"medium\",\"docstring\":\"Calculates a frequency- and mode-dependent transmit-power setting from RF calibration tables and applies the channel power limit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"band\",\"v4\":\"frequency_mhz\",\"v23\":\"channel_tx_power_limit\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Band selector distinguishing 2.4 GHz from 5 GHz\"},{\"offset\":4,\"meaning\":\"Channel frequency in MHz\"}]}"
+}

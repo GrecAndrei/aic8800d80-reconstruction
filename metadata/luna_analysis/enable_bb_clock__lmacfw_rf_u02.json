@@ -1,0 +1,9 @@
+{
+ "fn": "enable_bb_clock",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103900",
+ "seg": 2,
+ "key": "enable_bb_clock__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"enable_bb_clock\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enables and stabilizes the baseband clock, polling a status bit while kicking a timer, then programs baseband clock/control registers.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"bb_status_ptr\",\n    \"v1\": \"bb_config_ptr\",\n    \"v2\": \"bb_config_value\",\n    \"v3\": \"bb_control_ptr\"\n  },\n  \"struct_hints\": []\n}"
+}

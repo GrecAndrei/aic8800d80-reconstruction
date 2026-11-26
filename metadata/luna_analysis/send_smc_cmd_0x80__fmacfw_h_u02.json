@@ -1,0 +1,9 @@
+{
+ "fn": "send_smc_cmd_0x80",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114c24",
+ "seg": 6,
+ "key": "send_smc_cmd_0x80__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_smc_cmd_0x80\",\"confidence\":\"medium\",\"docstring\":\"Issues this SMC command by passing the supplied argument to patch_apply with operation 64 and size 4.\",\"subsystem\":\"hal\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "scan_state_process",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12609c",
+ "seg": 32,
+ "key": "scan_state_process__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_scan_state_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a BLE scan-state event by resolving the associated connection/scan table entry, updating scan state fields, and clearing a related IRQ on address-type mismatch.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"result\": \"scan_state_ctx\",\n    \"v2\": \"conn_entry_ptr\",\n    \"v3\": \"scan_mode\",\n    \"v53\": \"entry_addr_type\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 72,\n      \"meaning\": \"pointer to associated connection/scan entry\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"scan mode or state byte\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"address type byte\"\n    }\n  ]\n}"
+}

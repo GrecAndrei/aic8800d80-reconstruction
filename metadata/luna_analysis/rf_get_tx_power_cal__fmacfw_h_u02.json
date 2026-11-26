@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_tx_power_cal",
+ "img": "fmacfw_h_u02",
+ "addr": "0x139200",
+ "seg": 58,
+ "key": "rf_get_tx_power_cal__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_tx_power_calibration\",\"confidence\":\"medium\",\"docstring\":\"Processes a power-calibration record, updates its sequence and ring-buffer state, and recalculates RF power when applicable.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"link_state\",\"v5\":\"direction_match\",\"v7\":\"rf_path_index\",\"v8\":\"calibration_table_base\",\"v9\":\"expected_sequence\",\"v10\":\"calibration_state\",\"v11\":\"entry_sequence\",\"v19\":\"ring_head\",\"v21\":\"next_sequence\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"calibration entry sequence number\"},{\"offset\":10,\"meaning\":\"ring-buffer head index\"},{\"offset\":11,\"meaning\":\"ring-buffer occupancy count\"},{\"offset\":288,\"meaning\":\"calibration state flag\"}]}"
+}

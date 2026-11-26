@@ -1,0 +1,9 @@
+{
+ "fn": "radio_disable_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12815c",
+ "seg": 33,
+ "key": "radio_disable_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_event_buffer_process\",\"confidence\":\"medium\",\"docstring\":\"Processes an LLC event buffer according to radio state, clearing consumed flags and routing pending receive or transmit data.\",\"subsystem\":\"llc\",\"var_renames\":{\"v1\":\"llc_state\",\"v2\":\"event_buffer\",\"v3\":\"event_flags\",\"v5\":\"event_data\",\"v8\":\"event_cursor\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Receive-event data value passed to llc_rx_event_save\"},{\"offset\":80,\"meaning\":\"Event-stream cursor used to compute remaining bytes\"},{\"offset\":85,\"meaning\":\"Event flags, including bits cleared during processing\"}]}"
+}

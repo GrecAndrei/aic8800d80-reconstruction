@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1433d4",
+ "seg": 69,
+ "key": "double_compare__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__cmpsf2\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Compares two single-precision floating-point values and returns an IEEE 754 comparison code.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

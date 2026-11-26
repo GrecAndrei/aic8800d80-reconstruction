@@ -1,0 +1,9 @@
+{
+ "fn": "dma_setup_transfer",
+ "img": "fmacfw_u02",
+ "addr": "0x127170",
+ "seg": 32,
+ "key": "dma_setup_transfer__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ctrl_timer_handler\",\"confidence\":\"medium\",\"docstring\":\"Updates controller timer state, dispatches control work, and executes due LLM scan-state events.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"ctrl_timer_state\",\"v5\":\"scan_timer_entry\",\"v11\":\"scan_deadline\",\"v12\":\"scan_env\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Head of the scheduled scan-entry list\"},{\"offset\":80,\"meaning\":\"Stored timer event argument and derived tick value\"},{\"offset\":88,\"meaning\":\"Controller status flags\"},{\"offset\":91,\"meaning\":\"Mode flag selecting deferred versus immediate timer processing\"}]}"
+}

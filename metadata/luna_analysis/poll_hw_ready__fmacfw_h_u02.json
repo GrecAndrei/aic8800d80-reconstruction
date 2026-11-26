@@ -1,0 +1,9 @@
+{
+ "fn": "poll_hw_ready",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117b84",
+ "seg": 10,
+ "key": "poll_hw_ready__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"build_phy_timing_table\",\"confidence\":\"medium\",\"docstring\":\"Builds the PHY timing table by substituting defaults for zero values among the first four inputs and scaling all six values by 1000.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"timing_values\",\"v1\":\"scaled_timing_table\",\"v2\":\"default_timing_values\",\"v3\":\"input_cursor\",\"v4\":\"output_cursor\",\"v6\":\"default_cursor\",\"v7\":\"timing_value\"}}"
+}

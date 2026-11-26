@@ -1,0 +1,9 @@
+{
+ "fn": "env_list_init_1903c8",
+ "img": "fmacfwbt_u02",
+ "addr": "0x124f54",
+ "seg": 30,
+ "key": "env_list_init_1903c8__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"env_list_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the global environment list by zeroing the structure referenced by a stored pointer and returning its address.\",\"subsystem\":\"ke\",\"var_renames\":{\"dword_124F5C\":\"env_list_ptr\"},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "timer_timestamp_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f0d4",
+ "seg": 21,
+ "key": "timer_timestamp_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_timestamp_get\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a timer status snapshot and 64-bit timestamp, returning the timestamp and optionally dispatching a ready-event path when the timer status indicates readiness.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"timestamp_ptr\",\n    \"v1\": \"timestamp\",\n    \"v2\": \"timer_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"64-bit timer timestamp returned or dispatched\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"timer status/control word tested for ready state\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"timer context/register snapshot word\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"timer context/register snapshot word\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"timer context/register snapshot word\"\n    }\n  ]\n}"
+}

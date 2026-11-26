@@ -1,0 +1,9 @@
+{
+ "fn": "is_channel_index_valid",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ad34",
+ "seg": 38,
+ "key": "is_channel_index_valid__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"record_rate_event\",\"confidence\":\"medium\",\"docstring\":\"Records a rate-index event in one of two counters, saturates its per-index byte counter at three for indices below 32, and returns the selected statistics-record base.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"stats_record_index\",\"a2\":\"rate_index\",\"a3\":\"counter_selector\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"event count for selector false\"},{\"offset\":20,\"meaning\":\"event count for selector true\"},{\"offset\":1,\"meaning\":\"per-rate counter for selector false, saturating at 3\"},{\"offset\":2,\"meaning\":\"per-rate counter for selector true, saturating at 3\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_active_conn",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b738",
+ "seg": 40,
+ "key": "bt_get_active_conn__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_get_active_conn_entry\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns a pointer to the active Bluetooth connection entry by indexing a 6-byte connection table with the stored active connection index.\",\n  \"subsystem\": \"bt\",\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"connection table base pointer\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"active connection index\"\n    }\n  ]\n}"
+}

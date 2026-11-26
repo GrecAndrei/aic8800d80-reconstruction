@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_af_select",
+ "img": "fmacfw_u02",
+ "addr": "0x10c840",
+ "seg": 2,
+ "key": "gpio_af_select__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"configure_gpio_alternate_functions\",\"confidence\":\"high\",\"docstring\":\"Selects alternate-function modes for a fixed set of GPIO pins and writes a saved configuration value to another register.\",\"subsystem\":\"gpio\",\"var_renames\":{\"v0\":\"gpio_mux_reg0\",\"v1\":\"gpio_mux_reg1\",\"result\":\"config_reg\",\"v3\":\"config_value\"}}"
+}

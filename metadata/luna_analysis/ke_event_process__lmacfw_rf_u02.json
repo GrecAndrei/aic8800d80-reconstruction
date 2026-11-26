@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_process",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11bf38",
+ "seg": 17,
+ "key": "ke_event_process__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_event_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a sorted kernel event/timer list for the supplied target, removes older entries that match the caller's type, updates pending or missing event flags and counters, and returns whether the caller state differs from the environment state.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v2\": \"env\",\n    \"v3\": \"event_node\",\n    \"v5\": \"node_target\",\n    \"v6\": \"event_desc_state\",\n    \"v7\": \"env_state\",\n    \"v9\": \"node_type\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"event_node.next\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"event_node.event_or_time_target\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"event_node.type_or_task_id\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"event_node.active_flag\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"event_desc.state\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"event_desc.kernel_state_arg\"\n    },\n    {\n      \"offset\": 85,\n      \"meaning\": \"event_desc.event_flags\"\n    },\n    {\n      \"offset\": 95,\n      \"meaning\": \"event_desc.target_type\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"env.event_list_head\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"env.global_event_state\"\n    },\n    {\n      \"offset\": 90,\n      \"meaning\": \"env.debug_level_or_mode\"\n    },\n    {\n      \"offset\": 91,\n      \"meaning\": \"env.pending_event_counter\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "periph_cmd_poll",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10e798",
+ "seg": 2,
+ "key": "periph_cmd_poll__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"vcore_voltage_calibrate\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads the current vcore voltage through a peripheral command/status interface and iteratively adjusts the regulator code toward an 840 mV target.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"pmu_cmd_base\",\n    \"v16\": \"pmu_cmd_base\",\n    \"v7\": \"volt_mv\",\n    \"v8\": \"current_reg_code\",\n    \"v10\": \"abs_delta_mv\",\n    \"v14\": \"adjust_step\",\n    \"v15\": \"target_reg_code\",\n    \"v21\": \"post_adjust_sign\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"command/trigger register\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"parameter mask register\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"parameter value register\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"response/ADC readback register\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"status/done register\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"block control or command select register\"\n    }\n  ]\n}"
+}

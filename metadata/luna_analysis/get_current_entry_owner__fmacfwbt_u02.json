@@ -1,0 +1,9 @@
+{
+ "fn": "get_current_entry_owner",
+ "img": "fmacfwbt_u02",
+ "addr": "0x128cf8",
+ "seg": 35,
+ "key": "get_current_entry_owner__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_get_current_entry_owner\", \"confidence\": \"medium\", \"docstring\": \"Inspect the active entry's owner field, send a Bluetooth HCI event if no owner is present, then refresh entries from configuration and return the result.\", \"subsystem\": \"bt\", \"var_renames\": {\"v1\": \"config_mgr\", \"v2\": \"entry_ptr\", \"v4\": \"evt_buf\"}, \"struct_hints\": [{\"offset\": 16, \"meaning\": \"current_entry_index in config_mgr\"}, {\"offset\": 72, \"meaning\": \"entry owner pointer or owner field\"}, {\"offset\": 107, \"meaning\": \"HCI event parameter byte, likely status/type/length\"}]}"
+}

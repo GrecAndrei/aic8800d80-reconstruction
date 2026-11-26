@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_reg0x11_bits0_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11413c",
+ "seg": 5,
+ "key": "rf_get_reg0x11_bits0_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_reg0x11_bits0_2\",\"confidence\":\"medium\",\"docstring\":\"Reads RF register 0x11 and returns its bits 0 through 2.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

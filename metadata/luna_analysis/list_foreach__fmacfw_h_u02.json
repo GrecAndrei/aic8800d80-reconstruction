@@ -1,0 +1,9 @@
+{
+ "fn": "list_foreach",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d240",
+ "seg": 41,
+ "key": "list_foreach__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"list_insert\",\"confidence\":\"high\",\"docstring\":\"Inserts a node before the first node accepted by the ordering predicate, or appends it if none is accepted.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a2\":\"new_node\",\"a3\":\"insert_before_predicate\",\"v3\":\"current_node\",\"v4\":\"list\",\"v7\":\"previous_node\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"List's first-node pointer; at this offset in a node is its next pointer.\"},{\"offset\":4,\"meaning\":\"List's last-node pointer.\"}]}"
+}

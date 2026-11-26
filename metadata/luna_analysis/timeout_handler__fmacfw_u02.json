@@ -1,0 +1,9 @@
+{
+ "fn": "timeout_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x141e48",
+ "seg": 67,
+ "key": "timeout_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_conn_event_timeout\",\"confidence\":\"medium\",\"docstring\":\"Handles a BLE connection-event timer expiry, clears timer state, advances past elapsed event times, and recalculates the receive window when applicable.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"timer_ctx\",\"v2\":\"conn_idx\",\"v3\":\"timer_flags\",\"v6\":\"conn_ctx\",\"v7\":\"event_time\",\"i\":\"elapsed_event_count\",\"v9\":\"time_since_anchor\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Timer/event flags; bit 3 is cleared and bits 5\u20136 select receive-window rescheduling.\"},{\"offset\":16,\"meaning\":\"Event interval added when advancing the scheduled event time.\"},{\"offset\":24,\"meaning\":\"64-bit scheduled event time.\"},{\"offset\":47,\"meaning\":\"Connection-table index.\"},{\"offset\":52,\"meaning\":\"Timer-related substructure passed to the timeout cleanup helper.\"},{\"offset\":4,\"meaning\":\"Connection-context flags; bit 0x100 is cleared.\"},{\"offset\":40,\"meaning\":\"64-bit connection anchor time used when advancing past elapsed events.\"}]}"
+}

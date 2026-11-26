@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_clear_bits",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10728c",
+ "seg": 2,
+ "key": "mmio_clear_bits__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init_registers\",\"confidence\":\"medium\",\"docstring\":\"Initializes RF-related MMIO configuration by setting selected control fields and clearing other register fields.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"packed_six_bit_fields_reg\",\"v7\":\"packed_six_bit_fields_reg_2\"},\"struct_hints\":[{\"offset\":-164,\"meaning\":\"Adjacent register with bit 29 cleared.\"},{\"offset\":196,\"meaning\":\"Register whose four packed 6-bit fields are cleared.\"},{\"offset\":512,\"meaning\":\"Adjacent register with bit 9 cleared.\"}]}"
+}

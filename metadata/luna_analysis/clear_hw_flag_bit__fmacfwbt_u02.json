@@ -1,0 +1,9 @@
+{
+ "fn": "clear_hw_flag_bit",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114524",
+ "seg": 5,
+ "key": "clear_hw_flag_bit__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_hw_flag_bit\",\"confidence\":\"high\",\"docstring\":\"Clears bit 1 in the hardware flag word at offset 8 from the configured base address.\",\"subsystem\":\"hal\"}"
+}

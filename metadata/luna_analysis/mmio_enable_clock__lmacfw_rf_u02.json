@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_enable_clock",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124914",
+ "seg": 23,
+ "key": "mmio_enable_clock__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_start_rx_stats\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Starts baseband RX statistics by enabling a control bit, programming a register, committing baseband control, and dispatching the RxStatStart event.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"control_reg\",\n    \"v1\": \"control_val\"\n  },\n  \"struct_hints\": []\n}"
+}

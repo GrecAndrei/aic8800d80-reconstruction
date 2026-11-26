@@ -1,0 +1,9 @@
+{
+ "fn": "clear_measurements",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132518",
+ "seg": 45,
+ "key": "clear_measurements__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_channel_masks\",\"confidence\":\"medium\",\"docstring\":\"Derives a primary channel mask and optional companion masks from packed channel configuration fields, stores them in output parameters, and returns the primary mask.\",\"subsystem\":\"rf\",\"var_renames\":{\"a4\":\"primary_mask_out\",\"a5\":\"companion_mask_out\",\"a6\":\"extended_mask_out\",\"a7\":\"segment_mask_out\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Packed channel configuration byte; bits 1:0 determine the primary mask width and bits 4:2 determine the segment mask.\"},{\"offset\":3,\"meaning\":\"Packed configuration byte; bits 4:3 determine an extended mask width.\"}]}"
+}

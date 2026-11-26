@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_ctrl_write_128",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10cafc",
+ "seg": 2,
+ "key": "pmu_ctrl_write_128__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"pmu_ctrl_write_128\",\"confidence\":\"high\",\"docstring\":\"Writes the value 128 to the PMU control register.\",\"subsystem\":\"hal\"}"
+}

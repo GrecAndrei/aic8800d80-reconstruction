@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_phy_radio_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f5d0",
+ "seg": 21,
+ "key": "wlc_phy_radio_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_phy_radio_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates the selected radio configuration entry from a parameter message, choosing random, explicit, or table-default radio parameters based on the entry type and marking the entry valid.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"v2\": \"radio_idx\",\n    \"v3\": \"radio_table_base\",\n    \"v4\": \"radio_cfg\",\n    \"v5\": \"radio_cfg_buf\",\n    \"v7\": \"cal_table_idx\",\n    \"v9\": \"random_value\",\n    \"v10\": \"random_field\",\n    \"v11\": \"radio_cfg\",\n    \"v13\": \"src_u64\",\n    \"v14\": \"src_u32\",\n    \"v15\": \"src_u32\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"input parameter structure: radio index used to select the radio configuration entry\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"input parameter structure: radio parameter type stored at radio_cfg+160\"\n    },\n    {\n      \"offset\": 160,\n      \"meaning\": \"radio configuration entry: parameter type selector\"\n    },\n    {\n      \"offset\": 161,\n      \"meaning\": \"radio configuration entry: copied identifier byte\"\n    },\n    {\n      \"offset\": 162,\n      \"meaning\": \"radio configuration entry: caller-supplied byte value\"\n    },\n    {\n      \"offset\": 163,\n      \"meaning\": \"radio configuration entry: valid or dirty flag set after configuration\"\n    },\n    {\n      \"offset\": 184,\n      \"meaning\": \"radio configuration entry: pointer to zeroed parameter buffer at entry+64\"\n    }\n  ]\n}"
+}

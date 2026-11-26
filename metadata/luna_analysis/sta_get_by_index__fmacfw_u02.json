@@ -1,0 +1,9 @@
+{
+ "fn": "sta_get_by_index",
+ "img": "fmacfw_u02",
+ "addr": "0x1285bc",
+ "seg": 34,
+ "key": "sta_get_by_index__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_chan_ctxt_unlink\",\"confidence\":\"medium\",\"docstring\":\"Unlinks the indexed context from its shared channel context, updates link accounting, and reschedules affected channel events.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"context_index\",\"v2\":\"context_table_base\",\"v3\":\"context_byte_offset\",\"v4\":\"channel_context\",\"v6\":\"context_entry\",\"v7\":\"channel_scheduler_state\",\"v8\":\"link_flags\",\"v12\":\"remaining_link_count\",\"v13\":\"channel_slot_entry\",\"v14\":\"candidate_context_index\",\"v24\":\"candidate_context\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Channel-context state or active indicator.\"},{\"offset\":25,\"meaning\":\"Channel-context link reference count.\"},{\"offset\":27,\"meaning\":\"Channel-context event or slot identifier.\"},{\"offset\":72,\"meaning\":\"Pointer from the indexed context to its linked channel context.\"},{\"offset\":85,\"meaning\":\"Context link-state flags; bit 0 is cleared and bit 1 controls link accounting.\"},{\"offset\":88,\"meaning\":\"Channel scheduler control flags; bit 0x40 gates follow-up handling.\"},{\"offset\":91,\"meaning\":\"Global count of active channel links.\"},{\"offset\":107,\"meaning\":\"Indexed context's channel or event slot identifier.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ioctl2_cmd_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1154a8",
+ "seg": 7,
+ "key": "ioctl2_cmd_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ioctl2_cmd_0x2\",\"confidence\":\"medium\",\"docstring\":\"Dispatches ioctl2 command 2 with the caller-provided six-byte argument buffer.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"argument_buffer\"}}"
+}

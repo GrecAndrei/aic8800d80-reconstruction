@@ -1,0 +1,9 @@
+{
+ "fn": "log_mac_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1305bc",
+ "seg": 43,
+ "key": "log_mac_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_log_calibration_settings\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Logs RF temperature-compensation, crystal-cap calibration, frequency offset, and related runtime settings values.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_cal_state_ptr\",\n    \"v1\": \"rf_settings_en\",\n    \"v2\": \"rf_settings_act\",\n    \"v4\": \"rf_settings_tmr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"temp_comp init flag\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"temp_comp enable flag\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"temp_comp level/calibration byte\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"last temperature reading\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"xtal_cap calibration value\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"xtal_cap target value\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"xtal_cap current value\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"ofst2x 2.4 GHz parameter 0\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"ofst2x 2.4 GHz parameter 1\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"ofst2x 2.4 GHz parameter 2\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"ofst2x 5 GHz parameter 0\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"ofst2x 5 GHz parameter 1\"\n    },\n    {\n      \"offset\": 13,\n      \"meaning\": \"ofst2x 5 GHz parameter 2\"\n    }\n  ]\n}"
+}

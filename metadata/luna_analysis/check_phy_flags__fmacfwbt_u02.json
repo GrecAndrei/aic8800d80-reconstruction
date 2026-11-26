@@ -1,0 +1,9 @@
+{
+ "fn": "check_phy_flags",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1423d4",
+ "seg": 68,
+ "key": "check_phy_flags__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"lll_build_tx_from_active_list\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans the link-layer active PDU list for valid entries matching the current context and builds transmit packets for entries flagged as ready.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"result\": \"context\",\n    \"a2\": \"state_flags\",\n    \"a3\": \"header\",\n    \"v3\": \"ctl_flags\",\n    \"v4\": \"selected_flags\",\n    \"v5\": \"entry_ptr\",\n    \"v6\": \"context_match_b\",\n    \"v7\": \"list_end\",\n    \"v8\": \"match_count\",\n    \"v9\": \"matches_end\",\n    \"v10\": \"match_cursor\",\n    \"v11\": \"candidate\",\n    \"v12\": \"candidate_flags\",\n    \"v13\": \"checked_flags\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 107,\n      \"meaning\": \"uint8_t context field compared against active-list entry offset 47\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"uint8_t context field compared against active-list entry offset 46\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint16_t entry flags; bit 0 appears to mark validity, bit 3 marks build/ready\"\n    },\n    {\n      \"offset\": 46,\n      \"meaning\": \"uint8_t match field A compared against context+116\"\n    },\n    {\n      \"offset\": 47,\n      \"meaning\": \"uint8_t match field B compared against context+107\"\n    }\n  ]\n}"
+}

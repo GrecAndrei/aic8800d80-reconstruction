@@ -1,0 +1,9 @@
+{
+ "fn": "parse_frame_0x24",
+ "img": "fmacfw_u02",
+ "addr": "0x12df38",
+ "seg": 42,
+ "key": "parse_frame_0x24__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_parse_frame_field_0x24\",\"confidence\":\"medium\",\"docstring\":\"Reads the 16-bit field at byte offset 0x24, accepts values from 9 through 18, and stores the value minus 3 in the output byte.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"field_value\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"16-bit encoded field value, accepted when it is between 9 and 18\"}]}"
+}

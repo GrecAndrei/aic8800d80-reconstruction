@@ -1,0 +1,9 @@
+{
+ "fn": "l2c_ccb_run",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13f6f4",
+ "seg": 62,
+ "key": "l2c_ccb_run__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"l2c_ccb_run\",\"confidence\":\"high\",\"docstring\":\"Runs the L2CAP channel control block state machine to process channel events.\",\"subsystem\":\"bt\"}"
+}

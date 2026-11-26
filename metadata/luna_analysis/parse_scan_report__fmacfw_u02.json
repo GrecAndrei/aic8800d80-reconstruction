@@ -1,0 +1,9 @@
+{
+ "fn": "parse_scan_report",
+ "img": "fmacfw_u02",
+ "addr": "0x130e58",
+ "seg": 42,
+ "key": "parse_scan_report__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_parse_country_ie\",\"confidence\":\"high\",\"docstring\":\"Finds the Country Information Element, converts the supplied band and frequency to a channel number, and stores the matching subband's maximum transmit power.\",\"subsystem\":\"mac\",\"var_renames\":{\"v5\":\"target_channel\",\"v6\":\"frequency_mhz\",\"v7\":\"channel_step\",\"v8\":\"triplet_offset\",\"v9\":\"first_channel\",\"v10\":\"channel_offset\"},\"struct_hints\":[{\"offset\":164,\"meaning\":\"band selector (0 for 2.4 GHz, 1 for 5 GHz)\"},{\"offset\":166,\"meaning\":\"operating frequency in MHz\"},{\"offset\":172,\"meaning\":\"maximum transmit power from the matching country subband triplet\"}]}"
+}

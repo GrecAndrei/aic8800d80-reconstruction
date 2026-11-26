@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_rssi",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119f10",
+ "seg": 14,
+ "key": "rf_check_rssi__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_check_rssi\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks a signed RSSI/calibration sample against a flash byte status and may run RF trim validation, erase a flash sector, or invoke a completion callback.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"rssi_sample_ptr\",\n    \"result\": \"flash_byte_status\",\n    \"v7\": \"erase_result\",\n    \"a2\": \"callback_slot\",\n    \"a3\": \"flash_sector_addr\"\n  }\n}"
+}

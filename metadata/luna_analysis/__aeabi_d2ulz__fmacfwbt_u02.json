@@ -1,0 +1,9 @@
+{
+ "fn": "__aeabi_d2ulz",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1430c8",
+ "seg": 69,
+ "key": "__aeabi_d2ulz__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_d2ulz\",\n  \"confidence\": \"high\",\n  \"docstring\": \"ARM EABI helper that converts a double-precision floating-point value to an unsigned long integer.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

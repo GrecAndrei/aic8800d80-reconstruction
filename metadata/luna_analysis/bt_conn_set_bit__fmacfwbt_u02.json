@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_set_bit",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12af2c",
+ "seg": 38,
+ "key": "bt_conn_set_bit__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_conn_set_ctrl_bit\", \"confidence\": \"medium\", \"docstring\": \"Sets bit 6 of a control/status dword at offset 4 in a Bluetooth connection context when byte flags at offsets 108 and 1224 are both nonzero.\", \"subsystem\": \"bt\", \"var_renames\": {\"result\": \"conn_ctx\"}, \"struct_hints\": [{\"offset\": 4, \"meaning\": \"uint32 control/status word; bit 6 (0x40) is conditionally set here\"}, {\"offset\": 108, \"meaning\": \"byte flag/condition\"}, {\"offset\": 1224, \"meaning\": \"byte flag/presence or enable condition\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "scan_validate",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122a28",
+ "seg": 26,
+ "key": "scan_validate__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"scan_update_config\",\"confidence\":\"medium\",\"docstring\":\"Copies the supplied scan configuration into shared state when it is enabled and global state permits the update, then writes the requested MAC header word unconditionally.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"scan_config\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Enable flag; the full word is also copied into shared state\"},{\"offset\":4,\"meaning\":\"Configuration word copied into shared state\"},{\"offset\":8,\"meaning\":\"Configuration word copied into shared state\"},{\"offset\":12,\"meaning\":\"Configuration word copied into shared state\"},{\"offset\":16,\"meaning\":\"Configuration word copied into shared state\"},{\"offset\":20,\"meaning\":\"Configuration word copied into shared state\"},{\"offset\":24,\"meaning\":\"Configuration word copied into shared state\"}]}"
+}

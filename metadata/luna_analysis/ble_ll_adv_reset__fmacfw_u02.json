@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_adv_reset",
+ "img": "fmacfw_u02",
+ "addr": "0x140bec",
+ "seg": 64,
+ "key": "ble_ll_adv_reset__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_adv_event_schedule\",\"confidence\":\"medium\",\"docstring\":\"Selects an enabled advertising channel and prepares its kernel scheduling message, optionally clearing advertising state first.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"adv_context\",\"a2\":\"reset_state\",\"v9\":\"adv_state_entry\",\"v14\":\"channel_index\",\"v17\":\"rf_channel_entry\",\"v18\":\"adv_schedule_message\",\"v19\":\"adv_data_len\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"advertising context flags\"},{\"offset\":58,\"meaning\":\"advertising data length\"},{\"offset\":59,\"meaning\":\"advertising data buffer\"},{\"offset\":96,\"meaning\":\"current advertising channel index\"},{\"offset\":100,\"meaning\":\"RF channel selection parameter\"},{\"offset\":101,\"meaning\":\"number of advertising channels\"},{\"offset\":102,\"meaning\":\"advertising channel list\"}]}"
+}

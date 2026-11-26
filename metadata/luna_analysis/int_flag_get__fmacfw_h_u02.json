@@ -1,0 +1,9 @@
+{
+ "fn": "int_flag_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115398",
+ "seg": 6,
+ "key": "int_flag_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": ""
+}

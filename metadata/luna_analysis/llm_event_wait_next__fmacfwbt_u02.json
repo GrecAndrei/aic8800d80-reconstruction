@@ -1,0 +1,9 @@
+{
+ "fn": "llm_event_wait_next",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132350",
+ "seg": 45,
+ "key": "llm_event_wait_next__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_event_wait_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates the Bluetooth link-layer event-wait mask and sends an HCI event or command when the pending-wait state changes.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v7\": \"wait_state\",\n    \"v9\": \"evt_buffer\",\n    \"v10\": \"event_bit\",\n    \"v11\": \"new_mask\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"pending event bitmask\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"saved wait context or event parameter\"\n    }\n  ]\n}"
+}

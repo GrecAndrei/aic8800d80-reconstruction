@@ -1,0 +1,9 @@
+{
+ "fn": "rf_timer_toggle_start",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130370",
+ "seg": 42,
+ "key": "rf_timer_toggle_start__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_rf_temperature\",\"confidence\":\"high\",\"docstring\":\"Reads and logs the current RF temperature, updates the cached value and triggers a check when it changes by more than four degrees, then compares calibration levels.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"current_temperature\",\"v1\":\"temperature_delta\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"cached RF temperature\"}]}"
+}

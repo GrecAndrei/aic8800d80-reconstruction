@@ -1,0 +1,9 @@
+{
+ "fn": "scan_done_check_alt",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c760",
+ "seg": 41,
+ "key": "scan_done_check_alt__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_scan_handle_rx_pdu\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a received BLE LL PDU when scanning is active, storing the handler result as a duplicated status word, or clears the scan-related IRQ when no scan PDU is active and the monitored RSSI/status value is negative.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"scan_ctx\",\n    \"a3\": \"rx_pdu_buf\",\n    \"v3\": \"rx_desc\",\n    \"v4\": \"pdu_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 76,\n      \"meaning\": \"scan context field pointing to RX descriptor base\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"RX descriptor base field holding current RX descriptor pointer\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"RX descriptor word containing BLE LL header/channel and PDU length fields\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"RX descriptor result word storing llm_rx_pdu_handler status as duplicated bytes\"\n    }\n  ]\n}"
+}

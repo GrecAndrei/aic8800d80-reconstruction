@@ -1,0 +1,9 @@
+{
+ "fn": "is_valid_id",
+ "img": "fmacfw_u02",
+ "addr": "0x12077c",
+ "seg": 22,
+ "key": "is_valid_id__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_check_active_context_state\",\"confidence\":\"medium\",\"docstring\":\"Checks active BT context-list entries for specific state-byte values and writes a corresponding status marker.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"list_node\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"next pointer in the linked list\"},{\"offset\":106,\"meaning\":\"byte field compared with 2 after the other state filter matches\"},{\"offset\":108,\"meaning\":\"nonzero byte required for the entry to be considered\"},{\"offset\":413,\"meaning\":\"byte field that must equal 2 for the entry to pass the first state filter\"}]}"
+}

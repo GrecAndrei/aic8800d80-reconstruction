@@ -1,0 +1,9 @@
+{
+ "fn": "llm_event_wait",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1322ec",
+ "seg": 45,
+ "key": "llm_event_wait__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_event_send\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates link-layer manager event state and sends the corresponding HCI event/command to the host.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"event_flag\",\n    \"a3\": \"event_param\",\n    \"a4\": \"event_data\",\n    \"v7\": \"llm_env\",\n    \"v8\": \"env_event_flag\",\n    \"v9\": \"pending_event_state\",\n    \"v10\": \"hci_event_buf\",\n    \"v11\": \"hci_event_code\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"pending event state or event sequence field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"event status/subcode word written as 0xff before sending HCI event\"\n    },\n    {\n      \"offset\": 375,\n      \"meaning\": \"event enable/type boolean copied from function argument\"\n    },\n    {\n      \"offset\": 376,\n      \"meaning\": \"event parameter byte used as low byte of HCI event code\"\n    }\n  ]\n}"
+}

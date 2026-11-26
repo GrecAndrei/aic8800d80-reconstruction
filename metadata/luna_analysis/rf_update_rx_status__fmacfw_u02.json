@@ -1,0 +1,9 @@
+{
+ "fn": "rf_update_rx_status",
+ "img": "fmacfw_u02",
+ "addr": "0x10f198",
+ "seg": 3,
+ "key": "rf_update_rx_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_rx_gain\",\"confidence\":\"medium\",\"docstring\":\"Computes and applies a bounded RX-related PHY adjustment, then clears or schedules the associated RF worker based on the adjustment threshold.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_context\",\"v1\":\"rx_measurement\",\"v2\":\"phy_adjustment\",\"v4\":\"timer_counter\"},\"struct_hints\":[{\"offset\":5,\"meaning\":\"RX measurement bias or base component\"},{\"offset\":7,\"meaning\":\"Cached PHY adjustment value, updated after applying the adjustment\"},{\"offset\":8,\"meaning\":\"16-bit multiplier used to calculate the worker deadline\"},{\"offset\":11,\"meaning\":\"Worker or status flag cleared when the adjustment is below the threshold\"},{\"offset\":12,\"meaning\":\"Worker context passed to the scheduling routine\"}]}"
+}

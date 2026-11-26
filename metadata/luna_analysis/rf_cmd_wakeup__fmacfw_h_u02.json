@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_wakeup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10cb54",
+ "seg": 2,
+ "key": "rf_cmd_wakeup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cmd_wakeup\",\"confidence\":\"high\",\"docstring\":\"Writes the wakeup command value 0x100 to an MMIO register.\",\"subsystem\":\"rf\"}"
+}

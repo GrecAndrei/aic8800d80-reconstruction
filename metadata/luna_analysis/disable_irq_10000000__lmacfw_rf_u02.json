@@ -1,0 +1,9 @@
+{
+ "fn": "disable_irq_10000000",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e620",
+ "seg": 20,
+ "key": "disable_irq_10000000__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_busy_flag_bit28\",\"confidence\":\"medium\",\"docstring\":\"Wrapper that sets the alternate busy-flag bit corresponding to mask 0x10000000 (bit 28), likely marking a fixed interrupt/busy source.\",\"subsystem\":\"hal\",\"var_renames\":{},\"struct_hints\":[]}"
+}

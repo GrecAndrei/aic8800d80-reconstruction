@@ -1,0 +1,9 @@
+{
+ "fn": "hash_mix_words",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1337cc",
+ "seg": 47,
+ "key": "hash_mix_words__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hash_mix_words\", \"confidence\": \"medium\", \"docstring\": \"Performs a multi-round bitwise mixing sequence (XOR, rotate, halfword byte-swap, and add) to update a 32-bit hash state with input words.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"result\": \"hash_state\", \"a2\": \"input_word\", \"a3\": \"mix_constant\"}, \"struct_hints\": []}"
+}

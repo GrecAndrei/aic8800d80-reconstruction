@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_send_2",
+ "img": "fmacfw_u02",
+ "addr": "0x12c98c",
+ "seg": 40,
+ "key": "ke_msg_send_2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_msg_send\",\"confidence\":\"high\",\"docstring\":\"Routes a kernel message according to its destination and runtime mode, emitting a trace with its ID and source and destination tasks.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"message_param\",\"v1\":\"destination_task_id\",\"v4\":\"message_header\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"message ID\"},{\"offset\":6,\"meaning\":\"destination task ID\"},{\"offset\":8,\"meaning\":\"source task ID\"}]}"
+}

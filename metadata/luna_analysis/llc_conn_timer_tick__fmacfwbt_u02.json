@@ -1,0 +1,9 @@
+{
+ "fn": "llc_conn_timer_tick",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11ad40",
+ "seg": 15,
+ "key": "llc_conn_timer_tick__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llc_conn_timer_tick\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes one LLC connection timeout slot by decrementing its one-byte remaining-ticks field, clearing the slot, and invoking abort handling when the timer expires.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"conn_idx\",\n    \"v1\": \"llc_conn_table\",\n    \"v2\": \"conn_ctx\",\n    \"v3\": \"remaining_ticks\",\n    \"v4\": \"conn_idx_alias\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 40,\n      \"meaning\": \"llc_conn_table_entry.conn_ptr\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"llc_conn_ctx.remaining_timer\"\n    },\n    {\n      \"offset\": 340,\n      \"meaning\": \"llc_conn_ctx.abort_state_or_target\"\n    }\n  ]\n}"
+}

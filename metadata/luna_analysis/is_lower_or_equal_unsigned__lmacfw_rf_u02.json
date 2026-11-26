@@ -1,0 +1,9 @@
+{
+ "fn": "is_lower_or_equal_unsigned",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127f50",
+ "seg": 23,
+ "key": "is_lower_or_equal_unsigned__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_fcmple\",\n  \"confidence\": \"high\",\n  \"docstring\": \"ARM EEM ABI helper that returns whether a single-precision float is less than or equal to another single-precision float.\",\n  \"subsystem\": \"libmisc\"\n}"
+}

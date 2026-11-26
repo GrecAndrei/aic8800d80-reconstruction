@@ -1,0 +1,9 @@
+{
+ "fn": "memset_buffer",
+ "img": "fmacfwbt_u02",
+ "addr": "0x118eac",
+ "seg": 12,
+ "key": "memset_buffer__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_calib_buffer_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Zero-initializes a 100-byte RF/calibration context, stores descriptor and status pointers, populates descriptor fields with fixed values and globals, and returns a payload pointer at the supplied base plus 108.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"calib_ctx\",\n    \"a2\": \"buf_base\",\n    \"a3\": \"desc\",\n    \"a4\": \"status_out\",\n    \"v8\": \"calib_word\",\n    \"v9\": \"status_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 44,\n      \"meaning\": \"saved pointer to status/output writeback location\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"saved buffer base pointer or initialization parameter\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"saved pointer to descriptor/output array\"\n    },\n    {\n      \"offset\": 96,\n      \"meaning\": \"initialized/valid flag, set to 1 after zeroing the context\"\n    }\n  ]\n}"
+}

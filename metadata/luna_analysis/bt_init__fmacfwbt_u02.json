@@ -1,0 +1,9 @@
+{
+ "fn": "bt_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1172bc",
+ "seg": 10,
+ "key": "bt_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_env_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes and resets the global Bluetooth controller environment after low-level link and MAC controller setup, zeroing the repeated per-entry link-layer context structures.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"hw_init_result\",\n    \"inited\": \"task_init_result\",\n    \"v2\": \"env_entry\",\n    \"v3\": \"env_entry_end\",\n    \"v4\": \"entry_substruct\",\n    \"v5\": \"env_words\",\n    \"result\": \"unused_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"base of the 0x204-byte Bluetooth controller environment block referenced by off_117338\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"start of the repeated 84-byte per-context entry array inside the environment\"\n    },\n    {\n      \"offset\": 432,\n      \"meaning\": \"final per-context/substructure cleared after the repeated entry loop\"\n    }\n  ]\n}"
+}

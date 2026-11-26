@@ -1,0 +1,9 @@
+{
+ "fn": "test_arg2_one_12da20",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12da20",
+ "seg": 42,
+ "key": "test_arg2_one_12da20__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_ds_parameter_set_ie\",\"confidence\":\"high\",\"docstring\":\"Scans a bounded information-element buffer for element ID 3 with a one-byte payload and returns its header or NULL.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"ie\",\"a2\":\"buffer_len\",\"v2\":\"buffer_end\",\"v3\":\"next_ie\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"information element ID\"},{\"offset\":1,\"meaning\":\"payload length\"}]}"
+}

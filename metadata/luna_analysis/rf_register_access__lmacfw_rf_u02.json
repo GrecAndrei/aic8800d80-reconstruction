@@ -1,0 +1,9 @@
+{
+ "fn": "rf_register_access",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b1a4",
+ "seg": 15,
+ "key": "rf_register_access__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_event_schedule\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Schedules an RF event into the RF control block, updates RF status flags, and dispatches due RF events from the pending timer list.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"rf_ctrl\",\n    \"v2\": \"event\",\n    \"v3\": \"event_time\",\n    \"v4\": \"calibration_pending\",\n    \"v5\": \"rf_status_flags\",\n    \"v6\": \"pending_event\",\n    \"v10\": \"pending_event_time\",\n    \"v11\": \"event_descriptor\",\n    \"v12\": \"event_delay\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 20,\n      \"meaning\": \"input RF event descriptor field used to compute scheduling timestamp\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"rf_ctrl pending RF event list head pointer\"\n    },\n    {\n      \"offset\": 80,\n      \"meaning\": \"rf_ctrl field storing the active RF event pointer\"\n    },\n    {\n      \"offset\": 84,\n      \"meaning\": \"rf_ctrl field storing the active RF event scheduling timestamp\"\n    },\n    {\n      \"offset\": 88,\n      \"meaning\": \"rf_ctrl status flags byte\"\n    },\n    {\n      \"offset\": 91,\n      \"meaning\": \"rf_ctrl flag indicating calibration or scheduling action\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"pending RF event node next pointer or event time field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"pending RF event node type/index\"\n    },\n    {\n      \"offset\": 94,\n      \"meaning\": \"RF event descriptor delay-enable flag\"\n    },\n    {\n      \"offset\": 102,\n      \"meaning\": \"RF event descriptor timing table index\"\n    }\n  ]\n}"
+}

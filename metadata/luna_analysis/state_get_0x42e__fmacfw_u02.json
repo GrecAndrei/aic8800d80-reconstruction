@@ -1,0 +1,9 @@
+{
+ "fn": "state_get_0x42e",
+ "img": "fmacfw_u02",
+ "addr": "0x12f060",
+ "seg": 42,
+ "key": "state_get_0x42e__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_temperature_compensation_timer_handler\",\"confidence\":\"medium\",\"docstring\":\"Alternates the PHY operation and RF temperature-compensation phases, rescheduling the task with a phase-specific delay.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"temp_comp_state\",\"v2\":\"phase\"},\"struct_hints\":[{\"offset\":1,\"meaning\":\"Phase flag: 1 runs the PHY operation; 2 runs temperature compensation.\"}]}"
+}

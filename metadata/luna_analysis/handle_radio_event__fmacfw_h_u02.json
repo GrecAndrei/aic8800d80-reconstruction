@@ -1,0 +1,9 @@
+{
+ "fn": "handle_radio_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d2d4",
+ "seg": 3,
+ "key": "handle_radio_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_schedule_event\",\"confidence\":\"medium\",\"docstring\":\"Programs and arms the selected RF event slot, reusing its current context when possible and initializing the slot otherwise.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"event_value\",\"a2\":\"event_context\",\"a3\":\"event_slot\",\"v6\":\"guard_depth_ptr\",\"v8\":\"incremented_guard_depth\",\"v9\":\"event_context_table\",\"v10\":\"current_event_context\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"State flags; bit 19 is set when initializing a context and cleared when updating an existing context.\"},{\"offset\":32,\"meaning\":\"Associated event value, cleared for the submitted context and set to a1 for the existing context.\"}]}"
+}

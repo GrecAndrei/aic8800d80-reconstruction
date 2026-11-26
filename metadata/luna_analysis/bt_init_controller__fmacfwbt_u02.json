@@ -1,0 +1,9 @@
+{
+ "fn": "bt_init_controller",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ef20",
+ "seg": 43,
+ "key": "bt_init_controller__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"usb_off_disable\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Schedules the USB-off kernel event, locks the corresponding IRQ resource, and clears bit 1 of the USB control register.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 80,\n      \"meaning\": \"USB control word at array index 20; bit 1 likely controls USB enable or activity\"\n    }\n  ]\n}"
+}

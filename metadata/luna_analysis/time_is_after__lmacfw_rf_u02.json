@@ -1,0 +1,9 @@
+{
+ "fn": "time_is_after",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11dac8",
+ "seg": 20,
+ "key": "time_is_after__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"time_is_after\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Check whether the 32-bit tick/timestamp stored at offset 8 of the first object is after that in the second by more than the configured threshold.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"time_obj_a\",\n    \"a2\": \"time_obj_b\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"u32 tick/timestamp value\"\n    }\n  ]\n}"
+}

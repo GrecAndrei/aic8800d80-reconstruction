@@ -1,0 +1,9 @@
+{
+ "fn": "rf_power_adjust",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130234",
+ "seg": 42,
+ "key": "rf_power_adjust__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_power_status_get\",\"confidence\":\"medium\",\"docstring\":\"Returns the cached signed RF status when valid, otherwise resets the hardware block and returns its polled status.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":1,\"meaning\":\"Cached-status validity flag\"},{\"offset\":3,\"meaning\":\"Cached signed status value\"}]}"
+}

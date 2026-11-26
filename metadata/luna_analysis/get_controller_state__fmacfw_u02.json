@@ -1,0 +1,9 @@
+{
+ "fn": "get_controller_state",
+ "img": "fmacfw_u02",
+ "addr": "0x1032e8",
+ "seg": 2,
+ "key": "get_controller_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wait_timer_ticks\",\"confidence\":\"high\",\"docstring\":\"Busy-waits until the hardware timer advances by the requested number of ticks, then returns that interval.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"start_count\",\"v2\":\"elapsed_ticks\"}}"
+}

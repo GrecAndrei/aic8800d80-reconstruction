@@ -1,0 +1,9 @@
+{
+ "fn": "nop_stub",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132bc4",
+ "seg": 45,
+ "key": "nop_stub__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"run_l2c_ccb_and_process_rx_event\",\"confidence\":\"medium\",\"docstring\":\"Runs the L2CAP connection-control-block routine, then processes and returns the RX event for the supplied argument.\",\"subsystem\":\"bt\"}"
+}

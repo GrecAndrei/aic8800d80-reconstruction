@@ -1,0 +1,9 @@
+{
+ "fn": "rf_state_process",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118ec8",
+ "seg": 12,
+ "key": "rf_state_process__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_force_idle\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a radio force-idle sequence by clearing RF status/request bits, polling with a timer-based idle error, and performing a final sector erase under a nested interrupt-disable counter.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"idle_nesting_counter_ptr\",\n    \"v1\": \"rf_status_ptr\",\n    \"v2\": \"rf_status_snapshot\",\n    \"v3\": \"idle_start_ticks\",\n    \"v5\": \"idle_elapsed_ticks\",\n    \"v10\": \"idle_nesting_counter_value\",\n    \"v12\": \"irq_saved_flag\"\n  },\n  \"struct_hints\": []\n}"
+}

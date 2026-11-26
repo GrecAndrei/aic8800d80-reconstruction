@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_register",
+ "img": "fmacfwbt_u02",
+ "addr": "0x141e6c",
+ "seg": 68,
+ "key": "mmio_read_register__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_schedule_conn_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates a BLE connection environment timestamp, arms its kernel event timer, and marks the corresponding connection slot and event bitmap as active.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"conn_env\",\n    \"v1\": \"event_timing_offset\",\n    \"v3\": \"base_event_time\",\n    \"v4\": \"updated_timestamp\",\n    \"v5\": \"conn_idx\",\n    \"v6\": \"global_event_state\",\n    \"v7\": \"conn_event_slot\",\n    \"v8\": \"conn_env_flags\",\n    \"v10\": \"conn_env_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"u16 connection environment flags; bit 0x0008 is set to mark the connection/event active\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"u8 connection state; zero causes the connection index bit to be set in the global event bitmap\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"u32 timing offset added when calculating the event time\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"u32 timestamp increment added to the 64-bit timestamp at offset 24\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"u64 accumulated connection timestamp\"\n    },\n    {\n      \"offset\": 47,\n      \"meaning\": \"u8 connection/event index used for per-connection slot lookup and event bit position\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"kernel event or lock object for this connection environment\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"u32 timestamp snapshot copied from a global timer or base value\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_header_parse",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1254e8",
+ "seg": 31,
+ "key": "rx_header_parse__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_pbd_bitmap_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Update a per-pool PBD/buffer bitmap and associated descriptor state when the supplied header indicates a buffer addition or removal.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v1\": \"pbd_id\",\n    \"v2\": \"pool_idx\",\n    \"v5\": \"bitmap_base\",\n    \"v6\": \"byte_idx\",\n    \"v7\": \"bit_mask\",\n    \"v8\": \"old_bitmap_byte\",\n    \"v9\": \"bitmap_byte_ptr\",\n    \"v11\": \"desc_ptr\",\n    \"v13\": \"state_ptr\",\n    \"v17\": \"max_byte_idx\",\n    \"v19\": \"min_byte_idx\",\n    \"v21\": \"span_len\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 0, \"meaning\": \"buffer/PBD id used as bit index into the pool bitmap\"},\n    {\"offset\": 2, \"meaning\": \"set/clear action flag (add vs. remove buffer id)\"},\n    {\"offset\": 3, \"meaning\": \"pool/queue/channel index into per-pool state and descriptor tables\"},\n    {\"offset\": 218, \"meaning\": \"buffer-span descriptor length field\"},\n    {\"offset\": 220, \"meaning\": \"count of marked PBD/buffer ids\"},\n    {\"offset\": 228, \"meaning\": \"current minimum marked bitmap byte index\"},\n    {\"offset\": 229, \"meaning\": \"current maximum marked bitmap byte index\"}\n  ]\n}"
+}

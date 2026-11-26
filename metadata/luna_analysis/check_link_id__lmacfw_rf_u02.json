@@ -1,0 +1,9 @@
+{
+ "fn": "check_link_id",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1182c8",
+ "seg": 11,
+ "key": "check_link_id__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"link_flush_rx_queue_by_id\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a fixed four-entry link-context table, compares each entry's link ID byte at offset 32 with the caller object's link ID byte at offset 95, and flushes the corresponding RX queue for any match.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"link_ctx\",\n    \"v2\": \"obj\",\n    \"v3\": \"link_table_end\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"link ID byte in each link table entry\"\n    },\n    {\n      \"offset\": 95,\n      \"meaning\": \"link ID byte in the caller object/message/packet context\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "critical_section_enter_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x115d64",
+ "seg": 8,
+ "key": "critical_section_enter_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_notify_pending_irqs\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Temporarily enters a critical section, scans the five RF entry flags to raise the corresponding MMIO IRQs, sets the global RF IRQ flag, and then restores the critical-section depth.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"critical_depth_ptr\",\n    \"v1\": \"rf_state_table\",\n    \"v2\": \"rf_entry_ptr\",\n    \"i\": \"rf_entry_index\",\n    \"v4\": \"entry_pending\",\n    \"v6\": \"depth\",\n    \"v7\": \"next_depth\",\n    \"v8\": \"irq_was_disabled\",\n    \"result\": \"ret_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 112,\n      \"meaning\": \"one of the RF entry pending/active words checked in the loop (first accessed offset in a 28-byte-stride array)\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"RF entry pending/active word at the start of the table (checked in the final iteration)\"\n    },\n    {\n      \"offset\": 143,\n      \"meaning\": \"global RF/MMIO IRQ pending or control flag following the RF entry table\"\n    }\n  ]\n}"
+}

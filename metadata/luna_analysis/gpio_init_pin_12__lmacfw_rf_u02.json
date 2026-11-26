@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_init_pin_12",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10dce8",
+ "seg": 2,
+ "key": "gpio_init_pin_12__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"gpio_init_pin_12\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Initializes GPIO pin 12 by calling the shared pin-control helper and then updating GPIO configuration registers to enable the pin function and clear conflicting bits.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v1\": \"gpio_ctrl_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"GPIO control register (gpio_ctrl_base[2]) fields set with 0xF and 0x10000000 for pin 12 mode/enable configuration\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"GPIO control register (gpio_ctrl_base[3]) mask-clears conflicting function bits using 0xFFFFF7FE\"\n    }\n  ]\n}"
+}

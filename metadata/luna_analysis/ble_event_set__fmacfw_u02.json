@@ -1,0 +1,9 @@
+{
+ "fn": "ble_event_set",
+ "img": "fmacfw_u02",
+ "addr": "0x11edf0",
+ "seg": 21,
+ "key": "ble_event_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes BLE link-layer slot pools and assigns per-slot storage pointers.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"slot_cursor\",\"v2\":\"slot_range_end\",\"v3\":\"clear_cursor\",\"v8\":\"context_table_base\",\"v9\":\"slot_buffer_base\",\"v10\":\"slot_storage_base\"},\"struct_hints\":[{\"offset\":52,\"meaning\":\"Per-slot state byte cleared during initialization.\"},{\"offset\":188,\"meaning\":\"Pointer to per-slot storage, assigned from a base with a 1320-byte stride.\"},{\"offset\":336,\"meaning\":\"Pointer to per-slot buffer area, assigned from a base with a 64-byte stride.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mfp_get_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x128c24",
+ "seg": 34,
+ "key": "mfp_get_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mfp_update_state\",\"confidence\":\"medium\",\"docstring\":\"When the MFP state is enabled, resets its eligible-interface count and rebuilds it from linked interfaces whose valid channels are accepted by the PHY.\",\"subsystem\":\"mfp\",\"var_renames\":{\"v0\":\"mfp_state\",\"v1\":\"bsscfg\",\"v3\":\"channel\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next pointer in the linked BSS configuration list\"},{\"offset\":8,\"meaning\":\"Count of eligible interfaces, reset and incremented by this function\"},{\"offset\":116,\"meaning\":\"Channel number checked by the PHY\"}]}"
+}

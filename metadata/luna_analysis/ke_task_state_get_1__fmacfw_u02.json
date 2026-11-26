@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_state_get_1",
+ "img": "fmacfw_u02",
+ "addr": "0x12b008",
+ "seg": 39,
+ "key": "ke_task_state_get_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mm_scan_channel_start\",\"confidence\":\"medium\",\"docstring\":\"Logs the MM task state, checks the selected scan-context entry, and performs follow-up controller and PHY work.\",\"subsystem\":\"mm\",\"var_renames\":{\"v0\":\"scan_context_table\",\"v1\":\"entry_index\",\"v2\":\"task_state\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"Per-entry flag byte; bit 0 is tested.\"},{\"offset\":10,\"meaning\":\"Index selecting an entry in the 6-byte context table.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llc_idx_from_handle",
+ "img": "fmacfw_u02",
+ "addr": "0x12a4c4",
+ "seg": 37,
+ "key": "llc_idx_from_handle__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_conn_process\",\"confidence\":\"medium\",\"docstring\":\"Checks a connection context and, when it is active in state 2, updates and dispatches its associated work item.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"conn_idx\",\"a2\":\"work_flag\",\"result\":\"conn_ctx\",\"v3\":\"work_idx\",\"v5\":\"work_item\",\"v6\":\"work_pending\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Connection state, compared with 2\"},{\"offset\":113,\"meaning\":\"Value passed to ke_queue_front as its first argument\"},{\"offset\":1224,\"meaning\":\"Connection-context validity or active flag\"},{\"offset\":1225,\"meaning\":\"Index of the associated work item\"},{\"offset\":132,\"meaning\":\"Nonzero condition for queueing the work item\"},{\"offset\":135,\"meaning\":\"Boolean work-item field set from the second argument\"}]}"
+}

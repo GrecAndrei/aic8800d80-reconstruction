@@ -1,0 +1,9 @@
+{
+ "fn": "count_set_bits",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1324ec",
+ "seg": 45,
+ "key": "count_set_bits__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_msb_index_12\",\"confidence\":\"high\",\"docstring\":\"Returns the index of the highest set bit in the low 12 bits, 12 for zero, or 255 when the input is nonzero but those bits are clear.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"bit_mask\",\"v1\":\"bit_index\",\"v2\":\"shifted_bit_probe\",\"v3\":\"previous_bit_index\"}}"
+}

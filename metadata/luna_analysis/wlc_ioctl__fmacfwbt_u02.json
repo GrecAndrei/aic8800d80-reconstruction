@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_ioctl",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11faf8",
+ "seg": 22,
+ "key": "wlc_ioctl__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_ioct_set_mac\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a WLC set-MAC ioctl by recomputing MAC-address mask state for linked interfaces and sending a set-MAC message carrying the requested P2P flag.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a2\": \"ioctl_cmd\",\n    \"a3\": \"p2p_enable\",\n    \"v4\": \"wlc_ctx\",\n    \"v5\": \"mac_link_entry\",\n    \"v7\": \"new_mac_low\",\n    \"v8\": \"mac_high_mask\",\n    \"v9\": \"mac_low_mask\",\n    \"v10\": \"new_mac_high\",\n    \"v11\": \"entry_mac_low\",\n    \"v12\": \"entry_mac_high\",\n    \"v16\": \"msg\",\n    \"v20\": \"slot_index\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"linked-list pointer at the head of MAC entries or allocated message nodes\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"message type/id field initialized to 2631 in the visible path\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"message command/id field initialized to 2627 in the visible path\"\n    },\n    {\n      \"offset\": 100,\n      \"meaning\": \"MAC address low 32 bits\"\n    },\n    {\n      \"offset\": 104,\n      \"meaning\": \"MAC address high 16 bits\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"ioctl command/subtype byte copied from a2\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"list/pool slot index derived from the allocated node address\"\n    },\n    {\n      \"offset\": 1222,\n      \"meaning\": \"16-bit configuration/mask field set to 0x3ff\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"P2P enable flag copied from a3\"\n    }\n  ]\n}"
+}

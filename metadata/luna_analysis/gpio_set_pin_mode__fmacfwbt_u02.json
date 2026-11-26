@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_pin_mode",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10e694",
+ "seg": 3,
+ "key": "gpio_set_pin_mode__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_pa_current_calibrate\",\"confidence\":\"high\",\"docstring\":\"Adjusts the RF resistor and CGM settings until measured PA current approaches its target, returning the applied offset and outputting the selected CGM value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"initial_res_value\",\"a2\":\"initial_cgm_value\",\"a3\":\"cgm_value_out\",\"v3\":\"cgm_value\",\"v8\":\"target_pa_current_ptr\",\"v9\":\"measured_pa_current\",\"v13\":\"res_value\",\"v14\":\"iterations_remaining\",\"v15\":\"previous_pa_current\",\"v16\":\"target_pa_current\",\"v17\":\"current_error\",\"v18\":\"previous_error\",\"v20\":\"res_offset\",\"v21\":\"initial_res_value_copy\",\"v22\":\"initial_res_cgm_sum\",\"v23\":\"offset_direction\",\"v24\":\"previous_res_value\",\"v25\":\"previous_cgm_value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_pair",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113c48",
+ "seg": 5,
+ "key": "mmio_read_pair__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_irq_read_pair\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads and decodes an RF IRQ status/event pair from MMIO registers 7-9, writing packed status and event values to output pointers and returning 0, 1, or 2 to indicate which register pair supplied the result.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"status_out\",\n    \"a2\": \"event_out\",\n    \"v4\": \"raw_reg8\",\n    \"v5\": \"raw_reg9\",\n    \"v6\": \"raw_reg8_high_shifted\",\n    \"v7\": \"event\",\n    \"v8\": \"status\",\n    \"v10\": \"raw_reg8_alt\"\n  }\n}"
+}

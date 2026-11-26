@@ -1,0 +1,9 @@
+{
+ "fn": "get_bss_by_channel",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11fef8",
+ "seg": 22,
+ "key": "get_bss_by_channel__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"register_bss_entry\",\"confidence\":\"medium\",\"docstring\":\"Initializes a BSS table entry from the supplied descriptor, prepares its type-specific payload, and marks it active for the given channel.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"bss_descriptor\",\"a2\":\"channel\",\"v3\":\"entry_index\",\"v4\":\"group_index\",\"v5\":\"table_base\",\"v6\":\"entry\",\"v8\":\"entry_payload\"},\"struct_hints\":[{\"offset\":480,\"meaning\":\"72-byte type-specific payload buffer\"},{\"offset\":552,\"meaning\":\"derived hash or key value\"},{\"offset\":560,\"meaning\":\"16-byte type-specific parameter block\"},{\"offset\":576,\"meaning\":\"entry type selector\"},{\"offset\":577,\"meaning\":\"entry index copied from the descriptor\"},{\"offset\":578,\"meaning\":\"channel value\"},{\"offset\":579,\"meaning\":\"entry active flag\"},{\"offset\":580,\"meaning\":\"first copied 64-bit descriptor value\"},{\"offset\":588,\"meaning\":\"second copied 64-bit descriptor value\"},{\"offset\":596,\"meaning\":\"byte copied from descriptor offset 4\"}]}"
+}

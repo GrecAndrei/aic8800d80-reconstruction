@@ -1,0 +1,9 @@
+{
+ "fn": "hci_event_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12cdec",
+ "seg": 40,
+ "key": "hci_event_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_event_handler_count\",\"confidence\":\"high\",\"docstring\":\"Looks up the handler list for an HCI event and optional subevent, falls back to the event-wide list when needed, and returns the selected list\u2019s node count.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"event_code\",\"v5\":\"subevent_code\",\"v6\":\"event_table\",\"v7\":\"event_entry_offset\",\"v9\":\"event_entry\",\"v10\":\"subevent_handler_list\",\"v12\":\"fallback_handler_list\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Pointer to per-subevent handler-list descriptors\"},{\"offset\":4,\"meaning\":\"Fallback event-wide handler-list descriptor\"},{\"offset\":8,\"meaning\":\"Subevent-to-handler-list index table\"},{\"offset\":14,\"meaning\":\"Number or upper bound of valid subevents\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "callback_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125cbc",
+ "seg": 31,
+ "key": "callback_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_timer_request\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Stores a timer request argument and either processes it immediately when the timer control block is idle or marks the request as pending when it is busy.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v1\": \"timer_ctrl\",\n    \"v2\": \"timer_busy\",\n    \"a1\": \"timer_arg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"timer request argument/value\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"timer busy/active state word\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"pending request/update flag\"\n    }\n  ]\n}"
+}

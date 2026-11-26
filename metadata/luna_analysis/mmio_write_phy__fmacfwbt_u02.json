@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_phy",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122810",
+ "seg": 25,
+ "key": "mmio_write_phy__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_evt_send_2bytes\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a Bluetooth HCI event buffer, stores two byte parameters as its payload, and submits the event via hci_evt_send.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"byte0\",\n    \"a2\": \"byte1\",\n    \"v4\": \"evt_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first HCI event payload byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"second HCI event payload byte\"\n    }\n  ]\n}"
+}

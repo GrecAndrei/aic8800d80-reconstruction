@@ -1,0 +1,9 @@
+{
+ "fn": "ctrl_bit3_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101a50",
+ "seg": 0,
+ "key": "ctrl_bit3_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sys_ctrl_bit3_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sets or clears bit 3 of the system control register according to a 0/1 argument and returns the updated register value.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"bit_value\",\n    \"result\": \"new_ctrl_val\"\n  }\n}"
+}

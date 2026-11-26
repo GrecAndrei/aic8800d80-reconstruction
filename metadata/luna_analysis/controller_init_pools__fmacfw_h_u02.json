@@ -1,0 +1,9 @@
+{
+ "fn": "controller_init_pools",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11ecb0",
+ "seg": 21,
+ "key": "controller_init_pools__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_controller_pools\",\"confidence\":\"high\",\"docstring\":\"Clears the Bluetooth controller's pool entries and initializes each pool descriptor with its backing-storage pointers.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"pool_entry\",\"v2\":\"pool_entries_end\",\"v8\":\"controller_pool_base\",\"v9\":\"pool_storage_a\",\"v10\":\"pool_storage_b\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"Per-pool configuration word, initialized from a constant or pool-specific global value.\"},{\"offset\":52,\"meaning\":\"One-byte pool state or flag, reset to zero.\"},{\"offset\":188,\"meaning\":\"Pointer into a per-pool backing-storage region.\"},{\"offset\":336,\"meaning\":\"Pointer into a per-pool backing-storage region.\"}]}"
+}

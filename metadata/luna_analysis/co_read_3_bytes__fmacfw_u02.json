@@ -1,0 +1,9 @@
+{
+ "fn": "co_read_3_bytes",
+ "img": "fmacfw_u02",
+ "addr": "0x1236e8",
+ "seg": 28,
+ "key": "co_read_3_bytes__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_tx_slot_request_handler\",\"confidence\":\"medium\",\"docstring\":\"Checks a requested BLE TX slot through one of two paths, updates slot bookkeeping, and replies with the connection index, slot index, and result status.\",\"subsystem\":\"ble\",\"var_renames\":{\"v5\":\"request_type\",\"v6\":\"connection_idx\",\"v7\":\"slot_idx\",\"v11\":\"response_status\",\"v12\":\"reply_payload\",\"v15\":\"connection_slot_offset\",\"v16\":\"slot_record\"},\"struct_hints\":[{\"offset\":354,\"meaning\":\"Per-slot 16-bit field cleared on one request path; slots use a 6-byte stride.\"},{\"offset\":453,\"meaning\":\"Per-slot byte used to select a 32-byte record; slots use a 12-byte stride.\"}]}"
+}

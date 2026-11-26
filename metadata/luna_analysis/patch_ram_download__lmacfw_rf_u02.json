@@ -1,0 +1,9 @@
+{
+ "fn": "patch_ram_download",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12135c",
+ "seg": 22,
+ "key": "patch_ram_download__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"patch_ram_download\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies a patch buffer descriptor into a fixed-size kernel message and dispatches the RAM download handler.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a2\": \"patch_desc\",\n    \"v5\": \"patch_msg\",\n    \"v6\": \"patch_data\",\n    \"v7\": \"copy_len\",\n    \"v8\": \"patch_msg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"source patch data pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"patch data length in bytes\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"patch data payload copied into the message\"\n    }\n  ]\n}"
+}

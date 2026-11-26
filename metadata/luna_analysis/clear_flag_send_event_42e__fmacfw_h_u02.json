@@ -1,0 +1,9 @@
+{
+ "fn": "clear_flag_send_event_42e",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1304d8",
+ "seg": 42,
+ "key": "clear_flag_send_event_42e__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_flag_and_check_rf_state\",\"confidence\":\"medium\",\"docstring\":\"Clears a flag byte, then invokes the invalid-state handler if the RF-state check for 0x42E returns nonzero.\",\"subsystem\":\"rf\"}"
+}

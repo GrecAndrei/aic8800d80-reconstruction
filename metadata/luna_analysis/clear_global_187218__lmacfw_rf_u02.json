@@ -1,0 +1,9 @@
+{
+ "fn": "clear_global_187218",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121a44",
+ "seg": 22,
+ "key": "clear_global_187218__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_patch_context\",\"confidence\":\"low\",\"docstring\":\"Zeroes an 8-byte global patch/parse context block and returns success.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

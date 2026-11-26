@@ -1,0 +1,9 @@
+{
+ "fn": "mem_copy_log",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1237c0",
+ "seg": 28,
+ "key": "mem_copy_log__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_global_config_bytes_and_notify\",\"confidence\":\"medium\",\"docstring\":\"Passes the supplied byte buffer to the global configuration setter, then issues command 110 with the two forwarded arguments.\",\"subsystem\":\"ke\",\"var_renames\":{\"a2\":\"config_bytes\"}}"
+}

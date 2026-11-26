@@ -1,0 +1,9 @@
+{
+ "fn": "mm_state_run",
+ "img": "fmacfwbt_u02",
+ "addr": "0x129140",
+ "seg": 35,
+ "key": "mm_state_run__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mm_state_run\",\"confidence\":\"medium\",\"docstring\":\"Predicate for the MM run state that returns true when the MM active flag or Bluetooth scan state is set, no MM busy word is set, and the associated pending-entry list contains no active entries.\",\"subsystem\":\"mm\",\"var_renames\":{\"v0\":\"mm_ctx\",\"v1\":\"pending_entry\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"next pending-entry pointer\"},{\"offset\":4,\"meaning\":\"pending-entry state/busy flag; nonzero prevents MM run\"},{\"offset\":8,\"meaning\":\"pending-entry list head pointer in associated context\"}]}"
+}

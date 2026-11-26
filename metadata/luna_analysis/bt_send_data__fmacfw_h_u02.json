@@ -1,0 +1,9 @@
+{
+ "fn": "bt_send_data",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10f230",
+ "seg": 3,
+ "key": "bt_send_data__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_wait_for_state\",\"confidence\":\"medium\",\"docstring\":\"Passes the supplied state handle to the wait routine and returns success.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"state_handle\"}}"
+}

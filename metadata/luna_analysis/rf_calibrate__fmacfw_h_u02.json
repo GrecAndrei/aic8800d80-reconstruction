@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibrate",
+ "img": "fmacfw_h_u02",
+ "addr": "0x103afc",
+ "seg": 2,
+ "key": "rf_calibrate__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_clear_control_bits\",\"confidence\":\"medium\",\"docstring\":\"Clears selected RF-related MMIO control bits, performs a read, and returns the result of checking feature flag 0x2000 for the WF DFE/RF interface.\",\"subsystem\":\"rf\"}"
+}

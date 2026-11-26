@@ -1,0 +1,9 @@
+{
+ "fn": "double_le",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127b18",
+ "seg": 23,
+ "key": "double_le__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"__aeabi_dcmple\",\"confidence\":\"high\",\"docstring\":\"Compares two double-precision floating-point values and returns true if the first value is less than or equal to the second.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

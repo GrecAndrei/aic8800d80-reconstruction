@@ -1,0 +1,9 @@
+{
+ "fn": "read_mmio_pair",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1018d8",
+ "seg": 0,
+ "key": "read_mmio_pair__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"read_mmio_pair\",\"confidence\":\"high\",\"docstring\":\"Reads two fixed 32-bit MMIO locations into the caller-provided output pointers and returns the first output pointer.\",\"subsystem\":\"mmio\",\"var_renames\":{\"result\":\"first_value_out\",\"a2\":\"second_value_out\",\"v2\":\"second_register\"}}"
+}

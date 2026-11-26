@@ -1,0 +1,9 @@
+{
+ "fn": "update_packet_buffer",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111744",
+ "seg": 4,
+ "key": "update_packet_buffer__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"initialize_packet_buffer_pool\",\"confidence\":\"medium\",\"docstring\":\"Initializes the packet-buffer pool by setting bits 6\u20137 in each entry's control byte and updating references to selected entries.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v4\":\"pool_entry\",\"v5\":\"pool_end\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"Control/flag byte; bits 6 and 7 are set.\"}]}"
+}

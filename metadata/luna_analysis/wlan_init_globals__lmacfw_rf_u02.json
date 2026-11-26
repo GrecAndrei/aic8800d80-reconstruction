@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_init_globals",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1043d8",
+ "seg": 2,
+ "key": "wlan_init_globals__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_timing_segment_setup\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Computes calibrated RF TX/RX timing start ticks and switching-segment count from power calibration results, clears an RF timing context output area, and populates segment timing data.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"timing_ctx\",\n    \"a2\": \"dual_path_enabled\",\n    \"a3\": \"tx_cal_arg\",\n    \"a4\": \"rx_cal_arg\",\n    \"a6\": \"limit_short_mode\",\n    \"v7\": \"cal_table\",\n    \"v18\": \"cal_result_0\",\n    \"v19\": \"rx_start_ticks\",\n    \"v21\": \"tx_start_ticks\",\n    \"v20\": \"delay_ticks\",\n    \"v22\": \"segment_count\",\n    \"v55\": \"cal_result_1\",\n    \"v23\": \"segment_out\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 128,\n      \"meaning\": \"RF timing segment output table in timing context\"\n    },\n    {\n      \"offset\": 256,\n      \"meaning\": \"End of primary RF timing segment output region\"\n    },\n    {\n      \"offset\": 384,\n      \"meaning\": \"Secondary RF timing data pointer in context\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_update",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111950",
+ "seg": 4,
+ "key": "rf_channel_update__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Validate and enqueue a per-channel RF update by filling the channel request slot and radio descriptor, then write the descriptor pointer to the baseband RF slot and trigger the update.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"channel\",\n    \"a2\": \"params_ptr\",\n    \"a3\": \"dwell_time\",\n    \"v3\": \"channel_index\",\n    \"v4\": \"request_slot\",\n    \"v5\": \"rf_reg_base\",\n    \"v7\": \"rf_descriptor\",\n    \"v8\": \"dwell_limit\",\n    \"v9\": \"channel_reg_base\",\n    \"v10\": \"descriptor_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"request_slot: busy/in-use word (must be zero)\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"request_slot: dwell/time parameter copied from a3\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"request_slot: armed/pending flag set to 1\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"rf_descriptor: 16-bit dwell/time value from a3\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"rf_descriptor: status byte updated with 0xE while preserving 0x31 bits\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"rf_descriptor: pointer to 4-byte-aligned params\"\n    }\n  ]\n}"
+}

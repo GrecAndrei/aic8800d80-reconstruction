@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_tx_power_table",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1232b4",
+ "seg": 29,
+ "key": "lookup_tx_power_table__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_apply_tx_power_calibration\", \"confidence\": \"medium\", \"docstring\": \"Updates an RF transmit-power table for a channel and programs the selected calibration word, then waits for RF calibration when enabled.\", \"subsystem\": \"rf\", \"var_renames\": {\"a2\": \"rf_power_cmd_data\", \"v4\": \"power_chain_or_index\", \"v5\": \"channel_or_band\", \"v6\": \"tx_power_table_base\", \"v7\": \"tx_power_value\", \"v9\": \"selected_tx_power\", \"v10\": \"rf_calibration_enable\", \"v12\": \"alternate_tx_power\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"uint32_t tx_power_value\"}, {\"offset\": 5, \"meaning\": \"uint8_t power_chain_or_index\"}, {\"offset\": 6, \"meaning\": \"uint8_t channel_or_band\"}]}"
+}

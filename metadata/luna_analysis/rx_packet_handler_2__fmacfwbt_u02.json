@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_handler_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ed40",
+ "seg": 43,
+ "key": "rx_packet_handler_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hexdump\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prints a 16-byte-per-line hex dump of a buffer, with 1/2/4-byte items and optional ASCII rendering.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"data_ptr\",\n    \"a2\": \"count\",\n    \"a3\": \"bytes_per_item\",\n    \"a4\": \"show_ascii\",\n    \"v4\": \"item_size\",\n    \"v5\": \"row_addr\",\n    \"v6\": \"row_len\",\n    \"v7\": \"item_ptr\",\n    \"v8\": \"row_offset\",\n    \"v9\": \"item_value\",\n    \"v10\": \"item_format\",\n    \"v18\": \"row_offset\",\n    \"v19\": \"word_value\",\n    \"v20\": \"remaining_len\",\n    \"v22\": \"saved_item_size\"\n  }\n}"
+}

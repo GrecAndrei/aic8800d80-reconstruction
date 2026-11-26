@@ -1,0 +1,9 @@
+{
+ "fn": "irq_get_pending",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10da98",
+ "seg": 3,
+ "key": "irq_get_pending__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_gpio_irq_dispatch_pending\",\"confidence\":\"medium\",\"docstring\":\"Processes pending GPIO interrupt lines 0\u20137 by acknowledging each and invoking its registered handler with the line number and encoded interrupt mode.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"gpio_registers\",\"v1\":\"pending_mask\",\"v2\":\"irq_index\",\"v3\":\"irq_handler_table\",\"v4\":\"event_code\",\"v5\":\"pending_mask\",\"v6\":\"irq_handler\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Per-line interrupt-mode mask; set bits select callback event code 2.\"},{\"offset\":20,\"meaning\":\"Per-line interrupt configuration mask used to select callback event code 0 or 1.\"},{\"offset\":32,\"meaning\":\"Pending interrupt status bitmap.\"},{\"offset\":36,\"meaning\":\"Interrupt acknowledge or clear bitmap.\"}]}"
+}

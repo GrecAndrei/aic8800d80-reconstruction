@@ -1,0 +1,9 @@
+{
+ "fn": "hw_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x103154",
+ "seg": 2,
+ "key": "hw_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_mdll_duty_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Calibrates the MDLL duty setting from RF feedback transitions, averages the measured codes, and stores the result for the selected frequency.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"mdll_control_reg\",\"v2\":\"rf_calibration_reg\",\"v3\":\"previous_feedback_bit\",\"v4\":\"edge_polarity_pass\",\"v5\":\"duty_code_sum\",\"v6\":\"duty_code\",\"v7\":\"sweep_offset\",\"v8\":\"trial_code\",\"v9\":\"sample_count\",\"v14\":\"feedback_bit\",\"v19\":\"duty_value\"}}"
+}

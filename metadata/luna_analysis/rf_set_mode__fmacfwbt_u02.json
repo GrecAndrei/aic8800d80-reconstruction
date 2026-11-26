@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_mode",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13bb64",
+ "seg": 61,
+ "key": "rf_set_mode__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_handle_channel_switch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles RF channel switching/configuration requests, polling or switching the PHY channel and returning per-channel calibration values while flushing RX state if the operation times out.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"phy_idx\",\n    \"a2\": \"msg\",\n    \"a3\": \"op_mode\",\n    \"v6\": \"chan_idx\",\n    \"v8\": \"chan_idx\",\n    \"v10\": \"msg_flags\",\n    \"v4\": \"status\",\n    \"v11\": \"status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"msg byte 2: flags or parameter byte\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"msg byte 3..4: 16-bit channel parameter word\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"msg byte 5..6: 16-bit channel parameter word for op_mode 1\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"rf_state unit byte 36: active/mode flag\"\n    },\n    {\n      \"offset\": 448,\n      \"meaning\": \"rf_state unit dword 448: last channel-switch timestamp\"\n    },\n    {\n      \"offset\": 452,\n      \"meaning\": \"rf_state channel entry byte 452: calibration byte A\"\n    },\n    {\n      \"offset\": 453,\n      \"meaning\": \"rf_state channel entry byte 453: calibration byte B\"\n    }\n  ]\n}"
+}

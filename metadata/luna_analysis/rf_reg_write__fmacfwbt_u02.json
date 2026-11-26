@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_write",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111ba0",
+ "seg": 4,
+ "key": "rf_reg_write__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_reg_write_dispatch\",\"confidence\":\"low\",\"docstring\":\"For indices 0\u20135, dispatches a fixed-mask configuration call to the RX or TX hardware-config routine according to whether the first argument is non-null; otherwise returns the first argument unchanged.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"config_index\"}}"
+}

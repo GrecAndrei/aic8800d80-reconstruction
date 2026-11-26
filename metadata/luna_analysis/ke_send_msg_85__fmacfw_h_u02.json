@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_msg_85",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123054",
+ "seg": 28,
+ "key": "ke_send_msg_85__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_send_wifi_disable_cfm\",\"confidence\":\"medium\",\"docstring\":\"Sends a confirmation containing the Wi-Fi disable state derived from the inverted bit 16 of a register value.\",\"subsystem\":\"ke\",\"var_renames\":{\"v4\":\"cfm\",\"v5\":\"register_value\",\"v6\":\"wifi_disable\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Wi-Fi disable flag in the confirmation payload\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_poll",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11be18",
+ "seg": 18,
+ "key": "ke_event_poll__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_event_poll\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls the kernel task event state, dispatching timer updates, a pending link/crypto event, and AES setup, then posts the resulting command message.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"state_base\",\n    \"v1\": \"status_word\",\n    \"v2\": \"pending_event_byte\",\n    \"v3\": \"event_msg_base\",\n    \"v4\": \"link_context\",\n    \"v5\": \"event_mask\",\n    \"v6\": \"event_bit\",\n    \"v7\": \"link_param\",\n    \"v8\": \"command_buffer\",\n    \"v14\": \"command_pointer_loc\",\n    \"v15\": \"doorbell_event_loc\",\n    \"v21\": \"aes_context\",\n    \"v35\": \"crypto_setup_arg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 168,\n      \"meaning\": \"state_base link/context pointer passed to timer or event processing\"\n    },\n    {\n      \"offset\": 191,\n      \"meaning\": \"state_base task state byte\"\n    },\n    {\n      \"offset\": 200,\n      \"meaning\": \"state_base pending event byte\"\n    },\n    {\n      \"offset\": 208,\n      \"meaning\": \"state_base status/event flag word\"\n    }\n  ]\n}"
+}

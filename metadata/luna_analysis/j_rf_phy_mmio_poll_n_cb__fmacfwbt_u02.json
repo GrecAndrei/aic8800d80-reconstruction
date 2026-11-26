@@ -1,0 +1,9 @@
+{
+ "fn": "j_rf_phy_mmio_poll_n_cb",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f744",
+ "seg": 43,
+ "key": "j_rf_phy_mmio_poll_n_cb__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"j_pmu_isr_extra\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Jump stub that tail-calls the PMU extra interrupt service routine and returns its result.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

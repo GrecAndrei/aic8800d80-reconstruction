@@ -1,0 +1,9 @@
+{
+ "fn": "scan_parse_adv_data",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13c49c",
+ "seg": 61,
+ "key": "scan_parse_adv_data__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_adv_data_count_byte_0x02\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a BLE advertising data buffer using a length byte and returns the number of payload bytes equal to 0x02.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v1\": \"cursor\",\n    \"v2\": \"end\",\n    \"result\": \"byte_0x02_count\",\n    \"v4\": \"value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 263,\n      \"meaning\": \"uint8_t advertising payload length or byte scan count\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"advertising data scan anchor/base byte\"\n    }\n  ]\n}"
+}

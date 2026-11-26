@@ -1,0 +1,9 @@
+{
+ "fn": "tx_build_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136368",
+ "seg": 55,
+ "key": "tx_build_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_handle_apm_start_cac\",\"confidence\":\"medium\",\"docstring\":\"Handles a vendor APM start-CAC host command by checking the relevant connection context, attempting to reserve an entry, and sending an HCI event with the resulting status and connection identifier.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"cmd_params\",\"v9\":\"conn_ctx\",\"v10\":\"event_status\",\"v13\":\"find_conn_ret\",\"v11\":\"event_buf\",\"a2a\":\"conn_index_out\"},\"struct_hints\":[{\"offset\":10,\"meaning\":\"connection/interface index used to select a 1320-byte context entry\"},{\"offset\":106,\"meaning\":\"context state byte; value 2 permits command processing\"},{\"offset\":108,\"meaning\":\"context busy/condition byte; nonzero forces failure status 8\"}]}"
+}

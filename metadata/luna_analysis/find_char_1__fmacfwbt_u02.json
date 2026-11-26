@@ -1,0 +1,9 @@
+{
+ "fn": "find_char_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12db40",
+ "seg": 43,
+ "key": "find_char_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_find_ssid_ie\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Scan IEEE 802.11 information elements for an SSID element (ID 0), returning its pointer and storing its length if it is well-formed and within the buffer bounds.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"result\": \"ie_ptr\",\n    \"a2\": \"ie_len\",\n    \"a3\": \"out_ssid_len\",\n    \"v3\": \"end_ptr\",\n    \"v4\": \"current_ie_len\",\n    \"v5\": \"next_ie_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"802.11 IE element ID (0 for SSID)\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"802.11 IE element length\"\n    }\n  ]\n}"
+}

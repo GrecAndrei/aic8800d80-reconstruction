@@ -1,0 +1,9 @@
+{
+ "fn": "ble_rx_process",
+ "img": "fmacfw_h_u02",
+ "addr": "0x134950",
+ "seg": 52,
+ "key": "ble_rx_process__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_rx_packet_process\",\"confidence\":\"medium\",\"docstring\":\"Builds a BLE RX packet context from current link metadata, adjusts packet length according to connection state, and returns the security-check result.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"link_ctx\",\"v1\":\"rx_metadata\",\"v2\":\"link_index\",\"v5\":\"rx_packet_ctx\",\"v6\":\"rx_buffer\",\"v13\":\"connection_state\",\"v16\":\"packet_length\",\"v17\":\"chain_descriptor\",\"v19\":\"header_length\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"RX buffer pointer\"},{\"offset\":76,\"meaning\":\"packet chain descriptor pointer\"},{\"offset\":92,\"meaning\":\"link context pointer\"}]}"
+}

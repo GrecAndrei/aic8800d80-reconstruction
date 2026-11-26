@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read32",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100644",
+ "seg": 0,
+ "key": "mmio_read32__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_wait_ticks\",\"confidence\":\"high\",\"docstring\":\"Busy-waits until the hardware counter reaches its current value plus the requested number of ticks, then returns that deadline.\",\"subsystem\":\"mmio\",\"var_renames\":{\"a1\":\"ticks\",\"result\":\"deadline\",\"v3\":\"spin_count\"}}"
+}

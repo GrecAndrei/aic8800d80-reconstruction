@@ -1,0 +1,9 @@
+{
+ "fn": "rf_is_sleep",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1134e0",
+ "seg": 5,
+ "key": "rf_is_sleep__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_data_by_index\",\"confidence\":\"medium\",\"docstring\":\"Returns the RF data pointer for an index, preparing the index-1 record in a scratch buffer and applying an optional patched value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"index\",\"v2\":\"scratch_record\",\"v4\":\"patched_value\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"32-bit RF value copied from configuration or replaced by the patched value\"}]}"
+}

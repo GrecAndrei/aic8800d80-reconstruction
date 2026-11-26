@@ -1,0 +1,9 @@
+{
+ "fn": "init_hw_timers",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114090",
+ "seg": 5,
+ "key": "init_hw_timers__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_buffer_queue\",\"confidence\":\"medium\",\"docstring\":\"Resets two state subobjects, then initializes one 0x6B8-byte item per configured entry and passes each item to a state helper.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v0\":\"state_base\",\"v1\":\"config_base\",\"v4\":\"entry_index\",\"v5\":\"queue_item\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"16-bit configured entry count, in the object referenced by v1\"},{\"offset\":564,\"meaning\":\"state subobject reset before initialization and passed to the helper for each item\"},{\"offset\":572,\"meaning\":\"second state subobject reset during initialization\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_send_vendor_cmd",
+ "img": "fmacfw_u02",
+ "addr": "0x135564",
+ "seg": 52,
+ "key": "bt_send_vendor_cmd__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_send_vendor_cmd\",\"confidence\":\"medium\",\"docstring\":\"Queues a four-byte Bluetooth command message containing the supplied 16-bit value, a fixed type byte, and a byte from the Bluetooth context, then returns the result of a follow-up helper call.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"bt_context\",\"v3\":\"msg\"},\"struct_hints\":[{\"offset\":61,\"meaning\":\"Context byte copied into the final byte of the outgoing command payload; its semantic meaning is unclear.\"}]}"
+}

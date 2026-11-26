@@ -1,0 +1,9 @@
+{
+ "fn": "phy_switch_radio",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13ae40",
+ "seg": 59,
+ "key": "phy_switch_radio__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_switch_radio\",\"confidence\":\"medium\",\"docstring\":\"Applies the PHY radio configuration, optionally retunes the channel, and returns per-channel status when the radio status bit is set.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"radio_regs\",\"v5\":\"phy_flags\",\"v8\":\"radio_state_bit\",\"v9\":\"channel\",\"v10\":\"radio_enable\",\"v11\":\"radio_ctrl_value\",\"v14\":\"state_flags\"},\"struct_hints\":[{\"offset\":27,\"meaning\":\"PHY mode or selector byte; 0xff is a special sentinel\"},{\"offset\":29,\"meaning\":\"Channel number used for channel changes and per-channel state lookup\"},{\"offset\":30,\"meaning\":\"PHY control flags affecting radio and channel handling\"},{\"offset\":32,\"meaning\":\"Configuration value scaled and written to the radio control register\"},{\"offset\":36,\"meaning\":\"PHY state flags controlling radio behavior\"},{\"offset\":76,\"meaning\":\"Pointer to the radio register block\"}]}"
+}

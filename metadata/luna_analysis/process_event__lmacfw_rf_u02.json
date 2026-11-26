@@ -1,0 +1,9 @@
+{
+ "fn": "process_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x112d84",
+ "seg": 4,
+ "key": "process_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_process_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects the next due RF event from a queued list, marks the radio as busy, updates the corresponding event-mode entry, and waits for the required radio state.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"event_filter\",\n    \"v2\": \"rf_busy_flag_ptr\",\n    \"v3\": \"event_list_ptr\",\n    \"v4\": \"due_event_count\",\n    \"v5\": \"event_count_field_ptr\",\n    \"v6\": \"event_node\",\n    \"v7\": \"active_event_node\",\n    \"v8\": \"event_timestamp\",\n    \"v9\": \"scan_node\",\n    \"v10\": \"scan_remaining\",\n    \"v11\": \"scan_index\",\n    \"v12\": \"radio_wait_arg\",\n    \"v13\": \"event_mode_entry\",\n    \"v14\": \"event_mode_bits\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"intrusive list next pointer for event/scan nodes\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"node field used either as the radio wait parameter/event descriptor or as the event-mode array base depending on context\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"uint16 timestamp/sequence field used to order or test due events\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"uint8 event-mode slot index used to address an 8-byte mode entry\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"control byte within an event-mode entry whose low bits are updated\"\n    }\n  ]\n}"
+}

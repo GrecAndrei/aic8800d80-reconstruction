@@ -1,0 +1,9 @@
+{
+ "fn": "min_or_max",
+ "img": "fmacfw_h_u02",
+ "addr": "0x105070",
+ "seg": 2,
+ "key": "min_or_max__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_actual_power_diff\",\"confidence\":\"medium\",\"docstring\":\"Computes the signed logarithmic difference between current and baseline back-off amplitudes, stores it at context offset 96, and reports the scaled value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"am_back_cur\",\"a2\":\"am_back_base\",\"a3\":\"rf_context\",\"v6\":\"power_diff\",\"v7\":\"power_diff_scaled\"},\"struct_hints\":[{\"offset\":96,\"meaning\":\"Stored signed logarithmic amplitude difference (pwr_act_diff).\"}]}"
+}

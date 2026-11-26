@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11849c",
+ "seg": 12,
+ "key": "ke_msg_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_msg_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the current kernel/IPC message through its handler, allocates and links an IPC message descriptor, appends it to the host message queue under an IRQ-locked critical section, and rings the doorbell, freeing the message if descriptor allocation fails.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v1\":\"msg\",\"v2\":\"msg_node\",\"v3\":\"msg_node\",\"v4\":\"msg_offset_ptr\",\"v5\":\"msg_offset\",\"v6\":\"ipc_lock_cnt\",\"v7\":\"ipc_host_status\",\"v8\":\"prev_lock_cnt\",\"v9\":\"ipc_tx_queue_ctrl\",\"v10\":\"queue_count_prev\",\"v11\":\"msg_count_prev\",\"v12\":\"ipc_doorbell\",\"v13\":\"new_lock_cnt\",\"v14\":\"irq_disabled_flag\",\"v15\":\"ipc_tx_queue_tail\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"message descriptor payload pointer (original message plus data offset)\"},{\"offset\":4,\"meaning\":\"next pointer for linked IPC message descriptor\"},{\"offset\":8,\"meaning\":\"reserved/zeroed descriptor field\"},{\"offset\":4,\"meaning\":\"tail pointer field in IPC tx queue control\"},{\"offset\":12,\"meaning\":\"16-bit message queue count field in IPC tx queue control\"}]}"
+}

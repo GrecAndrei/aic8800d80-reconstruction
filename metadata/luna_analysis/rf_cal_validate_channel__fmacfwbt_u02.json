@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_validate_channel",
+ "img": "fmacfwbt_u02",
+ "addr": "0x138e1c",
+ "seg": 59,
+ "key": "rf_cal_validate_channel__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cal_configure_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates the RF calibration context with channel configuration bits from the global RF state, clears a calibration status byte, then triggers RX setup and TX power calibration for the selected channel.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"rf_cal_state\",\n    \"v4\": \"tx_power_channel\",\n    \"v6\": \"channel_bit0\",\n    \"v7\": \"current_channel_word\",\n    \"v8\": \"proposed_channel_word\",\n    \"v9\": \"new_channel_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 96,\n      \"meaning\": \"RF channel/configuration word in the calibration context\"\n    },\n    {\n      \"offset\": 50,\n      \"meaning\": \"RF calibration state byte, cleared before calibration processing\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"RF calibration state parameter or offset passed to tx_power_cal_read\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"RF calibration state byte contributing to the channel configuration word\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"RF calibration state byte or channel descriptor used to derive calibration flags\"\n    }\n  ]\n}"
+}

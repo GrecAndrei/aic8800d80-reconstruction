@@ -1,0 +1,9 @@
+{
+ "fn": "align_size_plus4",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11df94",
+ "seg": 20,
+ "key": "align_size_plus4__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"heap_alloc_aligned\",\"confidence\":\"medium\",\"docstring\":\"Allocates a 4-byte-aligned block plus header from the best-fit free-block list under a critical section and returns the user pointer or NULL on failure.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"requested_size\",\"v2\":\"aligned_size\",\"v3\":\"block_size\",\"v4\":\"current_free_block\",\"v5\":\"lock_count_ptr\",\"v6\":\"lock_count\",\"v7\":\"best_fit_block\",\"v8\":\"current_block_size\",\"v9\":\"selected_block\",\"v10\":\"remaining_free_size\",\"v12\":\"saved_irq_state\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"heap_free_list_head\"},{\"offset\":0,\"meaning\":\"free_block_next\"},{\"offset\":4,\"meaning\":\"free_block_size\"}]}"
+}

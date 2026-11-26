@@ -1,0 +1,9 @@
+{
+ "fn": "rf_event_handler_alt",
+ "img": "fmacfw_u02",
+ "addr": "0x10e560",
+ "seg": 3,
+ "key": "rf_event_handler_alt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_core_voltage_calibrate\",\"confidence\":\"high\",\"docstring\":\"Calibrates the RF core supply toward 840 mV by measuring its voltage and adjusting the trim code.\",\"subsystem\":\"rf\",\"var_renames\":{\"v7\":\"measured_vcore_mv\",\"v8\":\"trim_code\",\"v9\":\"voltage_error_mv\",\"v10\":\"abs_voltage_error_mv\",\"v14\":\"trim_step\",\"v15\":\"candidate_trim_code\",\"v41\":\"trim_direction\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"measurement trigger or control register\"},{\"offset\":8,\"meaning\":\"RF voltage calibration configuration register\"},{\"offset\":12,\"meaning\":\"RF voltage calibration configuration register\"},{\"offset\":16,\"meaning\":\"raw voltage measurement result\"},{\"offset\":28,\"meaning\":\"measurement-ready status and acknowledgement register\"}]}"
+}

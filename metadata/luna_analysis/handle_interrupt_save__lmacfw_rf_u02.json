@@ -1,0 +1,9 @@
+{
+ "fn": "handle_interrupt_save",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10cd6c",
+ "seg": 2,
+ "key": "handle_interrupt_save__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"uart_rx_event_handler\",\"confidence\":\"medium\",\"docstring\":\"Handles a UART receive event by draining queued receive buffers into a 20-byte descriptor ring, forwarding each descriptor to the kernel task, and then setting the corresponding event bit.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"event_id\",\"v1\":\"uart_ctx\",\"v2\":\"rx_desc_table\",\"v3\":\"div_magic_81\",\"v4\":\"irq_disable_flag\",\"v6\":\"rx_used\",\"v7\":\"rx_total\",\"v8\":\"desc_index\",\"v9\":\"pending_count_ptr\",\"v10\":\"popped_item\",\"v11\":\"pending_count\",\"v12\":\"popped_item\",\"v13\":\"pending_count_next\",\"v14\":\"irq_was_disabled\",\"v15\":\"dest_task\",\"v16\":\"desc_entry\"},\"struct_hints\":[{\"offset\":588,\"meaning\":\"pending receive buffer list head in uart context\"},{\"offset\":1620,\"meaning\":\"receive descriptor ring slot/write index\"},{\"offset\":1621,\"meaning\":\"number of receive descriptors processed\"},{\"offset\":1622,\"meaning\":\"total number of receive descriptors/events\"},{\"offset\":4,\"meaning\":\"descriptor entry field holding associated receive buffer pointer\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_pll_calibrate",
+ "img": "fmacfw_u02",
+ "addr": "0x13bce8",
+ "seg": 60,
+ "key": "rf_pll_calibrate__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_adv_rx_slot_process\",\"confidence\":\"medium\",\"docstring\":\"Scans receive slots for active entries matching the requested value, parses the corresponding PHY status, clears the selected entry's byte at offset 25, and passes it to advertising handling.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"rx_slot_cursor\",\"v2\":\"adv_entry\",\"v4\":\"match_value\",\"v7\":\"slot_active\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Entry value compared with the function argument to select a slot\"},{\"offset\":25,\"meaning\":\"Entry byte cleared after PHY status parsing\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "parse_hex10",
+ "img": "fmacfw_u02",
+ "addr": "0x12fc38",
+ "seg": 42,
+ "key": "parse_hex10__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_debug_config\",\"confidence\":\"medium\",\"docstring\":\"Queries or updates the debug mask and debug mode from command-line arguments.\",\"subsystem\":\"ipc\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v4\":\"debug_setting_kind\",\"v6\":\"debug_mask\",\"v7\":\"current_debug_mode\",\"v8\":\"debug_mode\"}}"
+}

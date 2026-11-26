@@ -1,0 +1,9 @@
+{
+ "fn": "util_read_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1125a4",
+ "seg": 4,
+ "key": "util_read_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_read_status_byte\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads and returns the volatile 8-bit status byte at the fixed register address referenced by off_1125AC.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

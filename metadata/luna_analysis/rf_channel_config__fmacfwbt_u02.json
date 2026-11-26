@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ff58",
+ "seg": 3,
+ "key": "rf_channel_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_gpio_configure\",\"confidence\":\"low\",\"docstring\":\"Builds a configuration block from global settings, submits it to a helper, and arms a timer using two values from the referenced configuration.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"config\",\"v2\":\"config_buffer\",\"v3\":\"table_value_a\",\"v4\":\"table_value_b\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"64-bit value copied into the configuration buffer\"},{\"offset\":28,\"meaning\":\"first value passed to timer_arm\"},{\"offset\":32,\"meaning\":\"second value passed to timer_arm\"}]}"
+}

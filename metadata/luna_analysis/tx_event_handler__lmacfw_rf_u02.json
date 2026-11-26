@@ -1,0 +1,9 @@
+{
+ "fn": "tx_event_handler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113280",
+ "seg": 5,
+ "key": "tx_event_handler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_event_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Process pending transmit-related kernel events by initializing the state list and iterating the event list while the control-block event count is nonzero.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"tx_event_ctrl_ptr\",\n    \"v2\": \"event_list\",\n    \"v3\": \"kernel_state_list\",\n    \"v4\": \"event_index\",\n    \"v5\": \"event_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"uint16_t pending_tx_event_count\"\n    }\n  ]\n}"
+}

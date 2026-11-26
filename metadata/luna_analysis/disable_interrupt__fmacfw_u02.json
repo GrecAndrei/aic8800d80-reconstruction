@@ -1,0 +1,9 @@
+{
+ "fn": "disable_interrupt",
+ "img": "fmacfw_u02",
+ "addr": "0x10076c",
+ "seg": 0,
+ "key": "disable_interrupt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"disable_rf_interrupt\",\"confidence\":\"medium\",\"docstring\":\"Disables the RF interrupt by clearing bit 16 in one MMIO register and updating two related control registers.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"control_reg\"}}"
+}

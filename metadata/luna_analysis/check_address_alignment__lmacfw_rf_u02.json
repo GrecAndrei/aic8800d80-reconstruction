@@ -1,0 +1,9 @@
+{
+ "fn": "check_address_alignment",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x122f3c",
+ "seg": 22,
+ "key": "check_address_alignment__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_ef_sdio_cfg_access\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Gets or programs the RF reg1 ef_sdio_cfg field, validating a nonzero four-bit value for set operations.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"op\",\n    \"a2\": \"cfg_value\",\n    \"v5\": \"set_result_cfg\",\n    \"v7\": \"current_cfg\"\n  },\n  \"struct_hints\": []\n}"
+}

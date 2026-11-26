@@ -1,0 +1,9 @@
+{
+ "fn": "rf_hw_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11deb0",
+ "seg": 21,
+ "key": "rf_hw_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_poll_txrx\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls and services pending MAC RX/TX buffer activity until no MAC IRQ remains, then clears the associated wait/lock state.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v1\": \"busy_reg\",\n    \"v2\": \"wait_state\",\n    \"v3\": \"saved_frame_state\",\n    \"v4\": \"wrptr_reg\",\n    \"v5\": \"rdptr_reg\",\n    \"i\": \"poll_count\",\n    \"v8\": \"pbd_state\",\n    \"v9\": \"rx_handled\",\n    \"v10\": \"tx_state\",\n    \"v11\": \"pbd\",\n    \"v13\": \"tx_done_cb\",\n    \"v14\": \"channel_idle\",\n    \"v15\": \"lock_state\",\n    \"v16\": \"wait_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 192,\n      \"meaning\": \"global wait/busy flag byte\"\n    },\n    {\n      \"offset\": 33,\n      \"meaning\": \"lock active flag byte\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"packet buffer descriptor flags, bit0 valid/tx pending\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"packet buffer descriptor state\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"completion callback pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"completion callback argument\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"wait entry flag/state\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "chip_periph_init",
+ "img": "fmacfw_u02",
+ "addr": "0x1005b0",
+ "seg": 0,
+ "key": "chip_periph_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_status_code\",\"confidence\":\"medium\",\"docstring\":\"Returns an RF status code based on the requested status class and current peripheral status bits.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"status_class\",\"v2\":\"status_word\",\"v3\":\"status_word_again\",\"v5\":\"status_bit21\",\"v6\":\"status_field_8_11\",\"v7\":\"status_bit27\"}}"
+}

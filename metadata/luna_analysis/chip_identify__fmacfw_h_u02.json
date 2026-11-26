@@ -1,0 +1,9 @@
+{
+ "fn": "chip_identify",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1005b0",
+ "seg": 0,
+ "key": "chip_identify__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_chip_variant\",\"confidence\":\"medium\",\"docstring\":\"Returns a chip-variant code derived from RF status and configuration-register bits for selectors 0\u20132, and returns zero for other selectors with a conditional MMIO side effect.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"rf_status_bit21_set\",\"v6\":\"config_nibble_8_11\",\"v7\":\"config_bit_27\"}}"
+}

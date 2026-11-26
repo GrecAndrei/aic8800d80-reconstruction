@@ -1,0 +1,9 @@
+{
+ "fn": "ble_sched_init",
+ "img": "fmacfw_u02",
+ "addr": "0x11f724",
+ "seg": 21,
+ "key": "ble_sched_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_sched_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the BLE scheduler state and resets each fixed-size scheduler entry to its default values.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"scheduler_env\",\"v1\":\"entry_ptr\",\"v3\":\"entries_end\",\"v4\":\"entry\",\"result\":\"init_result\"},\"struct_hints\":[{\"offset\":52,\"meaning\":\"Pointer-sized field initialized from a shared pointer at off_11F790; its specific role is unclear.\"},{\"offset\":56,\"meaning\":\"Pointer-sized field initialized to the entry's own address.\"}]}"
+}

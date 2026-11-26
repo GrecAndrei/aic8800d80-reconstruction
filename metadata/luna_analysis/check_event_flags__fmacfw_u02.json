@@ -1,0 +1,9 @@
+{
+ "fn": "check_event_flags",
+ "img": "fmacfw_u02",
+ "addr": "0x11a838",
+ "seg": 14,
+ "key": "check_event_flags__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_config_update\",\"confidence\":\"low\",\"docstring\":\"When bits 14\u201316 are clear, rewrites the packed configuration word and replaces bits 8\u201315 of the companion word with a lookup-table byte.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"config_word\",\"v3\":\"selector\",\"v4\":\"mode_flags\",\"v5\":\"lookup_offset\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "util_zero_reg",
+ "img": "fmacfw_u02",
+ "addr": "0x132610",
+ "seg": 45,
+ "key": "util_zero_reg__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"util_find_first_set_bit\",\"confidence\":\"medium\",\"docstring\":\"Returns the index of the least-significant set bit among bits 0\u201311, or 12 if none are set.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"value\",\"v1\":\"bit_index\",\"v3\":\"matched_bit_index\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "pll_set_clock",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1073d8",
+ "seg": 2,
+ "key": "pll_set_clock__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"pll_configure_clock\",\"confidence\":\"medium\",\"docstring\":\"Sets four 6-bit fields in one PLL register to 3, clears the corresponding fields in a second register, and clears the low six bits of a third register.\",\"subsystem\":\"rf\"}"
+}

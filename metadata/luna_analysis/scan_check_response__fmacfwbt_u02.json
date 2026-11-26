@@ -1,0 +1,9 @@
+{
+ "fn": "scan_check_response",
+ "img": "fmacfwbt_u02",
+ "addr": "0x116448",
+ "seg": 8,
+ "key": "scan_check_response__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_scan_queue_pop\",\"confidence\":\"medium\",\"docstring\":\"Removes the oldest pending scan entry and clears interrupt 119 when the queue is empty and the associated status word is negative.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"queue_entry\",\"v1\":\"result\"}}"
+}

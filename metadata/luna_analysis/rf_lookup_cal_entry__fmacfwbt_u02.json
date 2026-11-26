@@ -1,0 +1,9 @@
+{
+ "fn": "rf_lookup_cal_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x130fd4",
+ "seg": 43,
+ "key": "rf_lookup_cal_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_extract_cal_bytes\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses one or two tagged RF calibration records and copies filtered payload bytes into a byte-count-prefixed output buffer, stopping the second segment after about 12 extracted bytes.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cal_blob\",\n    \"a2\": \"cal_blob_len\",\n    \"a3\": \"cal_bytes_out\",\n    \"result\": \"parsed_entry\",\n    \"v15\": \"entry_len\",\n    \"v7\": \"out_count\",\n    \"v8\": \"payload_cur\",\n    \"v9\": \"payload_end\",\n    \"v10\": \"payload_byte\",\n    \"v11\": \"second_payload_cur\",\n    \"v12\": \"second_payload_end\",\n    \"v13\": \"second_payload_byte\",\n    \"v14\": \"next_out_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"output byte count\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"first extracted calibration byte\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"payload start after parsed entry header\"\n    }\n  ]\n}"
+}

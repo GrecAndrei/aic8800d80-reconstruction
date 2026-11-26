@@ -1,0 +1,9 @@
+{
+ "fn": "set_radio_ctrl_bits2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x102b64",
+ "seg": 2,
+ "key": "set_radio_ctrl_bits2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_radio_ctrl_update_bits\",\"confidence\":\"medium\",\"docstring\":\"Updates the radio-control register to one of two bit patterns selected by whether the argument is zero, using staged writes separated by delay loops.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"clear_mask\",\"v2\":\"argument_is_zero\",\"v3\":\"set_mask\",\"v4\":\"radio_ctrl_value\",\"v6\":\"cleared_ctrl_value\",\"v8\":\"staged_ctrl_value\",\"v5\":\"delay_counter_1\",\"v7\":\"delay_counter_2\",\"v9\":\"delay_counter_3\"}}"
+}

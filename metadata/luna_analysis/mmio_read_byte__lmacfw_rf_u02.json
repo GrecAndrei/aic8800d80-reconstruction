@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_byte",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113be8",
+ "seg": 5,
+ "key": "mmio_read_byte__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_read_byte_status\",\"confidence\":\"medium\",\"docstring\":\"Reads the fixed 32-bit MMIO word at offset/index 6, stores either its high or third byte into the output pointer, and returns a selector/status code indicating which byte lane supplied the value.\",\"subsystem\":\"mmio\",\"var_renames\":{\"v2\":\"reg_val\",\"v4\":\"byte_val\"}}"
+}

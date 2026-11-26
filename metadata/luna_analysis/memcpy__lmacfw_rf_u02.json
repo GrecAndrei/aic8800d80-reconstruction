@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1282e8",
+ "seg": 23,
+ "key": "memcpy__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"memcpy\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Copies a specified number of bytes from a source buffer to a destination buffer using the standard optimized library memcpy implementation.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "parse_frame_0x26",
+ "img": "fmacfw_u02",
+ "addr": "0x12df60",
+ "seg": 42,
+ "key": "parse_frame_0x26__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"validate_frame_type_16\",\"confidence\":\"medium\",\"docstring\":\"Checks a 38-byte frame range and returns the range-check result only when its first reported 16-bit field equals 16.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"frame_buffer\",\"a2\":\"frame_length\",\"v3\":\"range_info\"}}"
+}

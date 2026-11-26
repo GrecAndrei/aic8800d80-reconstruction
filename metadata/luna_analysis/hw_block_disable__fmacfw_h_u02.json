@@ -1,0 +1,9 @@
+{
+ "fn": "hw_block_disable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10de08",
+ "seg": 3,
+ "key": "hw_block_disable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hw_block_disable\",\"confidence\":\"medium\",\"docstring\":\"Configures and triggers the hardware block's disable operation, waits for completion, acknowledges the status flag, and returns the processed result register.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"aux_registers\",\"v1\":\"block_registers\",\"v4\":\"result_as_double\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Register cleared before the operation\"},{\"offset\":4,\"meaning\":\"Operation trigger register, written with 1\"},{\"offset\":8,\"meaning\":\"Block configuration register\"},{\"offset\":12,\"meaning\":\"Block configuration register\"},{\"offset\":16,\"meaning\":\"Result register converted and returned\"},{\"offset\":28,\"meaning\":\"Completion flag polled and acknowledged by writing 1\"},{\"offset\":56,\"meaning\":\"Auxiliary register programmed with 296\"}]}"
+}

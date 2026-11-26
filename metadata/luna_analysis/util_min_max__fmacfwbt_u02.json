@@ -1,0 +1,9 @@
+{
+ "fn": "util_min_max",
+ "img": "fmacfwbt_u02",
+ "addr": "0x107824",
+ "seg": 2,
+ "key": "util_min_max__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_adjust_tx_power\",\"confidence\":\"medium\",\"docstring\":\"Selects the maximum of four power values, derives a dB-scaled adjustment, updates the TX configuration field at offset 8, and reloads the TX configuration.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"power_candidates\",\"a2\":\"tx_config\",\"v2\":\"max_power_candidate\",\"v3\":\"max_power\",\"v5\":\"current_power_setting\",\"v6\":\"power_db\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"TX power setting adjusted using the derived dB value\"}]}"
+}

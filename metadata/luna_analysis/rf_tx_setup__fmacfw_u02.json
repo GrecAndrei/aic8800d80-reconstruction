@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_setup",
+ "img": "fmacfw_u02",
+ "addr": "0x118940",
+ "seg": 11,
+ "key": "rf_tx_setup__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_tx_queue_process\",\"confidence\":\"medium\",\"docstring\":\"Processes queued BLE link-layer transmit items, prepares their hardware control word, and dispatches eligible connection PDUs.\",\"subsystem\":\"ble\",\"var_renames\":{\"v7\":\"tx_item\",\"v8\":\"tx_register_base\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit field whose nonzero value marks the item for processing rather than freeing it\"},{\"offset\":68,\"meaning\":\"flag selecting a transmit control-word preset\"},{\"offset\":76,\"meaning\":\"base address of the transmit hardware register block\"}]}"
+}

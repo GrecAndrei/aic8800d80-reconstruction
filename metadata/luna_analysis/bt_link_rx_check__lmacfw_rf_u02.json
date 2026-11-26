@@ -1,0 +1,9 @@
+{
+ "fn": "bt_link_rx_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c158",
+ "seg": 17,
+ "key": "bt_link_rx_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_link_rx_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks a Bluetooth link's RF receive status flags and dispatches RF events, radio register accesses, and calibration processing when shared RF counters and timing conditions are met.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"rf_env_ptr\",\n    \"v2\": \"link_ctx\",\n    \"v3\": \"status_flags\",\n    \"v4\": \"calib_trigger\",\n    \"v5\": \"rf_event_param\",\n    \"v8\": \"calib_clock\",\n    \"v9\": \"calib_mode_flag\",\n    \"v10\": \"calib_interval_ticks\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 85,\n      \"meaning\": \"link RF status flag byte\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"RF event identifier or dispatch parameter\"\n    },\n    {\n      \"offset\": 80,\n      \"meaning\": \"RF calibration timestamp/tick value\"\n    },\n    {\n      \"offset\": 94,\n      \"meaning\": \"calibration timing mode flag\"\n    },\n    {\n      \"offset\": 102,\n      \"meaning\": \"RF calibration table index\"\n    }\n  ]\n}"
+}

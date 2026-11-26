@@ -1,0 +1,9 @@
+{
+ "fn": "set_radio_ctrl_bits",
+ "img": "fmacfwbt_u02",
+ "addr": "0x102b00",
+ "seg": 2,
+ "key": "set_radio_ctrl_bits__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_radio_ctrl_set_bits\",\"confidence\":\"medium\",\"docstring\":\"Selects one of two radio-control bit sequences, clearing conflicting bits and applying the selected bits with short settling delays.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"final_set_bit\",\"v2\":\"intermediate_set_bit\",\"v5\":\"control_value_after_first_clear\",\"v6\":\"delay_counter\",\"v8\":\"staged_control_value\"}}"
+}

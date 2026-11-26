@@ -1,0 +1,9 @@
+{
+ "fn": "rf_gpio_init_alt",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10eb04",
+ "seg": 3,
+ "key": "rf_gpio_init_alt__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_gpio_init_alt\",\"confidence\":\"high\",\"docstring\":\"Performs the alternate RF GPIO setup sequence, configures GPIO pad 4, and restores the saved control-register bits.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_gpio_ctrl_reg\",\"v10\":\"saved_ctrl_reg_value_1\",\"v11\":\"saved_ctrl_reg_value_2\",\"v12\":\"saved_ctrl_reg_value_3\",\"v13\":\"saved_ctrl_reg_value_4\"}}"
+}

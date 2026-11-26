@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_process_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x112094",
+ "seg": 4,
+ "key": "wlan_process_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_process_status\",\"confidence\":\"medium\",\"docstring\":\"Copies the pending WLAN status, sets the status state to 3 for zero or 4 for a callback-accepted nonzero value, and conditionally clears a configuration field when RF calibration is incomplete.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"status_code\",\"v3\":\"status_callback\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Control byte set to 7 after a nonzero status is accepted.\"},{\"offset\":14,\"meaning\":\"16-bit pending status value.\"}]}"
+}

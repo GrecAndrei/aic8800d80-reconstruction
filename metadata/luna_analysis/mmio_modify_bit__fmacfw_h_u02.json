@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_modify_bit",
+ "img": "fmacfw_h_u02",
+ "addr": "0x116df4",
+ "seg": 9,
+ "key": "mmio_modify_bit__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_unlock\",\"confidence\":\"medium\",\"docstring\":\"Releases the indexed PHY hardware lock by clearing its software lock bit and waiting for the corresponding MMIO status to clear.\",\"subsystem\":\"phy\",\"var_renames\":{\"result\":\"lock_index\",\"v1\":\"previous_lock_mask\",\"v2\":\"lock_mask\"}}"
+}

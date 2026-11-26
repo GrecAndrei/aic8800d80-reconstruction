@@ -1,0 +1,9 @@
+{
+ "fn": "link_layer_control",
+ "img": "fmacfw_u02",
+ "addr": "0x123690",
+ "seg": 28,
+ "key": "link_layer_control__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_send_rx_prep_result\",\"confidence\":\"medium\",\"docstring\":\"Prepares the supplied RX descriptor and, when a destination task is specified, sends a three-byte message containing its first byte, the preparation result, and the constant 4.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"rx_descriptor\",\"a3\":\"source_task_id\",\"a4\":\"destination_task_id\",\"v7\":\"prep_result\",\"v9\":\"prep_result\",\"v10\":\"message_params\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Copied first byte of the RX descriptor\"},{\"offset\":1,\"meaning\":\"RX descriptor preparation result\"},{\"offset\":2,\"meaning\":\"Constant message field set to 4\"}]}"
+}

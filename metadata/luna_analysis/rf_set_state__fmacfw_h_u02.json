@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x113418",
+ "seg": 4,
+ "key": "rf_set_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_set_send_state\",\"confidence\":\"medium\",\"docstring\":\"Selects the WLAN send state; state 2 drains queued WLAN requests while handling their completion codes and checking RF idleness, whereas state 3 reports a send error.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v3\":\"send_state\",\"v4\":\"requested_state\",\"v5\":\"pending_request_count\",\"v7\":\"request_queue_head\",\"v9\":\"request_queue_entry\",\"v10\":\"request_context\",\"v11\":\"request_status_code\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Request state/status byte; its high nibble selects completion handling.\"}]}"
+}

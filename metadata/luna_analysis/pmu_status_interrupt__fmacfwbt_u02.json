@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_status_interrupt",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10c938",
+ "seg": 2,
+ "key": "pmu_status_interrupt__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"pmu_status_irq_handler\",\"confidence\":\"medium\",\"docstring\":\"Processes PMU interrupt-status bits, acknowledges handled sources, and updates system and radio flags.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"interrupt_status\"}}"
+}

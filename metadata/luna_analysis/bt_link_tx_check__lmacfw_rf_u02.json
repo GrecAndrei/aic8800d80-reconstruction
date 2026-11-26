@@ -1,0 +1,9 @@
+{
+ "fn": "bt_link_tx_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c01c",
+ "seg": 17,
+ "key": "bt_link_tx_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_link_tx_check\",\"confidence\":\"medium\",\"docstring\":\"Checks a Bluetooth link's transmit state and dispatches RF event or recovery handling when the active transmit context mismatches or a TX timing condition is met.\",\"subsystem\":\"bt\",\"var_renames\":{\"result\":\"conn\",\"v2\":\"conn\",\"v3\":\"link_ctx\",\"v1\":\"ctrl\",\"v6\":\"last_tx_ts\",\"v7\":\"cur_ts\",\"v8\":\"ts\",\"v9\":\"saved_ts\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"link timestamp/tick field\"},{\"offset\":76,\"meaning\":\"embedded context pointer field\"},{\"offset\":80,\"meaning\":\"last TX timestamp field\"},{\"offset\":85,\"meaning\":\"link TX state/timeout flag byte\"},{\"offset\":12,\"meaning\":\"active context pointer matched against conn+76\"},{\"offset\":4,\"meaning\":\"scheduled timestamp/tick used for TX timing\"}]}"
+}

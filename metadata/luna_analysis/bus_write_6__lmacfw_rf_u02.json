@@ -1,0 +1,9 @@
+{
+ "fn": "bus_write_6",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11482c",
+ "seg": 6,
+ "key": "bus_write_6__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bus_write_6\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Wrapper that performs a six-byte bus write by passing the supplied buffer pointer to bus_write_buf on bus channel 2.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"buf_ptr\"\n  },\n  \"struct_hints\": []\n}"
+}

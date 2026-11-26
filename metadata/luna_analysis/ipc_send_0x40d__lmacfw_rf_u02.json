@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_send_0x40d",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f7fc",
+ "seg": 2,
+ "key": "ipc_send_0x40d__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ipc_send_msg_0x40d\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends the fixed kernel/IPC message identifier 0x40d and forwards the resulting message or status to the receive handler.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"v0\": \"msg\"\n  },\n  \"struct_hints\": []\n}"
+}

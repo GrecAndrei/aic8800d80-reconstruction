@@ -1,0 +1,9 @@
+{
+ "fn": "util_list_find",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1247a4",
+ "seg": 23,
+ "key": "util_list_find__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"util_array_contains_pair\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scan a NULL-terminated array of byte pointers and return true if any entry's first two bytes match the first two bytes of the key.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v2\": \"entry\",\n    \"v3\": \"next_entry\"\n  }\n}"
+}

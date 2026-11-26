@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_sleep_200000",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11dc68",
+ "seg": 21,
+ "key": "pmu_sleep_200000__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_set_pmu_sleep_flag\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Wrapper that sets system flag bit 0x200000, likely to indicate or request a PMU sleep state.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

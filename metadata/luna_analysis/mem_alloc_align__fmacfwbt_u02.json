@@ -1,0 +1,9 @@
+{
+ "fn": "mem_alloc_align",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12cd0c",
+ "seg": 41,
+ "key": "mem_alloc_align__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_mem_alloc_align\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a 4-byte-aligned memory block from a global free-block list using best-fit selection and an IRQ-safe allocation lock, splitting the chosen block and returning the allocated payload.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v2\": \"aligned_size\",\n    \"v3\": \"alloc_size\",\n    \"v4\": \"free_block\",\n    \"v5\": \"lock_count_ptr\",\n    \"v6\": \"lock_count\",\n    \"v7\": \"best_fit_block\",\n    \"v8\": \"candidate_size\",\n    \"v9\": \"selected_block\",\n    \"v10\": \"remaining_size\",\n    \"v12\": \"irq_disabled_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"next pointer in the free-block list\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"size of the free block\"\n    }\n  ]\n}"
+}

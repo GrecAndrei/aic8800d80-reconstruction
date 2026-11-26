@@ -1,0 +1,9 @@
+{
+ "fn": "transmit_radio_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11f680",
+ "seg": 21,
+ "key": "transmit_radio_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_mac_address\",\"confidence\":\"medium\",\"docstring\":\"Recomputes the MAC-address match mask from registered entries and queues the requested address and P2P mode for the controller.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"mac_address\",\"a2\":\"mac_index\",\"a3\":\"is_p2p\",\"v5\":\"mac_entry_list\",\"v7\":\"common_mac_low\",\"v8\":\"mac_mask_high\",\"v9\":\"mac_mask_low\",\"v10\":\"common_mac_high\",\"v11\":\"entry_mac_low\",\"v12\":\"entry_mac_high\",\"v16\":\"command_entry\"},\"struct_hints\":[{\"offset\":100,\"meaning\":\"Low 32 bits of the MAC address\"},{\"offset\":104,\"meaning\":\"Upper 16 bits of the MAC address\"},{\"offset\":106,\"meaning\":\"MAC index or selector\"},{\"offset\":1224,\"meaning\":\"P2P mode flag\"}]}"
+}

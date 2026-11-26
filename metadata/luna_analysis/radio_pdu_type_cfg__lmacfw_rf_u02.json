@@ -1,0 +1,9 @@
+{
+ "fn": "radio_pdu_type_cfg",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11532c",
+ "seg": 6,
+ "key": "radio_pdu_type_cfg__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"radio_set_pdu_type_cfg\", \"confidence\": \"medium\", \"docstring\": \"Writes the radio PDU-type configuration register with the corresponding one-hot bit mask for supported types, and falls back to flash/radio control initialization for unsupported types under a parameter condition.\", \"subsystem\": \"rf\", \"var_renames\": {\"result\": \"pdu_type\"}, \"struct_hints\": []}"
+}

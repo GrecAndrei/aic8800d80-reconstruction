@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_battery",
+ "img": "fmacfw_u02",
+ "addr": "0x12c538",
+ "seg": 40,
+ "key": "rf_check_battery__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tpc_update_frame\",\"confidence\":\"medium\",\"docstring\":\"Updates a frame\u2019s TPC value from its PHY/rate metadata when enabled, with a fallback operation when the related signed parameter is negative.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"tx_frame\",\"v4\":\"tpc_value\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"PHY/rate control word used to derive the TPC value\"},{\"offset\":36,\"meaning\":\"packed TPC result written as two copies of one byte\"}]}"
+}

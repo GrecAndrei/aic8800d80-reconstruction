@@ -1,0 +1,9 @@
+{
+ "fn": "ll_get_access_addr",
+ "img": "fmacfw_u02",
+ "addr": "0x131230",
+ "seg": 42,
+ "key": "ll_get_access_addr__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_get_access_addr\",\"confidence\":\"high\",\"docstring\":\"Parses the supplied link-layer frame and stores its 32-bit access address at offset 220, or an invalid sentinel if parsing fails.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"frame\",\"a3\":\"output_context\"},\"struct_hints\":[{\"offset\":220,\"meaning\":\"32-bit access address; set to 0x80000000 when parsing fails\"}]}"
+}

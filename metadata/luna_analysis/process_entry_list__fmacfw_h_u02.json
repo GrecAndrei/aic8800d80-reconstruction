@@ -1,0 +1,9 @@
+{
+ "fn": "process_entry_list",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12b064",
+ "seg": 39,
+ "key": "process_entry_list__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_channel_entry\",\"confidence\":\"medium\",\"docstring\":\"Processes the current RF channel-list entry, selects its timeout, derives its channel number, and invokes HCI command preprocessing.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"entry_list_base\",\"v2\":\"current_entry\",\"v3\":\"entry_offset\",\"v4\":\"entry_flags\",\"v5\":\"entry_timeout\",\"v6\":\"channel_output\",\"v7\":\"band_selector\",\"v8\":\"frequency_mhz\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Entry frequency in MHz\"},{\"offset\":2,\"meaning\":\"Entry band selector; zero selects 2.4 GHz mapping and one selects 5 GHz mapping\"},{\"offset\":3,\"meaning\":\"Entry flags used to choose timeout handling\"},{\"offset\":2,\"meaning\":\"Output structure field where the derived channel number is stored\"}]}"
+}

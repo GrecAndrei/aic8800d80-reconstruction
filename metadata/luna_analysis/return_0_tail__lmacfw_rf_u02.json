@@ -1,0 +1,9 @@
+{
+ "fn": "return_0_tail",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121ae8",
+ "seg": 22,
+ "key": "return_0_tail__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_int_save_return_0\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Thin tail-call wrapper that invokes handle_interrupt_save(0) and returns its result.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "chip_revision_read",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11583c",
+ "seg": 6,
+ "key": "chip_revision_read__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init\",\"confidence\":\"medium\",\"docstring\":\"Records a low-nibble hardware value, configures variant-dependent RF controls, and sets a status byte if any of three status/mask pairs is active.\",\"subsystem\":\"rf\",\"var_renames\":{\"v9\":\"rf_variant\",\"result\":\"rf_status_flag\"}}"
+}

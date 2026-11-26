@@ -1,0 +1,9 @@
+{
+ "fn": "is_null_pointer",
+ "img": "fmacfw_h_u02",
+ "addr": "0x109738",
+ "seg": 2,
+ "key": "is_null_pointer__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_repair_calibration_table\",\"confidence\":\"medium\",\"docstring\":\"Processes a six-entry RF calibration array, treats negative values as missing, repairs selected values, and returns a missing-entry mask or status.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"calibration_values\",\"v2\":\"index\",\"v5\":\"missing_later_count\",\"v6\":\"missing_first_count\",\"result\":\"missing_mask\"}}"
+}

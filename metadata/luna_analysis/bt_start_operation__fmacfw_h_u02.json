@@ -1,0 +1,9 @@
+{
+ "fn": "bt_start_operation",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11bac0",
+ "seg": 17,
+ "key": "bt_start_operation__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_channel_tx_rate_summary\",\"confidence\":\"medium\",\"docstring\":\"Aggregates eight channel-indexed counters by mapped rate class and computes a compact, scaled summary for an eligible connection.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"nonzero_counter_count\",\"v2\":\"connection_context\",\"v3\":\"rate_class_ids\",\"v4\":\"channel_rate_counters\",\"v6\":\"unique_rate_class_count\",\"v7\":\"rate_class_mask\",\"v8\":\"largest_class_total\",\"v9\":\"total_counter_value\",\"v13\":\"rate_class_id\",\"v15\":\"class_total\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Connection flags; bit 0x20 gates processing.\"},{\"offset\":35,\"meaning\":\"Channel index used to select the counter table.\"},{\"offset\":37,\"meaning\":\"Connection validity or active flag.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_chan_state",
+ "img": "fmacfw_u02",
+ "addr": "0x13ba24",
+ "seg": 60,
+ "key": "rf_get_chan_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_channel_state\",\"confidence\":\"medium\",\"docstring\":\"Returns the indexed 32-byte channel entry and, when its selector is 0 or 1, writes 0x21 to the corresponding byte in an associated indexed table.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"entry_index\",\"result\":\"channel_entry\",\"v2\":\"outer_table_index\",\"v3\":\"inner_table_index\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Index used as the outer dimension of the associated table.\"},{\"offset\":17,\"meaning\":\"Selector choosing which associated table byte to mark; values other than 0 or 1 cause no write.\"},{\"offset\":22,\"meaning\":\"Index used as the inner dimension of the associated table.\"}]}"
+}

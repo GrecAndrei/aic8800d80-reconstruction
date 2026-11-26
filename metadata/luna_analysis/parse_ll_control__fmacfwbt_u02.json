@@ -1,0 +1,9 @@
+{
+ "fn": "parse_ll_control",
+ "img": "fmacfwbt_u02",
+ "addr": "0x14216c",
+ "seg": 68,
+ "key": "parse_ll_control__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_ll_control_parse\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses a Bluetooth LE link-layer control message, allocates an HCI event buffer when appropriate, and packs and sends the resulting event.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"result\": \"msg_ptr\",\n    \"v3\": \"ll_base\",\n    \"v4\": \"msg_ptr\",\n    \"v5\": \"link_idx\",\n    \"v15\": \"control_flags\",\n    \"v17\": \"control_payload_ptr\",\n    \"v27\": \"event_pool_ptr\",\n    \"v30\": \"event_buf_ptr\",\n    \"v31\": \"alloc_counter_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 7,\n      \"meaning\": \"message byte field; 255 is treated as a special wildcard or invalid value\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"link or connection index used to select a 1320-byte BLE link-layer entry\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"control message opcode or type byte\"\n    },\n    {\n      \"offset\": 13,\n      \"meaning\": \"subtype or field selector within the control message\"\n    },\n    {\n      \"offset\": 17,\n      \"meaning\": \"control flag byte parsed from the message\"\n    },\n    {\n      \"offset\": 18,\n      \"meaning\": \"16-bit control field following the flag byte\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"byte flag in a BLE link-layer connection/context entry\"\n    },\n    {\n      \"offset\": 472,\n      \"meaning\": \"uint32 status word in a BLE link-layer connection/context entry\"\n    }\n  ]\n}"
+}

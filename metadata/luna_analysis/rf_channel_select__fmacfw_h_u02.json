@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_select",
+ "img": "fmacfw_h_u02",
+ "addr": "0x116034",
+ "seg": 7,
+ "key": "rf_channel_select__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_rx_packet_decode\",\"confidence\":\"medium\",\"docstring\":\"Parses and normalizes a BLE packet into the destination buffer, or clears its first eight bytes when the mode bit is set.\",\"subsystem\":\"ll\",\"var_renames\":{\"v7\":\"parsed_packet_cursor\",\"v8\":\"destination_offset\",\"v9\":\"packet_byte\"}}"
+}

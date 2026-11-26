@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_prepare",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114044",
+ "seg": 5,
+ "key": "rx_packet_prepare__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_write\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Encodes a signed RF command/register value and writes it into the first available 4-bit slot of a byte in one of three RF command register banks.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_cmd_bank_idx\",\n    \"a2\": \"byte_idx\",\n    \"a3\": \"rf_cmd_arg\",\n    \"v7\": \"word_addr\",\n    \"v8\": \"byte_bit_shift\",\n    \"v9\": \"reg_word_value\",\n    \"v10\": \"target_byte\",\n    \"v11\": \"nibble_bit_shift\",\n    \"v12\": \"status\",\n    \"v14\": \"encoded_cmd\",\n    \"v15\": \"cmd_bases\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first RF command register base pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"second RF command register base pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"third RF command register base pointer\"\n    }\n  ]\n}"
+}

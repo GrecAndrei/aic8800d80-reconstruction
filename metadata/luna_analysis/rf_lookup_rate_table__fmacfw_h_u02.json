@@ -1,0 +1,9 @@
+{
+ "fn": "rf_lookup_rate_table",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1391b4",
+ "seg": 58,
+ "key": "rf_lookup_rate_table__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_rate_table_entry\",\"confidence\":\"medium\",\"docstring\":\"Looks up the rate-table entry selected by the descriptor and, on a forward 12-bit sequence mismatch, delays before returning the table-check helper's result.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"descriptor_sequence\",\"v4\":\"entry_sequence\",\"v5\":\"sequence_delta\",\"v6\":\"signed_sequence_delta\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Descriptor rate selector in the upper nibble.\"},{\"offset\":18,\"meaning\":\"Descriptor sequence counter in the upper 12 bits.\"},{\"offset\":8,\"meaning\":\"Rate-table entry sequence counter.\"}]}"
+}

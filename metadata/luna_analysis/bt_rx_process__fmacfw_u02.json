@@ -1,0 +1,9 @@
+{
+ "fn": "bt_rx_process",
+ "img": "fmacfw_u02",
+ "addr": "0x136478",
+ "seg": 56,
+ "key": "bt_rx_process__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"apm_start_req_handler\",\"confidence\":\"high\",\"docstring\":\"Validates an AP-start request, initializes the per-VIF AP context, and sends a confirmation with a rejection status when validation fails.\",\"subsystem\":\"mac\",\"var_renames\":{\"v4\":\"vif_context_table\",\"v8\":\"vif_idx\",\"v9\":\"vif_context\",\"v10\":\"failure_status\",\"v11\":\"confirm_params\"},\"struct_hints\":[{\"offset\":51,\"meaning\":\"VIF index in the AP-start request\"},{\"offset\":106,\"meaning\":\"Per-VIF AP state, checked against ready state 2\"}]}"
+}

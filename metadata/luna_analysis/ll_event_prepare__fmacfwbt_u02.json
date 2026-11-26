@@ -1,0 +1,9 @@
+{
+ "fn": "ll_event_prepare",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133e00",
+ "seg": 49,
+ "key": "ll_event_prepare__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ll_conn_loss_ind_prepare\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prepare a Bluetooth LE link-layer connection-loss indication by checking the connection-loss feature, issuing the related short HCI event, and resetting the associated connection/RF context when a pending state is observed.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"conn_idx_ptr\",\n    \"v2\": \"conn_idx\",\n    \"v4\": \"conn_ctx\",\n    \"v5\": \"conn_event_state\",\n    \"result\": \"status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"per-connection link-layer event/state flag; nonzero suppresses RF context initialization\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"per-connection pending event indicator/reason used to decide whether to initialize RF context\"\n    }\n  ]\n}"
+}

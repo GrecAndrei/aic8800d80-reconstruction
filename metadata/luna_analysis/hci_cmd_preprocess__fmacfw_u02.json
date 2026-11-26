@@ -1,0 +1,9 @@
+{
+ "fn": "hci_cmd_preprocess",
+ "img": "fmacfw_u02",
+ "addr": "0x12a3f4",
+ "seg": 37,
+ "key": "hci_cmd_preprocess__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_llc_packet_event_schedule\",\"confidence\":\"medium\",\"docstring\":\"For packets matching a fixed byte signature ending in 0x0C, conditionally clears an MMIO bit and schedules the packet data at an adjusted event time.\",\"subsystem\":\"ble\",\"var_renames\":{\"v4\":\"packet_data\",\"v5\":\"connection_index\",\"v6\":\"connection_context\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Flag gating the conditional MMIO bit-clear\"},{\"offset\":132,\"meaning\":\"Base event-time value added to the caller-supplied offset\"},{\"offset\":1225,\"meaning\":\"Byte value passed to the LLC event scheduler as its connection identifier\"}]}"
+}

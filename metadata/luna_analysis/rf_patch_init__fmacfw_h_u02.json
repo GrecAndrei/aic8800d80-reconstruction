@@ -1,0 +1,9 @@
+{
+ "fn": "rf_patch_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x129e04",
+ "seg": 36,
+ "key": "rf_patch_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sec_table_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes security-table state by clearing one byte and setting two fields to the invalid sentinel value 0xFF.\",\"subsystem\":\"sec\",\"var_renames\":{\"v1\":\"state_base\"},\"struct_hints\":[{\"offset\":113,\"meaning\":\"Byte initialized to 0xFF as an invalid or unset sentinel.\"},{\"offset\":253,\"meaning\":\"Byte initialized to 0xFF as an invalid or unset sentinel.\"}]}"
+}

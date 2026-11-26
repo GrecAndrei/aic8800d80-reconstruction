@@ -1,0 +1,9 @@
+{
+ "fn": "hci_le_set_scan_params",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1405dc",
+ "seg": 65,
+ "key": "hci_le_set_scan_params__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hci_le_set_scan_params\", \"confidence\": \"medium\", \"docstring\": \"Populates or updates an HCI LE scan parameter buffer, copying interval/filter settings from global scan tables when the caller requests configuration.\", \"subsystem\": \"ble\", \"var_renames\": {\"a1\": \"ctx\", \"a2\": \"apply_config\", \"v5\": \"scan_param_buf\", \"v17\": \"global_cfg\", \"v18\": \"scan_interval_table\", \"v19\": \"scan_filter_table\"}, \"struct_hints\": [{\"offset\": 72, \"meaning\": \"pointer to scan/command parameter buffer\"}, {\"offset\": 108, \"meaning\": \"scan control word or command/type field, initialized to 0xD0\"}, {\"offset\": 112, \"meaning\": \"first copied 16-bit scan timing parameter\"}, {\"offset\": 118, \"meaning\": \"second copied 16-bit scan timing/filter parameter\"}]}"
+}

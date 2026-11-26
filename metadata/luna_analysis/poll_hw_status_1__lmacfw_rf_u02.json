@@ -1,0 +1,9 @@
+{
+ "fn": "poll_hw_status_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1183a0",
+ "seg": 11,
+ "key": "poll_hw_status_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"link_status_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Refreshes cached link-status fields by sampling four hardware status registers, clamping each nonzero 16-bit value to 150 before storing it.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v1\": \"source_reg2\",\n    \"v2\": \"link_status_cache\",\n    \"v3\": \"source_reg2_value\",\n    \"v4\": \"clamped_status2\",\n    \"v5\": \"source_reg3\",\n    \"v6\": \"clamped_status3\",\n    \"v7\": \"source_reg4\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"uint16_t clamped link status sample 1\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"uint16_t clamped link status sample 2\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"uint16_t clamped link status sample 3\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"uint16_t clamped link status sample 4\"\n    }\n  ]\n}"
+}

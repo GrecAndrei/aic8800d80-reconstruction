@@ -1,0 +1,9 @@
+{
+ "fn": "format_log_message_12dba0",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12dba0",
+ "seg": 42,
+ "key": "format_log_message_12dba0__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"test_formatted_length_26\",\"confidence\":\"medium\",\"docstring\":\"Formats a message into the supplied buffer and returns the formatter result only if its recorded output length is 26.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"output_buffer\",\"a2\":\"output_capacity\",\"v3\":\"output_length\"}}"
+}

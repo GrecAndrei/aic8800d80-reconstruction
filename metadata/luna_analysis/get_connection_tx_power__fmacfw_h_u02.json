@@ -1,0 +1,9 @@
+{
+ "fn": "get_connection_tx_power",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11efec",
+ "seg": 21,
+ "key": "get_connection_tx_power__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_connection_event\",\"confidence\":\"medium\",\"docstring\":\"Processes a controller connection\u2019s link-layer work, clears its event markers, services associated queued work, and selects a radio action when no RX PDU is available.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"connection_idx\",\"v4\":\"connection_table_base\",\"v5\":\"link_context_table_base\",\"v6\":\"connection\",\"v7\":\"link_context_idx\",\"v8\":\"link_context_offset\",\"v9\":\"link_context\",\"v17\":\"link_context\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Connection record: index of the associated link context.\"},{\"offset\":37,\"meaning\":\"Connection record: byte flag cleared while processing connection work.\"},{\"offset\":44,\"meaning\":\"Connection record: pointer to an associated object passed to link-layer event handling.\"},{\"offset\":106,\"meaning\":\"Link context: state byte checked for value 2.\"},{\"offset\":1224,\"meaning\":\"Link context: activity/state byte gating a counter decrement and a later maintenance path.\"},{\"offset\":1226,\"meaning\":\"Link context: byte counter decremented while the activity/state byte at offset 1224 is nonzero.\"}]}"
+}

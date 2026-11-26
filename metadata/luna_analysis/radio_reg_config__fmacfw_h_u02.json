@@ -1,0 +1,9 @@
+{
+ "fn": "radio_reg_config",
+ "img": "fmacfw_h_u02",
+ "addr": "0x137030",
+ "seg": 57,
+ "key": "radio_reg_config__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cancel_scan\",\"confidence\":\"high\",\"docstring\":\"Sends a scan-cancel request, processes the response, and logs the HCI command result.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"cancel_status\"}}"
+}

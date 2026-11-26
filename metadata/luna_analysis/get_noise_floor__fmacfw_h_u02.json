@@ -1,0 +1,9 @@
+{
+ "fn": "get_noise_floor",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11004c",
+ "seg": 3,
+ "key": "get_noise_floor__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_noise_floor\",\"confidence\":\"medium\",\"docstring\":\"Clears the shared statistics buffer, then collects and processes the configured number of noise-floor measurements.\",\"subsystem\":\"rf\",\"var_renames\":{\"v4\":\"stats_buffer\",\"v5\":\"sample_index\",\"v7\":\"sample_count\",\"v2\":\"sample_counter_ptr\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"16-bit measurement count controlling the acquisition loop\"}]}"
+}

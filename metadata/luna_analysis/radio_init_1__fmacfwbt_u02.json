@@ -1,0 +1,9 @@
+{
+ "fn": "radio_init_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10e0f8",
+ "seg": 3,
+ "key": "radio_init_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_voltage_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Samples an ADC-derived voltage and adjusts its hardware trim toward a 1400 mV target.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"adc_regs\",\"v5\":\"measured_voltage_mv\",\"v13\":\"trim_adjustment_steps\",\"v14\":\"candidate_trim_code\",\"v38\":\"initial_trim_code\",\"v39\":\"trim_direction\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Writing 1 starts a voltage conversion.\"},{\"offset\":16,\"meaning\":\"ADC sample used to calculate the voltage.\"},{\"offset\":28,\"meaning\":\"Conversion-complete status polled and acknowledged.\"}]}"
+}

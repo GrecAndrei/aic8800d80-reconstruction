@@ -1,0 +1,9 @@
+{
+ "fn": "sorted_list_search",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10fbd0",
+ "seg": 2,
+ "key": "sorted_list_search__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mm_pbd_to_index\",\"confidence\":\"medium\",\"docstring\":\"Validates a packet-buffer pointer against a region and its native-pool header, then looks up the corresponding descriptor index in the pool's sorted address table.\",\"subsystem\":\"mm\",\"var_renames\":{\"a1\":\"region\",\"a2\":\"buf\",\"v5\":\"native_pool_id\",\"v6\":\"pool_table\",\"v7\":\"lock_counter\",\"v8\":\"region_base\",\"v10\":\"buffer_pattern\",\"v19\":\"pool_entry\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"region base address\"},{\"offset\":4,\"meaning\":\"region size\"},{\"offset\":8,\"meaning\":\"native pool count or maximum valid pool id\"},{\"offset\":12,\"meaning\":\"pointer to pool-index table\"},{\"offset\":-4,\"meaning\":\"buffer header native pool id\"},{\"offset\":-3,\"meaning\":\"buffer pattern byte\"},{\"offset\":-2,\"meaning\":\"buffer header count/refcount byte\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "check_status_bits",
+ "img": "fmacfw_u02",
+ "addr": "0x12ecd0",
+ "seg": 42,
+ "key": "check_status_bits__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"trace_printf_masked\",\"confidence\":\"medium\",\"docstring\":\"Formats a variadic debug message when the supplied mask intersects the enabled trace mask, otherwise returning the input value.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"trace_mask\",\"varg_r2\":\"args\"}}"
+}

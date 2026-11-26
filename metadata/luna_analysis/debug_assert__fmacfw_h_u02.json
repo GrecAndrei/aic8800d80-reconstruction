@@ -1,0 +1,9 @@
+{
+ "fn": "debug_assert",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12fe58",
+ "seg": 42,
+ "key": "debug_assert__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_stats_and_dispatch_ioctls\",\"confidence\":\"medium\",\"docstring\":\"Checks system readiness, enters a nested IRQ-protected section, clears two statistics buffers, and dispatches four WLAN ioctl handlers.\",\"subsystem\":\"test\",\"var_renames\":{\"v0\":\"critical_section_depth\",\"v1\":\"stats_buffer\",\"v3\":\"remaining_depth\",\"v4\":\"irq_restore_flag\"}}"
+}

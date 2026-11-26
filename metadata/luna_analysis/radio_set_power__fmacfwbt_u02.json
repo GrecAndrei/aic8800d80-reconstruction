@@ -1,0 +1,9 @@
+{
+ "fn": "radio_set_power",
+ "img": "fmacfwbt_u02",
+ "addr": "0x103058",
+ "seg": 2,
+ "key": "radio_set_power__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_power_set\",\"confidence\":\"medium\",\"docstring\":\"Sets or clears the RF power-control bit and conditionally sends the corresponding hardware command.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":362,\"meaning\":\"Nonzero flag gating whether the hardware command is sent.\"}]}"
+}

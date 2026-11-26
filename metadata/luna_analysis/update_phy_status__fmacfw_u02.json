@@ -1,0 +1,9 @@
+{
+ "fn": "update_phy_status",
+ "img": "fmacfw_u02",
+ "addr": "0x11c07c",
+ "seg": 18,
+ "key": "update_phy_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_rx_phy_status\",\"confidence\":\"medium\",\"docstring\":\"Decodes received PHY-status fields and updates the status context associated with the descriptor\u2019s station and interface.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"rx_descriptor_status\",\"v9\":\"station_index\",\"v10\":\"station_context\",\"v11\":\"interface_index\",\"v13\":\"rx_phy_status_word\"},\"struct_hints\":[{\"offset\":48,\"meaning\":\"RX header descriptor frame length\"},{\"offset\":84,\"meaning\":\"RX descriptor status word containing PHY-status flags\"}]}"
+}

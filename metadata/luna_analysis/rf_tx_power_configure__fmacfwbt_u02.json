@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_power_configure",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12942c",
+ "seg": 35,
+ "key": "rf_tx_power_configure__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_rx_packet_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a received RF packet descriptor by updating MM/frame status bits and scheduling deferred PHY/beacon work according to descriptor flags.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"rf_state\",\n    \"v4\": \"desc_status_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"frame/mm status bitfield\"\n    },\n    {\n      \"offset\": 114,\n      \"meaning\": \"beacon or last-frame context flag\"\n    },\n    {\n      \"offset\": 29,\n      \"meaning\": \"rf deferred processing state\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"pending frame descriptor pointer\"\n    }\n  ]\n}"
+}

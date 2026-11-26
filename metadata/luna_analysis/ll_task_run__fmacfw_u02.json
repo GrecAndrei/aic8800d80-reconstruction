@@ -1,0 +1,9 @@
+{
+ "fn": "ll_task_run",
+ "img": "fmacfw_u02",
+ "addr": "0x138668",
+ "seg": 57,
+ "key": "ll_task_run__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"scanu_start\",\"confidence\":\"medium\",\"docstring\":\"Prepares scan state and related PHY settings, logs the scan parameters, and advances the scan state machine.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"scan_env\",\"v7\":\"scan_params\",\"v8\":\"direct_identifier_match\",\"v12\":\"scan_data\",\"v13\":\"scan_data_len\"},\"struct_hints\":[{\"offset\":252,\"meaning\":\"Length of the following identifier, checked against 7.\"},{\"offset\":253,\"meaning\":\"Identifier bytes compared with the string \\\"direct\\\".\"},{\"offset\":360,\"meaning\":\"Pointer to scan-associated data copied into a global buffer.\"},{\"offset\":364,\"meaning\":\"Length of the scan-associated data.\"},{\"offset\":366,\"meaning\":\"Scan selector or index used to choose a per-entry record.\"},{\"offset\":367,\"meaning\":\"Scan count, logged as cnt.\"},{\"offset\":368,\"meaning\":\"Scan mode/type byte; value 1 enables the identifier check.\"}]}"
+}

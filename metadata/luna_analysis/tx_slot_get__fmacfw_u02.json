@@ -1,0 +1,9 @@
+{
+ "fn": "tx_slot_get",
+ "img": "fmacfw_u02",
+ "addr": "0x13a460",
+ "seg": 58,
+ "key": "tx_slot_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_reord_ctx_release\",\"confidence\":\"medium\",\"docstring\":\"Releases the indexed RX reorder context and clears its pointer from the owning context.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"reord_slot_addr\",\"v3\":\"reord_ctx\"},\"struct_hints\":[{\"offset\":408,\"meaning\":\"Per-index RX reorder-context pointer slot\"},{\"offset\":272,\"meaning\":\"Embedded member passed to a cleanup helper\"}]}"
+}

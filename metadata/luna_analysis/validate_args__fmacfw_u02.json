@@ -1,0 +1,9 @@
+{
+ "fn": "validate_args",
+ "img": "fmacfw_u02",
+ "addr": "0x143414",
+ "seg": 68,
+ "key": "validate_args__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"u64_divide\",\"confidence\":\"medium\",\"docstring\":\"Computes a 64-bit quotient through a divmod helper and returns a sentinel when the divisor is zero.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"dividend\",\"a2\":\"divisor\",\"v2\":\"remainder\"}}"
+}

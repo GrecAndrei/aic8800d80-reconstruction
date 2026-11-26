@@ -1,0 +1,9 @@
+{
+ "fn": "test_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x11a7e8",
+ "seg": 14,
+ "key": "test_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_rate_config_get_if_needed\",\"confidence\":\"medium\",\"docstring\":\"Under an interrupt-protected nesting guard, calls rate_get_config for the indexed record only when its byte flag is clear and its offset-44 field is nonzero.\",\"subsystem\":\"wlan\",\"var_renames\":{\"result\":\"entry_index\",\"v1\":\"critical_depth_ptr\",\"v2\":\"entry_ptr\",\"v3\":\"rate_config_skip_flag\",\"v4\":\"critical_depth\",\"v5\":\"depth_after_decrement\",\"v6\":\"restore_interrupts\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"Nonzero field required before calling rate_get_config; exact meaning unknown.\"},{\"offset\":80,\"meaning\":\"Byte flag that suppresses the rate_get_config call when set.\"}]}"
+}

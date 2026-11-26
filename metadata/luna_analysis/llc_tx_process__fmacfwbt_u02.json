@@ -1,0 +1,9 @@
+{
+ "fn": "llc_tx_process",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11a2b4",
+ "seg": 14,
+ "key": "llc_tx_process__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llc_tx_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears LLC transmit descriptors and scans associated 360-byte LLC entries to check their abort flags.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v0\": \"tx_desc_ptr\",\n    \"v1\": \"tx_desc_count_ptr\",\n    \"v2\": \"llc_entry_base_ptr\",\n    \"v3\": \"tx_desc_end_ptr\",\n    \"v5\": \"tx_desc_count\",\n    \"v6\": \"llc_entry_offset\",\n    \"v7\": \"llc_entry_index\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 48,\n      \"meaning\": \"end offset of the LLC TX descriptor array\"\n    },\n    {\n      \"offset\": 360,\n      \"meaning\": \"stride of LLC entries/contexts scanned by the inner loop\"\n    }\n  ]\n}"
+}

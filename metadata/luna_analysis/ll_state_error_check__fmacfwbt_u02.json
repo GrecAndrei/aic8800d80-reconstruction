@@ -1,0 +1,9 @@
+{
+ "fn": "ll_state_error_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134584",
+ "seg": 51,
+ "key": "ll_state_error_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_error_notify\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Schedules the link-layer kernel event and atomically clears the pending error-state flag while holding an IRQ lock.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"result\": \"lock_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 15,\n      \"meaning\": \"pending link-layer error/state flag cleared after task notification\"\n    }\n  ]\n}"
+}

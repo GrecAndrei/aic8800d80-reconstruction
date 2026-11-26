@@ -1,0 +1,9 @@
+{
+ "fn": "ll_conn_reset_flags",
+ "img": "fmacfw_u02",
+ "addr": "0x13af24",
+ "seg": 59,
+ "key": "ll_conn_reset_flags__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_conn_state_dispatch_prepare\",\"confidence\":\"medium\",\"docstring\":\"Sets bit 0 in a connection-context word, clears two 32-bit fields, and then invokes the connection state dispatcher.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"conn_ctx\",\"v2\":\"conn_flags\"},\"struct_hints\":[{\"offset\":30,\"meaning\":\"16-bit connection-context word with bit 0 set\"},{\"offset\":68,\"meaning\":\"32-bit context field cleared before state dispatch; specific role unknown\"},{\"offset\":80,\"meaning\":\"32-bit context field cleared before state dispatch; specific role unknown\"}]}"
+}

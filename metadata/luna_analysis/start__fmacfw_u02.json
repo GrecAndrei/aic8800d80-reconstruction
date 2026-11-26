@@ -1,0 +1,9 @@
+{
+ "fn": "start",
+ "img": "fmacfw_u02",
+ "addr": "0x1001a8",
+ "seg": 0,
+ "key": "start__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_boot_handoff\",\"confidence\":\"medium\",\"docstring\":\"Selects a marked alternate firmware vector pair when the hardware checks pass, switches the main stack pointer, and otherwise enters the default startup routine.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"handoff_stack_word\",\"v1\":\"handoff_entry_word\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x110c80",
+ "seg": 3,
+ "key": "rf_tx_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_sdio_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the SDIO device interface, programs its response registers, and waits for the host CMD5 and IO-enable handshake.\",\"subsystem\":\"ipc\",\"var_renames\":{}}"
+}

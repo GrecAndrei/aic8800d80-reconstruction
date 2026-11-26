@@ -1,0 +1,9 @@
+{
+ "fn": "periph_cmd_write",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10e4d8",
+ "seg": 2,
+ "key": "periph_cmd_write__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"periph_cmd_write\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes a peripheral command and polls for completion, then performs closed-loop voltage calibration around a 1400 mV target.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"command_value\",\n    \"v1\": \"periph_regs\",\n    \"v5\": \"measured_mv\",\n    \"v6\": \"raw_trim_code\",\n    \"v7\": \"mv_delta\",\n    \"v8\": \"abs_mv_delta\",\n    \"v9\": \"trim_step\",\n    \"v13\": \"current_step\",\n    \"v14\": \"computed_step\",\n    \"v19\": \"step_direction\",\n    \"v25\": \"status\",\n    \"v38\": \"base_step\",\n    \"v39\": \"step_direction\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"peripheral command trigger register\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"peripheral command control/mask register\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"peripheral command payload register\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"peripheral command result/voltage sample register\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"peripheral command completion/status register\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"secondary peripheral selector or opcode register\"\n    }\n  ]\n}"
+}

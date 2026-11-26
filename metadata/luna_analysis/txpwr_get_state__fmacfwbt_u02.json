@@ -1,0 +1,9 @@
+{
+ "fn": "txpwr_get_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13697c",
+ "seg": 57,
+ "key": "txpwr_get_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txpwr_send_evt\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pops the next pending transmit-power context, clears the associated IRQ when the queue is empty and the status flag is negative, and posts an HCI event from the context payload.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"pending_ctx\",\n    \"v1\": \"ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"transmit-power event payload pointer located after the fixed context header\"\n    }\n  ]\n}"
+}

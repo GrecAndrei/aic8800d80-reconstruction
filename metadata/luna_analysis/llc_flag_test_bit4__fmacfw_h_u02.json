@@ -1,0 +1,9 @@
+{
+ "fn": "llc_flag_test_bit4",
+ "img": "fmacfw_h_u02",
+ "addr": "0x127204",
+ "seg": 32,
+ "key": "llc_flag_test_bit4__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_flag4_lazy_init\",\"confidence\":\"medium\",\"docstring\":\"If context flag bit 4 is clear, sets it and either copies data into the context buffer or calls the bit-0 handler based on the byte at offset 90.\",\"subsystem\":\"llc\",\"struct_hints\":[{\"offset\":48,\"meaning\":\"Destination buffer for the initialization copy.\"},{\"offset\":88,\"meaning\":\"Flag byte; bit 4 guards this one-time initialization.\"},{\"offset\":90,\"meaning\":\"Byte that selects between copying data and calling the bit-0 handler.\"}]}"
+}

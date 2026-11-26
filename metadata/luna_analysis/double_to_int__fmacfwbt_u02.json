@@ -1,0 +1,9 @@
+{
+ "fn": "double_to_int",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143338",
+ "seg": 69,
+ "key": "double_to_int__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"__aeabi_ul2f\",\"confidence\":\"medium\",\"docstring\":\"Linked ARM soft-float helper that converts an unsigned long integer to a single-precision floating-point value.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

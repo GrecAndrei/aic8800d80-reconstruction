@@ -1,0 +1,9 @@
+{
+ "fn": "radio_channel_validate",
+ "img": "fmacfw_u02",
+ "addr": "0x1169a0",
+ "seg": 8,
+ "key": "radio_channel_validate__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_channel_update\",\"confidence\":\"medium\",\"docstring\":\"Updates channel state for a radio context index, invoking configuration or band handling and recording deferred channel state when applicable.\",\"subsystem\":\"radio\",\"var_renames\":{\"v4\":\"channel_arg\",\"v6\":\"channel_record\",\"v7\":\"active_channel_context\"},\"struct_hints\":[{\"offset\":56,\"meaning\":\"Flags word in the second argument; bit 0x200000 gates pending-channel bookkeeping.\"},{\"offset\":8,\"meaning\":\"Pending-state flag in the per-index channel record; set or cleared alongside its channel value.\"}]}"
+}

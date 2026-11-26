@@ -1,0 +1,9 @@
+{
+ "fn": "send_mcu_cmd_0x403",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12eea0",
+ "seg": 42,
+ "key": "send_mcu_cmd_0x403__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_mcu_cmd_write_memory\",\"confidence\":\"high\",\"docstring\":\"Builds and dispatches MCU command 0x403 for a memory write, including the reported value or readback in its payload.\",\"subsystem\":\"test\",\"var_renames\":{\"a2\":\"memory_write_args\",\"v6\":\"command_payload\",\"v7\":\"target_address_ptr\",\"v8\":\"memory_address\",\"v9\":\"reported_value\",\"v10\":\"write_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Target memory address\"},{\"offset\":4,\"meaning\":\"Value to write\"}]}"
+}

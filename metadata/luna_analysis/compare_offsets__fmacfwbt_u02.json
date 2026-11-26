@@ -1,0 +1,9 @@
+{
+ "fn": "compare_offsets",
+ "img": "fmacfwbt_u02",
+ "addr": "0x124f48",
+ "seg": 30,
+ "key": "compare_offsets__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"offset_lt\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns 1 when the volatile uint32 value at offset 12 of the first object is less than the corresponding value of the second.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"left\",\n    \"a2\": \"right\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"uint32 offset/value used for comparison\"\n    }\n  ]\n}"
+}

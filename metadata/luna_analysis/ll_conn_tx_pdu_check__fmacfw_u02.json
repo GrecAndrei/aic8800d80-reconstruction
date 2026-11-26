@@ -1,0 +1,9 @@
+{
+ "fn": "ll_conn_tx_pdu_check",
+ "img": "fmacfw_u02",
+ "addr": "0x13af80",
+ "seg": 59,
+ "key": "ll_conn_tx_pdu_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_conn_tx_power_prepare\",\"confidence\":\"medium\",\"docstring\":\"Prepares a BLE connection's RF transmit channel and calibrated power settings, returning channel readiness when the TX control requests a check.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"tx_control\",\"v5\":\"conn_flags\",\"v9\":\"rf_channel\",\"v10\":\"tx_power_code\",\"v11\":\"tx_control_word\"},\"struct_hints\":[{\"offset\":27,\"meaning\":\"Byte whose 0xff sentinel selects the default TX-power path\"},{\"offset\":29,\"meaning\":\"RF channel index used to select channel state and configure the radio\"},{\"offset\":30,\"meaning\":\"Connection state flags controlling TX and RF setup\"},{\"offset\":36,\"meaning\":\"Connection TX configuration flags controlling the TX-control enable byte\"},{\"offset\":76,\"meaning\":\"Pointer to the connection's TX-control block\"},{\"offset\":0,\"meaning\":\"TX-control block byte receiving the selected TX-power code\"},{\"offset\":1,\"meaning\":\"TX-control block enable/configuration byte\"},{\"offset\":4,\"meaning\":\"TX-control block status and configuration word\"}]}"
+}

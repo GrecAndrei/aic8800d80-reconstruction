@@ -1,0 +1,9 @@
+{
+ "fn": "kernel_event_get",
+ "img": "fmacfw_u02",
+ "addr": "0x116008",
+ "seg": 7,
+ "key": "kernel_event_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"kernel_event_get\",\"confidence\":\"medium\",\"docstring\":\"Returns the current kernel event value and clears the associated register when no event is pending and the status flag is negative.\",\"subsystem\":\"kernel\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "deref_and_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f414",
+ "seg": 42,
+ "key": "deref_and_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_ioctl_entry_list\",\"confidence\":\"medium\",\"docstring\":\"Drains a linked list, dispatching entries with a nonzero field at offset 12 and otherwise clearing the associated object's 16-bit field at offset 8.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"entry\",\"v3\":\"handler_context\",\"v4\":\"entry_list_head\",\"v5\":\"associated_object\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Entry field points to an associated object whose 16-bit field at offset 8 is cleared when the entry's offset-12 gate is zero.\"},{\"offset\":12,\"meaning\":\"Nonzero value gates dispatch through the WLAN ioctl handler.\"}]}"
+}

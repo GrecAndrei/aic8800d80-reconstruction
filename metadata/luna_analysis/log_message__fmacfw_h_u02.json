@@ -1,0 +1,9 @@
+{
+ "fn": "log_message",
+ "img": "fmacfw_h_u02",
+ "addr": "0x128b60",
+ "seg": 34,
+ "key": "log_message__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"log_emit_message\",\"confidence\":\"medium\",\"docstring\":\"Forwards a message to the logging backend and, on successful output, decrements a shared counter and writes a MAC header word when the counter expires.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v5\":\"log_state\",\"v6\":\"remaining_count\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Flag set when the countdown expires\"},{\"offset\":2,\"meaning\":\"Word value passed to mac_write_header_word\"},{\"offset\":8,\"meaning\":\"Log notification countdown\"}]}"
+}

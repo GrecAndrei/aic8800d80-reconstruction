@@ -1,0 +1,9 @@
+{
+ "fn": "apply_tx_power",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103ff0",
+ "seg": 2,
+ "key": "apply_tx_power__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_tx_power_interp\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Looks up a pair of signed RF transmit-power table entries, forms a magnitude ratio, evaluates a fixed polynomial, and returns a sign-corrected TX power value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"table_entry\",\n    \"v4\": \"low_field_value\",\n    \"v5\": \"high_field_value\",\n    \"v6\": \"high_field_sign\",\n    \"v7\": \"low_field_sign\",\n    \"v8\": \"high_field_abs\",\n    \"v9\": \"low_field_abs\",\n    \"v10\": \"ratio_high_over_low\",\n    \"v24\": \"ratio_low_over_high\",\n    \"v11\": \"ratio_double\",\n    \"v12\": \"poly_linear_offset\",\n    \"v13\": \"quad_term\",\n    \"v14\": \"linear_term\",\n    \"v16\": \"poly_terms_sum\",\n    \"v17\": \"poly_difference\",\n    \"result\": \"tx_power_value\"\n  }\n}"
+}

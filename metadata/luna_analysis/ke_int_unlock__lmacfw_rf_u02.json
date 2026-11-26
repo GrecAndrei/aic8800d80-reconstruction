@@ -1,0 +1,9 @@
+{
+ "fn": "ke_int_unlock",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121a10",
+ "seg": 22,
+ "key": "ke_int_unlock__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_int_unlock\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Kernel helper that releases nested interrupt-lock state and conditionally re-enables IRQs when the saved state indicates no locks remain held.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"lock_count_ptr\",\n    \"v1\": \"prev_lock_count\",\n    \"v2\": \"new_lock_count\",\n    \"v3\": \"irq_disable_flag_ptr\"\n  },\n  \"struct_hints\": []\n}"
+}

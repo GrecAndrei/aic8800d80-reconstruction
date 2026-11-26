@@ -1,0 +1,9 @@
+{
+ "fn": "rf_core_irq_clear",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1072cc",
+ "seg": 2,
+ "key": "rf_core_irq_clear__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_core_cmd_irq_clear\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears an RF core command interrupt handshake, restores related control masks, and posts the decoded RF command to the RF command engine.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cmd_ctx\",\n    \"v8\": \"cmd_data64\",\n    \"v11\": \"rf_cmd_word\",\n    \"v12\": \"rf_cmd_mask\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"64-bit RF command argument or register value\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "send_event_42c",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121638",
+ "seg": 22,
+ "key": "send_event_42c__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_dispatch_reboot_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches the reboot event, acquires a kernel lock at offset 0x42C, and schedules the associated callbacks.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"lock_token\"\n  }\n}"
+}

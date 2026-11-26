@@ -1,0 +1,9 @@
+{
+ "fn": "parse_token_until_space",
+ "img": "fmacfw_u02",
+ "addr": "0x12f6fc",
+ "seg": 42,
+ "key": "parse_token_until_space__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_command_args\",\"confidence\":\"medium\",\"docstring\":\"Tokenizes a mutable command string on spaces and tabs, strips double-quote delimiters, stores token pointers in the caller's array, and returns the token count.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"input_text\",\"a2\":\"argv\",\"v2\":\"token_count\",\"v4\":\"current_char_ptr\",\"v12\":\"quoted_token_scan_ptr\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "util_is_state1",
+ "img": "fmacfw_u02",
+ "addr": "0x13259c",
+ "seg": 45,
+ "key": "util_is_state1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"util_decode_state_code\",\"confidence\":\"medium\",\"docstring\":\"Maps the low two bits of an encoded value to the integer codes 7, 8, or 9.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v1\":\"low_two_bits\"}}"
+}

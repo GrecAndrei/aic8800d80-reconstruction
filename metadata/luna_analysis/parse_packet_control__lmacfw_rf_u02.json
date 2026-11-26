@@ -1,0 +1,9 @@
+{
+ "fn": "parse_packet_control",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10bf28",
+ "seg": 2,
+ "key": "parse_packet_control__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_calibration_dsp_prepare\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prepares a baseband DSP buffer and programs RF calibration gain coefficients from a cal_cfg/alpha configuration block.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v4\": \"cal_cfg\",\n    \"v7\": \"cal_flag_bits\",\n    \"v8\": \"alpha\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"cal_cfg register word\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"alpha/calibration word\"\n    }\n  ]\n}"
+}

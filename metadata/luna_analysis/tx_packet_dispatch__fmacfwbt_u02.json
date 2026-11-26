@@ -1,0 +1,9 @@
+{
+ "fn": "tx_packet_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10a5bc",
+ "seg": 2,
+ "key": "tx_packet_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_gain_fit_lookup\",\"confidence\":\"medium\",\"docstring\":\"Fits gain calibration samples for the requested gain, selects a usable fit, and returns its byte result or a failure fallback.\",\"subsystem\":\"rf\",\"var_renames\":{\"v14\":\"has_fallback_fit\",\"v17\":\"best_fit_index\",\"v18\":\"fit_status\",\"v21\":\"fit_result\"}}"
+}

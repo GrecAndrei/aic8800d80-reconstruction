@@ -1,0 +1,9 @@
+{
+ "fn": "get_time_delta",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125fec",
+ "seg": 32,
+ "key": "get_time_delta__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"check_time_diff\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns true if two volatile 32-bit timestamp fields differ by less than the effective 15000 time-unit window used for Bluetooth timing checks.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v3\": \"timestamp1\",\n    \"v5\": \"timestamp2\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"volatile uint32 timestamp compared against the paired object's timestamp\"\n    }\n  ]\n}"
+}

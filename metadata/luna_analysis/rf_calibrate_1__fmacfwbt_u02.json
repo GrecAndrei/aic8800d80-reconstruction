@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibrate_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13beb0",
+ "seg": 61,
+ "key": "rf_calibrate_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_process_channel_request\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a 32-entry RF table for an active entry whose identifier matches the supplied channel or command value, updates the corresponding bank abort flags, sends an HCI notification, and issues an SDIO CMD53 read.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"entry_status_table\",\n    \"v3\": \"rf_table_entry\",\n    \"v4\": \"target_channel\",\n    \"v8\": \"entry_status\",\n    \"i\": \"entry_index\",\n    \"v1\": \"abort_flag_base_lo\",\n    \"v5\": \"abort_flag_alt_lo\",\n    \"v6\": \"abort_flag_base_hi\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"byte identifier or channel field within a 32-byte RF table entry\"\n    }\n  ]\n}"
+}

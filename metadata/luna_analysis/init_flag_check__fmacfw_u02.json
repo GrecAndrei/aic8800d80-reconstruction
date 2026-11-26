@@ -1,0 +1,9 @@
+{
+ "fn": "init_flag_check",
+ "img": "fmacfw_u02",
+ "addr": "0x117f4c",
+ "seg": 11,
+ "key": "init_flag_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"txl_ba_push\",\"confidence\":\"medium\",\"docstring\":\"Updates a TX block-ack descriptor for a frame, validating the matching entry and caching its header when applicable.\",\"subsystem\":\"mac\",\"var_renames\":{\"v4\":\"ba_entry_index\",\"v6\":\"ba_entry_ptr\",\"v8\":\"ba_entry\",\"v9\":\"frame_metadata\",\"v11\":\"rx_buffer_desc\",\"v12\":\"frame_control\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Receive-buffer descriptor reference\"},{\"offset\":48,\"meaning\":\"Frame classification value\"},{\"offset\":84,\"meaning\":\"Frame metadata word containing flags and block-ack entry selection bits\"},{\"offset\":8,\"meaning\":\"Block-ack entry status flags\"},{\"offset\":224,\"meaning\":\"Pointer to cached frame header\"},{\"offset\":228,\"meaning\":\"Inline storage for a copied frame header\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_copy_stats",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10f0c4",
+ "seg": 3,
+ "key": "rx_copy_stats__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"firmware_platform_init\",\"confidence\":\"medium\",\"docstring\":\"Copies a 24-byte initialization block to a global buffer, initializes crypto and hardware support, conditionally initializes the PHY context for mode 3, and clears the queue buffer.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"init_data_src\",\"v2\":\"init_data_dst\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "radio_tx_write_string",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d674",
+ "seg": 3,
+ "key": "radio_tx_write_string__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_write_string\",\"confidence\":\"high\",\"docstring\":\"Writes a null-terminated byte string to the radio transmit register, polling until the transmit status bit clears before each byte, and returns a pointer to the terminator.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"current_byte\",\"v2\":\"tx_status_reg\",\"v3\":\"tx_data_reg\",\"v4\":\"next_byte\"}}"
+}

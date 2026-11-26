@@ -1,0 +1,9 @@
+{
+ "fn": "check_packet_length",
+ "img": "fmacfw_u02",
+ "addr": "0x113c48",
+ "seg": 5,
+ "key": "check_packet_length__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_host_rx_descriptor\",\"confidence\":\"medium\",\"docstring\":\"Validates a host RX descriptor, copies it into a kernel event, and dispatches it to the command or data handler.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"peer_index\",\"v2\":\"dispatch_context_index\",\"v5\":\"rx_descriptor_slot\",\"v6\":\"rx_event\"},\"struct_hints\":[{\"offset\":22,\"meaning\":\"RX descriptor slot used for accounting; the special path uses slot 3.\"},{\"offset\":24,\"meaning\":\"Selector for the per-context handler table.\"},{\"offset\":25,\"meaning\":\"Peer index, validated against the 32-entry peer table.\"},{\"offset\":26,\"meaning\":\"Packet flags; bit 3 selects the command-handling path.\"}]}"
+}

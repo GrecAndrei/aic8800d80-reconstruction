@@ -1,0 +1,9 @@
+{
+ "fn": "ke_poll_event_b",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1125b0",
+ "seg": 4,
+ "key": "ke_poll_event_b__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_wakeup_event_handler\",\"confidence\":\"medium\",\"docstring\":\"Polls a USB wake-up status bit, dispatches a USB wake-up event or trace, and clears the wake-up flag and associated control bit.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"usb_wakeup_ctrl_base\"},\"struct_hints\":[{\"offset\":178,\"meaning\":\"status word at +0xB2; bit 0x4000 indicates USB wake-up\"},{\"offset\":3584,\"meaning\":\"control word at +0xE00 from event/control base; bit 0 cleared to acknowledge/disable USB wake-up\"}]}"
+}

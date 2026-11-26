@@ -1,0 +1,9 @@
+{
+ "fn": "check_bt_addr_valid",
+ "img": "fmacfwbt_u02",
+ "addr": "0x126664",
+ "seg": 32,
+ "key": "check_bt_addr_valid__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"lookup_bt_valid_context\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a small Bluetooth entry table for the first record with valid status and index bytes, then returns the associated 1320-byte context pointer.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"out_ctx\",\n    \"v1\": \"entry\",\n    \"v2\": \"ctx_index\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"entry validity/status byte; 0xff marks invalid\"\n    },\n    {\n      \"offset\": 27,\n      \"meaning\": \"context index byte; 0xff marks invalid\"\n    }\n  ]\n}"
+}

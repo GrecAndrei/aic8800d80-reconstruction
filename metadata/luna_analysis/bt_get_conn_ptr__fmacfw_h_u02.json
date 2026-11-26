@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_ptr",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a1dc",
+ "seg": 36,
+ "key": "bt_get_conn_ptr__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_conn_rsn_ie\",\"confidence\":\"medium\",\"docstring\":\"Selects the connection record indexed by the caller's context, clears byte 134, and passes the record to the RSN IE parser.\",\"subsystem\":\"sec\",\"var_renames\":{\"a1\":\"conn_context\",\"v1\":\"conn_record\"},\"struct_hints\":[{\"offset\":1225,\"meaning\":\"Connection-record index used to select an entry\"},{\"offset\":134,\"meaning\":\"Byte cleared before RSN IE parsing\"}]}"
+}

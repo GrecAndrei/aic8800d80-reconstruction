@@ -1,0 +1,9 @@
+{
+ "fn": "get_sys_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x120104",
+ "seg": 22,
+ "key": "get_sys_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"maybe_check_tx_engine_busy\",\"confidence\":\"medium\",\"docstring\":\"When the global hardware-state gate is active and the object\u2019s word at offset 4 is zero, passes its offset-48 member to mem_set_util and returns the TX-engine busy result; otherwise returns the input object.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"state_object\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"word whose zero value gates the conditional processing\"},{\"offset\":48,\"meaning\":\"embedded member passed to mem_set_util\"}]}"
+}

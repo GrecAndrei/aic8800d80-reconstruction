@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_6",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10cb44",
+ "seg": 2,
+ "key": "nullsub_6__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cmd_noop\",\"confidence\":\"medium\",\"docstring\":\"No-op RF command handler that returns success without performing any action.\",\"subsystem\":\"rf\"}"
+}

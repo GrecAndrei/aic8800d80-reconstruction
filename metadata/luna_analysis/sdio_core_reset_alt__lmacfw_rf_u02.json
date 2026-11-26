@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_core_reset_alt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10de98",
+ "seg": 2,
+ "key": "sdio_core_reset_alt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_core_reset_config\",\"confidence\":\"medium\",\"docstring\":\"Clears the SDIO core control register, programs auxiliary and core configuration bitfields, and enables the core interface.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"sdio_core_base\",\"v2\":\"cfg_pres_mask_1\",\"v3\":\"cfg_pres_mask_2\",\"result\":\"old_core_cfg\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Core control/reset register cleared to 0\"},{\"offset\":4,\"meaning\":\"Core enable register written 1\"},{\"offset\":8,\"meaning\":\"Core control bitfield with bit 25 set\"},{\"offset\":12,\"meaning\":\"Core configuration register updated twice with fixed fields\"},{\"offset\":56,\"meaning\":\"Auxiliary register programmed with 0x128 (296)\"}]}"
+}

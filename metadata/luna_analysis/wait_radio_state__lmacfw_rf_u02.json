@@ -1,0 +1,9 @@
+{
+ "fn": "wait_radio_state",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x112918",
+ "seg": 4,
+ "key": "wait_radio_state__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_trigger_radio_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Validate a radio state request, store its command pointer in an RF state descriptor, and trigger the corresponding baseband state machine.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"state_id\",\n    \"a2\": \"cmd_ptr\",\n    \"v4\": \"slot_idx\",\n    \"v5\": \"rf_reg_base\",\n    \"v6\": \"rf_state_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"command/state value copied from cmd_ptr\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"armed/active flag for state slot\"\n    }\n  ]\n}"
+}

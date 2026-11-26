@@ -1,0 +1,9 @@
+{
+ "fn": "tx_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11ca18",
+ "seg": 20,
+ "key": "tx_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_poll_complete\",\"confidence\":\"medium\",\"docstring\":\"Polls a transmit-command status word, clears the command start bit, updates TX queue/task state, and either queues follow-up work or returns to low-power sleep.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"state\",\"v3\":\"tx_cmd\",\"v4\":\"tx_cmd_block\",\"v5\":\"task_id\",\"v7\":\"cmd\",\"v8\":\"poll_timeout\",\"v9\":\"tx_status\",\"v10\":\"tx_status\",\"v11\":\"list_base\",\"v12\":\"tx_entry_base\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"uint16 TX/queue busy flag\"},{\"offset\":68,\"meaning\":\"pointer to active TX command/status block\"},{\"offset\":76,\"meaning\":\"pointer to TX command block with word-18 control bits\"},{\"offset\":8,\"meaning\":\"TX command status word (bit 0x20 completion, bit 0x40 auxiliary status)\"}]}"
+}

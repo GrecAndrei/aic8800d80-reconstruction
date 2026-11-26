@@ -1,0 +1,9 @@
+{
+ "fn": "cfm_dword_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x127dfc",
+ "seg": 33,
+ "key": "cfm_dword_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"cfm_rx_event_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a CFM receive-activity event, prunes older queued entries, updates per-link event state, and reports whether the link's cached state differs from the global state.\",\"subsystem\":\"cfm\",\"var_renames\":{\"v3\":\"cfm_context\",\"v4\":\"event_node\",\"v8\":\"event_key\",\"v9\":\"global_state\",\"v11\":\"no_matching_event\",\"v19\":\"link_cached_state\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Cached state compared with the global state\"},{\"offset\":80,\"meaning\":\"Last accepted event value, updated when the new and stored values are within 50 units\"},{\"offset\":85,\"meaning\":\"Per-link event-processing flags\"},{\"offset\":86,\"meaning\":\"Sentinel byte gating an LLC environment lookup\"},{\"offset\":107,\"meaning\":\"Identifier compared with queued event records\"},{\"offset\":1224,\"meaning\":\"Enable flag for the indexed mode/configuration path\"},{\"offset\":1225,\"meaning\":\"Index into a global table with 140-byte entries\"}]}"
+}

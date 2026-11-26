@@ -1,0 +1,9 @@
+{
+ "fn": "ptr_is_null",
+ "img": "fmacfw_u02",
+ "addr": "0x109878",
+ "seg": 2,
+ "key": "ptr_is_null__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_filter_six_samples\",\"confidence\":\"medium\",\"docstring\":\"Filters a six-element RF sample array, recording negative entries in an invalidity mask and correcting inconsistent readings; returns 0x80 when the control argument is zero.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"samples\",\"result\":\"invalid_mask\",\"v2\":\"sample_index\",\"v5\":\"later_invalid_count\",\"v6\":\"early_invalid_count\"}}"
+}

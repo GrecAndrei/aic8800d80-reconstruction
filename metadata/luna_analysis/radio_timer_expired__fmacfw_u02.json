@@ -1,0 +1,9 @@
+{
+ "fn": "radio_timer_expired",
+ "img": "fmacfw_u02",
+ "addr": "0x13b8fc",
+ "seg": 60,
+ "key": "radio_timer_expired__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_radio_timer_expired\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the supplied timer deadline has passed according to the hardware timer counter.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"deadline\"}}"
+}

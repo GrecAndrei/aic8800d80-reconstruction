@@ -1,0 +1,9 @@
+{
+ "fn": "sub_12F194",
+ "img": "fmacfw_u02",
+ "addr": "0x12f194",
+ "seg": 42,
+ "key": "sub_12F194__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dump_tx_queue_state\",\"confidence\":\"medium\",\"docstring\":\"Logs transmit queue status and dumps the selected TX descriptor and associated frame data.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"tx_list_cptr_reg\",\"v2\":\"ac0_sptr_reg\",\"v3\":\"ac1_sptr_reg\",\"v4\":\"ac2_sptr_reg\",\"v5\":\"ac3_sptr_reg\",\"v6\":\"hiq_sptr_reg\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"start pointer for a memory range dumped from the TX descriptor\"},{\"offset\":20,\"meaning\":\"inclusive end pointer used to calculate the dumped range length\"},{\"offset\":24,\"meaning\":\"frame length, logged as frmlen\"},{\"offset\":36,\"meaning\":\"pointer to an associated 52-byte TX data or metadata block\"}]}"
+}

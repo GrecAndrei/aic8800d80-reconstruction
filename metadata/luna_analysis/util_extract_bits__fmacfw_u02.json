@@ -1,0 +1,9 @@
+{
+ "fn": "util_extract_bits",
+ "img": "fmacfw_u02",
+ "addr": "0x1325cc",
+ "seg": 45,
+ "key": "util_extract_bits__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"util_count_leading_ones_pairs\",\"confidence\":\"medium\",\"docstring\":\"Scans the seven 2-bit fields at bit positions 15:2 from most to least significant and returns seven minus the number of consecutive leading fields equal to 0b11.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"packed_fields\",\"v1\":\"pair_shift\",\"result\":\"remaining_pair_count\",\"v4\":\"pair_value\"}}"
+}

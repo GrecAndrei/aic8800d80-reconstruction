@@ -1,0 +1,9 @@
+{
+ "fn": "get_hw_info_bit18",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1151ac",
+ "seg": 6,
+ "key": "get_hw_info_bit18__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_hw_info_bit18\",\"confidence\":\"high\",\"docstring\":\"Returns bit 18 of the hardware information value obtained from the ROM routine.\",\"subsystem\":\"hal\"}"
+}

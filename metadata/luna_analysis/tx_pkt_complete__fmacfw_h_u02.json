@@ -1,0 +1,9 @@
+{
+ "fn": "tx_pkt_complete",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1253d0",
+ "seg": 30,
+ "key": "tx_pkt_complete__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_tx_packet_complete\",\"confidence\":\"medium\",\"docstring\":\"Completes a BLE link-layer TX event by updating per-connection length state and initializing transmit descriptor metadata.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"conn\",\"a2\":\"packet\",\"v3\":\"tx_state\",\"v8\":\"conn_slot\",\"v10\":\"remaining_len\",\"v16\":\"slot_tx_entry\",\"v17\":\"slot_tx_record\",\"v18\":\"tx_metadata\"},\"struct_hints\":[{\"offset\":107,\"meaning\":\"Connection slot index used to select per-connection TX state.\"},{\"offset\":192,\"meaning\":\"Pointer to TX descriptor state.\"},{\"offset\":216,\"meaning\":\"Length value computed from packet fields at offsets 4 and 8.\"},{\"offset\":226,\"meaning\":\"Flag set when TX completion processing updates the connection.\"}]}"
+}

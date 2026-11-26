@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_pattern_4605",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1309f0",
+ "seg": 43,
+ "key": "rf_write_pattern_4605__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_write_pattern_4605\",\"confidence\":\"medium\",\"docstring\":\"Emit the fixed seven-byte RF pattern 0x46, 0x05, 0x70, 0x00, 0x00, 0x00, 0x00 to the caller-supplied output pointer and advance that pointer by seven bytes.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"dst_pptr\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"destination byte pointer stored in a1\"},{\"offset\":1,\"meaning\":\"pattern byte 0x46 at output byte 0\"},{\"offset\":2,\"meaning\":\"pattern byte 0x05 at output byte 1\"},{\"offset\":3,\"meaning\":\"pattern byte 0x70 at output byte 2\"},{\"offset\":4,\"meaning\":\"zero padding byte at output byte 3\"},{\"offset\":5,\"meaning\":\"zero padding byte at output byte 4\"},{\"offset\":6,\"meaning\":\"zero padding byte at output byte 5\"},{\"offset\":7,\"meaning\":\"zero padding byte at output byte 6\"}]}"
+}

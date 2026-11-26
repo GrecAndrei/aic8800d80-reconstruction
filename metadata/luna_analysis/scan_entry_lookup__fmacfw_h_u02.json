@@ -1,0 +1,9 @@
+{
+ "fn": "scan_entry_lookup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x125cd0",
+ "seg": 31,
+ "key": "scan_entry_lookup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"invalidate_conn_entry_refs\",\"confidence\":\"medium\",\"docstring\":\"Conditionally checks readiness for the indexed connection state, then marks linked-list entries matching the input ID as invalid.\",\"subsystem\":\"llc\",\"var_renames\":{\"v1\":\"state_table_base\",\"v2\":\"state_index\",\"v3\":\"state_entry\",\"v4\":\"input_obj\",\"v6\":\"list_node\",\"v7\":\"entry_id\"},\"struct_hints\":[{\"offset\":86,\"meaning\":\"Linked-list entry ID, set to 0xFF when it matches the input ID.\"},{\"offset\":107,\"meaning\":\"Input ID used to match linked-list entries.\"},{\"offset\":1225,\"meaning\":\"Byte index selecting an entry in the 140-byte state table.\"}]}"
+}

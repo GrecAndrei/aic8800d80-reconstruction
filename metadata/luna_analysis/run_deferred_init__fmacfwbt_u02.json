@@ -1,0 +1,9 @@
+{
+ "fn": "run_deferred_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x120a58",
+ "seg": 23,
+ "key": "run_deferred_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"deferred_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Runs a fixed deferred bring-up sequence for the wireless stack and hardware: waits for calibration when needed, attaches WLAN context, initializes TX/MM/BT/RX state, checks hardware flags, and completes PHY initialization.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v0\": \"init_flags\",\n    \"v1\": \"wlc_ctx\",\n    \"inited\": \"tx_slot_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"deferred initialization or RF calibration completion flag\"\n    }\n  ]\n}"
+}

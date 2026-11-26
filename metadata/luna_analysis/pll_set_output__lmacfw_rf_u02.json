@@ -1,0 +1,9 @@
+{
+ "fn": "pll_set_output",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101dd0",
+ "seg": 0,
+ "key": "pll_set_output__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_pll_set_output\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs the RF PLL output divider by writing the requested divide ratio into the divider register and selecting the corresponding fractional/negative divide control bits.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"pll_div\",\n    \"v1\": \"pll_frac_ctrl_reg\",\n    \"v2\": \"pll_frac_ctrl_bits\",\n    \"v3\": \"pll_frac_ctrl_new\"\n  }\n}"
+}

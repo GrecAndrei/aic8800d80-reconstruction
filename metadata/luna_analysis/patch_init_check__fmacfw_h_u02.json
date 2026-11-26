@@ -1,0 +1,9 @@
+{
+ "fn": "patch_init_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x125970",
+ "seg": 31,
+ "key": "patch_init_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"patch_service_deferred_work\",\"confidence\":\"medium\",\"docstring\":\"Advances the patch work countdown and, when due, drains deferred per-link and RX work and services BT task and configuration hooks.\",\"subsystem\":\"patch\",\"var_renames\":{\"v1\":\"patch_context\",\"v3\":\"connection\",\"v5\":\"link_context_base\",\"v15\":\"pending_pdu_flag\",\"v16\":\"link_slot\",\"v17\":\"pending_tx_cleanup_flag\",\"v18\":\"rx_queue_head\",\"v20\":\"link_queue_base\",\"i\":\"queue_index\",\"v19\":\"queued_rx_packet\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Patch work countdown\"},{\"offset\":10,\"meaning\":\"Flag that triggers BT task initialization\"},{\"offset\":12,\"meaning\":\"Pending RX queue count or nonempty indicator\"},{\"offset\":20,\"meaning\":\"Base of per-index BT configuration pending flags\"},{\"offset\":53,\"meaning\":\"Per-link status flags; bit 1 gates the LL event check\"},{\"offset\":54,\"meaning\":\"Per-link event state temporarily set to 9 around the LL event check\"},{\"offset\":584,\"meaning\":\"Per-link queue head drained for each of four queue indices\"},{\"offset\":624,\"meaning\":\"Second per-link queue head checked for each queue index\"}]}"
+}

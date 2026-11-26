@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_packet_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11bec0",
+ "seg": 17,
+ "key": "rf_tx_packet_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_packet_check\",\"confidence\":\"medium\",\"docstring\":\"Check whether the RF TX descriptor/channel selected by the packet is valid, lazily initializing it from flash when needed, store the supplied value into the descriptor if valid, or post event 62 when the descriptor state is invalid.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"tx_pkt_ptr\",\"a2\":\"stored_value\",\"v2\":\"channel_idx\",\"v3\":\"rf_desc_table_base\",\"v6\":\"desc_state\",\"v7\":\"rf_desc_entry_ptr\"},\"struct_hints\":[{\"offset\":1,\"meaning\":\"uint8_t field in TX packet used to index the RF descriptor/channel table\"},{\"offset\":14,\"meaning\":\"uint16_t RF descriptor/channel field written with stored_value\"},{\"offset\":16,\"meaning\":\"uint8_t RF descriptor/channel state; 0 triggers flash initialization, values <=3 are accepted\"}]}"
+}

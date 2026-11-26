@@ -1,0 +1,9 @@
+{
+ "fn": "get_device_config_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x100688",
+ "seg": 0,
+ "key": "get_device_config_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"periph_enable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enable and configure a peripheral/system block by clearing a mask bit, writing a start value, and setting control bits in a status register, returning the start register pointer.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"start_reg\",\n    \"v1\": \"ctrl_reg\"\n  }\n}"
+}

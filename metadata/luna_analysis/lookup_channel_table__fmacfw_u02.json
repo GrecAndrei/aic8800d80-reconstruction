@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_channel_table",
+ "img": "fmacfw_u02",
+ "addr": "0x1136a4",
+ "seg": 4,
+ "key": "lookup_channel_table__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_channel_table_entry\",\"confidence\":\"medium\",\"docstring\":\"Returns the indexed 32-bit entry from the volatile channel table, or zero when the index is outside the eight-entry range.\",\"subsystem\":\"mmio\",\"var_renames\":{\"a1\":\"index\"}}"
+}

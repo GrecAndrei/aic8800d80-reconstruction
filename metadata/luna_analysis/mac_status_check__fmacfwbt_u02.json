@@ -1,0 +1,9 @@
+{
+ "fn": "mac_status_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115d28",
+ "seg": 7,
+ "key": "mac_status_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_reset_sequence\",\"confidence\":\"medium\",\"docstring\":\"Performs the RWNXL MAC/controller reset sequence, reinitializes controller state, handles an optional periodic update timer, and restores the nested interrupt state.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"reset_nesting_count\",\"v4\":\"delay_start_tick\",\"v5\":\"delay_deadline_tick\",\"v6\":\"ticks_until_deadline\",\"v8\":\"periodic_update_config\",\"v11\":\"timestamp_snapshot\",\"v13\":\"reset_nesting_count_value\",\"v14\":\"decremented_nesting_count\",\"v15\":\"restore_interrupts\",\"v18\":\"update_interval_units\",\"v19\":\"current_tick\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"periodic update configuration enabled\"},{\"offset\":4,\"meaning\":\"terminal value used to clamp the update value\"},{\"offset\":5,\"meaning\":\"base step for computing the next update value\"},{\"offset\":6,\"meaning\":\"pending update flag, cleared after handling\"},{\"offset\":7,\"meaning\":\"current update value\"},{\"offset\":8,\"meaning\":\"update interval multiplier used with 60000 ticks\"},{\"offset\":11,\"meaning\":\"associated timer state or armed flag\"},{\"offset\":12,\"meaning\":\"embedded kernel timer/event object\"}]}"
+}

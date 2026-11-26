@@ -1,0 +1,9 @@
+{
+ "fn": "rf_init_queues",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13ba08",
+ "seg": 61,
+ "key": "rf_init_queues__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_init_hci_queues\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Zeroes an HCI queue control block, initializes per-queue descriptor entries, and sends a length-zero HCI command for each queue index while checking abort state.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"ctrl_base\",\n    \"v1\": \"queue_entry\",\n    \"v2\": \"buffer_base\",\n    \"i\": \"queue_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"queue descriptor byte initialized to 0xFF\"\n    },\n    {\n      \"offset\": 26,\n      \"meaning\": \"queue index byte\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"per-queue buffer pointer\"\n    }\n  ]\n}"
+}

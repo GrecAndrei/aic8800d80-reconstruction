@@ -1,0 +1,9 @@
+{
+ "fn": "cb_send_0x16ae2c",
+ "img": "fmacfw_u02",
+ "addr": "0x12efac",
+ "seg": 42,
+ "key": "cb_send_0x16ae2c__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"debug_module_filter_set_cb\",\"confidence\":\"medium\",\"docstring\":\"Logs and stores the requested debug module filter, then sends a parameterless message with ID 1029.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a2\":\"module_filter_ptr\"}}"
+}

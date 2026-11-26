@@ -1,0 +1,9 @@
+{
+ "fn": "mac_validate_rate",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124244",
+ "seg": 23,
+ "key": "mac_validate_rate__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_rate_table\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies a rate-class selected 512- or 2048-word lookup table into the fixed 0x100000 memory window and writes the corresponding length/control register.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"rate_code\",\n    \"a2\": \"aux_count\",\n    \"a3\": \"mode_flag\",\n    \"v3\": \"word_count\",\n    \"v4\": \"source_table\",\n    \"v5\": \"source_end\",\n    \"v6\": \"ctrl_field\",\n    \"v7\": \"dest_bias\",\n    \"v8\": \"src_ptr\",\n    \"v9\": \"dst_ptr\",\n    \"v10\": \"word\"\n  }\n}"
+}

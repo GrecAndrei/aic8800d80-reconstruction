@@ -1,0 +1,9 @@
+{
+ "fn": "scheduler_entry",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1144fc",
+ "seg": 5,
+ "key": "scheduler_entry__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_prepare_setup\",\"confidence\":\"medium\",\"docstring\":\"Selects an RF setup path, writes the shifted input and mode-specific setup values, and returns the fixed status 236.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"setup_record\",\"v2\":\"profile_byte_index\",\"v3\":\"setup_value\",\"v4\":\"mode_mask\",\"v5\":\"shifted_input\",\"v6\":\"config_base\",\"v8\":\"control_register_base\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Setup word derived from the input by shifting it left 15 bits.\"},{\"offset\":6,\"meaning\":\"Configuration mode byte; a value of 1 enables the corresponding mode bit.\"},{\"offset\":8,\"meaning\":\"Setup-record field set to 3; the configuration base is also written with a mode-specific value here.\"},{\"offset\":12,\"meaning\":\"Setup-record field set to 1.\"}]}"
+}

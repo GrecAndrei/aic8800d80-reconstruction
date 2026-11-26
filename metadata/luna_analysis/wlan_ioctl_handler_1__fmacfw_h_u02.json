@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_ioctl_handler_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d108",
+ "seg": 41,
+ "key": "wlan_ioctl_handler_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"co_list_push_back\",\"confidence\":\"high\",\"docstring\":\"Appends an element to the end of a list and clears the element\u2019s next pointer.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"list_hdr\",\"a2\":\"element\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"List header: pointer to the first element; element: pointer to the next element.\"},{\"offset\":4,\"meaning\":\"List header: pointer to the last element.\"}]}"
+}

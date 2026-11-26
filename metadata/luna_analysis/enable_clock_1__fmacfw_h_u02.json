@@ -1,0 +1,9 @@
+{
+ "fn": "enable_clock_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d0e4",
+ "seg": 2,
+ "key": "enable_clock_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"enable_rf_clock\",\"confidence\":\"medium\",\"docstring\":\"Writes the RF clock-enable value to a hardware control register.\",\"subsystem\":\"rf\"}"
+}

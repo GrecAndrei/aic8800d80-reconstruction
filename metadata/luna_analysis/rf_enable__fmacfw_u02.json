@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable",
+ "img": "fmacfw_u02",
+ "addr": "0x102a20",
+ "seg": 1,
+ "key": "rf_enable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_set_channel\",\"confidence\":\"high\",\"docstring\":\"Applies a PHY channel configuration for radio 0 when it differs from the cached settings, and skips redundant updates.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"channel_config\",\"a2\":\"radio_id\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Channel/configuration identifier; compared with cached state and its low byte is forwarded to the transmit handler.\"},{\"offset\":1,\"meaning\":\"Byte parameter forwarded to the transmit handler.\"},{\"offset\":2,\"meaning\":\"16-bit parameter forwarded to the transmit handler and compared with cached state.\"},{\"offset\":4,\"meaning\":\"16-bit parameter forwarded to the transmit handler and compared with cached state.\"},{\"offset\":6,\"meaning\":\"16-bit parameter compared with cached state.\"},{\"offset\":8,\"meaning\":\"16-bit value copied into the cached configuration snapshot.\"},{\"offset\":9,\"meaning\":\"Byte parameter forwarded to the transmit handler and compared with cached state.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hci_cmd_process",
+ "img": "fmacfw_u02",
+ "addr": "0x1374c8",
+ "seg": 57,
+ "key": "hci_cmd_process__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"scanu_confirm\",\"confidence\":\"high\",\"docstring\":\"Builds and sends a SCANU confirmation, selecting its message ID from the scan-operation flag and including the result and scan metadata.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"completion_status\",\"v2\":\"scan_env\",\"v4\":\"confirmation_msg_id\",\"v5\":\"confirmation_msg\",\"v9\":\"scan_context\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Scan metadata byte copied into the confirmation payload.\"},{\"offset\":366,\"meaning\":\"Result/status byte read from the scan context and included in the confirmation.\"},{\"offset\":3848,\"meaning\":\"Destination task ID for the confirmation message.\"},{\"offset\":3850,\"meaning\":\"Scan-operation selector that determines which confirmation message ID is sent.\"}]}"
+}

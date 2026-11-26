@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_start_cmd",
+ "img": "fmacfw_u02",
+ "addr": "0x12357c",
+ "seg": 28,
+ "key": "rf_tx_start_cmd__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_send_conn_query_cmd\",\"confidence\":\"medium\",\"docstring\":\"Queues a one-byte BLE connection-query status message, marking it successful only when the indexed connection context is valid and selecting the state or role query from the second request byte.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"request_params\",\"v4\":\"message_payload\",\"v5\":\"conn_idx\"},\"struct_hints\":[{\"offset\":1224,\"meaning\":\"connection-context validity or active-state byte\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_wait_event_b",
+ "img": "fmacfwbt_u02",
+ "addr": "0x112b04",
+ "seg": 4,
+ "key": "ke_wait_event_b__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_usb_wakeup_handle\",\"confidence\":\"medium\",\"docstring\":\"Handles a USB wakeup condition by logging or scheduling its event according to a status bit, then clears the associated flag and control bit.\",\"subsystem\":\"hal\"}"
+}

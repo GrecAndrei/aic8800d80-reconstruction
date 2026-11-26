@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_rate_entry",
+ "img": "fmacfw_u02",
+ "addr": "0x1045e8",
+ "seg": 2,
+ "key": "lookup_rate_entry__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_iq_magnitude_squared\",\"confidence\":\"medium\",\"docstring\":\"Returns the sum of squares of the two signed 12-bit components in the sequence-selected packed word.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"packed_sample\",\"v4\":\"high_component\",\"v5\":\"low_component\"}}"
+}

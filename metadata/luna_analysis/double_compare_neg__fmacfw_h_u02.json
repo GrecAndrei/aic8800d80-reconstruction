@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare_neg",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1425f8",
+ "seg": 68,
+ "key": "double_compare_neg__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_subtract\",\"confidence\":\"high\",\"docstring\":\"Subtracts one IEEE-754 double-precision value from another using the ARM EABI helper.\",\"subsystem\":\"libmisc\"}"
+}

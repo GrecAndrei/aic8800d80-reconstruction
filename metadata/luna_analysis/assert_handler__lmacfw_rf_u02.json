@@ -1,0 +1,9 @@
+{
+ "fn": "assert_handler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114a40",
+ "seg": 6,
+ "key": "assert_handler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"assert_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a fatal assertion/error by optionally initializing the flash controller when a signed status word is negative, then halting in an infinite loop.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"signed status/assert error word accessed through off_114A5C\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_tx_process",
+ "img": "fmacfw_u02",
+ "addr": "0x129598",
+ "seg": 35,
+ "key": "wlc_tx_process__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_tx_schedule\",\"confidence\":\"medium\",\"docstring\":\"Scans two transmit-context records, selects eligible timing candidates including repeated intervals, and then processes active contexts.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"selected_time_candidate\",\"v2\":\"tx_contexts\",\"v3\":\"context_array_end\",\"v4\":\"context_cursor\",\"v5\":\"eligible_context_count\",\"v9\":\"context_cursor\",\"v12\":\"repeat_count\",\"v13\":\"repeat_interval\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Schedule base timestamp used when calculating candidate times.\"},{\"offset\":16,\"meaning\":\"Context state byte; the shown passes test for states 1 and 2.\"},{\"offset\":19,\"meaning\":\"Scheduling or repetition count; values above 1 enter repeated-interval timing logic.\"},{\"offset\":28,\"meaning\":\"Repeated interval added when advancing a schedule candidate.\"}]}"
+}

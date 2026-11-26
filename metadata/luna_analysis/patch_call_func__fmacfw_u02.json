@@ -1,0 +1,9 @@
+{
+ "fn": "patch_call_func",
+ "img": "fmacfw_u02",
+ "addr": "0x131518",
+ "seg": 43,
+ "key": "patch_call_func__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_patch_copy_and_notify\",\"confidence\":\"medium\",\"docstring\":\"Copies 254 bytes from the supplied buffer to a global destination and sends message 5123 using the supplied task identifiers.\",\"subsystem\":\"ble\"}"
+}

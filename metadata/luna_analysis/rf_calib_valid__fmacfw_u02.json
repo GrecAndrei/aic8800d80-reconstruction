@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calib_valid",
+ "img": "fmacfw_u02",
+ "addr": "0x12ab80",
+ "seg": 37,
+ "key": "rf_calib_valid__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calib_entry_value_get\",\"confidence\":\"medium\",\"docstring\":\"Looks up an indexed RF calibration entry and returns zero for the 0xFF marker or a cleared gate, otherwise returning the byte at offset 136 transformed as 13*x+11 modulo 256.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"calibration_index\",\"v1\":\"calibration_entry\"},\"struct_hints\":[{\"offset\":113,\"meaning\":\"Marker byte; 0xFF causes an immediate zero return.\"},{\"offset\":132,\"meaning\":\"Gate byte; zero returns zero, nonzero enables the transformed value.\"},{\"offset\":136,\"meaning\":\"Source byte for the returned 8-bit affine transform.\"}]}"
+}

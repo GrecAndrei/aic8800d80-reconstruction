@@ -1,0 +1,9 @@
+{
+ "fn": "rf_rx_packet_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1293a0",
+ "seg": 35,
+ "key": "rf_rx_packet_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_rx_packet_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a received RF packet descriptor by updating its status flags, storing it in the RF control block, and scheduling the associated kernel event or beacon notification.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"beacon_notify\",\n    \"a3\": \"packet_desc\",\n    \"result\": \"status\",\n    \"v3\": \"rf_ctl\",\n    \"v5\": \"pkt_flags\",\n    \"v6\": \"ctl_enable\",\n    \"v9\": \"pkt_class\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"packet status/flags word in packet_desc\"\n    },\n    {\n      \"offset\": 114,\n      \"meaning\": \"packet class/type byte in packet_desc\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"RF control enable/state byte\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"kernel event lock object\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"current packet descriptor pointer\"\n    },\n    {\n      \"offset\": 29,\n      \"meaning\": \"RF control command/state byte (5 normal, 6 beacon)\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"timestamp/tick word in timing context (normal path)\"\n    },\n    {\n      \"offset\": 58,\n      \"meaning\": \"timestamp/tick word in timing context (beacon path)\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"delay/base tick in event context\"\n    }\n  ]\n}"
+}

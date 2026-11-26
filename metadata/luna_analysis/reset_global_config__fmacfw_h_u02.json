@@ -1,0 +1,9 @@
+{
+ "fn": "reset_global_config",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12b030",
+ "seg": 39,
+ "key": "reset_global_config__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_reset_global_config\",\"confidence\":\"medium\",\"docstring\":\"Clears the pointed-to state block, preprocesses HCI command type 2, and reinitializes the global descriptor and its embedded-storage pointer.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"hci_preprocess_result\",\"v1\":\"global_config\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Initialized from the global word dword_12B060.\"},{\"offset\":4,\"meaning\":\"Cleared to zero.\"},{\"offset\":8,\"meaning\":\"Pointer initialized to embedded storage at byte offset 20.\"},{\"offset\":16,\"meaning\":\"Cleared to zero.\"}]}"
+}

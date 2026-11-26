@@ -1,0 +1,9 @@
+{
+ "fn": "is_rate_valid",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13c520",
+ "seg": 61,
+ "key": "is_rate_valid__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_is_rate_valid\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks whether an RF data-rate byte and secondary rate parameter encode a supported PHY rate, with extra restrictions for the 0xD0 rate class.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"phy_rate\",\n    \"v2\": \"rate_class\"\n  },\n  \"struct_hints\": []\n}"
+}

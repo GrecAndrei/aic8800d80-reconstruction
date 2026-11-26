@@ -1,0 +1,9 @@
+{
+ "fn": "env_reset",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ba64",
+ "seg": 17,
+ "key": "env_reset__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"env_reset\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Resets the global environment control block by zeroing it, initializing per-entry kernel state objects and lists, registering state/message pointers, and installing default handler pointers.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"state_entries\",\n    \"v1\": \"env_ctrl\",\n    \"v2\": \"entry_index\",\n    \"i\": \"entry_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 14,\n      \"meaning\": \"per-entry uint16 ID/handle initialized to invalid 0xFFFF\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"per-entry uint8 state/flag initialized to invalid 0xFF\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"environment control-block pointer field installed from off_11BB10\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"environment control-block pointer field installed from off_11BB14\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"environment control-block scalar/counter field cleared to zero\"\n    }\n  ]\n}"
+}

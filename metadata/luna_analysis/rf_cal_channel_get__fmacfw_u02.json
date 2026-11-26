@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_channel_get",
+ "img": "fmacfw_u02",
+ "addr": "0x13d694",
+ "seg": 61,
+ "key": "rf_cal_channel_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_select\",\"confidence\":\"medium\",\"docstring\":\"Selects a configured RF channel using a timer-derived value and returns the selection with mode and auxiliary flags packed into a 16-bit word.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"timer_derived_value\",\"v10\":\"selected_channel\",\"v34\":\"channel_index_or_fallback\",\"v36\":\"channel_group_index\",\"v37\":\"group_channel_bitmap\",\"v38\":\"candidate_channel_index\"},\"struct_hints\":[{\"offset\":169,\"meaning\":\"Channel-selection mode.\"},{\"offset\":170,\"meaning\":\"Per-group channel eligibility bitmap data used by modes 2 and 3.\"},{\"offset\":174,\"meaning\":\"16-bit channel eligibility mask used by modes 0 and 1.\"},{\"offset\":176,\"meaning\":\"Maximum channel index within a group.\"},{\"offset\":177,\"meaning\":\"Lower channel bound.\"},{\"offset\":178,\"meaning\":\"Upper channel bound.\"}]}"
+}

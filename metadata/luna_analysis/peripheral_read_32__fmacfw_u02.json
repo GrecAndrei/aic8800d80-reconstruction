@@ -1,0 +1,9 @@
+{
+ "fn": "peripheral_read_32",
+ "img": "fmacfw_u02",
+ "addr": "0x102eb8",
+ "seg": 2,
+ "key": "peripheral_read_32__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"peripheral_read_32\",\"confidence\":\"medium\",\"docstring\":\"Copies 32-bit words from the supplied source address into the mode-selected mapped window, applying the mode-specific slot stride and wakeup signaling.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"mode\",\"a2\":\"window_index\",\"a3\":\"transfer_count\",\"a4\":\"source_addr\",\"v6\":\"destination_base\",\"v7\":\"slot_stride_words\",\"v8\":\"words_per_slot\",\"v9\":\"source_word_index\"}}"
+}

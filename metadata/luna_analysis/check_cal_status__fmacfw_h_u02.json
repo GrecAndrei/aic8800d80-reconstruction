@@ -1,0 +1,9 @@
+{
+ "fn": "check_cal_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117bf0",
+ "seg": 10,
+ "key": "check_cal_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_tx_confirmation\",\"confidence\":\"high\",\"docstring\":\"When the completion value is negative and the handler is in mode 2, packages the TX status and sequence number into a confirmation event and dispatches it.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"tx_context\",\"a2\":\"tx_status_ptr\",\"v6\":\"confirmation_payload\",\"v10\":\"event_descriptor\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"transmit sequence number\"},{\"offset\":84,\"meaning\":\"signed completion value; its low 30 bits are copied into the confirmation payload\"}]}"
+}

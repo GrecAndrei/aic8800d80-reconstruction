@@ -1,0 +1,9 @@
+{
+ "fn": "set_wakeup_polarity",
+ "img": "fmacfw_u02",
+ "addr": "0x102d0c",
+ "seg": 2,
+ "key": "set_wakeup_polarity__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_wakeup_polarity\",\"confidence\":\"medium\",\"docstring\":\"Selects a wakeup-control bit group based on the argument and updates its configuration bits in a peripheral register.\",\"subsystem\":\"gpio\"}"
+}

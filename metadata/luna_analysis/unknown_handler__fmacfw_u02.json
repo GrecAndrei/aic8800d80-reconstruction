@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x12394c",
+ "seg": 28,
+ "key": "unknown_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_msg_send_trigger\",\"confidence\":\"low\",\"docstring\":\"Runs an interrupt-protected helper sequence, sends message ID 1 using the final two arguments, and invokes the PHY-status parser.\",\"subsystem\":\"ke\",\"var_renames\":{\"v4\":\"critical_section_depth\",\"v5\":\"preserved_state_ptr\",\"v6\":\"preserved_state_value\",\"v10\":\"depth_before_unlock\",\"v11\":\"depth_after_unlock\",\"v12\":\"irq_restore_flag\"}}"
+}

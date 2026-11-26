@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare_nan",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142b44",
+ "seg": 68,
+ "key": "double_compare_nan__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_multiply\",\"confidence\":\"low\",\"docstring\":\"This fragment belongs to the ARM EABI double-precision multiplication routine and is not a standalone function.\",\"subsystem\":\"libmisc\"}"
+}

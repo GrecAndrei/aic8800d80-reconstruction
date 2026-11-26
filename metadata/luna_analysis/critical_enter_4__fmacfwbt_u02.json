@@ -1,0 +1,9 @@
+{
+ "fn": "critical_enter_4",
+ "img": "fmacfwbt_u02",
+ "addr": "0x110238",
+ "seg": 3,
+ "key": "critical_enter_4__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"critical_queue_pop_front\",\"confidence\":\"medium\",\"docstring\":\"Removes and returns the first item from a global queue under interrupt protection, decrementing its pending-item count when an item is present.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"critical_depth_ptr\",\"v1\":\"queue_head\",\"v3\":\"critical_depth_after_decrement\",\"v4\":\"restore_interrupts\"}}"
+}

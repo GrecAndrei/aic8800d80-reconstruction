@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibrate_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1331d4",
+ "seg": 47,
+ "key": "rf_calibrate_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cal_event_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles an RF calibration event/status message by parsing the payload, updating calibration state bits, querying calibration status when enabled, and allocating a Bluetooth buffer to emit the resulting descriptor.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cal_ctx\",\n    \"a2\": \"event_len\",\n    \"a3\": \"event_buf\",\n    \"v10\": \"payload\",\n    \"v11\": \"payload_len\",\n    \"v12\": \"remaining_len\",\n    \"v49\": \"cal_busy_flag\",\n    \"v50\": \"cal_data\",\n    \"v53\": \"marker_pos\",\n    \"v54\": \"marker_byte\",\n    \"v55\": \"cal_status_bits\",\n    \"v75\": \"cal_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"calibration in-progress or pending flag\"\n    },\n    {\n      \"offset\": 240,\n      \"meaning\": \"pointer to associated response buffer or descriptor context\"\n    },\n    {\n      \"offset\": 412,\n      \"meaning\": \"calibration event processing/state flag\"\n    },\n    {\n      \"offset\": 440,\n      \"meaning\": \"RF calibration data buffer\"\n    },\n    {\n      \"offset\": 462,\n      \"meaning\": \"RF calibration status bitfield\"\n    },\n    {\n      \"offset\": 472,\n      \"meaning\": \"condition mask controlling calibration status retrieval\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"payload start offset within the received event message\"\n    }\n  ]\n}"
+}

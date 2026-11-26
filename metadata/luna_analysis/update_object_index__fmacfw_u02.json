@@ -1,0 +1,9 @@
+{
+ "fn": "update_object_index",
+ "img": "fmacfw_u02",
+ "addr": "0x120038",
+ "seg": 22,
+ "key": "update_object_index__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_descriptor_entry\",\"confidence\":\"medium\",\"docstring\":\"Populate an indexed descriptor-table entry, initialize its type-specific payload, and publish its payload pointer in the owning group.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"source_descriptor\",\"a2\":\"entry_flag\",\"v3\":\"slot_index\",\"v4\":\"group_index\",\"v5\":\"descriptor_table_base\",\"v6\":\"table_entry\",\"v7\":\"entry_offset\",\"v8\":\"payload_buffer\",\"v10\":\"entry_base\",\"v11\":\"group_base\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Input descriptor slot index.\"},{\"offset\":4,\"meaning\":\"Input descriptor byte copied to the table entry.\"},{\"offset\":8,\"meaning\":\"Input descriptor 64-bit value; part of the payload copied for type 5.\"},{\"offset\":24,\"meaning\":\"Start of four 32-bit values copied for type 1.\"},{\"offset\":40,\"meaning\":\"Input descriptor type, selecting type-specific initialization.\"},{\"offset\":41,\"meaning\":\"Input descriptor group index.\"},{\"offset\":480,\"meaning\":\"Table-entry 72-byte payload region cleared before initialization.\"},{\"offset\":552,\"meaning\":\"Table-entry type-specific 64-bit value.\"},{\"offset\":560,\"meaning\":\"Table-entry type-specific payload.\"},{\"offset\":576,\"meaning\":\"Table-entry descriptor type.\"},{\"offset\":577,\"meaning\":\"Table-entry slot index.\"},{\"offset\":578,\"meaning\":\"Caller-supplied entry byte.\"},{\"offset\":579,\"meaning\":\"Table-entry initialized marker, set to 1.\"},{\"offset\":580,\"meaning\":\"First copied 64-bit descriptor value.\"},{\"offset\":588,\"meaning\":\"Second copied 64-bit descriptor value.\"},{\"offset\":596,\"meaning\":\"Copied descriptor byte from input offset 4.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_3",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10dbf0",
+ "seg": 2,
+ "key": "nullsub_3__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_stub\",\"confidence\":\"low\",\"docstring\":\"No-op GPIO/HAL placeholder that returns zero.\",\"subsystem\":\"hal\",\"var_renames\":{},\"struct_hints\":[]}"
+}

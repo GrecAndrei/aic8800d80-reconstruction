@@ -1,0 +1,9 @@
+{
+ "fn": "read_u32",
+ "img": "fmacfw_u02",
+ "addr": "0x12d36c",
+ "seg": 41,
+ "key": "read_u32__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"list_count\",\"confidence\":\"high\",\"docstring\":\"Counts the nodes in a null-terminated singly linked list whose next pointer is the first word of each node.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"list_head_ptr\",\"v1\":\"node\",\"result\":\"node_count\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"next-node pointer\"}]}"
+}

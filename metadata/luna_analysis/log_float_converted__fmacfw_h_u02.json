@@ -1,0 +1,9 @@
+{
+ "fn": "log_float_converted",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d5a0",
+ "seg": 41,
+ "key": "log_float_converted__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"convert_float_to_int\",\"confidence\":\"medium\",\"docstring\":\"Converts the input to half precision, applies a double-precision operation against a constant, and converts the result to an integer.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"input_float_bits\",\"v1\":\"half_precision_value\",\"v2\":\"double_value\",\"v3\":\"double_operation_result\"}}"
+}

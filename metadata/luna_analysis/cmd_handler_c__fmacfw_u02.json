@@ -1,0 +1,9 @@
+{
+ "fn": "cmd_handler_c",
+ "img": "fmacfw_u02",
+ "addr": "0x12d2e8",
+ "seg": 41,
+ "key": "cmd_handler_c__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"co_list_extract\",\"confidence\":\"medium\",\"docstring\":\"Unlinks a node from a head-and-tail linked list, updating the head or tail when necessary.\",\"subsystem\":\"ke\",\"var_renames\":{\"v2\":\"list\",\"v4\":\"current_node\",\"v5\":\"previous_node\",\"v6\":\"tail_node\",\"a2\":\"node_to_remove\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"List head pointer; the first word of a node is its next pointer.\"},{\"offset\":4,\"meaning\":\"List tail pointer.\"}]}"
+}

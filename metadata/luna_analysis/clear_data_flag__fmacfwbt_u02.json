@@ -1,0 +1,9 @@
+{
+ "fn": "clear_data_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1420d4",
+ "seg": 68,
+ "key": "clear_data_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"clear_conn_data_flag\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears the data-pending flag for a connection or entry, zeroes an adjacent byte field, and decrements a global pending-data counter after invoking set_conn_flag.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"conn_entry\",\n    \"result\": \"set_conn_flag_result\",\n    \"v3\": \"pending_data_count_ptr\",\n    \"v4\": \"new_pending_data_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"16-bit entry flag field; bit 0 represents a data-pending or connection-data flag\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"Entry byte field cleared together with the data-pending flag\"\n    }\n  ]\n}"
+}

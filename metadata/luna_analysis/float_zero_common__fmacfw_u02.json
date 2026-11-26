@@ -1,0 +1,9 @@
+{
+ "fn": "float_zero_common",
+ "img": "fmacfw_u02",
+ "addr": "0x14329c",
+ "seg": 68,
+ "key": "float_zero_common__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"aeabi_ul2f\",\"confidence\":\"high\",\"docstring\":\"Converts an unsigned 64-bit integer to a single-precision floating-point value using the ARM EABI helper routine.\",\"subsystem\":\"libmisc\"}"
+}

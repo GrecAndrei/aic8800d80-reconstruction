@@ -1,0 +1,9 @@
+{
+ "fn": "reset_controller_state",
+ "img": "fmacfw_u02",
+ "addr": "0x134434",
+ "seg": 51,
+ "key": "reset_controller_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_controller_state_reset\",\"confidence\":\"medium\",\"docstring\":\"Releases the two retained controller buffers, clears the 0x2c-byte state block, and then calls a follow-up handler with arguments 6 and 0.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"first_buffer_ptr\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Buffer pointer whose allocation is released during reset.\"},{\"offset\":20,\"meaning\":\"Second buffer pointer whose allocation is released during reset.\"}]}"
+}

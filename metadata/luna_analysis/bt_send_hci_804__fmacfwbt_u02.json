@@ -1,0 +1,9 @@
+{
+ "fn": "bt_send_hci_804",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b708",
+ "seg": 40,
+ "key": "bt_send_hci_804__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_send_hci_evt_804\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a Bluetooth HCI event buffer for ID 0x804, logs the scan-send-cancel path, writes the provided one-byte payload, and dispatches the buffer as an HCI event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v3\": \"evt_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first byte of HCI event payload\"\n    }\n  ]\n}"
+}

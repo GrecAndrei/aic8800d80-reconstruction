@@ -1,0 +1,9 @@
+{
+ "fn": "co_list_process",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11deec",
+ "seg": 20,
+ "key": "co_list_process__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"co_list_extract_if\", \"confidence\": \"high\", \"docstring\": \"Removes and returns the first node in a singly linked co_list whose predicate callback returns true, updating the list head and tail pointers as needed.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"a1\": \"list\", \"a2\": \"predicate\", \"a3\": \"ctx\", \"v3\": \"node\", \"v7\": \"prev\", \"i\": \"matched\", \"v9\": \"next\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"list head pointer / node next pointer\"}, {\"offset\": 4, \"meaning\": \"list tail pointer\"}]}"
+}

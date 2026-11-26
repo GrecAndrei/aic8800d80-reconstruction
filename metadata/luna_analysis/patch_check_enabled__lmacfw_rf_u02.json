@@ -1,0 +1,9 @@
+{
+ "fn": "patch_check_enabled",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121a68",
+ "seg": 22,
+ "key": "patch_check_enabled__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"patch_check_enabled\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks a volatile patch-context state byte, returning the associated MAC descriptor when the byte equals 3 and 1 otherwise.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

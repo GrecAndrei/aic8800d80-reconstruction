@@ -1,0 +1,9 @@
+{
+ "fn": "mac_config_and_start",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1043c8",
+ "seg": 2,
+ "key": "mac_config_and_start__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dump_tone_type3\",\"confidence\":\"high\",\"docstring\":\"Configures the RF dump path for tone type 3, waits for the capture to finish, and restores the saved control state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_register_base\",\"v1\":\"dump_control_reg\",\"v3\":\"saved_control_value\",\"v5\":\"dump_end_addr_reg\"},\"struct_hints\":[{\"offset\":116,\"meaning\":\"RF control register; clears the low nibble and sets bits 7:4 to 0xA.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_set_lock",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125058",
+ "seg": 31,
+ "key": "ke_event_set_lock__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_event_abort_lock\",\"confidence\":\"medium\",\"docstring\":\"Abort a pending kernel event under a recursive critical section, popping and rescheduling the head event when necessary while marking or removing non-head events as aborted.\",\"subsystem\":\"ke\",\"var_renames\":{\"v1\":\"lock_depth\",\"v2\":\"event_list_head_pp\",\"v3\":\"head_matches\",\"v5\":\"depth_after_unlock\",\"v6\":\"irq_lock_saved\",\"v7\":\"event_control\",\"v8\":\"next_event_field\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"field of the next event list element copied to global state (likely pending event data/timeout)\"},{\"offset\":8,\"meaning\":\"global event control word updated to the next pending event mask (0x40000) or idle/no-pending mask (1024)\"},{\"offset\":48,\"meaning\":\"global event control next-event parameter/timeout field\"}]}"
+}

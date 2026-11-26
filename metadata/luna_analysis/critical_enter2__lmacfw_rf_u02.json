@@ -1,0 +1,9 @@
+{
+ "fn": "critical_enter2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f010",
+ "seg": 2,
+ "key": "critical_enter2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"critical_enter2\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Executes the call-slot callback inside a nested interrupt-disabled critical section, optionally waiting on an event flag and acknowledging it.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v3\": \"nesting_count_ptr\",\n    \"v4\": \"event_flag_ptr\",\n    \"v6\": \"remaining_nesting_count\",\n    \"v7\": \"irq_was_disabled\",\n    \"a3\": \"wait_on_event\"\n  },\n  \"struct_hints\": []\n}"
+}

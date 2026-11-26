@@ -1,0 +1,9 @@
+{
+ "fn": "get_phy_descriptor",
+ "img": "fmacfw_u02",
+ "addr": "0x11c364",
+ "seg": 18,
+ "key": "get_phy_descriptor__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_phy_descriptor\",\"confidence\":\"medium\",\"docstring\":\"Selects a PHY descriptor from a flagged configuration when available, otherwise using a cached descriptor or encoding a byte from the supplied context.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"phy_cfg\"},\"struct_hints\":[{\"offset\":580,\"meaning\":\"Cached PHY descriptor returned when the associated condition is satisfied.\"},{\"offset\":309,\"meaning\":\"Byte shifted into the fallback descriptor's bits 9 and above.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_send_pdu",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c7ec",
+ "seg": 40,
+ "key": "tx_send_pdu__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_tx_alloc_packet\",\"confidence\":\"medium\",\"docstring\":\"Allocates a zero-filled HCI transmit buffer with a 12-byte metadata prefix, stores the supplied header fields and payload length, and returns the payload address.\",\"subsystem\":\"hci\",\"var_renames\":{\"v9\":\"tx_buffer\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"32-bit metadata field, initialized to zero\"},{\"offset\":4,\"meaning\":\"16-bit caller-supplied metadata field\"},{\"offset\":6,\"meaning\":\"16-bit caller-supplied metadata field\"},{\"offset\":8,\"meaning\":\"16-bit caller-supplied metadata field\"},{\"offset\":10,\"meaning\":\"16-bit payload length\"},{\"offset\":12,\"meaning\":\"Payload start\"}]}"
+}

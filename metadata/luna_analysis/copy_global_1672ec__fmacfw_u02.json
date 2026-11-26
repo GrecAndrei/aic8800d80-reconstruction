@@ -1,0 +1,9 @@
+{
+ "fn": "copy_global_1672ec",
+ "img": "fmacfw_u02",
+ "addr": "0x114920",
+ "seg": 5,
+ "key": "copy_global_1672ec__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cmd_read_decode\",\"confidence\":\"high\",\"docstring\":\"Executes the selected RF command, decodes its three signed-magnitude nibble values into the output buffer, and returns packed per-value status flags.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"command_index\",\"a2\":\"output_values\",\"v5\":\"response_word\",\"v6\":\"result_index\",\"v7\":\"status_flags\",\"v8\":\"response_field\",\"v9\":\"decoded_value\",\"v10\":\"encoded_value_nibble\",\"v11\":\"sign_factor\",\"v14\":\"rf_command_words\"},\"struct_hints\":[]}"
+}

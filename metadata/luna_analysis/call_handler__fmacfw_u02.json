@@ -1,0 +1,9 @@
+{
+ "fn": "call_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x12ff98",
+ "seg": 42,
+ "key": "call_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"run_command_handler_batch\",\"confidence\":\"medium\",\"docstring\":\"Configures the interrupt controller, enters a nested IRQ-protected section, clears two 8-byte buffers, and invokes the shared command handler four times.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"critical_nesting_counter\",\"v1\":\"first_cleared_buffer\",\"result\":\"last_handler_result\"}}"
+}

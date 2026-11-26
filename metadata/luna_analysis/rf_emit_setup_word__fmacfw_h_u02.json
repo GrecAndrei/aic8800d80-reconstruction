@@ -1,0 +1,9 @@
+{
+ "fn": "rf_emit_setup_word",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114588",
+ "seg": 5,
+ "key": "rf_emit_setup_word__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_clear_control_flag\",\"confidence\":\"medium\",\"docstring\":\"Clears bit 1 in the 32-bit word at offset 8 of the object referenced by the global pointer.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":8,\"meaning\":\"32-bit control or flag word; bit 1 is cleared\"}]}"
+}

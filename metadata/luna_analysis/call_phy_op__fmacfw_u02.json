@@ -1,0 +1,9 @@
+{
+ "fn": "call_phy_op",
+ "img": "fmacfw_u02",
+ "addr": "0x130370",
+ "seg": 42,
+ "key": "call_phy_op__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_core_reset\",\"confidence\":\"medium\",\"docstring\":\"Forwards the RF core reset operation to the alternate reset implementation and returns its status.\",\"subsystem\":\"rf\"}"
+}

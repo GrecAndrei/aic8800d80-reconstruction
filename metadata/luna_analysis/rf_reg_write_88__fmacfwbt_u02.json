@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_write_88",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123408",
+ "seg": 29,
+ "key": "rf_reg_write_88__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_reg_write_88\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches RF command suboperation 88 to update control-state fields such as tim_bcmc_ign, temp_comp_en, and ext_flags, then returns an HCI completion event.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v5\": \"subcmd\",\n    \"v6\": \"evt\",\n    \"v7\": \"evt\",\n    \"v8\": \"tim_bcmc_ign\",\n    \"v11\": \"rf_state\",\n    \"v12\": \"temp_comp_req\",\n    \"v13\": \"temp_comp_status\",\n    \"v14\": \"rf_state\",\n    \"v15\": \"temperature\",\n    \"v16\": \"ext_flags_new\",\n    \"v17\": \"rf_state\",\n    \"v18\": \"ext_flags_old\",\n    \"v10\": \"ext_flags_updated\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"subcommand or selector for RF register 88 operation\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"value or mask for subcommands that set tim_bcmc_ign, temp_comp_en, or ext_flags\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"secondary word payload used by temp_comp or masked ext_flags updates\"\n    }\n  ]\n}"
+}

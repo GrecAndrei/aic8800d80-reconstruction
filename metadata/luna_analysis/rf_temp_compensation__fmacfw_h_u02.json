@@ -1,0 +1,9 @@
+{
+ "fn": "rf_temp_compensation",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1301b8",
+ "seg": 42,
+ "key": "rf_temp_compensation__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_temperature_compensation\",\"confidence\":\"medium\",\"docstring\":\"Computes six calibration-table deltas between the requested level and the stored level, saves them in the RF state, and refreshes calibration values.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"requested_level\",\"v1\":\"compensation_state\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Stored reference level used to select calibration-table entries.\"},{\"offset\":8,\"meaning\":\"Start of a six-byte array of calibration-table deltas computed for the requested level.\"}]}"
+}

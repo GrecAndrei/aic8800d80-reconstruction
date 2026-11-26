@@ -1,0 +1,9 @@
+{
+ "fn": "tlv_find",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121b40",
+ "seg": 22,
+ "key": "tlv_find__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"uart_tx_str_expand_tab\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Write a byte range to the UART debug output while expanding tab characters to space padding and updating the output column counters.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v3\": \"range_end\",\n    \"v4\": \"cur_col_ptr\",\n    \"v10\": \"tab_space_table\",\n    \"v11\": \"src_ptr\",\n    \"v12\": \"stop_ptr\",\n    \"v13\": \"current_byte\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "patch_trampoline",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121a5c",
+ "seg": 22,
+ "key": "patch_trampoline__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"patch_trampoline\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Patch trampoline that forwards its argument to mac_ll_scheduler and returns the scheduler result as an integer.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "assemble_bt_descriptor",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133800",
+ "seg": 47,
+ "key": "assemble_bt_descriptor__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_build_descriptor_hash\", \"confidence\": \"medium\", \"docstring\": \"Copies two leading descriptor words into an output buffer, clears trailing fields, and mixes input, auxiliary, and channel words into a Bluetooth descriptor hash.\", \"subsystem\": \"bt\", \"var_renames\": {\"a1\": \"out_desc\", \"a2\": \"src_desc_words\", \"a3\": \"input_words\", \"a4\": \"aux_words\", \"a5\": \"channel\", \"v5\": \"aux_u16_high\", \"v6\": \"aux_word2\", \"v7\": \"input_u16_low\", \"v8\": \"input_word0\", \"v9\": \"combined_word\", \"v10\": \"channel_bits\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"output descriptor: first word copied from source\"}, {\"offset\": 4, \"meaning\": \"output descriptor: second word copied from source\"}, {\"offset\": 8, \"meaning\": \"output descriptor: third word cleared before hash mixing\"}, {\"offset\": 12, \"meaning\": \"output descriptor: byte field cleared before hash mixing\"}, {\"offset\": 0, \"meaning\": \"input buffer: first 32-bit word fed to hash mixing\"}, {\"offset\": 4, \"meaning\": \"input buffer: 16-bit word combined with auxiliary high bits\"}]}"
+}

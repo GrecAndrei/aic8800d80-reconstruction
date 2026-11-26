@@ -1,0 +1,9 @@
+{
+ "fn": "ke_wait_event",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133c24",
+ "seg": 48,
+ "key": "ke_wait_event__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_cmd6_event_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles HCI short-command status/event values 5\u20138 for command 6, consumes a volatile pending flag, and dispatches event 1 when the flag is not pending.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 34,\n      \"meaning\": \"volatile one-shot event pending/ack flag; clearing it suppresses the event dispatch path\"\n    }\n  ]\n}"
+}

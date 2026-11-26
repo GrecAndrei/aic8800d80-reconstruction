@@ -1,0 +1,9 @@
+{
+ "fn": "lll_conn_ready_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a5c0",
+ "seg": 37,
+ "key": "lll_conn_ready_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rsn_process_ready_slot\",\"confidence\":\"medium\",\"docstring\":\"Processes a ready RSN slot, refreshes key and information-element state, advances the interface state, and issues the corresponding bus command.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"context_index\",\"v4\":\"context_table\",\"v7\":\"slot_ptr\",\"v8\":\"slot\",\"v10\":\"slot_flag\",\"v11\":\"pending_count\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Per-slot ready marker; the slot is processed when nonzero.\"},{\"offset\":32,\"meaning\":\"Per-slot flag used to permit processing and update the secondary count.\"},{\"offset\":112,\"meaning\":\"Context state gate; processing is enabled when equal to 1.\"},{\"offset\":113,\"meaning\":\"Current state value passed to the state-transition helper.\"},{\"offset\":115,\"meaning\":\"Flag selecting the continued state transition.\"},{\"offset\":121,\"meaning\":\"Pending-slot count, decremented when a slot is processed.\"},{\"offset\":122,\"meaning\":\"Secondary count, decremented for slots whose flag at offset 32 is 1.\"}]}"
+}

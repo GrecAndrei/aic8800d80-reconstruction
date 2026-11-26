@@ -1,0 +1,9 @@
+{
+ "fn": "phy_set_chan",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13c140",
+ "seg": 61,
+ "key": "phy_set_chan__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Switches the radio channel for a PHY/RF context by mapping the requested channel to an RF configuration id, issuing a short HCI command, and checking the per-config switch/ready state.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"phy_idx\",\n    \"a2\": \"channel\",\n    \"v3\": \"rf_cfg_table\",\n    \"v5\": \"rf_chan_cfg_id\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 453,\n      \"meaning\": \"byte field yielding RF channel configuration id\"\n    },\n    {\n      \"offset\": 316,\n      \"meaning\": \"uint16 RF/channel configuration value used in switch timing comparison\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"uint16 field of per-config RF switch-state entry\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"pointer field of per-config RF switch-state entry used as timestamp reference\"\n    }\n  ]\n}"
+}

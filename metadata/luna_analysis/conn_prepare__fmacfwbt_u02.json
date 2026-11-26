@@ -1,0 +1,9 @@
+{
+ "fn": "conn_prepare",
+ "img": "fmacfwbt_u02",
+ "addr": "0x117974",
+ "seg": 11,
+ "key": "conn_prepare__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calib_apply\",\"confidence\":\"medium\",\"docstring\":\"Apply five RF calibration entries from two 8-byte-stride tables located at context offsets 1232 and 1272 by calling rf_calib_config for indices 0 through 4.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"ctx\",\"v1\":\"calib_ptr\",\"v2\":\"calib_idx\",\"result\":\"status\"},\"struct_hints\":[{\"offset\":1272,\"meaning\":\"RF calibration table (5 entries, stride 8)\"},{\"offset\":1232,\"meaning\":\"secondary RF calibration table (5 entries, stride 8)\"}]}"
+}

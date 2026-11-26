@@ -1,0 +1,9 @@
+{
+ "fn": "format_bt_address",
+ "img": "fmacfw_u02",
+ "addr": "0x1306c0",
+ "seg": 42,
+ "key": "format_bt_address__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_he_capabilities_ie_append\",\"confidence\":\"medium\",\"docstring\":\"Appends an 802.11ax HE Capabilities extension IE, including optional width-dependent MCS/NSS maps and PPE thresholds, and advances the output cursor.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"output_cursor_ref\",\"v1\":\"he_mac_cap_src\",\"v2\":\"ie_buffer\",\"v4\":\"he_mac_cap_dst\",\"v7\":\"he_phy_cap_src_cursor\",\"v12\":\"he_phy_cap_byte0\",\"v13\":\"mcs_map_80mhz_rx\",\"v14\":\"mcs_nss_dst_cursor\",\"v15\":\"mcs_map_160mhz_rx\",\"v16\":\"mcs_map_80p80mhz\",\"v20\":\"ppe_threshold_len_bytes\",\"v21\":\"ppe_threshold_src_cursor\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Element ID (0xFF, extension element)\"},{\"offset\":1,\"meaning\":\"Element length\"},{\"offset\":2,\"meaning\":\"Extension ID 35 (HE Capabilities)\"},{\"offset\":3,\"meaning\":\"Six-byte HE MAC Capabilities Information field\"},{\"offset\":9,\"meaning\":\"Eleven-byte HE PHY Capabilities Information field\"},{\"offset\":20,\"meaning\":\"Supported HE-MCS and NSS Set; optional maps follow according to channel-width capabilities\"}]}"
+}

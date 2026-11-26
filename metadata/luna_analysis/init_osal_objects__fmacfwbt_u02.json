@@ -1,0 +1,9 @@
+{
+ "fn": "init_osal_objects",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114754",
+ "seg": 5,
+ "key": "init_osal_objects__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_osal_objects\",\"confidence\":\"medium\",\"docstring\":\"Clears three adjacent OSAL objects and invokes the abort-flag helper for the middle object with two related backing pointers.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"osal_objects_base\",\"v2\":\"middle_osal_object\"}}"
+}

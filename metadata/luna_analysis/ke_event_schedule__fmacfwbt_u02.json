@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_schedule",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10767c",
+ "seg": 2,
+ "key": "ke_event_schedule__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_adjust_tx_power\",\"confidence\":\"medium\",\"docstring\":\"Converts the requested power to dB, adjusts the TX gain relative to a calibration reference, reports threshold violations, and reloads the TX configuration.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"requested_power\",\"v3\":\"current_gain_base\",\"v7\":\"requested_power_db\",\"v8\":\"upper_power_threshold\",\"v9\":\"lower_power_threshold\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Current TX gain base, updated before reloading the TX configuration.\"},{\"offset\":28,\"meaning\":\"Calibration reference power used to calculate the adjusted gain.\"},{\"offset\":32,\"meaning\":\"Upper power threshold checked for saturation.\"},{\"offset\":36,\"meaning\":\"Lower power threshold checked for low-power conditions.\"}]}"
+}

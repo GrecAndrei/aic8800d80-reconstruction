@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134b30",
+ "seg": 52,
+ "key": "mac_tx_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"mac_tx_start\", \"confidence\": \"medium\", \"docstring\": \"Selects the next eligible MAC transmit descriptor, programs the transmit start/coexistence hardware registers, and prepares the associated host/transfer message.\", \"subsystem\": \"mac\", \"var_renames\": {\"v1\": \"tx_ctx\", \"v4\": \"tx_desc\", \"v5\": \"desc_skip_count\", \"v6\": \"tx_hw_param\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"next TX descriptor pointer\"}, {\"offset\": 106, \"meaning\": \"TX descriptor eligibility/ready flag\"}, {\"offset\": 108, \"meaning\": \"TX descriptor active/skip flag\"}, {\"offset\": 413, \"meaning\": \"TX descriptor flag byte OR'ed into hardware start register\"}, {\"offset\": 416, \"meaning\": \"TX descriptor 16-bit hardware value/length used to gate start\"}, {\"offset\": 107, \"meaning\": \"TX context status byte copied into allocated message\"}, {\"offset\": 149, \"meaning\": \"TX context flag cleared before event lock\"}, {\"offset\": 152, \"meaning\": \"TX context event lock pointer\"}]}"
+}

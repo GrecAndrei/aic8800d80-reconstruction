@@ -1,0 +1,9 @@
+{
+ "fn": "l2c_state_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1400c4",
+ "seg": 63,
+ "key": "l2c_state_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"l2c_update_link_state\",\"confidence\":\"medium\",\"docstring\":\"Validates the connection index and updates the L2CAP link state from its control block, timeout, and RF conditions.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"connection_index\",\"v3\":\"connection_table\",\"v4\":\"l2c_control_block\"},\"struct_hints\":[{\"offset\":29,\"meaning\":\"Connection index in the input record.\"},{\"offset\":30,\"meaning\":\"16-bit status flags; bit 13 is set when the RF check succeeds.\"},{\"offset\":36,\"meaning\":\"32-bit input flags; bit 21 controls a link-state flag.\"},{\"offset\":54,\"meaning\":\"Encoded output state byte combining the control-block substate and counter.\"},{\"offset\":0,\"meaning\":\"Control-block timestamp used for timeout checking.\"},{\"offset\":166,\"meaning\":\"Control-block flags; bits 1 and 2 are updated from input flags.\"},{\"offset\":167,\"meaning\":\"Control-block counter advanced modulo four.\"},{\"offset\":168,\"meaning\":\"Control-block state byte included in the encoded output state.\"},{\"offset\":340,\"meaning\":\"Per-connection pointer to the L2CAP control block.\"},{\"offset\":350,\"meaning\":\"Per-connection event flags updated on timeout or RF conditions.\"}]}"
+}

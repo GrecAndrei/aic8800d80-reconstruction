@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126fd8",
+ "seg": 23,
+ "key": "rf_cmd_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_process_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes an RF channel command by ensuring the command/status buffer is initialized, copying the command byte, computing a clamped offset-derived channel delta, and returning the channel mapped from the frequency offset.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"rf_cmd_buffer\",\n    \"v3\": \"freq_offset\",\n    \"v4\": \"offset_value\",\n    \"v5\": \"channel_delta\",\n    \"a1\": \"command_byte\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"RF command buffer status or initialization flag\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"clamped channel offset or channel delta byte\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"signed frequency offset byte\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"command byte slot 0\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"command byte slot 1\"\n    }\n  ]\n}"
+}

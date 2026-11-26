@@ -1,0 +1,9 @@
+{
+ "fn": "llm_pdu_handle",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1051e0",
+ "seg": 2,
+ "key": "llm_pdu_handle__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_run\",\"confidence\":\"low\",\"docstring\":\"Runs a floating-point radio calibration routine and applies its results through hardware-register accesses.\",\"subsystem\":\"rf\"}"
+}

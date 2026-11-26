@@ -1,0 +1,9 @@
+{
+ "fn": "parse_number",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121e3c",
+ "seg": 22,
+ "key": "parse_number__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"parse_number\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Parses a signed integer from a string in an optional radix, auto-detecting decimal, octal, and hexadecimal, and stores the next unparsed pointer if requested.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"str\",\n    \"a2\": \"endptr\",\n    \"a3\": \"base\",\n    \"v3\": \"ch\",\n    \"v4\": \"negative\",\n    \"i\": \"value\",\n    \"v6\": \"digit_value\",\n    \"v8\": \"next_ch\",\n    \"v9\": \"second_lower\",\n    \"v10\": \"third_ch\"\n  },\n  \"struct_hints\": []\n}"
+}

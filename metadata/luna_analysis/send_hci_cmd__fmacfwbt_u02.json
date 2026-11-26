@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125fbc",
+ "seg": 32,
+ "key": "send_hci_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_send_hci_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a Bluetooth HCI event buffer, fills its first two header bytes from a source descriptor, clears a status bit, and sends it through the HCI event path.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"src_desc\",\n    \"v2\": \"evt_buf\",\n    \"v3\": \"flag_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 14,\n      \"meaning\": \"buffer length passed to bt_buf_alloc()\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"byte copied to evt_buf[1], likely HCI event parameter length\"\n    },\n    {\n      \"offset\": 26,\n      \"meaning\": \"byte copied to evt_buf[0], likely HCI event code\"\n    }\n  ]\n}"
+}

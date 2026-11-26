@@ -1,0 +1,9 @@
+{
+ "fn": "double_to_float",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1428fc",
+ "seg": 68,
+ "key": "double_to_float__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"uint64_to_double\",\"confidence\":\"high\",\"docstring\":\"Converts a 64-bit unsigned integer to a double-precision floating-point value.\",\"subsystem\":\"libmisc\"}"
+}

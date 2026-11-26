@@ -1,0 +1,9 @@
+{
+ "fn": "wifi_set_channel",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1028b8",
+ "seg": 1,
+ "key": "wifi_set_channel__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_program_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs RF/baseband channel parameters from a supplied descriptor after applying the 2412 MHz RF configuration and triggering a register update.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"channel_params\",\n    \"v2\": \"rf_reg_window\",\n    \"v3\": \"rf_reserved_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first RF parameter word\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"second RF parameter word\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"third RF parameter word\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"fourth RF parameter word\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"fifth RF parameter word\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"sixth RF parameter word\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"seventh RF parameter word\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"eighth RF parameter word\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"ninth RF parameter word\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"RF update value loaded from dword_102904\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"RF strobe/trigger value 0x00FF00FF\"\n    }\n  ]\n}"
+}

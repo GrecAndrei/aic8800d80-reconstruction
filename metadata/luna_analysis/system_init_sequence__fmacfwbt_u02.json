@@ -1,0 +1,9 @@
+{
+ "fn": "system_init_sequence",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d908",
+ "seg": 42,
+ "key": "system_init_sequence__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"scale_u32_to_float\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Converts a 32-bit unsigned integer to floating point, multiplies it by a constant double value, and returns the result as a float.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v1\": \"input_float\",\n    \"v2\": \"input_double\",\n    \"v3\": \"scaled_double\"\n  },\n  \"struct_hints\": []\n}"
+}

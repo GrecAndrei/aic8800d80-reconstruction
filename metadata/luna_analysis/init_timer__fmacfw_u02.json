@@ -1,0 +1,9 @@
+{
+ "fn": "init_timer",
+ "img": "fmacfw_u02",
+ "addr": "0x125734",
+ "seg": 30,
+ "key": "init_timer__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_test_packets_init\",\"confidence\":\"medium\",\"docstring\":\"Clears the RF test state block and fills four test packet buffers at 38-byte intervals.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_test_state\",\"v1\":\"test_packet_buffer\"}}"
+}

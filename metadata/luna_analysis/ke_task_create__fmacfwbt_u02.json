@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_create",
+ "img": "fmacfwbt_u02",
+ "addr": "0x105840",
+ "seg": 2,
+ "key": "ke_task_create__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_ana_pwr_cal_select\",\"confidence\":\"medium\",\"docstring\":\"Builds a list of analog power indices selected by the input mask for calibration and initializes the associated index bounds.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"calibration_mask\",\"a2\":\"calibration_state\",\"v5\":\"mask_bit_position\",\"v6\":\"analog_power_index\",\"v8\":\"calibration_index_count\",\"v9\":\"selected_index\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"Analog power calibration index array begins here.\"},{\"offset\":56,\"meaning\":\"Number of calibration indices collected.\"},{\"offset\":60,\"meaning\":\"High-side analog power index bound, initialized to 15.\"},{\"offset\":64,\"meaning\":\"Low-side analog power index bound, initialized to 8.\"}]}"
+}

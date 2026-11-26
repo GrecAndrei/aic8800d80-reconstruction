@@ -1,0 +1,9 @@
+{
+ "fn": "rf_agc_control",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119190",
+ "seg": 12,
+ "key": "rf_agc_control__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_bcn_linkloss_evt_handle\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a beacon link-loss status by clearing an event/context byte field when a suppression flag is set, otherwise checking a link-loss interrupt condition and sending a kernel event.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v3\": \"evt\",\n    \"a2\": \"flags\",\n    \"a3\": \"param\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 116,\n      \"meaning\": \"uint8_t event or link-loss state field zeroed when the 0x800000 flag is set\"\n    }\n  ]\n}"
+}

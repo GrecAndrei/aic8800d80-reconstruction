@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_process",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132e78",
+ "seg": 46,
+ "key": "ble_ll_conn_process__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_rx_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a received BLE link-layer PDU for a connection, updates packet-status flags, and drives any resulting transmit actions.\",\"subsystem\":\"ble\",\"var_renames\":{\"v10\":\"rx_payload\",\"v11\":\"rx_payload_len\",\"v12\":\"rx_payload_len\"},\"struct_hints\":[{\"offset\":462,\"meaning\":\"Per-connection status bits updated from the inspected payload.\"},{\"offset\":472,\"meaning\":\"Connection state flags; bit 0 gates a subsequent packet/action-completion path.\"}]}"
+}

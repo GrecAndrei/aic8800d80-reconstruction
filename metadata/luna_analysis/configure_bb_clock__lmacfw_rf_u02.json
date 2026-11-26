@@ -1,0 +1,9 @@
+{
+ "fn": "configure_bb_clock",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1035e8",
+ "seg": 2,
+ "key": "configure_bb_clock__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"configure_bb_clock\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Disables selected baseband/RF clock controls through MMIO masks, inserts a timer delay, and checks the WfDfeAndRfIntf status flag.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

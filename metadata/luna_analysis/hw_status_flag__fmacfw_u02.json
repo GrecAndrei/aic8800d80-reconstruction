@@ -1,0 +1,9 @@
+{
+ "fn": "hw_status_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x119874",
+ "seg": 13,
+ "key": "hw_status_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_buffer_append_frame\",\"confidence\":\"medium\",\"docstring\":\"Dequeues a compatible pending transmit frame and appends its aligned storage to the current TX buffer, returning false if it is ineligible or will not fit.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"queue_head_ptr\",\"a3\":\"buffer_capacity\",\"a4\":\"frame_length\",\"a5\":\"queue_index\",\"v5\":\"queued_frame\",\"v6\":\"tx_buffer_ctx\",\"v8\":\"frame_descriptor\",\"v10\":\"descriptor_status_ptr\",\"v14\":\"aligned_frame_span\",\"v15\":\"extra_word_count\",\"v16\":\"updated_buffer_offset\",\"v22\":\"next_frame\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Queued-frame next-list pointer; the queue head advances to this value on success.\"},{\"offset\":40,\"meaning\":\"Current used byte offset in the TX buffer; advanced by the appended frame span.\"}]}"
+}

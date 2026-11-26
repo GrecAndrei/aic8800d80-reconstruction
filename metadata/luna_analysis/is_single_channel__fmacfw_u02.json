@@ -1,0 +1,9 @@
+{
+ "fn": "is_single_channel",
+ "img": "fmacfw_u02",
+ "addr": "0x113620",
+ "seg": 4,
+ "key": "is_single_channel__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_config_block\",\"confidence\":\"medium\",\"docstring\":\"Returns the configuration block for selector 1, 6, or 15, refreshing the selector-1 block from defaults and applying a hook-derived or stored override when available.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"selector\",\"v2\":\"config_buffer\",\"v3\":\"hook_value\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"32-bit configuration word replaced by a hook-derived or stored override value\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_clear",
+ "img": "fmacfw_h_u02",
+ "addr": "0x141580",
+ "seg": 65,
+ "key": "ke_timer_clear__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_acl_security_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Selects a Bluetooth ACL TX/security path or preprocesses command 0x0B and invalidates the saved ACL-context index when the request flag is clear.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"acl_connection\",\"v2\":\"bt_context\",\"v4\":\"acl_context_index\"},\"struct_hints\":[{\"offset\":98,\"meaning\":\"Byte flag set before ACL TX setup and security checking.\"},{\"offset\":6336,\"meaning\":\"Base of the ACL-context table, whose entries have a 136-byte stride.\"},{\"offset\":6480,\"meaning\":\"Saved ACL-context index, reset to -1 when the request flag is clear.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "timer_start",
+ "img": "fmacfw_u02",
+ "addr": "0x141dd0",
+ "seg": 67,
+ "key": "timer_start__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_timer_start\",\"confidence\":\"medium\",\"docstring\":\"Schedules a BLE link-layer timer and marks its associated connection and timer bookkeeping state active.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"timeout_delay\",\"v3\":\"timer_base\",\"v4\":\"next_deadline\",\"v5\":\"conn_idx\",\"v7\":\"conn_ctx\",\"v8\":\"timer_flags\",\"v10\":\"timer_type\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"timer flags\"},{\"offset\":4,\"meaning\":\"timer type or class; zero selects connection-index bookkeeping\"},{\"offset\":12,\"meaning\":\"relative delay passed to the timer scheduler\"},{\"offset\":16,\"meaning\":\"increment applied to the stored deadline\"},{\"offset\":24,\"meaning\":\"64-bit timer deadline or time accumulator\"},{\"offset\":47,\"meaning\":\"associated connection index\"},{\"offset\":52,\"meaning\":\"embedded timer scheduling node\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x100948",
+ "seg": 0,
+ "key": "rf_reg_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_reg_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initialize the RF register block by downloading a 432-word register table and then enabling 24 RF DLL channels from an even/odd configuration table.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_reg_table\",\n    \"a2\": \"rf_dll_table\",\n    \"v2\": \"rf_reg_ctl\",\n    \"v5\": \"rf_reg_ctl\",\n    \"v7\": \"chunk\",\n    \"v8\": \"chunk_words\",\n    \"v11\": \"src_addr\",\n    \"v12\": \"dst_addr\",\n    \"v13\": \"reg_value\",\n    \"v15\": \"odd_dll_channel\",\n    \"i\": \"dll_pair_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"even-index RF DLL configuration word\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"odd-index RF DLL configuration word\"\n    }\n  ]\n}"
+}

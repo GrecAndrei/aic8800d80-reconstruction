@@ -1,0 +1,9 @@
+{
+ "fn": "output_byte_cr",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1239b4",
+ "seg": 29,
+ "key": "output_byte_cr__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_send_txpower_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads the byte referenced by tx_power_byte, computes the corresponding transmit power via phy_txpower_calc, and sends HCI event 13 with the remaining event parameters.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"tx_power_byte\"\n  },\n  \"struct_hints\": []\n}"
+}

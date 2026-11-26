@@ -1,0 +1,9 @@
+{
+ "fn": "ctrl_timer_tick",
+ "img": "fmacfw_u02",
+ "addr": "0x127080",
+ "seg": 32,
+ "key": "ctrl_timer_tick__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ctrl_countdown_tick\",\"confidence\":\"medium\",\"docstring\":\"Decrements the controller countdown and, on expiry with the pending flag set, clears the flag, runs the shared worker, and checks controller flags.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"countdown_remaining\"},\"struct_hints\":[{\"offset\":89,\"meaning\":\"Countdown byte decremented on each tick\"}]}"
+}

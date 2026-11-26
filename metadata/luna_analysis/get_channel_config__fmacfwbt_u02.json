@@ -1,0 +1,9 @@
+{
+ "fn": "get_channel_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11d0b8",
+ "seg": 20,
+ "key": "get_channel_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_config_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Conditionally applies radio channel configuration to an interface context and emits an HCI channel-config event when the input status word indicates the expected channel update.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"status_word\",\n    \"a2\": \"ctx_idx\",\n    \"a3\": \"chcfg_idx\",\n    \"v3\": \"chcfg_state\",\n    \"v5\": \"status_bits\",\n    \"v7\": \"ctx_state\",\n    \"v16\": \"chan_count\",\n    \"v31\": \"evt_buf\",\n    \"v34\": \"chcfg_table_entry\",\n    \"v35\": \"ctx_table_entry\",\n    \"v36\": \"ctx_cfg_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"channel configuration state byte; value 2 selects the active config path\"\n    },\n    {\n      \"offset\": 34,\n      \"meaning\": \"per-context selected channel/config index byte\"\n    },\n    {\n      \"offset\": 35,\n      \"meaning\": \"channel/config count or status byte; values up to 0x1f are considered valid\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"busy/update-in-progress flag byte for this channel configuration\"\n    },\n    {\n      \"offset\": 664,\n      \"meaning\": \"start of per-context channel configuration state area\"\n    }\n  ]\n}"
+}

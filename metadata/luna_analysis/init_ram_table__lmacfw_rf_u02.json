@@ -1,0 +1,9 @@
+{
+ "fn": "init_ram_table",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114c68",
+ "seg": 6,
+ "key": "init_ram_table__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"dump_ram_table\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Dumps a saved RAM table of ARM register state, Cortex-M fault/control status, and selected stack or code memory for debug/assert reporting.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"ram_table\",\n    \"v1\": \"ram_table_ptr\",\n    \"i\": \"reg_index\",\n    \"v3\": \"reg_num\",\n    \"v4\": \"reg_val\",\n    \"v5\": \"scb\",\n    \"v6\": \"cfsr\",\n    \"v7\": \"exc_return\",\n    \"v8\": \"exc_return_shifted\",\n    \"v10\": \"stack_ptr\",\n    \"v15\": \"dump_addr\",\n    \"v16\": \"dump_end\",\n    \"v17\": \"dump_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 36,\n      \"meaning\": \"SCB SHCSR\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"SCB CFSR\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"SCB HFSR\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"SCB DFSR\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"SCB MMFAR\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"SCB BFAR\"\n    },\n    {\n      \"offset\": 60,\n      \"meaning\": \"SCB AFSR\"\n    }\n  ]\n}"
+}

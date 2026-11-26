@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_0x412",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12141c",
+ "seg": 22,
+ "key": "rf_write_0x412__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dbg_mem_write_masked\",\"confidence\":\"medium\",\"docstring\":\"Performs a masked 32-bit memory/register write from a debug or patch request and sends a DBG event containing the target address and resulting value.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a2\":\"write_req\",\"v5\":\"event_msg\",\"v6\":\"target_addr\",\"v7\":\"new_value\",\"v8\":\"data\",\"v9\":\"mask\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"target 32-bit address to modify\"},{\"offset\":4,\"meaning\":\"bit mask of fields to update\"},{\"offset\":8,\"meaning\":\"32-bit data value to apply under mask\"}]}"
+}

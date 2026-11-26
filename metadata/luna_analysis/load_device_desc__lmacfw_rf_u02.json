@@ -1,0 +1,9 @@
+{
+ "fn": "load_device_desc",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x105e94",
+ "seg": 2,
+ "key": "load_device_desc__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"phy_apply_device_desc\", \"confidence\": \"medium\", \"docstring\": \"Programs two PHY register fields from a constant device descriptor table, indexing by a per-device shift index and falling back to the middle table entry for out-of-range values.\", \"subsystem\": \"phy\", \"var_renames\": {\"v25\": \"shift_idx\", \"v26\": \"desc_index\", \"v28\": \"reg_field_val_0\", \"v30\": \"reg_field_val_1\", \"tbl\": \"device_desc_table\"}, \"struct_hints\": [{\"offset\": 140, \"meaning\": \"uint32 shift_idx used to select device descriptor table entries\"}]}"
+}

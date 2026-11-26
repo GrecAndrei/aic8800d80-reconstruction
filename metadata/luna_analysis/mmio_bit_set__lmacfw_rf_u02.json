@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_bit_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126d60",
+ "seg": 23,
+ "key": "mmio_bit_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_fss_enable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enables or disables RF frequency synthesizer operation by setting or clearing bit 0x10000 in an RF control register and updating a related mode field, then emits an FSS on/off event.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"enable\",\n    \"v1\": \"fss_reg_ptr\",\n    \"v2\": \"rf_mode_reg_ptr\",\n    \"v3\": \"fss_reg_old\",\n    \"v4\": \"event_name\",\n    \"v5\": \"rf_mode_new\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_write2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1370a8",
+ "seg": 57,
+ "key": "rf_cmd_write2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_cmd_write_vendor_ie\", \"confidence\": \"medium\", \"docstring\": \"Copies a vendor information element/command payload into a global RF command buffer and sends a minimal HCI event carrying the command subtype.\", \"subsystem\": \"rf\", \"var_renames\": {\"a2\": \"src_cmd_buf\", \"v5\": \"evt_buf\", \"v6\": \"dst_cmd_buf\", \"v7\": \"payload_len\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"u16 payload length in source and destination RF command buffer\"}, {\"offset\": 2, \"meaning\": \"command/event subtype byte copied to the second byte of the HCI event\"}, {\"offset\": 3, \"meaning\": \"payload data start after the 2-byte length and 1-byte subtype\"}]}"
+}

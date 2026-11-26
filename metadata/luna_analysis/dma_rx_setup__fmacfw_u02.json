@@ -1,0 +1,9 @@
+{
+ "fn": "dma_rx_setup",
+ "img": "fmacfw_u02",
+ "addr": "0x117534",
+ "seg": 10,
+ "key": "dma_rx_setup__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_rf_tx_config_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes two five-entry RF transmit configuration tables by calling rf_tx_setup for each indexed entry.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"config_ptr\",\"v2\":\"entry_index\",\"v3\":\"entry_index_copy\",\"v5\":\"entry_index_copy\"}}"
+}

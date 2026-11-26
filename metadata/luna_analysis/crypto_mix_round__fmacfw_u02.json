@@ -1,0 +1,9 @@
+{
+ "fn": "crypto_mix_round",
+ "img": "fmacfw_u02",
+ "addr": "0x1335b0",
+ "seg": 46,
+ "key": "crypto_mix_round__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"crypto_mix_round\",\"confidence\":\"medium\",\"docstring\":\"Mixes an input word into a two-word cryptographic state using additions, XORs, and rotations, then updates both state words in place.\",\"subsystem\":\"bt\",\"var_renames\":{\"result\":\"state_a\",\"a2\":\"state_b_ptr\",\"a3\":\"input_word\",\"v3\":\"input_xor_state_a\",\"v4\":\"state_b_xor_rotated_input\",\"v5\":\"first_mix_sum\",\"v6\":\"byte_permuted_mix\",\"v7\":\"second_mix_sum\",\"v8\":\"rotated_mix_xor\",\"v9\":\"third_mix_sum\",\"v10\":\"state_b_next\"}}"
+}

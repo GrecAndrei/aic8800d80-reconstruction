@@ -1,0 +1,9 @@
+{
+ "fn": "ke_malloc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x130234",
+ "seg": 43,
+ "key": "ke_malloc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_cmd_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses and dispatches a kernel debug command: non-matching commands are copied into a free-list node for queueing, while the matching command dumps CPU/stack state and toggles an AIC debug flag.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v1\": \"cmd_len\",\n    \"v2\": \"ret_status\",\n    \"v4\": \"cmd_node\",\n    \"v5\": \"cmd_node\",\n    \"v8\": \"psp\",\n    \"v9\": \"msp\",\n    \"v12\": \"msp_ptr\",\n    \"v13\": \"msp_end\",\n    \"v15\": \"psp_ptr\",\n    \"v16\": \"psp_end\"\n  },\n  \"struct_hints\": []\n}"
+}

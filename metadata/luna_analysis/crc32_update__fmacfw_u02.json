@@ -1,0 +1,9 @@
+{
+ "fn": "crc32_update",
+ "img": "fmacfw_u02",
+ "addr": "0x12d4f4",
+ "seg": 41,
+ "key": "crc32_update__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"crc32_update\",\"confidence\":\"high\",\"docstring\":\"Updates a CRC-32 state over a byte buffer using a lookup table and a non-reflected, most-significant-byte-first recurrence.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"data\",\"a2\":\"length\",\"a3\":\"crc_state\",\"v3\":\"end_ptr\",\"v4\":\"byte\"}}"
+}

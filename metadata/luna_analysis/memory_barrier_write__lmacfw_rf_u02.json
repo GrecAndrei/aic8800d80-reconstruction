@@ -1,0 +1,9 @@
+{
+ "fn": "memory_barrier_write",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1138d0",
+ "seg": 5,
+ "key": "memory_barrier_write__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"memory_barrier_write\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Performs a volatile read-modify-write to an MMIO target through a global pointer, presumably to flush or order a previous write.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

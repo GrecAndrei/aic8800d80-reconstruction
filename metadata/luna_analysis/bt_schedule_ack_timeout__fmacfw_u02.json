@@ -1,0 +1,9 @@
+{
+ "fn": "bt_schedule_ack_timeout",
+ "img": "fmacfw_u02",
+ "addr": "0x134d8c",
+ "seg": 52,
+ "key": "bt_schedule_ack_timeout__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_disconnect_process\",\"confidence\":\"medium\",\"docstring\":\"Stores disconnect parameters, logs connection and transmit status, then selects a connection-state or HCI-buffer path based on the host-init flag.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"conn_ctx\",\"a2\":\"disconnect_reason\",\"a3\":\"host_init\",\"v3\":\"disconnect_params\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"host-init flag\"},{\"offset\":8,\"meaning\":\"connection context pointer\"},{\"offset\":12,\"meaning\":\"disconnect reason\"},{\"offset\":116,\"meaning\":\"station index used to look up the transmit counter\"}]}"
+}

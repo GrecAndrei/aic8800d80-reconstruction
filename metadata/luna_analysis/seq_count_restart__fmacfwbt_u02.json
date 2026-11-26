@@ -1,0 +1,9 @@
+{
+ "fn": "seq_count_restart",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11dc14",
+ "seg": 21,
+ "key": "seq_count_restart__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_seq_count_restart\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes or restarts the WLC sequence-counter state by copying a backup control byte into the active flag and clearing bit 8 of a volatile sequence control word, with no-op behavior if already flagged.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v0\": \"seq_ctrl_bytes\",\n    \"v1\": \"seq_ctrl_word\",\n    \"v2\": \"seq_ctrl_word_val\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 10,\n      \"meaning\": \"active/restart flag byte\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"backup sequence control byte\"\n    }\n  ]\n}"
+}

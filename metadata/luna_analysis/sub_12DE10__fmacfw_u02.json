@@ -1,0 +1,9 @@
+{
+ "fn": "sub_12DE10",
+ "img": "fmacfw_u02",
+ "addr": "0x12de10",
+ "seg": 42,
+ "key": "sub_12DE10__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_config_find_entry\",\"confidence\":\"medium\",\"docstring\":\"Scans length-prefixed records for a 0x55 entry and returns its header only if its nonempty payload fits within the supplied buffer length.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"buffer_end\",\"v3\":\"next_record\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Record tag, matched against 0x55\"},{\"offset\":1,\"meaning\":\"Payload length in bytes\"}]}"
+}

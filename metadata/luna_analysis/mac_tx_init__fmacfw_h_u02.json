@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11acf0",
+ "seg": 15,
+ "key": "mac_tx_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_tx_prepare\",\"confidence\":\"medium\",\"docstring\":\"Prepares a MAC transmit packet by adjusting its packet-buffer state and allocating and initializing a transmit descriptor when none is attached.\",\"subsystem\":\"mac\",\"var_renames\":{\"v5\":\"tx_context_flags\",\"v6\":\"packet_buffer_state\",\"v23\":\"tx_descriptor\",\"v26\":\"header_control_ptr\",\"v29\":\"adjusted_length_threshold\",\"v30\":\"packet_data_cursor\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"TX context flag word; bit 0x200000 selects an alternate path.\"},{\"offset\":68,\"meaning\":\"TX context pointer to an attached transmit descriptor.\"},{\"offset\":76,\"meaning\":\"TX context pointer to packet-buffer state.\"},{\"offset\":82,\"meaning\":\"TX context 16-bit status word; bit 0x4 gates this path.\"},{\"offset\":28,\"meaning\":\"Packet-buffer state pointer to an optional 16-bit header/control word.\"},{\"offset\":32,\"meaning\":\"Packet-buffer data cursor or address; advanced by four in the adjustment path.\"},{\"offset\":36,\"meaning\":\"Packet-buffer byte length; increased by four in the adjustment path.\"}]}"
+}

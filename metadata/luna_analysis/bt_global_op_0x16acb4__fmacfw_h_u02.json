@@ -1,0 +1,9 @@
+{
+ "fn": "bt_global_op_0x16acb4",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ee38",
+ "seg": 42,
+ "key": "bt_global_op_0x16acb4__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_set_debug_severity_filter\",\"confidence\":\"high\",\"docstring\":\"Sets the Bluetooth debug severity filter and updates the associated MAC header word.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"severity_filter_ptr\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_copy_register",
+ "img": "fmacfw_u02",
+ "addr": "0x101954",
+ "seg": 0,
+ "key": "rf_copy_register__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_handle_rc_interrupt\",\"confidence\":\"medium\",\"docstring\":\"Copies the RF status register, dispatches event 16 when bit 12 is set after clearing that bit in the preceding register, and otherwise logs the status.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"status_reg\",\"v1\":\"status\"}}"
+}

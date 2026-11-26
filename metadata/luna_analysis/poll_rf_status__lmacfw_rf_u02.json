@@ -1,0 +1,9 @@
+{
+ "fn": "poll_rf_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103540",
+ "seg": 2,
+ "key": "poll_rf_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_configure_dfe_and_rfintf\", \"confidence\": \"medium\", \"docstring\": \"Configures and enables the WiFi DFE and RF interface by setting control bits, polls RF status bits with timed loops, and verifies the DFE/RFINTF interrupt flag.\", \"subsystem\": \"rf\", \"var_renames\": {\"v0\": \"rf_status_reg\", \"v1\": \"poll_timeout\", \"v3\": \"rf_status_reg\", \"v4\": \"poll_timeout\"}, \"struct_hints\": []}"
+}

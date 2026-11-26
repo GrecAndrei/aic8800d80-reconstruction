@@ -1,0 +1,9 @@
+{
+ "fn": "__aeabi_ui2d",
+ "img": "fmacfwbt_u02",
+ "addr": "0x142a50",
+ "seg": 69,
+ "key": "__aeabi_ui2d__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"__aeabi_ui2d\", \"confidence\": \"high\", \"docstring\": \"Converts an unsigned integer argument in r0 to a double return value using the linked ARM soft-float ABI helper.\", \"subsystem\": \"libmisc\", \"var_renames\": {}, \"struct_hints\": []}"
+}

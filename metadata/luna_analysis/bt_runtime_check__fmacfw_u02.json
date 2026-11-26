@@ -1,0 +1,9 @@
+{
+ "fn": "bt_runtime_check",
+ "img": "fmacfw_u02",
+ "addr": "0x12a140",
+ "seg": 36,
+ "key": "bt_runtime_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_evt_runtime_check\",\"confidence\":\"medium\",\"docstring\":\"Reads two values from the indexed connection record, returns whether their signed difference is negative, and conditionally clears a control register based on global status.\",\"subsystem\":\"ble\",\"var_renames\":{\"v6\":\"connection_record\",\"v7\":\"record_value\"},\"struct_hints\":[{\"offset\":1224,\"meaning\":\"Flag gating the conditional control-register clear\"},{\"offset\":1225,\"meaning\":\"Index selecting a connection record\"},{\"offset\":124,\"meaning\":\"Value returned through the third argument and compared with the value at offset 128\"},{\"offset\":128,\"meaning\":\"Value returned through the second argument and used as the comparison reference\"}]}"
+}

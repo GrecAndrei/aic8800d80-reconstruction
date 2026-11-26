@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_write_1",
+ "img": "fmacfw_u02",
+ "addr": "0x10d79c",
+ "seg": 3,
+ "key": "gpio_write_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_write\",\"confidence\":\"medium\",\"docstring\":\"Waits for the MMIO busy bit to clear, writes the supplied value to the data register, and returns it.\",\"subsystem\":\"gpio\",\"var_renames\":{\"result\":\"value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "find_object_by_key",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114944",
+ "seg": 5,
+ "key": "find_object_by_key__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_sdio_send_data\",\"confidence\":\"medium\",\"docstring\":\"Builds an SDIO transmit frame around a length-prefixed Bluetooth payload and submits it through an allocated send descriptor.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"packet_type\",\"a2\":\"header_value\",\"a3\":\"length_prefixed_payload\",\"v7\":\"tx_frame\",\"v8\":\"send_descriptor\",\"v9\":\"payload_length\",\"v10\":\"frame_constants\",\"v11\":\"payload_length_with_prefix\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Transmit-frame length field; its upper bits continue at offset 1.\"},{\"offset\":2,\"meaning\":\"Packet type supplied by the caller.\"},{\"offset\":3,\"meaning\":\"Reserved or flags byte, initialized to zero.\"},{\"offset\":4,\"meaning\":\"Caller-supplied 16-bit header value.\"},{\"offset\":6,\"meaning\":\"16-bit frame constant copied from a static table.\"},{\"offset\":8,\"meaning\":\"16-bit frame constant copied from a static table.\"},{\"offset\":10,\"meaning\":\"Length-prefixed payload size, equal to the input length plus four bytes.\"},{\"offset\":12,\"meaning\":\"Global transport/header word.\"},{\"offset\":16,\"meaning\":\"Original payload length.\"},{\"offset\":20,\"meaning\":\"Payload bytes copied from the input.\"},{\"offset\":0,\"meaning\":\"Send descriptor: pointer to the transmit frame.\"},{\"offset\":4,\"meaning\":\"Send descriptor: zeroed reserved word.\"},{\"offset\":8,\"meaning\":\"Send descriptor: packed frame length and control flags.\"}]}"
+}

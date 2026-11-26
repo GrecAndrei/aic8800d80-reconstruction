@@ -1,0 +1,9 @@
+{
+ "fn": "configure_external_clock",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1032dc",
+ "seg": 2,
+ "key": "configure_external_clock__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"configure_external_clock\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Enables or disables the external clock source by programming GPIO function muxing when configured and setting or clearing the external clock select bit.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"enable_external\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 362,\n      \"meaning\": \"byte flag in hardware/board configuration indicating external clock GPIO muxing is required\"\n    }\n  ]\n}"
+}

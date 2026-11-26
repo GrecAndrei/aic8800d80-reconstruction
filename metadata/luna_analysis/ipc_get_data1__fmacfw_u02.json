@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_get_data1",
+ "img": "fmacfw_u02",
+ "addr": "0x12ea50",
+ "seg": 42,
+ "key": "ipc_get_data1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_get_data1\",\"confidence\":\"high\",\"docstring\":\"Returns the second IPC data register value.\",\"subsystem\":\"ipc\"}"
+}

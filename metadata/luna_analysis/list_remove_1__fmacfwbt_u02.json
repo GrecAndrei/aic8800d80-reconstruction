@@ -1,0 +1,9 @@
+{
+ "fn": "list_remove_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d5f0",
+ "seg": 42,
+ "key": "list_remove_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"list_remove\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Unlinks a specified entry from a linked list by walking the head chain to find it, updating adjacent list pointers and aborting when the entry pointer is null.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"list_head\",\n    \"a2\": \"entry\",\n    \"v3\": \"candidate\",\n    \"v4\": \"saved_list_head\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"entry next pointer / list head pointer field\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"list tail pointer field in the list control structure\"\n    }\n  ]\n}"
+}

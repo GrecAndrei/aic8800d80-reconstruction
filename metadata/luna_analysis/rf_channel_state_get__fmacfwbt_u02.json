@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_state_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a270",
+ "seg": 37,
+ "key": "rf_channel_state_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_state_clear\",\"confidence\":\"medium\",\"docstring\":\"Clears or invalidates an RF channel table entry's state byte and decrements a global active-entry count when that entry is marked active.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"channel_index\",\"a2\":\"force_clear\",\"v2\":\"channel_table_base\",\"v3\":\"channel_entry\"},\"struct_hints\":[{\"offset\":112,\"meaning\":\"byte flag compared against 1, possibly indicating an active or counted channel state\"},{\"offset\":113,\"meaning\":\"byte state flag; 0xFF denotes cleared/invalid state and is written to invalidate the entry\"}]}"
+}

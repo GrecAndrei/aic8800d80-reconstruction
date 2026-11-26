@@ -1,0 +1,9 @@
+{
+ "fn": "tx_path_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1017c0",
+ "seg": 0,
+ "key": "tx_path_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_tx_path_setup\", \"confidence\": \"medium\", \"docstring\": \"Programs RF transmit-path configuration registers and selects mode- or calibration-dependent settings, returning success.\", \"subsystem\": \"rf\", \"var_renames\": {}, \"struct_hints\": []}"
+}

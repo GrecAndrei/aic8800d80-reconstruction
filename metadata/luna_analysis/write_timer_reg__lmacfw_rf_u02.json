@@ -1,0 +1,9 @@
+{
+ "fn": "write_timer_reg",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x100560",
+ "seg": 0,
+ "key": "write_timer_reg__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_wait_ticks\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls a hardware timer tick counter until the requested number of ticks has elapsed using a wrap-safe signed time comparison.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"ticks_to_wait\",\n    \"result\": \"target_tick\",\n    \"v3\": \"spin_delay_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"hardware timer tick counter register accessed as word index 4 from the timer register base\"\n    }\n  ]\n}"
+}

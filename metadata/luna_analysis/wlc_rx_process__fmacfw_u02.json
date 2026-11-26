@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_rx_process",
+ "img": "fmacfw_u02",
+ "addr": "0x129804",
+ "seg": 35,
+ "key": "wlc_rx_process__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_rx_process\",\"confidence\":\"medium\",\"docstring\":\"Applies per-interface receive-state checks and processes the selected interface\u2019s descriptor when enabled.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"wlc_context\",\"v4\":\"interface_context_table\",\"v5\":\"interface_index\",\"v16\":\"interface_slot_index\"},\"struct_hints\":[{\"offset\":113,\"meaning\":\"Interface index used to select a per-interface context.\"},{\"offset\":4,\"meaning\":\"Per-interface flags; bit 0x20 is set on the descriptor path.\"},{\"offset\":106,\"meaning\":\"Per-interface state, checked against value 2.\"},{\"offset\":116,\"meaning\":\"Per-interface slot index; 0xff indicates no slot.\"}]}"
+}

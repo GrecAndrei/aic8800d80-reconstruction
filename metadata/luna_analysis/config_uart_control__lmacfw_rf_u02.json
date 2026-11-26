@@ -1,0 +1,9 @@
+{
+ "fn": "config_uart_control",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10cbe0",
+ "seg": 2,
+ "key": "config_uart_control__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"configure_uart_control\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configures UART control and related register bit fields with fixed settings, then writes a cached UART control value.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"uart_cfg_reg\",\n    \"v1\": \"uart_cfg_reg2\",\n    \"result\": \"uart_ctrl_reg\",\n    \"v3\": \"uart_ctrl_val\"\n  }\n}"
+}

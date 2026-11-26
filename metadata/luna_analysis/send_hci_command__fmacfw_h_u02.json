@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13684c",
+ "seg": 56,
+ "key": "send_hci_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_hci_command\",\"confidence\":\"medium\",\"docstring\":\"Builds an HCI PDU from the saved command data, passes it through the packet processor, and invokes preprocessing for command 7, subcommand 2.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"command_context\",\"v1\":\"command_pdu\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "poll_rf_interrupts",
+ "img": "fmacfw_u02",
+ "addr": "0x1205bc",
+ "seg": 22,
+ "key": "poll_rf_interrupts__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_radio_init\",\"confidence\":\"medium\",\"docstring\":\"Programs Bluetooth radio control registers from the active configuration and clears pending status fields.\",\"subsystem\":\"bt\",\"var_renames\":{\"v9\":\"config_data\",\"v10\":\"config_flags\"}}"
+}

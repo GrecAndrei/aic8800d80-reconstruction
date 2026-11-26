@@ -1,0 +1,9 @@
+{
+ "fn": "rx_channel_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11007c",
+ "seg": 3,
+ "key": "rx_channel_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_channel_event_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes channel-related kernel events by iterating a channel/event list, checking kernel state for each entry, and incrementing a processed-event counter.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"control_block\",\n    \"result\": \"check_result\",\n    \"v2\": \"processed_event_counter\",\n    \"v3\": \"channel_event_list\",\n    \"v4\": \"kernel_context\",\n    \"v5\": \"iteration_index\",\n    \"v6\": \"channel_event_entry\",\n    \"v7\": \"pending_event_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 6,\n      \"meaning\": \"uint16_t pending/event count used as the loop bound\"\n    }\n  ]\n}"
+}

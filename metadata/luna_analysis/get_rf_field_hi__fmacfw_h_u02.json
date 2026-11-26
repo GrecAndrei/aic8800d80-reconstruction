@@ -1,0 +1,9 @@
+{
+ "fn": "get_rf_field_hi",
+ "img": "fmacfw_h_u02",
+ "addr": "0x101a18",
+ "seg": 0,
+ "key": "get_rf_field_hi__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_rf_field_hi\",\"confidence\":\"high\",\"docstring\":\"Returns the RF high-field value encoded in bits 8\u201311 of the register, minus one.\",\"subsystem\":\"rf\"}"
+}

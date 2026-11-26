@@ -1,0 +1,9 @@
+{
+ "fn": "util_call_arg",
+ "img": "fmacfw_h_u02",
+ "addr": "0x113908",
+ "seg": 5,
+ "key": "util_call_arg__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"util_call_with_arg\",\"confidence\":\"high\",\"docstring\":\"Calls the WLAN handler with the supplied argument and stored context inside a nesting-counted IRQ critical section.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"arg\",\"v2\":\"call_nesting_counter\",\"v3\":\"handler_context\",\"v5\":\"remaining_call_count\",\"v6\":\"irq_disabled_by_wrapper\"}}"
+}

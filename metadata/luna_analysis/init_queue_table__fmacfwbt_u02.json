@@ -1,0 +1,9 @@
+{
+ "fn": "init_queue_table",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115768",
+ "seg": 7,
+ "key": "init_queue_table__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_dump_fault_context\",\"confidence\":\"medium\",\"docstring\":\"Prints the captured Cortex-M register context, SCB fault status and relevant stack memory for debugging.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"saved_cpu_context\",\"v1\":\"context_word_ptr\",\"v5\":\"scb_registers\",\"v6\":\"cfsr\",\"v15\":\"stack_dump_addr\",\"v16\":\"stack_dump_end\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"SCB CFSR configurable fault status register\"},{\"offset\":52,\"meaning\":\"SCB MMFAR memory-management fault address register\"},{\"offset\":56,\"meaning\":\"SCB BFAR bus-fault address register\"},{\"offset\":76,\"meaning\":\"Captured EXC_RETURN value\"},{\"offset\":80,\"meaning\":\"Captured CONTROL register value\"}]}"
+}

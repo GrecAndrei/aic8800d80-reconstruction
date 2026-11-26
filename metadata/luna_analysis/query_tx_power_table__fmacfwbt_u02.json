@@ -1,0 +1,9 @@
+{
+ "fn": "query_tx_power_table",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13f54c",
+ "seg": 62,
+ "key": "query_tx_power_table__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_query_tx_power_table\",\"confidence\":\"medium\",\"docstring\":\"Queries a Bluetooth LE link-layer transmit-power table entry and, when requested, scales the computed value through a piecewise gain table.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"entry_stride_words\",\"v4\":\"table_entry\",\"v5\":\"raw_power_value\",\"v6\":\"entry_flags\",\"v8\":\"entry_byte_offset\",\"v9\":\"mode_field_bits\",\"v10\":\"mode_bits_11_12\",\"v11\":\"mode_low_bits\",\"v12\":\"divisor_base_u32\",\"v13\":\"compensation_value\",\"v14\":\"global_divisor_source\",\"result\":\"scaled_power\",\"v16\":\"piecewise_gain\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"table_entry.pointer_or_descriptor_passed_to_parse_ll_header\"},{\"offset\":8,\"meaning\":\"table_entry.u16_raw_power_or_quality_value\"},{\"offset\":10,\"meaning\":\"table_entry.u16_flags; bits_11_13_encode_mode_and_bit_13_selects_mode_path\"},{\"offset\":148,\"meaning\":\"ctx.u32_divisor_or_calibration_base\"}]}"
+}

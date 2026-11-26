@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12646c",
+ "seg": 23,
+ "key": "rf_set_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ll_cob_state_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Set the BLE link-layer COB state byte and dispatch/log the corresponding state change.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"new_cob_state\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg10_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1140b8",
+ "seg": 5,
+ "key": "rf_reg10_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_reg10_read_signed_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads the RF status/value byte at MMIO offset 0x10, decodes a sign-magnitude nibble into the output, and returns 0 for invalid high-nibble status, 2 for zero, or 1 for a valid nonzero value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"signed_value_out\",\n    \"v2\": \"raw_reg10\",\n    \"v3\": \"nibble\",\n    \"v5\": \"signed_value\",\n    \"result\": \"status\"\n  }\n}"
+}

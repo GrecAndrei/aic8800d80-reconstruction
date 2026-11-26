@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118dec",
+ "seg": 12,
+ "key": "rf_enable_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_enable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enables RF operation by setting an RF control bit, invoking GPIO initialization, and applying a cached RF mask to RF configuration registers.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"rf_mask\",\n    \"v2\": \"rf_mask_reg\"\n  }\n}"
+}

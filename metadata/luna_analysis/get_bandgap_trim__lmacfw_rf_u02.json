@@ -1,0 +1,9 @@
+{
+ "fn": "get_bandgap_trim",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f188",
+ "seg": 2,
+ "key": "get_bandgap_trim__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"adjust_bandgap_trim\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Atomically adjusts a saturating 4-bit bandgap trim register field, decrementing it when a1 is set and incrementing it otherwise.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"decrement\",\n    \"v2\": \"reg_value\",\n    \"v3\": \"new_trim_value\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mfp_key_clear",
+ "img": "fmacfw_h_u02",
+ "addr": "0x128db8",
+ "seg": 34,
+ "key": "mfp_key_clear__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mfp_key_clear\",\"confidence\":\"high\",\"docstring\":\"Clears the MFP key state, reinitializes its runtime state, and restores its default pointer and flag.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"key_state\",\"v1\":\"cleared_state\",\"result\":\"runtime_init_result\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Pointer restored to the static object at off_128DD8\"},{\"offset\":28,\"meaning\":\"One-byte flag set to 1 after clearing\"}]}"
+}

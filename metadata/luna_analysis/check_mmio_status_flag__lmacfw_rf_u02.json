@@ -1,0 +1,9 @@
+{
+ "fn": "check_mmio_status_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x125da4",
+ "seg": 23,
+ "key": "check_mmio_status_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_get_vid_pid\",\"confidence\":\"medium\",\"docstring\":\"Read and log USB vendor/product IDs via the HAL unless a cached USB-info status bit is already set, treating 0xFFFF values as absent.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"status\",\"result\":\"vidpid\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"packed 32-bit USB identifier: low word VID, high word PID\"}]}"
+}

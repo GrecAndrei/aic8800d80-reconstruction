@@ -1,0 +1,9 @@
+{
+ "fn": "mfp_key_disable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12903c",
+ "seg": 34,
+ "key": "mfp_key_disable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mfp_key_disable\",\"confidence\":\"medium\",\"docstring\":\"Updates the key\u2019s control flags and stages MFP key data and event processing according to the result and follow-up mode.\",\"subsystem\":\"mfp\",\"var_renames\":{\"result\":\"status\",\"a3\":\"key\",\"v3\":\"mfp_state\",\"v5\":\"old_key_flags\",\"v6\":\"mfp_enabled\",\"v7\":\"key_flags\",\"v9\":\"key_state\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Key control flags; bits 0\u20132 are cleared or set by this function.\"},{\"offset\":114,\"meaning\":\"Byte state or discriminator checked for zero and passed to event processing.\"},{\"offset\":20,\"meaning\":\"Pending key pointer stored in the MFP state.\"},{\"offset\":29,\"meaning\":\"MFP operation stage code, set to 5 or 6.\"}]}"
+}

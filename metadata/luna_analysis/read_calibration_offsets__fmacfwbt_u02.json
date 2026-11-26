@@ -1,0 +1,9 @@
+{
+ "fn": "read_calibration_offsets",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1029c4",
+ "seg": 1,
+ "key": "read_calibration_offsets__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"read_calibration_offsets\",\"confidence\":\"medium\",\"docstring\":\"Copies two consecutive bytes at offsets 294 and 295 from a fixed data block into caller-provided outputs and returns the first output pointer.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"first_offset_out\",\"a2\":\"second_offset_out\",\"v2\":\"calibration_data\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_radio_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111858",
+ "seg": 4,
+ "key": "rf_radio_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_device_init\",\"confidence\":\"high\",\"docstring\":\"Resets and configures the USB device controller, clears endpoint interrupt status, and schedules the USB initialization-complete event.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"usb_regs\",\"v1\":\"usb_regs\",\"v2\":\"usb_regs\",\"v3\":\"usb_regs\",\"v4\":\"usb_regs\",\"v5\":\"endpoint_index\",\"v6\":\"endpoint_reg_window\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"GAHBCFG, global AHB configuration\"},{\"offset\":12,\"meaning\":\"GUSBCFG, global USB configuration\"},{\"offset\":16,\"meaning\":\"GRSTCTL, core reset control and AHB-idle status\"},{\"offset\":20,\"meaning\":\"GINTSTS, global interrupt status; writing ones clears pending status\"},{\"offset\":24,\"meaning\":\"GINTMSK, global interrupt mask\"},{\"offset\":2048,\"meaning\":\"DCFG, device configuration\"},{\"offset\":2052,\"meaning\":\"DCTL, device control\"},{\"offset\":2064,\"meaning\":\"DIEPMSK, device IN endpoint interrupt mask\"},{\"offset\":2068,\"meaning\":\"DOEPMSK, device OUT endpoint interrupt mask\"},{\"offset\":2076,\"meaning\":\"DAINTMSK, device all-endpoint interrupt mask\"},{\"offset\":2312,\"meaning\":\"DIEPINT endpoint interrupt status array, with 0x20-byte endpoint stride; writes clear pending status\"},{\"offset\":2824,\"meaning\":\"DOEPINT endpoint interrupt status array, with 0x20-byte endpoint stride; writes clear pending status\"}]}"
+}

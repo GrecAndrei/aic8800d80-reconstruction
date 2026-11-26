@@ -1,0 +1,9 @@
+{
+ "fn": "table_lookup_byte",
+ "img": "fmacfw_u02",
+ "addr": "0x1424b8",
+ "seg": 67,
+ "key": "table_lookup_byte__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llcp_tx_request_handler\",\"confidence\":\"medium\",\"docstring\":\"For an eligible BLE connection, builds a transmit packet from the request and sends the build result to the requesting task in a confirmation message.\",\"subsystem\":\"ble\",\"var_renames\":{\"v4\":\"conn_env_base\",\"v5\":\"conn_idx\",\"v6\":\"conn_env\",\"v10\":\"tx_context_idx\",\"v11\":\"tx_context_base\",\"v19\":\"tx_build_result\",\"v20\":\"confirmation_msg\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"64-bit connection timing base used when the request type is 1 or 2\"},{\"offset\":108,\"meaning\":\"transmit eligibility flag checked before packet construction\"},{\"offset\":116,\"meaning\":\"index selecting the per-connection transmit context\"}]}"
+}

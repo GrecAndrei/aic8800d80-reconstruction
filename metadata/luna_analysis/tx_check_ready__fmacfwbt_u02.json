@@ -1,0 +1,9 @@
+{
+ "fn": "tx_check_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x117290",
+ "seg": 10,
+ "key": "tx_check_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_release_pool_buffer\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Releases the memory-pool buffer referenced by a TX descriptor when the descriptor flag is set and the buffer-owner/status bit indicates the buffer is not still in use, then clears the descriptor buffer pointer.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"result\": \"tx_desc\",\n    \"v1\": \"tx_desc_local\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"TX descriptor flag or validity field (uint16)\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"TX status/owner word; bit 0x00200000 gates whether the pool buffer can be freed\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"pointer to memory-pool buffer associated with the TX descriptor\"\n    }\n  ]\n}"
+}

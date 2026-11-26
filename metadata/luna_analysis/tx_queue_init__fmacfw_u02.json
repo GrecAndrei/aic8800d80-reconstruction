@@ -1,0 +1,9 @@
+{
+ "fn": "tx_queue_init",
+ "img": "fmacfw_u02",
+ "addr": "0x11a2e8",
+ "seg": 14,
+ "key": "tx_queue_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_queue_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes transmit queue bookkeeping and copies configuration into the queue entry, optionally waiting for channel clearance before activation.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v3\":\"tx_config_words\",\"v10\":\"channel_tx_params\"},\"struct_hints\":[{\"offset\":29,\"meaning\":\"Channel index used to select per-channel transmit parameters.\"},{\"offset\":30,\"meaning\":\"Flags; bit 0x2000 selects the channel-specific configuration path.\"},{\"offset\":44,\"meaning\":\"Pointer to the transmit configuration words copied into the queue entry.\"},{\"offset\":72,\"meaning\":\"Paired pointers to transmit queue and entry storage.\"}]}"
+}

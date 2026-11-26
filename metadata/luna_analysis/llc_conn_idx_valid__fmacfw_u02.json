@@ -1,0 +1,9 @@
+{
+ "fn": "llc_conn_idx_valid",
+ "img": "fmacfw_u02",
+ "addr": "0x12a344",
+ "seg": 36,
+ "key": "llc_conn_idx_valid__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_process_vendor_ie\",\"confidence\":\"medium\",\"docstring\":\"Scans an IE stream for vendor element type 9 and nested element 12, then passes the matching payload or null to the LLC event scheduler.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"result\",\"v5\":\"schedule_value\",\"v8\":\"frame_base\",\"v9\":\"ie_cursor\",\"v10\":\"ie_end\",\"v11\":\"ie_length\",\"v12\":\"element_id\",\"v13\":\"current_ie\",\"v14\":\"vendor_payload_end\"}}"
+}

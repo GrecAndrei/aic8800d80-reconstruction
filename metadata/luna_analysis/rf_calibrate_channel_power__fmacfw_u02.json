@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibrate_channel_power",
+ "img": "fmacfw_u02",
+ "addr": "0x1302f8",
+ "seg": 42,
+ "key": "rf_calibrate_channel_power__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_compute_channel_calibration_deltas\",\"confidence\":\"medium\",\"docstring\":\"Computes six byte-wrapped table differences between the requested channel and the channel index stored in the RF state, saves them at offsets 8\u201313, and dispatches an event.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_channel_state\",\"a1\":\"requested_channel_index\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"current channel table index\"},{\"offset\":8,\"meaning\":\"difference for table 0, group 0\"},{\"offset\":9,\"meaning\":\"difference for table 0, group 1\"},{\"offset\":10,\"meaning\":\"difference for table 0, group 2\"},{\"offset\":11,\"meaning\":\"difference for table 1, group 0\"},{\"offset\":12,\"meaning\":\"difference for table 1, group 1\"},{\"offset\":13,\"meaning\":\"difference for table 1, group 2\"}]}"
+}

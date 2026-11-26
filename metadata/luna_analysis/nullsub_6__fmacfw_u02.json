@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_6",
+ "img": "fmacfw_u02",
+ "addr": "0x10cc84",
+ "seg": 2,
+ "key": "nullsub_6__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"noop_success\",\"confidence\":\"high\",\"docstring\":\"Stub function that performs no operation and returns zero.\",\"subsystem\":\"libmisc\"}"
+}

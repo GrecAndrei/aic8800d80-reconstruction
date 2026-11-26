@@ -1,0 +1,9 @@
+{
+ "fn": "jump_table_1b0",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ebc4",
+ "seg": 3,
+ "key": "jump_table_1b0__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"call_vector_1b0\",\"confidence\":\"medium\",\"docstring\":\"Calls the function pointer stored in vector slot 0x1B0 and returns its result.\",\"subsystem\":\"hal\"}"
+}

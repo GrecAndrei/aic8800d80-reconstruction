@@ -1,0 +1,9 @@
+{
+ "fn": "hci_acl_header_parse",
+ "img": "fmacfw_u02",
+ "addr": "0x1252c4",
+ "seg": 30,
+ "key": "hci_acl_header_parse__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_acl_tx_bitmap_update\",\"confidence\":\"medium\",\"docstring\":\"Adds or removes an index in a per-link ACL transmit bitmap and updates the bitmap bounds and associated span metadata.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"entry_index\",\"v2\":\"link_id\",\"v5\":\"link_bitmap\",\"v6\":\"bitmap_byte_index\",\"v7\":\"bitmap_bit_mask\",\"v8\":\"bitmap_byte_value\",\"v9\":\"bitmap_byte_ptr\",\"v13\":\"link_env\",\"v14\":\"lowest_bitmap_byte\",\"v17\":\"highest_bitmap_byte\",\"v21\":\"bitmap_span\"},\"struct_hints\":[{\"offset\":218,\"meaning\":\"Encoded span of the active bitmap window\"},{\"offset\":220,\"meaning\":\"Number of set bitmap entries\"},{\"offset\":228,\"meaning\":\"Lowest active bitmap byte index, aligned down to an even index\"},{\"offset\":229,\"meaning\":\"Highest active bitmap byte index\"}]}"
+}

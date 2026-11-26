@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_func_12d14c",
+ "img": "fmacfw_u02",
+ "addr": "0x12d14c",
+ "seg": 40,
+ "key": "unknown_func_12d14c__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_event_clear\",\"confidence\":\"medium\",\"docstring\":\"Atomically clears the requested bits from the kernel event bitmap and returns the updated bitmap.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"event_mask\",\"v3\":\"lock_depth_before\",\"v4\":\"temporary_lock_depth\",\"result\":\"remaining_events\",\"v7\":\"irq_restore_flag\"}}"
+}

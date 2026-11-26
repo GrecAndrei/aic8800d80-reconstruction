@@ -1,0 +1,9 @@
+{
+ "fn": "has_dot_extension",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12fc48",
+ "seg": 43,
+ "key": "has_dot_extension__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"classify_dot_extension\", \"confidence\": \"medium\", \"docstring\": \"Classifies a NUL-terminated filename by its trailing dot extension, distinguishing .b and .h forms while returning status codes for invalid, missing, or unsupported extensions.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"a1\": \"filename\", \"v2\": \"filename_len\", \"v3\": \"filename_end\", \"v5\": \"ext_char\"}}"
+}

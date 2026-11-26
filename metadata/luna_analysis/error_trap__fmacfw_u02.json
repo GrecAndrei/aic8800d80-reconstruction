@@ -1,0 +1,9 @@
+{
+ "fn": "error_trap",
+ "img": "fmacfw_u02",
+ "addr": "0x113a08",
+ "seg": 5,
+ "key": "error_trap__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"irq_protected_load\",\"confidence\":\"medium\",\"docstring\":\"Loads a fixed global value inside a nested IRQ-protected critical section while restoring the prior interrupt state on exit.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"critical_section_depth\",\"v1\":\"target_address\",\"v3\":\"depth_after_exit\",\"v4\":\"restore_irq\"}}"
+}

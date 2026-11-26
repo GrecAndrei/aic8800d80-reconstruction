@@ -1,0 +1,9 @@
+{
+ "fn": "scan_control",
+ "img": "fmacfw_u02",
+ "addr": "0x118cfc",
+ "seg": 12,
+ "key": "scan_control__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"command_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the command when its skip flag is clear, then optionally invokes its completion callback with status zero.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v2\":\"command\",\"v4\":\"completion_callback\"},\"struct_hints\":[{\"offset\":88,\"meaning\":\"optional completion callback\"},{\"offset\":92,\"meaning\":\"argument passed to the completion callback\"},{\"offset\":96,\"meaning\":\"flag that suppresses the primary command handler when nonzero\"}]}"
+}

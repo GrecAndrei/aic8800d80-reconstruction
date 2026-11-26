@@ -1,0 +1,9 @@
+{
+ "fn": "send_mcu_cmd_0x412",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ed2c",
+ "seg": 42,
+ "key": "send_mcu_cmd_0x412__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_mcu_cmd_write_memory\",\"confidence\":\"high\",\"docstring\":\"Sends MCU command 0x412 to apply a masked write at the supplied address and report the resulting value.\",\"subsystem\":\"test\",\"var_renames\":{\"a2\":\"write_request\",\"v6\":\"tx_payload\",\"v7\":\"target_address\",\"v9\":\"result_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Target memory or register address\"},{\"offset\":4,\"meaning\":\"Bit mask for the write\"},{\"offset\":8,\"meaning\":\"Data value to write\"}]}"
+}

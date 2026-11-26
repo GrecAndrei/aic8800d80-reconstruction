@@ -1,0 +1,9 @@
+{
+ "fn": "msg_alloc_40a_zero",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12efd4",
+ "seg": 43,
+ "key": "msg_alloc_40a_zero__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_msg_alloc_send_zeroed_40a\", \"confidence\": \"medium\", \"docstring\": \"Allocates a 12-byte Bluetooth message of type 0x40A, zeroes its first three words, and hands the buffer to hci_evt_send for HCI event delivery.\", \"subsystem\": \"bt\", \"var_renames\": {\"v4\": \"msg\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"cleared first 32-bit word of allocated HCI event/message buffer\"}, {\"offset\": 4, \"meaning\": \"cleared second 32-bit word of allocated HCI event/message buffer\"}, {\"offset\": 8, \"meaning\": \"cleared third 32-bit word of allocated HCI event/message buffer\"}]}"
+}

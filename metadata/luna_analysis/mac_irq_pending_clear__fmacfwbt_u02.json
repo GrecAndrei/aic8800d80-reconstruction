@@ -1,0 +1,9 @@
+{
+ "fn": "mac_irq_pending_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1040f0",
+ "seg": 2,
+ "key": "mac_irq_pending_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_hw_control_configure\",\"confidence\":\"medium\",\"docstring\":\"Configures several memory-mapped hardware control registers by updating power, mode, and reset-related bits.\",\"subsystem\":\"hal\"}"
+}

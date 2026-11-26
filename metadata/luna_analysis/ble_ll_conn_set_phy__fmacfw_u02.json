@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_set_phy",
+ "img": "fmacfw_u02",
+ "addr": "0x13f3b8",
+ "seg": 61,
+ "key": "ble_ll_conn_set_phy__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_set_phy\",\"confidence\":\"medium\",\"docstring\":\"Builds a PHY configuration word from the requested PHY and connection flag bit 0x400, writes it to four configuration slots, and returns the connection context.\",\"subsystem\":\"ble\",\"var_renames\":{\"result\":\"conn_context\",\"a2\":\"phy\",\"v2\":\"phy_flag_0x400\",\"v3\":\"phy_config_slots\",\"v4\":\"phy_config_word\"},\"struct_hints\":[{\"offset\":336,\"meaning\":\"Pointer to the configuration block whose slots 5 through 8 receive the PHY configuration word.\"},{\"offset\":348,\"meaning\":\"Connection flags; bit 0x400 is included in the configuration word when the requested PHY is at most 3.\"}]}"
+}

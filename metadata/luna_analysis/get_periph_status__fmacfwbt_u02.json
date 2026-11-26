@@ -1,0 +1,9 @@
+{
+ "fn": "get_periph_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ed7c",
+ "seg": 3,
+ "key": "get_periph_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"periph_status_get\",\"confidence\":\"medium\",\"docstring\":\"Returns bits 11\u201315 of the 16-bit peripheral register value read atomically.\",\"subsystem\":\"hal\"}"
+}

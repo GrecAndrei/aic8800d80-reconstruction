@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_field",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f35c",
+ "seg": 42,
+ "key": "mmio_write_field__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"log_warning\",\"confidence\":\"high\",\"docstring\":\"Emits a warning identifying the function, source file, and line number.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"function_name\",\"a2\":\"file_name\",\"a3\":\"line_number\"}}"
+}

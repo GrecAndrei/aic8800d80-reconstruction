@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_70001408",
+ "img": "fmacfw_u02",
+ "addr": "0x10ef14",
+ "seg": 3,
+ "key": "mmio_write_70001408__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_70001408\",\"confidence\":\"medium\",\"docstring\":\"Performs a fixed read-modify-write on RF MMIO register 0x70001408 with arguments 0, 2, and 1.\",\"subsystem\":\"rf\"}"
+}

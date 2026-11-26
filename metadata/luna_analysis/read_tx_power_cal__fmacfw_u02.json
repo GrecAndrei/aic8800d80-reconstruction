@@ -1,0 +1,9 @@
+{
+ "fn": "read_tx_power_cal",
+ "img": "fmacfw_u02",
+ "addr": "0x13c118",
+ "seg": 60,
+ "key": "read_tx_power_cal__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_power_cal_update\",\"confidence\":\"medium\",\"docstring\":\"Processes transmit-power calibration feedback, updating per-rate statistics and selecting a calibration entry when the parsed rate is valid.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"entry_index\",\"v2\":\"current_tick\",\"v3\":\"context_index\",\"v6\":\"request\",\"v7\":\"entry_record\",\"v8\":\"rate_code\",\"v10\":\"rate_stats_base\",\"v11\":\"rate_stats\",\"v13\":\"calibration_record\",\"v14\":\"request_flags\",\"v15\":\"select_calibration_entry\",\"v16\":\"power_delta\"},\"struct_hints\":[{\"offset\":27,\"meaning\":\"Index used to select an entry in the context table.\"},{\"offset\":29,\"meaning\":\"Context index selecting a 696-byte context record.\"},{\"offset\":30,\"meaning\":\"Mode and status flags controlling calibration selection.\"},{\"offset\":32,\"meaning\":\"Input calibration or power value used to compute the selection delta.\"},{\"offset\":34,\"meaning\":\"Calibration value read from the selected calibration record.\"},{\"offset\":36,\"meaning\":\"Request flags; bit 0x200000 is set on one calibration path.\"},{\"offset\":64,\"meaning\":\"Tick value recorded after calibration selection.\"}]}"
+}

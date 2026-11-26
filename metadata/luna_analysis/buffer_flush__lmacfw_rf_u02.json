@@ -1,0 +1,9 @@
+{
+ "fn": "buffer_flush",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121ee8",
+ "seg": 22,
+ "key": "buffer_flush__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dump_parse_table\",\"confidence\":\"medium\",\"docstring\":\"Iterates a fixed 55-entry table and prints each non-null name/value string pair using log_printf.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v0\":\"entry\",\"v1\":\"entries_end\",\"v2\":\"value_str\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"name/label string pointer\"},{\"offset\":4,\"meaning\":\"value/result string pointer\"}]}"
+}

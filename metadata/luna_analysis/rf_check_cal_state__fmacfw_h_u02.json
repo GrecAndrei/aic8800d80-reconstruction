@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_cal_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a058",
+ "seg": 36,
+ "key": "rf_check_cal_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_calibration_result\",\"confidence\":\"medium\",\"docstring\":\"Returns the indexed calibration result, combining the two result words in state 1, returning the primary word in state 2, and otherwise returning zero while performing a control write in the fallback case.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":12,\"meaning\":\"Primary calibration result word\"},{\"offset\":16,\"meaning\":\"Calibration state byte\"},{\"offset\":24,\"meaning\":\"Additional result word included when the state is 1\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llc_hw_reg_sync",
+ "img": "fmacfw_h_u02",
+ "addr": "0x127030",
+ "seg": 32,
+ "key": "llc_hw_reg_sync__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_conn_event_schedule\",\"confidence\":\"medium\",\"docstring\":\"Records a connection event and its target time, processes overdue RX events, and dispatches the connection command unless event handling is deferred.\",\"subsystem\":\"llc\",\"var_renames\":{\"v1\":\"llc_env\",\"v2\":\"conn_event_context\",\"v5\":\"rx_event_node\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Head of the queued RX-event list\"},{\"offset\":40,\"meaning\":\"Currently selected connection pointer\"},{\"offset\":80,\"meaning\":\"Packed connection pointer and scheduled event time\"},{\"offset\":88,\"meaning\":\"LLC event-scheduler flags\"},{\"offset\":91,\"meaning\":\"Pending or deferred event indicator\"}]}"
+}

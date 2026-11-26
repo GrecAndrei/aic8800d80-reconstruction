@@ -1,0 +1,9 @@
+{
+ "fn": "get_hw_tsf",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1200d4",
+ "seg": 22,
+ "key": "get_hw_tsf__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_ll_event_list\",\"confidence\":\"medium\",\"docstring\":\"Iterates the list rooted at offset 240 and invokes the LL-event-pending check for each entry.\",\"subsystem\":\"mm\",\"var_renames\":{\"result\":\"context\",\"v1\":\"entry\",\"v2\":\"context\"},\"struct_hints\":[{\"offset\":240,\"meaning\":\"head pointer for the list of entries checked for pending LL events\"}]}"
+}

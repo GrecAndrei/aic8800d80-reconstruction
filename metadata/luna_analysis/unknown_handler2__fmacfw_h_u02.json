@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_handler2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111adc",
+ "seg": 4,
+ "key": "unknown_handler2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_update_hw_cfg\",\"confidence\":\"medium\",\"docstring\":\"Applies set and clear masks to a selected hardware-configuration entry, performs the indexed MMIO handshake, and returns the node offset for nonzero selectors.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"node_index\",\"a2\":\"set_mask\",\"a3\":\"clear_mask\",\"v4\":\"config_reg\",\"v5\":\"config_snapshot\",\"v6\":\"operation_reg\",\"v7\":\"request_block\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Per-entry hardware-configuration and status register; entries are spaced 32 bytes apart.\"},{\"offset\":8,\"meaning\":\"Per-entry operation or handshake register.\"},{\"offset\":16,\"meaning\":\"Indexed request register in the separate request block; the function triggers an update and polls its busy bit.\"}]}"
+}

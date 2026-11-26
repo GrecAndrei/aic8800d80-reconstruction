@@ -1,0 +1,9 @@
+{
+ "fn": "get_link_rate",
+ "img": "fmacfw_u02",
+ "addr": "0x1101e4",
+ "seg": 3,
+ "key": "get_link_rate__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_link_rate\",\"confidence\":\"medium\",\"docstring\":\"Initializes the link-rate result buffer and processes one 12-byte response for each entry indicated by the active link descriptor.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"result_buffer\",\"v4\":\"entry_index\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"16-bit count controlling the number of response entries processed\"}]}"
+}

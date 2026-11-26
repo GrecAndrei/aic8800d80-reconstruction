@@ -1,0 +1,9 @@
+{
+ "fn": "bt_hci_fill_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12add4",
+ "seg": 38,
+ "key": "bt_hci_fill_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_fill_cmd_buffer\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes an HCI command buffer with a fixed vendor command header and returns it.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"hci_cmd_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"vendor command tag byte (0xDD)\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"command tag byte 0 ('P', 0x50)\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"command tag byte 1 ('o', 0x6F)\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"fixed command parameter byte (0x9A)\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"fixed command parameter byte (0x09)\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"command payload length (12)\"\n    }\n  ]\n}"
+}

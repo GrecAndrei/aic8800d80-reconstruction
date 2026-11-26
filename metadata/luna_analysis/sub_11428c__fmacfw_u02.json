@@ -1,0 +1,9 @@
+{
+ "fn": "sub_11428c",
+ "img": "fmacfw_u02",
+ "addr": "0x11428c",
+ "seg": 5,
+ "key": "sub_11428c__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"call_cmd_handler_guarded\",\"confidence\":\"medium\",\"docstring\":\"Waits for a shared flag, invokes the command handler under a nesting-counted IRQ guard, then sets the flag and unwinds the guard.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"handler_arg\",\"v1\":\"critical_section_depth\",\"v2\":\"shared_gate_flag\"},\"struct_hints\":[{\"offset\":628,\"meaning\":\"Context pointer passed as the first argument to cmd_handler_a.\"}]}"
+}

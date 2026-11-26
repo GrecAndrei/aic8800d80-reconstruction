@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_status_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x135a6c",
+ "seg": 54,
+ "key": "rf_check_status_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_send_vendor_status_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Constructs and sends an HCI vendor RF status event from the per-index RF calibration table, embedding a copied status blob and a big-endian caller-supplied value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"rf_context\",\n    \"v2\": \"rf_cal_table\",\n    \"v3\": \"rf_index\",\n    \"v5\": \"rf_evt_buf\",\n    \"v6\": \"rf_evt_payload\",\n    \"v7\": \"rf_cal_entry\",\n    \"v8\": \"rf_blob_src\",\n    \"v10\": \"rf_blob_end\",\n    \"v14\": \"rf_cal_entry\",\n    \"v15\": \"rf_entry_word1\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 61,\n      \"meaning\": \"rf_context byte holding the RF table/channel index\"\n    },\n    {\n      \"offset\": 368,\n      \"meaning\": \"rf_cal_entry dword copied into event byte 34\"\n    },\n    {\n      \"offset\": 372,\n      \"meaning\": \"rf_cal_entry word copied into event byte 38\"\n    },\n    {\n      \"offset\": 374,\n      \"meaning\": \"rf_cal_entry start of 32-byte status/calibration blob copied into event\"\n    },\n    {\n      \"offset\": 472,\n      \"meaning\": \"rf_cal_entry signed validity/status field tested against >= 0\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"rf_evt_buf dword holding caller-supplied a1 byteswapped\"\n    }\n  ]\n}"
+}

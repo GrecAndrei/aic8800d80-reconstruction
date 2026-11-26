@@ -1,0 +1,9 @@
+{
+ "fn": "mac_ctrl_clear",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1010d4",
+ "seg": 0,
+ "key": "mac_ctrl_clear__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_ctrl_clear\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears and sets MAC/baseband control register bitfields, likely switching or initializing a radio/MAC control path.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

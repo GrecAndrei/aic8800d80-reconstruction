@@ -1,0 +1,9 @@
+{
+ "fn": "rf_configure_channel",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13a7a0",
+ "seg": 60,
+ "key": "rf_configure_channel__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_configure_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects RF channel and band table entries from an RF/MAC context and encodes the resulting channel settings and flags into a destination configuration structure.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_ctx\",\n    \"a2\": \"buffer_ptr\",\n    \"v2\": \"chan_table_idx\",\n    \"v4\": \"band_table_idx\",\n    \"v5\": \"rf_band_table_base\",\n    \"v7\": \"rf_chan_entry\",\n    \"v8\": \"rf_band_entry\",\n    \"v12\": \"cfg_ptr\",\n    \"v13\": \"cmd_flags\",\n    \"v14\": \"channel\",\n    \"v15\": \"rf_state_flags\",\n    \"v29\": \"associated_result\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 27,\n      \"meaning\": \"RF context channel identifier; 0xff selects the wildcard/special path\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"RF context byte indexing the 1320-byte RF band table\"\n    },\n    {\n      \"offset\": 29,\n      \"meaning\": \"RF context byte indexing the 696-byte RF channel table\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"RF context 16-bit state/option flags influencing channel encoding\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"RF context 16-bit value multiplied by 16 into configuration field offset 22\"\n    },\n    {\n      \"offset\": 50,\n      \"meaning\": \"Byte offset subtracted from buffer_ptr to form the writable configuration pointer\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare_swap",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143434",
+ "seg": 69,
+ "key": "double_compare_swap__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_cfrcmple\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Linked ARM EABI soft-float helper that performs a reverse-order less-or-equal comparison of two single-precision floats.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

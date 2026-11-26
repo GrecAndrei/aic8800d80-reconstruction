@@ -1,0 +1,9 @@
+{
+ "fn": "llc_env_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1266a0",
+ "seg": 32,
+ "key": "llc_env_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_env_init\",\"confidence\":\"medium\",\"docstring\":\"Resets an LLC environment field and transfers entries from its embedded source list to its destination list when an initial list entry is available.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"llc_env\",\"v2\":\"list_entry\",\"v3\":\"destination_list\",\"v4\":\"source_list\",\"a2\":\"initial_entry\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Embedded destination list passed to the two-argument helper.\"},{\"offset\":32,\"meaning\":\"Embedded source list drained by repeated pops.\"},{\"offset\":72,\"meaning\":\"Field cleared during environment setup.\"}]}"
+}

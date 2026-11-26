@@ -1,0 +1,9 @@
+{
+ "fn": "div_by_20",
+ "img": "fmacfw_h_u02",
+ "addr": "0x105118",
+ "seg": 2,
+ "key": "div_by_20__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_digital_power_from_delta\",\"confidence\":\"high\",\"docstring\":\"Converts a power delta and base power into a digital power value, clamps it to 0x20\u20130xE8, stores it in the RF state, and reports analog-index limit warnings.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"power_delta\",\"a2\":\"base_power\",\"a3\":\"rf_context\",\"v9\":\"digital_power\"},\"struct_hints\":[{\"offset\":104,\"meaning\":\"Digital power value written by this function.\"},{\"offset\":112,\"meaning\":\"Analog maximum index (low 32 bits of the packed index pair).\"},{\"offset\":116,\"meaning\":\"Analog current index (high 32 bits of the packed index pair).\"}]}"
+}

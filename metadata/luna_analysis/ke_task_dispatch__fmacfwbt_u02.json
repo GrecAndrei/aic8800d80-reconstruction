@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c580",
+ "seg": 41,
+ "key": "ke_task_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_task_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches one message from the selected task/queue by invoking its handler, then updates the associated event/doorbell register and clears the MMIO IRQ when no message was available.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"queue_id\",\n    \"v1\": \"event_slot\",\n    \"v3\": \"lock_depth_ptr\",\n    \"v4\": \"queue_ctrl_base\",\n    \"v5\": \"queue_head\",\n    \"v6\": \"msg_node\",\n    \"v7\": \"msg_node\",\n    \"v10\": \"msg_handler\",\n    \"v12\": \"event_reg_val\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"message handler function pointer\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"message handler argument/data pointer\"\n    }\n  ]\n}"
+}

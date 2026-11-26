@@ -1,0 +1,9 @@
+{
+ "fn": "util_reset",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133cd8",
+ "seg": 49,
+ "key": "util_reset__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_reset_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles Bluetooth HCI reset command completion, clears controller/reset state, emits the corresponding HCI event, and restores scan or RF configuration depending on link-layer state.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v4\": \"reset_ctx\",\n    \"v5\": \"pending_event\",\n    \"v6\": \"scan_restore\",\n    \"v0\": \"ll_ctx\",\n    \"v1\": \"ll_state\",\n    \"v2\": \"rf_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"pending reset/HCI event flag in reset_ctx\"\n    },\n    {\n      \"offset\": 33,\n      \"meaning\": \"flag indicating scan restoration is active\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"link-layer context flags; bit 0x40 selects alternate RF index lookup\"\n    },\n    {\n      \"offset\": 59,\n      \"meaning\": \"link-layer reset/state byte (2/3/other dispatch)\"\n    }\n  ]\n}"
+}

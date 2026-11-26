@@ -1,0 +1,9 @@
+{
+ "fn": "ke_int_unlock",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f6e0",
+ "seg": 43,
+ "key": "ke_int_unlock__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ke_int_unlock\", \"confidence\": \"high\", \"docstring\": \"Adjusts kernel IRQ nesting state and conditionally re-enables interrupts when the outermost kernel interrupt lock is released.\", \"subsystem\": \"ke\", \"var_renames\": {\"v0\": \"irq_nesting_count_ptr\", \"v1\": \"old_irq_nesting_count\", \"v2\": \"updated_irq_nesting_count\", \"v3\": \"irq_disable_flag_ptr\"}}"
+}

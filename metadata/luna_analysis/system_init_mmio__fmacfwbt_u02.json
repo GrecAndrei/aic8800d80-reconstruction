@@ -1,0 +1,9 @@
+{
+ "fn": "system_init_mmio",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10e3b8",
+ "seg": 3,
+ "key": "system_init_mmio__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_vcore_voltage_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Measures the core rail and adjusts its regulator code toward an 840 mV target.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"voltage_ctrl_regs\",\"v7\":\"measured_vcore_mv\",\"v8\":\"vcore_reg_code\",\"v10\":\"voltage_error_mv\",\"v13\":\"computed_adjustment_steps\",\"v14\":\"adjustment_steps\",\"v15\":\"target_vcore_code\",\"v16\":\"voltage_ctrl_regs\",\"v41\":\"adjustment_direction\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"voltage measurement command or trigger\"},{\"offset\":8,\"meaning\":\"voltage-control configuration register\"},{\"offset\":12,\"meaning\":\"voltage-control configuration register\"},{\"offset\":16,\"meaning\":\"raw voltage measurement result\"},{\"offset\":28,\"meaning\":\"measurement completion status\"}]}"
+}

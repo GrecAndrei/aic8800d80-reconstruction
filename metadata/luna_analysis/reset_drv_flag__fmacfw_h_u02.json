@@ -1,0 +1,9 @@
+{
+ "fn": "reset_drv_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1202f8",
+ "seg": 22,
+ "key": "reset_drv_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"count_entries_and_set_flag\",\"confidence\":\"medium\",\"docstring\":\"Traverses the global entry list, counts nodes whose bytes at offsets 106, 108, and 1224 are respectively zero, nonzero, and zero, and sets the output byte if any node has nonzero bytes at offsets 108 and 1224.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"out_flag\",\"v1\":\"global_table\",\"v2\":\"entry\",\"result\":\"count\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"next pointer in the linked list\"},{\"offset\":106,\"meaning\":\"byte predicate that distinguishes the count case from the flag-setting case\"},{\"offset\":108,\"meaning\":\"byte predicate required for either the count or flag-setting case\"},{\"offset\":1224,\"meaning\":\"byte predicate selecting the flag-setting case rather than the count case\"}]}"
+}

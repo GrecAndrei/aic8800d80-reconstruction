@@ -1,0 +1,9 @@
+{
+ "fn": "mac_get_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x11e270",
+ "seg": 20,
+ "key": "mac_get_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_batch_enqueue\",\"confidence\":\"medium\",\"docstring\":\"Appends an item to a shared MAC batch, updates its accumulated counters, and dispatches the batch when a configured threshold is reached.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"batch_state\",\"v3\":\"batch_threshold_metric\",\"v4\":\"batch_accumulated_metric\",\"v5\":\"current_tail\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Head of the queued batch\"},{\"offset\":20,\"meaning\":\"Accumulated value passed to the batch dispatch callback\"},{\"offset\":24,\"meaning\":\"Tail pointer used to link the next queued item\"},{\"offset\":28,\"meaning\":\"Accumulated metric checked against the configured threshold\"},{\"offset\":33,\"meaning\":\"Batch-active flag\"}]}"
+}

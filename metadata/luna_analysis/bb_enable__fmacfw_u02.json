@@ -1,0 +1,9 @@
+{
+ "fn": "bb_enable",
+ "img": "fmacfw_u02",
+ "addr": "0x100fa8",
+ "seg": 0,
+ "key": "bb_enable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bb_enable\",\"confidence\":\"medium\",\"docstring\":\"Enables and configures the baseband/RF path for the requested 2.4-GHz frequency, applying frequency-dependent register settings.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"frequency_mhz\",\"v11\":\"frequency_profile_offset\"}}"
+}

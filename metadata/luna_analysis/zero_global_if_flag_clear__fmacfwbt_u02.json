@@ -1,0 +1,9 @@
+{
+ "fn": "zero_global_if_flag_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11b634",
+ "seg": 16,
+ "key": "zero_global_if_flag_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"phy_channel_switch_if_pending\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks a channel table entry's pending-switch byte; if set, takes the PHY event lock and reconfigures the channel from the entry, otherwise clears the corresponding saved PHY channel state.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"result\": \"chan_entry\",\n    \"v1\": \"switch_pending\",\n    \"v2\": \"global_channel_state\",\n    \"v3\": \"chan_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 35,\n      \"meaning\": \"channel number used for PHY reconfiguration\"\n    },\n    {\n      \"offset\": 37,\n      \"meaning\": \"nonzero channel-switch pending/enable flag\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "call_1006d8_with_args",
+ "img": "fmacfwbt_u02",
+ "addr": "0x100b14",
+ "seg": 0,
+ "key": "call_1006d8_with_args__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_configure\",\"confidence\":\"medium\",\"docstring\":\"Configures RF channel registers for the selected band and bandwidth mode using the primary and center frequencies.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"band_select\",\"a2\":\"primary_freq\",\"a3\":\"center_freq\",\"a4\":\"bandwidth_mode\",\"v12\":\"primary_position_code\",\"v20\":\"center_primary_delta\"}}"
+}

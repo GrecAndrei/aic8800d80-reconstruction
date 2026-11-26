@@ -1,0 +1,9 @@
+{
+ "fn": "ll_conn_is_connected",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a384",
+ "seg": 37,
+ "key": "ll_conn_is_connected__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"conn_parse_rsn_ie\",\"confidence\":\"medium\",\"docstring\":\"For a connection record with a nonzero active flag and state 2, updates the associated station record's byte at offset 135 and invokes the RSN IE parser.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"conn_idx\",\"a2\":\"flag_value\",\"result\":\"conn_entry\",\"v3\":\"station_idx\",\"v5\":\"station_entry\",\"v6\":\"station_flag\",\"v7\":\"station_entry\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Connection state; processing requires value 2.\"},{\"offset\":113,\"meaning\":\"Station-record byte passed to util_get_state with argument 3.\"},{\"offset\":1224,\"meaning\":\"Connection active/present flag.\"},{\"offset\":1225,\"meaning\":\"Index into the 140-byte station-record table.\"},{\"offset\":132,\"meaning\":\"Station-record flag gating the util_get_state call.\"},{\"offset\":135,\"meaning\":\"Station-record byte overwritten with the input flag value.\"}]}"
+}

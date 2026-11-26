@@ -1,0 +1,9 @@
+{
+ "fn": "hci_vendor_cmd_send",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131a40",
+ "seg": 45,
+ "key": "hci_vendor_cmd_send__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_vendor_get_tx_power_table\",\"confidence\":\"medium\",\"docstring\":\"Builds and sends a BLE link-layer management HCI event containing the selected vendor subcommand's TX-power table and RF calibration parameters.\",\"subsystem\":\"ble\",\"var_renames\":{\"v6\":\"subcmd\",\"v7\":\"evt_buf\",\"v8\":\"cal_entry\",\"v9\":\"tx_power_count\",\"v12\":\"table_idx\",\"v13\":\"tx_power\",\"v14\":\"tx_power_count\",\"v17\":\"cal_lock_ref_ptr\",\"v22\":\"irq_saved_flag\"},\"struct_hints\":[{\"offset\":340,\"meaning\":\"within 696-byte vendor context table: pointer to RF calibration context for selected subcommand\"},{\"offset\":4,\"meaning\":\"120-byte RF/TX-power calibration data block copied into event payload\"},{\"offset\":136,\"meaning\":\"8-byte context value copied into event payload at offset 14\"},{\"offset\":144,\"meaning\":\"uint16 RF parameter copied to event payload offset 4\"},{\"offset\":146,\"meaning\":\"uint16 RF parameter copied to event payload offset 6\"},{\"offset\":148,\"meaning\":\"uint32 RF parameter copied to event payload offset 8\"},{\"offset\":152,\"meaning\":\"uint16 value copied to event payload offset 13\"},{\"offset\":168,\"meaning\":\"uint8 value copied to event payload offset 12\"},{\"offset\":184,\"meaning\":\"tx-power table entry count or table-valid indicator\"},{\"offset\":124,\"meaning\":\"uint32 calibration/context value copied to event payload offset 142\"},{\"offset\":128,\"meaning\":\"uint32 calibration/context value copied to event payload offset 146\"},{\"offset\":132,\"meaning\":\"uint32 calibration/context value copied to event payload offset 150\"}]}"
+}

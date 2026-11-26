@@ -1,0 +1,9 @@
+{
+ "fn": "task_queue_handler_b",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116d98",
+ "seg": 10,
+ "key": "task_queue_handler_b__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_event_queue_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a pending kernel timer/event callback queue, executing each entry's function pointer under IRQ protection and checking its associated timestamp.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"queue_head\",\n    \"v1\": \"entry\",\n    \"v3\": \"irq_disabled_flag\",\n    \"v4\": \"callback_depth\",\n    \"v6\": \"callback\",\n    \"v7\": \"new_depth\",\n    \"v8\": \"irq_disabled_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"list next pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"callback function pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"callback argument\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"timer/timestamp value passed to timer_is_past\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"entry state/active flag bit\"\n    }\n  ]\n}"
+}

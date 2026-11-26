@@ -1,0 +1,9 @@
+{
+ "fn": "state_is_valid",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123d9c",
+ "seg": 30,
+ "key": "state_is_valid__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"state_validate\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Validates a radio/link state by querying and issuing HCI commands, triggering forced idle or transition requests when needed, and invoking a completion callback.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"reply_callback\",\n    \"a3\": \"cmd_arg\",\n    \"v3\": \"state_short_ptr\",\n    \"result\": \"query_status\",\n    \"v7\": \"send_status\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_len_check",
+ "img": "fmacfw_u02",
+ "addr": "0x12ae74",
+ "seg": 38,
+ "key": "tx_len_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_stats_update\",\"confidence\":\"medium\",\"docstring\":\"Increments one of two per-context TX counters and, for indices below 32, the corresponding per-index byte counter up to three.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"stats_context_index\",\"a2\":\"record_index\",\"a3\":\"counter_kind\",\"result\":\"stats_context_address\",\"v4\":\"record_base\",\"v5\":\"record_counter\",\"v6\":\"record_base\",\"v7\":\"record_counter\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Per-context counter incremented when a3 is false\"},{\"offset\":20,\"meaning\":\"Per-context counter incremented when a3 is true\"}]}"
+}

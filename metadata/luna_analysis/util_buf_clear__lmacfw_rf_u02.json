@@ -1,0 +1,9 @@
+{
+ "fn": "util_buf_clear",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1247d8",
+ "seg": 23,
+ "key": "util_buf_clear__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"cmd_rf_set_channel\",\"confidence\":\"medium\",\"docstring\":\"Command handler that parses a decimal RF channel/setting from argv[1], acquires the radio to program baseband control, and allocates/initializes an RX buffer when the parsed value is nonzero.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v2\":\"value_ptr\",\"v3\":\"parsed_value\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"argv[1]: pointer to decimal argument string\"}]}"
+}

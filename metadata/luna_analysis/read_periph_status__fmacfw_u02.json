@@ -1,0 +1,9 @@
+{
+ "fn": "read_periph_status",
+ "img": "fmacfw_u02",
+ "addr": "0x113104",
+ "seg": 4,
+ "key": "read_periph_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_usb_wlan_rx_frame\",\"confidence\":\"high\",\"docstring\":\"Validates a USB WLAN receive frame and dispatches data frames or enqueues management messages for command handling.\",\"subsystem\":\"ipc\",\"var_renames\":{\"a1\":\"rx_frame\",\"a2\":\"rx_frame_len\",\"v3\":\"rx_packet_counter\",\"v9\":\"frame_type\",\"v10\":\"declared_payload_len\",\"v11\":\"rx_message_queue\",\"v12\":\"queued_message_count\",\"v13\":\"command_context\",\"v14\":\"rx_message_slot_index\",\"v15\":\"rx_message_slot\"},\"struct_hints\":[{\"offset\":2432,\"meaning\":\"RX message queue write-slot index\"},{\"offset\":2433,\"meaning\":\"number of queued RX messages\"},{\"offset\":2434,\"meaning\":\"RX message queue capacity\"}]}"
+}

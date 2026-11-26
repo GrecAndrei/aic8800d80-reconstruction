@@ -1,0 +1,9 @@
+{
+ "fn": "return_0",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121a80",
+ "seg": 22,
+ "key": "return_0__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"stub_return_0\",\"confidence\":\"medium\",\"docstring\":\"Trivial stub that returns zero, commonly used as a no-op/default callback or disabled-feature indicator.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

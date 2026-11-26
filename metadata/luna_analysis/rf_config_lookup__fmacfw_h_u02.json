@@ -1,0 +1,9 @@
+{
+ "fn": "rf_config_lookup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136c2c",
+ "seg": 56,
+ "key": "rf_config_lookup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_deauth_frame\",\"confidence\":\"high\",\"docstring\":\"Builds and submits an 802.11 deauthentication frame to the specified peer using reason code 7 and the interface MAC as the source and BSSID.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"interface_context\",\"a2\":\"peer_mac\",\"v7\":\"tx_packet\",\"v8\":\"frame_buffer\",\"v10\":\"sequence_number\"},\"struct_hints\":[{\"offset\":108,\"meaning\":\"Outgoing 802.11 frame begins here; frame control is 0x00C0 and duration is zero.\"},{\"offset\":112,\"meaning\":\"Destination address (peer MAC).\"},{\"offset\":118,\"meaning\":\"Source address (interface MAC).\"},{\"offset\":124,\"meaning\":\"BSSID (interface MAC).\"},{\"offset\":130,\"meaning\":\"Sequence control, set to the incremented sequence number shifted left by four.\"},{\"offset\":132,\"meaning\":\"Deauthentication reason code, set to 7.\"}]}"
+}

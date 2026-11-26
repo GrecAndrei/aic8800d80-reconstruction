@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy",
+ "img": "fmacfw_h_u02",
+ "addr": "0x143630",
+ "seg": 68,
+ "key": "memcpy__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"memcpy\",\"confidence\":\"high\",\"docstring\":\"Copies a specified number of bytes from the source region to the destination region.\",\"subsystem\":\"libmisc\"}"
+}

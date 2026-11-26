@@ -1,0 +1,9 @@
+{
+ "fn": "dma_chan_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1058d0",
+ "seg": 2,
+ "key": "dma_chan_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_ana_power_cal_list_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes RF analog-power calibration selection state from mask bits 20\u201327 and records selected indices in the supported 8\u201315 range.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"calibration_mask\",\"a2\":\"calibration_state\",\"v5\":\"mask_bit_position\",\"v6\":\"ana_power_index\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"Start of the selected analog-power calibration index list.\"},{\"offset\":56,\"meaning\":\"Count of accepted indices and insertion index for the list.\"},{\"offset\":60,\"meaning\":\"Index state initialized to 15 and updated as calibration indices are accepted.\"},{\"offset\":64,\"meaning\":\"Index state initialized to 8 and conditionally updated for a low-range candidate.\"}]}"
+}

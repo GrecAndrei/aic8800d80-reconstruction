@@ -1,0 +1,9 @@
+{
+ "fn": "crypto_load_args",
+ "img": "fmacfw_u02",
+ "addr": "0x1335e4",
+ "seg": 46,
+ "key": "crypto_load_args__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"crypto_mix_args\",\"confidence\":\"medium\",\"docstring\":\"Seeds a working buffer from two input words and folds four parsed argument values through successive crypto_mix_round calls.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v5\":\"input_halfword\",\"v6\":\"input_unaligned_word\",\"v7\":\"tail_halfword\",\"v8\":\"leading_word\",\"v9\":\"combined_input_word\",\"v10\":\"normalized_option\"}}"
+}

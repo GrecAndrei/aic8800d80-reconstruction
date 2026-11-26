@@ -1,0 +1,9 @@
+{
+ "fn": "state_transition_check",
+ "img": "fmacfw_u02",
+ "addr": "0x134064",
+ "seg": 49,
+ "key": "state_transition_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_connection_state_handle\",\"confidence\":\"medium\",\"docstring\":\"Dispatches controller states 9 and 10, posting connection metadata and updating the per-link profile for state 9 or notifying controller readiness for state 10.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"connection_record\",\"v2\":\"link_context\",\"v3\":\"profile_index\",\"v4\":\"message\",\"v5\":\"profile_entry\",\"v6\":\"profile_state\"},\"struct_hints\":[{\"offset\":52,\"meaning\":\"The connection record's 16-bit value is byte-swapped into the profile entry; the profile entry's byte at this offset stores the derived state.\"},{\"offset\":56,\"meaning\":\"The connection record's 16-bit field is copied into a message; the profile entry's 16-bit field at this offset receives the byte-swapped value.\"},{\"offset\":58,\"meaning\":\"8-bit connection field copied into the outgoing message.\"},{\"offset\":61,\"meaning\":\"Connection index used to select a link context and copied into outgoing messages.\"},{\"offset\":116,\"meaning\":\"Link-context field used as an index into the profile-entry table.\"},{\"offset\":1208,\"meaning\":\"Low bit selects the derived profile state.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process_packet_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12dfdc",
+ "seg": 42,
+ "key": "rx_process_packet_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"format_printf\",\"confidence\":\"medium\",\"docstring\":\"Parses a printf-style format string and emits the formatted result through the supplied output path.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"output_buffer\",\"a2\":\"output_capacity\",\"a4\":\"format_string\"}}"
+}

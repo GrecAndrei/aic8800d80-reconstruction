@@ -1,0 +1,9 @@
+{
+ "fn": "timer_ticks_to_micros",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1078d4",
+ "seg": 2,
+ "key": "timer_ticks_to_micros__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_generate_interp_grid\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Fills a 3x3 interpolation grid of row and column values from origin and step parameters supplied in a volatile integer table.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"grid\",\n    \"v1\": \"row_step_in\",\n    \"v2\": \"row_step\",\n    \"v3\": \"row_value\",\n    \"v4\": \"col_step\",\n    \"v5\": \"col_adjust\",\n    \"v6\": \"col_base\",\n    \"i\": \"row\",\n    \"v9\": \"col_value\",\n    \"v10\": \"write_ptr\",\n    \"result\": \"table_end\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 0, \"meaning\": \"column step parameter\"},\n    {\"offset\": 1, \"meaning\": \"row step parameter\"},\n    {\"offset\": 2, \"meaning\": \"column origin parameter\"},\n    {\"offset\": 3, \"meaning\": \"row origin parameter\"},\n    {\"offset\": 4, \"meaning\": \"generated column value table\"},\n    {\"offset\": 13, \"meaning\": \"generated row value table\"}\n  ]\n}"
+}

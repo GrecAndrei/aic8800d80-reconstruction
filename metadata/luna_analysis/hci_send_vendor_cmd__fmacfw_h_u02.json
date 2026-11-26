@@ -1,0 +1,9 @@
+{
+ "fn": "hci_send_vendor_cmd",
+ "img": "fmacfw_h_u02",
+ "addr": "0x135458",
+ "seg": 52,
+ "key": "hci_send_vendor_cmd__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_assoc_rsp_handler\",\"confidence\":\"high\",\"docstring\":\"Accumulates association-response payload fragments in shared state and dispatches the response when the status is zero.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"assoc_rsp_fragment\",\"v2\":\"assoc_rsp_state\",\"v3\":\"fragment_length\",\"v4\":\"status\",\"v5\":\"buffered_length\",\"v6\":\"copy_length\",\"v7\":\"payload_source\",\"v8\":\"payload_destination\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Input fragment length in bytes.\"},{\"offset\":14,\"meaning\":\"Input status; zero enables response dispatch.\"},{\"offset\":16,\"meaning\":\"Input response control value passed to dispatch, masked to 14 bits.\"},{\"offset\":18,\"meaning\":\"Input fragment payload begins.\"},{\"offset\":14,\"meaning\":\"Shared response state: accumulated payload length.\"},{\"offset\":16,\"meaning\":\"Shared response state: length copied from this fragment.\"},{\"offset\":20,\"meaning\":\"Shared response payload accumulation buffer.\"}]}"
+}

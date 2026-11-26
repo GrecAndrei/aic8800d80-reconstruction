@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_bsscfg_llc_flush",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f120",
+ "seg": 21,
+ "key": "wlc_bsscfg_llc_flush__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_bsscfg_llc_flush\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Flushes a pending LLC/connection event list, then zeroes and reinitializes a WLC BSS configuration structure's LLC table and invalid state.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"wlc_bsscfg\",\n    \"v2\": \"llc_list_head\",\n    \"v3\": \"list_item\",\n    \"v5\": \"llc_table_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 572,\n      \"meaning\": \"co_list head pointer for pending LLC/connection events or contexts\"\n    },\n    {\n      \"offset\": 452,\n      \"meaning\": \"start of a 9-entry LLC/connection table with 12-byte entries\"\n    },\n    {\n      \"offset\": 34,\n      \"meaning\": \"uint8_t state/handle initialized to 0xFF (invalid)\"\n    }\n  ]\n}"
+}

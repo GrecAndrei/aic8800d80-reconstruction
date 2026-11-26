@@ -1,0 +1,9 @@
+{
+ "fn": "llm_adv_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131b3c",
+ "seg": 45,
+ "key": "llm_adv_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_adv_start\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"BLE link-layer advertising-start handler that sends an advertising-start event when the current advertising state is valid and then completes the associated HCI command.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v4\": \"adv_state\",\n    \"a3\": \"cmd_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"signed advertising status/state\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"u16 advertising state/parameter; 0xFF denotes invalid/unspecified\"\n    }\n  ]\n}"
+}

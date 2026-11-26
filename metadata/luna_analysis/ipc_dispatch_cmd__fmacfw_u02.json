@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_dispatch_cmd",
+ "img": "fmacfw_u02",
+ "addr": "0x13e5d4",
+ "seg": 61,
+ "key": "ipc_dispatch_cmd__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_connection_event_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a BLE connection event using its link index and per-connection state while updating hardware control state.\",\"subsystem\":\"ble\",\"var_renames\":{\"v8\":\"link_context\",\"v10\":\"connection_status\",\"v11\":\"event_flags\",\"v12\":\"event_flags_without_bit13\",\"v13\":\"bit13_flag\"},\"struct_hints\":[{\"offset\":29,\"meaning\":\"BLE connection index used to select one of 32 per-connection contexts\"},{\"offset\":30,\"meaning\":\"Event flags; bit 13 is consumed and cleared\"},{\"offset\":34,\"meaning\":\"Per-connection status byte; 0xFF causes an early return\"},{\"offset\":76,\"meaning\":\"Pointer to a link context used for state checks\"},{\"offset\":340,\"meaning\":\"Per-connection state field used to select a hardware-handling path\"}]}"
+}

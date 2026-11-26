@@ -1,0 +1,9 @@
+{
+ "fn": "get_queue_entry_ptr",
+ "img": "fmacfw_u02",
+ "addr": "0x12b514",
+ "seg": 39,
+ "key": "get_queue_entry_ptr__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"queue_entry_get_ptr\",\"confidence\":\"medium\",\"docstring\":\"Returns the address of the queue entry selected by the stored index, using six-byte entries.\",\"subsystem\":\"mm\",\"struct_hints\":[{\"offset\":0,\"meaning\":\"Base address of the queue entry array\"},{\"offset\":10,\"meaning\":\"Index of the selected queue entry\"}]}"
+}

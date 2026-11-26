@@ -1,0 +1,9 @@
+{
+ "fn": "llc_get_evt_ptr",
+ "img": "fmacfw_u02",
+ "addr": "0x12a5d0",
+ "seg": 37,
+ "key": "llc_get_evt_ptr__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_get_evt_ptr\",\"confidence\":\"medium\",\"docstring\":\"Returns the input context unchanged when its remap flag is clear; otherwise processes and returns the global 140-byte record selected by its index field.\",\"subsystem\":\"ble\",\"var_renames\":{\"result\":\"context\"},\"struct_hints\":[{\"offset\":1224,\"meaning\":\"Flag selecting indexed-record remapping\"},{\"offset\":1225,\"meaning\":\"Index of the 140-byte global record\"}]}"
+}

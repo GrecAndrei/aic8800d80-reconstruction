@@ -1,0 +1,9 @@
+{
+ "fn": "clear_tx_buf",
+ "img": "fmacfw_h_u02",
+ "addr": "0x140c5c",
+ "seg": 64,
+ "key": "clear_tx_buf__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_tx_buffer_reset\",\"confidence\":\"high\",\"docstring\":\"Runs HCI command preprocessing for 0x0B, zeroes the Bluetooth transmit buffer, and sets its trailing 32-bit sentinel to -1.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"tx_buffer\"},\"struct_hints\":[{\"offset\":6480,\"meaning\":\"32-bit sentinel initialized to -1\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_rx_rssi",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x107c28",
+ "seg": 2,
+ "key": "rf_get_rx_rssi__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_update_loft_q_calibration\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Accumulates a reported LOFT Q calibration offset into the RF LOFT register field and asserts the load trigger.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"loft_q_reg\",\n    \"v1\": \"loft_reg_value\",\n    \"v2\": \"loft_q_value\",\n    \"v4\": \"loft_load_reg\"\n  },\n  \"struct_hints\": []\n}"
+}

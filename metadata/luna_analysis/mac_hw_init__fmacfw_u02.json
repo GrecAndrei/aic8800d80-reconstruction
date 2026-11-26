@@ -1,0 +1,9 @@
+{
+ "fn": "mac_hw_init",
+ "img": "fmacfw_u02",
+ "addr": "0x104198",
+ "seg": 2,
+ "key": "mac_hw_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_hw_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes WLAN MAC control registers and sequences hardware clock and reset bits with a short delay.\",\"subsystem\":\"mac\"}"
+}

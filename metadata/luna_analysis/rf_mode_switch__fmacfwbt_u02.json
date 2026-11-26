@@ -1,0 +1,9 @@
+{
+ "fn": "rf_mode_switch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11565c",
+ "seg": 7,
+ "key": "rf_mode_switch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_mode_switch\",\"confidence\":\"medium\",\"docstring\":\"Handles an RF/baseband mode transition, optionally reinitializing the baseband and performing software-reset handshaking before returning a mode-related value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"result\"}}"
+}

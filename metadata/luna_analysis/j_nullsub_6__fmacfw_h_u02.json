@@ -1,0 +1,9 @@
+{
+ "fn": "j_nullsub_6",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f3f4",
+ "seg": 42,
+ "key": "j_nullsub_6__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"noop\",\"confidence\":\"high\",\"docstring\":\"Calls the null stub and returns its result without performing any additional work.\",\"subsystem\":\"libmisc\"}"
+}

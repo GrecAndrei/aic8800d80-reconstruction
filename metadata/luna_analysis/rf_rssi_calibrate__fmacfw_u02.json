@@ -1,0 +1,9 @@
+{
+ "fn": "rf_rssi_calibrate",
+ "img": "fmacfw_u02",
+ "addr": "0x138d18",
+ "seg": 58,
+ "key": "rf_rssi_calibrate__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_power_configure\",\"confidence\":\"medium\",\"docstring\":\"Updates an RF control word using the supplied parameter and RF configuration, triggers the MAC scan path, and returns the associated transmit-power lookup result.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"rf_config\",\"v4\":\"power_parameter\",\"v7\":\"base_control_word\",\"v8\":\"configured_control_word\",\"v9\":\"final_control_word\"},\"struct_hints\":[{\"offset\":96,\"meaning\":\"RF control word whose bits are merged with configuration values and then rewritten\"}]}"
+}

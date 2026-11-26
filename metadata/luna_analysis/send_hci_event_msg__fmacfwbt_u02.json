@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_event_msg",
+ "img": "fmacfwbt_u02",
+ "addr": "0x141e38",
+ "seg": 68,
+ "key": "send_hci_event_msg__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_hci_event_msg\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a Bluetooth HCI event buffer, copies an event code and selected fields from a connection or message context into it, then transmits it with hci_evt_send.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v4\": \"hci_event_buf\",\n    \"v5\": \"event_param16\",\n    \"a1\": \"event_code\",\n    \"a2\": \"event_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"32-bit source field copied into HCI event parameters\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"16-bit source field copied into HCI event parameters\"\n    },\n    {\n      \"offset\": 46,\n      \"meaning\": \"byte source field copied as HCI event length or status\"\n    }\n  ]\n}"
+}

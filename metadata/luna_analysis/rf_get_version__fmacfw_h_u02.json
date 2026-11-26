@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_version",
+ "img": "fmacfw_h_u02",
+ "addr": "0x121534",
+ "seg": 22,
+ "key": "rf_get_version__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"query_rx_control\",\"confidence\":\"medium\",\"docstring\":\"Resolves the indexed station or connection, prepares applicable RX-control fields, and synchronously submits a control request.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"station_or_connection_index\",\"v5\":\"command_register\",\"v8\":\"connection_context\",\"v9\":\"station_index\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"station index in the connection context\"},{\"offset\":38,\"meaning\":\"peer MAC address, stored across bytes 38\u201343\"},{\"offset\":106,\"meaning\":\"station state/status\"}]}"
+}

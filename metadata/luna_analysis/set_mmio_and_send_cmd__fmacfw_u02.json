@@ -1,0 +1,9 @@
+{
+ "fn": "set_mmio_and_send_cmd",
+ "img": "fmacfw_u02",
+ "addr": "0x122cc4",
+ "seg": 27,
+ "key": "set_mmio_and_send_cmd__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_mmio_write_and_send_msg\",\"confidence\":\"medium\",\"docstring\":\"Writes the pointed-to 32-bit value to a fixed volatile address, then sends parameterless kernel message 114.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"value_ptr\"}}"
+}

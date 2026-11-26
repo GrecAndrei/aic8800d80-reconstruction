@@ -1,0 +1,9 @@
+{
+ "fn": "get_tx_power_cal_entry",
+ "img": "fmacfw_u02",
+ "addr": "0x13c294",
+ "seg": 60,
+ "key": "get_tx_power_cal_entry__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_rx_reorder_update\",\"confidence\":\"medium\",\"docstring\":\"Marks the received 12-bit sequence slot ready and advances the receive reorder window across consecutive ready slots.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v4\":\"context_record_offset\",\"v5\":\"tid_context_offset\",\"i\":\"advanced_slot_count\",\"v8\":\"rx_rate_code\",\"v11\":\"rate_entry\",\"v13\":\"reorder_context\",\"v14\":\"frame_timestamp\",\"v15\":\"timer_ticks\",\"v16\":\"timer_ticks\",\"v17\":\"current_slot_status\",\"v18\":\"slot_index_fn\",\"v19\":\"next_slot_index\",\"v20\":\"timer_ticks\"},\"struct_hints\":[{\"offset\":27,\"meaning\":\"a1: index selecting a 12-byte subrecord within the context record\"},{\"offset\":29,\"meaning\":\"a1: index selecting a 696-byte context record\"},{\"offset\":30,\"meaning\":\"a1: flags; bit 1 gates reorder processing\"},{\"offset\":32,\"meaning\":\"a1: 12-bit receive sequence number\"},{\"offset\":64,\"meaning\":\"a1: timestamp compared against hardware timer ticks\"},{\"offset\":0,\"meaning\":\"reorder context: callback mapping a sequence offset to a slot index\"},{\"offset\":4,\"meaning\":\"reorder context: current base sequence number\"},{\"offset\":6,\"meaning\":\"reorder context: start of per-slot status bytes\"},{\"offset\":262,\"meaning\":\"reorder context: index of the current base slot\"}]}"
+}

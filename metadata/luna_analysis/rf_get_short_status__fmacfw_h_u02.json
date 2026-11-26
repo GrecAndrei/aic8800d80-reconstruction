@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_short_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12b400",
+ "seg": 39,
+ "key": "rf_get_short_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_handle_status_irq\",\"confidence\":\"medium\",\"docstring\":\"Validates the MAC state and, when the status-pending flag is set, clears it and disables the associated interrupt.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"control_value_with_bit2_cleared\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Register value written back with bit 2 cleared during status handling\"}]}"
+}

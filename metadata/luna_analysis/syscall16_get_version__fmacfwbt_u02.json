@@ -1,0 +1,9 @@
+{
+ "fn": "syscall16_get_version",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115108",
+ "seg": 6,
+ "key": "syscall16_get_version__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_hw_version\",\"confidence\":\"medium\",\"docstring\":\"Queries syscall 16 for a version code, decodes the selected nibble into the output, and returns a status indicating which nibble was used.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"decoded_version_out\",\"v2\":\"raw_version_code\",\"v3\":\"selected_nibble\",\"result\":\"status\",\"v5\":\"decoded_version\"}}"
+}

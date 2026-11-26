@@ -1,0 +1,9 @@
+{
+ "fn": "rf_is_idle",
+ "img": "fmacfw_h_u02",
+ "addr": "0x113374",
+ "seg": 4,
+ "key": "rf_is_idle__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_claim_next_request\",\"confidence\":\"medium\",\"docstring\":\"Claims a queued RF request when the active flag is clear, updates the selected entry\u2019s state bits, and increments a reference count.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"active_flag\",\"v3\":\"queue_head_ptr\",\"v4\":\"queued_count\",\"v5\":\"queued_count_ptr\",\"v6\":\"first_queue_node\",\"v7\":\"selected_queue_node\",\"v8\":\"node_order_key\",\"v9\":\"scan_node\",\"v10\":\"remaining_nodes\",\"v12\":\"associated_object_field_ptr\",\"v13\":\"selected_array_entry\",\"v14\":\"entry_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next queue-node pointer\"},{\"offset\":4,\"meaning\":\"Pointer to associated object containing 8-byte entries\"},{\"offset\":12,\"meaning\":\"16-bit value used to compare or order queue nodes\"},{\"offset\":14,\"meaning\":\"One-based index selecting an associated-object entry\"},{\"offset\":3,\"meaning\":\"State flags byte within an 8-byte associated-object entry\"}]}"
+}

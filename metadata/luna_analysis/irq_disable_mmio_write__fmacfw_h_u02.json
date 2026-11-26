@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable_mmio_write",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f32c",
+ "seg": 42,
+ "key": "irq_disable_mmio_write__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"report_assertion_and_wait\",\"confidence\":\"high\",\"docstring\":\"Disables interrupts, emits an ASSERT diagnostic with the expression, file, and line, then spins until a volatile word clears.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"assertion_expression\",\"a2\":\"source_file\",\"a3\":\"source_line\"}}"
+}

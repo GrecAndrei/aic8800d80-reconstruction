@@ -1,0 +1,9 @@
+{
+ "fn": "init_once",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11733c",
+ "seg": 10,
+ "key": "init_once__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_link_channel_is_valid\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks whether a Bluetooth link context has an allowed and valid RF channel after testing a global enable state and the link type.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"link_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1224,\n      \"meaning\": \"flag indicating that an RF channel value is present/valid\"\n    },\n    {\n      \"offset\": 1225,\n      \"meaning\": \"RF channel byte used to look up channel offset\"\n    }\n  ]\n}"
+}

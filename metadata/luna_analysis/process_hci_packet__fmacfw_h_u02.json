@@ -1,0 +1,9 @@
+{
+ "fn": "process_hci_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1221b4",
+ "seg": 24,
+ "key": "process_hci_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_bt_packet_rate_control\",\"confidence\":\"low\",\"docstring\":\"Uses elapsed time to estimate a packet rate, applies a hysteretic control state, and updates or resets associated counters.\",\"subsystem\":\"bt\",\"var_renames\":{\"v39\":\"estimated_rate\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "compute_byte_delta",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c444",
+ "seg": 40,
+ "key": "compute_byte_delta__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_delta_and_flag_entries\",\"confidence\":\"medium\",\"docstring\":\"Computes and stores a signed-byte delta from fields at offsets 420 and 464, applies the offset-110 limit or sentinel behavior, flags linked entries when applicable, and returns the type_get result for the object at offset 72.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"state\",\"i\":\"entry\",\"v2\":\"delta_limit\",\"v3\":\"delta\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Object passed to type_get after delta processing\"},{\"offset\":109,\"meaning\":\"Stored signed-byte delta\"},{\"offset\":110,\"meaning\":\"Signed delta limit; 127 is a sentinel\"},{\"offset\":240,\"meaning\":\"Head pointer of a linked list of entries\"},{\"offset\":350,\"meaning\":\"Entry flag byte; bit 0x10 is set\"},{\"offset\":420,\"meaning\":\"First unsigned byte operand in the delta calculation\"},{\"offset\":464,\"meaning\":\"Second unsigned byte operand subtracted from the first\"}]}"
+}

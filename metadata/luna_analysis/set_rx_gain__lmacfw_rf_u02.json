@@ -1,0 +1,9 @@
+{
+ "fn": "set_rx_gain",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1250a0",
+ "seg": 23,
+ "key": "set_rx_gain__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_rx_gain\",\"confidence\":\"medium\",\"docstring\":\"Command handler that parses a decimal argument as an RX gain value, writes it into the bit-0 field of an RF register, and falls back to a usage/dispatch path when no argument is provided.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v2\":\"value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hci_process_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133af0",
+ "seg": 49,
+ "key": "hci_process_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_process_link_event\",\"confidence\":\"medium\",\"docstring\":\"Processes the active link event and dispatches accumulated measurement data when the link\u2019s report flag is pending.\",\"subsystem\":\"hci\",\"var_renames\":{\"v1\":\"active_context\",\"v2\":\"interface_index\",\"v3\":\"interface_state_base\",\"v4\":\"interface_state_offset\",\"v5\":\"interface_state\",\"v11\":\"measurement_pdu\"},\"struct_hints\":[{\"offset\":472,\"meaning\":\"Measurement-event flags; the sign bit selects report processing and bits 1\u20133 control measurement handling.\"}]}"
+}

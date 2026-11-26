@@ -1,0 +1,9 @@
+{
+ "fn": "ll_global_init",
+ "img": "fmacfw_u02",
+ "addr": "0x13b96c",
+ "seg": 60,
+ "key": "ll_global_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_global_init\",\"confidence\":\"medium\",\"docstring\":\"Clears BLE link-layer state and initializes 32 indexed entries, assigning 268-byte-stride backing buffers to entries 16\u201331.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"ll_state_base\",\"v1\":\"entry\",\"v2\":\"buffer_pool_base\",\"i\":\"entry_index\",\"result\":\"init_result\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"byte initialized to 0xFF as a sentinel\"},{\"offset\":26,\"meaning\":\"entry index byte\"},{\"offset\":28,\"meaning\":\"pointer to backing buffer for entries 16\u201331\"}]}"
+}

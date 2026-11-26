@@ -1,0 +1,9 @@
+{
+ "fn": "arm_timer",
+ "img": "fmacfw_u02",
+ "addr": "0x11c528",
+ "seg": 18,
+ "key": "arm_timer__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_timer_schedule\",\"confidence\":\"medium\",\"docstring\":\"Stores the caller-supplied value in a timer context and submits it with a deadline 5000 units after a retrieved time value.\",\"subsystem\":\"ke\",\"var_renames\":{\"v1\":\"timer_ctx\",\"v2\":\"base_time\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Caller-supplied timer value or context\"}]}"
+}

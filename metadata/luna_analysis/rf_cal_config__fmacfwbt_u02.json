@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x139688",
+ "seg": 59,
+ "key": "rf_cal_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rx_spectrum_action_process\", \"confidence\": \"medium\", \"docstring\": \"Handles received 802.11 spectrum-management action elements, updating channel-switch/quiet state and RF calibration context.\", \"subsystem\": \"mac\", \"var_renames\": {\"v15\": \"action_elem\", \"v16\": \"rf_channel\", \"v39\": \"action_code\", \"v40\": \"rf_cal_idx\", \"v42\": \"csa_count\", \"v49\": \"csa_mode\", \"a2\": \"payload_len\", \"a3\": \"payload_off\", \"a6\": \"payload_base\"}, \"struct_hints\": [{\"offset\": 106, \"meaning\": \"channel-switch/quiet busy state\"}, {\"offset\": 107, \"meaning\": \"RF channel value passed to PHY\"}, {\"offset\": 146, \"meaning\": \"stored CSA count\"}, {\"offset\": 148, \"meaning\": \"stored CSA mode/switch pending\"}]}"
+}

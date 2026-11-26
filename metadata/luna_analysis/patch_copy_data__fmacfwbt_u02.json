@@ -1,0 +1,9 @@
+{
+ "fn": "patch_copy_data",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136240",
+ "seg": 55,
+ "key": "patch_copy_data__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"apm_update_basic_rate\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates an APM/802.11 target record from basic-rate parameters in a received entry and dispatches the corresponding event.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a2\": \"param\",\n    \"v7\": \"entry_id\",\n    \"v9\": \"target_record\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"source param entry id (*param)\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"source param basic_rates byte (low byte of first copied uint32)\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"source param second copied uint32\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"source param third copied uint32\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"source param byte copied to target+204\"\n    },\n    {\n      \"offset\": 192,\n      \"meaning\": \"target word receiving first param word/basic-rate vector\"\n    },\n    {\n      \"offset\": 196,\n      \"meaning\": \"target word receiving second param word\"\n    },\n    {\n      \"offset\": 200,\n      \"meaning\": \"target word receiving third param word\"\n    },\n    {\n      \"offset\": 204,\n      \"meaning\": \"target byte receiving source param byte\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"entry selector/type byte; value 2 selects this copy/update path\"\n    }\n  ]\n}"
+}

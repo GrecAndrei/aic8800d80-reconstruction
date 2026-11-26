@@ -1,0 +1,9 @@
+{
+ "fn": "rf_core_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136ae8",
+ "seg": 57,
+ "key": "rf_core_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_state_event_send\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies stored RF/tx-power state fields into a Bluetooth HCI vendor event buffer, sends the event, and sends HCI command 7 with argument 2.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_state_ptr\",\n    \"v1\": \"event_buf\",\n    \"v2\": \"state_halfword_a\",\n    \"v3\": \"state_halfword_b\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"stored RF state u32 copied to event buffer word\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"stored RF state u16 copied to event buffer halfword +4\"\n    },\n    {\n      \"offset\": 38,\n      \"meaning\": \"stored RF state u16 copied to event buffer halfword +6\"\n    },\n    {\n      \"offset\": 50,\n      \"meaning\": \"stored RF state byte copied to event buffer +8\"\n    },\n    {\n      \"offset\": 51,\n      \"meaning\": \"stored RF state byte copied to event buffer +9\"\n    }\n  ]\n}"
+}

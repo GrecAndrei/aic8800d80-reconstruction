@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_rx_buffer",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10c88c",
+ "seg": 2,
+ "key": "alloc_rx_buffer__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"refill_rx_buffers\",\"confidence\":\"medium\",\"docstring\":\"Refills available RX slots from the free-buffer list, submits each slot to the WLAN handler, and writes the selected RX interrupt-mask bit.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"rx_context\",\"v6\":\"rx_slots_used\",\"v7\":\"rx_slot_capacity\",\"v8\":\"rx_slot_index\",\"v12\":\"buffer_node\",\"v16\":\"rx_slot\"},\"struct_hints\":[{\"offset\":636,\"meaning\":\"Free RX buffer list head\"},{\"offset\":4,\"meaning\":\"Buffer data address in an RX slot\"}]}"
+}

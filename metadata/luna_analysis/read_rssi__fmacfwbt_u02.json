@@ -1,0 +1,9 @@
+{
+ "fn": "read_rssi",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1274c4",
+ "seg": 33,
+ "key": "read_rssi__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_send_pending_advertiser_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handle pending BLE advertising or scan-response transmit flags by clearing the matching interrupt when the stored RSSI is negative and sending the corresponding RF packet.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v0\": \"advertiser_state_base\",\n    \"v1\": \"state_flags\",\n    \"result\": \"ret\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 88,\n      \"meaning\": \"advertiser TX request/processed state byte (bit0/bit1 request, bit2/bit3 sent or busy)\"\n    }\n  ]\n}"
+}

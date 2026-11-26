@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg10_low_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1140f0",
+ "seg": 5,
+ "key": "rf_reg10_low_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_reg10_write_signed_nibble\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads RF register 10, encodes a signed 4-bit argument (-7..8) into a sign-magnitude nibble, writes it to the appropriate nibble field based on current register occupancy, and returns a status/position code.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"signed_value\",\n    \"v2\": \"reg10_low\",\n    \"v3\": \"nibble_shift\",\n    \"v4\": \"write_status\",\n    \"v6\": \"encoded_nibble\"\n  },\n  \"struct_hints\": []\n}"
+}

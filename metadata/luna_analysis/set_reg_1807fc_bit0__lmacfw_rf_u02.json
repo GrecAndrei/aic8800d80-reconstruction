@@ -1,0 +1,9 @@
+{
+ "fn": "set_reg_1807fc_bit0",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123fa0",
+ "seg": 23,
+ "key": "set_reg_1807fc_bit0__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"set_reg_1807fc_bit0\", \"confidence\": \"medium\", \"docstring\": \"Read-modify-writes the register addressed by off_123FB0 to update bit 0 from the low bit of value and returns value.\", \"subsystem\": \"rf\", \"var_renames\": {\"result\": \"value\"}}"
+}

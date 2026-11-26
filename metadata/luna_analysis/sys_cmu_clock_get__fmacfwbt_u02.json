@@ -1,0 +1,9 @@
+{
+ "fn": "sys_cmu_clock_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x113108",
+ "seg": 4,
+ "key": "sys_cmu_clock_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_device_open\",\"confidence\":\"medium\",\"docstring\":\"Loads USB vendor and product IDs when available, initializes shared open state, and retries the IPC open request until it succeeds.\",\"subsystem\":\"ipc\",\"var_renames\":{\"a1\":\"open_params\",\"v2\":\"usb_id_words\",\"v3\":\"product_id\",\"v4\":\"vendor_id\",\"v7\":\"open_request\",\"v8\":\"open_option\",\"v9\":\"open_result\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Value copied into shared open state\"},{\"offset\":8,\"meaning\":\"Boolean option passed with the IPC open request\"}]}"
+}

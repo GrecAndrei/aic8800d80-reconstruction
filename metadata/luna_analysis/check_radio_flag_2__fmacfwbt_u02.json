@@ -1,0 +1,9 @@
+{
+ "fn": "check_radio_flag_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1165b4",
+ "seg": 8,
+ "key": "check_radio_flag_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_append_descriptor\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Assembles an 8-byte Bluetooth descriptor from packet context and appends it to the caller buffer, or zeros the appended area when the radio/BT flag indicates the descriptor should be suppressed.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"bt_context\",\n    \"a2\": \"descriptor_source\",\n    \"a3\": \"buffer_ptr\",\n    \"a4\": \"buffer_len\",\n    \"v7\": \"descriptor_src\",\n    \"v8\": \"descriptor_dst\",\n    \"v10\": \"descriptor\",\n    \"_frame\": \"descriptor_frame\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"bt_context field used as a pointer by assemble_bt_descriptor\"\n    },\n    {\n      \"offset\": 18,\n      \"meaning\": \"bt_context field used as a pointer by assemble_bt_descriptor\"\n    },\n    {\n      \"offset\": 27,\n      \"meaning\": \"BT/radio byte copied into descriptor assembly\"\n    }\n  ]\n}"
+}

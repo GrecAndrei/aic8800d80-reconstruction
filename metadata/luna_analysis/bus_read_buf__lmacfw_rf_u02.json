@@ -1,0 +1,9 @@
+{
+ "fn": "bus_read_buf",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1145f4",
+ "seg": 6,
+ "key": "bus_read_buf__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bus_read_rom_info\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a fixed 320-byte bus ROM block, validates its magic number, and copies selected information fields requested by a bit mask into the caller buffer while checking the destination size.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"field_mask\",\n    \"a2\": \"dest\",\n    \"a3\": \"dest_len\",\n    \"v6\": \"copied_len\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 0, \"meaning\": \"ROM block magic number\"},\n    {\"offset\": 4, \"meaning\": \"ROM block flags / field availability mask\"},\n    {\"offset\": 20, \"meaning\": \"6-byte identifier field selected by BIT(1) in the request mask\"},\n    {\"offset\": 292, \"meaning\": \"2-byte information field selected by BIT(20) in the request mask\"},\n    {\"offset\": 296, \"meaning\": \"8-byte information field selected by BIT(21) in the request mask\"},\n    {\"offset\": 304, \"meaning\": \"4-byte information field selected by BIT(22) in the request mask\"},\n    {\"offset\": 308, \"meaning\": \"2-byte information field selected by BIT(23) in the request mask\"},\n    {\"offset\": 310, \"meaning\": \"10-byte information field selected by BIT(24) in the request mask\"}\n  ]\n}"
+}

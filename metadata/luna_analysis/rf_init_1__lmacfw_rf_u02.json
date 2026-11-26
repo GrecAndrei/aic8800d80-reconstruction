@@ -1,0 +1,9 @@
+{
+ "fn": "rf_init_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1122f0",
+ "seg": 4,
+ "key": "rf_init_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_init_calibration\", \"confidence\": \"medium\", \"docstring\": \"Initializes RF hardware by configuring baseband/radio MMIO, starting timer initialization, and executing repeated calibration register sequences with busy-wait status polling.\", \"subsystem\": \"rf\", \"var_renames\": {\"v1\": \"rf_regs\", \"v2\": \"rf_regs\", \"v3\": \"cal_block_regs\", \"v4\": \"cal_set_mask\", \"v5\": \"cal_block_regs\", \"v7\": \"cal_status\", \"v8\": \"rf_regs\", \"v9\": \"cal_block_regs2\", \"v11\": \"cal_set_mask\", \"v12\": \"cal_block_regs2\", \"i\": \"cal_loop_idx\", \"v13\": \"cal_loop_idx\", \"v14\": \"cal_status\", \"v15\": \"cal_block_ptr\", \"v16\": \"cal_ctrl_ptr\"}, \"struct_hints\": [{\"offset\": 3584, \"meaning\": \"unknown RF register accessed during initialization; one bit cleared\"}, {\"offset\": 2052, \"meaning\": \"RF command/status register used to set/clear enable and calibration bits\"}, {\"offset\": 24, \"meaning\": \"RF status register polled for bit 0x80\"}, {\"offset\": 20, \"meaning\": \"RF status register polled for busy bits during calibration\"}, {\"offset\": 0, \"meaning\": \"calibration block control/status word checked with 0x80008000\"}, {\"offset\": 8, \"meaning\": \"calibration block secondary status/control word used for strobes\"}]}"
+}

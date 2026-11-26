@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_reg",
+ "img": "fmacfw_h_u02",
+ "addr": "0x120fa4",
+ "seg": 22,
+ "key": "rf_write_reg__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_write_reg_and_preprocess_hci_cmd\",\"confidence\":\"low\",\"docstring\":\"Writes the fixed value 48 to a volatile location, then calls HCI command preprocessing with arguments 0 and 1.\",\"subsystem\":\"rf\"}"
+}

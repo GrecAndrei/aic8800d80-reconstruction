@@ -1,0 +1,9 @@
+{
+ "fn": "handle_sleep_exit",
+ "img": "fmacfw_u02",
+ "addr": "0x1371dc",
+ "seg": 57,
+ "key": "handle_sleep_exit__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_ssid_filter_match\",\"confidence\":\"medium\",\"docstring\":\"Matches a length-prefixed SSID against a fixed seven-byte SSID or the configured SSID-filter entries, accepting all SSIDs when the filter list is empty.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"ssid\",\"v1\":\"fixed_ssid_match_enabled\",\"v3\":\"config\",\"v4\":\"ssid_filter_count\",\"v5\":\"filter_entry\",\"v6\":\"filter_index\",\"v7\":\"ssid_bytes\",\"v8\":\"ssid_length\"},\"struct_hints\":[{\"offset\":252,\"meaning\":\"Start of fixed-size SSID filter entries, each containing a length byte followed by SSID bytes.\"},{\"offset\":368,\"meaning\":\"Number of configured SSID filter entries.\"}]}"
+}

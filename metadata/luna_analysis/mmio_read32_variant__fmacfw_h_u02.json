@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read32_variant",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10ec98",
+ "seg": 3,
+ "key": "mmio_read32_variant__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"invoke_patch_hook_1_irq_guarded\",\"confidence\":\"medium\",\"docstring\":\"Invokes patch hook 1 inside a nest-counted interrupt guard, optionally waiting for a shared flag to become nonzero before the call.\",\"subsystem\":\"hal\",\"var_renames\":{\"a3\":\"wait_for_ready_flag\",\"v3\":\"critical_depth_ptr\",\"v4\":\"ready_flag_ptr\",\"v6\":\"depth_after_decrement\",\"v7\":\"irq_restore_pending\"},\"struct_hints\":[]}"
+}

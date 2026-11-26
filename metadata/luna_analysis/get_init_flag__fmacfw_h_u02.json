@@ -1,0 +1,9 @@
+{
+ "fn": "get_init_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1111b4",
+ "seg": 3,
+ "key": "get_init_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_init_flag\",\"confidence\":\"medium\",\"docstring\":\"Returns 1 if the primary initialization byte is set; otherwise returns the secondary initialization byte.\",\"subsystem\":\"rf\"}"
+}

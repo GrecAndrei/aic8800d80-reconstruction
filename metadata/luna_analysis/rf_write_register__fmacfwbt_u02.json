@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_register",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12acf8",
+ "seg": 38,
+ "key": "rf_write_register__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_conn_timer_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Iterates over a Bluetooth connection's timer event descriptors under an IRQ-nested critical section and locks kernel events whose wrap-safe deadlines have expired.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"conn_ctx\",\n    \"a2\": \"tick_delay\",\n    \"v2\": \"irq_lock_nesting\",\n    \"v3\": \"tick_base\",\n    \"v4\": \"irq_restore_flag\",\n    \"v5\": \"timer_group\",\n    \"v6\": \"second_pass\",\n    \"v8\": \"original_ctx\",\n    \"v9\": \"timer_event\",\n    \"v10\": \"deadline_expired\",\n    \"v11\": \"tick_diff\",\n    \"v12\": \"nesting_after_lock\",\n    \"v13\": \"nesting_after_release\",\n    \"v14\": \"saved_irq_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1225,\n      \"meaning\": \"byte selecting timer group or link type from connection context\"\n    },\n    {\n      \"offset\": 88,\n      \"meaning\": \"connection state field cleared when a timer deadline expires\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"uint32 event timestamp used for wrap-safe deadline comparison\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"uint8 timer event armed/valid flag\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"uint8 timer event completed/disabled flag\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"current tick field in the timer block referenced by off_12AD9C (v3[4])\"\n    }\n  ]\n}"
+}

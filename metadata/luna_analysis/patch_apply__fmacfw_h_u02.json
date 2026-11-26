@@ -1,0 +1,9 @@
+{
+ "fn": "patch_apply",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114af0",
+ "seg": 6,
+ "key": "patch_apply__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"patch_extract_sections\",\"confidence\":\"medium\",\"docstring\":\"Validates the ROM patch record and concatenates payload sections enabled by the intersection of the requested and available masks into the destination.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"requested_mask\",\"a2\":\"destination\",\"a3\":\"destination_capacity\",\"v6\":\"available_requested_mask\",\"v7\":\"copied_length\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"ROM patch record magic\"},{\"offset\":4,\"meaning\":\"available payload section bitmask\"},{\"offset\":16,\"meaning\":\"4-byte payload section selected by mask bit 0\"},{\"offset\":20,\"meaning\":\"12-byte payload section selected by mask bit 1\"},{\"offset\":32,\"meaning\":\"20-byte payload section selected by mask bit 2\"},{\"offset\":52,\"meaning\":\"4-byte payload section selected by mask bit 3\"},{\"offset\":60,\"meaning\":\"4-byte payload section selected by mask bit 5\"},{\"offset\":64,\"meaning\":\"4-byte payload section selected by mask bit 6\"},{\"offset\":68,\"meaning\":\"4-byte payload section selected by mask bit 7\"}]}"
+}

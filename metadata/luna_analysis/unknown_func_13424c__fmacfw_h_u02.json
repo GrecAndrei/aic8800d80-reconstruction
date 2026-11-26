@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_func_13424c",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13424c",
+ "seg": 50,
+ "key": "unknown_func_13424c__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_process_pending_work\",\"confidence\":\"medium\",\"docstring\":\"Processes pending HCI test-command or BLE scan work under a nested interrupt guard, then posts the coexistence timeout event.\",\"subsystem\":\"hci\",\"var_renames\":{\"v0\":\"critical_section_depth\",\"v1\":\"pending_state\",\"v2\":\"test_command_pending\",\"v5\":\"restore_irq\"},\"struct_hints\":[{\"offset\":14,\"meaning\":\"BLE scan configuration trigger; configuration runs when this byte equals 1.\"},{\"offset\":15,\"meaning\":\"Nonzero flag that triggers sending an HCI test command.\"}]}"
+}

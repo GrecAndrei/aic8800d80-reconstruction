@@ -1,0 +1,9 @@
+{
+ "fn": "bt_buf_alloc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12cb54",
+ "seg": 41,
+ "key": "bt_buf_alloc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_buf_alloc\",\"confidence\":\"medium\",\"docstring\":\"Allocates a Bluetooth buffer with a 12-byte header, stores caller-supplied header fields and payload length, zero-fills the payload, and returns a pointer to the payload after the header.\",\"subsystem\":\"bt\",\"var_renames\":{\"v8\":\"alloced_buf\",\"v9\":\"bt_buf\",\"a4\":\"payload_len\"},\"struct_hints\":[{\"offset\":10,\"meaning\":\"payload/data length stored in the buffer header\"},{\"offset\":12,\"meaning\":\"start of zero-initialized payload following the 12-byte header\"}]}"
+}

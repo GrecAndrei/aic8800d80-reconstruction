@@ -1,0 +1,9 @@
+{
+ "fn": "parse_data_field",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127194",
+ "seg": 23,
+ "key": "parse_data_field__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"double_round\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Rounds an IEEE-754 double bit pattern to the nearest integral double, choosing away from zero for exact halves and preserving NaN/infinity behavior via double_add.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v1\": \"biased_exp\",\n    \"v2\": \"unbiased_exp\",\n    \"v3\": \"result_hi\",\n    \"v4\": \"input_bits\",\n    \"v5\": \"result_lo\",\n    \"v6\": \"frac_mask\",\n    \"v7\": \"half_ulp_bit\",\n    \"v8\": \"add_carry\",\n    \"v9\": \"rounded_bits\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_control_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x139b4c",
+ "seg": 59,
+ "key": "rx_control_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_control_packet\",\"confidence\":\"medium\",\"docstring\":\"Selects the RF transmit context from the frame destination when needed and prepares or configures a low-level control transmit packet.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"tx_desc\",\"a2\":\"vif_id\",\"v2\":\"buffer_ctx\",\"v3\":\"frame\",\"v7\":\"rf_ctx\",\"v10\":\"tx_time\",\"v11\":\"frame_ctrl\",\"v16\":\"ctx_entry\",\"v17\":\"ctx_node\",\"v18\":\"vif_index\",\"_frame.v19\":\"rf_channel\",\"_frame.v20\":\"packet_type\",\"_frame.v21\":\"packet_ptr\",\"_frame.v22\":\"prepare_status\",\"_frame.v23\":\"rate_flag\",\"_frame.v24\":\"power_index\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"frame control word at start of packet buffer\"},{\"offset\":4,\"meaning\":\"destination MAC address low 16 bits in packet buffer\"},{\"offset\":6,\"meaning\":\"destination MAC address middle 16 bits in packet buffer\"},{\"offset\":8,\"meaning\":\"destination MAC address high 16 bits in packet buffer\"},{\"offset\":28,\"meaning\":\"descriptor pointer to packet buffer context\"},{\"offset\":48,\"meaning\":\"descriptor uint16 time/rate/channel parameter\"},{\"offset\":84,\"meaning\":\"descriptor flags field tested against 0x600\"},{\"offset\":100,\"meaning\":\"MAC address field in AP/ctx table node\"},{\"offset\":107,\"meaning\":\"vif/context index byte in AP/ctx table node\"}]}"
+}

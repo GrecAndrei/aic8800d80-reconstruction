@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_a_write",
+ "img": "fmacfw_u02",
+ "addr": "0x114a3c",
+ "seg": 5,
+ "key": "rf_cmd_a_write__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cmd_a_write\",\"confidence\":\"medium\",\"docstring\":\"Extracts the indexed byte from RF command A, decodes its signed nibble value into the output, and returns a status indicating which nibble was used or whether the byte was zero.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"byte_index\",\"a2\":\"decoded_value_out\"}}"
+}

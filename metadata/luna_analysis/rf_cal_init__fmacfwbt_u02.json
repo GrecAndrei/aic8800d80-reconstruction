@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1369c0",
+ "seg": 57,
+ "key": "rf_cal_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txpwr_send_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds transmit-power/RF state notification messages from the active TX-power context and sends them through the HCI command path.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"v0\": \"txpwr_ctx_table_base\",\n    \"v1\": \"rf_config_ptr\",\n    \"v2\": \"txpwr_ctx_idx\",\n    \"v6\": \"txpwr_ctx\",\n    \"v7\": \"txpwr_state_msg\",\n    \"v14\": \"txpwr_off_state_msg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"txpwr_ctx flags word; bit 0x20 is set when the calibration/txpower state flag is active\"\n    },\n    {\n      \"offset\": 51,\n      \"meaning\": \"current txpwr/rf context or path index\"\n    },\n    {\n      \"offset\": 100,\n      \"meaning\": \"txpwr_ctx 32-bit state field copied into the first report message\"\n    },\n    {\n      \"offset\": 104,\n      \"meaning\": \"txpwr_ctx 16-bit state field copied into the first report message\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"txpwr_ctx byte state value copied into notification messages\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"txpwr_ctx enable/calibration-state byte; nonzero selects the 'active' reporting path\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"rf_config byte field copied into the second report message\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"rf_config 16-bit field copied into the third report message\"\n    }\n  ]\n}"
+}

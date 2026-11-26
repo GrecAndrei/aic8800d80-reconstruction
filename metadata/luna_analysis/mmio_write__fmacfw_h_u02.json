@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1188b8",
+ "seg": 11,
+ "key": "mmio_write__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_process_dma_queue\",\"confidence\":\"medium\",\"docstring\":\"Drains queued PHY DMA entries, updates their associated control words, and allocates a DMA buffer when no entries remain.\",\"subsystem\":\"phy\",\"var_renames\":{\"a2\":\"descriptor_queue\",\"v2\":\"global_status_reg_ptr\",\"v7\":\"control_word\",\"v8\":\"entry\",\"v9\":\"control_block\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Entry's 16-bit field tested for zero before release or further processing\"},{\"offset\":68,\"meaning\":\"Entry flag that selects the 0x7C000000 control-word value when set\"},{\"offset\":76,\"meaning\":\"Pointer to the associated control block\"},{\"offset\":4,\"meaning\":\"32-bit control/status word in the pointed-to control block\"}]}"
+}

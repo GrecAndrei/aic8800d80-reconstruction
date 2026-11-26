@@ -1,0 +1,9 @@
+{
+ "fn": "timer_delay_1",
+ "img": "fmacfw_u02",
+ "addr": "0x114104",
+ "seg": 5,
+ "key": "timer_delay_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"read_state_flag_if_clear\",\"confidence\":\"medium\",\"docstring\":\"Calls read_state_flag only when the byte at a fixed address is zero.\",\"subsystem\":\"libmisc\"}"
+}

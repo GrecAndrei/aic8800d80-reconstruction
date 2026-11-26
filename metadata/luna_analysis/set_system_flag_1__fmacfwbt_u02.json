@@ -1,0 +1,9 @@
+{
+ "fn": "set_system_flag_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d32c",
+ "seg": 41,
+ "key": "set_system_flag_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_system_flag_1\",\"confidence\":\"medium\",\"docstring\":\"ORs the supplied mask into a global system-flag word while preserving the caller's interrupt-disable state.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"system_flag_mask\",\"result\":\"updated_system_flag\",\"v1\":\"irq_lock_depth_ptr\",\"v2\":\"system_flag_word\",\"v3\":\"old_irq_lock_depth\",\"v4\":\"irq_lock_depth_plus_one\",\"v6\":\"irq_lock_owner_flag_ptr\",\"v7\":\"irq_lock_owner_flag\"},\"struct_hints\":[]}"
+}

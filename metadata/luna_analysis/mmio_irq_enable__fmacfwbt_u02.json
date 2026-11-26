@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_irq_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x103f64",
+ "seg": 2,
+ "key": "mmio_irq_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_configure\",\"confidence\":\"low\",\"docstring\":\"Temporarily enables the RF configuration interface, writes a 5-bit selector and companion value, then pulses the hardware update controls.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"interface_ctrl_reg\",\"v3\":\"config_ctrl_reg\",\"v4\":\"saved_interface_ctrl\",\"v5\":\"config_value_reg\"}}"
+}

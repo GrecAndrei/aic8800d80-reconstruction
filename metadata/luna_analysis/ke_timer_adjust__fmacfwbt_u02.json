@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_adjust",
+ "img": "fmacfwbt_u02",
+ "addr": "0x105140",
+ "seg": 2,
+ "key": "ke_timer_adjust__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_table_find_index\",\"confidence\":\"medium\",\"docstring\":\"Scans backward through one of two float-table regions to update and return the index around a target value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"target_value\",\"a3\":\"index_state\",\"a4\":\"float_table_base\",\"a5\":\"use_second_table_region\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Upper lookup index, clamped at the scan boundary.\"},{\"offset\":4,\"meaning\":\"Index found by the backward scan.\"},{\"offset\":8,\"meaning\":\"Initial index for the backward scan.\"}]}"
+}

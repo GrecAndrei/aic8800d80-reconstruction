@@ -1,0 +1,9 @@
+{
+ "fn": "hci_evt_prepare",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12cc48",
+ "seg": 41,
+ "key": "hci_evt_prepare__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hci_evt_prepare\", \"confidence\": \"medium\", \"docstring\": \"Stores three volatile 16-bit HCI event header/parameter fields at fixed negative offsets from the event pointer, then dispatches the prepared event via hci_evt_send.\", \"subsystem\": \"bt\", \"var_renames\": {\"a1\": \"evt_ptr\", \"a2\": \"evt_field0\", \"a3\": \"evt_field1\", \"a4\": \"evt_field2\"}, \"struct_hints\": [{\"offset\": -8, \"meaning\": \"first 16-bit field written before the HCI event payload/body pointer\"}, {\"offset\": -6, \"meaning\": \"second 16-bit field written before the HCI event payload/body pointer\"}, {\"offset\": -4, \"meaning\": \"third 16-bit field written before the HCI event payload/body pointer\"}]}"
+}

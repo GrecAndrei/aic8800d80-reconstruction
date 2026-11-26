@@ -1,0 +1,9 @@
+{
+ "fn": "mac_mlme_scan",
+ "img": "fmacfw_u02",
+ "addr": "0x11e604",
+ "seg": 20,
+ "key": "mac_mlme_scan__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_mlme_scan\",\"confidence\":\"medium\",\"docstring\":\"Handles MAC MLME scan work, dispatching pending FMAC transmissions and taking a no-buffer path when request resources are unavailable.\",\"subsystem\":\"mac\",\"var_renames\":{\"v28\":\"irq_lock_depth\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Status or flags byte; bit 0 is set on the no-buffer path.\"},{\"offset\":28,\"meaning\":\"32-bit connection or context identifier passed to get_connection_state.\"}]}"
+}

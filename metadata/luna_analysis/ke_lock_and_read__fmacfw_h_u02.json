@@ -1,0 +1,9 @@
+{
+ "fn": "ke_lock_and_read",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133d58",
+ "seg": 49,
+ "key": "ke_lock_and_read__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sm_connect_request\",\"confidence\":\"medium\",\"docstring\":\"Validates a station connect or reassociation request, updates per-VIF state, and queues the corresponding connection PDU.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"connect_request\",\"v4\":\"vif_id\",\"v8\":\"connect_confirmation\",\"v9\":\"vif_context_base\",\"v10\":\"vif_context\",\"v18\":\"is_reassociation\",\"v21\":\"reassociation_flag\"},\"struct_hints\":[{\"offset\":48,\"meaning\":\"Request flags; bit 0x20 indicates reassociation.\"},{\"offset\":61,\"meaning\":\"VIF index used to select the per-VIF context.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "chip_id_is_one",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1188c4",
+ "seg": 11,
+ "key": "chip_id_is_one__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"flash_init_probe_erase\", \"confidence\": \"medium\", \"docstring\": \"Performs a flash byte-write probe, stores 48 into a global register when the probe succeeds, and erases flash sector 0 or 1 depending on the probe result.\", \"subsystem\": \"hal\", \"var_renames\": {}, \"struct_hints\": []}"
+}

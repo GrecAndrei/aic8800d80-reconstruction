@@ -1,0 +1,9 @@
+{
+ "fn": "is_valid_rate",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13c344",
+ "seg": 60,
+ "key": "is_valid_rate__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_rate_is_valid\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the supplied rate format and rate code are accepted by the Bluetooth rate validator.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"rate_format\",\"a2\":\"rate_code\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llc_connection_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x105914",
+ "seg": 2,
+ "key": "llc_connection_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dpd_cal_indices_select\",\"confidence\":\"medium\",\"docstring\":\"Selects analog power indices for DPD calibration from a bitmask using mode-dependent index limits, and schedules a no-calibration event when the mask is empty.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"power_index_mask\",\"a2\":\"calibration_context\",\"a3\":\"range_mode\",\"v5\":\"power_index\",\"v6\":\"minimum_calibration_index\",\"v7\":\"maximum_calibration_index\",\"v10\":\"selected_power_index\",\"v11\":\"calibration_index_count\",\"v12\":\"selected_power_index\"},\"struct_hints\":[{\"offset\":592,\"meaning\":\"Array of analog power indices selected for calibration.\"},{\"offset\":624,\"meaning\":\"Number of indices currently stored in the calibration index array.\"},{\"offset\":628,\"meaning\":\"Power-index endpoint initialized to 15 and updated from selected indices.\"},{\"offset\":632,\"meaning\":\"Power-index endpoint initialized to 4 and updated for selected indices below the lower limit.\"}]}"
+}

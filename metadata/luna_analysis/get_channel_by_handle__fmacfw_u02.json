@@ -1,0 +1,9 @@
+{
+ "fn": "get_channel_by_handle",
+ "img": "fmacfw_u02",
+ "addr": "0x11a900",
+ "seg": 14,
+ "key": "get_channel_by_handle__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"release_handle_mapping\",\"confidence\":\"medium\",\"docstring\":\"If the indexed slot is populated, this decrements the referenced object's byte counter, calls its handler when the counter reaches zero, clears the slot, and returns 84; otherwise it returns the input unchanged.\",\"subsystem\":\"wlan\",\"var_renames\":{\"result\":\"handle_index\",\"v1\":\"handle_table_base\",\"v2\":\"mapped_object\",\"v3\":\"refcount_after_decrement\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"Handle-table entry pointer to the referenced object\"},{\"offset\":14,\"meaning\":\"Referenced object's byte-sized reference count\"},{\"offset\":340,\"meaning\":\"Object field passed as the first argument to its handler\"}]}"
+}

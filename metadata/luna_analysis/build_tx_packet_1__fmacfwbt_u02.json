@@ -1,0 +1,9 @@
+{
+ "fn": "build_tx_packet_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13085c",
+ "seg": 43,
+ "key": "build_tx_packet_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_build_tx_packet_1\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds a 28-byte transmit packet record from a fixed RF pattern/template blob and an auxiliary global field into the caller's output buffer cursor, then advances the cursor by the packet size.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"tx_packet_cursor\",\n    \"v1\": \"pattern_template\",\n    \"v2\": \"template_flags\",\n    \"v4\": \"dst_base\",\n    \"v5\": \"template_read_ptr\",\n    \"v6\": \"template_byte\",\n    \"v7\": \"aux_data_ptr\",\n    \"v8\": \"dst_base\",\n    \"v9\": \"aux_write_ptr\",\n    \"v10\": \"aux_write_end\",\n    \"v11\": \"aux_byte\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"fixed packet header byte 0x2d\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"fixed packet header byte 0x1a\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"2-byte control/flags field copied from template offset 12 with bits 2 and 3 forced set\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"single template byte copied from template offset 14\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"start of copied 16-byte pattern/payload field from template offset 15, with output offsets 15 and 16 subsequently zeroed\"\n    },\n    {\n      \"offset\": 21,\n      \"meaning\": \"2-byte field copied from template offset 32\"\n    },\n    {\n      \"offset\": 23,\n      \"meaning\": \"4-byte auxiliary field copied from dword_1308D8\"\n    },\n    {\n      \"offset\": 27,\n      \"meaning\": \"single trailing byte copied from template offset 40\"\n    }\n  ]\n}"
+}

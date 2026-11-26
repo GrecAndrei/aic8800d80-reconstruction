@@ -1,0 +1,9 @@
+{
+ "fn": "build_scan_report",
+ "img": "fmacfwbt_u02",
+ "addr": "0x141fdc",
+ "seg": 68,
+ "key": "build_scan_report__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_build_scan_report\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds a BLE scan report by appending a 17-byte record to an allocated event buffer, updates the packet length, and dispatches the BLE event.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v16\": \"event_msg\",\n    \"v6\": \"existing_payload_len\",\n    \"v7\": \"payload_base\",\n    \"v8\": \"report\",\n    \"v11\": \"report_flags\",\n    \"v12\": \"event_msg\",\n    \"v13\": \"tx_desc\",\n    \"v14\": \"desc_len_update\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 72,\n      \"meaning\": \"message buffer data pointer\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"message buffer descriptor pointer\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"descriptor current length or offset field\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"descriptor length update field after appending the report\"\n    }\n  ]\n}"
+}

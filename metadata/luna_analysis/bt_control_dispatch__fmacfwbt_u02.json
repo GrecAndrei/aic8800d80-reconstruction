@@ -1,0 +1,9 @@
+{
+ "fn": "bt_control_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12aebc",
+ "seg": 38,
+ "key": "bt_control_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_conn_link_ctrl\",\"confidence\":\"medium\",\"docstring\":\"Dispatches a control command (enable/disable/status-check/disconnect) on a BT link-layer connection context selected by index, operating on the per-connection 140-byte state structure.\",\"subsystem\":\"bt\",\"var_renames\":{\"result\":\"conn_idx\",\"a2\":\"ctrl_cmd\"},\"struct_hints\":[{\"offset\":113,\"meaning\":\"per-connection status/flags byte (bit-ORed via set_flag_byte when link is disabled)\"},{\"offset\":132,\"meaning\":\"link enable/active flag (1 = enabled, 0 = disabled)\"}]}"
+}

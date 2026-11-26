@@ -1,0 +1,9 @@
+{
+ "fn": "tx_check_allow",
+ "img": "fmacfw_u02",
+ "addr": "0x139f5c",
+ "seg": 58,
+ "key": "tx_check_allow__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_frame_check_allow\",\"confidence\":\"medium\",\"docstring\":\"Parses an 802.11 frame header into shared metadata and returns whether the associated transmit operation may proceed.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"context_flags\",\"v4\":\"frame_metadata\",\"v5\":\"allow\",\"v8\":\"frame\",\"v9\":\"frame_control\",\"v10\":\"sequence_control\",\"v11\":\"ds_direction_bits\",\"v13\":\"header_length\",\"v33\":\"qos_control\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Pointer to a packet object containing the frame buffer at offset 8.\"},{\"offset\":84,\"meaning\":\"Context flags; bit 0x2000 gates the frame-header parsing path.\"},{\"offset\":96,\"meaning\":\"Field cleared when frame-header parsing begins.\"}]}"
+}

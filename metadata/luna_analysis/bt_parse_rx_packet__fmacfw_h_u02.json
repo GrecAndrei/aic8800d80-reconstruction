@@ -1,0 +1,9 @@
+{
+ "fn": "bt_parse_rx_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x139444",
+ "seg": 58,
+ "key": "bt_parse_rx_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_handle_rx_action_frame\",\"confidence\":\"high\",\"docstring\":\"Dispatches received 802.11 action frames by category and records channel-switch announcements for the associated station.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"frame_control\",\"a2\":\"frame_length\",\"a3\":\"header_length\",\"a5\":\"station_id_ptr\",\"a6\":\"frame_data\",\"v9\":\"station_id\",\"v15\":\"action_body\",\"v16\":\"frame_subtype\",\"v39\":\"action_code\",\"v42\":\"channel_switch_count\",\"v43\":\"station_context\"},\"struct_hints\":[{\"offset\":146,\"meaning\":\"Stored channel-switch announcement count\"},{\"offset\":148,\"meaning\":\"Flag indicating a channel-switch announcement is pending\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "build_tx_pdu_lists",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11f308",
+ "seg": 21,
+ "key": "build_tx_pdu_lists__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_tx_pdu_queues\",\"confidence\":\"medium\",\"docstring\":\"Drains entries from the controller\u2019s paired transmit queues, updates associated TX state when applicable, and submits each entry for PHY processing until the queues are empty or the optional limit is reached.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"processed_count\",\"v7\":\"preferred_queue_heads\",\"v8\":\"secondary_queue_heads\",\"v9\":\"queue_index\",\"v10\":\"selected_queue_index\",\"v11\":\"tx_pdu\",\"v12\":\"tx_context\"},\"struct_hints\":[{\"offset\":584,\"meaning\":\"Base of four 8-byte entries for one set of transmit queues.\"},{\"offset\":624,\"meaning\":\"Base of four 8-byte entries for the preferred set of transmit queues.\"},{\"offset\":72,\"meaning\":\"Pointer from a dequeued item to its associated TX context.\"},{\"offset\":108,\"meaning\":\"Flags field in the associated context; this routine sets bit 0x2000.\"}]}"
+}

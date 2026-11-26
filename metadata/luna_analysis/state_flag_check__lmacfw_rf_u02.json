@@ -1,0 +1,9 @@
+{
+ "fn": "state_flag_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b9e0",
+ "seg": 17,
+ "key": "state_flag_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rx_state_switch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects a new state pointer from pending flags in a global context, invalidates the previous state handle, and resets the RX queue when the state is changed or still active.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v0\": \"ctx\",\n    \"v1\": \"new_state\",\n    \"v2\": \"old_state\",\n    \"result\": \"status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 88,\n      \"meaning\": \"state request flags; bit 3 selects dword_11BA10 and bit 2 selects dword_11BA14\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"current state pointer\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"previous state handle invalidation/reset flag\"\n    }\n  ]\n}"
+}

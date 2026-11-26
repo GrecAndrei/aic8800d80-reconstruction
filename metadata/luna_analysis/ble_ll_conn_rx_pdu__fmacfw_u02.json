@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_rx_pdu",
+ "img": "fmacfw_u02",
+ "addr": "0x13ec70",
+ "seg": 61,
+ "key": "ble_ll_conn_rx_pdu__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_sm_process\",\"confidence\":\"medium\",\"docstring\":\"Processes BLE connection link-layer state and scheduling metadata, returning early when disabled or while a countdown remains active.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"conn_flags\",\"v25\":\"selection_range_end\",\"v26\":\"selection_range_start\"},\"struct_hints\":[{\"offset\":152,\"meaning\":\"Countdown decremented before returning early\"},{\"offset\":166,\"meaning\":\"Connection flags bitfield\"},{\"offset\":174,\"meaning\":\"Bitmask used to test candidate selection indices\"},{\"offset\":177,\"meaning\":\"Lower bound of a candidate selection range\"},{\"offset\":178,\"meaning\":\"Upper bound of a candidate selection range\"},{\"offset\":136,\"meaning\":\"Index used to select a 12-byte record\"},{\"offset\":138,\"meaning\":\"Index used to select a 12-byte record\"}]}"
+}

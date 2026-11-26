@@ -1,0 +1,9 @@
+{
+ "fn": "mac_get_link_context",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11bff4",
+ "seg": 18,
+ "key": "mac_get_link_context__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_process_link_context_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a MAC link-context event for the indexed context, requeueing the event and updating the context parameter and active state when the required event flags are present.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v2\": \"link_ctx_table\",\n    \"v3\": \"link_ctx_index\",\n    \"v6\": \"ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"intrusive list or event queue for a link-context table entry\"\n    },\n    {\n      \"offset\": 26,\n      \"meaning\": \"link context state byte\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"source/event flags field; for the link context, field updated from the event descriptor\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"event descriptor field copied into link context offset 36\"\n    }\n  ]\n}"
+}

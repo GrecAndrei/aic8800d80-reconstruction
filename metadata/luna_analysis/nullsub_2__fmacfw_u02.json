@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_2",
+ "img": "fmacfw_u02",
+ "addr": "0x10df10",
+ "seg": 3,
+ "key": "nullsub_2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_noop\",\"confidence\":\"medium\",\"docstring\":\"Returns zero without performing any operation.\",\"subsystem\":\"rf\"}"
+}

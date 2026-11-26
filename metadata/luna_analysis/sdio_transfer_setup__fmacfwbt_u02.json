@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_transfer_setup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10c444",
+ "seg": 2,
+ "key": "sdio_transfer_setup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_packet_process\",\"confidence\":\"medium\",\"docstring\":\"Parses an SDIO packet and, when the flag is set, dispatches event 28 or 3 according to the mode argument.\",\"subsystem\":\"ipc\",\"var_renames\":{\"result\":\"parse_result\",\"v10\":\"event_id\"}}"
+}

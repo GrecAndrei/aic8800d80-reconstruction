@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_sleep_10000000",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d36c",
+ "seg": 41,
+ "key": "pmu_sleep_10000000__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_pmu_sleep_flag\",\"confidence\":\"low\",\"docstring\":\"Thin wrapper that sets system flag 1 to the 0x10000000 PMU sleep bit based on nearby cluster hints.\",\"subsystem\":\"hal\",\"var_renames\":{},\"struct_hints\":[]}"
+}

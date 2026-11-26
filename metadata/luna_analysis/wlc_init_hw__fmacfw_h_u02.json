@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_init_hw",
+ "img": "fmacfw_h_u02",
+ "addr": "0x139bb4",
+ "seg": 58,
+ "key": "wlc_init_hw__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init_packet_pool\",\"confidence\":\"medium\",\"docstring\":\"Initializes associated global work structures and seeds a 192-entry RF packet-buffer descriptor pool.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"record_cursor\",\"v2\":\"record_end\",\"v3\":\"record\",\"v4\":\"descriptor_cursor\",\"v6\":\"descriptor_end\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"initialized to a shared pointer value\"},{\"offset\":4,\"meaning\":\"initialized to the descriptor address plus 64\"},{\"offset\":12,\"meaning\":\"cleared byte field\"},{\"offset\":16,\"meaning\":\"initialized to the descriptor address plus 64\"},{\"offset\":72,\"meaning\":\"cleared 16-bit field\"}]}"
+}

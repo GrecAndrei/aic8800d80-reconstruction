@@ -1,0 +1,9 @@
+{
+ "fn": "parse_adv_report",
+ "img": "fmacfw_h_u02",
+ "addr": "0x131408",
+ "seg": 43,
+ "key": "parse_adv_report__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_link_status_update\",\"confidence\":\"medium\",\"docstring\":\"Updates per-entry status flags, emits an internal PDU when the update mode or entry state permits, and writes the supplied MAC header word.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"update_data\",\"v5\":\"entry_index\",\"v6\":\"entry_table_base\",\"v11\":\"entry_state\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"16-bit value copied into bytes 0\u20131 of the generated PDU\"},{\"offset\":34,\"meaning\":\"byte copied into byte 3 of the generated PDU\"},{\"offset\":53,\"meaning\":\"status flags; bits 0 and 2 are updated from the input\"},{\"offset\":310,\"meaning\":\"entry state; value 15 gates PDU emission for one update mode\"}]}"
+}

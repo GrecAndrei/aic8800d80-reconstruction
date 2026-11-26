@@ -1,0 +1,9 @@
+{
+ "fn": "event_handlers_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12fc20",
+ "seg": 43,
+ "key": "event_handlers_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_dump_event_handlers\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Iterates the static event-handler table and logs each populated event name together with its handler name.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"entry\",\n    \"v1\": \"table_end\",\n    \"v2\": \"handler_name\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"const char *event_name\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"const char *handler_name\"\n    }\n  ]\n}"
+}

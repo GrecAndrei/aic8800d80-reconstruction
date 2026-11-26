@@ -1,0 +1,9 @@
+{
+ "fn": "delay_loop",
+ "img": "fmacfwbt_u02",
+ "addr": "0x118104",
+ "seg": 11,
+ "key": "delay_loop__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"scale_timing_parameters\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scales four caller-supplied timing words by 1000 into a global table, substituting default values for zero inputs and separately scaling a following 64-bit timing value.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"input_timing_words\",\n    \"v1\": \"dest_timing_base\",\n    \"v2\": \"default_timing_base\",\n    \"v3\": \"input_cursor\",\n    \"result\": \"input_end\",\n    \"v4\": \"dest_cursor\",\n    \"v6\": \"default_cursor\",\n    \"v8\": \"raw_word\",\n    \"v7\": \"timing_word\",\n    \"v9\": \"raw_64_time\",\n    \"v10\": \"scaled_64_time\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"32-bit timing word stride\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"last caller-supplied 32-bit timing word\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"64-bit timing field scaled by 1000\"\n    }\n  ]\n}"
+}

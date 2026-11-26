@@ -1,0 +1,9 @@
+{
+ "fn": "start",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1001a8",
+ "seg": 0,
+ "key": "start__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"boot_start\",\"confidence\":\"medium\",\"docstring\":\"Boot/start entry routine that installs either a saved alternate stack pointer and function entry or the default stack and primary start function.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"candidate_msp\",\"v1\":\"candidate_entry\"}}"
+}

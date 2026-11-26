@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_irq_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1125f4",
+ "seg": 4,
+ "key": "mmio_read_irq_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_poll_irq_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls and acknowledges the RF interrupt status register, filters pending RF event bits, and dispatches initialization or event handling paths.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_reg_base\",\n    \"v1\": \"raw_irq_status\",\n    \"v2\": \"pending_irq_bits\",\n    \"v3\": \"status_or_event_value\",\n    \"v4\": \"irq_bit_0x2000\",\n    \"v5\": \"irq_bit_0x40000\",\n    \"v6\": \"irq_bit_0x80000\",\n    \"v7\": \"irq_bit_0x800\",\n    \"v8\": \"rf_reg_base2\",\n    \"v10\": \"rf_reg_518_value\",\n    \"v11\": \"event_bit_index\",\n    \"v12\": \"active_event_mask\",\n    \"v15\": \"event_handler\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 20,\n      \"meaning\": \"RF interrupt/status register at rf_reg_base + 0x14\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"RF status mask or secondary status register at rf_reg_base + 0x18\"\n    },\n    {\n      \"offset\": 2056,\n      \"meaning\": \"RF event/control register at rf_reg_base + 0x808\"\n    },\n    {\n      \"offset\": 2064,\n      \"meaning\": \"RF event status register at rf_reg_base + 0x810\"\n    },\n    {\n      \"offset\": 2072,\n      \"meaning\": \"RF pending event register A at rf_reg_base + 0x818\"\n    },\n    {\n      \"offset\": 2076,\n      \"meaning\": \"RF pending event register B at rf_reg_base + 0x81c\"\n    },\n    {\n      \"offset\": 2304,\n      \"meaning\": \"RF host/message/data register at rf_reg_base + 0x900\"\n    },\n    {\n      \"offset\": 2312,\n      \"meaning\": \"RF timer/event register at rf_reg_base + 0x908\"\n    }\n  ]\n}"
+}

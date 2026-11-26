@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_pll_config",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10794c",
+ "seg": 2,
+ "key": "pmu_pll_config__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_pll_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Loads the PHY table, samples the PLL counter in several configurations, selects a setting from the measurements, and returns the elapsed interval.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"pll_control_reg\",\"v2\":\"measurement_control_reg\",\"v3\":\"pll_calibration_reg\",\"v4\":\"pll_calibration_preserve_mask\",\"v5\":\"pll_counter_reg\",\"a1a\":\"measurement_1_count\",\"v16\":\"measurement_2_count\",\"v17\":\"measurement_3_count\",\"v18\":\"measurement_4_count\"}}"
+}

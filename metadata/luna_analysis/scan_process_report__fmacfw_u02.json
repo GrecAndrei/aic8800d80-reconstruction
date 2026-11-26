@@ -1,0 +1,9 @@
+{
+ "fn": "scan_process_report",
+ "img": "fmacfw_u02",
+ "addr": "0x1229bc",
+ "seg": 25,
+ "key": "scan_process_report__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_dhcp_report_handle\",\"confidence\":\"medium\",\"docstring\":\"Stores the DHCP status and associated 32-bit value in the selected VIF context, performs pending VIF handling, and sends a completion message.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v4\":\"vif_context_base\",\"v6\":\"vif_idx\",\"v9\":\"vif_ctx\",\"v10\":\"dhcp_status\",\"v11\":\"pending_vif_action\",\"v12\":\"dhcp_result_value\"},\"struct_hints\":[{\"offset\":149,\"meaning\":\"One-shot flag that triggers additional VIF handling and is then cleared\"},{\"offset\":1227,\"meaning\":\"DHCP status byte\"},{\"offset\":1228,\"meaning\":\"32-bit DHCP-associated result value\"}]}"
+}

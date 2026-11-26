@@ -1,0 +1,9 @@
+{
+ "fn": "parse_mac_string",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12fa08",
+ "seg": 42,
+ "key": "parse_mac_string__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"test_write_memory\",\"confidence\":\"high\",\"docstring\":\"Parses a write width, hexadecimal address and value, and optional repeat count, then writes the value to successive addresses or invokes the patch hook for a special address window.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v4\":\"width_bytes\",\"v5\":\"address\",\"v6\":\"value\",\"v7\":\"writes_remaining\",\"v8\":\"aligned_address\",\"v10\":\"repeat_count\"}}"
+}

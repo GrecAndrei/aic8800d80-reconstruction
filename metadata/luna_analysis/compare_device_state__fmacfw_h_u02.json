@@ -1,0 +1,9 @@
+{
+ "fn": "compare_device_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1195a0",
+ "seg": 13,
+ "key": "compare_device_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"btm_check_device_state\",\"confidence\":\"medium\",\"docstring\":\"Validates a candidate device/link pairing and, when its state flags permit, associates the link record and updates BTM/ACL state.\",\"subsystem\":\"btm\",\"var_renames\":{\"v10\":\"link_state_flags\",\"v13\":\"indexed_device_record\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"16-bit link state flags\"},{\"offset\":82,\"meaning\":\"16-bit state flags; bit 0 indicates an active or valid link\"},{\"offset\":324,\"meaning\":\"Pointer to an associated link record\"}]}"
+}

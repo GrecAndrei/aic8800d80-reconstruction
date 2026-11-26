@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_handler_short",
+ "img": "fmacfw_u02",
+ "addr": "0x114d70",
+ "seg": 6,
+ "key": "ke_task_handler_short__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_task_handler_short\",\"confidence\":\"medium\",\"docstring\":\"Delegates to `ke_task_handler` with fixed arguments 128 and 4, passing the caller's argument as the second parameter.\",\"subsystem\":\"ke\",\"var_renames\":{}}"
+}

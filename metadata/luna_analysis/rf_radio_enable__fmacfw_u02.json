@@ -1,0 +1,9 @@
+{
+ "fn": "rf_radio_enable",
+ "img": "fmacfw_u02",
+ "addr": "0x1071c4",
+ "seg": 2,
+ "key": "rf_radio_enable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_radio_enable\",\"confidence\":\"high\",\"docstring\":\"Powers up the RF radio and initializes its analog and synthesizer control registers.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_packet_handler_1",
+ "img": "fmacfw_u02",
+ "addr": "0x1346e8",
+ "seg": 51,
+ "key": "tx_packet_handler_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_tx_packet_handler\",\"confidence\":\"medium\",\"docstring\":\"Builds and sends a Bluetooth transmit-packet message from the current packet context, then returns the result of the status parser.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"packet_flag\",\"v3\":\"tx_packet_context\",\"v4\":\"message\"}}"
+}

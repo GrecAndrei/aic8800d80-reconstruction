@@ -1,0 +1,9 @@
+{
+ "fn": "rx_desc_parse",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11be28",
+ "seg": 17,
+ "key": "rx_desc_parse__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_desc_submit\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies a transmit descriptor into a 28-byte descriptor-ring slot and, when the hardware pointer is at that slot, rings the MMIO doorbell under a critical section, updates TX power state, and returns the copied status byte as a hex character.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"a1\": \"desc_src\",\n    \"v1\": \"desc_idx\",\n    \"v3\": \"desc_payload\",\n    \"result\": \"status_word0\",\n    \"v4\": \"desc_base\",\n    \"v5\": \"hw_desc_ptr\",\n    \"v6\": \"status_word1\",\n    \"v7\": \"entry_addr\",\n    \"v8\": \"critical_count_ptr\",\n    \"v12\": \"critical_count_next\",\n    \"v13\": \"irq_saved_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"source descriptor: 8-bit slot/index field\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"source descriptor: first 32-bit status/control field\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"source descriptor: second 32-bit status/control field\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"source descriptor: 16-bit status/power field copied into the entry\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"internal descriptor entry: copy of source status/control word 0\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"internal descriptor entry: copy of source status/control word 1\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"internal descriptor entry: 16-bit status/power field whose low byte is returned\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f0b8",
+ "seg": 2,
+ "key": "ke_event_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_reboot\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Logs a reboot reason and performs the SoC control-register sequence used to reset the wireless chip.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"reboot_reason\"\n  },\n  \"struct_hints\": []\n}"
+}

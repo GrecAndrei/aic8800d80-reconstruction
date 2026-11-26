@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x124848",
+ "seg": 29,
+ "key": "mmio_read_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_txop_parameters\",\"confidence\":\"high\",\"docstring\":\"Programs the BK, BE, VI, and VO TXOP values into the corresponding hardware registers and logs the settings.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"preserve_mask\",\"v2\":\"txop_registers\",\"v4\":\"bk_txop\",\"v7\":\"vi_txop\",\"v8\":\"be_txop\",\"v9\":\"vo_txop\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"BK TXOP value\"},{\"offset\":2,\"meaning\":\"BE TXOP value\"},{\"offset\":4,\"meaning\":\"VI TXOP value\"},{\"offset\":6,\"meaning\":\"VO TXOP value\"}]}"
+}

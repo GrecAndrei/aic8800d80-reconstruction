@@ -1,0 +1,9 @@
+{
+ "fn": "parse_ll_pdu_header",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1198ac",
+ "seg": 13,
+ "key": "parse_ll_pdu_header__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_ll_parse_pdu_header\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses and stores a BLE link-layer PDU header field, applies the selected header word to the corresponding LL register when the slot is active, and posts kernel event 27.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"pdu_hdr\",\n    \"v4\": \"slot_idx\",\n    \"v5\": \"pdu_type\",\n    \"v6\": \"ll_ctx_base\",\n    \"v7\": \"hdr_word\",\n    \"v9\": \"reg_val\",\n    \"v11\": \"hw_reg_val\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"32-bit header word copied into the selected slot table\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"header type/field index used for register and slot-table selection\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"slot/channel index used to address a 224-byte link-layer context\"\n    },\n    {\n      \"offset\": 96,\n      \"meaning\": \"active/enable flag for the selected link-layer slot\"\n    }\n  ]\n}"
+}

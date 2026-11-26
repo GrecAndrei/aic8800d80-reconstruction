@@ -1,0 +1,9 @@
+{
+ "fn": "panic_fatal",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10d4c8",
+ "seg": 2,
+ "key": "panic_fatal__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"panic_fatal\",\"confidence\":\"medium\",\"docstring\":\"Record a fatal panic by storing the panic message pointer into the kernel fatal control block and asserting fatal status bit 0x200000.\",\"subsystem\":\"ke\"}"
+}

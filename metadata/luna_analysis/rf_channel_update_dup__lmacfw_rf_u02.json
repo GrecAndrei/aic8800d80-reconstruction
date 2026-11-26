@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_update_dup",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111a24",
+ "seg": 4,
+ "key": "rf_channel_update_dup__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_configure\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Validates and configures one of six RF channel slots, storing its descriptor/configuration and writing the slot register to trigger an RF channel update.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"channel_idx\",\n    \"a2\": \"config_ptr\",\n    \"a3\": \"bandwidth\",\n    \"v3\": \"slot_idx\",\n    \"v4\": \"channel_entry\",\n    \"v5\": \"channel_ctrl_reg\",\n    \"v6\": \"desc_array_ptr\",\n    \"v7\": \"desc_ptr\",\n    \"v8\": \"bandwidth_limit\",\n    \"v9\": \"desc_reg_base\",\n    \"v10\": \"desc_flags\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"channel_entry: 32-bit configuration pointer or channel ID stored from a2\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"channel_entry: 32-bit bandwidth/parameter value stored from a3\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"channel_entry: configured/valid byte flag\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"RF channel descriptor: 16-bit bandwidth/parameter field written from a3\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"RF channel descriptor: byte flags; bits 0xE set while bits 0x31 are preserved\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"RF channel descriptor: 32-bit configuration pointer or value written from a2\"\n    }\n  ]\n}"
+}

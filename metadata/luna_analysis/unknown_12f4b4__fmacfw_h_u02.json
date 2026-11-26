@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_12f4b4",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f4b4",
+ "seg": 42,
+ "key": "unknown_12f4b4__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_string_and_decrement_counters\",\"confidence\":\"medium\",\"docstring\":\"Calls the string setter within a nesting-aware IRQ guard, decrements the indexed byte counter for indices 0\u20134, and decrements a global counter before returning the setter's result.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"counter_index\",\"a2\":\"string_value_ptr\",\"v3\":\"irq_guard_depth\",\"v5\":\"remaining_irq_guard_depth\",\"v6\":\"irq_restore_flag\"},\"struct_hints\":[{\"offset\":504,\"meaning\":\"Global counter decremented before return\"}]}"
+}

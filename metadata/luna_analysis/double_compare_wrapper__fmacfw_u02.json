@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare_wrapper",
+ "img": "fmacfw_u02",
+ "addr": "0x142738",
+ "seg": 68,
+ "key": "double_compare_wrapper__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_subtract\",\"confidence\":\"high\",\"docstring\":\"Subtracts one double-precision value from another using the ARM EABI double-subtraction routine.\",\"subsystem\":\"libmisc\"}"
+}

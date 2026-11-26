@@ -1,0 +1,9 @@
+{
+ "fn": "state_check_4_b",
+ "img": "fmacfw_u02",
+ "addr": "0x1120fc",
+ "seg": 4,
+ "key": "state_check_4_b__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"acknowledge_peripheral_channel_flag\",\"confidence\":\"medium\",\"docstring\":\"For the indexed peripheral block, clears bit 31 and sets bit 26 in the register at offset 0xB00 when bit 31 is set, then returns the block base address.\",\"subsystem\":\"mmio\",\"var_renames\":{\"a1\":\"channel_index\",\"result\":\"peripheral_base\",\"v2\":\"register_value\"},\"struct_hints\":[{\"offset\":2816,\"meaning\":\"Channel status/control register; bit 31 triggers an update that clears bit 31 and sets bit 26.\"}]}"
+}

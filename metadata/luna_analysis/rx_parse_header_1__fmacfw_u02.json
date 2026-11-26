@@ -1,0 +1,9 @@
+{
+ "fn": "rx_parse_header_1",
+ "img": "fmacfw_u02",
+ "addr": "0x1322b8",
+ "seg": 45,
+ "key": "rx_parse_header_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_lookup\",\"confidence\":\"medium\",\"docstring\":\"Looks up a 16-bit channel key in one of two band-selected tables and writes the matched metadata to the input structure, using 15 when no entry matches.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"band_selector\",\"v4\":\"entry_count\",\"v5\":\"entry\",\"v6\":\"table_end\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Selector choosing which channel table to search\"},{\"offset\":2,\"meaning\":\"16-bit channel lookup key\"},{\"offset\":8,\"meaning\":\"Output metadata pair populated from a matching entry or set to 15 on a miss\"}]}"
+}

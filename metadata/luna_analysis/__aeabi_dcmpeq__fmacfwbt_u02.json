@@ -1,0 +1,9 @@
+{
+ "fn": "__aeabi_dcmpeq",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143014",
+ "seg": 69,
+ "key": "__aeabi_dcmpeq__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"__aeabi_dcmpeq\",\"confidence\":\"high\",\"docstring\":\"ARM EABI helper that compares two double-precision floating-point values for equality.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

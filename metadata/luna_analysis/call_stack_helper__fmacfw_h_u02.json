@@ -1,0 +1,9 @@
+{
+ "fn": "call_stack_helper",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c344",
+ "seg": 40,
+ "key": "call_stack_helper__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_bt_event_and_update_register\",\"confidence\":\"medium\",\"docstring\":\"Passes the input byte to the BT event handler, writes its two output bytes into a volatile register while preserving other bits, and returns the handler result.\",\"subsystem\":\"hci\",\"var_renames\":{\"a1\":\"event_byte\",\"result\":\"handler_result\",\"v2\":\"register_ptr\"}}"
+}

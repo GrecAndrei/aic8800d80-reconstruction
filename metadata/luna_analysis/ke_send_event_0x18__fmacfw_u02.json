@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_event_0x18",
+ "img": "fmacfw_u02",
+ "addr": "0x136864",
+ "seg": 56,
+ "key": "ke_send_event_0x18__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_process_link_event\",\"confidence\":\"medium\",\"docstring\":\"Processes a Bluetooth link event, updates per-link state, and dispatches related messages and a follow-up command.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"link_context_table\",\"v1\":\"bt_event_record\",\"v2\":\"link_index\",\"v3\":\"event_0x18_param\",\"v4\":\"event_0x16_param\",\"v5\":\"event_0x14_param\",\"v6\":\"link_context\",\"v7\":\"event_0x1417_param\",\"v14\":\"command_0x1419_param\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Per-link flags field; bit 0x20 is set on one processing path.\"},{\"offset\":51,\"meaning\":\"Link index used to select the per-link context.\"},{\"offset\":1224,\"meaning\":\"Per-link condition byte selecting between command dispatch and flag update.\"}]}"
+}

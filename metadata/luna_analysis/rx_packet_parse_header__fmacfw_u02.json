@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_parse_header",
+ "img": "fmacfw_u02",
+ "addr": "0x121418",
+ "seg": 22,
+ "key": "rx_packet_parse_header__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_security_key_install\",\"confidence\":\"medium\",\"docstring\":\"Selects a pairwise or group key slot and copies the supplied key material into the MAC hardware security registers.\",\"subsystem\":\"mac\",\"var_renames\":{\"v4\":\"station_index_or_group_sentinel\",\"v5\":\"key_index\",\"v7\":\"key_slot_index\"},\"struct_hints\":[{\"offset\":1,\"meaning\":\"Station index, with 0xff denoting a group-key operation.\"},{\"offset\":8,\"meaning\":\"Key material copied into the hardware key registers.\"},{\"offset\":40,\"meaning\":\"Cipher or key-format selector.\"},{\"offset\":41,\"meaning\":\"Key identifier/index.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_global_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x112af8",
+ "seg": 4,
+ "key": "get_global_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"global_state_get\",\"confidence\":\"low\",\"docstring\":\"Returns the byte-sized value stored in the global state variable.\",\"subsystem\":\"wlan\",\"var_renames\":{},\"struct_hints\":[]}"
+}

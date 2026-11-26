@@ -1,0 +1,9 @@
+{
+ "fn": "mem_alloc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1313d8",
+ "seg": 43,
+ "key": "mem_alloc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"copy_buffer_and_write_mac_header\",\"confidence\":\"medium\",\"docstring\":\"Copies 254 bytes from the source buffer to a global staging buffer, then writes a MAC header word using the two 16-bit arguments.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"source_buffer\"}}"
+}

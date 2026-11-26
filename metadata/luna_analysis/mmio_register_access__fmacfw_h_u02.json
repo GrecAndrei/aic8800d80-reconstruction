@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_register_access",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130148",
+ "seg": 42,
+ "key": "mmio_register_access__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_rf_calibration_request\",\"confidence\":\"medium\",\"docstring\":\"Polls the radio status until its ready bit is set or a lock succeeds in state 4, invoking RF calibration when the calibration flag is nonzero.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"radio_status_reg\",\"v1\":\"lock_timeout\"}}"
+}

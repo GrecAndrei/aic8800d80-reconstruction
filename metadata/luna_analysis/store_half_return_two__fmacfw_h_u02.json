@@ -1,0 +1,9 @@
+{
+ "fn": "store_half_return_two",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1306f8",
+ "seg": 42,
+ "key": "store_half_return_two__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"write_u16\",\"confidence\":\"high\",\"docstring\":\"Writes a 16-bit value to the destination and returns the number of bytes written (2).\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"destination\",\"a2\":\"value\"}}"
+}

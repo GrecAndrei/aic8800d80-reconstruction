@@ -1,0 +1,9 @@
+{
+ "fn": "compare_global_counters",
+ "img": "fmacfw_h_u02",
+ "addr": "0x119c0c",
+ "seg": 13,
+ "key": "compare_global_counters__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"btm_init_entry_pools\",\"confidence\":\"medium\",\"docstring\":\"Synchronizes the BTM pool table, clears six entry pools, initializes each entry, and passes it with its pool context to the downstream handler.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"pool_ptr_cursor\",\"v4\":\"pool_count_cursor\",\"v6\":\"pool_context\",\"v7\":\"pool_end\",\"v11\":\"entry_word_offset\",\"v12\":\"entry_index\",\"v13\":\"entry\"},\"struct_hints\":[{\"offset\":100,\"meaning\":\"pointer to embedded data at entry offset 152\"},{\"offset\":104,\"meaning\":\"pointer to entry offset 175\"},{\"offset\":120,\"meaning\":\"pointer to embedded data at entry offset 172\"},{\"offset\":176,\"meaning\":\"RF field midpoint value shifted left by 14\"},{\"offset\":180,\"meaning\":\"clock prescaler\"}]}"
+}

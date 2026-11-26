@@ -1,0 +1,9 @@
+{
+ "fn": "heap_alloc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x100898",
+ "seg": 0,
+ "key": "heap_alloc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_table_lookup\",\"confidence\":\"medium\",\"docstring\":\"Selects an RF table region for a 2.4- or 5-GHz frequency and writes a derived three-bit flag mask to the output pointer.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"is_5ghz\",\"a2\":\"frequency_mhz\",\"a3\":\"out_flags\",\"v12\":\"frequency_region_index\",\"v13\":\"table_region_offset\",\"v15\":\"flags_mask\",\"v16\":\"region_table_bytes\",\"v5\":\"flags_mask\",\"v6\":\"region_table\"}}"
+}

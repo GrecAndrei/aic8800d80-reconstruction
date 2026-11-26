@@ -1,0 +1,9 @@
+{
+ "fn": "mac_filter_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b724",
+ "seg": 61,
+ "key": "mac_filter_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_filter_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks whether a requested MAC filter condition passes by ANDing a filter status byte with a mask derived from a filter configuration byte.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"mac_base\",\n    \"a2\": \"filter_mask\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 262,\n      \"meaning\": \"MAC filter configuration or base byte\"\n    },\n    {\n      \"offset\": 264,\n      \"meaning\": \"MAC filter status or enable byte\"\n    }\n  ]\n}"
+}

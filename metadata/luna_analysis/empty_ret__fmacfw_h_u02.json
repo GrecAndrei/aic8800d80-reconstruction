@@ -1,0 +1,9 @@
+{
+ "fn": "empty_ret",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133458",
+ "seg": 46,
+ "key": "empty_ret__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_wifi_channel_pair\",\"confidence\":\"medium\",\"docstring\":\"Converts the supplied 2.4- or 5-GHz channel numbers to frequencies and updates the channel-pair state based on their spacing and the configured mode.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"first_channel\",\"a3\":\"second_channel\",\"a4\":\"channel_info\",\"v4\":\"first_channel_frequency\",\"v5\":\"second_channel_frequency\",\"v6\":\"frequency_delta\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Band selector: 0 for 2.4 GHz and 1 for 5 GHz.\"},{\"offset\":1,\"meaning\":\"Channel-pair state or mode.\"},{\"offset\":2,\"meaning\":\"Stored channel-frequency reference, adjusted for a 40-MHz channel offset in one mode.\"},{\"offset\":4,\"meaning\":\"Frequency in MHz mapped from the first channel.\"},{\"offset\":6,\"meaning\":\"Frequency in MHz mapped from the second channel.\"}]}"
+}

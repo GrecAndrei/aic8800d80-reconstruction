@@ -1,0 +1,9 @@
+{
+ "fn": "tx_desc_page_read",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1080f8",
+ "seg": 2,
+ "key": "tx_desc_page_read__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_program_loft_q_calibration\",\"confidence\":\"high\",\"docstring\":\"Adds the extracted LOFT-Q calibration value to the target register\u2019s low 12 bits and sets bit 22 in the associated control register.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"loft_q_register\",\"v1\":\"current_register_value\",\"v2\":\"loft_q_calibration_value\",\"v4\":\"calibration_control_register\"}}"
+}

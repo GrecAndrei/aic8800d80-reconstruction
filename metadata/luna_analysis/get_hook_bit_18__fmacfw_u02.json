@@ -1,0 +1,9 @@
+{
+ "fn": "get_hook_bit_18",
+ "img": "fmacfw_u02",
+ "addr": "0x114b70",
+ "seg": 5,
+ "key": "get_hook_bit_18__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_hook_bit_18\",\"confidence\":\"high\",\"docstring\":\"Returns bit 18 of the hook value queried with index 15.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

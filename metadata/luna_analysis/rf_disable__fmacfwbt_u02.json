@@ -1,0 +1,9 @@
+{
+ "fn": "rf_disable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x107224",
+ "seg": 2,
+ "key": "rf_disable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_disable\",\"confidence\":\"high\",\"docstring\":\"Disables the RF subsystem by clearing radio-control fields and setting shutdown bits across its control registers.\",\"subsystem\":\"rf\"}"
+}

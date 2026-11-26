@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_is_ready",
+ "img": "fmacfw_u02",
+ "addr": "0x1292d4",
+ "seg": 34,
+ "key": "wlc_is_ready__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_ready_event_handle\",\"confidence\":\"medium\",\"docstring\":\"Processes a readiness event for a valid indexed context, dispatching its work item and conditionally updating core control state.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"wlc_global_state\",\"v2\":\"context_index\",\"v3\":\"indexed_context\",\"v6\":\"core_control_reg\"},\"struct_hints\":[{\"offset\":27,\"meaning\":\"Sentinel byte; processing is skipped when its value is 0xFF.\"},{\"offset\":29,\"meaning\":\"Index used to look up the context.\"},{\"offset\":106,\"meaning\":\"Context flag that must be zero to proceed.\"},{\"offset\":108,\"meaning\":\"Context flag that must be nonzero to proceed.\"}]}"
+}

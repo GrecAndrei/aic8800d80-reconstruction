@@ -1,0 +1,9 @@
+{
+ "fn": "get_calibration_offsets",
+ "img": "fmacfw_u02",
+ "addr": "0x102b4c",
+ "seg": 1,
+ "key": "get_calibration_offsets__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_rf_calibration_offsets\",\"confidence\":\"medium\",\"docstring\":\"Copies the two stored RF calibration offset bytes into caller-provided outputs and returns the first output pointer.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"first_output\",\"a2\":\"second_output\"},\"struct_hints\":[{\"offset\":294,\"meaning\":\"first RF calibration offset byte\"},{\"offset\":295,\"meaning\":\"second RF calibration offset byte\"}]}"
+}

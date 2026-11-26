@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x110340",
+ "seg": 3,
+ "key": "mmio_read_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"irq_protected_list_pop\",\"confidence\":\"medium\",\"docstring\":\"Pops and returns an item from a global list while balancing a nested IRQ-protected critical section.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v0\":\"critical_section_depth\",\"v1\":\"global_list\",\"result\":\"popped_item\",\"v3\":\"remaining_depth\",\"v4\":\"restore_interrupts\"}}"
+}

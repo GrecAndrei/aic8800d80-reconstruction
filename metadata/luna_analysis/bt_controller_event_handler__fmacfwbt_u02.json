@@ -1,0 +1,9 @@
+{
+ "fn": "bt_controller_event_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11bc8c",
+ "seg": 18,
+ "key": "bt_controller_event_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_llc_event_handler\",\"confidence\":\"medium\",\"docstring\":\"Handles Bluetooth link-layer controller events by updating or clearing per-link connection context and invoking the link connection timer tick.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"event_msg\",\"v1\":\"llc_env_base\",\"v2\":\"active_link_idx\",\"v22\":\"link_ctx\",\"v8\":\"link_ctx_ptr\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"event_bitflags\"},{\"offset\":82,\"meaning\":\"event_status_flags\"},{\"offset\":190,\"meaning\":\"active_link_index\"},{\"offset\":56,\"meaning\":\"link_ctx_flags\"}]}"
+}

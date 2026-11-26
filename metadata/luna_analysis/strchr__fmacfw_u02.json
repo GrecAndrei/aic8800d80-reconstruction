@@ -1,0 +1,9 @@
+{
+ "fn": "strchr",
+ "img": "fmacfw_u02",
+ "addr": "0x1439b8",
+ "seg": 68,
+ "key": "strchr__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"strchr\",\"confidence\":\"high\",\"docstring\":\"Returns a pointer to the first occurrence of the target byte in the string, or null if a nonzero target is absent.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"string_cursor\",\"a2\":\"target_char\",\"v2\":\"scan_cursor\",\"v3\":\"target_byte_splat\",\"v5\":\"current_byte\",\"v7\":\"loaded_byte\"},\"struct_hints\":[]}"
+}

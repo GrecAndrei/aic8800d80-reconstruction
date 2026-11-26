@@ -1,0 +1,9 @@
+{
+ "fn": "write_bb_control",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1188f4",
+ "seg": 11,
+ "key": "write_bb_control__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"flash_erase_sector_wrapper\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Writes 0x30 to a control target from a literal pool and then calls a flash sector-erase routine.\",\n  \"subsystem\": \"hal\"\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_write_alias",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111c10",
+ "seg": 4,
+ "key": "rf_reg_write_alias__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_reg_write_wrapper\",\"confidence\":\"high\",\"docstring\":\"Forwards the register pointer and value unchanged to rf_reg_write and returns its result.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_execute_cmd",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12b3a4",
+ "seg": 39,
+ "key": "rf_execute_cmd__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_scan_send_cancel\",\"confidence\":\"medium\",\"docstring\":\"Sends the scan-send-cancel command with the supplied byte and returns the processed response.\",\"subsystem\":\"rf\"}"
+}

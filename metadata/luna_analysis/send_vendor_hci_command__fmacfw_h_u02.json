@@ -1,0 +1,9 @@
+{
+ "fn": "send_vendor_hci_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1365f4",
+ "seg": 56,
+ "key": "send_vendor_hci_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_send_vendor_hci_command\",\"confidence\":\"medium\",\"docstring\":\"Queues a vendor HCI PDU for the selected link, initializing additional per-link RF state when the command selector is zero.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"command_selector\",\"v1\":\"control_block_pointer_slot\",\"v3\":\"control_block\",\"v4\":\"command_pdu\",\"v5\":\"link_index\",\"v7\":\"link_index\",\"v8\":\"setup_pdu\",\"v9\":\"link_context\",\"v16\":\"per_link_rf_state\"},\"struct_hints\":[{\"offset\":51,\"meaning\":\"Control-block link index used to select per-link state and included in the command PDU.\"},{\"offset\":48,\"meaning\":\"16-bit control-block value copied into the selected link context at offset 236.\"},{\"offset\":72,\"meaning\":\"Selected link context pointer to a secondary object whose byte at offset 24 is copied into the command PDU.\"},{\"offset\":107,\"meaning\":\"Selected link-context byte copied into the setup PDU.\"},{\"offset\":234,\"meaning\":\"Selected link-context field cleared during zero-selector initialization.\"},{\"offset\":236,\"meaning\":\"Selected link-context field populated from the control block's 16-bit value at offset 48.\"},{\"offset\":35,\"meaning\":\"Per-link RF-state field set to the link index plus 32.\"},{\"offset\":37,\"meaning\":\"Per-link RF-state field also set to the link index plus 32.\"},{\"offset\":38,\"meaning\":\"Per-link RF-state field initialized to 1.\"},{\"offset\":350,\"meaning\":\"Per-link RF-state flags field with bit 0x10 set.\"}]}"
+}

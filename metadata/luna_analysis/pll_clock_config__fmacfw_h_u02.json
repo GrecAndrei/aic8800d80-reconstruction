@@ -1,0 +1,9 @@
+{
+ "fn": "pll_clock_config",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1028b0",
+ "seg": 1,
+ "key": "pll_clock_config__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"configure_pll_clock\",\"confidence\":\"medium\",\"docstring\":\"Programs the PLL control registers, waits for each busy operation to complete, and then invokes TX calibration.\",\"subsystem\":\"rf\"}"
+}

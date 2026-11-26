@@ -1,0 +1,9 @@
+{
+ "fn": "parse_rx_packet_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f51c",
+ "seg": 42,
+ "key": "parse_rx_packet_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_console_backspace\",\"confidence\":\"high\",\"docstring\":\"Erases the final input character, redrawing the remaining text with tab-stop-aware cursor handling when the erased character is a tab.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"redraw_start\",\"a2\":\"redraw_end\",\"a3\":\"target_column\",\"v3\":\"last_char_ptr\",\"v4\":\"column_ptr\",\"v8\":\"erase_sequence\",\"v9\":\"column\",\"v10\":\"tab_fill_table\",\"v11\":\"redraw_ptr\",\"v12\":\"redraw_last_ptr\",\"v13\":\"current_char\"}}"
+}

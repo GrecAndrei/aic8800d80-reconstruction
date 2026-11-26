@@ -1,0 +1,9 @@
+{
+ "fn": "bt_send_host_message",
+ "img": "fmacfw_u02",
+ "addr": "0x134800",
+ "seg": 51,
+ "key": "bt_send_host_message__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_configure_controller\",\"confidence\":\"medium\",\"docstring\":\"Applies controller configuration by updating DMA and radio setup, dispatching the corresponding kernel messages, and returning the controller-ready check result.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"config\",\"v4\":\"initial_message_payload\",\"v6\":\"control_register\",\"v7\":\"final_message_payload\",\"v8\":\"channel_message_payload\",\"v9\":\"optional_mode_message_payload\",\"v13\":\"optional_config_message_payload\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Nonzero configuration field that gates dispatch of an additional message.\"},{\"offset\":107,\"meaning\":\"Byte copied into configuration messages, likely a mode or identifier.\"},{\"offset\":108,\"meaning\":\"Flag that gates dispatch of an optional message.\"},{\"offset\":116,\"meaning\":\"Channel byte; 0xFF suppresses channel-message dispatch.\"}]}"
+}

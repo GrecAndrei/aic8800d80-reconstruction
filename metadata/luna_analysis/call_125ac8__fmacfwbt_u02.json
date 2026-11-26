@@ -1,0 +1,9 @@
+{
+ "fn": "call_125ac8",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1238ac",
+ "seg": 29,
+ "key": "call_125ac8__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"list_remove_item\",\"confidence\":\"medium\",\"docstring\":\"Removes the supplied linked-list node and returns true.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a2\":\"node\"},\"struct_hints\":[]}"
+}

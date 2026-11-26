@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_ops_wrapper",
+ "img": "fmacfw_u02",
+ "addr": "0x128520",
+ "seg": 33,
+ "key": "wlc_ops_wrapper__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_ops_available\",\"confidence\":\"medium\",\"docstring\":\"Returns true when the alternate operations lookup succeeds and either the state check is disabled or the associated object's state byte equals 6.\",\"subsystem\":\"wlan\",\"struct_hints\":[{\"offset\":16,\"meaning\":\"State byte checked against 6.\"},{\"offset\":40,\"meaning\":\"Pointer to the object whose state byte is checked.\"},{\"offset\":44,\"meaning\":\"Flag that enables the state check when nonzero.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_parse_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x112084",
+ "seg": 4,
+ "key": "rx_parse_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_ep0_handle\",\"confidence\":\"medium\",\"docstring\":\"Handles USB endpoint-zero control-transfer state, including setup-error reporting and data-stage progress in chunks of up to 64 bytes.\",\"subsystem\":\"hal\",\"var_renames\":{\"v3\":\"ep0_context\",\"v15\":\"ep0_state\",\"v58\":\"bytes_sent\",\"v60\":\"next_sent_offset\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"EP0 control-transfer state\"},{\"offset\":8,\"meaning\":\"EP0 data-stage transfer length\"},{\"offset\":10,\"meaning\":\"EP0 data-stage byte offset already sent\"}]}"
+}

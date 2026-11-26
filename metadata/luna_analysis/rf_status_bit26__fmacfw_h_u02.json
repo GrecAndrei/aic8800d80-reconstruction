@@ -1,0 +1,9 @@
+{
+ "fn": "rf_status_bit26",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10198c",
+ "seg": 0,
+ "key": "rf_status_bit26__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_rf_status_bit26\",\"confidence\":\"high\",\"docstring\":\"Returns bit 26 of the RF status register.\",\"subsystem\":\"rf\"}"
+}

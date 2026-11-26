@@ -1,0 +1,9 @@
+{
+ "fn": "is_magic_value",
+ "img": "fmacfw_u02",
+ "addr": "0x102b0c",
+ "seg": 1,
+ "key": "is_magic_value__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"classify_rf_frequency\",\"confidence\":\"medium\",\"docstring\":\"Classifies an RF frequency in MHz into one of six ranges using fixed thresholds.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"frequency_mhz\"}}"
+}

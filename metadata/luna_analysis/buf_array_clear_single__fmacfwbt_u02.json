@@ -1,0 +1,9 @@
+{
+ "fn": "buf_array_clear_single",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13013c",
+ "seg": 43,
+ "key": "buf_array_clear_single__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_temp_comp_parse_cmd\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parse and apply the RF temperature-compensation command arguments, toggling the AFE when the enable state changes and storing the requested period.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v4\": \"parsed_enable\",\n    \"v5\": \"enable_flag\",\n    \"v6\": \"enable_raw\",\n    \"v7\": \"rf_temp_comp_cfg\",\n    \"v9\": \"parsed_period_ms\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"command argument 1 pointer/string\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"command argument 2 pointer/string\"\n    },\n    {\n      \"offset\": 363,\n      \"meaning\": \"rf temp_comp enable state byte\"\n    },\n    {\n      \"offset\": 364,\n      \"meaning\": \"rf temp_comp period_ms int\"\n    }\n  ]\n}"
+}

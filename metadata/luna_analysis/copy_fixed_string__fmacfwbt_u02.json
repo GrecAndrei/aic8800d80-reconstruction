@@ -1,0 +1,9 @@
+{
+ "fn": "copy_fixed_string",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122d5c",
+ "seg": 27,
+ "key": "copy_fixed_string__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"copy_and_send_hci_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies a fixed 69-byte payload into a global HCI event buffer and sends it through the HCI event allocation/send path.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"event_payload_src\"\n  },\n  \"struct_hints\": []\n}"
+}

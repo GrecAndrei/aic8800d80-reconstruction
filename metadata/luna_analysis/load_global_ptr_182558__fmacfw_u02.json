@@ -1,0 +1,9 @@
+{
+ "fn": "load_global_ptr_182558",
+ "img": "fmacfw_u02",
+ "addr": "0x11463c",
+ "seg": 5,
+ "key": "load_global_ptr_182558__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_program_tuning\",\"confidence\":\"medium\",\"docstring\":\"Selects the active RF control block and programs it with the supplied tuning value and mode-dependent settings.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_control_regs\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"RF tuning/control word, written with the argument shifted left by 15\"}]}"
+}

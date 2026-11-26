@@ -1,0 +1,9 @@
+{
+ "fn": "ke_stop_event_81",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124638",
+ "seg": 23,
+ "key": "ke_stop_event_81__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_event_81_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles kernel event/message 0x81 when enabled by dispatching it and incrementing a periodic counter, setting RF flag 4 after 100 occurrences and resetting the counter.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"counter_ptr\",\n    \"v2\": \"new_count\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_queue_process",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11bda0",
+ "seg": 18,
+ "key": "rx_queue_process__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wifi_core_reinitialize\",\"confidence\":\"medium\",\"docstring\":\"Reinitializes the Wi-Fi core while preserving selected queue metadata and restoring saved runtime state when requested.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"core_state\",\"v1\":\"restore_state\",\"v2\":\"saved_state_word\",\"v3\":\"saved_queue_value\",\"v4\":\"saved_status_byte\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Control flag selecting the extended state-restoration path.\"},{\"offset\":8,\"meaning\":\"State word saved and restored when the control flag is set.\"},{\"offset\":16,\"meaning\":\"Value preserved across core initialization.\"},{\"offset\":40,\"meaning\":\"Word restored for each 28-byte entry from the saved snapshot.\"},{\"offset\":44,\"meaning\":\"Associated byte restored for each 28-byte entry.\"},{\"offset\":160,\"meaning\":\"Status byte preserved across core initialization.\"}]}"
+}

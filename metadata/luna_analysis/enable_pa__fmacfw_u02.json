@@ -1,0 +1,9 @@
+{
+ "fn": "enable_pa",
+ "img": "fmacfw_u02",
+ "addr": "0x103b6c",
+ "seg": 2,
+ "key": "enable_pa__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"enable_wifi_dfe_rf_interface\",\"confidence\":\"high\",\"docstring\":\"Enables the Wi-Fi DFE and RF interface, waits for hardware-ready bits, and checks status bit 0x2000.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_handle_rx_request",
+ "img": "fmacfw_h_u02",
+ "addr": "0x138bd8",
+ "seg": 58,
+ "key": "bt_handle_rx_request__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_handle_tx_request\",\"confidence\":\"medium\",\"docstring\":\"Updates the TX request control word using RF configuration, completes the packet, and returns the looked-up transmit-power value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"tx_request\"},\"struct_hints\":[{\"offset\":96,\"meaning\":\"TX request control and RF configuration word\"}]}"
+}

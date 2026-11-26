@@ -1,0 +1,9 @@
+{
+ "fn": "stub_ret",
+ "img": "fmacfw_u02",
+ "addr": "0x132d04",
+ "seg": 45,
+ "key": "stub_ret__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_adv_scan_req_tx\",\"confidence\":\"low\",\"docstring\":\"Calls the BLE advertising scan-request routine, then forwards the supplied argument to the controller-packet sender.\",\"subsystem\":\"ble\"}"
+}

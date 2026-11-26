@@ -1,0 +1,9 @@
+{
+ "fn": "mac_irq_disable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x103a6c",
+ "seg": 2,
+ "key": "mac_irq_disable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dfe_rfintf_disable\",\"confidence\":\"medium\",\"docstring\":\"Clears Wi-Fi DFE/RF-interface control bits, waits briefly, and returns the associated feature-state check.\",\"subsystem\":\"rf\"}"
+}

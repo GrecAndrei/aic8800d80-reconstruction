@@ -1,0 +1,9 @@
+{
+ "fn": "handle_ampdu_action",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130e10",
+ "seg": 42,
+ "key": "handle_ampdu_action__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_channel_definition\",\"confidence\":\"high\",\"docstring\":\"Parses a channel number and optional secondary-channel offset, then populates the output band and frequency fields.\",\"subsystem\":\"rf\",\"var_renames\":{\"v14\":\"channel_number\",\"v16\":\"channel_frequency_mhz\",\"v18\":\"secondary_offset_mode\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Flag indicating whether the channel is in the 5 GHz band.\"},{\"offset\":1,\"meaning\":\"Flag indicating that a secondary-channel offset is configured.\"},{\"offset\":2,\"meaning\":\"Frequency in MHz derived from the channel number.\"},{\"offset\":4,\"meaning\":\"Frequency in MHz, adjusted by \u00b110 MHz when a secondary-channel offset is configured.\"}]}"
+}

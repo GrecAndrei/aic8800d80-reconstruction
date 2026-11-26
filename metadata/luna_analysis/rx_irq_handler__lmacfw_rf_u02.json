@@ -1,0 +1,9 @@
+{
+ "fn": "rx_irq_handler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1103f4",
+ "seg": 3,
+ "key": "rx_irq_handler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rxmsg_replenish\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Replenish the RX message descriptor queue under an IRQ nesting lock by allocating an rxmsg buffer and appending it to the queue tail, then ringing the RX doorbell.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"v1\": \"rxmsg_ctrl_reg\",\n    \"v2\": \"rxmsg_count\",\n    \"v3\": \"global_rxmsg_count\",\n    \"v4\": \"rxmsg_head\",\n    \"v5\": \"rxmsg_doorbell\",\n    \"v6\": \"rxmsg_ctx\",\n    \"v7\": \"irq_lock_count\",\n    \"v8\": \"rxmsg_buffer\",\n    \"v9\": \"new_rxmsg_desc\",\n    \"v10\": \"new_rxmsg_desc\",\n    \"v11\": \"irq_lock_nesting\",\n    \"v12\": \"old_global_rxmsg_count\",\n    \"v16\": \"rxmsg_tail\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 20,\n      \"meaning\": \"tail pointer of the RX message descriptor queue\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"RX message descriptor count used as the low-water mark\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"RX message descriptor: buffer/allocated message pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"RX message descriptor: next-descriptor pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"RX message descriptor: additional next/reserved link field, normally zeroed\"\n    }\n  ]\n}"
+}

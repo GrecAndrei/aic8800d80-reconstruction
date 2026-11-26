@@ -1,0 +1,9 @@
+{
+ "fn": "tx_lock",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11dc70",
+ "seg": 21,
+ "key": "tx_lock__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_lock\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Acquires the TX lock and drains pending TX descriptors, invoking their completion callbacks and TX timestamp checks while IRQs are held off around each callback.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"tx_list\",\n    \"v1\": \"tx_desc\",\n    \"v3\": \"irq_lock_count\",\n    \"v4\": \"irq_disabled\",\n    \"v5\": \"tx_done_cb\",\n    \"v6\": \"next_lock_count\",\n    \"v7\": \"irq_was_disabled\",\n    \"result\": \"tx_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"completion callback pointer for the TX descriptor\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"argument passed to the TX descriptor callback\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"TX timestamp check value or descriptor status\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"descriptor flags; bit 0 tracks whether the descriptor needs queue accounting\"\n    }\n  ]\n}"
+}

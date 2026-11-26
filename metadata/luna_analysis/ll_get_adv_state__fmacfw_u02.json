@@ -1,0 +1,9 @@
+{
+ "fn": "ll_get_adv_state",
+ "img": "fmacfw_u02",
+ "addr": "0x131258",
+ "seg": 42,
+ "key": "ll_get_adv_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_state_cache_update\",\"confidence\":\"medium\",\"docstring\":\"Parses a frame and refreshes the cached payload when its low-nibble state tag changes, returning parse success separately from the refresh flag.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"frame_data\",\"a3\":\"cached_state\",\"a4\":\"state_changed\",\"result\":\"parsed_frame\",\"v7\":\"state_tag_byte\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Cached 24-bit payload chunk in a 32-bit slot.\"},{\"offset\":4,\"meaning\":\"Cached 24-bit payload chunk in a 32-bit slot.\"},{\"offset\":8,\"meaning\":\"Cached 24-bit payload chunk in a 32-bit slot.\"},{\"offset\":12,\"meaning\":\"Cached 24-bit payload chunk in a 32-bit slot.\"},{\"offset\":16,\"meaning\":\"Full state-tag byte copied from the parsed frame.\"},{\"offset\":17,\"meaning\":\"Low-nibble state tag used to decide whether the cached payload needs refreshing.\"}]}"
+}

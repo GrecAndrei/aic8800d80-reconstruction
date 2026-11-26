@@ -1,0 +1,9 @@
+{
+ "fn": "chip_status_read",
+ "img": "fmacfw_u02",
+ "addr": "0x1179f4",
+ "seg": 10,
+ "key": "chip_status_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"chip_status_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Reads status bits 20\u201323, dispatches the index of the highest set bit, and writes the captured mask back to the status register.\",\"subsystem\":\"chip\",\"var_renames\":{\"v0\":\"pending_status_bits\"}}"
+}

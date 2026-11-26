@@ -1,0 +1,9 @@
+{
+ "fn": "crypto_start_operation",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10327c",
+ "seg": 2,
+ "key": "crypto_start_operation__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibrate_mdll_duty\",\"confidence\":\"high\",\"docstring\":\"Calibrates the MDLL duty setting for the selected 280- or 320-MHz operating point by sampling the RF status bit and stores the resulting duty value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"is_320mhz\",\"v1\":\"mdll_ctrl_reg\",\"v2\":\"calibration_ctrl_reg\",\"v3\":\"last_status_bit\",\"v4\":\"invert_feedback\",\"v5\":\"setting_sum\",\"v6\":\"setting_code\",\"v7\":\"correction_offset\",\"v8\":\"sampled_setting\",\"v9\":\"sample_count\",\"v14\":\"status_bit\",\"v15\":\"decrease_setting\",\"v18\":\"corrected_setting\",\"v19\":\"duty_code\"}}"
+}

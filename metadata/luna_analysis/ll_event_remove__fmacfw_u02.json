@@ -1,0 +1,9 @@
+{
+ "fn": "ll_event_remove",
+ "img": "fmacfw_u02",
+ "addr": "0x1416c0",
+ "seg": 65,
+ "key": "ll_event_remove__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_event_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches a pending BLE link-layer event and clears the active-event index when no event is pending.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"ll_event_env\",\"v4\":\"current_event_index\"},\"struct_hints\":[{\"offset\":98,\"meaning\":\"one-byte event-context flag set before starting an event\"},{\"offset\":6480,\"meaning\":\"current event index in the link-layer event environment\"},{\"offset\":6336,\"meaning\":\"base of the event-record array, with 136-byte records\"}]}"
+}

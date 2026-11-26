@@ -1,0 +1,9 @@
+{
+ "fn": "refresh_config_params",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1134d8",
+ "seg": 5,
+ "key": "refresh_config_params__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_refresh_config_params\", \"confidence\": \"medium\", \"docstring\": \"Updates the hardware configuration for the given context and propagates two byte-sized parameters from a mapped configuration block to control destinations.\", \"subsystem\": \"rf\", \"var_renames\": {\"v1\": \"dest_ptr\", \"v2\": \"param_value\"}, \"struct_hints\": [{\"offset\": 326, \"meaning\": \"byte field copied from configuration block to destination at off_1134F8\"}, {\"offset\": 352, \"meaning\": \"byte field copied from configuration block to destination pointed to by off_1134FC\"}]}"
+}

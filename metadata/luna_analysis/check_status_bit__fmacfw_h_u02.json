@@ -1,0 +1,9 @@
+{
+ "fn": "check_status_bit",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10c9a0",
+ "seg": 2,
+ "key": "check_status_bit__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_rf_status_interrupt\",\"confidence\":\"medium\",\"docstring\":\"Reads the RF status snapshot, acknowledges handled causes, masks selected interrupt sources, and dispatches pending event work.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"status_snapshot\"}}"
+}

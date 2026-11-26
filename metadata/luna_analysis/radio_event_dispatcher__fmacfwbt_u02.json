@@ -1,0 +1,9 @@
+{
+ "fn": "radio_event_dispatcher",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1375cc",
+ "seg": 58,
+ "key": "radio_event_dispatcher__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"radio_scanu_confirm_event_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a radio scan-update confirmation by allocating an HCI event, populating its status fields, resuming the TX entry, and issuing the follow-up HCI command.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v2\": \"radio_ctx\",\n    \"v4\": \"event_code\",\n    \"v5\": \"evt_buf\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 0, \"meaning\": \"radio context field containing packet/tx entry pointer\"},\n    {\"offset\": 3848, \"meaning\": \"scan-update confirmation size parameter for BT event buffer allocation\"},\n    {\"offset\": 3850, \"meaning\": \"mode flag selecting event code 0x1003 instead of 0x1001\"},\n    {\"offset\": 4, \"meaning\": \"16-bit status/data field whose low byte is appended to the event packet\"},\n    {\"offset\": 366, \"meaning\": \"byte in the packet/tx entry used as the HCI event code\"}\n  ]\n}"
+}

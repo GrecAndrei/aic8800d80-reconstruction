@@ -1,0 +1,9 @@
+{
+ "fn": "rf_temperature_comp",
+ "img": "fmacfw_u02",
+ "addr": "0x12c584",
+ "seg": 40,
+ "key": "rf_temperature_comp__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_temperature_compensate\",\"confidence\":\"medium\",\"docstring\":\"Computes a signed delta from two context bytes, caps it using the configured limit, stores it, marks linked entries with bit 0x10, and returns the control byte when available.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"rf_ctx\",\"v2\":\"compensation_limit\",\"v3\":\"temperature_delta\",\"i\":\"entry\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"optional object passed to get_control_byte\"},{\"offset\":109,\"meaning\":\"stored compensation delta\"},{\"offset\":110,\"meaning\":\"signed compensation limit; 0x7f is a sentinel\"},{\"offset\":240,\"meaning\":\"head of a linked list whose entries are marked for update\"},{\"offset\":350,\"meaning\":\"per-entry flag byte; bit 0x10 is set\"},{\"offset\":420,\"meaning\":\"byte value used as the first operand of the signed delta\"},{\"offset\":464,\"meaning\":\"byte value subtracted from the first delta operand\"}]}"
+}

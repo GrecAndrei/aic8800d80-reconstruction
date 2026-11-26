@@ -1,0 +1,9 @@
+{
+ "fn": "hci_cmd_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10d6a8",
+ "seg": 2,
+ "key": "hci_cmd_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_cal_cmd_tx\", \"confidence\": \"medium\", \"docstring\": \"Parses an RF calibration command into a local text buffer and sends the resulting line over UART, inserting a carriage return before line feeds.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"cmd_arg1\", \"a2\": \"cmd_arg2\", \"a1a\": \"cal_str\", \"v3\": \"parse_ret\", \"v4\": \"result_len\", \"v5\": \"out_len\", \"v6\": \"prev_byte\", \"v7\": \"tx_ptr\", \"v8\": \"uart_status_reg\", \"v9\": \"uart_data_reg\", \"v10\": \"tx_end\", \"v11\": \"tx_byte\", \"v12\": \"current_byte\"}}"
+}

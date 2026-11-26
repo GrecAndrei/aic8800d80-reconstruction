@@ -1,0 +1,9 @@
+{
+ "fn": "get_global_field0",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12e904",
+ "seg": 42,
+ "key": "get_global_field0__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_global_field0\",\"confidence\":\"medium\",\"docstring\":\"Returns the 32-bit value stored at the fixed global field-0 address.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

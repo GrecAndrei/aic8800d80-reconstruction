@@ -1,0 +1,9 @@
+{
+ "fn": "is_sleep_state_active",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11f654",
+ "seg": 21,
+ "key": "is_sleep_state_active__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_ll_event_pending\",\"confidence\":\"medium\",\"docstring\":\"Checks each link context's event list and returns the pending status reported for the last event visited.\",\"subsystem\":\"mac\",\"var_renames\":{\"i\":\"link_context\",\"j\":\"ll_event\",\"result\":\"event_pending\"},\"struct_hints\":[{\"offset\":240,\"meaning\":\"Head of the context's linked list of LL events\"}]}"
+}

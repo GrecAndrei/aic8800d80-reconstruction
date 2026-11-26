@@ -1,0 +1,9 @@
+{
+ "fn": "get_calibration_value",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c388",
+ "seg": 40,
+ "key": "get_calibration_value__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_rf_calibration_value\",\"confidence\":\"medium\",\"docstring\":\"Returns the byte at offset 0x6D, using a global fallback when the stored byte is 0x7F, and optionally reports the stored and effective values.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"config\",\"a2\":\"stored_value_out\",\"a3\":\"effective_value_out\",\"v3\":\"stored_value\",\"result\":\"effective_value\"},\"struct_hints\":[{\"offset\":109,\"meaning\":\"RF calibration value; 0x7F selects the global fallback\"}]}"
+}

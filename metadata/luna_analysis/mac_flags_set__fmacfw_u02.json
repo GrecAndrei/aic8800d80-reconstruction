@@ -1,0 +1,9 @@
+{
+ "fn": "mac_flags_set",
+ "img": "fmacfw_u02",
+ "addr": "0x116ab4",
+ "seg": 9,
+ "key": "mac_flags_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_link_flags_update\",\"confidence\":\"medium\",\"docstring\":\"Sets a MAC state flag and updates the associated link record's flags, identifier, and connection-window state when applicable.\",\"subsystem\":\"mac\",\"var_renames\":{\"v10\":\"link_record\",\"v17\":\"link_state_flags\",\"v21\":\"peer_mac_address\"},\"struct_hints\":[{\"offset\":30,\"meaning\":\"Link-state flags; bits 0x08 and 0x80 are tested and bit 0x20 may be set.\"},{\"offset\":36,\"meaning\":\"Link-context flags; bit 0x200000 suppresses the record update.\"},{\"offset\":82,\"meaning\":\"MAC state flag word; bit 0x4 is set.\"},{\"offset\":22,\"meaning\":\"Packed link-record field with a low-nibble state and high-nibble identifier.\"}]}"
+}

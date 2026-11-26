@@ -1,0 +1,9 @@
+{
+ "fn": "process_pending_events",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x117e5c",
+ "seg": 11,
+ "key": "process_pending_events__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"process_pending_link_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pops a pending link context or event, copies supplied status and event type into the context, updates RF/queue counters when needed, and initializes the context's linked-list heads.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"status_info\",\n    \"a2\": \"event_type\",\n    \"a4\": \"out_value\",\n    \"v4\": \"pending_list_head\",\n    \"v10\": \"link_ctxt\",\n    \"v11\": \"link_ctxt\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 88,\n      \"meaning\": \"32-bit event/status word copied from status_info\"\n    },\n    {\n      \"offset\": 92,\n      \"meaning\": \"16-bit event/status word copied from status_info + 4\"\n    },\n    {\n      \"offset\": 94,\n      \"meaning\": \"event type byte\"\n    },\n    {\n      \"offset\": 148,\n      \"meaning\": \"co_list head initialized for link context\"\n    },\n    {\n      \"offset\": 156,\n      \"meaning\": \"co_list head initialized for link context\"\n    },\n    {\n      \"offset\": 164,\n      \"meaning\": \"co_list head initialized for link context\"\n    },\n    {\n      \"offset\": 180,\n      \"meaning\": \"co_list head initialized for link context\"\n    },\n    {\n      \"offset\": 188,\n      \"meaning\": \"co_list head initialized for link context\"\n    },\n    {\n      \"offset\": 196,\n      \"meaning\": \"co_list head initialized for link context\"\n    }\n  ]\n}"
+}

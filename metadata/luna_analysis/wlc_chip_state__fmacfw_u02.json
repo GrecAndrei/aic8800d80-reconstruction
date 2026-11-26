@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_chip_state",
+ "img": "fmacfw_u02",
+ "addr": "0x128d64",
+ "seg": 34,
+ "key": "wlc_chip_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_update_channel_count\",\"confidence\":\"medium\",\"docstring\":\"When both state guards are set, resets the channel counter and increments it for linked entries that pass the flag and channel checks and whose rf_channel_get call returns zero.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v0\":\"wlc_context\",\"v1\":\"channel_entry\",\"v3\":\"channel\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"WLC context: state guard byte\"},{\"offset\":8,\"meaning\":\"WLC context: channel counter reset and incremented by this function\"},{\"offset\":28,\"meaning\":\"WLC context: secondary state guard byte\"},{\"offset\":0,\"meaning\":\"Channel-list entry: next pointer\"},{\"offset\":106,\"meaning\":\"Channel-list entry: flag that must be clear to process the entry\"},{\"offset\":108,\"meaning\":\"Channel-list entry: flag that must be set to process the entry\"},{\"offset\":116,\"meaning\":\"Channel-list entry: channel byte; 0xFF is skipped\"}]}"
+}

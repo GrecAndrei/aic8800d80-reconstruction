@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_adv_event_start",
+ "img": "fmacfw_u02",
+ "addr": "0x140540",
+ "seg": 64,
+ "key": "ble_ll_adv_event_start__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_adv_event_start\",\"confidence\":\"medium\",\"docstring\":\"Initializes advertising-event packet state from the active advertising configuration and prepares it for transmission.\",\"subsystem\":\"ble\",\"var_renames\":{\"v4\":\"adv_context\",\"v5\":\"adv_event_buffer\",\"v8\":\"adv_event_header\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Pointer to the advertising event working buffer\"}]}"
+}

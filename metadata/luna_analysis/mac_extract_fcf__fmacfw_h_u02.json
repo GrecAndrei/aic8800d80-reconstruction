@@ -1,0 +1,9 @@
+{
+ "fn": "mac_extract_fcf",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13e9e0",
+ "seg": 61,
+ "key": "mac_extract_fcf__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_decode_rate\",\"confidence\":\"medium\",\"docstring\":\"Decodes the PHY rate and format fields in a descriptor and returns the corresponding table-derived rate value.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"rate_info\",\"v2\":\"format_id\",\"v3\":\"mcs_index\",\"v4\":\"legacy_rate_code\",\"v6\":\"table_rate\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"Encoded PHY rate and format fields\"},{\"offset\":8,\"meaning\":\"Additional PHY format code used for rate lookup\"}]}"
+}

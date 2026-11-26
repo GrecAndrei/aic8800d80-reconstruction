@@ -1,0 +1,9 @@
+{
+ "fn": "pll_set_ratio",
+ "img": "fmacfw_h_u02",
+ "addr": "0x107444",
+ "seg": 2,
+ "key": "pll_set_ratio__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_measure_read_power\",\"confidence\":\"medium\",\"docstring\":\"Programs the RF PLL and control sequence, captures the low 15-bit read-power value into the context, logs it, and clears the temporary control bits.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_context\",\"a2\":\"ratio_select\",\"v5\":\"read_power_reg\",\"v6\":\"read_power\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"Captured 15-bit read-power value (rd_pwr).\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "build_hci_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13bc20",
+ "seg": 60,
+ "key": "build_hci_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_send_connection_complete_event\",\"confidence\":\"medium\",\"docstring\":\"Builds and submits an eight-byte connection event using status and parameters from the indexed connection record.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"connection_index\",\"v4\":\"event_packet\",\"v5\":\"connection\",\"v6\":\"connection_state\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"16-bit connection parameter copied to event bytes 6\u20137.\"},{\"offset\":17,\"meaning\":\"Connection state; value 1 maps to a success status.\"},{\"offset\":20,\"meaning\":\"16-bit connection value copied to event bytes 4\u20135, likely the connection handle.\"},{\"offset\":22,\"meaning\":\"Byte copied to event byte 2.\"}]}"
+}

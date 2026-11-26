@@ -1,0 +1,9 @@
+{
+ "fn": "periph_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10eda8",
+ "seg": 3,
+ "key": "periph_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_periph_enable\",\"confidence\":\"medium\",\"docstring\":\"Initializes the peripheral register block and conditionally applies a follow-up enable sequence based on firmware state flags.\",\"subsystem\":\"hal\",\"var_renames\":{},\"struct_hints\":[]}"
+}

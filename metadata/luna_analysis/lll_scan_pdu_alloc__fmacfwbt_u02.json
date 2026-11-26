@@ -1,0 +1,9 @@
+{
+ "fn": "lll_scan_pdu_alloc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x142480",
+ "seg": 68,
+ "key": "lll_scan_pdu_alloc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ll_scan_rsp_evt_send\", \"confidence\": \"medium\", \"docstring\": \"Handles a BLE scan-response descriptor by checking active-scan and duplicate-filter state, then allocates and sends an HCI event carrying the resulting status.\", \"subsystem\": \"ble\", \"var_renames\": {\"v6\": \"event_status\", \"v8\": \"scan_index\", \"v9\": \"ctx_table_base\", \"v10\": \"active_list_entry\", \"v11\": \"lookup_mode\", \"v12\": \"evt_buf\", \"v14\": \"candidate_entry\", \"v15\": \"entry_end\", \"v16\": \"ctx_entry\", \"v17\": \"addr_type\", \"v18\": \"tmp_ctx_entry\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"scan descriptor status or event-type byte\"}, {\"offset\": 1, \"meaning\": \"selects active-scan lookup versus peer-entry table path\"}, {\"offset\": 2, \"meaning\": \"address type or PHY lookup mode byte\"}, {\"offset\": 3, \"meaning\": \"advertising or scanning index into global context table\"}]}"
+}

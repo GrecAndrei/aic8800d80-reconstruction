@@ -1,0 +1,9 @@
+{
+ "fn": "validate_channel_map",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13f480",
+ "seg": 62,
+ "key": "validate_channel_map__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"validate_rx_channel_params\", \"confidence\": \"medium\", \"docstring\": \"Validates encoded channel and parameter bits against the link-layer/Rx context state and dispatches accepted PDUs through rx_switch_pdu_handler.\", \"subsystem\": \"ble\", \"var_renames\": {\"a1\": \"ll_ctx\", \"a2\": \"pdu_info\", \"v3\": \"req_channel_field\", \"v4\": \"req_info_hi\", \"v5\": \"bit10_value\", \"v7\": \"req_bits_12_13\", \"v8\": \"req_subfield\"}, \"struct_hints\": [{\"offset\": 169, \"meaning\": \"current channel/state byte compared with bits 11-13 of pdu_info\"}, {\"offset\": 177, \"meaning\": \"mode or limit byte checked when the request field is 5 or 2-3\"}, {\"offset\": 182, \"meaning\": \"mode byte required to be 1 for the 0x400-bit handling path\"}, {\"offset\": 181, \"meaning\": \"flag byte gating success for the 0x200-bit path\"}, {\"offset\": 179, \"meaning\": \"threshold byte compared with bits 7-8 of pdu_info\"}, {\"offset\": 180, \"meaning\": \"threshold byte compared with derived bitfield from pdu_info bits 3-6\"}]}"
+}

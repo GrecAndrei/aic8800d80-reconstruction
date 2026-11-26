@@ -1,0 +1,9 @@
+{
+ "fn": "btcoex_reset_context",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x117df4",
+ "seg": 10,
+ "key": "btcoex_reset_context__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"btcoex_reset_context\", \"confidence\": \"medium\", \"docstring\": \"Reset Bluetooth coexistence context by clearing the global descriptor, reinitializing four per-slot contexts to default list, state, and rate fields, checking kernel state for each slot, and clearing the active-context indicator.\", \"subsystem\": \"bt\", \"var_renames\": {\"v0\": \"coex_ctx\", \"v1\": \"coex_slot\", \"v3\": \"coex_slot_end\", \"result\": \"status\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"coex_ctx: co_list head\"}, {\"offset\": 8, \"meaning\": \"coex_ctx: second co_list head\"}, {\"offset\": 16, \"meaning\": \"coex_ctx: active/reset byte flag\"}, {\"offset\": 52, \"meaning\": \"coex_slot: pointer to default context/ops object\"}, {\"offset\": 56, \"meaning\": \"coex_slot: self pointer\"}, {\"offset\": 94, \"meaning\": \"coex_slot: default state byte (5)\"}, {\"offset\": 97, \"meaning\": \"coex_slot: default rate/channel byte (0x7f)\"}]}"
+}

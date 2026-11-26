@@ -1,0 +1,9 @@
+{
+ "fn": "get_table_entry_info",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13b8e4",
+ "seg": 60,
+ "key": "get_table_entry_info__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_bt_table_entry_and_set_marker\",\"confidence\":\"medium\",\"docstring\":\"Returns the indexed 32-byte table entry and, when its selector is 0 or 1, writes marker 33 to the corresponding byte in the indexed backing record.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"entry_index\",\"v2\":\"record_index\",\"v3\":\"slot_index\",\"result\":\"entry\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Index of the backing record\"},{\"offset\":17,\"meaning\":\"Selects which marker byte to write when its value is 0 or 1\"},{\"offset\":22,\"meaning\":\"Index of the backing record's 12-byte slot\"}]}"
+}

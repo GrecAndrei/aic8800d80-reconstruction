@@ -1,0 +1,9 @@
+{
+ "fn": "init_buf_188290",
+ "img": "fmacfw_u02",
+ "addr": "0x117edc",
+ "seg": 10,
+ "key": "init_buf_188290__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"buffer_state_init\",\"confidence\":\"low\",\"docstring\":\"Clears a 40-byte region referenced by a global pointer.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v0\":\"buffer_state\"}}"
+}

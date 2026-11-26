@@ -1,0 +1,9 @@
+{
+ "fn": "init_all_chan_entries",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ad00",
+ "seg": 37,
+ "key": "init_all_chan_entries__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lll_init_all_chan_entries\",\"confidence\":\"high\",\"docstring\":\"Initializes channel entries 0\u20133, then zeroes a 96-byte table in three-byte strides.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"table_bytes\",\"v2\":\"table_end\"},\"struct_hints\":[]}"
+}

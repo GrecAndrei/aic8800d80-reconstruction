@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_init_1",
+ "img": "fmacfw_u02",
+ "addr": "0x125a44",
+ "seg": 30,
+ "key": "ke_task_init_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_msg_send_from_pool\",\"confidence\":\"medium\",\"docstring\":\"Copies a payload from the indexed buffer-pool slot into a per-index context buffer, updates shared state flags, and submits the associated message to the kernel queue.\",\"subsystem\":\"ke\",\"var_renames\":{\"v2\":\"context_index\",\"v3\":\"shared_state\",\"v4\":\"buffer_pool_base\",\"v5\":\"message\",\"v6\":\"context_payload\",\"v7\":\"buffer_index\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit payload length\"},{\"offset\":9,\"meaning\":\"8-bit context index\"},{\"offset\":107,\"meaning\":\"Buffer-pool slot index\"},{\"offset\":108,\"meaning\":\"Start of the context payload buffer\"}]}"
+}

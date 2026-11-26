@@ -1,0 +1,9 @@
+{
+ "fn": "conn_context_reset",
+ "img": "fmacfw_u02",
+ "addr": "0x141fe0",
+ "seg": 67,
+ "key": "conn_context_reset__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llcp_send_unknown_rsp\",\"confidence\":\"medium\",\"docstring\":\"Builds an LL_UNKNOWN_RSP control PDU containing the supplied opcode byte and marks it for transmission.\",\"subsystem\":\"ble\",\"var_renames\":{\"v9\":\"tx_context\",\"v7\":\"tx_descriptor\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Pointer to the control-PDU backing buffer.\"},{\"offset\":76,\"meaning\":\"Pointer to the transmit descriptor updated by this function.\"},{\"offset\":28,\"meaning\":\"Base address used to derive the transmit data pointer in the object referenced at offset 76.\"},{\"offset\":32,\"meaning\":\"Transmit data pointer and length pair in the object referenced at offset 76.\"}]}"
+}

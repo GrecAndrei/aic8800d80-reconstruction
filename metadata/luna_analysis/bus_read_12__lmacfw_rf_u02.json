@@ -1,0 +1,9 @@
+{
+ "fn": "bus_read_12",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114570",
+ "seg": 6,
+ "key": "bus_read_12__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bus_read_12\", \"confidence\": \"medium\", \"docstring\": \"Sends a 12-byte bus-read request as a kernel task message to task 2 and returns the task handler result.\", \"subsystem\": \"ipc\", \"var_renames\": {\"a1\": \"msg\"}}"
+}

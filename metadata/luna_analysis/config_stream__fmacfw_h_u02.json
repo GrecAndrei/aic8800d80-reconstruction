@@ -1,0 +1,9 @@
+{
+ "fn": "config_stream",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11a580",
+ "seg": 14,
+ "key": "config_stream__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"configure_stream_segment\",\"confidence\":\"medium\",\"docstring\":\"Configures the current stream entry and its descriptor links, then either invokes continuation handling when the accumulated extent exceeds the limit or advances to the next entry.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"entry_cursor\",\"a3\":\"capacity_limit\",\"a4\":\"requested_size\",\"a5\":\"stream_index\",\"v5\":\"current_stream_entry\",\"v6\":\"stream_context\",\"v12\":\"stream_descriptor\",\"v13\":\"aligned_size\",\"v14\":\"additional_word_count\",\"v15\":\"length_increment\",\"v16\":\"accumulated_length\",\"v17\":\"current_control_flags\",\"v18\":\"configured_control_flags\",\"v22\":\"stream_descriptor\",\"v23\":\"new_total_extent\"},\"struct_hints\":[{\"offset\":10,\"meaning\":\"Stream context's 16-bit accumulated count, increased by the entry's length increment.\"},{\"offset\":24,\"meaning\":\"Stream context's current descriptor link, replaced with a pointer into the new descriptor.\"},{\"offset\":36,\"meaning\":\"Control/status flags populated with stream mode bits and the additional-word count.\"},{\"offset\":40,\"meaning\":\"Stream context's accumulated extent.\"},{\"offset\":68,\"meaning\":\"Pointer to the associated stream context.\"},{\"offset\":76,\"meaning\":\"Pointer to the stream descriptor used to calculate the aligned size.\"},{\"offset\":80,\"meaning\":\"16-bit length increment added to the stream context's accumulated count.\"},{\"offset\":268,\"meaning\":\"Stream context pointer to the configured entry.\"},{\"offset\":324,\"meaning\":\"Stream context pointer used to advance to the next chained entry.\"}]}"
+}

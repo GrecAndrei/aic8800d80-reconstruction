@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_strobe",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11d0b8",
+ "seg": 19,
+ "key": "rf_cmd_strobe__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_exec\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes an RF command by waiting on the command busy bit, programming the frequency and RF/baseband control registers, and sampling RSSI for chip-specific configuration.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_cmd_busy_reg\",\n    \"v1\": \"rf_frequency_byte\"\n  },\n  \"struct_hints\": []\n}"
+}

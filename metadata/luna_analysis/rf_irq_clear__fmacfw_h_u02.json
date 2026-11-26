@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_clear",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10db64",
+ "seg": 3,
+ "key": "rf_irq_clear__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_irq_clear\",\"confidence\":\"medium\",\"docstring\":\"For RF interrupt indices 0\u20137, clears the corresponding register\u2019s low four bits and sets that index\u2019s bit in a separate control word.\",\"subsystem\":\"rf\"}"
+}

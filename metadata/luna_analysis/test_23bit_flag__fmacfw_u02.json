@@ -1,0 +1,9 @@
+{
+ "fn": "test_23bit_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x12205c",
+ "seg": 23,
+ "key": "test_23bit_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"link_loss_monitor\",\"confidence\":\"medium\",\"docstring\":\"Updates link-monitor retry state, schedules a delayed worker when flag 0x800000 is set, and otherwise polls connection information or handles link loss.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"link_context\",\"a2\":\"event_flags\",\"v3\":\"retry_count\",\"v7\":\"current_ticks\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"link-context flags; bit 0x200 is cleared during fault handling\"},{\"offset\":107,\"meaning\":\"connection index passed to the connection-info query\"},{\"offset\":108,\"meaning\":\"connection-info query pending flag\"},{\"offset\":115,\"meaning\":\"link-monitor retry counter\"},{\"offset\":128,\"meaning\":\"byte flag cleared on the 0x800000 event\"}]}"
+}

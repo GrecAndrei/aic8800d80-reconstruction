@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibration_proc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130030",
+ "seg": 42,
+ "key": "rf_calibration_proc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"test_command_queue_process\",\"confidence\":\"high\",\"docstring\":\"Drains queued console commands, validates their argument counts against command descriptors, invokes the matching handlers, and releases each processed command buffer.\",\"subsystem\":\"test\",\"var_renames\":{\"v2\":\"lock_depth_ptr\",\"v5\":\"queued_command\",\"v8\":\"command_table\",\"v9\":\"argument_count\",\"v13\":\"command_entry\",\"a1a\":\"parsed_arguments\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"command name string\"},{\"offset\":4,\"meaning\":\"usage string\"},{\"offset\":8,\"meaning\":\"minimum accepted argument count\"},{\"offset\":10,\"meaning\":\"maximum accepted argument count\"},{\"offset\":12,\"meaning\":\"command handler callback\"}]}"
+}

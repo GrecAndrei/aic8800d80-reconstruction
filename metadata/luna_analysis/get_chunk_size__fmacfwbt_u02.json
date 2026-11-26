@@ -1,0 +1,9 @@
+{
+ "fn": "get_chunk_size",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1172b0",
+ "seg": 10,
+ "key": "get_chunk_size__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_chunk_size\",\"confidence\":\"medium\",\"docstring\":\"Returns 4 when the input exceeds 0x2000 and 2 otherwise.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"input_size\"}}"
+}

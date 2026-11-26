@@ -1,0 +1,9 @@
+{
+ "fn": "llm_bitmap_to_mask",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132a3c",
+ "seg": 46,
+ "key": "llm_bitmap_to_mask__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_merge_channel_class_word\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Merges two 16-bit BLE channel-classification words by taking the smaller 2-bit classification for each lane and stopping when either word contains a reserved 3 value.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"class_a\",\n    \"a2\": \"class_b\",\n    \"v2\": \"lane_shift\",\n    \"v3\": \"merged_word\",\n    \"v4\": \"field_a\",\n    \"v5\": \"masked_prev_word\",\n    \"v6\": \"field_b\",\n    \"v7\": \"merged_field\"\n  }\n}"
+}

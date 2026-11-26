@@ -1,0 +1,9 @@
+{
+ "fn": "rf_config_read_b",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100ee8",
+ "seg": 0,
+ "key": "rf_config_read_b__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_config_read_b\",\"confidence\":\"medium\",\"docstring\":\"Programs the RF configuration read address and control bits, initiates the read sequence, and returns the associated MMIO register pointer.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_control_reg\",\"v1\":\"rf_address_reg\",\"v2\":\"rf_control_snapshot\",\"result\":\"rf_read_control_reg\",\"v4\":\"rf_handshake_reg\"}}"
+}

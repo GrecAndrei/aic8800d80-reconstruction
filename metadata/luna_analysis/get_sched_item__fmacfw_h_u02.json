@@ -1,0 +1,9 @@
+{
+ "fn": "get_sched_item",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11b228",
+ "seg": 16,
+ "key": "get_sched_item__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_sched_item\",\"confidence\":\"medium\",\"docstring\":\"Clears the indexed pending flag and, when the radio-state guard permits, dispatches and clears the entry's stored action.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"scheduler_state_base\",\"v2\":\"slot_bytes\",\"v3\":\"radio_state_flags\",\"v4\":\"slot_index\",\"v6\":\"slot_base\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Per-slot stored dispatch value at base + 28 * index + 36.\"},{\"offset\":46,\"meaning\":\"Per-slot pending flag at base + 28 * index + 46.\"},{\"offset\":190,\"meaning\":\"Currently selected slot index.\"},{\"offset\":208,\"meaning\":\"Radio-state flags; bit 0 gates dispatch.\"}]}"
+}

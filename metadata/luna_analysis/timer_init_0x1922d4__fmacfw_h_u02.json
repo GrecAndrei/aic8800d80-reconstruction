@@ -1,0 +1,9 @@
+{
+ "fn": "timer_init_0x1922d4",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f3c8",
+ "seg": 42,
+ "key": "timer_init_0x1922d4__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"test_stats_init\",\"confidence\":\"medium\",\"docstring\":\"Zero-initializes the global test-statistics state and clears its embedded statistics buffer.\",\"subsystem\":\"test\",\"var_renames\":{\"v0\":\"stats_state\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"statistics buffer passed to clear_stats_buf\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_cmd_buf_clear",
+ "img": "fmacfw_u02",
+ "addr": "0x136700",
+ "seg": 56,
+ "key": "bt_cmd_buf_clear__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_cmd_buf_reset\",\"confidence\":\"medium\",\"docstring\":\"Clears and reinitializes a Bluetooth command-buffer state block, then invokes the RX PHY status parser with mode 7 and a null argument.\",\"subsystem\":\"bt\",\"struct_hints\":[{\"offset\":12,\"meaning\":\"byte flag or state cleared to zero\"},{\"offset\":15,\"meaning\":\"byte mode or state set to 3\"},{\"offset\":16,\"meaning\":\"32-bit configuration value set to 20000\"},{\"offset\":24,\"meaning\":\"pointer field initialized from a global pointer\"}]}"
+}

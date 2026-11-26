@@ -1,0 +1,9 @@
+{
+ "fn": "get_hw_info_bit9",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114e84",
+ "seg": 6,
+ "key": "get_hw_info_bit9__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_hw_info_bit9\",\"confidence\":\"medium\",\"docstring\":\"Calls the hardware-info vector with selector 1 and returns bit 9 of its result.\",\"subsystem\":\"hal\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_stat_read",
+ "img": "fmacfwbt_u02",
+ "addr": "0x113918",
+ "seg": 5,
+ "key": "rf_stat_read__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_wlan_memory_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the USB WLAN host-interface memory regions and configures the USB IN aggregation count, defaulting it to 10.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v3\":\"first_region_base\",\"v6\":\"second_region_base\",\"v21\":\"usb_in_agg_count\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"pointer to the first memory region\"},{\"offset\":20,\"meaning\":\"pointer to the second memory region\"},{\"offset\":24,\"meaning\":\"size or limit associated with the second memory region\"}]}"
+}

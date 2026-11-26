@@ -1,0 +1,9 @@
+{
+ "fn": "aeabi_d2iz",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127ba4",
+ "seg": 23,
+ "key": "aeabi_d2iz__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_d2uiz\",\n  \"confidence\": \"high\",\n  \"docstring\": \"ARM EABI soft-float helper that converts a double to an unsigned 32-bit integer.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

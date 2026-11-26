@@ -1,0 +1,9 @@
+{
+ "fn": "log_with_format",
+ "img": "fmacfw_u02",
+ "addr": "0x12d9d0",
+ "seg": 42,
+ "key": "log_with_format__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_check_buffer_match\",\"confidence\":\"medium\",\"docstring\":\"Uses a fixed five-byte range lookup, rejects results whose reported value is at most 23, and otherwise returns the helper's pointer after storing that value minus two in the output byte.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"input_buffer\",\"a2\":\"buffer_length\",\"a3\":\"out_value\",\"v5\":\"reported_value\"}}"
+}

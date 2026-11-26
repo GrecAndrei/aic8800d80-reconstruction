@@ -1,0 +1,9 @@
+{
+ "fn": "timer_get_interval",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10788c",
+ "seg": 2,
+ "key": "timer_get_interval__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_power_compensation\",\"confidence\":\"medium\",\"docstring\":\"Computes a power-dependent compensation value from the maximum of four input values, stores it at offset 8 of the PHY configuration, and reloads the PHY table.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"power_inputs\",\"a2\":\"phy_config\",\"v3\":\"max_power_input\",\"v5\":\"existing_compensation\",\"v6\":\"power_db\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"First candidate power input\"},{\"offset\":4,\"meaning\":\"Second candidate power input\"},{\"offset\":8,\"meaning\":\"Third candidate power input; in the PHY configuration, this field holds the compensation value\"},{\"offset\":12,\"meaning\":\"Fourth candidate power input\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_configure_channel",
+ "img": "fmacfw_u02",
+ "addr": "0x1303a0",
+ "seg": 42,
+ "key": "rf_configure_channel__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dump_settings\",\"confidence\":\"medium\",\"docstring\":\"Emits diagnostic lines for RF temperature compensation, crystal-capacitor and band-offset calibration values, and settings status.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"calibration_config\",\"v1\":\"settings_enabled\",\"v2\":\"task_lookup_result\",\"v4\":\"settings_timer\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"temperature-compensation initialization flag\"},{\"offset\":1,\"meaning\":\"temperature-compensation enable flag\"},{\"offset\":2,\"meaning\":\"temperature-compensation calibration level\"},{\"offset\":3,\"meaning\":\"last recorded temperature\"},{\"offset\":4,\"meaning\":\"crystal-capacitor calibration value\"},{\"offset\":5,\"meaning\":\"crystal-capacitor target value\"},{\"offset\":6,\"meaning\":\"current crystal-capacitor value\"},{\"offset\":8,\"meaning\":\"2.4 GHz calibration offset entry 0\"},{\"offset\":9,\"meaning\":\"2.4 GHz calibration offset entry 1\"},{\"offset\":10,\"meaning\":\"2.4 GHz calibration offset entry 2\"},{\"offset\":11,\"meaning\":\"5 GHz calibration offset entry 0\"},{\"offset\":12,\"meaning\":\"5 GHz calibration offset entry 1\"},{\"offset\":13,\"meaning\":\"5 GHz calibration offset entry 2\"},{\"offset\":360,\"meaning\":\"settings enable value\"},{\"offset\":364,\"meaning\":\"settings timer value\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "critical_enter",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10efbc",
+ "seg": 2,
+ "key": "critical_enter__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"call_indirect_critical\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Calls an indirect-table function while holding a nesting-aware IRQ-disabled critical section, waiting on a status flag when requested.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a2\": \"wait\",\n    \"v2\": \"nesting_count_ptr\",\n    \"v5\": \"decremented_nesting\",\n    \"v6\": \"irq_disabled_here\",\n    \"result\": \"indirect_result\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "sta_rate_status_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11c448",
+ "seg": 18,
+ "key": "sta_rate_status_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sta_rate_status_check\",\"confidence\":\"medium\",\"docstring\":\"If the indexed station has a valid rate-status value and the global mode is not 2, passes each of four packet entries in the supplied context to rx_packet_type.\",\"subsystem\":\"sta\",\"var_renames\":{\"v1\":\"station_rate_status\",\"v2\":\"station_entry_base\",\"v3\":\"packet_entry_cursor\",\"v5\":\"packet_entry\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"station table index\"},{\"offset\":72,\"meaning\":\"packed pointer pair used to locate the packet-entry array and its associated context\"},{\"offset\":1222,\"meaning\":\"per-station rate-status value; 1023 is treated as invalid\"}]}"
+}

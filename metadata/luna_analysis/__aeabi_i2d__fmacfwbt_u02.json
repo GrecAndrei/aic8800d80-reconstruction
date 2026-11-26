@@ -1,0 +1,9 @@
+{
+ "fn": "__aeabi_i2d",
+ "img": "fmacfwbt_u02",
+ "addr": "0x142a70",
+ "seg": 69,
+ "key": "__aeabi_i2d__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_i2d\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Converts a 32-bit signed integer to a IEEE-754 double-precision floating-point value.\",\n  \"subsystem\": \"libmisc\"\n}"
+}

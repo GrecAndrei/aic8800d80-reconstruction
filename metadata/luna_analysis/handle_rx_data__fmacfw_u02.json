@@ -1,0 +1,9 @@
+{
+ "fn": "handle_rx_data",
+ "img": "fmacfw_u02",
+ "addr": "0x120840",
+ "seg": 22,
+ "key": "handle_rx_data__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_machw_time_on_air\",\"confidence\":\"medium\",\"docstring\":\"Calculates frame airtime using rate and arbiter parameters, querying the MAC hardware time-on-air register when applicable.\",\"subsystem\":\"hal\",\"var_renames\":{\"v19\":\"hardware_airtime\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"Mode flags; bit 4 selects the fallback path instead of the hardware calculation.\"},{\"offset\":44,\"meaning\":\"Encoded rate-table index is taken from the upper nibble.\"}]}"
+}

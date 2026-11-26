@@ -1,0 +1,9 @@
+{
+ "fn": "bt_link_state_check",
+ "img": "fmacfw_u02",
+ "addr": "0x119264",
+ "seg": 12,
+ "key": "bt_link_state_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_probe_response_send\",\"confidence\":\"medium\",\"docstring\":\"Builds and queues an 802.11 probe-response frame addressed to the supplied peer MAC using the selected VIF's address and response template.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"vif\",\"a2\":\"peer_mac\",\"v8\":\"tx_buffer_sizes\",\"v10\":\"tx_entry\",\"v11\":\"frame\",\"v13\":\"sequence_counter\",\"v14\":\"vif_mac_tail\"},\"struct_hints\":[{\"offset\":100,\"meaning\":\"VIF MAC address bytes 0\u20133\"},{\"offset\":104,\"meaning\":\"VIF MAC address bytes 4\u20135\"},{\"offset\":106,\"meaning\":\"VIF type\"},{\"offset\":107,\"meaning\":\"VIF index\"},{\"offset\":108,\"meaning\":\"802.11 frame control, set to probe-response subtype (0x50)\"},{\"offset\":112,\"meaning\":\"802.11 destination address\"},{\"offset\":118,\"meaning\":\"802.11 source address\"},{\"offset\":124,\"meaning\":\"802.11 BSSID\"},{\"offset\":130,\"meaning\":\"802.11 sequence control\"},{\"offset\":132,\"meaning\":\"Probe-response template payload\"}]}"
+}

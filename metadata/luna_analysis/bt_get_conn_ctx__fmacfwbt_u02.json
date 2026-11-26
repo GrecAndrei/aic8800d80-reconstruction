@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_ctx",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13c734",
+ "seg": 61,
+ "key": "bt_get_conn_ctx__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_check_rate_allowed\",\"confidence\":\"medium\",\"docstring\":\"Checks whether a given rate parameter is allowed by consulting the active Bluetooth context and returns a 0/1/2 policy status.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"bt_link_idx\",\"v4\":\"conn_idx\",\"v5\":\"conn_ctx_base\",\"v7\":\"rate_arg\",\"v8\":\"rate_param\",\"v9\":\"bt_link_table_off\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"u8 connection/context index selecting a 1320-byte BT context\"},{\"offset\":29,\"meaning\":\"u8 BT link/state index, with 0xff meaning absent\"},{\"offset\":1200,\"meaning\":\"u32 BT context presence/active flag at conn_ctx_base + 1320*conn_idx + 1200\"},{\"offset\":1204,\"meaning\":\"u32 BT policy or active indicator at conn_ctx_base + 1320*conn_idx + 1204\"}]}"
+}

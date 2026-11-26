@@ -1,0 +1,9 @@
+{
+ "fn": "rf_phy_write",
+ "img": "fmacfw_u02",
+ "addr": "0x13bda4",
+ "seg": 60,
+ "key": "rf_phy_write__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_phy_update_send\",\"confidence\":\"medium\",\"docstring\":\"Builds and sends message 42 for the task-8 instance indexed by a2, using a1 and two per-instance context bytes, and conditionally clears an MMIO register when the global-state and rate checks pass.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"source_task_id\",\"v5\":\"message_payload\",\"v6\":\"instance_context\",\"v7\":\"context_flag_byte\"},\"struct_hints\":[{\"offset\":17,\"meaning\":\"Byte converted to a boolean by testing whether it differs from 1, then placed in the message payload.\"},{\"offset\":22,\"meaning\":\"Byte copied into the message payload.\"}]}"
+}

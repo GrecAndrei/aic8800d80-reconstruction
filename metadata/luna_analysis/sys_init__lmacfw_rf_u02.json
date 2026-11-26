@@ -1,0 +1,9 @@
+{
+ "fn": "sys_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x115000",
+ "seg": 6,
+ "key": "sys_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"sys_init\", \"confidence\": \"medium\", \"docstring\": \"Bootstraps firmware by invoking a null initialization stub, starting the firmware core, initializing event control, and clearing a global state field.\", \"subsystem\": \"hal\", \"var_renames\": {\"v0\": \"nullsub_result\", \"v1\": \"firmware_start_result\", \"v2\": \"event_control_result\"}}"
+}

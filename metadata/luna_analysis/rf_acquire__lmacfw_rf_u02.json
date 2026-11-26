@@ -1,0 +1,9 @@
+{
+ "fn": "rf_acquire",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x115e98",
+ "seg": 8,
+ "key": "rf_acquire__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes radio and per-interface hardware state, configures clocks, and resets associated queue/list and configuration structures after marking the radio state active.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_state\",\n    \"v1\": \"per_vif_config_ptr\",\n    \"v2\": \"per_vif_state_ptr\",\n    \"v4\": \"if_idx\",\n    \"v6\": \"rf_list_base\",\n    \"v7\": \"saved_config16\",\n    \"v8\": \"list_block_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"start of per-interface context array\"\n    },\n    {\n      \"offset\": 140,\n      \"meaning\": \"saved 16-bit radio configuration/state word\"\n    },\n    {\n      \"offset\": 142,\n      \"meaning\": \"radio active/acquired flag\"\n    }\n  ]\n}"
+}

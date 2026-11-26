@@ -1,0 +1,9 @@
+{
+ "fn": "check_mmio_and_mem",
+ "img": "fmacfw_u02",
+ "addr": "0x111390",
+ "seg": 4,
+ "key": "check_mmio_and_mem__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_sdio_interrupt\",\"confidence\":\"high\",\"docstring\":\"Processes pending SDIO interrupt status bits, acknowledges hardware sources, and dispatches corresponding events.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"interrupt_status\",\"v45\":\"int2dev_status\",\"v46\":\"pre_sleep_flag\"}}"
+}

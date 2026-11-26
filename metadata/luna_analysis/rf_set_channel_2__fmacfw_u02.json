@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_channel_2",
+ "img": "fmacfw_u02",
+ "addr": "0x12c358",
+ "seg": 40,
+ "key": "rf_set_channel_2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel\",\"confidence\":\"medium\",\"docstring\":\"Selects the RF configuration for the requested channel index, invokes its optional callback, and enables the mapped hardware channel bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"mapped_rf_slot\",\"v4\":\"rf_config_table_base\",\"v7\":\"rf_config_entry\",\"v10\":\"rf_config_callback\",\"v12\":\"channel_enable_value\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Optional RF configuration callback\"},{\"offset\":12,\"meaning\":\"Argument passed to the configuration callback\"}]}"
+}

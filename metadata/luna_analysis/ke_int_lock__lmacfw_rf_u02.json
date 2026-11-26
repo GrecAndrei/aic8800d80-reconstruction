@@ -1,0 +1,9 @@
+{
+ "fn": "ke_int_lock",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11dc54",
+ "seg": 20,
+ "key": "ke_int_lock__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_msg_queue_pop_locked\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Acquires the kernel interrupt lock, removes a message queue descriptor matching two supplied 16-bit keys, updates the queue processing/wake state, and returns the descriptor's buffer size or status.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v2\": \"lock_depth_ptr\",\n    \"v3\": \"msg_queue\",\n    \"v4\": \"msg\",\n    \"v5\": \"lock_depth\",\n    \"v7\": \"irq_lock_requested\",\n    \"v8\": \"next_msg\",\n    \"v9\": \"queue_wake_state\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 4, \"meaning\": \"u16 first message key half\"},\n    {\"offset\": 6, \"meaning\": \"u16 second message key half\"},\n    {\"offset\": 8, \"meaning\": \"message queue wake/data field\"},\n    {\"offset\": 20, \"meaning\": \"message queue head pointer\"},\n    {\"offset\": 32, \"meaning\": \"queue critical/wake processing state pointer\"}\n  ]\n}"
+}

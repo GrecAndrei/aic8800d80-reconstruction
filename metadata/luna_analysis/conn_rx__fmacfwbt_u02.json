@@ -1,0 +1,9 @@
+{
+ "fn": "conn_rx",
+ "img": "fmacfwbt_u02",
+ "addr": "0x117ae0",
+ "seg": 11,
+ "key": "conn_rx__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"conn_rx\",\"confidence\":\"high\",\"docstring\":\"Handles a received 802.11 frame for a connection/channel, validating RF channel and PHY state, updating RX counters and packet descriptors under IRQ critical sections, and storing hardware timestamps.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"frame_desc\",\"a2\":\"conn_idx\",\"v4\":\"rx_conn_state\",\"v5\":\"rf_channel\",\"v6\":\"channel_context_base\",\"v7\":\"pkt_control\",\"v8\":\"rf_channel_context\",\"v11\":\"frame_control_byte\",\"v12\":\"current_rx_pkt\",\"v13\":\"channel_expected_pkt\",\"v14\":\"rx_irq_counter\",\"v15\":\"llcp_pending\",\"v19\":\"hw_timestamp\",\"v30\":\"rx_pkt_desc\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"frame_desc: RF channel index\"},{\"offset\":72,\"meaning\":\"frame_desc: associated RX packet descriptor pointer\"},{\"offset\":76,\"meaning\":\"frame_desc: RX packet control pointer\"},{\"offset\":20,\"meaning\":\"rx_conn_state: RX packet descriptor linked/initialized flag\"},{\"offset\":44,\"meaning\":\"rx_conn_state: pending LLC/TX LLCP handling flag\"},{\"offset\":80,\"meaning\":\"rx_conn_state: per-receive byte counter\"},{\"offset\":106,\"meaning\":\"rf_channel_context: channel ready/active flag\"},{\"offset\":120,\"meaning\":\"rf_channel_context: captured hardware timestamp\"},{\"offset\":108,\"meaning\":\"rx_pkt_desc/current_rx_pkt: 802.11 frame-control word low byte\"}]}"
+}

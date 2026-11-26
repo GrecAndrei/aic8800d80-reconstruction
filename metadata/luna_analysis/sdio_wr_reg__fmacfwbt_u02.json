@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_wr_reg",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13baa8",
+ "seg": 61,
+ "key": "sdio_wr_reg__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_wr_reg\",\"confidence\":\"medium\",\"docstring\":\"Dispatches a host-interface write to an SDIO register by encoding the supplied register argument with a fixed byte value of 8.\",\"subsystem\":\"hal\"}"
+}

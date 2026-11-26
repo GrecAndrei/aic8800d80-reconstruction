@@ -1,0 +1,9 @@
+{
+ "fn": "set_system_flag_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d374",
+ "seg": 41,
+ "key": "set_system_flag_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"clear_system_flags\", \"confidence\": \"medium\", \"docstring\": \"Atomically clears the bits specified by the input mask from the volatile global system flag word under an IRQ/lock guard and returns the updated flag value.\", \"subsystem\": \"hal\", \"var_renames\": {\"a1\": \"clear_mask\", \"v1\": \"lock_count_ptr\", \"v2\": \"system_flags_ptr\", \"v3\": \"prev_lock_count\", \"v4\": \"lock_count_plus_one\", \"result\": \"updated_system_flags\", \"v6\": \"irq_lock_flag_ptr\", \"v7\": \"irq_lock_flag\"}}"
+}

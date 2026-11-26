@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_dword",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119d70",
+ "seg": 14,
+ "key": "mmio_write_dword__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ipc_cmd_result_send\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates and fills a 28-byte kernel/IPC result message with a command code, status-register snapshots, chip identifiers, and derived system/RF flags, then dispatches it.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"v4\": \"msg_buf\",\n    \"v5\": \"status_reg_ptr\",\n    \"v6\": \"aux_status_reg_ptr\",\n    \"v7\": \"msg_buf\",\n    \"v8\": \"sys_ready\",\n    \"v9\": \"status_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"message command/result code\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"first status/register snapshot\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"second status/register snapshot\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"chip identifier\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"chip revision or secondary identifier\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"derived status flag word\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"fixed 16-bit message field\"\n    },\n    {\n      \"offset\": 26,\n      \"meaning\": \"fixed 8-bit message field\"\n    }\n  ]\n}"
+}

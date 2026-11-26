@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy_words",
+ "img": "fmacfw_u02",
+ "addr": "0x1007a4",
+ "seg": 0,
+ "key": "memcpy_words__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_decode_table\",\"confidence\":\"medium\",\"docstring\":\"Copies three 32-word blocks from source to destination, applying a byte-level conversion to mask-selected blocks while preserving marker-matching words.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"source\",\"a2\":\"destination\",\"a4\":\"block_mask\",\"v22\":\"block_index\",\"v14\":\"word_index\"}}"
+}

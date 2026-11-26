@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_compare",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ca38",
+ "seg": 19,
+ "key": "rf_channel_compare__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_adjust\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a base RF value from a global context and adds 20000 when the supplied 2.4/5 GHz channel is in a fixed list.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"channel_ptr\",\n    \"v1\": \"channel_mhz\",\n    \"result\": \"adjusted_rf_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"base RF value/parameter in the global RF context\"\n    }\n  ]\n}"
+}

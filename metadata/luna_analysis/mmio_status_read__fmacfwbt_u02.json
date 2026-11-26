@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_status_read",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11ac78",
+ "seg": 15,
+ "key": "mmio_status_read__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llc_status_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Decodes an LLC/MMIO status word, derives a context state byte from a table, and writes it into the status/control word's bits 8-15.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v2\": \"raw_status\",\n    \"v3\": \"state_bits\",\n    \"v4\": \"status_word\",\n    \"v5\": \"ctx_offset\",\n    \"v6\": \"ctrl_preserved\",\n    \"v7\": \"ctx_byte_addr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 198,\n      \"meaning\": \"LLC context state byte, selected via a 0/4/8 context offset\"\n    }\n  ]\n}"
+}

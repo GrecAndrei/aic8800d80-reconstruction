@@ -1,0 +1,9 @@
+{
+ "fn": "assert_fault",
+ "img": "fmacfw_u02",
+ "addr": "0x113904",
+ "seg": 5,
+ "key": "assert_fault__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_assert_error\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the error handler under nested interrupt protection and performs threshold-triggered RF status cleanup before restoring IRQ state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"irq_lock_depth\",\"v6\":\"service_counter\"}}"
+}

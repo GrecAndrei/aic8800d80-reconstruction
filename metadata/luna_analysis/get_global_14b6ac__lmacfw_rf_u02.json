@@ -1,0 +1,9 @@
+{
+ "fn": "get_global_14b6ac",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1129cc",
+ "seg": 4,
+ "key": "get_global_14b6ac__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_state_get\",\"confidence\":\"medium\",\"docstring\":\"Trivial getter returning a global RF/radio state word used by neighboring radio-ready polling routines.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

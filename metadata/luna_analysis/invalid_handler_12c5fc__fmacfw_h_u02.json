@@ -1,0 +1,9 @@
+{
+ "fn": "invalid_handler_12c5fc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c5fc",
+ "seg": 40,
+ "key": "invalid_handler_12c5fc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_rx_packet_handler\",\"confidence\":\"medium\",\"docstring\":\"Matches the incoming packet\u2019s two header fields against the queued transaction, advances the transmit queue on a match, and otherwise reads and processes it as a new RX packet.\",\"subsystem\":\"hci\",\"var_renames\":{\"v4\":\"packet\",\"v8\":\"next_queued_packet\",\"v9\":\"packet_staging_buffer\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit header field matched against the first argument\"},{\"offset\":6,\"meaning\":\"16-bit header field matched against the second argument\"},{\"offset\":8,\"meaning\":\"Pointer to the queued packet data\"},{\"offset\":20,\"meaning\":\"Head of the pending-packet list\"},{\"offset\":32,\"meaning\":\"Packet staging buffer\"}]}"
+}

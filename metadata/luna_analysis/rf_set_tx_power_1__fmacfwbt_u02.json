@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_tx_power_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111168",
+ "seg": 3,
+ "key": "rf_set_tx_power_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_sdio_phase_config_set\",\"confidence\":\"medium\",\"docstring\":\"Programs the SDIO phase-configuration register using selector strobes and logs its low 22-bit value.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"phase_config_register\",\"v2\":\"phase_config_value\",\"v3\":\"previous_phase_config\",\"v4\":\"phase_config_with_selector\"}}"
+}

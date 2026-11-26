@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_core_state",
+ "img": "fmacfw_u02",
+ "addr": "0x128ea0",
+ "seg": 34,
+ "key": "wlc_core_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_bss_channel_count_update\",\"confidence\":\"medium\",\"docstring\":\"When the state guard is clear, clears bit 2 of a control word and recomputes a count from linked entries with the required flags, an assigned channel, and a zero `rf_channel_get` result.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v0\":\"channel_state\",\"v1\":\"control_word\",\"v2\":\"control_word_value\",\"v3\":\"bss_entry\",\"v5\":\"channel\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"next pointer in the linked entry list\"},{\"offset\":8,\"meaning\":\"count reset and recomputed by this function\"},{\"offset\":28,\"meaning\":\"guard flag; processing is skipped when nonzero\"},{\"offset\":106,\"meaning\":\"eligibility flag that must be zero\"},{\"offset\":108,\"meaning\":\"eligibility flag that must be nonzero\"},{\"offset\":116,\"meaning\":\"channel number; 0xFF means unset\"}]}"
+}

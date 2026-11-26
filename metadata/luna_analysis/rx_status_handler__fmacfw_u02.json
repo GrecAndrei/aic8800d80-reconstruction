@@ -1,0 +1,9 @@
+{
+ "fn": "rx_status_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x130840",
+ "seg": 42,
+ "key": "rx_status_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_build_tx_packet_header\",\"confidence\":\"medium\",\"docstring\":\"Builds a channel-dependent transmit header in the caller-provided buffer, optionally copies three 16-bit fields, and publishes the cursor after the header prefix.\",\"subsystem\":\"rf\",\"var_renames\":{\"v9\":\"header_field_value\",\"v13\":\"header_words\",\"v14\":\"channel_config\",\"v16\":\"header_word_count\",\"v17\":\"header_size_bytes\"}}"
+}

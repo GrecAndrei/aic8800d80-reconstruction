@@ -1,0 +1,9 @@
+{
+ "fn": "event_dispatch_by_type",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1337b4",
+ "seg": 47,
+ "key": "event_dispatch_by_type__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_update_descriptor\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates an RF channel descriptor with 2.4 GHz or 5 GHz center frequencies calculated from primary and secondary channel numbers and sets a descriptor status field according to the requested event type.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"event_type\",\n    \"a2\": \"primary_channel\",\n    \"a3\": \"secondary_channel\",\n    \"a4\": \"chan_desc\",\n    \"v5\": \"secondary_center_freq_mhz\",\n    \"v6\": \"center_freq_delta_mhz\",\n    \"v8\": \"adjusted_center_freq_mhz\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint8 band (0=2.4 GHz, 1=5 GHz)\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"uint8 channel status (set to 2, 3, or 4)\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"uint16 auxiliary/previous center-frequency field used during type-2 adjustment\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"uint16 center_freq1_mhz\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"uint16 center_freq2_mhz\"\n    }\n  ]\n}"
+}

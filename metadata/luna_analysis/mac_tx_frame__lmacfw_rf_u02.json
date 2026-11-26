@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_frame",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12419c",
+ "seg": 23,
+ "key": "mac_tx_frame__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_apc\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Set an RF automatic power control (APC) bitfield in the band/mode register table by clearing mask << bitpos and writing value << bitpos across the selected table entries.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"mode\",\n    \"a2\": \"field_index\",\n    \"a3\": \"bitpos\",\n    \"a4\": \"mask\",\n    \"a5\": \"value\",\n    \"v5\": \"apc_global\",\n    \"v8\": \"bitpos\",\n    \"v10\": \"table_base\",\n    \"v12\": \"field_base\",\n    \"v13\": \"clear_mask\",\n    \"v14\": \"addr\",\n    \"v15\": \"end_addr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 36,\n      \"meaning\": \"APC band/PA mode selector byte used for table selection and logging\"\n    }\n  ]\n}"
+}

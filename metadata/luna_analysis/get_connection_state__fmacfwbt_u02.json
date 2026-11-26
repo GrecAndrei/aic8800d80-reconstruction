@@ -1,0 +1,9 @@
+{
+ "fn": "get_connection_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13f218",
+ "seg": 62,
+ "key": "get_connection_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ll_update_connection_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates a BLE link-layer connection's cached TX and RX state fields, marks a pending state flag when set, and otherwise checks whether the connection is active.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"conn_idx\",\n    \"a2\": \"new_tx_state\",\n    \"a3\": \"new_rx_state\",\n    \"v3\": \"status_table_ptr\",\n    \"v4\": \"conn_entry_base\",\n    \"v7\": \"ll_state_ptr\",\n    \"v10\": \"status_word_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 166,\n      \"meaning\": \"LL state flags byte; bit 0x20 appears to gate pending-state handling and bit 0x80 marks a state update\"\n    },\n    {\n      \"offset\": 179,\n      \"meaning\": \"cached bounded TX/LL state byte (valid range 0..3)\"\n    },\n    {\n      \"offset\": 180,\n      \"meaning\": \"cached bounded RX/LL state byte (valid range 0..7)\"\n    },\n    {\n      \"offset\": 340,\n      \"meaning\": \"connection table entry field holding pointer to per-connection LL state block\"\n    }\n  ]\n}"
+}

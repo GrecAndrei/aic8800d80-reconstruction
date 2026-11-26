@@ -1,0 +1,9 @@
+{
+ "fn": "check_radio_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10fe14",
+ "seg": 3,
+ "key": "check_radio_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_user_id\",\"confidence\":\"high\",\"docstring\":\"Stores the supplied user ID in the byte immediately before the selected buffer, logging if the buffer is outside the heap.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"user_id\",\"v2\":\"buffer\"},\"struct_hints\":[{\"offset\":-1,\"meaning\":\"User ID byte stored immediately before the buffer\"}]}"
+}

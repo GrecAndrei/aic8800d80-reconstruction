@@ -1,0 +1,9 @@
+{
+ "fn": "find_link_in_list",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1182f4",
+ "seg": 11,
+ "key": "find_link_in_list__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"iterate_link_list\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Walks the global singly-linked list of link contexts, invoking check_link_id on each node.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"i\": \"link_node\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"next linked-list node pointer\"\n    }\n  ]\n}"
+}

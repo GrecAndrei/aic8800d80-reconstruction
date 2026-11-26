@@ -1,0 +1,9 @@
+{
+ "fn": "radio_event_loop",
+ "img": "fmacfw_u02",
+ "addr": "0x11cc78",
+ "seg": 19,
+ "key": "radio_event_loop__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_rx_packet\",\"confidence\":\"medium\",\"docstring\":\"Processes a received packet using the selected link and peer contexts, applying state checks and sending a kernel message when required.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"link_context_base\",\"v7\":\"peer_context\",\"v9\":\"peer_index\",\"v31\":\"message_payload\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Related link-context index\"},{\"offset\":35,\"meaning\":\"Peer or slot identifier, constrained to 0\u201331\"},{\"offset\":36,\"meaning\":\"Peer handling state or guard flag\"},{\"offset\":106,\"meaning\":\"Link-context state checked for value 2\"}]}"
+}

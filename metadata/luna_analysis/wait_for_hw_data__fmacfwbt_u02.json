@@ -1,0 +1,9 @@
+{
+ "fn": "wait_for_hw_data",
+ "img": "fmacfwbt_u02",
+ "addr": "0x103140",
+ "seg": 2,
+ "key": "wait_for_hw_data__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_delay_ticks\",\"confidence\":\"high\",\"docstring\":\"Busy-waits until the hardware timer advances by the requested number of ticks.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"start_tick\",\"v2\":\"elapsed_ticks\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_desc_read_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134cac",
+ "seg": 53,
+ "key": "rx_desc_read_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_rx_desc_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads the per-channel RF receive descriptor status into a Bluetooth LE receive event buffer, appends RSSI and connection-context data, and dispatches the receive event.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v0\": \"rx_status\",\n    \"v1\": \"rssi\",\n    \"v2\": \"channel\",\n    \"v4\": \"event_ptr\",\n    \"v5\": \"ble_rx_event\",\n    \"v6\": \"rx_bd\",\n    \"v8\": \"chan_rx_desc\",\n    \"v9\": \"ts_counter\",\n    \"v13\": \"conn_ctx_type\",\n    \"v16\": \"payload_len\",\n    \"v17\": \"bd_ctrl\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 116,\n      \"meaning\": \"channel index\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"RX buffer descriptor pointer\"\n    },\n    {\n      \"offset\": 132,\n      \"meaning\": \"RSSI field\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"frame status bytes start\"\n    }\n  ]\n}"
+}

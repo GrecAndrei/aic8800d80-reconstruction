@@ -1,0 +1,9 @@
+{
+ "fn": "check_mode_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11b898",
+ "seg": 17,
+ "key": "check_mode_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_process_radio_events\",\"confidence\":\"medium\",\"docstring\":\"Consumes pending Bluetooth receive state and checks and dispatches radio-state work when controller flags permit it.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"controller_flags\",\"v2\":\"rx_pending\",\"v35\":\"radio_state_output\"},\"struct_hints\":[{\"offset\":168,\"meaning\":\"RX descriptor slot or pointer used by the receive-save path\"},{\"offset\":191,\"meaning\":\"Mode/status byte; value 4 selects the receive-save path\"},{\"offset\":200,\"meaning\":\"Pending RX/event flag, cleared after handling\"},{\"offset\":208,\"meaning\":\"Controller flags controlling event handling and radio-state checks\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "reset_hci_scratch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f730",
+ "seg": 43,
+ "key": "reset_hci_scratch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_scratch_reset\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Zeroes an eight-byte global scratch buffer, likely used by nearby RF/parse logic, and returns zero.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

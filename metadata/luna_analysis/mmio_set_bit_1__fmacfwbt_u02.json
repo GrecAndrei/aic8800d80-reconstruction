@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_bit_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x121a94",
+ "seg": 24,
+ "key": "mmio_set_bit_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_program_tx_gain_ant0\",\"confidence\":\"medium\",\"docstring\":\"Programs PHY/RF MMIO gain and antenna-control registers, conditionally updates a gain/power field from a signed calibration value, and forces antenna 0.\",\"subsystem\":\"phy\",\"var_renames\":{\"v0\":\"signed_gain_ptr\",\"v1\":\"gain_reg_value\",\"v2\":\"gain_ctrl_base\",\"v3\":\"signed_gain_value\",\"v5\":\"ant_ctrl_value\",\"v6\":\"ant_ctrl_reg\",\"result\":\"rf_ant_switch_result\"}}"
+}

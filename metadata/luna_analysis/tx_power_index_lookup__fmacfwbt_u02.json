@@ -1,0 +1,9 @@
+{
+ "fn": "tx_power_index_lookup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1393f8",
+ "seg": 59,
+ "key": "tx_power_index_lookup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rx_seq_gap_pending_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Looks up an RX context from a packet descriptor and, if the descriptor sequence is ahead of the stored sequence, scans the associated list and processes the pending queue.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"ctx_row\",\n    \"a2\": \"rx_pkt_desc\",\n    \"result\": \"rx_ctx\",\n    \"v3\": \"pkt_seq_field\",\n    \"v4\": \"ctx_seq_field\",\n    \"v5\": \"seq_delta\",\n    \"v6\": \"seq_gap\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"rx_pkt_desc field used to select the context/table column\"\n    },\n    {\n      \"offset\": 18,\n      \"meaning\": \"rx_pkt_desc sequence or index field (12-bit value after >>4)\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"rx_ctx field holding expected/stored sequence or index value\"\n    }\n  ]\n}"
+}

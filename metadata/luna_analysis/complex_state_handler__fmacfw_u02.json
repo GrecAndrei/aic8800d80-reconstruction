@@ -1,0 +1,9 @@
+{
+ "fn": "complex_state_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x134114",
+ "seg": 50,
+ "key": "complex_state_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_context_profile_sync\",\"confidence\":\"medium\",\"docstring\":\"Synchronizes profile fields into the indexed WLAN context, with an alternate path that sets up a Bluetooth connection profile.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v3\":\"mode_flag\",\"v4\":\"context_table_base\",\"v5\":\"profile_table_base\",\"v6\":\"context_record\",\"v7\":\"profile_index\",\"v8\":\"profile_record\",\"v13\":\"profile_flags\",\"v20\":\"context_record_words\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Context state flags updated from profile flags.\"},{\"offset\":34,\"meaning\":\"Index selecting the associated profile record.\"},{\"offset\":192,\"meaning\":\"Profile data block copied from profile-record offsets 424\u2013436.\"},{\"offset\":208,\"meaning\":\"Optional profile data block copied when the corresponding profile flag is set.\"},{\"offset\":472,\"meaning\":\"Profile flags controlling context flag updates and optional data copies.\"}]}"
+}

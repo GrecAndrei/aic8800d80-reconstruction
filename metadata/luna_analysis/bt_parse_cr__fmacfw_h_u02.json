@@ -1,0 +1,9 @@
+{
+ "fn": "bt_parse_cr",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123640",
+ "seg": 28,
+ "key": "bt_parse_cr__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_set_hop_channel_header\",\"confidence\":\"medium\",\"docstring\":\"Sets the hop channel from the supplied byte and writes the supplied values to MAC header word 13.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"hop_channel_ptr\"}}"
+}

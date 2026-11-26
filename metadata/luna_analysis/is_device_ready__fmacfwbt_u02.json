@@ -1,0 +1,9 @@
+{
+ "fn": "is_device_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x137260",
+ "seg": 58,
+ "key": "is_device_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"radio_dispatch_pending_event\", \"confidence\": \"medium\", \"docstring\": \"Dispatches a radio event when the byte pointed to by the volatile status pointer is nonzero, always returning zero.\", \"subsystem\": \"rf\", \"var_renames\": {\"a2\": \"event_status\"}}"
+}

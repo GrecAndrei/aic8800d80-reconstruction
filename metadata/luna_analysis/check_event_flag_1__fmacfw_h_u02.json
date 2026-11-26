@@ -1,0 +1,9 @@
+{
+ "fn": "check_event_flag_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13819c",
+ "seg": 57,
+ "key": "check_event_flag_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_send_state_pdu\",\"confidence\":\"medium\",\"docstring\":\"Searches the context\u2019s six-byte records for the current state, retries with state 1 after a miss, and submits a 0x178-byte PDU when a record matches.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"state_code\",\"v2\":\"event_context\",\"v3\":\"tried_fallback_state\",\"v4\":\"record_cursor\",\"v5\":\"record_index\",\"v7\":\"pdu_buffer\",\"v8\":\"pdu_buffer\",\"v9\":\"packed_context_data\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"State selector byte in each six-byte record searched by the function.\"},{\"offset\":352,\"meaning\":\"Six-byte value copied into the outgoing PDU.\"},{\"offset\":366,\"meaning\":\"Byte copied into the outgoing PDU.\"},{\"offset\":367,\"meaning\":\"Number of six-byte records to search.\"},{\"offset\":368,\"meaning\":\"Byte copied into the outgoing PDU.\"},{\"offset\":369,\"meaning\":\"Byte copied into the outgoing PDU.\"},{\"offset\":372,\"meaning\":\"32-bit value copied into the outgoing PDU.\"}]}"
+}

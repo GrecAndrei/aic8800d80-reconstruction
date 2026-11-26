@@ -1,0 +1,9 @@
+{
+ "fn": "rf_chan_table_update",
+ "img": "fmacfw_h_u02",
+ "addr": "0x124fb4",
+ "seg": 30,
+ "key": "rf_chan_table_update__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_usage_map_update\",\"confidence\":\"medium\",\"docstring\":\"Marks each eligible channel identifier in the link's usage bitmap and updates the distinct-entry count and bitmap bounds.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"link_ctx\",\"v1\":\"channel_table_base\",\"v6\":\"usage_entry\",\"v15\":\"channel_id\",\"v16\":\"usage_bitmap_base\",\"v17\":\"bitmap_byte_index\",\"v18\":\"channel_bit_mask\",\"v29\":\"link_index\"},\"struct_hints\":[{\"offset\":107,\"meaning\":\"Index selecting the link's channel-usage state\"},{\"offset\":220,\"meaning\":\"Count of distinct identifiers marked in the usage bitmap\"},{\"offset\":228,\"meaning\":\"Lower bitmap-byte bound\"},{\"offset\":229,\"meaning\":\"Upper bitmap-byte bound\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_pin",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102adc",
+ "seg": 2,
+ "key": "gpio_set_pin__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_set_pin\",\"confidence\":\"medium\",\"docstring\":\"Sets a GPIO output by writing a masked value through timed intermediate control-bit states, complementing gpio_clear_pin.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"pin_mask\",\"v3\":\"pin_mask_is_zero\",\"v2\":\"intermediate_control_bits\",\"v1\":\"final_control_bits\",\"v5\":\"masked_gpio_output\",\"v8\":\"output_with_intermediate_bits\",\"result\":\"gpio_register\"},\"struct_hints\":[]}"
+}

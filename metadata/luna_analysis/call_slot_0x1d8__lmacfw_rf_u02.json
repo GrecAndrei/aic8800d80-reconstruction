@@ -1,0 +1,9 @@
+{
+ "fn": "call_slot_0x1d8",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1142d8",
+ "seg": 5,
+ "key": "call_slot_0x1d8__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"call_slot_0x1d8\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Call-slot trampoline that loads and invokes the function pointer stored at slot 0x1D8.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llc_get_context",
+ "img": "fmacfw_u02",
+ "addr": "0x129d68",
+ "seg": 36,
+ "key": "llc_get_context__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_get_context\",\"confidence\":\"medium\",\"docstring\":\"Calls the LLC context helper and, on success, invokes a worker, sets a byte flag at offset 0x10, and returns the helper result narrowed to a byte.\",\"subsystem\":\"ble\",\"var_renames\":{\"v5\":\"context_helper_result\",\"v6\":\"context_result_byte\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"one-byte flag set after the context helper succeeds\"}]}"
+}

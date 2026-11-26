@@ -1,0 +1,9 @@
+{
+ "fn": "set_global_config_bytes",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11c3a4",
+ "seg": 18,
+ "key": "set_global_config_bytes__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"store_global_config_pair\",\"confidence\":\"medium\",\"docstring\":\"Copies the first two bytes of the source buffer into global configuration offsets 164 and 165, then returns the source pointer.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"source_bytes\",\"v1\":\"global_config\"},\"struct_hints\":[{\"offset\":164,\"meaning\":\"First byte of the copied two-byte configuration value.\"},{\"offset\":165,\"meaning\":\"Second byte of the copied two-byte configuration value.\"}]}"
+}

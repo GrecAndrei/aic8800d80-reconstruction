@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clear_buf_0x40a",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1213fc",
+ "seg": 22,
+ "key": "rf_clear_buf_0x40a__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_handle_clear_buf_0x40a\",\"confidence\":\"medium\",\"docstring\":\"Handles an RF clear-buffer request by allocating a 12-byte 0x40A kernel message, zeroing its payload, and invoking the RX IRQ handler.\",\"subsystem\":\"rf\",\"var_renames\":{\"v4\":\"msg\"}}"
+}

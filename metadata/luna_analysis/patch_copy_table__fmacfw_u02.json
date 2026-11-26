@@ -1,0 +1,9 @@
+{
+ "fn": "patch_copy_table",
+ "img": "fmacfw_u02",
+ "addr": "0x11512c",
+ "seg": 6,
+ "key": "patch_copy_table__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dump_cortex_m_fault_context\",\"confidence\":\"high\",\"docstring\":\"Logs the saved Cortex-M register context, SCB fault status, execution mode, and memory around the saved MSP and PSP.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"saved_context\",\"v5\":\"scb_registers\",\"v6\":\"cfsr\",\"v10\":\"msp\",\"v11\":\"psp\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Saved R0\u2013R12 register array occupies offsets 0x00\u20130x30.\"},{\"offset\":52,\"meaning\":\"Saved SP\"},{\"offset\":56,\"meaning\":\"Saved LR\"},{\"offset\":60,\"meaning\":\"Saved PC\"},{\"offset\":64,\"meaning\":\"Saved xPSR\"},{\"offset\":68,\"meaning\":\"Saved PSP\"},{\"offset\":72,\"meaning\":\"Saved MSP\"},{\"offset\":76,\"meaning\":\"Saved EXC_RETURN\"},{\"offset\":80,\"meaning\":\"Saved CONTROL\"},{\"offset\":0,\"meaning\":\"SCB CPUID register\"},{\"offset\":4,\"meaning\":\"SCB ICSR register\"},{\"offset\":8,\"meaning\":\"SCB VTOR register\"},{\"offset\":12,\"meaning\":\"SCB AIRCR register\"},{\"offset\":36,\"meaning\":\"SCB SHCSR register\"},{\"offset\":40,\"meaning\":\"SCB CFSR register\"},{\"offset\":44,\"meaning\":\"SCB HFSR register\"},{\"offset\":48,\"meaning\":\"SCB DFSR register\"},{\"offset\":52,\"meaning\":\"SCB MMFAR register\"},{\"offset\":56,\"meaning\":\"SCB BFAR register\"},{\"offset\":60,\"meaning\":\"SCB AFSR register\"}]}"
+}

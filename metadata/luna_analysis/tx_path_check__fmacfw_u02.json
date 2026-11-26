@@ -1,0 +1,9 @@
+{
+ "fn": "tx_path_check",
+ "img": "fmacfw_u02",
+ "addr": "0x131920",
+ "seg": 44,
+ "key": "tx_path_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_path_status_process\",\"confidence\":\"medium\",\"docstring\":\"Checks the received frame's rate condition, notifies a configured destination task when present, and parses its PHY status.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a3\":\"rx_frame\",\"v4\":\"destination_task_id\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Optional destination task ID; 0xFFFF indicates no destination.\"}]}"
+}

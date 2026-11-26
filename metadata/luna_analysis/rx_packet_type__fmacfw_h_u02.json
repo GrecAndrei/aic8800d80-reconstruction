@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_type",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11af90",
+ "seg": 15,
+ "key": "rx_packet_type__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_rx_packet_type\",\"confidence\":\"medium\",\"docstring\":\"Updates packet-format and status bits in a packed RX word when a table-derived rate/length comparison succeeds.\",\"subsystem\":\"rx\",\"var_renames\":{\"v3\":\"rx_info_word\",\"v4\":\"encoded_mode_bits\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "process_float_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123ec0",
+ "seg": 30,
+ "key": "process_float_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_cmd_process\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Dispatches a BLE HCI command packet by command identifier after issuing the short HCI command handling step.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"cmd_id\",\n    \"a2\": \"param_data\",\n    \"a3\": \"param_len\",\n    \"v8\": \"hci_status\",\n    \"v10\": \"cmd_table\",\n    \"v11\": \"table_state\"\n  },\n  \"struct_hints\": []\n}"
+}

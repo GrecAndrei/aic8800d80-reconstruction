@@ -1,0 +1,9 @@
+{
+ "fn": "bt_check_conn_active",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13c7ac",
+ "seg": 61,
+ "key": "bt_check_conn_active__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_prepare_event_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"If the selected BT connection/event context is present, build an 18-byte custom BT event packet containing the context subtype, an incremented sequence value, and an 8-byte ke_process_event payload, returning the packet length; otherwise return the absent context result (0).\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"event_ctx\",\n    \"v5\": \"pkt\",\n    \"v6\": \"old_seq\",\n    \"v7\": \"seq\",\n    \"v8\": \"seq_ptr\",\n    \"v12\": \"payload_ptr\",\n    \"v13\": \"zero_ptr\",\n    \"v14\": \"event_result\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"BT connection/device index used to select the event context\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"64-bit sequence/timestamp counter copied to the packet and incremented\"\n    },\n    {\n      \"offset\": 97,\n      \"meaning\": \"byte-valued event subtype/state written into packet offset 2\"\n    }\n  ]\n}"
+}

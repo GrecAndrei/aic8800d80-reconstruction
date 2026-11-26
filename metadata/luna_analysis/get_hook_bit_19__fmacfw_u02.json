@@ -1,0 +1,9 @@
+{
+ "fn": "get_hook_bit_19",
+ "img": "fmacfw_u02",
+ "addr": "0x114b84",
+ "seg": 5,
+ "key": "get_hook_bit_19__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_hook_bit_19\",\"confidence\":\"high\",\"docstring\":\"Returns bit 19 of the value returned by the hook provider when called with selector 15.\",\"subsystem\":\"hal\"}"
+}

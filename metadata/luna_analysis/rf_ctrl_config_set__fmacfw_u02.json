@@ -1,0 +1,9 @@
+{
+ "fn": "rf_ctrl_config_set",
+ "img": "fmacfw_u02",
+ "addr": "0x10df18",
+ "seg": 3,
+ "key": "rf_ctrl_config_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_control_config_set\",\"confidence\":\"medium\",\"docstring\":\"Writes the selected configuration into bits 3:2 of sixteen RF registers, then returns a peripheral register read.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"config\",\"v1\":\"reg_addr\",\"v2\":\"config_bits\",\"v3\":\"end_addr\"}}"
+}

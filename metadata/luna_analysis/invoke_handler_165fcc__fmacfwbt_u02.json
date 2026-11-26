@@ -1,0 +1,9 @@
+{
+ "fn": "invoke_handler_165fcc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x109c0c",
+ "seg": 2,
+ "key": "invoke_handler_165fcc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_sample_buffer\",\"confidence\":\"medium\",\"docstring\":\"Initializes comparison vectors from the float workspace and processes paired samples selected by a local byte mask using parameters from the context.\",\"subsystem\":\"rf\",\"var_renames\":{\"v19\":\"sample_count\",\"v21\":\"mask_cursor\",\"v22\":\"sample_ptr\",\"v23\":\"sample_end\",\"v26\":\"paired_sample\",\"v27\":\"scaled_sample\",\"v28\":\"sample_residual\",\"v29\":\"residual_squared\",\"v30\":\"normalization_term\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Float parameter used to scale each sample.\"},{\"offset\":12,\"meaning\":\"Additive correction applied to the sample residual.\"}]}"
+}

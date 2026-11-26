@@ -1,0 +1,9 @@
+{
+ "fn": "rf_helper",
+ "img": "fmacfw_h_u02",
+ "addr": "0x112bac",
+ "seg": 4,
+ "key": "rf_helper__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_irq_handler\",\"confidence\":\"medium\",\"docstring\":\"Acknowledges pending WLAN interrupts and handles calibration, hardware initialization, and fault recovery events.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"wlan_regs\",\"v1\":\"irq_status\",\"v2\":\"pending_irqs\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"Interrupt status register, read and written back to acknowledge pending interrupts.\"},{\"offset\":24,\"meaning\":\"Interrupt mask register, used to filter the status bits.\"},{\"offset\":2064,\"meaning\":\"Status/control register; bits 0x18 and 0x01 are tested, and bit 0x10 may be cleared.\"}]}"
+}

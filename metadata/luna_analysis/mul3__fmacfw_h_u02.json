@@ -1,0 +1,9 @@
+{
+ "fn": "mul3",
+ "img": "fmacfw_h_u02",
+ "addr": "0x103f14",
+ "seg": 2,
+ "key": "mul3__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_program_table_entry\",\"confidence\":\"medium\",\"docstring\":\"Optionally initializes the selected 12-word RF table entry with defaults, then copies it into the banked hardware table window.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_table\",\"a2\":\"entry_index\",\"v5\":\"bank_select_reg\",\"v6\":\"table_window_base\"}}"
+}

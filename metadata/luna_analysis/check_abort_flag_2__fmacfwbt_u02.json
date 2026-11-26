@@ -1,0 +1,9 @@
+{
+ "fn": "check_abort_flag_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d4b8",
+ "seg": 42,
+ "key": "check_abort_flag_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"list_push_front\", \"confidence\": \"medium\", \"docstring\": \"Pushes an item onto the head of an intrusive list, maintaining first/last pointers; an abort-flag check may clear IRQ 95.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"result\": \"list\", \"v2\": \"list_ptr\", \"a2\": \"item\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"list first pointer / item next pointer\"}, {\"offset\": 1, \"meaning\": \"list last pointer\"}]}"
+}

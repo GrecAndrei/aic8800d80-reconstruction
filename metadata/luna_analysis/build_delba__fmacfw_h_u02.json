@@ -1,0 +1,9 @@
+{
+ "fn": "build_delba",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130c50",
+ "seg": 42,
+ "key": "build_delba__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"build_delba_action_frame\",\"confidence\":\"high\",\"docstring\":\"Builds a DELBA action frame body containing the TID, initiator flag, and reason code.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"frame_buffer\",\"a2\":\"ba_agreement\",\"a3\":\"reason_code\",\"v3\":\"tid\",\"v4\":\"initiator_flag\",\"v5\":\"delba_parameters\"},\"struct_hints\":[{\"offset\":17,\"meaning\":\"BA agreement initiator flag; when set to 1, sets the DELBA Initiator bit\"},{\"offset\":22,\"meaning\":\"TID encoded in the DELBA parameter set\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "init_fixed_packet_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12aa70",
+ "seg": 37,
+ "key": "init_fixed_packet_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lll_init_fixed_packet_header\",\"confidence\":\"medium\",\"docstring\":\"Writes fixed header bytes to the supplied buffer, leaves byte 1 unchanged, and returns the buffer.\",\"subsystem\":\"lll\"}"
+}

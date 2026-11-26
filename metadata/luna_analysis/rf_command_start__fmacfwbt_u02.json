@@ -1,0 +1,9 @@
+{
+ "fn": "rf_command_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f288",
+ "seg": 43,
+ "key": "rf_command_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_command_toggle\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Toggles the RF command state, dispatching either a start command or a calibrated RF parameter to the RF task.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_cmd_state_ptr\",\n    \"v2\": \"rf_cmd_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"RF command state field: 1=pre-start/idle, 2=post-start/calibration-active\"\n    }\n  ]\n}"
+}

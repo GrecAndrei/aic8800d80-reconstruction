@@ -1,0 +1,9 @@
+{
+ "fn": "tick_counter_update",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x112a0c",
+ "seg": 4,
+ "key": "tick_counter_update__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_rx_data_process\",\"confidence\":\"medium\",\"docstring\":\"Validates a received USB WLAN data buffer and enqueues valid 0x11 frames into the RX message descriptor pool, freeing the buffer on length, type, or pool-state errors.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v3\":\"rx_counter_ptr\",\"v4\":\"recv_state_ptr\",\"v6\":\"recv_state\",\"v9\":\"packet_type\",\"v10\":\"payload_len\",\"v11\":\"rx_pool_base\",\"v12\":\"rx_msg_count\",\"v13\":\"msg_task_id\",\"v14\":\"rx_slot_index\",\"v15\":\"rx_msg_desc\"},\"struct_hints\":[{\"offset\":2432,\"meaning\":\"RX slot write index or head\"},{\"offset\":2433,\"meaning\":\"RX message count\"},{\"offset\":2434,\"meaning\":\"RX message capacity\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_current_profile_conn",
+ "img": "fmacfw_u02",
+ "addr": "0x135850",
+ "seg": 53,
+ "key": "bt_get_current_profile_conn__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_send_current_conn_info\",\"confidence\":\"medium\",\"docstring\":\"Packages the current Bluetooth connection index and selected connection-context fields with a byte-swapped argument into a kernel message, performs related setup, and sends it.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"active_conn_ctx\",\"v2\":\"conn_table\",\"v3\":\"conn_idx\",\"v5\":\"msg_payload\",\"v6\":\"msg_write_cursor\",\"v7\":\"conn_entry\",\"v8\":\"conn_data_cursor\",\"v9\":\"msg\",\"v10\":\"conn_data_end\",\"v14\":\"conn_entry\",\"v15\":\"conn_field_368\"},\"struct_hints\":[{\"offset\":61,\"meaning\":\"Current connection index in the active connection context.\"},{\"offset\":368,\"meaning\":\"32-bit connection-context value copied into the outgoing message.\"},{\"offset\":372,\"meaning\":\"16-bit connection-context value copied into the outgoing message.\"},{\"offset\":374,\"meaning\":\"Start of a 32-byte connection-context block copied into the outgoing message.\"},{\"offset\":406,\"meaning\":\"Trailing byte copied after the 32-byte block.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "is_initialized",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117e0c",
+ "seg": 11,
+ "key": "is_initialized__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"txl_ba_push\",\"confidence\":\"high\",\"docstring\":\"Pops a buffer from the selected transmit queue and prepares its BA-related descriptor metadata and frame header.\",\"subsystem\":\"mac\",\"var_renames\":{\"v4\":\"queue_index\",\"v6\":\"popped_buffer\",\"v8\":\"tx_buffer\",\"v9\":\"tx_descriptor_info\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Buffer control flags; this function sets bits 0x20 and 0x40.\"},{\"offset\":224,\"meaning\":\"Pointer to the copied frame header stored at offset 228.\"},{\"offset\":228,\"meaning\":\"Storage for a 34-byte copied frame header.\"}]}"
+}

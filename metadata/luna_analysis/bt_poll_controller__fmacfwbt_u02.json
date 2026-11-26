@@ -1,0 +1,9 @@
+{
+ "fn": "bt_poll_controller",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1339d8",
+ "seg": 47,
+ "key": "bt_poll_controller__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_poll_controller\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls the Bluetooth controller for readiness, issuing an HCI command when the direct status check is insufficient and acknowledging or clearing a controller IRQ before checking firmware readiness.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v2\": \"irq_clear_status\"\n  }\n}"
+}

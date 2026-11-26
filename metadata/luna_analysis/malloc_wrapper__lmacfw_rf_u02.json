@@ -1,0 +1,9 @@
+{
+ "fn": "malloc_wrapper",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x105f40",
+ "seg": 2,
+ "key": "malloc_wrapper__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_pa_cal_adjust\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Adjusts an RF power-amplifier calibration entry from a measured sample, logs saturation or SMA-related checks, and reloads the associated device descriptor.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"desc\",\n    \"a2\": \"sample\",\n    \"a3\": \"index\",\n    \"v7\": \"entry_ptr\",\n    \"v9\": \"old_adjust\",\n    \"v11\": \"cal_value\",\n    \"v12\": \"computed_limit\",\n    \"v13\": \"sma_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 140,\n      \"meaning\": \"per-entry calibration adjustment or accumulator relative to entry_ptr\"\n    },\n    {\n      \"offset\": 164,\n      \"meaning\": \"primary calibration value low word or first 32-bit field\"\n    },\n    {\n      \"offset\": 168,\n      \"meaning\": \"primary calibration value high word compared against computed_limit\"\n    },\n    {\n      \"offset\": 172,\n      \"meaning\": \"secondary threshold or SMA-related value\"\n    }\n  ]\n}"
+}

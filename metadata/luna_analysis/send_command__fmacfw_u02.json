@@ -1,0 +1,9 @@
+{
+ "fn": "send_command",
+ "img": "fmacfw_u02",
+ "addr": "0x1006d8",
+ "seg": 0,
+ "key": "send_command__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_send_command\",\"confidence\":\"medium\",\"docstring\":\"Writes 0x11 to the hardware control register, waits for ten timer ticks, clears the register, then waits another ten ticks before returning 32.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"first_deadline\",\"v3\":\"first_deadline_delta\",\"v6\":\"second_deadline\",\"v8\":\"second_deadline_delta\",\"v9\":\"spin_count\",\"v10\":\"spin_count\"}}"
+}

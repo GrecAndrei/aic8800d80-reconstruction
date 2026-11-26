@@ -1,0 +1,9 @@
+{
+ "fn": "float_to_double",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11eaa0",
+ "seg": 21,
+ "key": "float_to_double__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"float_to_double\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reconstructs a double-precision value from single-precision float components using software floating-point add and multiply helpers.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v1\": \"float_parts\",\n    \"v2\": \"double_from_parts\",\n    \"v3\": \"adjusted_double\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "send_control_command",
+ "img": "fmacfw_u02",
+ "addr": "0x133be4",
+ "seg": 48,
+ "key": "send_control_command__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_conn_loss_ind_handler\",\"confidence\":\"medium\",\"docstring\":\"Logs a connection-loss indication, returns code 2 when the preliminary state check is nonzero, and otherwise conditionally schedules a timeout for the indexed connection.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"connection_index\",\"v4\":\"connection_context\",\"v5\":\"offset_106_value\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Byte value checked before timeout scheduling and passed as the scheduler's third argument.\"},{\"offset\":108,\"meaning\":\"Byte flag whose nonzero value triggers timeout scheduling when offset 106 is zero.\"}]}"
+}

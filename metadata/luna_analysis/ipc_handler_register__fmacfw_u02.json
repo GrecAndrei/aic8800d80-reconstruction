@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_handler_register",
+ "img": "fmacfw_u02",
+ "addr": "0x117f18",
+ "seg": 10,
+ "key": "ipc_handler_register__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_operation_setup\",\"confidence\":\"medium\",\"docstring\":\"Stores the supplied value in a nested context field, processes the indexed operation-table entry, and invokes an indexed fallback callback when flag bit 21 is clear.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"context\",\"a2\":\"field_value\",\"a3\":\"operation_index\",\"v3\":\"operation_context\",\"v5\":\"operation_table\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"flags; bit 21 controls whether the fallback callback is invoked\"},{\"offset\":76,\"meaning\":\"pointer to a nested operation context\"},{\"offset\":4,\"meaning\":\"nested context field assigned the supplied value\"}]}"
+}

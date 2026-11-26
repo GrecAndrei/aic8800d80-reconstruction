@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_phy",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122248",
+ "seg": 24,
+ "key": "mmio_read_phy__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_evt_send_phy_byte\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a Bluetooth HCI event buffer, copies the byte at offset 107 from the supplied PHY/MMIO base address into it, and sends it as an HCI event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"phy_base\",\n    \"v2\": \"evt_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 107,\n      \"meaning\": \"volatile PHY/MMIO status byte copied into an HCI event payload\"\n    }\n  ]\n}"
+}

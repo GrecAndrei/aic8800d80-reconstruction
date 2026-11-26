@@ -1,0 +1,9 @@
+{
+ "fn": "rx_env_list_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c564",
+ "seg": 40,
+ "key": "rx_env_list_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_rx_env_list_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the MAC receive-envelope list by zeroing two adjacent RX environment list/descriptor entries at the global list base.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"rx_env_list_base\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"first 8-byte RX envelope/list structure\"},{\"offset\":8,\"meaning\":\"second adjacent 8-byte RX envelope/list structure\"}]}"
+}

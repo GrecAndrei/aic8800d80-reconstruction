@@ -1,0 +1,9 @@
+{
+ "fn": "nvic_enable_irq",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102a58",
+ "seg": 2,
+ "key": "nvic_enable_irq__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_configure_init_registers\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Loads a fixed set of RF/PHY configuration values into memory-mapped registers, issuing command/status strobes and enabling interrupts.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_control\",\n    \"v1\": \"rf_command_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"RF/PHY data register base pointer stored in the control structure\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"command/status word at the RF command base\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"secondary command/status word at the RF command base\"\n    },\n    {\n      \"offset\": 771,\n      \"meaning\": \"byte-wide RF command/status field set to 0xF8\"\n    }\n  ]\n}"
+}

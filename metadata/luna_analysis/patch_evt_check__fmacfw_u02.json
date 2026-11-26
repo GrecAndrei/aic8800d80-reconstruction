@@ -1,0 +1,9 @@
+{
+ "fn": "patch_evt_check",
+ "img": "fmacfw_u02",
+ "addr": "0x1338e0",
+ "seg": 46,
+ "key": "patch_evt_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"patch_event_check\",\"confidence\":\"medium\",\"docstring\":\"Checks a patch condition and forwards the selected value to the Bluetooth controller-ready handler, clearing a configured MMIO register on the fallback path.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"clear_result\"}}"
+}

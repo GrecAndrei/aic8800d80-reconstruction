@@ -1,0 +1,9 @@
+{
+ "fn": "rf_read_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x112fc4",
+ "seg": 4,
+ "key": "rf_read_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_usb_rx_dispatch\",\"confidence\":\"high\",\"docstring\":\"Validates received USB wireless frames and dispatches advertising reports or queues WLAN messages for ioctl handling.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"rx_frame\",\"a2\":\"rx_length\",\"v3\":\"rx_event_count\",\"v4\":\"rx_status\",\"v9\":\"frame_type\",\"v10\":\"declared_length\",\"v11\":\"rx_queue_state\",\"v12\":\"queued_count\",\"v14\":\"queue_slot_index\",\"v15\":\"queue_entry\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Low byte of the frame's encoded length.\"},{\"offset\":1,\"meaning\":\"Upper length bits, masked to the low nibble.\"},{\"offset\":2,\"meaning\":\"Frame type: 1 for an advertising report or 17 for a WLAN message.\"},{\"offset\":4,\"meaning\":\"Frame payload begins here; in a queue entry, this offset stores the frame pointer.\"},{\"offset\":16,\"meaning\":\"Queue-entry frame length.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "send_acl_data",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13eba8",
+ "seg": 62,
+ "key": "send_acl_data__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_acl_data\",\"confidence\":\"medium\",\"docstring\":\"Thin wrapper that sends a Bluetooth ACL/data packet by deriving the payload size from its arguments and invoking alloc_send_packet with a data packet type.\",\"subsystem\":\"ble\",\"var_renames\":{}}"
+}

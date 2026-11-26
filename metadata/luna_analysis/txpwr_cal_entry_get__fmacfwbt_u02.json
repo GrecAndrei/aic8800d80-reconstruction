@@ -1,0 +1,9 @@
+{
+ "fn": "txpwr_cal_entry_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136e40",
+ "seg": 57,
+ "key": "txpwr_cal_entry_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_txpwr_cal_entry_complete\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Completes an RF transmit-power calibration entry by clearing pending flags and emits an HCI event when the entry becomes idle.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"ctx\",\n    \"a2\": \"cal_entry_index\",\n    \"v2\": \"cal_entry\",\n    \"v3\": \"entry_flags\",\n    \"v4\": \"evt_buf\",\n    \"v5\": \"evt_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"command or task state selector; value 2 enables TX-power calibration processing\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"uint16 TX-power calibration value or channel copied into the event packet\"\n    },\n    {\n      \"offset\": 34,\n      \"meaning\": \"uint8 calibration status or parameter copied into the event packet\"\n    },\n    {\n      \"offset\": 53,\n      \"meaning\": \"uint8 entry flags; bits 0x1 and 0x8 indicate pending completion sources\"\n    }\n  ]\n}"
+}

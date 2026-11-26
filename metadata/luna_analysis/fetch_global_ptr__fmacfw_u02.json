@@ -1,0 +1,9 @@
+{
+ "fn": "fetch_global_ptr",
+ "img": "fmacfw_u02",
+ "addr": "0x12f810",
+ "seg": 42,
+ "key": "fetch_global_ptr__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"console_handle_input_char\",\"confidence\":\"medium\",\"docstring\":\"Handles one console input byte, applying editing-key operations to the shared line buffer and returning its length when a line terminator arrives.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v3\":\"input_cursor_slot\",\"v6\":\"input_length_slot\",\"v7\":\"cursor_offset_slot\",\"v8\":\"cursor_offset\",\"v14\":\"edit_count_slot\",\"v15\":\"input_cursor\",\"v17\":\"updated_cursor\",\"v20\":\"input_cursor\"}}"
+}

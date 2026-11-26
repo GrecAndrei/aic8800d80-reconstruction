@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_32",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1145b8",
+ "seg": 6,
+ "key": "mmio_read_32__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_read_32\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Reads a 32-bit MMIO value by invoking the kernel task handler with a 4-byte width parameter.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"addr\"\n  },\n  \"struct_hints\": []\n}"
+}

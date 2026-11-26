@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x117d08",
+ "seg": 11,
+ "key": "rf_irq_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_irq_status_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads the RF interrupt status register, masks and promotes specific wake bits, updates related control state, and maps the resulting high-nibble source bits to an event-table entry while caching the status.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_irq_enabled_status\",\n    \"result\": \"mapped_irq_event\"\n  }\n}"
+}

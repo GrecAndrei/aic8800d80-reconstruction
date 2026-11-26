@@ -1,0 +1,9 @@
+{
+ "fn": "ll_state_field_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x142554",
+ "seg": 68,
+ "key": "ll_state_field_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"lll_send_scan_report\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds and sends an HCI BLE scan report event from the selected scan-set context, returning failure early if the scan set or PHY-state filter marks the report as invalid.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v4\": \"scan_ctx_base\",\n    \"v5\": \"scan_ctx_id\",\n    \"v6\": \"scan_ctx\",\n    \"v10\": \"adv_ctx_id\",\n    \"v11\": \"adv_ctx_base\",\n    \"v19\": \"status\",\n    \"v20\": \"evt_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 40,\n      \"meaning\": \"64-bit scan context timestamp base\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"scan context state byte that must be zero before building the report\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"scan context state byte copied into the report structure\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"scan context validity/enabled byte required to be non-zero\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"index of associated advertising/connection context used with adv_ctx_base\"\n    }\n  ]\n}"
+}

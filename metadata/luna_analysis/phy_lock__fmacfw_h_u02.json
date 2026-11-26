@@ -1,0 +1,9 @@
+{
+ "fn": "phy_lock",
+ "img": "fmacfw_h_u02",
+ "addr": "0x116dbc",
+ "seg": 9,
+ "key": "phy_lock__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_operation_allowed\",\"confidence\":\"medium\",\"docstring\":\"Returns whether PHY work may proceed, subject to global and CFM gates and, when enabled in the context, a nonzero BT channel for the associated connection.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"context\"},\"struct_hints\":[{\"offset\":1224,\"meaning\":\"Nonzero flag enabling the BT channel check.\"},{\"offset\":1225,\"meaning\":\"BT connection index passed to bt_get_conn_channel.\"}]}"
+}

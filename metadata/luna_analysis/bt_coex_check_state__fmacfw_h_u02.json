@@ -1,0 +1,9 @@
+{
+ "fn": "bt_coex_check_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ef20",
+ "seg": 42,
+ "key": "bt_coex_check_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_test_timer_handler\",\"confidence\":\"medium\",\"docstring\":\"Alternates between firmware-version and RF-timer actions, rescheduling event 1070 after each phase.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"phase\"},\"struct_hints\":[{\"offset\":1,\"meaning\":\"periodic handler phase, alternating between 1 and 2\"},{\"offset\":364,\"meaning\":\"reschedule interval in seconds, converted to milliseconds\"}]}"
+}

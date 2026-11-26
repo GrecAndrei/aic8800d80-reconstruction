@@ -1,0 +1,9 @@
+{
+ "fn": "list_search",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11add0",
+ "seg": 15,
+ "key": "list_search__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_list_search_notify\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a kernel list-search completion by updating the matched or pending entry state and sending the associated kernel event messages.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v1\": \"ctx\",\n    \"v2\": \"current_entry\",\n    \"v3\": \"result_entry\",\n    \"v4\": \"entry_status_msg\",\n    \"v5\": \"event_msg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"context scalar parameter used as the event-message payload\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"entry state byte (2=pending/scheduled, 4=matched/complete)\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"entry type or status byte copied into kernel message 69\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"context current/target entry pointer\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"context result/pending entry pointer\"\n    }\n  ]\n}"
+}

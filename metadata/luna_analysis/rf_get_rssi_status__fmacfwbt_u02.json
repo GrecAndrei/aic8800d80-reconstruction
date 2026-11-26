@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_rssi_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132aa0",
+ "seg": 46,
+ "key": "rf_get_rssi_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_rssi_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads an RF status word at offset 0xDC, extracts the six-bit high-byte RSSI field, and encodes bit 30 as a status bit in the returned RSSI value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_base\",\n    \"v1\": \"status_word\",\n    \"v2\": \"rssi_field\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 220,\n      \"meaning\": \"RF status register offset (0xDC) containing high-byte RSSI/status bits\"\n    }\n  ]\n}"
+}

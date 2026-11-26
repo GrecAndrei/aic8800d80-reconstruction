@@ -1,0 +1,9 @@
+{
+ "fn": "bt_msg_build",
+ "img": "fmacfw_h_u02",
+ "addr": "0x140c84",
+ "seg": 64,
+ "key": "bt_msg_build__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_ll_state_check_with_temp_state\",\"confidence\":\"medium\",\"docstring\":\"Temporarily overrides the two-byte field at context offset 6488, calls bt_ll_state_check with a stack descriptor, and restores the original field.\",\"subsystem\":\"bt\",\"var_renames\":{\"v5\":\"bt_context\",\"v6\":\"saved_field_value\",\"v8\":\"state_check_descriptor\"},\"struct_hints\":[{\"offset\":6488,\"meaning\":\"Two-byte field temporarily overridden before bt_ll_state_check; exact semantics are unclear.\"}]}"
+}

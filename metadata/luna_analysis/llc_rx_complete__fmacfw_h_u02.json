@@ -1,0 +1,9 @@
+{
+ "fn": "llc_rx_complete",
+ "img": "fmacfw_h_u02",
+ "addr": "0x126bc4",
+ "seg": 32,
+ "key": "llc_rx_complete__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_check_channel_validity\",\"confidence\":\"medium\",\"docstring\":\"Checks matching link contexts for PHY-invalid channels, updates the shared invalid-channel count, and triggers RF state handling based on the result.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"llc_global\",\"v2\":\"link_ctx\",\"v3\":\"initial_invalid_count\",\"v4\":\"channel_ctx\",\"v7\":\"invalid_count\",\"v9\":\"channel_invalid_flag\",\"v11\":\"channel_index\",\"v12\":\"saved_channel_state\",\"v13\":\"previous_invalid_count\",\"v14\":\"rf_state_ctx\",\"v15\":\"invalid_count_delta\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"temporary channel-context state code\"},{\"offset\":40,\"meaning\":\"primary channel-context pointer\"},{\"offset\":44,\"meaning\":\"secondary RF-state context pointer\"},{\"offset\":72,\"meaning\":\"associated channel-context pointer in a link entry\"},{\"offset\":89,\"meaning\":\"shared invalid-channel count\"},{\"offset\":116,\"meaning\":\"PHY channel index\"}]}"
+}

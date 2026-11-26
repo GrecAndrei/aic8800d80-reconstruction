@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_link_context",
+ "img": "fmacfw_u02",
+ "addr": "0x136d14",
+ "seg": 56,
+ "key": "bt_get_link_context__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_encrypt_packet_and_notify\",\"confidence\":\"medium\",\"docstring\":\"Encrypts an eligible Bluetooth packet with its per-link CCM context and sends a kernel indication when the link\u2019s pending encryption flags are exhausted.\",\"subsystem\":\"bt\",\"var_renames\":{\"result\":\"packet\",\"a2\":\"link_index\",\"v2\":\"link_ctx\",\"v3\":\"pending_flags\",\"v4\":\"indication_msg\",\"v5\":\"connection_handle\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"16-bit connection handle in the per-link context\"},{\"offset\":34,\"meaning\":\"Per-link byte copied into the kernel indication\"},{\"offset\":53,\"meaning\":\"Per-link encryption flags; bits 1 and 3 are cleared before checking whether to send the indication\"},{\"offset\":106,\"meaning\":\"Input packet field that gates CCM processing when its value is 2\"}]}"
+}

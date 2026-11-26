@@ -1,0 +1,9 @@
+{
+ "fn": "is_rssi_valid",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114d44",
+ "seg": 6,
+ "key": "is_rssi_valid__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"halt_after_rssi_check\",\"confidence\":\"medium\",\"docstring\":\"Reads a signed 16-bit value associated with RSSI, performs the fixed IRQ/MMIO operation if it is negative, and then spins forever.\",\"subsystem\":\"phy\",\"var_renames\":{},\"struct_hints\":[]}"
+}

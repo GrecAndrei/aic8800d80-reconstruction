@@ -1,0 +1,9 @@
+{
+ "fn": "main_loop_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e344",
+ "seg": 43,
+ "key": "main_loop_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"parse_printf_spec\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses printf-style conversion specification characters, handling flags and width-related tokens before numeric output formatting.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a4\": \"fmt_pos\",\n    \"v7\": \"fmt_char\",\n    \"v8\": \"fmt_next\",\n    \"v13\": \"parser_state\",\n    \"v61\": \"event\"\n  },\n  \"struct_hints\": []\n}"
+}

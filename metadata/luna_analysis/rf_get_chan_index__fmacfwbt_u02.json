@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_chan_index",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1327e8",
+ "seg": 46,
+ "key": "rf_get_chan_index__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_decode_pair_mask_to_level\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans seven 2-bit fields from bit 14 down to bit 2, counting leading fields equal to 0b11, and returns the inverse level (7 minus that count).\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"bit_shift\",\n    \"v4\": \"pair_bits\",\n    \"v5\": \"remaining\",\n    \"result\": \"level\"\n  },\n  \"struct_hints\": []\n}"
+}

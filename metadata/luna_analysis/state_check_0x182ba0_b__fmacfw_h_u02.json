@@ -1,0 +1,9 @@
+{
+ "fn": "state_check_0x182ba0_b",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f448",
+ "seg": 42,
+ "key": "state_check_0x182ba0_b__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"forward_rf_test_message\",\"confidence\":\"medium\",\"docstring\":\"In state 3, tags and copies a 28-byte RF-test message into an alternate buffer, waits for the ioctl handshake, forwards it, and resets RF command state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"request_buffer\",\"v2\":\"alternate_buffer\",\"v3\":\"alternate_buffer\",\"v4\":\"ioctl_handshake_flag\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Message tag set to 0xC0DE\"}]}"
+}

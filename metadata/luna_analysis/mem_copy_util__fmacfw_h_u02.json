@@ -1,0 +1,9 @@
+{
+ "fn": "mem_copy_util",
+ "img": "fmacfw_h_u02",
+ "addr": "0x124bfc",
+ "seg": 30,
+ "key": "mem_copy_util__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mm_timer_set\",\"confidence\":\"high\",\"docstring\":\"Updates a timer\u2019s expiration, reorders it in the pending-timer list, and adjusts timer state when it becomes the earliest deadline.\",\"subsystem\":\"mm\",\"var_renames\":{\"a1\":\"timer_entry\",\"a2\":\"expiration_time\",\"v4\":\"timer_lock_count_ptr\",\"v7\":\"timer_list_head_ptr\",\"v10\":\"first_timer_entry\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Timer callback or callback identifier, logged when the requested expiration is in the past.\"},{\"offset\":12,\"meaning\":\"Timer expiration timestamp.\"}]}"
+}

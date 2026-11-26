@@ -1,0 +1,9 @@
+{
+ "fn": "atomic_reg_read",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ebdc",
+ "seg": 3,
+ "key": "atomic_reg_read__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"atomic_reg_read\",\"confidence\":\"medium\",\"docstring\":\"Invokes the register-read call vector inside a nested interrupt-safe critical section, optionally waiting on a peripheral flag.\",\"subsystem\":\"hal\",\"var_renames\":{\"a2\":\"wait_for_flag\",\"v2\":\"critical_nesting_count\",\"v3\":\"peripheral_flag\",\"v5\":\"remaining_nesting_count\",\"v6\":\"irqs_were_enabled\"}}"
+}

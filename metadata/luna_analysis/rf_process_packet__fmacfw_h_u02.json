@@ -1,0 +1,9 @@
+{
+ "fn": "rf_process_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x139970",
+ "seg": 58,
+ "key": "rf_process_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_process_wifi_rx_packet\",\"confidence\":\"medium\",\"docstring\":\"Filters unfragmented received Wi-Fi frames, resolves their peer context, and routes Bluetooth-recognized packets through the BT connection and RX parsing paths.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"rx_descriptor\",\"a2\":\"station_index\",\"v2\":\"rx_buffer_descriptor\",\"v3\":\"frame_words\",\"v4\":\"fragment_number\",\"v7\":\"bt_context\",\"v10\":\"frame_length\",\"v11\":\"frame_control\",\"v16\":\"peer_mac_entry\",\"v17\":\"peer_station_entry\",\"v18\":\"peer_station_index\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"RX-buffer descriptor pointer\"},{\"offset\":48,\"meaning\":\"received frame length in bytes\"},{\"offset\":84,\"meaning\":\"RX status flags; bits 0x600 gate peer lookup\"},{\"offset\":8,\"meaning\":\"RX-buffer descriptor field pointing to the received frame\"},{\"offset\":100,\"meaning\":\"peer MAC address in a station-list entry\"},{\"offset\":107,\"meaning\":\"station index in a station-list entry\"}]}"
+}

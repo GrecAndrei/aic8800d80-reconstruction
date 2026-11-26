@@ -1,0 +1,9 @@
+{
+ "fn": "copy_config_struct",
+ "img": "fmacfwbt_u02",
+ "addr": "0x102da4",
+ "seg": 2,
+ "key": "copy_config_struct__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_config_values\",\"confidence\":\"medium\",\"docstring\":\"Passes table-backed configuration values to the radio helper for fields at offsets 0x20, 0x30, and 0x40.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"config_words_1_2\",\"v1\":\"config_word_0\"}}"
+}

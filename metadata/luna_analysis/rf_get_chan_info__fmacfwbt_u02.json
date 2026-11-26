@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_chan_info",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13bf94",
+ "seg": 61,
+ "key": "rf_get_chan_info__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_send_channel_info\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Looks up a per-channel RF table entry, checks abort/status flags for the low or high channel group, sends a 4-byte HCI command for the channel, and clears the entry's pending flag.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"chan_idx\",\n    \"v1\": \"rf_table_base\",\n    \"v2\": \"rf_entry\",\n    \"v3\": \"entry_state\",\n    \"v5\": \"entry_offset\",\n    \"v6\": \"cmd_code\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"byte state or flags in the 32-byte per-channel RF entry\"\n    },\n    {\n      \"offset\": 25,\n      \"meaning\": \"byte pending or acknowledgement flag cleared after sending the channel command\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_trace_rate_set",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136e10",
+ "seg": 56,
+ "key": "rf_trace_rate_set__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_trace_rate_set\",\"confidence\":\"high\",\"docstring\":\"Builds and submits an RF trace rate-set message using the rate code from the supplied configuration.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"trace_message\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"rate-set message subtype, set to 1\"},{\"offset\":1,\"meaning\":\"rate code copied from input configuration offset 2\"},{\"offset\":2,\"meaning\":\"rate code in the input configuration\"}]}"
+}

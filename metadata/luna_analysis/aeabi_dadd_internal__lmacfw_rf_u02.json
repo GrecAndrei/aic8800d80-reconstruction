@@ -1,0 +1,9 @@
+{
+ "fn": "aeabi_dadd_internal",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1277fc",
+ "seg": 23,
+ "key": "aeabi_dadd_internal__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"aeabi_dmul_internal\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Internal fragment associated with the ARM EABI double-precision multiply helper, likely part of __aeabi_dmul rather than an add routine.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

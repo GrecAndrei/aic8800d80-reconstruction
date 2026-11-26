@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_b",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114944",
+ "seg": 5,
+ "key": "rf_cmd_b__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"decode_rf_adjustment\",\"confidence\":\"medium\",\"docstring\":\"Extracts byte `byte_index` from RF parameter 11, decodes its nonzero high nibble preferentially (otherwise the low nibble) as a signed-magnitude adjustment, stores it in `out_adjustment`, and returns 0 or 1 for the selected nibble, or 2 if both are zero.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"byte_index\",\"a2\":\"out_adjustment\",\"v3\":\"packed_param_word\",\"v4\":\"encoded_nibble\",\"result\":\"encoding_status\",\"v6\":\"sign_multiplier\"}}"
+}

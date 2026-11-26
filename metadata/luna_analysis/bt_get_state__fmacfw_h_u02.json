@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x113210",
+ "seg": 4,
+ "key": "bt_get_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_usb_receive\",\"confidence\":\"medium\",\"docstring\":\"Guards a USB WLAN receive operation, reads the MAC queue registers using the supplied arguments, and reports blocked, busy, or read-error status.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v2\":\"wlan_stop_flag\",\"v3\":\"receive_busy_flag\",\"v4\":\"mac_register_base\",\"v5\":\"queue_read_status\"},\"struct_hints\":[{\"offset\":2864,\"meaning\":\"MAC control register whose bits 19\u201328 are cleared before the queue-register read\"}]}"
+}

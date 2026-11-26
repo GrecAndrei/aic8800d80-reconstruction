@@ -1,0 +1,9 @@
+{
+ "fn": "compare_calibration_levels",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130184",
+ "seg": 42,
+ "key": "compare_calibration_levels__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_step_xtal_cap_toward_target\",\"confidence\":\"high\",\"docstring\":\"Moves the current XTAL capacitor value one step toward its target and logs the adjustment.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"calibration_state\",\"v2\":\"target_xtal_cap\",\"v3\":\"adjusted_xtal_cap\"},\"struct_hints\":[{\"offset\":5,\"meaning\":\"target XTAL capacitor value\"},{\"offset\":6,\"meaning\":\"current XTAL capacitor value\"}]}"
+}

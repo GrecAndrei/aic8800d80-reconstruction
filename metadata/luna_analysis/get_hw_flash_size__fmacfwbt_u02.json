@@ -1,0 +1,9 @@
+{
+ "fn": "get_hw_flash_size",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1029d8",
+ "seg": 1,
+ "key": "get_hw_flash_size__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"flash_size_mask_get\",\"confidence\":\"medium\",\"docstring\":\"Reads the flash-size field from a hardware register and converts its encoded exponent to a low-bit mask.\",\"subsystem\":\"hal\"}"
+}

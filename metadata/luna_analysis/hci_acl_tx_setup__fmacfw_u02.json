@@ -1,0 +1,9 @@
+{
+ "fn": "hci_acl_tx_setup",
+ "img": "fmacfw_u02",
+ "addr": "0x125510",
+ "seg": 30,
+ "key": "hci_acl_tx_setup__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_acl_tx_setup\",\"confidence\":\"medium\",\"docstring\":\"Initializes the per-link transmit descriptor for an outgoing HCI ACL packet, recording its adjusted length, data bounds, and selected transmit template.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"tx_desc\",\"v6\":\"packet_data_base\",\"v8\":\"link_id\",\"v10\":\"adjusted_length\",\"v14\":\"packet_end_address\",\"v17\":\"per_link_tx_record\",\"v20\":\"tx_template\"},\"struct_hints\":[{\"offset\":107,\"meaning\":\"Link index used to select per-link transmit records.\"},{\"offset\":192,\"meaning\":\"Pointer to the transmit descriptor.\"},{\"offset\":216,\"meaning\":\"Adjusted outgoing packet length.\"},{\"offset\":226,\"meaning\":\"Transmit setup or active flag.\"},{\"offset\":24,\"meaning\":\"Per-link transmit buffer pointer in the descriptor.\"},{\"offset\":28,\"meaning\":\"Packet data base address in the descriptor.\"},{\"offset\":32,\"meaning\":\"Packet end address in the descriptor.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "seq_num_increment",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11d670",
+ "seg": 20,
+ "key": "seq_num_increment__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"seq_num_increment\",\"confidence\":\"medium\",\"docstring\":\"Increments the byte-sized sequence counter at state offset 10 and resets it to zero when it exceeds the limit at offset 11, invoking a rollover hook.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"sequence_state\",\"v1\":\"sequence_limit\",\"v2\":\"incremented_counter\"},\"struct_hints\":[{\"offset\":10,\"meaning\":\"Current byte-sized sequence counter\"},{\"offset\":11,\"meaning\":\"Sequence counter rollover limit\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_write",
+ "img": "fmacfw_u02",
+ "addr": "0x10c830",
+ "seg": 2,
+ "key": "gpio_write__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_configure\",\"confidence\":\"medium\",\"docstring\":\"Enables the peripheral clock and applies the peripheral configuration, returning its status.\",\"subsystem\":\"gpio\"}"
+}

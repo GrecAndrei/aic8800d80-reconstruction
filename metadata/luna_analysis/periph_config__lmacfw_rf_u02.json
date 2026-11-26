@@ -1,0 +1,9 @@
+{
+ "fn": "periph_config",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10064c",
+ "seg": 0,
+ "key": "periph_config__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sys_periph_config\",\"confidence\":\"medium\",\"docstring\":\"Enables a system peripheral by setting a power/clock bit, clearing its configuration register, and initializing its control register.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"ctrl_reg\",\"result\":\"cfg_reg\"}}"
+}

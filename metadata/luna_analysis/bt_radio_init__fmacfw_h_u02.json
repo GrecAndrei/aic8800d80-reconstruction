@@ -1,0 +1,9 @@
+{
+ "fn": "bt_radio_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x104080",
+ "seg": 2,
+ "key": "bt_radio_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init\",\"confidence\":\"medium\",\"docstring\":\"Programs radio control registers to bring up and configure the RF hardware.\",\"subsystem\":\"rf\"}"
+}

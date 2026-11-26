@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_irq_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10c554",
+ "seg": 2,
+ "key": "sdio_irq_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_register_init\",\"confidence\":\"medium\",\"docstring\":\"Writes fixed firmware values to a set of RF/baseband MMIO locations and returns 0x5355.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_cmd52_wr",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13bdfc",
+ "seg": 61,
+ "key": "sdio_cmd52_wr__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sdio_cmd52_wr\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Formats an SDIO CMD52 byte-write packet from a command-slot table and sends it through the Bluetooth HCI event path.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"byte_value\",\n    \"a2\": \"cmd_slot\",\n    \"v4\": \"cmd_pkt\",\n    \"v5\": \"cmd_slot_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"CMD52 write/read flag: 0 when slot byte at offset 17 equals 1\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"byte value to write, from a1\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"slot byte at offset 22 copied into the packet\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"slot 16-bit field at offset 20 copied into the packet\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"slot 16-bit field at offset 12 copied into the packet\"\n    }\n  ]\n}"
+}

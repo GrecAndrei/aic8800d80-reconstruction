@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy_advance",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102d4c",
+ "seg": 2,
+ "key": "memcpy_advance__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"gpio_write_burst\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Asserts a GPIO chip-select, waits on a shared flag, copies strided word blocks to a memory-mapped destination, clears the pin, and leaves the shared flag set.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"cs\",\n    \"a2\": \"entry\",\n    \"a3\": \"block_count\",\n    \"a4\": \"src\",\n    \"v6\": \"dst_base\",\n    \"v7\": \"stride_words\",\n    \"v8\": \"chunk_words\",\n    \"v10\": \"stride_gap_bytes\",\n    \"v11\": \"src_to_dst_delta\",\n    \"v12\": \"block_idx\",\n    \"v13\": \"src_block_end\",\n    \"v14\": \"src_ptr\",\n    \"v15\": \"dst_ptr\",\n    \"v16\": \"word\"\n  },\n  \"struct_hints\": []\n}"
+}

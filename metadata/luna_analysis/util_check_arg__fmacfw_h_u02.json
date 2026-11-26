@@ -1,0 +1,9 @@
+{
+ "fn": "util_check_arg",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10fba0",
+ "seg": 3,
+ "key": "util_check_arg__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"buffer_release\",\"confidence\":\"high\",\"docstring\":\"Validates a buffer against its pool context, decrements its reference count, and returns it to the pool when the count reaches zero.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"pool_context\",\"a2\":\"buffer\",\"v4\":\"native_pool_bounds\",\"v5\":\"pool_id\",\"v6\":\"pool_entries\",\"v10\":\"buffer_pattern\",\"v19\":\"pool_usage_entry\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Base address of the buffer region\"},{\"offset\":4,\"meaning\":\"Size of the buffer region\"},{\"offset\":8,\"meaning\":\"Number of buffer pools\"},{\"offset\":12,\"meaning\":\"Pointer to per-pool metadata\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "set_mac_addr",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13a370",
+ "seg": 58,
+ "key": "set_mac_addr__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_mac_address\",\"confidence\":\"high\",\"docstring\":\"Stores the supplied six-byte MAC address in global state once, marking the state initialized afterward.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"mac_addr\"},\"struct_hints\":[{\"offset\":108,\"meaning\":\"Stored six-byte MAC address\"},{\"offset\":114,\"meaning\":\"Initialization marker set to 0x0100; its high byte is checked as the one-time guard\"}]}"
+}

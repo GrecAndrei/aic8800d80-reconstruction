@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_0x1b",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114a6c",
+ "seg": 5,
+ "key": "rf_reg_0x1b__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_read_reg_0x1b\",\"confidence\":\"medium\",\"docstring\":\"Returns the value read from RF register 0x1B through the global RF accessor.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "clear_global_flag_2",
+ "img": "fmacfw_u02",
+ "addr": "0x1146c8",
+ "seg": 5,
+ "key": "clear_global_flag_2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_global_flag_bit1\",\"confidence\":\"medium\",\"docstring\":\"Clears bit 1 in the 32-bit flags field at offset 8 of the global object.\",\"subsystem\":\"bt\",\"struct_hints\":[{\"offset\":8,\"meaning\":\"32-bit flags field; this function clears bit 1.\"}]}"
+}

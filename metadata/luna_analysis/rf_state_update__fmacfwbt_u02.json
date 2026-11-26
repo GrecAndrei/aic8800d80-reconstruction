@@ -1,0 +1,9 @@
+{
+ "fn": "rf_state_update",
+ "img": "fmacfwbt_u02",
+ "addr": "0x137088",
+ "seg": 57,
+ "key": "rf_state_update__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_scanu_req_trace\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Logs a feature-gated scan-update request trace with the supplied request value and a global scan status word, then returns a fixed status code.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a4\": \"scanu_req_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1924,\n      \"meaning\": \"uint16_t scanu/scan status field logged as the second trace value (element index; byte offset 3848 from off_1370A0)\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hci_send_cmd_0x0b",
+ "img": "fmacfw_u02",
+ "addr": "0x122930",
+ "seg": 24,
+ "key": "hci_send_cmd_0x0b__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_send_fw_handler_result\",\"confidence\":\"medium\",\"docstring\":\"Invokes the firmware handler and sends a kernel message containing its return byte and two output bytes.\",\"subsystem\":\"hci\",\"var_renames\":{\"v5\":\"response_payload\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"firmware handler return value\"},{\"offset\":1,\"meaning\":\"first handler output byte\"},{\"offset\":2,\"meaning\":\"second handler output byte\"}]}"
+}

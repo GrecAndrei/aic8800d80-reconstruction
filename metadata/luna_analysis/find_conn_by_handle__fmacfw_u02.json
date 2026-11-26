@@ -1,0 +1,9 @@
+{
+ "fn": "find_conn_by_handle",
+ "img": "fmacfw_u02",
+ "addr": "0x1375f0",
+ "seg": 57,
+ "key": "find_conn_by_handle__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_record_find_or_reserve\",\"confidence\":\"medium\",\"docstring\":\"Searches a fixed BLE record table by its six-byte key and, when requested, marks and returns the first unused record.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"lookup_key\",\"a2\":\"reserve_if_missing\",\"v2\":\"record_ptr\",\"v3\":\"table_end\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Occupancy byte; zero indicates an unused record.\"},{\"offset\":2,\"meaning\":\"Start of the six-byte lookup key, compared as three 16-bit words.\"},{\"offset\":56,\"meaning\":\"State byte set to 0x80 when reserving an unused record.\"}]}"
+}

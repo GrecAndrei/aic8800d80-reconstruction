@@ -1,0 +1,9 @@
+{
+ "fn": "enable_radio",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11f774",
+ "seg": 21,
+ "key": "enable_radio__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_enable\",\"confidence\":\"medium\",\"docstring\":\"Dispatches a UsbOff event, locks interrupts, and clears a bit in the radio control register, altering the radio enable state.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":80,\"meaning\":\"radio control/status register word; bit 1 is used to set or clear radio enable/disable state\"}]}"
+}

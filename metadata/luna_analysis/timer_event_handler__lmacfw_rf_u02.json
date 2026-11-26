@@ -1,0 +1,9 @@
+{
+ "fn": "timer_event_handler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1130cc",
+ "seg": 5,
+ "key": "timer_event_handler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"usb_wlan_rx_pkt_free_list_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes or services the USB WLAN receive packet free list by walking the configured number of packet descriptors and logging allocation failures.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v3\": \"processed_count\",\n    \"v4\": \"free_list_head\",\n    \"v6\": \"packet_idx\",\n    \"v7\": \"packet_count\",\n    \"v8\": \"pkt_desc\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"USB WLAN RX packet initialization/count field\"\n    },\n    {\n      \"offset\": 306,\n      \"meaning\": \"RX packet pool/free-list size field\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_slot_state_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b064",
+ "seg": 38,
+ "key": "tx_slot_state_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_slot_state_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the TX slot state table by querying slots 0-3 and zeroing the associated 96-byte state buffer.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"slot_state_ptr\",\n    \"v2\": \"slot_state_end\",\n    \"result\": \"slot3_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"slot state byte 0\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"slot state byte 1\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"slot state byte 2\"\n    }\n  ]\n}"
+}

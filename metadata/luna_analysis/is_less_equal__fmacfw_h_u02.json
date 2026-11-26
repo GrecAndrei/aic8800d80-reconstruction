@@ -1,0 +1,9 @@
+{
+ "fn": "is_less_equal",
+ "img": "fmacfw_h_u02",
+ "addr": "0x143298",
+ "seg": 68,
+ "key": "is_less_equal__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"float_cmple\",\"confidence\":\"high\",\"docstring\":\"Returns nonzero when the first single-precision floating-point value is less than or equal to the second.\",\"subsystem\":\"libmisc\"}"
+}

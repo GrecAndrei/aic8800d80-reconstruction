@@ -1,0 +1,9 @@
+{
+ "fn": "rf_is_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b6d4",
+ "seg": 61,
+ "key": "rf_is_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_channel_command_handler\", \"confidence\": \"low\", \"docstring\": \"Handles a short host/RF command by selecting the channel configuration, checking the per-channel abort state, and sending a follow-up command acknowledgement.\", \"subsystem\": \"rf\", \"var_renames\": {\"a3\": \"cmd\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "chip_id_to_string",
+ "img": "fmacfw_u02",
+ "addr": "0x1307d4",
+ "seg": 42,
+ "key": "chip_id_to_string__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"append_chip_id_bytes\",\"confidence\":\"medium\",\"docstring\":\"Appends a fixed seven-byte chip identifier to the caller\u2019s output buffer and advances its cursor.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"output_cursor_ptr\"}}"
+}

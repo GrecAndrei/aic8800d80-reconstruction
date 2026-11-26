@@ -1,0 +1,9 @@
+{
+ "fn": "mac_state_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100478",
+ "seg": 0,
+ "key": "mac_state_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_state_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes MAC-related globals and runtime flags, performs power, RX, and RF setup, and initializes low-level tables.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"mac_state_base\"},\"struct_hints\":[{\"offset\":76,\"meaning\":\"Host type, printed in the startup log\"},{\"offset\":363,\"meaning\":\"Nonzero gate for reading the signed global flag and sending event 42\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_table_update",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10ddd8",
+ "seg": 3,
+ "key": "rf_table_update__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_table_set_field\",\"confidence\":\"medium\",\"docstring\":\"Sets bits 3:2 in each of 16 registers spaced 12 bytes apart, then calls uart_send_data with the global data buffer.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"table_cursor\",\"v2\":\"field_bits\",\"v3\":\"table_end\"}}"
+}

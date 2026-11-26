@@ -1,0 +1,9 @@
+{
+ "fn": "get_control_byte",
+ "img": "fmacfw_u02",
+ "addr": "0x128548",
+ "seg": 33,
+ "key": "get_control_byte__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_update_control_byte\",\"confidence\":\"medium\",\"docstring\":\"Selects a control-byte value from the matching WLC record or defaults to 15, stores it in the context, and invokes the helper for the active context.\",\"subsystem\":\"wlan\",\"var_renames\":{\"result\":\"context\",\"v1\":\"record_index\",\"v2\":\"record_cursor\",\"v3\":\"candidate_context\",\"v4\":\"control_byte\",\"v7\":\"matching_record\",\"v8\":\"second_limit\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"computed control-byte value stored in the context\"},{\"offset\":25,\"meaning\":\"flag enabling record-based control-byte selection\"},{\"offset\":72,\"meaning\":\"context pointer used to find the matching record\"},{\"offset\":109,\"meaning\":\"first signed control-byte limit\"},{\"offset\":110,\"meaning\":\"second signed control-byte limit\"}]}"
+}

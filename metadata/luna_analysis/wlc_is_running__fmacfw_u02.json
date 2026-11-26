@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_is_running",
+ "img": "fmacfw_u02",
+ "addr": "0x12811c",
+ "seg": 33,
+ "key": "wlc_is_running__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_scan_event_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a BLE scan context\u2019s pending event flags and timing, scheduling link-layer events or advancing the scan state machine.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"scan_flags\",\"v3\":\"scan_context\",\"v4\":\"event_record\",\"v5\":\"event_index\",\"v6\":\"active_event\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Scan timing value passed to the scan state machine\"},{\"offset\":80,\"meaning\":\"Cached scan timing value\"},{\"offset\":85,\"meaning\":\"Scan control flags\"}]}"
+}

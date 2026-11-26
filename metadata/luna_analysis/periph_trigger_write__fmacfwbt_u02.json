@@ -1,0 +1,9 @@
+{
+ "fn": "periph_trigger_write",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ecd8",
+ "seg": 3,
+ "key": "periph_trigger_write__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"system_reboot\",\"confidence\":\"medium\",\"docstring\":\"Logs the supplied reboot code and performs the register writes that initiate a hardware reboot.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"reboot_code\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "verify_header_magic",
+ "img": "fmacfw_h_u02",
+ "addr": "0x118970",
+ "seg": 11,
+ "key": "verify_header_magic__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes PHY context entries and resets the associated shared PHY configuration state.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"preserve_initialized_entries\",\"v2\":\"phy_contexts\",\"v7\":\"stats_buffer\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"Pointer to an auxiliary region associated with the context entry.\"},{\"offset\":72,\"meaning\":\"Pointer to the entry's primary backing region.\"},{\"offset\":76,\"meaning\":\"Pointer to the entry's secondary backing region.\"},{\"offset\":96,\"meaning\":\"Byte cleared during context initialization.\"},{\"offset\":97,\"meaning\":\"Byte flag that suppresses reinitialization when preserve_initialized_entries is nonzero.\"}]}"
+}

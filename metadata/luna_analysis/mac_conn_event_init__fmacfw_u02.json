@@ -1,0 +1,9 @@
+{
+ "fn": "mac_conn_event_init",
+ "img": "fmacfw_u02",
+ "addr": "0x105abc",
+ "seg": 2,
+ "key": "mac_conn_event_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dpd_cal_indices_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes RF DPD calibration-index state by filtering the requested analog-power indices against mode-dependent limits.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"requested_index_mask\",\"a2\":\"calibration_state\",\"a3\":\"range_mode\",\"v5\":\"scan_index\",\"v6\":\"lower_index_limit\",\"v7\":\"upper_index_limit\",\"v9\":\"selected_bit_value\",\"v10\":\"analog_power_index\",\"v11\":\"selected_index_count\",\"v12\":\"selected_index\"},\"struct_hints\":[{\"offset\":592,\"meaning\":\"First element of the analog-power-index list.\"},{\"offset\":624,\"meaning\":\"Number of selected calibration indices.\"},{\"offset\":628,\"meaning\":\"Primary analog-power index value, initialized to 15.\"},{\"offset\":632,\"meaning\":\"Alternate analog-power index value, initialized to 4.\"}]}"
+}

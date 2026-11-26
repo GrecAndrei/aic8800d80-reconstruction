@@ -1,0 +1,9 @@
+{
+ "fn": "set_cfg_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x124e48",
+ "seg": 30,
+ "key": "set_cfg_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"radio_apply_vendor_cca_config\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Applies a configuration byte block to CCA-related radio state variables and schedules the vendor CCA event.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cfg\",\n    \"v1\": \"flags\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"flag byte used for CCA enable and bit-field selection\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"byte field merged into the low bits of the first CCA configuration word\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"byte field merged into the low bits of the second CCA configuration word\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"byte field shifted into bits 12-15 of the first CCA configuration word\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"byte field shifted into bits 12-15 of the second CCA configuration word\"\n    }\n  ]\n}"
+}

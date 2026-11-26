@@ -1,0 +1,9 @@
+{
+ "fn": "mac_write_header_word",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c8d0",
+ "seg": 40,
+ "key": "mac_write_header_word__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_send_pdu_and_process_response\",\"confidence\":\"medium\",\"docstring\":\"Sends a PDU with a zero-valued final argument and passes the result to the packet processor.\",\"subsystem\":\"bt\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "txpwr_get_context",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136828",
+ "seg": 57,
+ "key": "txpwr_get_context__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txpwr_get_context\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Retrieves or initializes the TX-power context structure, clearing RF TX-power IRQ 46 when the status pointer holds a negative value and the associated flag is set.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

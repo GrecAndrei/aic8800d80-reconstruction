@@ -1,0 +1,9 @@
+{
+ "fn": "sub_102d10",
+ "img": "fmacfwbt_u02",
+ "addr": "0x102d10",
+ "seg": 2,
+ "key": "sub_102d10__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_config_table_copy\",\"confidence\":\"medium\",\"docstring\":\"Waits for the shared radio-control flag, selects a mode-dependent destination layout, copies packed records into padded radio configuration slots, and finalizes radio control.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"destination_base_offset\",\"v7\":\"destination_stride_words\",\"v8\":\"source_words_per_record\",\"v9\":\"source_word_offset\",\"v10\":\"destination_padding_bytes\",\"v11\":\"destination_source_delta\",\"v12\":\"records_copied\",\"v13\":\"source_record_end\",\"v14\":\"source_cursor\",\"v15\":\"destination_cursor\",\"v16\":\"copied_word\"}}"
+}

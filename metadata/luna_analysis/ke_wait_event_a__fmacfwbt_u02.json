@@ -1,0 +1,9 @@
+{
+ "fn": "ke_wait_event_a",
+ "img": "fmacfwbt_u02",
+ "addr": "0x112ac0",
+ "seg": 4,
+ "key": "ke_wait_event_a__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_usb_suspend_notify\",\"confidence\":\"medium\",\"docstring\":\"Reports the USB suspend condition through UART or deferred event scheduling, then sets its notification flag.\",\"subsystem\":\"ke\",\"struct_hints\":[{\"offset\":176,\"meaning\":\"Control/status word whose bit 30 selects direct UART output versus deferred event scheduling.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "scan_adv_report",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1267a8",
+ "seg": 32,
+ "key": "scan_adv_report__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"scan_adv_report\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes scheduled BLE advertising scan events by advancing scan-channel timing, handling due packet/report activity, and updating the scan event list/timer.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"scan_env\",\n    \"a2\": \"now_time\",\n    \"v3\": \"scan_table\",\n    \"v4\": \"scan_state_global\",\n    \"v7\": \"scan_timer_entry\",\n    \"v8\": \"scan_channel_id\",\n    \"v11\": \"scan_event\",\n    \"v15\": \"scan_channel_cfg\",\n    \"v16\": \"scan_base_time\",\n    \"v17\": \"scan_due_time\",\n    \"v18\": \"scan_due_flag\",\n    \"v19\": \"scan_mode\",\n    \"v20\": \"scan_mode_2_flag\",\n    \"v21\": \"scan_interval_time\",\n    \"v22\": \"scan_alt_due_time\",\n    \"v23\": \"loop_counter\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 72,\n      \"meaning\": \"current scan channel id\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"scan timer event entry\"\n    },\n    {\n      \"offset\": 80,\n      \"meaning\": \"last processed scan timestamp\"\n    },\n    {\n      \"offset\": 84,\n      \"meaning\": \"index used to locate per-context scan state\"\n    },\n    {\n      \"offset\": 85,\n      \"meaning\": \"scan abort/state flags\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"scan mode or scan state byte\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"channel index for scan interval table\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"report processing enable flag\"\n    },\n    {\n      \"offset\": 1225,\n      \"meaning\": \"RX descriptor or buffer index\"\n    }\n  ]\n}"
+}

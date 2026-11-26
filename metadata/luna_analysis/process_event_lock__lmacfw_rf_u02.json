@@ -1,0 +1,9 @@
+{
+ "fn": "process_event_lock",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1216dc",
+ "seg": 22,
+ "key": "process_event_lock__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_dispatch_reboot_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches the \\\"reboot\\\" event to its registered kernel handler and schedules the resulting callbacks.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"dispatch_result\"\n  }\n}"
+}

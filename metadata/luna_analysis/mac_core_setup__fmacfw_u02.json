@@ -1,0 +1,9 @@
+{
+ "fn": "mac_core_setup",
+ "img": "fmacfw_u02",
+ "addr": "0x121340",
+ "seg": 22,
+ "key": "mac_core_setup__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_configure\",\"confidence\":\"medium\",\"docstring\":\"Loads the selected channel's RF parameters, clears stale channel state when needed, and issues the requested RF command.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"rf_config_table\",\"v7\":\"channel_config\",\"v9\":\"rf_command_reg\",\"v10\":\"rf_channel_id\",\"v11\":\"previous_channel_status\"},\"struct_hints\":[{\"offset\":38,\"meaning\":\"Low 16 bits of the first per-channel RF configuration word.\"},{\"offset\":40,\"meaning\":\"High 16 bits of the first per-channel RF configuration word.\"},{\"offset\":42,\"meaning\":\"Second per-channel RF configuration value.\"}]}"
+}

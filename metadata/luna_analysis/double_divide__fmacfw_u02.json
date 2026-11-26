@@ -1,0 +1,9 @@
+{
+ "fn": "double_divide",
+ "img": "fmacfw_u02",
+ "addr": "0x142e6a",
+ "seg": 68,
+ "key": "double_divide__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_divide\",\"confidence\":\"high\",\"docstring\":\"Implements the ARM EABI double-precision division helper.\",\"subsystem\":\"libmisc\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "parse_data_6",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e038",
+ "seg": 43,
+ "key": "parse_data_6__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_tlv_find_0x55\", \"confidence\": \"medium\", \"docstring\": \"Scans a buffer of 8-bit tag/length TLV records and returns the first record with tag 0x55, returning NULL on malformed or out-of-bounds data.\", \"subsystem\": \"rf\", \"var_renames\": {\"result\": \"cur_tlv\", \"a2\": \"data_len\", \"v2\": \"end_ptr\", \"v3\": \"next_tlv\"}, \"struct_hints\": []}"
+}

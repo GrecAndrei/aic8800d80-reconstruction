@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clock_enable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10c4f8",
+ "seg": 2,
+ "key": "rf_clock_enable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_pll_clock_enable\",\"confidence\":\"medium\",\"docstring\":\"Waits for the RF clock status, programs the PLL control value, and applies the register-bit sequence that enables the RF clock.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_ctrl_regs\",\"v1\":\"pll_cfg_reg\",\"v2\":\"clock_ctrl_regs\",\"v3\":\"clock_mask\",\"v4\":\"pll_tuning_value\",\"v5\":\"pll_control_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Register in the block at off_10C5A8 updated with mask 0x3BF, bit 0x40, and bits selected by the clock mask.\"},{\"offset\":4,\"meaning\":\"Control register in the block at off_10C5A8; clears bit 0x40000, sets bit 0x20000, then sets bits in mask 0x18802.\"},{\"offset\":48,\"meaning\":\"Status register in the block at off_10C5A8, polled until bits 0x44 equal 0x04.\"},{\"offset\":56,\"meaning\":\"Register in the block at off_10C5A4 with bit 0 set.\"},{\"offset\":68,\"meaning\":\"Register in the block at off_10C5A8 with bits 0x88000000 set.\"},{\"offset\":84,\"meaning\":\"Register in the block at off_10C5A8; clears bit 0x200000, updates bits selected by the clock mask, then clears bit 0x800.\"},{\"offset\":256,\"meaning\":\"Register in the block at off_10C5A4 assigned value 6.\"},{\"offset\":324,\"meaning\":\"Register in the block at off_10C5A4 assigned value 8.\"}]}"
+}

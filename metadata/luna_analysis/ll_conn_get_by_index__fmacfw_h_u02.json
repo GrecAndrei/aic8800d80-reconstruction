@@ -1,0 +1,9 @@
+{
+ "fn": "ll_conn_get_by_index",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1355c8",
+ "seg": 53,
+ "key": "ll_conn_get_by_index__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_conn_submit_activity_update\",\"confidence\":\"low\",\"docstring\":\"Builds an internal update message from a matching connection and active activity context.\",\"subsystem\":\"ll\",\"var_renames\":{\"v1\":\"connection_ctx\",\"v4\":\"request\",\"v6\":\"activity_ctx\",\"v8\":\"message_handle\",\"v11\":\"message_payload\",\"v12\":\"sequence_number\"},\"struct_hints\":[{\"offset\":52,\"meaning\":\"activity state, checked for the active state value 2\"},{\"offset\":108,\"meaning\":\"connection validity or status flag\"},{\"offset\":116,\"meaning\":\"associated activity index\"}]}"
+}

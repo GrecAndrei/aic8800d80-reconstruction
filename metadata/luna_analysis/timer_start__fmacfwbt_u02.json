@@ -1,0 +1,9 @@
+{
+ "fn": "timer_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x140c88",
+ "seg": 65,
+ "key": "timer_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_scan_process_reports\",\"confidence\":\"medium\",\"docstring\":\"Processes the BLE advertising-report queue for a scan context, advances the scan-channel list, issues HCI scan control commands, and stops or disables scanning when all reports/channels have been handled.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"scan_ctx\",\"a2\":\"initialize\",\"v3\":\"entry\",\"v4\":\"entry_end\",\"v8\":\"report_pool\",\"v9\":\"entry\",\"v10\":\"entry_end\",\"v11\":\"entry\",\"v12\":\"channel_count\",\"v13\":\"next_channel_idx\",\"v14\":\"channel_idx\",\"v15\":\"channel_count\",\"v16\":\"chan_info\",\"v17\":\"chan_info\",\"v18\":\"event_buf\",\"v19\":\"adv_len\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"scan_ctx: start timestamp/saved state recorded when scan is initialized\"},{\"offset\":58,\"meaning\":\"scan_ctx: length of advertising payload copied into the report/event buffer\"},{\"offset\":59,\"meaning\":\"scan_ctx: advertising payload bytes used when constructing a scan report/event\"},{\"offset\":92,\"meaning\":\"scan_ctx: scan pending/IRQ flag cleared on completion if controller is ready\"},{\"offset\":96,\"meaning\":\"scan_ctx: current scan channel index or processed report counter\"},{\"offset\":100,\"meaning\":\"scan_ctx: scan channel/frequency parameter used for report generation\"},{\"offset\":101,\"meaning\":\"scan_ctx: total number of scan channels or scan rounds to process\"},{\"offset\":102,\"meaning\":\"scan_ctx: channel list indexed by the counter at +96\"}]}"
+}

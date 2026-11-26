@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_set",
+ "img": "fmacfw_h_u02",
+ "addr": "0x134c4c",
+ "seg": 52,
+ "key": "ke_timer_set__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_sta_disconnect\",\"confidence\":\"medium\",\"docstring\":\"Caches a station-disconnect request, logs its reason and TX count, then dispatches according to the host-init flag.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"station\",\"a2\":\"reason\",\"a3\":\"host_init\",\"v3\":\"disconnect_context\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"host-init flag in the disconnect context\"},{\"offset\":8,\"meaning\":\"station pointer in the disconnect context\"},{\"offset\":12,\"meaning\":\"disconnect reason in the context\"},{\"offset\":50,\"meaning\":\"TX count in a per-station entry\"},{\"offset\":116,\"meaning\":\"station index used to look up the per-station TX count\"}]}"
+}

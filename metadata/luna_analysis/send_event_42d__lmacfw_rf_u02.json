@@ -1,0 +1,9 @@
+{
+ "fn": "send_event_42d",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12161c",
+ "seg": 22,
+ "key": "send_event_42d__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_fc_timeout_event_handle\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a WLAN flow-control timeout notification by dispatching the corresponding event under kernel interrupt lock 0x42d and scheduling pending callbacks.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v0\": \"saved_int_state\"\n  },\n  \"struct_hints\": []\n}"
+}

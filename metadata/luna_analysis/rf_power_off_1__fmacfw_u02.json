@@ -1,0 +1,9 @@
+{
+ "fn": "rf_power_off_1",
+ "img": "fmacfw_u02",
+ "addr": "0x136e88",
+ "seg": 56,
+ "key": "rf_power_off_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_ap_low_power_exit\",\"confidence\":\"medium\",\"docstring\":\"Clears a firmware state byte and dispatches the AP low-power-exit event.\",\"subsystem\":\"bt\",\"var_renames\":{},\"struct_hints\":[]}"
+}

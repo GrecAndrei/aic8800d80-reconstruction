@@ -1,0 +1,9 @@
+{
+ "fn": "sub_135668",
+ "img": "fmacfw_u02",
+ "addr": "0x135668",
+ "seg": 52,
+ "key": "sub_135668__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_deauth_handler\",\"confidence\":\"medium\",\"docstring\":\"Handles a deauthentication indication, rejecting unsupported or mismatched events and scheduling reason-code timeout processing for an active connection.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"connection_idx\",\"result\":\"context_status\",\"v4\":\"connection_ctx\",\"v5\":\"reason_code\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Connection index in the deauthentication indication\"},{\"offset\":12,\"meaning\":\"Deauthentication reason code\"},{\"offset\":61,\"meaning\":\"Connection index used to validate the current profile\"},{\"offset\":108,\"meaning\":\"Connection-context active or status byte\"}]}"
+}

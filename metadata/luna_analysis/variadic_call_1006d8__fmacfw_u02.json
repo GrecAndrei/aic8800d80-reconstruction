@@ -1,0 +1,9 @@
+{
+ "fn": "variadic_call_1006d8",
+ "img": "fmacfw_u02",
+ "addr": "0x100be0",
+ "seg": 0,
+ "key": "variadic_call_1006d8__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_configure_channel\",\"confidence\":\"medium\",\"docstring\":\"Configures RF hardware and related band and channel-control registers using the supplied mode, frequency values, and flags.\",\"subsystem\":\"rf\"}"
+}

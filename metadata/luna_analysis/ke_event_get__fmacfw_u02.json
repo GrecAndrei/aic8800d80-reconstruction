@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_get",
+ "img": "fmacfw_u02",
+ "addr": "0x1321fc",
+ "seg": 44,
+ "key": "ke_event_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_event_entry_find\",\"confidence\":\"medium\",\"docstring\":\"Searches the selected kernel event table for an entry whose 16-bit key matches a2 and returns its address, or NULL if no entry matches.\",\"subsystem\":\"ke\",\"var_renames\":{\"v3\":\"entry_cursor\",\"v4\":\"entries_end\",\"v5\":\"entry_key\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"16-bit lookup key compared with a2\"}]}"
+}

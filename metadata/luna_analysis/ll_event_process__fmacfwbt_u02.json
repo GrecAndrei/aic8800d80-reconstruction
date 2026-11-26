@@ -1,0 +1,9 @@
+{
+ "fn": "ll_event_process",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134280",
+ "seg": 50,
+ "key": "ll_event_process__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_le_scan_enable_event_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a BLE link-layer scan-enable state event, forwards the corresponding HCI event, updates per-interface scan state, and emits an extra state-change event when the scan state indicates disablement.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v1\": \"evt_ctx\",\n    \"v2\": \"vif_ctx\",\n    \"v3\": \"state_idx\",\n    \"v4\": \"evt_buf\",\n    \"v5\": \"scan_state\",\n    \"v6\": \"scan_state_val\",\n    \"v7\": \"scan_param\",\n    \"v8\": \"state_evt_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 61,\n      \"meaning\": \"interface/link index used to select per-interface context and copied into the HCI event payload\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"16-bit event-context field copied into HCI event payload\"\n    },\n    {\n      \"offset\": 58,\n      \"meaning\": \"8-bit event-context status or subfield copied into HCI event payload\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"16-bit scan-related field, byte-swapped and stored in the scan state entry\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"per-interface state or command index used to select the scan state table entry\"\n    },\n    {\n      \"offset\": 1208,\n      \"meaning\": \"state flag whose low bit controls whether an extra scan state-change event is emitted\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"scan-state table byte storing the computed state value\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"scan-state table field storing the byte-swapped scan parameter\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llc_state_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x126f40",
+ "seg": 32,
+ "key": "llc_state_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_event_countdown_tick\",\"confidence\":\"medium\",\"docstring\":\"Decrements the LLC event countdown and, when it expires with the pending-event flag set, clears the flag and invokes the kernel event handler.\",\"subsystem\":\"llc\",\"var_renames\":{\"v0\":\"remaining_ticks\"},\"struct_hints\":[{\"offset\":89,\"meaning\":\"8-bit event countdown decremented on each invocation\"}]}"
+}

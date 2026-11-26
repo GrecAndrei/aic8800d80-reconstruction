@@ -1,0 +1,9 @@
+{
+ "fn": "init_oscillators",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10dcec",
+ "seg": 3,
+ "key": "init_oscillators__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_gpio_init\",\"confidence\":\"medium\",\"docstring\":\"Configures radio-related GPIO pins, driving pins 1 and 2 according to a global configuration byte.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":369,\"meaning\":\"Configuration byte selecting the output level for GPIO pins 1 and 2\"}]}"
+}

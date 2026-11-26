@@ -1,0 +1,9 @@
+{
+ "fn": "mem_fill",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1297bc",
+ "seg": 36,
+ "key": "mem_fill__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"compute_next_event_time\", \"confidence\": \"medium\", \"docstring\": \"Scans a fixed two-entry state table and computes the earliest matching event/wake-up time using wrap-safe time comparisons.\", \"subsystem\": \"ke\", \"var_renames\": {\"v2\": \"base_ptr\", \"v3\": \"entry_end\", \"v4\": \"entry_ptr\", \"v5\": \"event_count\", \"v6\": \"first_seen\", \"v7\": \"entry_time\", \"v9\": \"entry_ptr\", \"v11\": \"entry_start\", \"v12\": \"substate\", \"v13\": \"period\", \"v14\": \"start_time\", \"v1\": \"min_time\", \"v10\": \"min_period_candidate\", \"v15\": \"entry_ptr\"}, \"struct_hints\": [{\"offset\": 16, \"meaning\": \"record type/kind selector (value 2 or 1)\"}, {\"offset\": 19, \"meaning\": \"record substate/class selector, grouped as <=1 versus >1\"}, {\"offset\": 12, \"meaning\": \"record time or start value\"}, {\"offset\": 24, \"meaning\": \"record previous time/count used in periodic adjustment\"}, {\"offset\": 28, \"meaning\": \"record interval/period value\"}, {\"offset\": 32, \"meaning\": \"record mode/state qualifier\"}, {\"offset\": 33, \"meaning\": \"record enable/disable flag\"}, {\"offset\": 135, \"meaning\": \"container-level global qualifier flag\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mac_dma_write",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12be18",
+ "seg": 40,
+ "key": "mac_dma_write__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_dma_write\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs a MAC DMA write command from a descriptor, starts the hardware transfer, polls the status/control register for completion, and returns a hardware status code.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"dma_write_cmd\",\n    \"v1\": \"control_reg\",\n    \"v2\": \"status_reg\",\n    \"v3\": \"dma_word0\",\n    \"v4\": \"dma_control\",\n    \"v5\": \"status_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint32_t dma_write_address_or_data\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"uint16_t dma_write_length_or_control\"\n    }\n  ]\n}"
+}

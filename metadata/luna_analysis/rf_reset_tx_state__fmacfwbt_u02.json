@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reset_tx_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13a6f0",
+ "seg": 60,
+ "key": "rf_reset_tx_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_update_tx_state\", \"confidence\": \"medium\", \"docstring\": \"Resets TX counter fields and updates the RF transmit state, sequence counter, and calibration flags from channel, gain, and calibration tables.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"rf_state\", \"v1\": \"tx_flags\", \"v4\": \"gain_table_idx\", \"v5\": \"tx_table_idx\", \"v6\": \"tx_channel_entry\", \"v7\": \"tx_state_flags\", \"v8\": \"tx_seq\", \"v9\": \"gain_table_entry\", \"v10\": \"freq_raw\", \"v11\": \"tx_state_cal\", \"v12\": \"freq_flag\", \"v13\": \"cal_value\"}, \"struct_hints\": [{\"offset\": 4, \"meaning\": \"source frequency/channel field copied to offset 48\"}, {\"offset\": 24, \"meaning\": \"raw frequency/channel word used for threshold checks\"}, {\"offset\": 27, \"meaning\": \"TX table index (0xFF means no per-entry update)\"}, {\"offset\": 28, \"meaning\": \"gain/band table index\"}, {\"offset\": 29, \"meaning\": \"channel index used in channel table arithmetic\"}, {\"offset\": 30, \"meaning\": \"TX/RF flag word controlling TX path state\"}, {\"offset\": 32, \"meaning\": \"TX sequence number captured from table entry\"}, {\"offset\": 36, \"meaning\": \"zeroed TX counter/state word\"}, {\"offset\": 40, \"meaning\": \"zeroed TX counter/state word\"}, {\"offset\": 48, \"meaning\": \"frequency/channel copy used by RF transmit path\"}, {\"offset\": 50, \"meaning\": \"computed TX state/config byte\"}, {\"offset\": 51, \"meaning\": \"TX state byte adjusted by calibration value\"}, {\"offset\": 52, \"meaning\": \"frequency-threshold flag\"}, {\"offset\": 53, \"meaning\": \"byte calibration value returned by rf_get_cal_entry\"}, {\"offset\": 66, \"meaning\": \"mirror of TX state/calibration byte\"}]}"
+}

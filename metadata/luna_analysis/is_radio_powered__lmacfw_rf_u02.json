@@ -1,0 +1,9 @@
+{
+ "fn": "is_radio_powered",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113344",
+ "seg": 5,
+ "key": "is_radio_powered__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_is_powered\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns whether the RF radio status byte at the hardware control base indicates that the radio is powered.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"RF/radio power status byte (1 means powered)\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_status_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12b6c4",
+ "seg": 39,
+ "key": "rf_status_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_arm_status_check\",\"confidence\":\"medium\",\"docstring\":\"Arms an RF status check by setting a deadline and enabling related control bits.\",\"subsystem\":\"rf\"}"
+}

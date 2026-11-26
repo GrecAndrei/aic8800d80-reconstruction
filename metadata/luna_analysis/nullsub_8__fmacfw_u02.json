@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_8",
+ "img": "fmacfw_u02",
+ "addr": "0x11c360",
+ "seg": 18,
+ "key": "nullsub_8__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_noop\",\"confidence\":\"low\",\"docstring\":\"Placeholder in a radio-related code cluster that returns zero without performing any work.\",\"subsystem\":\"rf\"}"
+}

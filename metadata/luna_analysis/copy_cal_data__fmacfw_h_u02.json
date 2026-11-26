@@ -1,0 +1,9 @@
+{
+ "fn": "copy_cal_data",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102b10",
+ "seg": 2,
+ "key": "copy_cal_data__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"report_spurious_interrupt\",\"confidence\":\"high\",\"docstring\":\"Logs an interrupt-controller spurious event and, if the global signed flag is negative, invokes the associated MMIO interrupt-disable operation.\",\"subsystem\":\"mmio\"}"
+}

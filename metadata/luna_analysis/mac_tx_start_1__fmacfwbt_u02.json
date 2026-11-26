@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_start_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b01c",
+ "seg": 60,
+ "key": "mac_tx_start_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"phy_tx_start_slot\", \"confidence\": \"medium\", \"docstring\": \"Programs and triggers a hardware PHY TX slot from a PHY context, selecting the Bluetooth/ACL path when the slot flags indicate a BT packet.\", \"subsystem\": \"phy\", \"var_renames\": {\"v2\": \"tx_slot_regs\", \"v3\": \"frame_length\", \"v5\": \"tx_flags\", \"v6\": \"slot_reg_value\", \"v8\": \"tx_slot_busy\", \"v9\": \"conn_index\", \"v10\": \"tx_ctx_index\", \"v11\": \"slot_reg_value\", \"v13\": \"busy_flag\"}, \"struct_hints\": [{\"offset\": 76, \"meaning\": \"tx_slot_register_pointer\"}, {\"offset\": 32, \"meaning\": \"frame_length_field\"}, {\"offset\": 30, \"meaning\": \"tx_flags\"}, {\"offset\": 27, \"meaning\": \"phy_ctx_type_or_index\"}, {\"offset\": 29, \"meaning\": \"bt_acl_conn_index\"}, {\"offset\": 36, \"meaning\": \"phy_status_flags\"}]}"
+}

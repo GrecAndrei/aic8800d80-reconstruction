@@ -1,0 +1,9 @@
+{
+ "fn": "hci_tx_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12cdf0",
+ "seg": 41,
+ "key": "hci_tx_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mem_free_align\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Frees a previously allocated buffer by inserting its block header into an IRQ-protected address-sorted free list and coalescing adjacent free blocks.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"a1\": \"buf\",\n    \"v2\": \"cur_hdr\",\n    \"v3\": \"size\",\n    \"v5\": \"blk_hdr\",\n    \"v9\": \"cur_size\",\n    \"v10\": \"prev_next\",\n    \"v13\": \"merged_size\",\n    \"v14\": \"next_hdr\",\n    \"v15\": \"next_size\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"block header pointer/next free block link\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"block size stored in the first word after the block header\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "find_char_8",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12dce0",
+ "seg": 43,
+ "key": "find_char_8__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tlv_find_tag_0x3e\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a two-byte-header length/value buffer for a record whose type byte is 0x3E, returning that record and setting the output flag when its length byte is one.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"cur_record\",\n    \"v3\": \"end_ptr\",\n    \"v4\": \"next_record\",\n    \"a2\": \"buf_len\",\n    \"a3\": \"out_len_is_one\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"record type byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"record length byte\"\n    }\n  ]\n}"
+}

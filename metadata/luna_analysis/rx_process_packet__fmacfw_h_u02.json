@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x116b0c",
+ "seg": 9,
+ "key": "rx_process_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_process_packet\",\"confidence\":\"high\",\"docstring\":\"Processes a received-packet descriptor, copies applicable RX and station metadata into its result context, and dispatches packet handling.\",\"subsystem\":\"rx\",\"var_renames\":{\"a1\":\"rx_packet\",\"v4\":\"rx_flags\",\"v5\":\"rx_result\",\"v8\":\"packet_status\",\"v12\":\"rx_status_words\",\"v16\":\"station_record\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"RX descriptor: signed packet-processing status\"},{\"offset\":24,\"meaning\":\"RX descriptor: packet or event type code; 36488 selects special handling\"},{\"offset\":29,\"meaning\":\"RX descriptor: station index\"},{\"offset\":30,\"meaning\":\"RX descriptor: status flags; bit 0x2000 enables station metadata handling\"},{\"offset\":36,\"meaning\":\"RX descriptor: flags controlling status metadata copying\"},{\"offset\":44,\"meaning\":\"RX descriptor: pointer to a 16-word RX status metadata block\"},{\"offset\":72,\"meaning\":\"RX descriptor: pointer to the RX result context\"}]}"
+}

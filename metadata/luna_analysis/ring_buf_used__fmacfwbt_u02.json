@@ -1,0 +1,9 @@
+{
+ "fn": "ring_buf_used",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115564",
+ "seg": 7,
+ "key": "ring_buf_used__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"firmware_startup\",\"confidence\":\"medium\",\"docstring\":\"Initializes firmware memory and hardware state, checks hardware status and patch magic, then initializes the kernel task system before idling.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v0\":\"clear_dst\",\"v1\":\"clear_end\",\"v2\":\"init_data_dst\",\"v3\":\"init_data_src\",\"v4\":\"init_data_src_end\",\"v5\":\"init_data_dst_ptr\",\"v7\":\"hardware_regs\",\"v11\":\"hardware_status_byte\",\"v12\":\"mode_reg\"}}"
+}

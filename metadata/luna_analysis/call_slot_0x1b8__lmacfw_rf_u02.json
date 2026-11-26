@@ -1,0 +1,9 @@
+{
+ "fn": "call_slot_0x1b8",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10efb4",
+ "seg": 2,
+ "key": "call_slot_0x1b8__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"call_slot_0x1b8\",\"confidence\":\"high\",\"docstring\":\"Indirect call thunk that invokes the function pointer stored at literal table slot 0x1B8.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

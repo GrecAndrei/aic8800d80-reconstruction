@@ -1,0 +1,9 @@
+{
+ "fn": "rf_read_status_flags",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132744",
+ "seg": 45,
+ "key": "rf_read_status_flags__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_read_status_flags\",\"confidence\":\"high\",\"docstring\":\"Reads the status word at offset 0xDC and returns bits 29:24 with bit 8 set and bit 9 set when bit 30 is present.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"status_base\",\"v1\":\"raw_status_word\",\"v2\":\"status_bits\"},\"struct_hints\":[{\"offset\":220,\"meaning\":\"Volatile status word; bits 29:24 are returned as status bits, and bit 30 controls returned flag bit 9.\"}]}"
+}

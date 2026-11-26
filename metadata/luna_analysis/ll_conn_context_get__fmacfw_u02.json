@@ -1,0 +1,9 @@
+{
+ "fn": "ll_conn_context_get",
+ "img": "fmacfw_u02",
+ "addr": "0x13a980",
+ "seg": 59,
+ "key": "ll_conn_context_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_conn_tx_prefix_build\",\"confidence\":\"medium\",\"docstring\":\"Builds a mode-dependent prefix immediately before the supplied packet buffer and updates the associated link-control word when applicable.\",\"subsystem\":\"ble\",\"var_renames\":{\"v4\":\"conn_idx\",\"v6\":\"prefix_ptr\",\"v7\":\"link_cfg\",\"v12\":\"prefix_word\",\"v13\":\"control_word_ptr\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Byte-sized index used to select a device or link context\"},{\"offset\":29,\"meaning\":\"Byte-sized connection-context index\"},{\"offset\":44,\"meaning\":\"Pointer to a link-control structure used when a3 is nonzero\"},{\"offset\":56,\"meaning\":\"First input halfword copied into the generated mode-dependent prefix\"},{\"offset\":58,\"meaning\":\"Second input halfword copied into the generated prefix\"},{\"offset\":60,\"meaning\":\"Third input halfword copied into the generated prefix\"},{\"offset\":62,\"meaning\":\"Fourth input halfword copied into one prefix format\"},{\"offset\":116,\"meaning\":\"Alternate pointer to a link-control structure used when a3 is zero\"}]}"
+}

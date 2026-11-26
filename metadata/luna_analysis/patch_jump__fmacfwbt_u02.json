@@ -1,0 +1,9 @@
+{
+ "fn": "patch_jump",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f748",
+ "seg": 43,
+ "key": "patch_jump__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"host_event_process_thunk\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Patch/jump thunk that forwards its argument to host_event_process.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"a1\": \"event_ptr\"\n  }\n}"
+}

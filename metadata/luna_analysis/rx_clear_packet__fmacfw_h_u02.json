@@ -1,0 +1,9 @@
+{
+ "fn": "rx_clear_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13c26c",
+ "seg": 60,
+ "key": "rx_clear_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_rx_packet_reset\",\"confidence\":\"medium\",\"docstring\":\"Clears the 256-byte RX payload, initializes size-dependent buffer metadata, and returns 348.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"packet_buf\",\"v5\":\"buffer_size\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"Buffer size/configuration byte used to initialize wrap metadata\"},{\"offset\":28,\"meaning\":\"Pointer to the RX packet buffer\"},{\"offset\":6,\"meaning\":\"Start of the 256-byte payload area\"},{\"offset\":263,\"meaning\":\"Stored buffer size byte\"},{\"offset\":264,\"meaning\":\"Wrap mask, set to size minus one for power-of-two sizes\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "check_buf_range_12d7d8",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d7d8",
+ "seg": 42,
+ "key": "check_buf_range_12d7d8__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_valid_buf_terminator\",\"confidence\":\"medium\",\"docstring\":\"Scans length-prefixed buffer entries to a zero-tag terminator, validates their bounds and the terminator length, stores that length, and returns the terminator address or NULL on failure.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"cursor\",\"a2\":\"buffer_len\",\"a3\":\"terminator_len_out\",\"v3\":\"buffer_end\",\"v4\":\"entry_len\",\"v5\":\"entry_end\"}}"
+}

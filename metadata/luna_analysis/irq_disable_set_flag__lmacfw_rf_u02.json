@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable_set_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1102d0",
+ "seg": 3,
+ "key": "irq_disable_set_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"irqlock_list_pop_front\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pops the front entry from an interrupt-protected linked list, maintaining a nesting count and pending-count and enabling interrupts only when the outermost critical section is released.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v0\": \"lock_count_ptr\",\n    \"v1\": \"list_head\",\n    \"result\": \"popped_entry\",\n    \"v3\": \"remaining_lock_count\",\n    \"v4\": \"irq_disable_flag\"\n  },\n  \"struct_hints\": []\n}"
+}

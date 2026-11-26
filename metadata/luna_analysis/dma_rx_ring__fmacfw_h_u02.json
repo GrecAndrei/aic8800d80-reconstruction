@@ -1,0 +1,9 @@
+{
+ "fn": "dma_rx_ring",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13a320",
+ "seg": 58,
+ "key": "dma_rx_ring__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_reorder_process_entry\",\"confidence\":\"medium\",\"docstring\":\"Processes the reorder entry stored in the selected RX context and clears its slot after dispatch.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"reorder_context\",\"v3\":\"reorder_entry\"},\"struct_hints\":[{\"offset\":408,\"meaning\":\"Pointer to the reorder entry for the selected context\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_port_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10dd20",
+ "seg": 2,
+ "key": "gpio_port_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_clock_measure\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configures an RF/clock block, starts a measurement, waits for completion, and returns a calibrated integer value derived from the measured counter.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_common_regs\",\n    \"v1\": \"rf_measure_regs\",\n    \"v4\": \"raw_count_double\",\n    \"v5\": \"added_count_double\",\n    \"v6\": \"subtracted_count_double\",\n    \"v7\": \"final_count_double\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"rf_measure_regs control/status register cleared before configuration\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"rf_measure_regs configuration register; bit 25 is set\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"rf_measure_regs calibration/configuration register updated from global masks and constants\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"rf_measure_regs measured counter value used in the final calculation\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"rf_measure_regs ready/polling status register\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"rf_common_regs configuration register written with 296\"\n    }\n  ]\n}"
+}

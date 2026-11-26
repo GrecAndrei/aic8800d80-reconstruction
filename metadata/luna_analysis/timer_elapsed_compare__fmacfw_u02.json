@@ -1,0 +1,9 @@
+{
+ "fn": "timer_elapsed_compare",
+ "img": "fmacfw_u02",
+ "addr": "0x1063f4",
+ "seg": 2,
+ "key": "timer_elapsed_compare__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_gain_map_write\",\"confidence\":\"high\",\"docstring\":\"Builds and writes the TX gain-map register value, applying optional per-index temperature scaling and table/index bypass encoding.\",\"subsystem\":\"rf\",\"var_renames\":{\"v9\":\"scaled_gain_byte\",\"v10\":\"tx_gain_map_word\",\"v11\":\"gain_map_control_field\",\"v12\":\"tx_gain_map_register\"},\"struct_hints\":[{\"offset\":104,\"meaning\":\"Byte output read after ADC-to-temperature scaling.\"},{\"offset\":132,\"meaning\":\"Index boundary used to decide whether to apply ADC-to-temperature scaling.\"},{\"offset\":148,\"meaning\":\"Base of the per-index float values passed to ADC-to-temperature scaling.\"}]}"
+}

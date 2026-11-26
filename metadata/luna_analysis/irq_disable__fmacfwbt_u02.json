@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d5dc",
+ "seg": 3,
+ "key": "irq_disable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"nvic_irq15_disable\",\"confidence\":\"medium\",\"docstring\":\"Disables NVIC interrupt line 15 and synchronizes the register write with DSB and ISB barriers.\",\"subsystem\":\"hal\"}"
+}

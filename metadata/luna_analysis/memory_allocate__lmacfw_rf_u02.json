@@ -1,0 +1,9 @@
+{
+ "fn": "memory_allocate",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118fd8",
+ "seg": 12,
+ "key": "memory_allocate__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_update_rx_credits_info\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates Bluetooth-coexistence and receive-credit information for a packet/vif context, clearing the indexed receive context and recording a coexistence slot if inactive.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"pkt_info\",\n    \"a2\": \"rx_idx\",\n    \"a3\": \"out_rx_credits\",\n    \"v8\": \"coex_idx\",\n    \"v9\": \"rx_ctx\",\n    \"v10\": \"linked_rx_ctx\",\n    \"v11\": \"coex_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 25,\n      \"meaning\": \"pkt_info: coexistence/station index byte\"\n    },\n    {\n      \"offset\": 29,\n      \"meaning\": \"pkt_info: byte field copied to coex context\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"pkt_info: byte field copied to coex context\"\n    },\n    {\n      \"offset\": 125,\n      \"meaning\": \"rx_ctx: byte field cleared during RX-info update\"\n    },\n    {\n      \"offset\": 126,\n      \"meaning\": \"rx_ctx: uint16 field cleared during RX-info update\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"rx_ctx: pointer or link to related RX context\"\n    },\n    {\n      \"offset\": 94,\n      \"meaning\": \"coex_ctx: active/valid flag checked before updating coexistence context\"\n    },\n    {\n      \"offset\": 102,\n      \"meaning\": \"coex_ctx: associated RX/vif index\"\n    },\n    {\n      \"offset\": 103,\n      \"meaning\": \"coex_ctx: copied pkt_info field\"\n    },\n    {\n      \"offset\": 104,\n      \"meaning\": \"coex_ctx: copied pkt_info field\"\n    }\n  ]\n}"
+}

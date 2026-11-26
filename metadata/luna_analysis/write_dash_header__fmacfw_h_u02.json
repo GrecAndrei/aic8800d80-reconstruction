@@ -1,0 +1,9 @@
+{
+ "fn": "write_dash_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130500",
+ "seg": 42,
+ "key": "write_dash_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"write_dash_header\",\"confidence\":\"medium\",\"docstring\":\"Writes a 28-byte DASH header from template data, patches its control word, and advances the caller's output cursor by 28 bytes.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"output_cursor_ref\",\"v1\":\"dash_header_template\",\"v2\":\"header_control_word\",\"v7\":\"auxiliary_header_data\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Fixed marker byte 0x2D.\"},{\"offset\":1,\"meaning\":\"Fixed protocol byte 0x1A.\"},{\"offset\":2,\"meaning\":\"Control word sourced from the template with bits 2\u20134 replaced by 0b011.\"},{\"offset\":15,\"meaning\":\"Copied template byte overwritten with zero.\"},{\"offset\":16,\"meaning\":\"Copied template byte overwritten with zero.\"},{\"offset\":21,\"meaning\":\"16-bit value copied from template bytes 32\u201333.\"},{\"offset\":23,\"meaning\":\"Four bytes copied from a separate global source.\"},{\"offset\":27,\"meaning\":\"Byte copied from template offset 40.\"}]}"
+}

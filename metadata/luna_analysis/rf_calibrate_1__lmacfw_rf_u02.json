@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibrate_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b088",
+ "seg": 15,
+ "key": "rf_calibrate_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_calibrate_schedule\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Schedules RF calibration work by checking a calibration context table, computing tick-based delays, and posting kernel tasks to available RF calibration entries.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"rf_cal_table\",\n    \"v4\": \"rf_ctx\",\n    \"v5\": \"rf_event\",\n    \"v6\": \"rf_table_index\",\n    \"v7\": \"rf_deadline\",\n    \"v10\": \"time_until_deadline\",\n    \"v12\": \"calib_slack\",\n    \"v14\": \"next_event_delay\",\n    \"v15\": \"delay_midpoint\",\n    \"v17\": \"rf_task_type\",\n    \"v18\": \"rf_task_entry\",\n    \"v20\": \"entry_index\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"RF context target deadline or timestamp field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"RF calibration table index or channel identifier byte\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"Expected scheduled RF calibration event pointer in a table entry\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"RF event/task type field\"\n    }\n  ]\n}"
+}

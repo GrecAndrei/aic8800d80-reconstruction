@@ -1,0 +1,9 @@
+{
+ "fn": "init_mac_global_0x188290",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117d9c",
+ "seg": 10,
+ "key": "init_mac_global_0x188290__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"reset_phy_stats_buffers\",\"confidence\":\"medium\",\"docstring\":\"Zeroes a 40-byte global region and clears its five consecutive 8-byte statistics buffers.\",\"subsystem\":\"phy\",\"var_renames\":{\"v0\":\"stats_base\"}}"
+}

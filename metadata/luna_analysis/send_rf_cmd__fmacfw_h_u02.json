@@ -1,0 +1,9 @@
+{
+ "fn": "send_rf_cmd",
+ "img": "fmacfw_h_u02",
+ "addr": "0x141c5c",
+ "seg": 67,
+ "key": "send_rf_cmd__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_ll_command\",\"confidence\":\"medium\",\"docstring\":\"Constructs an eight-byte link-layer command packet from the supplied opcode and context fields, then passes it to the packet-processing routine.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"opcode\",\"a2\":\"context\",\"v4\":\"packet\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"32-bit value copied to packet bytes 2\u20135\"},{\"offset\":8,\"meaning\":\"16-bit value copied to packet bytes 6\u20137\"},{\"offset\":46,\"meaning\":\"byte copied to packet byte 1\"}]}"
+}

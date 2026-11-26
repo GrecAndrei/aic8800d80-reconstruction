@@ -1,0 +1,9 @@
+{
+ "fn": "check_signed_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1154c0",
+ "seg": 7,
+ "key": "check_signed_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_status_check_halt\",\"confidence\":\"medium\",\"docstring\":\"Checks a signed status value, conditionally clears an interrupt, and then spins forever.\",\"subsystem\":\"hal\"}"
+}

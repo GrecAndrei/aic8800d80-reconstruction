@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_power_set",
+ "img": "fmacfw_u02",
+ "addr": "0x1078dc",
+ "seg": 2,
+ "key": "rf_tx_power_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_power_set\",\"confidence\":\"medium\",\"docstring\":\"Applies packed RF transmit-power settings through RF control registers and posts the configured event.\",\"subsystem\":\"rf\",\"var_renames\":{\"v8\":\"packed_rf_settings\",\"v11\":\"event_id\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Packed RF configuration values used to program the transmit-power settings.\"}]}"
+}

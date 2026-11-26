@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clock_reset",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f004",
+ "seg": 21,
+ "key": "rf_clock_reset__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_clock_reset\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Toggles an RF clock/reset control bit, updates a system flag, and optionally waits when a diagnostic flag is set.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_reset_reg\",\n    \"result\": \"status\"\n  },\n  \"struct_hints\": []\n}"
+}

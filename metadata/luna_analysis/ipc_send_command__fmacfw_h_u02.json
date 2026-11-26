@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_send_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10f7cc",
+ "seg": 3,
+ "key": "ipc_send_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_command_exchange\",\"confidence\":\"medium\",\"docstring\":\"Sends command 0x40D with fixed parameters and returns the result of processing its response.\",\"subsystem\":\"rf\"}"
+}

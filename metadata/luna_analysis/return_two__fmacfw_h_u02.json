@@ -1,0 +1,9 @@
+{
+ "fn": "return_two",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12cfc0",
+ "seg": 40,
+ "key": "return_two__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"return_two\",\"confidence\":\"high\",\"docstring\":\"Returns the constant integer value 2.\",\"subsystem\":\"libmisc\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_clk_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116328",
+ "seg": 9,
+ "key": "wlan_clk_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_clk_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the WLAN clock/control entries by walking a configuration list, programming each entry's control register with an override or base address, performing conditional flash-control initialization, and finally initializing the memory pool.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a2\": \"clk_entry_list\",\n    \"v2\": \"cfg_ptr\",\n    \"v6\": \"clk_entry\",\n    \"v7\": \"clk_reg_val\",\n    \"v8\": \"clk_entry\",\n    \"v9\": \"clk_reg_ptr\",\n    \"v10\": \"next_clk_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"uint16_t flag controlling the IRQ-disable/error path for the entry\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"uint32_t force-value flag causing the entry's register pointer to be written with 0x7C000000\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"pointer to the volatile control/base register addressed for the entry\"\n    }\n  ]\n}"
+}

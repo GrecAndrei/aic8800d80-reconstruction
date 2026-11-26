@@ -1,0 +1,9 @@
+{
+ "fn": "rf_build_cal_block_v2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x130fac",
+ "seg": 43,
+ "key": "rf_build_cal_block_v2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_build_cal_block_v2\",\"confidence\":\"high\",\"docstring\":\"Pack a six-byte RF calibration block by writing a constant 0x03/0x02 header, encoding a source byte at bits 12-15 with bit 11 controlled by another source flag, and storing a 16-bit payload at offset 4.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"dest_block\",\"a2\":\"cal_entry\",\"a3\":\"payload_u16\",\"v3\":\"cal_code\",\"v4\":\"cal_enable\",\"v5\":\"encoded_control\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"dest_block header byte, always set to 3\"},{\"offset\":1,\"meaning\":\"dest_block header byte, always set to 2\"},{\"offset\":2,\"meaning\":\"dest_block control word: cal_entry byte 22 shifted left by 12, with bit 11 set if cal_entry byte 17 equals 1\"},{\"offset\":4,\"meaning\":\"dest_block payload word copied from a3\"},{\"offset\":17,\"meaning\":\"cal_entry flag byte: enables bit 11 of the encoded control word when equal to 1\"},{\"offset\":22,\"meaning\":\"cal_entry code/index byte shifted into bits 12-15 of the encoded control word\"}]}"
+}

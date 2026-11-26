@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_msg_0x6e",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119514",
+ "seg": 12,
+ "key": "ke_send_msg_0x6e__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_send_evt_0x6e\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Wrapper that forwards kernel event 0x6E to ke_evt_handler with the caller's two payload arguments.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

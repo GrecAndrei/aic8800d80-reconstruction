@@ -1,0 +1,9 @@
+{
+ "fn": "bt_init_mod",
+ "img": "fmacfw_u02",
+ "addr": "0x139cf4",
+ "seg": 58,
+ "key": "bt_init_mod__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes BLE link-layer lists and fixed-size context and packet-slot pools.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"context_list\",\"v1\":\"context_cursor\",\"v2\":\"context_end\",\"v3\":\"context_entry\",\"v4\":\"slot_cursor\",\"v6\":\"slot_end\",\"result\":\"shared_slot_ptr\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"shared static pointer initialized for each slot\"},{\"offset\":4,\"meaning\":\"pointer to the slot's embedded region at offset 64\"},{\"offset\":12,\"meaning\":\"byte state or flag cleared\"},{\"offset\":16,\"meaning\":\"pointer to the slot's embedded region at offset 64\"},{\"offset\":72,\"meaning\":\"16-bit field cleared\"}]}"
+}

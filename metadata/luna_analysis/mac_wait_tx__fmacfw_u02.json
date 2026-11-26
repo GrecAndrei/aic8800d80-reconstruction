@@ -1,0 +1,9 @@
+{
+ "fn": "mac_wait_tx",
+ "img": "fmacfw_u02",
+ "addr": "0x11d8ec",
+ "seg": 20,
+ "key": "mac_wait_tx__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_wait_tx\",\"confidence\":\"medium\",\"docstring\":\"Processes queued MAC transmit-wait callbacks under a nested interrupt critical section and handles deferred host-buffer recovery.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"tx_wait_queue_head\",\"v1\":\"tx_wait_item\",\"v3\":\"restore_irq_on_unlock\",\"v4\":\"critical_section_depth\",\"v6\":\"completion_callback\",\"v9\":\"host_recovery_state\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"callback function pointer\"},{\"offset\":8,\"meaning\":\"argument passed to the callback\"},{\"offset\":12,\"meaning\":\"value passed to radio_get_status\"},{\"offset\":16,\"meaning\":\"state byte whose bit 0 is tested and then cleared\"}]}"
+}

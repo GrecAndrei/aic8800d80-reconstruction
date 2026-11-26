@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable_save",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123b80",
+ "seg": 29,
+ "key": "irq_disable_save__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_controller_reset_locked\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes and resets the Bluetooth controller in a nested interrupt-locked critical section, then sends an HCI event and command.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v4\": \"irq_nested_lock_count_ptr\",\n    \"v5\": \"irq_saved_state_ptr\",\n    \"v6\": \"prev_saved_irq_state\",\n    \"v10\": \"old_irq_nested_lock_count\",\n    \"v11\": \"new_irq_nested_lock_count\",\n    \"v12\": \"irq_disabled_by_this_call\"\n  },\n  \"struct_hints\": []\n}"
+}

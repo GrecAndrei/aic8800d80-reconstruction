@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calc_tx_power_offset",
+ "img": "fmacfwbt_u02",
+ "addr": "0x130a5c",
+ "seg": 43,
+ "key": "rf_calc_tx_power_offset__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_build_tx_power_offset_block\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds an RF transmit-power-offset command block in a caller-provided buffer, encoding channel validity flags and optional offset payload, and updates a pointer to the next free buffer position.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"out_block\",\n    \"a2\": \"rf_ctx\",\n    \"a3\": \"optional_offset_data\",\n    \"a4\": \"channel\",\n    \"a5\": \"out_next\",\n    \"a7\": \"power_cal_entry\",\n    \"v8\": \"cal_entry\",\n    \"v9\": \"tx_power_offset\",\n    \"v12\": \"chan_valid\",\n    \"v13\": \"block_u16\",\n    \"v14\": \"block_flags\",\n    \"v16\": \"block_words\",\n    \"v17\": \"block_bytes\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 54,\n      \"meaning\": \"related 16-bit calibration-entry field at offset 54\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"16-bit transmit power offset, defaulted to 5 when zero\"\n    }\n  ]\n}"
+}

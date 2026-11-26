@@ -1,0 +1,9 @@
+{
+ "fn": "mutex_acquire_if_ready",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x117ac8",
+ "seg": 10,
+ "key": "mutex_acquire_if_ready__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"wlan_tx_ctx_reset\", \"confidence\": \"medium\", \"docstring\": \"Flushes and resets a WLAN TX context by draining its pending list and re-kicking each entry, then clears the structure and marks its state/valid byte as -1.\", \"subsystem\": \"wlan\", \"var_renames\": {\"a1\": \"tx_ctx\", \"v2\": \"pending_list\", \"v3\": \"popped_entry\", \"result\": \"tx_ctx\"}, \"struct_hints\": [{\"offset\": 48, \"meaning\": \"list head for pending TX entries\"}, {\"offset\": 32, \"meaning\": \"state/valid field initialized or marked invalid as -1\"}]}"
+}

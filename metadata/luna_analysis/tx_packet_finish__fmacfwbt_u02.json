@@ -1,0 +1,9 @@
+{
+ "fn": "tx_packet_finish",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11eee0",
+ "seg": 21,
+ "key": "tx_packet_finish__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_packet_finish\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Finalizes a transmit packet context by retrieving its timestamp, setting a completion flag, and running abort checks before falling back to the RF transmit timestamp check.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"tx_pkt\",\n    \"v2\": \"tx_abort_ctrl\",\n    \"v3\": \"tx_pkt\",\n    \"v4\": \"abort_flag_ptr\",\n    \"v5\": \"tx_pkt_flags\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"tx packet status/timestamp field cleared during finish\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"tx packet flags byte; bit 0 is set to mark completion or abort handling\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"tx timestamp/radio tick field supplied to tx_timestamp_get\"\n    }\n  ]\n}"
+}

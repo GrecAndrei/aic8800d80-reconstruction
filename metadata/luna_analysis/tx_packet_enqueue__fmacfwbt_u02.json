@@ -1,0 +1,9 @@
+{
+ "fn": "tx_packet_enqueue",
+ "img": "fmacfwbt_u02",
+ "addr": "0x118ff8",
+ "seg": 13,
+ "key": "tx_packet_enqueue__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_tx_packet_prepare\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prepares a Bluetooth transmit packet descriptor by setting buffer end and length fields, copying a selected 52-byte header template, programming a derived PHY configuration word, and clearing transient descriptor state.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"tx_context\",\n    \"a2\": \"header_type\",\n    \"a3\": \"packet_length\",\n    \"v3\": \"desc_pair\",\n    \"v5\": \"header_src\",\n    \"v6\": \"header_dst\",\n    \"v8\": \"phy_config_raw\",\n    \"v9\": \"phy_config\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 72,\n      \"meaning\": \"pointer pair identifying the TX packet/dma descriptor to program\"\n    },\n    {\n      \"offset\": 82,\n      \"meaning\": \"16-bit TX status/flag field cleared during packet preparation\"\n    },\n    {\n      \"offset\": 88,\n      \"meaning\": \"TX control word cleared during packet preparation\"\n    },\n    {\n      \"offset\": 92,\n      \"meaning\": \"TX control word cleared during packet preparation\"\n    }\n  ]\n}"
+}

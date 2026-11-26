@@ -1,0 +1,9 @@
+{
+ "fn": "send_smc_cmd_0x20",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114c0c",
+ "seg": 6,
+ "key": "send_smc_cmd_0x20__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_smc_cmd_0x20\",\"confidence\":\"high\",\"docstring\":\"Forwards the supplied argument to patch_apply with selector 4 and size 0x14, returning its result.\",\"subsystem\":\"libmisc\"}"
+}

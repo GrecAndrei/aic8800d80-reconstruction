@@ -1,0 +1,9 @@
+{
+ "fn": "queue_remove",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11cac8",
+ "seg": 19,
+ "key": "queue_remove__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_process_channel_command\", \"confidence\": \"medium\", \"docstring\": \"Processes the current RF channel command by resolving its frequency, reading RF status, and updating the associated gain/attenuation byte.\", \"subsystem\": \"rf\", \"var_renames\": {\"v0\": \"rf_ctrl_ptr\", \"v1\": \"rf_status_base\", \"v2\": \"rf_cmd_entry\", \"v3\": \"rf_cmd_offset\", \"v4\": \"rf_channel_freq\", \"v5\": \"rf_gain_ptr\", \"v6\": \"rf_cmd_mode\", \"v7\": \"rf_cmd_freq_raw\", \"v9\": \"rf_channel_cmp_result\", \"v10\": \"rf_5g_freq_offset\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"RF control block field: pointer to RF status/channel command table\"}, {\"offset\": 4, \"meaning\": \"RF control block field: pointer to RF gain/attenuation byte object\"}, {\"offset\": 10, \"meaning\": \"RF control block field: current command index\"}, {\"offset\": 2, \"meaning\": \"current RF command entry: mode byte\"}, {\"offset\": 3, \"meaning\": \"current RF command entry: status/flags byte\"}]}"
+}

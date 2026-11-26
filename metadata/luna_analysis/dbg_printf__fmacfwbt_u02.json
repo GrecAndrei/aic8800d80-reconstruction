@@ -1,0 +1,9 @@
+{
+ "fn": "dbg_printf",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b734",
+ "seg": 61,
+ "key": "dbg_printf__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_scan_done_notify\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Completes an RF scan slot, clears/notifies scan-done or abort event 512, and populates a scan-result message header from per-channel RF and scan context tables.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v7\": \"scan_entry_tbl_base\",\n    \"v8\": \"rf_scan_ctx_base\",\n    \"v9\": \"rf_ctx_idx\",\n    \"v13\": \"scan_result_desc\",\n    \"v14\": \"scan_state\",\n    \"v16\": \"event_msg\",\n    \"v17\": \"event_payload\",\n    \"v22\": \"timestamp_counter\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 34,\n      \"meaning\": \"scan_entry[34] uint8 associated RF context index\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"rf_scan_ctx[72] uint32 scan result descriptor pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"scan_result_desc[4] uint8 scan state\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"rf_scan_ctx[1224] uint8 scan busy or abort indicator\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"rf_scan_ctx[106] uint8 mode selecting extra measurement fields\"\n    },\n    {\n      \"offset\": 100,\n      \"meaning\": \"rf_scan_ctx[100..106] uint16 measurement or timing fields copied to event payload\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"event_payload[108] start of populated scan-result packet header\"\n    },\n    {\n      \"offset\": 130,\n      \"meaning\": \"event_payload[130] timestamp or sequence derived from a counter multiplied by 16\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_bank_init2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10ee7c",
+ "seg": 2,
+ "key": "gpio_bank_init2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_bank4_af_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes alternate-function configuration for GPIO bank 4 while toggling related enable bits and invoking tx_set_power.\",\"subsystem\":\"gpio\",\"var_renames\":{\"v7\":\"tx_power_param\",\"v10\":\"saved_bits_19\",\"v11\":\"saved_bits_20\",\"v12\":\"saved_bits_21\",\"v13\":\"saved_bits_22\"}}"
+}

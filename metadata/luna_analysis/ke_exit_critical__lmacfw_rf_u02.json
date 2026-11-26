@@ -1,0 +1,9 @@
+{
+ "fn": "ke_exit_critical",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ac10",
+ "seg": 15,
+ "key": "ke_exit_critical__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_exit_critical\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Exits a kernel critical section for the supplied task, restoring nested interrupt state and resuming the next waiting task when the exiting task was at the head of the critical-wait list.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v1\": \"critical_count_ptr\",\n    \"v2\": \"critical_task_list_head\",\n    \"v3\": \"list_head_matches_task\",\n    \"v5\": \"critical_count_after_decrement\",\n    \"v6\": \"irq_disable_saved\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"scheduler-relevant field of the next critical-section task/list node\"\n    }\n  ]\n}"
+}

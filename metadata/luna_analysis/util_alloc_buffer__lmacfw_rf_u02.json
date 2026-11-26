@@ -1,0 +1,9 @@
+{
+ "fn": "util_alloc_buffer",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12466c",
+ "seg": 23,
+ "key": "util_alloc_buffer__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_event_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls event state and dispatches pending kernel state events from a small global state machine.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

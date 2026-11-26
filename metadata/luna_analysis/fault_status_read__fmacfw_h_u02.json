@@ -1,0 +1,9 @@
+{
+ "fn": "fault_status_read",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115470",
+ "seg": 6,
+ "key": "fault_status_read__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"is_enabled_irq_pending\",\"confidence\":\"medium\",\"docstring\":\"Checks for a relevant pending interrupt by examining enabled NVIC pending bits and handling the associated status condition first.\",\"subsystem\":\"hal\",\"var_renames\":{\"i\":\"irq_word_index\",\"result\":\"pending_enabled_mask\"}}"
+}

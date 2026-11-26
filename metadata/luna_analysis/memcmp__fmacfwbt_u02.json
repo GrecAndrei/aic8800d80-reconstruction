@@ -1,0 +1,9 @@
+{
+ "fn": "memcmp",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1437ac",
+ "seg": 69,
+ "key": "memcmp__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"memcmp\",\"confidence\":\"high\",\"docstring\":\"Compares two memory buffers byte-by-byte, using an aligned word fast path and returning the difference between the first mismatched unsigned bytes.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"src1\",\"a2\":\"src2\",\"a3\":\"len\",\"v3\":\"src1_words\",\"v4\":\"src2_words\",\"v5\":\"word2\",\"v7\":\"word1\",\"v8\":\"len_minus_1\",\"v9\":\"src2_bytes\",\"v10\":\"src1_bytes\",\"v11\":\"byte1\",\"v13\":\"byte2\"},\"struct_hints\":[]}"
+}

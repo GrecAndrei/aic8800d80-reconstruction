@@ -1,0 +1,9 @@
+{
+ "fn": "lld_evt_get_current",
+ "img": "fmacfw_h_u02",
+ "addr": "0x134a90",
+ "seg": 52,
+ "key": "lld_evt_get_current__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lld_evt_report_current\",\"confidence\":\"medium\",\"docstring\":\"Packages and dispatches diagnostic snapshots for the active BLE link-layer event, including RX results and optional RF status.\",\"subsystem\":\"lld\",\"var_renames\":{\"v0\":\"event_table_base\",\"v4\":\"event_state_offset\",\"v13\":\"event_state\",\"v14\":\"word_index\",\"v16\":\"event_word_ptr\",\"v24\":\"event_index\"},\"struct_hints\":[{\"offset\":61,\"meaning\":\"Current event index read from the active controller context.\"},{\"offset\":248,\"meaning\":\"Address passed to the RF status-reading helper.\"},{\"offset\":368,\"meaning\":\"32-bit event value copied into a dispatched report.\"},{\"offset\":372,\"meaning\":\"16-bit event value copied into a dispatched report.\"},{\"offset\":412,\"meaning\":\"Byte flag controlling whether RX-result status bits update a global status field.\"},{\"offset\":422,\"meaning\":\"16-bit event value copied into a dispatched report.\"},{\"offset\":424,\"meaning\":\"RX data or packet state passed to the RX-processing helper.\"},{\"offset\":440,\"meaning\":\"Start of four 32-bit values dispatched as indexed event records.\"},{\"offset\":472,\"meaning\":\"Event flags; bit 3 enables reporting RF status.\"}]}"
+}

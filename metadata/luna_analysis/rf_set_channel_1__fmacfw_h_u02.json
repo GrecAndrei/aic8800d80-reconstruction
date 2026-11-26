@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_channel_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10ed98",
+ "seg": 3,
+ "key": "rf_set_channel_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel\",\"confidence\":\"medium\",\"docstring\":\"Programs the RF channel selection value and applies the associated MMIO control updates.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"channel\"}}"
+}

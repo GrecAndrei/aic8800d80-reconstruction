@@ -1,0 +1,9 @@
+{
+ "fn": "mac_irq_enable",
+ "img": "fmacfw_u02",
+ "addr": "0x103fa8",
+ "seg": 2,
+ "key": "mac_irq_enable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_load_banked_ram\",\"confidence\":\"medium\",\"docstring\":\"Copies 0x480 bytes from the source image starting at offset 0x30 into the banked MAC memory window, selecting banks 0\u20132.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"source_image\",\"v1\":\"bank_select_reg\",\"v6\":\"bank_index\",\"v7\":\"bank_word_count\"}}"
+}

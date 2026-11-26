@@ -1,0 +1,9 @@
+{
+ "fn": "set_tx_control",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1117d0",
+ "seg": 4,
+ "key": "set_tx_control__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_tx_control\",\"confidence\":\"medium\",\"docstring\":\"Initializes TX-control data, triggers the control operation, waits for its busy bit to clear, and updates related registers.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v2\":\"control_registers\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Control/status register; bit 5 is triggered and polled until clear.\"},{\"offset\":2304,\"meaning\":\"Control flags register; bits 31 and 26 are enabled.\"},{\"offset\":2312,\"meaning\":\"Register read and written back unchanged.\"},{\"offset\":2324,\"meaning\":\"Register assigned the address held in v0.\"}]}"
+}

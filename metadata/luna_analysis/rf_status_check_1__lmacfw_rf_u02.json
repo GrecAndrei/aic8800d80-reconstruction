@@ -1,0 +1,9 @@
+{
+ "fn": "rf_status_check_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b2c8",
+ "seg": 15,
+ "key": "rf_status_check_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_handle_status_flags\", \"confidence\": \"medium\", \"docstring\": \"Services pending RF status bits in a global status byte, updates the state, and invokes the corresponding RF register access.\", \"subsystem\": \"rf\", \"var_renames\": {\"v0\": \"rf_status_ptr\", \"v1\": \"status_flags\"}, \"struct_hints\": [{\"offset\": 88, \"meaning\": \"RF status/flags byte used for pending RF register access requests\"}]}"
+}

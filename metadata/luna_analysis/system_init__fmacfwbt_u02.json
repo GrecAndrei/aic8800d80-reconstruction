@@ -1,0 +1,9 @@
+{
+ "fn": "system_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x119168",
+ "seg": 13,
+ "key": "system_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_event_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes pending BLE event/message entries by popping them from a queue under interrupt protection and invoking each entry\u2019s callback while updating completion/abort state.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v0\": \"dispatch_irq_depth\",\n    \"v1\": \"irq_disabled_by_this_dispatch\",\n    \"v2\": \"event_queue_ptr\",\n    \"v3\": \"ble_task_ctx\",\n    \"result\": \"event_msg\",\n    \"v5\": \"event_msg\",\n    \"v8\": \"event_handler\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 76,\n      \"meaning\": \"pointer to event-associated data/context used to derive the second callback argument\"\n    },\n    {\n      \"offset\": 88,\n      \"meaning\": \"event handler/callback function pointer\"\n    },\n    {\n      \"offset\": 92,\n      \"meaning\": \"first callback argument (user/context pointer for the event handler)\"\n    }\n  ]\n}"
+}

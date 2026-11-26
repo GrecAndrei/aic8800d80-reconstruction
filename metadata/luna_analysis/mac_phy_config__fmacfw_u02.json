@@ -1,0 +1,9 @@
+{
+ "fn": "mac_phy_config",
+ "img": "fmacfw_u02",
+ "addr": "0x103f2c",
+ "seg": 2,
+ "key": "mac_phy_config__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"request_debug_memory_dump\",\"confidence\":\"medium\",\"docstring\":\"Waits for the debug end-address value to become nonnegative, clears related state, and emits a request to dump 16 KiB at 0x00100000.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v0\":\"end_addr_ptr\"},\"struct_hints\":[]}"
+}

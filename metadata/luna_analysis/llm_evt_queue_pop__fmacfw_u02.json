@@ -1,0 +1,9 @@
+{
+ "fn": "llm_evt_queue_pop",
+ "img": "fmacfw_u02",
+ "addr": "0x11eaa0",
+ "seg": 20,
+ "key": "llm_evt_queue_pop__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_command_poll\",\"confidence\":\"medium\",\"docstring\":\"Updates connection state, dispatches a pending command when available, and otherwise returns the radio status.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[{\"offset\":4,\"meaning\":\"field cleared before command dispatch\"},{\"offset\":16,\"meaning\":\"flags byte with bit 0 set before command dispatch\"},{\"offset\":28,\"meaning\":\"value passed to get_connection_state\"}]}"
+}

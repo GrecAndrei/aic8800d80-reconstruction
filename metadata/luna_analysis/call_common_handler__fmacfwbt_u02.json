@@ -1,0 +1,9 @@
+{
+ "fn": "call_common_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123e28",
+ "seg": 30,
+ "key": "call_common_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_cmd_common_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes an HCI command status update, mirrors a status byte into a global state block, checks radio and MAC idle conditions, and allocates and sends the corresponding HCI event when the command completes.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v7\": \"status\",\n    \"v8\": \"state_table\",\n    \"a3\": \"cmd_id\",\n    \"result\": \"cmd_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 18,\n      \"meaning\": \"state word cleared to zero\"\n    },\n    {\n      \"offset\": 31,\n      \"meaning\": \"status byte copied from input\"\n    }\n  ]\n}"
+}

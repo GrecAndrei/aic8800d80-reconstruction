@@ -1,0 +1,9 @@
+{
+ "fn": "write_f5p_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130694",
+ "seg": 42,
+ "key": "write_f5p_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"write_f5p_header\",\"confidence\":\"high\",\"docstring\":\"Writes the seven-byte `F5p\\\\0\\\\0\\\\0\\\\0` header at the output cursor, advances the cursor, and returns 7.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"write_cursor_ref\"}}"
+}

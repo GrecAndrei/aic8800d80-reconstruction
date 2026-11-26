@@ -1,0 +1,9 @@
+{
+ "fn": "send_cmd_88",
+ "img": "fmacfw_u02",
+ "addr": "0x1231d4",
+ "seg": 28,
+ "key": "send_cmd_88__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_config_cmd_handler\",\"confidence\":\"medium\",\"docstring\":\"Handles radio configuration commands for BCMC settings, temperature compensation, and external flags, then sends a kernel-message response.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"request\",\"v5\":\"command_id\",\"v7\":\"response_message\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Command selector\"},{\"offset\":4,\"meaning\":\"Command value or flags/mask, depending on the command\"},{\"offset\":8,\"meaning\":\"Secondary command parameter\"}]}"
+}

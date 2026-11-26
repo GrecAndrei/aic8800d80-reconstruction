@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_profile_by_id",
+ "img": "fmacfw_u02",
+ "addr": "0x135168",
+ "seg": 52,
+ "key": "bt_get_profile_by_id__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_sm_auth_send\",\"confidence\":\"medium\",\"docstring\":\"Prepares a Bluetooth LE security-manager authentication command using the selected connection profile and connection context.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"payload_data\",\"v4\":\"connection_context\",\"v5\":\"connection_index\",\"v6\":\"profile_context\",\"v9\":\"profile_index\",\"v11\":\"command_context\",\"v12\":\"connection_profile_state\",\"v13\":\"command_buffer\",\"v15\":\"profile_record\",\"v20\":\"connection_mode\",\"v23\":\"encoded_length\",\"v28\":\"additional_data_length\"},\"struct_hints\":[{\"offset\":54,\"meaning\":\"length of additional connection payload data\"},{\"offset\":59,\"meaning\":\"connection mode discriminator, compared against values 1 and 2\"},{\"offset\":61,\"meaning\":\"connection slot index used to select per-connection state\"},{\"offset\":72,\"meaning\":\"pointer to the command buffer\"},{\"offset\":108,\"meaning\":\"start of the constructed outbound command frame\"}]}"
+}

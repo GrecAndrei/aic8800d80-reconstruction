@@ -1,0 +1,9 @@
+{
+ "fn": "rf_event_dispatch",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ae24",
+ "seg": 15,
+ "key": "rf_event_dispatch__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_event_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Advances RF scheduling state using channel and interval tables, selects the next RF event time, updates the associated kernel timer/list node, and returns the resulting list entry.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v4\": \"rf_global_state\",\n    \"v5\": \"rf_channel_table\",\n    \"v8\": \"event_node\",\n    \"v9\": \"cur_channel\",\n    \"v10\": \"next_channel\",\n    \"v11\": \"tick_hz\",\n    \"v13\": \"sched_window\",\n    \"v14\": \"event_time\",\n    \"v16\": \"base_time\",\n    \"v17\": \"deadline\",\n    \"v18\": \"interval\",\n    \"v19\": \"last_sched_time\",\n    \"v20\": \"event_ctrl\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 72, \"meaning\": \"rf_ctx: current channel\"},\n    {\"offset\": 76, \"meaning\": \"rf_ctx: kernel/list node\"},\n    {\"offset\": 80, \"meaning\": \"rf_ctx: scheduled time\"},\n    {\"offset\": 84, \"meaning\": \"rf_ctx: channel index used to access rf_channel_table\"},\n    {\"offset\": 85, \"meaning\": \"rf_ctx: dispatch active flag bits\"},\n    {\"offset\": 94, \"meaning\": \"rf_ctx: interval selection flag\"},\n    {\"offset\": 102, \"meaning\": \"rf_ctx: interval table index\"}\n  ]\n}"
+}

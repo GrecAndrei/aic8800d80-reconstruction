@@ -1,0 +1,9 @@
+{
+ "fn": "packet_prepare_a",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1147e0",
+ "seg": 5,
+ "key": "packet_prepare_a__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_decode_packet_values\",\"confidence\":\"medium\",\"docstring\":\"Decodes three signed-magnitude values from a selected RF packed-data source into the output buffer and returns per-value status nibbles.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"source_index\",\"a2\":\"decoded_values\",\"v5\":\"packed_values\",\"v6\":\"value_index\",\"v7\":\"status_flags\",\"v8\":\"encoded_byte\",\"v9\":\"decoded_value\",\"v10\":\"magnitude_code\"}}"
+}

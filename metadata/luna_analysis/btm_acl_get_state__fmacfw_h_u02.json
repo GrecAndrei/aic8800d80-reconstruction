@@ -1,0 +1,9 @@
+{
+ "fn": "btm_acl_get_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x118f74",
+ "seg": 12,
+ "key": "btm_acl_get_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"btm_acl_prepare_request\",\"confidence\":\"medium\",\"docstring\":\"Initializes a per-link ACL request descriptor from the supplied parameters and returns whether its final check succeeds.\",\"subsystem\":\"btm\",\"var_renames\":{\"v11\":\"link_index\",\"v19\":\"link_context\",\"v22\":\"request_payload\",\"v31\":\"request_context\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Request context pointer to its payload.\"},{\"offset\":88,\"meaning\":\"Stores the first caller-supplied request metadata value.\"},{\"offset\":92,\"meaning\":\"Stores the second caller-supplied request metadata value.\"},{\"offset\":108,\"meaning\":\"Request operation code, set to 36.\"},{\"offset\":124,\"meaning\":\"Packed values derived from the a2 and a3 arguments.\"},{\"offset\":132,\"meaning\":\"Packed link and caller-supplied control fields.\"},{\"offset\":136,\"meaning\":\"Fixed request parameter set to -40.\"},{\"offset\":137,\"meaning\":\"Conditionally populated parameter derived from a lookup table.\"}]}"
+}

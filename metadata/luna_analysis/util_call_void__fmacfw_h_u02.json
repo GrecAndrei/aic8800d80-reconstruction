@@ -1,0 +1,9 @@
+{
+ "fn": "util_call_void",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1138c8",
+ "seg": 5,
+ "key": "util_call_void__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"util_list_pop_irq_safe\",\"confidence\":\"medium\",\"docstring\":\"Pops and returns an item from the global list while maintaining a nest-aware interrupt critical section.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v0\":\"critical_section_depth\",\"v1\":\"list\"}}"
+}

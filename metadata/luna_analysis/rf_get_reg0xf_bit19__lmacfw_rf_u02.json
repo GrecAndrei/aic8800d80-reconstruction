@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_reg0xf_bit19",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1141dc",
+ "seg": 5,
+ "key": "rf_get_reg0xf_bit19__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_get_reg0xf_bit19\", \"confidence\": \"high\", \"docstring\": \"Reads RF register 0xF via MMIO and extracts bit 19.\", \"subsystem\": \"rf\", \"var_renames\": {}, \"struct_hints\": []}"
+}

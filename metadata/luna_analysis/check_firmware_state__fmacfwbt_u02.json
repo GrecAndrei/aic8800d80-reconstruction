@@ -1,0 +1,9 @@
+{
+ "fn": "check_firmware_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x102a38",
+ "seg": 2,
+ "key": "check_firmware_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"intc_spurious_irq_handler\",\"confidence\":\"medium\",\"docstring\":\"Logs an INTC spurious condition and clears the associated IRQ when the referenced signed status value is negative.\",\"subsystem\":\"hal\"}"
+}

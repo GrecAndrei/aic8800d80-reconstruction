@@ -1,0 +1,9 @@
+{
+ "fn": "rf_validate_rate",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1386a8",
+ "seg": 57,
+ "key": "rf_validate_rate__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_parse_rate_config\",\"confidence\":\"medium\",\"docstring\":\"Parses a supported rate-format descriptor from the input buffer, stages its parameters and derived timing value, advances the buffer cursor, and returns whether the format is recognized.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"input_buffer\",\"a2\":\"rate_descriptor\",\"v2\":\"rf_state\",\"v3\":\"buffer_offset\",\"v4\":\"format_selector\",\"v5\":\"special_timing_mode\",\"v6\":\"record_data\",\"v8\":\"timing_value\",\"v10\":\"first_payload_word\",\"v11\":\"second_payload_word\",\"v12\":\"timing_value\",\"v19\":\"timing_value\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Cursor into the input buffer.\"},{\"offset\":9,\"meaning\":\"Byte value used as a multiplier in the standard timing calculation.\"},{\"offset\":10,\"meaning\":\"Byte value used as a multiplier in the special timing calculation.\"},{\"offset\":16,\"meaning\":\"Staged input parameter word.\"},{\"offset\":20,\"meaning\":\"Staged input parameter word.\"},{\"offset\":32,\"meaning\":\"Derived timing value.\"},{\"offset\":48,\"meaning\":\"Flags updated when a rate-format entry is parsed.\"}]}"
+}

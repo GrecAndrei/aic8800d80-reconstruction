@@ -1,0 +1,9 @@
+{
+ "fn": "critical_enter_5",
+ "img": "fmacfwbt_u02",
+ "addr": "0x110288",
+ "seg": 3,
+ "key": "critical_enter_5__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"critical_check_abort_flag\",\"confidence\":\"medium\",\"docstring\":\"Checks the abort condition within a nested IRQ-masked critical section and restores IRQs when the outermost level exits.\",\"subsystem\":\"ke\",\"var_renames\":{\"v2\":\"critical_nesting_counter\",\"v5\":\"critical_nesting_depth\",\"v6\":\"remaining_nesting_depth\",\"v7\":\"restore_irq_state\",\"result\":\"abort_check_result\"}}"
+}

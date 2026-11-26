@@ -1,0 +1,9 @@
+{
+ "fn": "tx_desc_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x135e98",
+ "seg": 54,
+ "key": "tx_desc_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_buffer_upload\",\"confidence\":\"medium\",\"docstring\":\"Copies the indexed transmit payload into its 512-byte buffer, records its length, and emits a two-byte completion message.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"descriptor_record\",\"v5\":\"payload_length\",\"v8\":\"completion_pdu\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"transmit buffer index\"},{\"offset\":2,\"meaning\":\"payload length in bytes\"},{\"offset\":4,\"meaning\":\"payload data\"}]}"
+}

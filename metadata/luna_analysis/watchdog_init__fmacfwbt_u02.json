@@ -1,0 +1,9 @@
+{
+ "fn": "watchdog_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d42c",
+ "seg": 3,
+ "key": "watchdog_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"watchdog_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the watchdog control and load registers when needed, then programs associated hardware registers.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"watchdog_registers\",\"v1\":\"watchdog_control\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_init_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x130714",
+ "seg": 43,
+ "key": "mmio_init_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_calib_mmio_init\", \"confidence\": \"medium\", \"docstring\": \"Initializes an RF calibration status MMIO block once by reading calibration count and temperature level via syscall or ioctl, clamping them into status fields, setting peripheral status, and marking initialization complete.\", \"subsystem\": \"rf\", \"var_renames\": {\"v0\": \"rf_calib_base\", \"v2\": \"rf_calib_mode_reg\", \"v3\": \"calib_count\", \"v4\": \"periph_status\", \"v5\": \"temp_level\", \"v6\": \"temp_level_clamped\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"RF calibration init_done/enable byte, checked early and set to 1 last\"}, {\"offset\": 2, \"meaning\": \"signed temperature calibration level clamped to -7..8\"}, {\"offset\": 3, \"meaning\": \"calibration status flag byte set to 0x80 after results are written\"}, {\"offset\": 4, \"meaning\": \"unsigned calibration count/status clamped to 31 or defaulted to 15\"}, {\"offset\": 6, \"meaning\": \"peripheral status byte copied from get_periph_status()\"}]}"
+}

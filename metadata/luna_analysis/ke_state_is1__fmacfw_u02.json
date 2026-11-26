@@ -1,0 +1,9 @@
+{
+ "fn": "ke_state_is1",
+ "img": "fmacfw_u02",
+ "addr": "0x1320d0",
+ "seg": 44,
+ "key": "ke_state_is1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_rx_status_config_req_handler\",\"confidence\":\"medium\",\"docstring\":\"Handles an RX-status configuration request by storing its normalized setting, conditionally posting a one-byte status update, and sending a parameterless reply.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"request_param\",\"a3\":\"dest_task_id\",\"a4\":\"src_task_id\",\"v7\":\"rx_status_state\",\"v8\":\"requested_enable\",\"v10\":\"status_indication_msg\",\"v11\":\"status_indication_value\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"32-bit state field whose zero value gates the status-indication path\"},{\"offset\":8,\"meaning\":\"16-bit field set to 0x00FF in the status-indication path\"},{\"offset\":375,\"meaning\":\"normalized request flag stored as a byte\"},{\"offset\":376,\"meaning\":\"byte copied into the status-indication payload when offset 375 is nonzero\"}]}"
+}

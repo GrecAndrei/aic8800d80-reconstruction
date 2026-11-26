@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_timer",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124944",
+ "seg": 23,
+ "key": "mmio_read_timer__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_rx_stat_trace\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads RX FCS-ok and non-ok counters from MMIO and emits a debug trace of received frame statistics.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"off_12495C\": \"rx_fcs_ok_ptr\",\n    \"off_124960\": \"rx_non_fcsok_ptr\"\n  }\n}"
+}

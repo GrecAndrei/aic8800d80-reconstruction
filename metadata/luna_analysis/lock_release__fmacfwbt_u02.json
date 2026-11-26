@@ -1,0 +1,9 @@
+{
+ "fn": "lock_release",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114710",
+ "seg": 5,
+ "key": "lock_release__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lock_release\",\"confidence\":\"medium\",\"docstring\":\"Runs the abort-check helper inside a nestable interrupt-masked critical section and restores interrupts when the outermost call exits.\",\"subsystem\":\"hal\",\"var_renames\":{\"v2\":\"critical_depth_ptr\",\"v5\":\"remaining_critical_depth\",\"v6\":\"restore_interrupts\"}}"
+}

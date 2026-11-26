@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_reg0xf_bit20",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1141f8",
+ "seg": 5,
+ "key": "rf_get_reg0xf_bit20__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_reg0xf_bit20\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Return bit 20 of the RF register located at offset 0xF via an MMIO read.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "power_domain_enable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d068",
+ "seg": 2,
+ "key": "power_domain_enable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_power_domain_enable\",\"confidence\":\"medium\",\"docstring\":\"Enables the RF power domain by programming its control registers and clearing selected gating bits.\",\"subsystem\":\"rf\"}"
+}

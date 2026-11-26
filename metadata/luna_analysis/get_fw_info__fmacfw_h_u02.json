@@ -1,0 +1,9 @@
+{
+ "fn": "get_fw_info",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12b258",
+ "seg": 39,
+ "key": "get_fw_info__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_queue_trace_record\",\"confidence\":\"medium\",\"docstring\":\"Queues a type-0x40 RF trace record by copying the context\u2019s length-prefixed payload into an allocated transport buffer and updating queue accounting.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_context\",\"v1\":\"record_data\",\"v4\":\"allocated_buffer\",\"v8\":\"buffer_data\",\"v9\":\"record_sequence\",\"v11\":\"buffer_metadata\",\"v16\":\"record_length\",\"v21\":\"device_entry\"},\"struct_hints\":[{\"offset\":252,\"meaning\":\"Length of the payload stored starting at offset 253\"},{\"offset\":253,\"meaning\":\"Length-prefixed record payload\"},{\"offset\":366,\"meaning\":\"Index selecting a device-state entry\"},{\"offset\":368,\"meaning\":\"Nonzero guard flag for record handling\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "handle_state_five",
+ "img": "fmacfw_u02",
+ "addr": "0x133a08",
+ "seg": 47,
+ "key": "handle_state_five__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_rx_rate_and_setup_bt_profile\",\"confidence\":\"medium\",\"docstring\":\"If RX field 6 decodes to 5\u20138, clears the setup guard and returns when it is set; otherwise, configures BT connection profile 1.\",\"subsystem\":\"bt\",\"var_renames\":{},\"struct_hints\":[{\"offset\":34,\"meaning\":\"One-byte guard that is cleared to skip BT profile setup for this invocation.\"}]}"
+}

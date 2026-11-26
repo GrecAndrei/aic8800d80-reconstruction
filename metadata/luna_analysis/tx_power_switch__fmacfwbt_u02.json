@@ -1,0 +1,9 @@
+{
+ "fn": "tx_power_switch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125260",
+ "seg": 31,
+ "key": "tx_power_switch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_tx_power_switch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles Bluetooth TX power switch commands by updating per-link switch/descriptor state, optionally reading connection info or clearing an IRQ, and then dispatching the command through the BT control layer.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"link_index\",\n    \"a2\": \"command\",\n    \"v4\": \"bt_link_context_table\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1225,\n      \"meaning\": \"byte in the 1320-byte BT link context passed to BT read/dispatch, likely link state or connection handle\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"volatile per-link switch/descriptor word, zeroed to disable and set from another table to enable\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"per-link byte flag cleared after handling the command\"\n    }\n  ]\n}"
+}

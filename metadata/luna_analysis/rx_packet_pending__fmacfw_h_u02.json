@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_pending",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115698",
+ "seg": 6,
+ "key": "rx_packet_pending__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"reset_rwnx_core\",\"confidence\":\"medium\",\"docstring\":\"Reinitializes the RWNX core and radio state, then restores the caller's interrupt state.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"reset_nesting_counter\",\"v8\":\"radio_update_state\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"Pending radio update flag, cleared after processing.\"},{\"offset\":7,\"meaning\":\"Current radio update value, read and then replaced with the selected value.\"},{\"offset\":11,\"meaning\":\"Set to 1 when the deferred radio update is applied.\"},{\"offset\":12,\"meaning\":\"Destination buffer for copied update data.\"}]}"
+}

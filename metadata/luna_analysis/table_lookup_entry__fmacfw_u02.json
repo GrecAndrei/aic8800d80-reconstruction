@@ -1,0 +1,9 @@
+{
+ "fn": "table_lookup_entry",
+ "img": "fmacfw_u02",
+ "addr": "0x11196c",
+ "seg": 4,
+ "key": "table_lookup_entry__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_table_entry\",\"confidence\":\"medium\",\"docstring\":\"Clears the indexed 16-byte table slot and invokes its callback with (0, 0, 1) if the slot's byte at offset 8 was nonzero.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"entry_index\",\"v2\":\"entry_address\",\"v3\":\"was_active\",\"v5\":\"entry_callback\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"byte flag controlling whether the entry callback is invoked\"}]}"
+}

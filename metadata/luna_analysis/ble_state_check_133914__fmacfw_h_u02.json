@@ -1,0 +1,9 @@
+{
+ "fn": "ble_state_check_133914",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133914",
+ "seg": 48,
+ "key": "ble_state_check_133914__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_check_address_ready\",\"confidence\":\"medium\",\"docstring\":\"Checks BLE address flags and invokes the BLE event parser when both are set, disabling an IRQ in the specified HCI state.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"address_flag_1\",\"v3\":\"address_flag_2\"}}"
+}

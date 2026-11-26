@@ -1,0 +1,9 @@
+{
+ "fn": "read_radio_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10a5b0",
+ "seg": 2,
+ "key": "read_radio_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_configure_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs radio channel and frequency control registers, preserving the frequency register status bit while logging page, SDM, frequency, lock, and RF-enable state.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_channel_params\",\n    \"a3\": \"rf_freq\",\n    \"v8\": \"rf_sdm_select\",\n    \"v9\": \"rf_channel_bandwidth\",\n    \"_frame.a1a\": \"rf_channel_bandwidth\",\n    \"v14\": \"rf_frequency_reg\"\n  }\n}"
+}

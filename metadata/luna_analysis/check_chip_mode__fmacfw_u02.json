@@ -1,0 +1,9 @@
+{
+ "fn": "check_chip_mode",
+ "img": "fmacfw_u02",
+ "addr": "0x12f588",
+ "seg": 42,
+ "key": "check_chip_mode__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_chip_mode\",\"confidence\":\"medium\",\"docstring\":\"When chip mode is 3, copies the request into the controller-config buffer, waits for the ready flag, dispatches the buffer, and signals GPIO 7; if no buffer is available, it dispatches the host-RX-buffer error.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v1\":\"request_data\",\"v2\":\"controller_config_buffer\",\"v3\":\"controller_config_buffer\",\"v4\":\"ready_flag\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"32-bit 0xC0DE marker written before the 28-byte request is copied\"}]}"
+}

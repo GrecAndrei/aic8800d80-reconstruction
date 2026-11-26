@@ -1,0 +1,9 @@
+{
+ "fn": "parse_data_3",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12df70",
+ "seg": 43,
+ "key": "parse_data_3__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_parse_find_g_entry\", \"confidence\": \"medium\", \"docstring\": \"Scans a byte buffer of TLV-style entries for a 0x47-tagged chunk, validating bounds and a minimum entry length of six bytes before returning its start pointer.\", \"subsystem\": \"rf\", \"var_renames\": {\"result\": \"buf\", \"a2\": \"size\", \"v2\": \"end_ptr\", \"v3\": \"entry_len\", \"v4\": \"next_ptr\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"entry type/tag (searched for 0x47)\"}, {\"offset\": 1, \"meaning\": \"payload length, excluding the 2-byte type/length header\"}]}"
+}

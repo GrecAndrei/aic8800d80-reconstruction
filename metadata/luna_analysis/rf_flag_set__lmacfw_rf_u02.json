@@ -1,0 +1,9 @@
+{
+ "fn": "rf_flag_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b36c",
+ "seg": 15,
+ "key": "rf_flag_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_request_status_check\",\"confidence\":\"medium\",\"docstring\":\"Marks an RF status-check request flag and either starts the RF status check immediately or arms a 30000-tick RF timeout/critical window if RF is currently busy.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_ctx\",\"v1\":\"rf_busy\"},\"struct_hints\":[{\"offset\":48,\"meaning\":\"rf timer or critical-section context\"},{\"offset\":88,\"meaning\":\"rf status flags; bit 0x10 marks a pending status check or rf busy timeout\"},{\"offset\":90,\"meaning\":\"rf busy/calibration-in-progress byte controlling deferred timer vs immediate check\"},{\"offset\":16,\"meaning\":\"base tick/time value added to by the RF timeout\"},{\"offset\":30000,\"meaning\":\"RF status-check or timeout duration in ticks\"}]}"
+}

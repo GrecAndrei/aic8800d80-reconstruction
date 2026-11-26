@@ -1,0 +1,9 @@
+{
+ "fn": "disable_bb_timer_irq",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103640",
+ "seg": 2,
+ "key": "disable_bb_timer_irq__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bb_timer_write_irq_masked\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Temporarily masks two baseband timer interrupt bits while writing a timer register twice, then restores the bits.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"bb_timer_irq_mask_reg\",\n    \"result\": \"timer_write_result\"\n  },\n  \"struct_hints\": []\n}"
+}

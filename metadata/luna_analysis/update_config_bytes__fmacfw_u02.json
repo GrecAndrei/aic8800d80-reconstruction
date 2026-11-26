@@ -1,0 +1,9 @@
+{
+ "fn": "update_config_bytes",
+ "img": "fmacfw_u02",
+ "addr": "0x113c20",
+ "seg": 5,
+ "key": "update_config_bytes__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sync_config_bytes\",\"confidence\":\"medium\",\"docstring\":\"Stores the supplied task pointer, copies two bytes from fixed configuration storage into global byte slots, and returns success.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v1\":\"config_byte_dst\",\"v2\":\"config_byte_value\"}}"
+}

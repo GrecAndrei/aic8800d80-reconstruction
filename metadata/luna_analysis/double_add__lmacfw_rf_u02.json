@@ -1,0 +1,9 @@
+{
+ "fn": "double_add",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1272b4",
+ "seg": 23,
+ "key": "double_add__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_dadd\",\n  \"confidence\": \"high\",\n  \"docstring\": \"ARM EABI helper that adds two double-precision floating-point values.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

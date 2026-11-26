@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_tx_schedule",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c38c",
+ "seg": 18,
+ "key": "bt_conn_tx_schedule__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_conn_tx_schedule\", \"confidence\": \"medium\", \"docstring\": \"Schedules a BT connection/channel link into the given TX slot by setting the slot context pointer, updating link and scheduler state, and returning the associated connection context.\", \"subsystem\": \"bt\", \"var_renames\": {\"a1\": \"tx_slot_idx\", \"a2\": \"conn_idx\", \"v2\": \"debug_flags\", \"v3\": \"conn_table_base\", \"v4\": \"tx_slot_table_base\", \"v7\": \"conn_ctx\", \"v10\": \"conn_ctx\", \"v11\": \"tx_slot\", \"v12\": \"conn_link_count\", \"v13\": \"sched_env\", \"v15\": \"old_sched_link_count\", \"v17\": \"new_sched_link_count\", \"v18\": \"sched_next_ctx\", \"v19\": \"slot_iter\", \"v20\": \"slot_end\"}, \"struct_hints\": [{\"offset\": 72, \"meaning\": \"tx_slot: pointer to associated connection/channel context\"}, {\"offset\": 85, \"meaning\": \"tx_slot: state/flags; bit0 cleared on scheduler transition\"}, {\"offset\": 16, \"meaning\": \"conn_ctx: scheduled/linked flag\"}, {\"offset\": 24, \"meaning\": \"conn_ctx: index or invalid sentinel\"}, {\"offset\": 25, \"meaning\": \"conn_ctx: link/schedule count\"}, {\"offset\": 32, \"meaning\": \"sched_env: channel-switch or next scheduled context pointer\"}, {\"offset\": 44, \"meaning\": \"sched_env: pending/free scheduled context pointer\"}, {\"offset\": 88, \"meaning\": \"sched_env: control/state bits\"}, {\"offset\": 90, \"meaning\": \"sched_env: scheduled link count\"}, {\"offset\": 91, \"meaning\": \"sched_env: additional scheduler state/last count\"}]}"
+}

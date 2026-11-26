@@ -1,0 +1,9 @@
+{
+ "fn": "rf_core_enable",
+ "img": "fmacfw_u02",
+ "addr": "0x10e0b0",
+ "seg": 3,
+ "key": "rf_core_enable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_core_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Runs RF control modes 1\u20133, samples the control block, and returns a calculated calibration value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_control_block\",\"v5\":\"mode1_result\",\"v6\":\"rf_control_block\",\"v7\":\"mode2_raw_sample\",\"v12\":\"mode2_result\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"RF operation request or trigger flag\"},{\"offset\":16,\"meaning\":\"RF measurement result read during calibration\"},{\"offset\":28,\"meaning\":\"RF operation completion flag polled and acknowledged\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_frame",
+ "img": "fmacfw_u02",
+ "addr": "0x11e100",
+ "seg": 20,
+ "key": "rf_tx_frame__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_rx_control_frame_handle\",\"confidence\":\"medium\",\"docstring\":\"Processes an RX control-frame descriptor, applies subtype-specific PHY/status updates, advances its buffer cursor, and returns the radio status.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"rx_header_descriptor\",\"v2\":\"rx_status_flags\",\"v3\":\"frame_control_subtype\",\"v4\":\"buffer_cursor\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"RX descriptor's header DMA descriptor pointer.\"},{\"offset\":48,\"meaning\":\"Nonzero value selects the descriptor-backed frame path.\"},{\"offset\":84,\"meaning\":\"RX status and control flags.\"},{\"offset\":152,\"meaning\":\"Updated buffer cursor/address.\"},{\"offset\":160,\"meaning\":\"Fallback buffer cursor/address.\"},{\"offset\":8,\"meaning\":\"In the header DMA descriptor, pointer to the received frame header.\"},{\"offset\":12,\"meaning\":\"In the header DMA descriptor, address used to derive the next buffer cursor.\"}]}"
+}

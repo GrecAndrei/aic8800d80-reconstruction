@@ -1,0 +1,9 @@
+{
+ "fn": "rf_trace_lo_offset",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136dbc",
+ "seg": 56,
+ "key": "rf_trace_lo_offset__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_trace_lo_offset\",\"confidence\":\"medium\",\"docstring\":\"Sends a four-byte RF trace payload for the LO offset and processes the resulting packet.\",\"subsystem\":\"rf\"}"
+}

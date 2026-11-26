@@ -1,0 +1,9 @@
+{
+ "fn": "rf_timer_comp",
+ "img": "fmacfw_u02",
+ "addr": "0x12c5b0",
+ "seg": 40,
+ "key": "rf_timer_comp__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_timer_compare\",\"confidence\":\"medium\",\"docstring\":\"Compares two kernel timer entries using the tick values at offset 8 with wraparound-aware unsigned arithmetic.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"timer_a\",\"a2\":\"timer_b\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"timer expiry tick used for comparison\"}]}"
+}

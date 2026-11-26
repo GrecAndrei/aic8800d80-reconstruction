@@ -1,0 +1,9 @@
+{
+ "fn": "mac_irq_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c218",
+ "seg": 40,
+ "key": "mac_irq_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"mac_irq_handler\", \"confidence\": \"medium\", \"docstring\": \"Reads enabled MAC hardware IRQ status, acknowledges pending bits, dispatches RF/power/system handling, and reports unhandled generic IRQ sources.\", \"subsystem\": \"mac\", \"var_renames\": {\"v0\": \"enabled_irq_status\", \"v1\": \"system_flag_irq_status\", \"v2\": \"generic_irq_raw_status\"}, \"struct_hints\": [{\"offset\": 4, \"meaning\": \"MAC IRQ acknowledge/clear register adjacent to the enabled IRQ mask/status register\"}, {\"offset\": 30, \"meaning\": \"Generic MAC IRQ pending/enable byte field updated from raw IRQ status\"}]}"
+}

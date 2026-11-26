@@ -1,0 +1,9 @@
+{
+ "fn": "ctrl_event_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x133e98",
+ "seg": 49,
+ "key": "ctrl_event_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_ctrl_event_handler\",\"confidence\":\"medium\",\"docstring\":\"Handles a received Bluetooth controller event, validating its connection context and dispatching associated HCI data or status messages.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"connection_index\",\"v8\":\"status_message\",\"v9\":\"connection_table_base\",\"v10\":\"connection_context\",\"v12\":\"pending_event_context\",\"v17\":\"event_message\",\"v18\":\"is_reassociation\",\"v21\":\"reassociation_flag_bits\"},\"struct_hints\":[{\"offset\":48,\"meaning\":\"Received-packet flags; bit 0x20 selects the reassociation path\"},{\"offset\":54,\"meaning\":\"Received-packet payload length\"},{\"offset\":59,\"meaning\":\"Received-packet state; value 3 triggers HCI packet handling\"},{\"offset\":61,\"meaning\":\"Connection-table index\"},{\"offset\":64,\"meaning\":\"Received packet data passed to the HCI handler\"},{\"offset\":72,\"meaning\":\"Connection-context word tested before channel-context state is cleared\"},{\"offset\":106,\"meaning\":\"Connection-context byte used to reject the slot when nonzero\"},{\"offset\":108,\"meaning\":\"Connection-context byte gating the continuation path\"},{\"offset\":116,\"meaning\":\"Connection-context byte compared against the 0xFF sentinel\"}]}"
+}

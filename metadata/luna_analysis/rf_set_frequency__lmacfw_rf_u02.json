@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_frequency",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11cdb8",
+ "seg": 19,
+ "key": "rf_set_frequency__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_frequency\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configures the radio frequency by storing the requested frequency and proportionally rescaling RF/PLL register fields and divider/band settings from the previous frequency.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"new_freq\",\n    \"v1\": \"rf_freq_reg\",\n    \"v2\": \"old_freq\",\n    \"v3\": \"freq_field_low_mask\",\n    \"v4\": \"freq_field_high_mask\",\n    \"v5\": \"freq_field_keep_mask\",\n    \"v6\": \"new_freq\",\n    \"v12\": \"rf_band_ctrl_reg\",\n    \"v15\": \"rf_scale_ctrl_reg\"\n  },\n  \"struct_hints\": []\n}"
+}

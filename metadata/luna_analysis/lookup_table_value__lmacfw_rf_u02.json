@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_table_value",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x112f58",
+ "seg": 5,
+ "key": "lookup_table_value__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"event_type_lookup\", \"confidence\": \"medium\", \"docstring\": \"Looks up an eight-entry table of 32-bit event-type values and returns zero when the requested index is out of range.\", \"subsystem\": \"ke\", \"var_renames\": {\"a1\": \"event_type_index\"}}"
+}

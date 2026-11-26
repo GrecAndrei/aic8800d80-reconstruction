@@ -1,0 +1,9 @@
+{
+ "fn": "rf_init_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11ced4",
+ "seg": 20,
+ "key": "rf_init_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_cmd_poll\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls the active TX hardware-command descriptor for completion, removes it from the pending queue when done, and triggers MAC events for HE/TB transmit status.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"mac_ctrl\",\n    \"v1\": \"busy_flag\",\n    \"v2\": \"txq_idx\",\n    \"v3\": \"tx_cmd_table_base\",\n    \"v4\": \"txq_ctx\",\n    \"v5\": \"txq_state\",\n    \"v13\": \"cur_cmd_desc\",\n    \"v14\": \"next_cmd_desc\",\n    \"v15\": \"desc_status\",\n    \"v16\": \"desc_flags\",\n    \"v17\": \"poll_limit\",\n    \"v23\": \"system_flag\",\n    \"v24\": \"txq_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 52,\n      \"meaning\": \"busy/reentry flag; bit 2 prevents repeat polling\"\n    },\n    {\n      \"offset\": 190,\n      \"meaning\": \"active TX queue/context index\"\n    },\n    {\n      \"offset\": 199,\n      \"meaning\": \"aggregate or HE/TB TX mode enable\"\n    },\n    {\n      \"offset\": 164,\n      \"meaning\": \"value for TX register field\"\n    },\n    {\n      \"offset\": 165,\n      \"meaning\": \"maximum TX register field value\"\n    },\n    {\n      \"offset\": 26,\n      \"meaning\": \"per-TX-queue pending command state\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"per-TX-queue pending command list head\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"current command descriptor pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"command descriptor status/flags; bit 0x20 polled, bit 0x40 event, bit 0x10 processed\"\n    },\n    {\n      \"offset\": 60,\n      \"meaning\": \"descriptor completion/status word; bit 0x800000 selects active HE/TB path\"\n    }\n  ]\n}"
+}

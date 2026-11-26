@@ -1,0 +1,9 @@
+{
+ "fn": "critical_section_enter_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11b7f8",
+ "seg": 17,
+ "key": "critical_section_enter_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"state_enter_critical\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Nesting-aware critical section helper that enters IRQ protection, updates indexed state flags, locks the associated kernel event, and restores interrupt state on exit.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"state_index\",\n    \"CPSR\": \"psr\",\n    \"result\": \"retval\",\n    \"v4\": \"state_table_base\",\n    \"v5\": \"critical_depth_ptr\",\n    \"v6\": \"state_entry\",\n    \"v7\": \"pending_flag\",\n    \"v8\": \"critical_depth\",\n    \"v9\": \"pending_event\",\n    \"v10\": \"next_depth\",\n    \"v11\": \"irq_disabled_here\",\n    \"v12\": \"entry_count_next\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 20,\n      \"meaning\": \"kernel event lock object passed to ke_event_lock\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"pending/status word cleared when no pending setup is required\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"pending event word read and conditionally propagated to a global array\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"byte copied into offset 45 during pending-flag handling\"\n    },\n    {\n      \"offset\": 45,\n      \"meaning\": \"byte flag or countdown processed when offset 47 is clear\"\n    },\n    {\n      \"offset\": 46,\n      \"meaning\": \"byte set when pending event word has no relevant low bits\"\n    },\n    {\n      \"offset\": 47,\n      \"meaning\": \"byte flag cleared after processing a pending state entry\"\n    }\n  ]\n}"
+}

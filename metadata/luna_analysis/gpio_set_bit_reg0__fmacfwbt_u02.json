@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_bit_reg0",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10db58",
+ "seg": 3,
+ "key": "gpio_set_bit_reg0__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_set_bit_reg0\",\"confidence\":\"high\",\"docstring\":\"Sets the bit indexed by the argument in GPIO register 0 and returns the updated register value.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"bit_index\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mac_wait_fw_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x121cd4",
+ "seg": 24,
+ "key": "mac_wait_fw_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_cmd_send_fw_ready\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks firmware/MAC state counters and sends the corresponding firmware-ready HCI/MAC command, clearing a stale interrupt if the short command handshake fails.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 31,\n      \"meaning\": \"byte flag in status buffer enabling the command path\"\n    },\n    {\n      \"offset\": 17,\n      \"meaning\": \"first byte counter used in low-sum readiness test\"\n    },\n    {\n      \"offset\": 18,\n      \"meaning\": \"second byte counter used in low-sum readiness test\"\n    }\n  ]\n}"
+}

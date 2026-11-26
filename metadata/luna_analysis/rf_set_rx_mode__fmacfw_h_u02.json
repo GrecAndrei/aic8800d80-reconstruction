@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_rx_mode",
+ "img": "fmacfw_h_u02",
+ "addr": "0x121f1c",
+ "seg": 23,
+ "key": "rf_set_rx_mode__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_rx_mode\",\"confidence\":\"medium\",\"docstring\":\"Initializes receive-mode state when bit 23 is set; otherwise advances the link-loss polling counter and handles the relevant RF or Bluetooth state.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_ctx\",\"a2\":\"mode_flags\",\"v3\":\"linkloss_poll_count\"},\"struct_hints\":[{\"offset\":115,\"meaning\":\"Link-loss polling counter, incremented toward a configured threshold and reset on initialization or when the threshold is reached.\"}]}"
+}

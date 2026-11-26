@@ -1,0 +1,9 @@
+{
+ "fn": "assert_fail",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11414c",
+ "seg": 5,
+ "key": "assert_fail__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_call_handler_guarded\",\"confidence\":\"medium\",\"docstring\":\"Waits for a shared readiness flag, calls the handler with the context at offset 628, and restores IRQs when the outermost guarded call exits.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"active_call_count\",\"v2\":\"readiness_flag\",\"v4\":\"remaining_calls\",\"v5\":\"irq_restore_pending\"},\"struct_hints\":[{\"offset\":628,\"meaning\":\"Handler context address passed to wlan_ioctl_handler_1\"}]}"
+}

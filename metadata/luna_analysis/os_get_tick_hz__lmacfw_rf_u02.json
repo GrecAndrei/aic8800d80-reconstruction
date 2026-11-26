@@ -1,0 +1,9 @@
+{
+ "fn": "os_get_tick_hz",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101a20",
+ "seg": 0,
+ "key": "os_get_tick_hz__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sys_get_tick_hz\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns the fixed system tick frequency, 1000 Hz, corresponding to a 1 ms timer period.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

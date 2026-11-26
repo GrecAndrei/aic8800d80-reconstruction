@@ -1,0 +1,9 @@
+{
+ "fn": "invoke_callback",
+ "img": "fmacfw_u02",
+ "addr": "0x114114",
+ "seg": 5,
+ "key": "invoke_callback__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_wlan_data\",\"confidence\":\"medium\",\"docstring\":\"Obtains WLAN data through the configured callback, processes it, and logs retrieval or processing failures.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"wlan_data\",\"v1\":\"wlan_data_ptr\",\"result\":\"status\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Callback slot in the interface vtable used to obtain WLAN data\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_event_process",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10cf48",
+ "seg": 2,
+ "key": "bt_event_process__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"mac_ll_event_process\", \"confidence\": \"medium\", \"docstring\": \"Allocates a MAC link-layer event message, copies its header fields and payload from the incoming event buffer, validates the destination, and enqueues it for RX/scheduling.\", \"subsystem\": \"mac\", \"var_renames\": {\"v2\": \"msg_pool_ptr\", \"v4\": \"msg_pool_head\", \"v5\": \"msg\", \"v6\": \"payload_len\", \"v7\": \"msg_dest\", \"v8\": \"src_ptr\", \"v9\": \"src_end\", \"v10\": \"dst_ptr\", \"v13\": \"event_seq\"}, \"struct_hints\": [{\"offset\": 4, \"meaning\": \"message source/parameter field copied from input offset 4\"}, {\"offset\": 6, \"meaning\": \"message destination or event-type field copied from input offset 6\"}, {\"offset\": 8, \"meaning\": \"message type field, set to 4 (event)\"}, {\"offset\": 10, \"meaning\": \"payload length in bytes copied from input offset 10\"}, {\"offset\": 12, \"meaning\": \"payload data start\"}]}"
+}

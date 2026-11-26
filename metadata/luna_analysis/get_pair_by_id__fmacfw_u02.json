@@ -1,0 +1,9 @@
+{
+ "fn": "get_pair_by_id",
+ "img": "fmacfw_u02",
+ "addr": "0x11c4f8",
+ "seg": 18,
+ "key": "get_pair_by_id__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_pair_by_id\",\"confidence\":\"medium\",\"docstring\":\"If the indexed record's gate field is set, marks the record and conditionally stores the supplied value, then returns that value.\",\"subsystem\":\"wlan\",\"var_renames\":{\"result\":\"value\",\"a2\":\"pair_id\",\"v2\":\"pair_table\",\"v3\":\"pair_entry\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Nonzero gate checked before updating the record\"},{\"offset\":36,\"meaning\":\"Value conditionally replaced with the supplied argument\"},{\"offset\":45,\"meaning\":\"Flag set when the gate is nonzero\"},{\"offset\":46,\"meaning\":\"Flag controlling whether the value at offset 36 is updated\"}]}"
+}

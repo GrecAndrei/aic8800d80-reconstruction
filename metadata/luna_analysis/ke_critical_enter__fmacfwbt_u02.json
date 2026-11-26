@@ -1,0 +1,9 @@
+{
+ "fn": "ke_critical_enter",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c068",
+ "seg": 40,
+ "key": "ke_critical_enter__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_enter_critical\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enters a kernel critical section by conditionally disabling interrupts and updating saved-state/nesting globals, returning the previously saved interrupt state.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v1\": \"old_nesting_state\",\n    \"v3\": \"new_nesting_state\",\n    \"result\": \"saved_interrupt_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0x12c0a4,\n      \"meaning\": \"kernel critical-section interrupt-disabled flag\"\n    },\n    {\n      \"offset\": 0x12c0a8,\n      \"meaning\": \"kernel critical-section nesting/saved state\"\n    },\n    {\n      \"offset\": 0x12c0b0,\n      \"meaning\": \"saved interrupt state returned by critical enter\"\n    }\n  ]\n}"
+}

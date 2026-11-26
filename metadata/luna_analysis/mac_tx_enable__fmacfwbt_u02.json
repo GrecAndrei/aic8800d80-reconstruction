@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x103e00",
+ "seg": 2,
+ "key": "mac_tx_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_mem_window_snapshot\",\"confidence\":\"medium\",\"docstring\":\"Enables the banked memory window, copies 0x480 bytes from the supplied window into a fixed buffer across banks 0\u20132, then disables the window.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"bank_select_reg\",\"v2\":\"word_offset\",\"v4\":\"source_base_plus_header\",\"v6\":\"bank_index\",\"v7\":\"bank_word_count\",\"v10\":\"source_word_ptr\",\"v11\":\"snapshot_word_ptr\",\"v12\":\"word_value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "save_task_ptr",
+ "img": "fmacfw_u02",
+ "addr": "0x113abc",
+ "seg": 5,
+ "key": "save_task_ptr__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_usb_host_interface\",\"confidence\":\"medium\",\"docstring\":\"Initializes host-interface work and buffer storage, derives USB transfer settings, and configures the USB IN aggregation count.\",\"subsystem\":\"hal\",\"var_renames\":{\"v21\":\"usb_in_agg_count\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Pointer to a zeroed work-storage region\"},{\"offset\":20,\"meaning\":\"Pointer to a zeroed buffer region\"},{\"offset\":24,\"meaning\":\"Size or capacity associated with the buffer region\"}]}"
+}

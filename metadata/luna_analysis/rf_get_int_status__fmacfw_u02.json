@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_int_status",
+ "img": "fmacfw_u02",
+ "addr": "0x10dc40",
+ "seg": 3,
+ "key": "rf_get_int_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dispatch_pending_interrupts\",\"confidence\":\"high\",\"docstring\":\"Processes pending RF interrupt bits 0\u20137 by acknowledging each bit and invoking its registered handler with encoded status flags.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"irq_registers\",\"v1\":\"initial_pending_status\",\"v2\":\"interrupt_bit\",\"v3\":\"interrupt_handler_table\",\"v5\":\"pending_status\",\"v6\":\"interrupt_handler\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Per-bit status flags used to encode the handler argument.\"},{\"offset\":20,\"meaning\":\"Additional per-bit status flags used to encode the handler argument.\"},{\"offset\":32,\"meaning\":\"Pending interrupt status register.\"},{\"offset\":36,\"meaning\":\"Interrupt acknowledgment register; written with the bit being serviced.\"}]}"
+}

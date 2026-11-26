@@ -1,0 +1,9 @@
+{
+ "fn": "scale_f32",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x104c08",
+ "seg": 2,
+ "key": "scale_f32__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_scale_dig_pwr\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scales a power difference against a base power value, clamps the computed digital RF power index to 32..232, stores it in the RF power context, and logs out-of-range analog index warnings.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"pwr_diff\",\n    \"a2\": \"base_pwr\",\n    \"a3\": \"rf_power_ctx\",\n    \"v6\": \"scale_ratio\",\n    \"v9\": \"dig_pwr\",\n    \"v10\": \"ana_indices\",\n    \"v12\": \"ana_indices\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 104,\n      \"meaning\": \"uint8_t current digital power index\"\n    },\n    {\n      \"offset\": 112,\n      \"meaning\": \"uint32_t ana_max_index\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"uint32_t ana_cur_index\"\n    }\n  ]\n}"
+}

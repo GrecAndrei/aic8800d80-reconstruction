@@ -1,0 +1,9 @@
+{
+ "fn": "bt_post_event_14ea3c",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121510",
+ "seg": 22,
+ "key": "bt_post_event_14ea3c__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_module_filter_set\", \"confidence\": \"medium\", \"docstring\": \"Stores the supplied module-filter mask into a global filter/debug word and posts kernel event 1029.\", \"subsystem\": \"bt\", \"var_renames\": {\"a2\": \"filter_mask_ptr\", \"a3\": \"event_arg1\", \"a4\": \"event_arg2\"}}"
+}

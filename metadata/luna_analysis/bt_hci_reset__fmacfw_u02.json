@@ -1,0 +1,9 @@
+{
+ "fn": "bt_hci_reset",
+ "img": "fmacfw_u02",
+ "addr": "0x1362f8",
+ "seg": 55,
+ "key": "bt_hci_reset__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_ready_status_gate\",\"confidence\":\"medium\",\"docstring\":\"Checks a BT-related state, conditionally clears a hardware register, and forwards the resulting status to the readiness handler.\",\"subsystem\":\"bt\",\"var_renames\":{\"value\":\"ready_status\",\"v2\":\"register_clear_status\"}}"
+}

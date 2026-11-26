@@ -1,0 +1,9 @@
+{
+ "fn": "clk_disable",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x106dbc",
+ "seg": 2,
+ "key": "clk_disable__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"clk_disable\", \"confidence\": \"medium\", \"docstring\": \"Executes a fixed MMIO power/clock gating sequence by clearing enable/reset bits and programming divider or source fields in several clock/PRCM registers.\", \"subsystem\": \"hal\", \"var_renames\": {}, \"struct_hints\": []}"
+}

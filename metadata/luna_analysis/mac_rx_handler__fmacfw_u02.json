@@ -1,0 +1,9 @@
+{
+ "fn": "mac_rx_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x11dc0c",
+ "seg": 20,
+ "key": "mac_rx_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_rx_handler\",\"confidence\":\"medium\",\"docstring\":\"Consumes data from chained RX buffers, records the consumed segments in an RX descriptor ring, and updates the caller\u2019s buffer and offset state.\",\"subsystem\":\"mac\",\"var_renames\":{\"v4\":\"current_rx_buffer\",\"v5\":\"buffer_offset\",\"v9\":\"assembled_length\",\"v10\":\"bytes_remaining_after_buffer\",\"v11\":\"rx_ring_slot_index\",\"v13\":\"segment_descriptor\",\"v19\":\"buffer_start_offset\",\"v20\":\"buffer_end_plus_one\",\"v21\":\"buffer_available_length\",\"v26\":\"last_consumed_buffer\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Next RX buffer in the linked chain\"},{\"offset\":8,\"meaning\":\"Start offset of the usable data span\"},{\"offset\":12,\"meaning\":\"Upper extent of the usable data span, adjusted by one when computing available length\"},{\"offset\":0,\"meaning\":\"RX segment length, with a completion flag set in the high byte\"},{\"offset\":4,\"meaning\":\"Source offset associated with the RX segment\"}]}"
+}

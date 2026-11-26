@@ -1,0 +1,9 @@
+{
+ "fn": "kernel_schedule_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d508",
+ "seg": 3,
+ "key": "kernel_schedule_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_configure_timing\",\"confidence\":\"medium\",\"docstring\":\"Configures RF timing hardware, deriving divider fields from a signed timing parameter when its sign bit selects divider mode.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"timing_config\",\"v6\":\"timing_magnitude\",\"v7\":\"divider_numerator\",\"v8\":\"divider_ratio\"},\"struct_hints\":[{\"offset\":172,\"meaning\":\"Signed timing parameter used to select direct configuration or compute divider fields.\"}]}"
+}

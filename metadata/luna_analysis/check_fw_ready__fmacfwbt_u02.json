@@ -1,0 +1,9 @@
+{
+ "fn": "check_fw_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13500c",
+ "seg": 53,
+ "key": "check_fw_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_tx_rx_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches to RX descriptor status handling when a volatile status byte at a pointer base plus four is set, otherwise starts MAC transmission.\",\"subsystem\":\"mac\",\"var_renames\":{},\"struct_hints\":[{\"offset\":4,\"meaning\":\"status byte selecting RX descriptor handling when nonzero\"}]}"
+}

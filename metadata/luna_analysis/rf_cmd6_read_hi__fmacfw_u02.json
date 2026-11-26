@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd6_read_hi",
+ "img": "fmacfw_u02",
+ "addr": "0x114894",
+ "seg": 5,
+ "key": "rf_cmd6_read_hi__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cmd6_read_high_byte\",\"confidence\":\"high\",\"docstring\":\"Reads RF command 6, stores its highest nonzero response byte (or zero), and returns 0, 1, or 2 depending on which of the top two bytes was present.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"output_byte\",\"v2\":\"response\",\"v4\":\"selected_byte\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_set_data1",
+ "img": "fmacfw_u02",
+ "addr": "0x12ea38",
+ "seg": 42,
+ "key": "ipc_set_data1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_set_data1\",\"confidence\":\"high\",\"docstring\":\"Writes a value to IPC data register 1 and returns that value.\",\"subsystem\":\"ipc\",\"var_renames\":{\"result\":\"data_value\"}}"
+}

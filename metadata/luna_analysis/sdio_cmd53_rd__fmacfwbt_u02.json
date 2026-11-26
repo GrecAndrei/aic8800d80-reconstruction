@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_cmd53_rd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13be40",
+ "seg": 61,
+ "key": "sdio_cmd53_rd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_cmd53_rd\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends an HCI event containing the status and read payload for an indexed SDIO command 53 operation.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"payload_value\",\"a2\":\"cmd_index\",\"v2\":\"cmd_code\",\"v5\":\"event_buf\",\"v6\":\"cmd_entry\",\"v7\":\"raw_status\"},\"struct_hints\":[{\"offset\":17,\"meaning\":\"command/status byte; compared against 1 to set event ready flag\"},{\"offset\":22,\"meaning\":\"read data byte returned in event payload\"}]}"
+}

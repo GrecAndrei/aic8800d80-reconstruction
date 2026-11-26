@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_validate_chip_queue",
+ "img": "fmacfw_u02",
+ "addr": "0x127e00",
+ "seg": 33,
+ "key": "wlc_validate_chip_queue__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_chan_ctxt_del\",\"confidence\":\"medium\",\"docstring\":\"Checks channel-context bookkeeping, invokes the cleanup hook for the indexed context, and clears its record while restoring invalid-index sentinels.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"chan_ctxt_idx\",\"v2\":\"chan_ctxt_table\",\"v4\":\"chan_ctxt\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"idx_chan_ctx\"},{\"offset\":25,\"meaning\":\"nb_linked_vi\"}]}"
+}

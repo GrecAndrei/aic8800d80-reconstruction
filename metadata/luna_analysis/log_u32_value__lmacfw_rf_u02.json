@@ -1,0 +1,9 @@
+{
+ "fn": "log_u32_value",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1152cc",
+ "seg": 6,
+ "key": "log_u32_value__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_state_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Wrapper that invokes the kernel-state check helper with a global kernel context and a volatile uint32_t pointer, returning the check result.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"value_ptr\"\n  }\n}"
+}

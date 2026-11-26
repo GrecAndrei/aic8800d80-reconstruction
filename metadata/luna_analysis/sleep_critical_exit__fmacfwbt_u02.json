@@ -1,0 +1,9 @@
+{
+ "fn": "sleep_critical_exit",
+ "img": "fmacfwbt_u02",
+ "addr": "0x117ef8",
+ "seg": 11,
+ "key": "sleep_critical_exit__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_sleep_critical_exit\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Exits an RF/sleep critical section by scanning RF path descriptors, switching to pending paths when needed, updating path timing and active masks, and re-enabling interrupts when the critical-section refcount reaches zero.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"i\": \"path_idx\",\n    \"v0\": \"critical_cnt\",\n    \"v1\": \"path_ctx_ptr\",\n    \"v2\": \"path_state_base\",\n    \"v3\": \"tick_base\",\n    \"v4\": \"path_time_offset_table\",\n    \"v5\": \"active_path_mask\",\n    \"v6\": \"path_state_ptr\",\n    \"v9\": \"critical_cnt_saved\",\n    \"v13\": \"critical_flag\",\n    \"v14\": \"critical_cnt_after_decrement\",\n    \"v15\": \"critical_flag_before_exit\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 158,\n      \"meaning\": \"RF path pending/busy byte flag\"\n    },\n    {\n      \"offset\": 190,\n      \"meaning\": \"RF path current index or channel byte\"\n    },\n    {\n      \"offset\": 208,\n      \"meaning\": \"RF path status word; bit 0 checked for enable/current state\"\n    },\n    {\n      \"offset\": 336,\n      \"meaning\": \"RF path context or configured-path word\"\n    },\n    {\n      \"offset\": 511,\n      \"meaning\": \"RF path request/pending byte cleared during exit\"\n    }\n  ]\n}"
+}

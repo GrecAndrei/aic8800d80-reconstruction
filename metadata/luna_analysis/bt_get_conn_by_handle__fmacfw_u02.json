@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_by_handle",
+ "img": "fmacfw_u02",
+ "addr": "0x13479c",
+ "seg": 51,
+ "key": "bt_get_conn_by_handle__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_conn_find_by_handle\",\"confidence\":\"medium\",\"docstring\":\"Looks up a Bluetooth connection using the supplied key and a context selected by a global byte-sized index.\",\"subsystem\":\"bt\",\"struct_hints\":[{\"offset\":61,\"meaning\":\"Byte-sized selector used to calculate an entry address in a table with a 1320-byte stride.\"}]}"
+}

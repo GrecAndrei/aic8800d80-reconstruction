@@ -1,0 +1,9 @@
+{
+ "fn": "acquire_lock_check_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1366e0",
+ "seg": 56,
+ "key": "acquire_lock_check_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_hci_rx_packet\",\"confidence\":\"medium\",\"docstring\":\"Pops an RX buffer, conditionally disables an MMIO interrupt when the state is negative and no buffer is available, then passes the buffer payload to the RX packet processor.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"rx_buffer\",\"v1\":\"rx_buffer\"}}"
+}

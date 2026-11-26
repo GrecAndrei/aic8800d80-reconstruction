@@ -1,0 +1,9 @@
+{
+ "fn": "init_rf_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134fa8",
+ "seg": 53,
+ "key": "init_rf_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"handle_disconnect_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a station disconnection by staging disconnect parameters in a host-command buffer, sending the host command/event, logging disconnect state, and resuming receive-status or MAC transmit handling depending on the host-initiated flag.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v3\": \"disconnect_info\",\n    \"a1\": \"sta_ctx\",\n    \"a2\": \"disconnect_reason\",\n    \"a3\": \"host_init\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"host-initiated disconnect flag\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"station/connection context pointer\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"disconnect reason or status\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"sta_ctx field used as station/connection index\"\n    },\n    {\n      \"offset\": 50,\n      \"meaning\": \"per-station stats entry offset for tx counter\"\n    }\n  ]\n}"
+}

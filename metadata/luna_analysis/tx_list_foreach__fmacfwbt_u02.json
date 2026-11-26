@@ -1,0 +1,9 @@
+{
+ "fn": "tx_list_foreach",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12cc64",
+ "seg": 41,
+ "key": "tx_list_foreach__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_list_remove_if\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Walks a singly linked list until the callback returns true, unlinks the first matching node, updates head/tail pointers, and returns the removed node.\",\n  \"subsystem\": \"hci\",\n  \"var_renames\": {\n    \"a1\": \"list_hdr\",\n    \"a2\": \"predicate\",\n    \"a3\": \"ctx\",\n    \"v3\": \"cur_node\",\n    \"v7\": \"prev_node\",\n    \"v9\": \"next_node\",\n    \"i\": \"match\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"list head pointer; also node next link\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"list tail pointer\"\n    }\n  ]\n}"
+}

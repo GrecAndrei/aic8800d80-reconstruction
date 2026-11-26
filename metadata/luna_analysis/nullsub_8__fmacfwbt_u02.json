@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_8",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c7a0",
+ "seg": 19,
+ "key": "nullsub_8__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"return_zero_stub\", \"confidence\": \"low\", \"docstring\": \"Returns a constant zero, likely a stub or unused placeholder.\", \"subsystem\": \"wlan\", \"var_renames\": {}, \"struct_hints\": []}"
+}

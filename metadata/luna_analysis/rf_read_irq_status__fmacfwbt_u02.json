@@ -1,0 +1,9 @@
+{
+ "fn": "rf_read_irq_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b764",
+ "seg": 40,
+ "key": "rf_read_irq_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_machw_idle_irq\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks the MAC hardware idle IRQ state, asserting on an invalid current-state/low-bit condition, and otherwise clears the idle IRQ pending bit and control-register bit while raising the idle system flag.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"machw_idle_irq_regs\",\n    \"v1\": \"machw_idle_irq_ctrl_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"MAC hardware idle IRQ control register accessed at off_12B7B4 + 4; bit 2 is cleared\"\n    }\n  ]\n}"
+}

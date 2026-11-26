@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_bandwidth",
+ "img": "fmacfw_u02",
+ "addr": "0x130374",
+ "seg": 42,
+ "key": "rf_get_bandwidth__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_bandwidth\",\"confidence\":\"medium\",\"docstring\":\"Returns the stored signed bandwidth byte when its availability flag is set; otherwise resets the RF core and returns the integer-converted result of the readiness helper.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[{\"offset\":1,\"meaning\":\"Flag selecting whether the stored value is returned\"},{\"offset\":3,\"meaning\":\"Signed value returned when the flag is set; likely bandwidth\"}]}"
+}

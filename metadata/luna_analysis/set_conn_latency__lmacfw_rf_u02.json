@@ -1,0 +1,9 @@
+{
+ "fn": "set_conn_latency",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124f9c",
+ "seg": 23,
+ "key": "set_conn_latency__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_conn_latency\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Handles a Bluetooth/LE connection-latency shell command by reporting usage when no value is supplied or parsing a decimal latency and applying it.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v2\": \"latency\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"argv[1] pointer to the command argument string\"\n    }\n  ]\n}"
+}

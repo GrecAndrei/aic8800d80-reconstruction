@@ -1,0 +1,9 @@
+{
+ "fn": "pkt_buf_clear",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126064",
+ "seg": 23,
+ "key": "pkt_buf_clear__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_vid_did\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses vendor, device, subsystem, and revision IDs from command arguments and sends a short configuration command with those IDs.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"a2\": \"args\",\n    \"v3\": \"vid\",\n    \"v4\": \"did\",\n    \"v5\": \"subsys_vid\",\n    \"v6\": \"subsys_id_arg\",\n    \"v7\": \"rev_id_str\",\n    \"v8\": \"subsys_id\",\n    \"v9\": \"rev_id\",\n    \"v10\": \"feature_mask\",\n    \"_frame\": \"id_cmd_payload\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"packed vendor/device IDs: low 16 bits vid, high 16 bits did\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"subsystem vendor ID\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"subsystem ID\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"revision ID\"\n    }\n  ]\n}"
+}

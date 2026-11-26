@@ -1,0 +1,9 @@
+{
+ "fn": "rx_data_pdu_parse",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131764",
+ "seg": 44,
+ "key": "rx_data_pdu_parse__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_llc_data_pdu_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a received BLE LLC data PDU by updating per-connection environment flags and emitting associated HCI events.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v5\": \"conn_env_index\",\n    \"v6\": \"llc_env_base\",\n    \"v10\": \"conn_env\",\n    \"v11\": \"llc_state\",\n    \"v14\": \"evt_buf\",\n    \"v15\": \"conn_env\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"16-bit connection-environment value copied into HCI event buffer\"\n    },\n    {\n      \"offset\": 34,\n      \"meaning\": \"byte connection-environment value copied into HCI event buffer\"\n    },\n    {\n      \"offset\": 53,\n      \"meaning\": \"connection-environment flag byte updated from received PDU bytes\"\n    },\n    {\n      \"offset\": 310,\n      \"meaning\": \"LLC state byte; value 15 triggers direct HCI event buffer send\"\n    }\n  ]\n}"
+}

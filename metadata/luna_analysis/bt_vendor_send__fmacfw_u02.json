@@ -1,0 +1,9 @@
+{
+ "fn": "bt_vendor_send",
+ "img": "fmacfw_u02",
+ "addr": "0x136734",
+ "seg": 56,
+ "key": "bt_vendor_send__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_link_control_send\",\"confidence\":\"medium\",\"docstring\":\"Sends a Bluetooth control message for the pending link buffer, initializing the indexed link context and sending an additional notification when `a1` is zero.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"pending_buffer_slot\",\"v3\":\"pending_buffer\",\"v4\":\"message_payload\",\"v5\":\"link_index\",\"v7\":\"link_index\",\"v8\":\"notification_message\",\"v9\":\"per_link_context\",\"v16\":\"link_context_record\",\"v17\":\"link_flags\"},\"struct_hints\":[{\"offset\":51,\"meaning\":\"Link index read from the pending buffer.\"},{\"offset\":35,\"meaning\":\"Link slot identifier set to the link index plus 32.\"},{\"offset\":37,\"meaning\":\"Byte field set to 1 during link-context initialization.\"},{\"offset\":38,\"meaning\":\"16-bit field set to 1 during link-context initialization.\"},{\"offset\":52,\"meaning\":\"State byte set to 2 during link-context initialization.\"},{\"offset\":350,\"meaning\":\"Flags byte with bit 0x10 set.\"}]}"
+}

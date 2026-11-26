@@ -1,0 +1,9 @@
+{
+ "fn": "bt_state_flags_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1229c8",
+ "seg": 25,
+ "key": "bt_state_flags_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_state_flags_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes Bluetooth context state flags by updating retry/PHY settings, scheduling a kernel event timeout, dispatching connection and HCI events, and triggering PHY or power transitions when the command counter reaches a threshold.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"ctx\",\n    \"v1\": \"ctx\",\n    \"v2\": \"timer_base\",\n    \"v3\": \"event_timeout\",\n    \"v4\": \"command_counter\",\n    \"v5\": \"state_flags\",\n    \"v6\": \"threshold_ptr\",\n    \"v7\": \"threshold\",\n    \"v9\": \"retry_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 108,\n      \"meaning\": \"Bluetooth context valid/active flag\"\n    },\n    {\n      \"offset\": 146,\n      \"meaning\": \"retry/decrement counter used before buffer allocation or PHY write\"\n    },\n    {\n      \"offset\": 148,\n      \"meaning\": \"flag enabling retry counter processing\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"PHY parameter value passed to mmio_write_phy\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"saved timer/event base value\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"index selecting a Bluetooth/PHY timing table entry\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"embedded ke event/timer lock object\"\n    },\n    {\n      \"offset\": 136,\n      \"meaning\": \"connection event timestamp/base argument\"\n    },\n    {\n      \"offset\": 128,\n      \"meaning\": \"HCI command or state sequence counter\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"context state bitmask; bit 0 is set after command processing\"\n    }\n  ]\n}"
+}

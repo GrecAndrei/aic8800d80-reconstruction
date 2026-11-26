@@ -1,0 +1,9 @@
+{
+ "fn": "list_find",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e888",
+ "seg": 21,
+ "key": "list_find__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"list_insert_before\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Locates a target node in a volatile singly linked list and inserts the supplied node immediately before it, returning the target node or NULL when the target is not found.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a2\": \"target_node\",\n    \"a3\": \"insert_node\",\n    \"v3\": \"prev_link\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"next pointer/link field of a list node\"\n    }\n  ]\n}"
+}

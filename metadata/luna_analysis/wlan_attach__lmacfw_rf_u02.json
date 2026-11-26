@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_attach",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11639c",
+ "seg": 9,
+ "key": "wlan_attach__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_attach\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes WLAN attach contexts by clearing per-instance state, populating 1024-entry descriptor/address tables, linking kernel state, and programming primary/secondary configuration blocks with chip ID, clock divider, and buffer counts.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v2\": \"wlan_ctx\",\n    \"v3\": \"desc_table\",\n    \"v4\": \"desc_ctrl\",\n    \"v5\": \"desc_table_end\",\n    \"v6\": \"desc_ctrl_param\",\n    \"v7\": \"desc_table_param\",\n    \"v8\": \"list_head\",\n    \"v9\": \"primary_cfg\",\n    \"v10\": \"cfg_default\",\n    \"v11\": \"clk_div\",\n    \"v12\": \"secondary_cfg\",\n    \"v13\": \"cfg_param\",\n    \"v15\": \"desc_index\",\n    \"v16\": \"desc_addr\",\n    \"v17\": \"desc_entry_ptr\",\n    \"v18\": \"desc_entry_value\",\n    \"result\": \"clk_div\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"pointer to per-context descriptor/address table\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"pointer to per-context control block\"\n    },\n    {\n      \"offset\": 53,\n      \"meaning\": \"attach/skip flag checked when not forcing initialization\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"control-block field storing pointer to descriptor table\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"chip-info-derived configuration value\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"clock divider value\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"base/default configuration parameter\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"entry count; 1024 for primary block, 4 for secondary block\"\n    }\n  ]\n}"
+}

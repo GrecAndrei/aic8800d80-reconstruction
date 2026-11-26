@@ -1,0 +1,9 @@
+{
+ "fn": "init_radio_data",
+ "img": "fmacfw_u02",
+ "addr": "0x11bd88",
+ "seg": 17,
+ "key": "init_radio_data__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_radio_data_init\",\"confidence\":\"medium\",\"docstring\":\"Clears and seeds the Bluetooth radio data, initializes nine fixed-size records and auxiliary data, then updates a radio-control word according to RF status bit 26.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"radio_data\",\"v4\":\"record_cursor\",\"v6\":\"aux_data\"},\"struct_hints\":[{\"offset\":88,\"meaning\":\"Start of nine initialized records with a 92-byte stride.\"}]}"
+}

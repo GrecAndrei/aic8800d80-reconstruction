@@ -1,0 +1,9 @@
+{
+ "fn": "llc_env_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1278dc",
+ "seg": 33,
+ "key": "llc_env_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_env_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the LLC environment, resets its per-entry state and statistics buffers, and installs static environment pointers.\",\"subsystem\":\"llc\",\"var_renames\":{\"v0\":\"entry_table\",\"v1\":\"llc_env\",\"v2\":\"entry_index\",\"i\":\"entry\"}}"
+}

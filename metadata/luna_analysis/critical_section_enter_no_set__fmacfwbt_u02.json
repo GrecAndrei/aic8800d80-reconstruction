@@ -1,0 +1,9 @@
+{
+ "fn": "critical_section_enter_no_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1138a4",
+ "seg": 5,
+ "key": "critical_section_enter_no_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"critical_section_check_abort\",\"confidence\":\"medium\",\"docstring\":\"Checks the abort condition inside a nest-aware critical section and restores interrupts when the outermost check completes.\",\"subsystem\":\"hal\",\"var_renames\":{\"v2\":\"critical_section_depth\",\"v3\":\"abort_check_arg\",\"v5\":\"remaining_depth\",\"v6\":\"restore_irq_on_exit\"}}"
+}

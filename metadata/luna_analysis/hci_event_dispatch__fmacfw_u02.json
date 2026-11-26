@@ -1,0 +1,9 @@
+{
+ "fn": "hci_event_dispatch",
+ "img": "fmacfw_u02",
+ "addr": "0x124cb4",
+ "seg": 29,
+ "key": "hci_event_dispatch__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_vendor_cmd_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches a vendor BLE control request by opcode, invokes its handler, and sends a parameterless kernel message.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"request\",\"a3\":\"source_task_id\",\"a4\":\"destination_task_id\",\"v6\":\"ap_ps_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"32-bit vendor command opcode\"},{\"offset\":4,\"meaning\":\"command-specific payload\"}]}"
+}

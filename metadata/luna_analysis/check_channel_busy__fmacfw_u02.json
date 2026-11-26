@@ -1,0 +1,9 @@
+{
+ "fn": "check_channel_busy",
+ "img": "fmacfw_u02",
+ "addr": "0x11c550",
+ "seg": 18,
+ "key": "check_channel_busy__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_channel_packet_type\",\"confidence\":\"medium\",\"docstring\":\"Delegates packet checking when the indexed entry has a valid 16-bit value and the global mode is not 2; otherwise it returns the original pointer.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"channel_value\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"8-bit index selecting a per-entry record\"},{\"offset\":68,\"meaning\":\"pointer to packet data or context passed to the packet checker\"},{\"offset\":1222,\"meaning\":\"16-bit per-entry value; 0x3ff is treated as invalid\"}]}"
+}

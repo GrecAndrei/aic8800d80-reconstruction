@@ -1,0 +1,9 @@
+{
+ "fn": "list_process",
+ "img": "fmacfw_u02",
+ "addr": "0x12d380",
+ "seg": 41,
+ "key": "list_process__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"list_insert_sorted\",\"confidence\":\"medium\",\"docstring\":\"Inserts a node before the first node for which the ordering callback returns nonzero, or appends it if the callback returns zero for every existing node.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v3\":\"current_node\",\"v4\":\"list\",\"v7\":\"previous_node\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"List head pointer, or the intrusive node's next pointer depending on the object.\"},{\"offset\":4,\"meaning\":\"List tail pointer.\"}]}"
+}

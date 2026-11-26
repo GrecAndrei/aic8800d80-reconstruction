@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clear_irq_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1077f8",
+ "seg": 2,
+ "key": "rf_clear_irq_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_core_handshake_poll_ack\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pulses an RF/core request bit, updates a clock/override control register with timer delays, waits for the ack status bit, and deasserts the request bit.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_request_reg\",\n    \"v1\": \"rf_clock_override_reg\",\n    \"v3\": \"rf_ack_status_reg\",\n    \"v4\": \"poll_delay_ticks\"\n  },\n  \"struct_hints\": []\n}"
+}

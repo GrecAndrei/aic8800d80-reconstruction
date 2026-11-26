@@ -1,0 +1,9 @@
+{
+ "fn": "bt_runtime_check2",
+ "img": "fmacfw_u02",
+ "addr": "0x12a198",
+ "seg": 36,
+ "key": "bt_runtime_check2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_get_runtime_value\",\"confidence\":\"medium\",\"docstring\":\"Looks up a per-connection runtime entry and returns its primary value, adding a second component for entry type 1, with state-dependent fallback handling.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"conn_ctx\",\"a2\":\"entry_idx\",\"v2\":\"runtime_state_ptr\",\"v5\":\"conn_idx\",\"v6\":\"entries_base\",\"v9\":\"entry_type\",\"v11\":\"entry_type\",\"v12\":\"entry_ptr\",\"v13\":\"entry_addr\",\"v14\":\"entry_type\"},\"struct_hints\":[{\"offset\":1224,\"meaning\":\"Flag gating the lookup when the global runtime state is negative\"},{\"offset\":1225,\"meaning\":\"Index selecting this connection's runtime entries\"},{\"offset\":12,\"meaning\":\"Primary 32-bit value returned for entry types 1 and 2\"},{\"offset\":16,\"meaning\":\"Entry type discriminator: type 1 adds the value at offset 24; type 2 returns the primary value\"},{\"offset\":24,\"meaning\":\"Additional 32-bit value added to the primary value for entry type 1\"}]}"
+}

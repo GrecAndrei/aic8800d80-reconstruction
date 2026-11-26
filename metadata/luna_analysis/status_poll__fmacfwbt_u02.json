@@ -1,0 +1,9 @@
+{
+ "fn": "status_poll",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d15c",
+ "seg": 2,
+ "key": "status_poll__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"power_status_poll\",\"confidence\":\"medium\",\"docstring\":\"Checks hardware status and, when required, performs a handshake with a 2,000-tick timeout, writes back observed status bits, and returns a sampled status bit.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"status_result\",\"v2\":\"request_ctrl_addr\",\"v3\":\"start_tick\",\"v4\":\"timeout_deadline\",\"v5\":\"status_word\",\"v6\":\"ticks_remaining\",\"v7\":\"completion_status_bits\"}}"
+}

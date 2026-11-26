@@ -1,0 +1,9 @@
+{
+ "fn": "btcoex_check_state",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x117dc0",
+ "seg": 10,
+ "key": "btcoex_check_state__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"btcoex_update_mask\",\"confidence\":\"medium\",\"docstring\":\"Synchronizes a Bluetooth coexistence bitmask register from the context state when the relevant flags indicate that the mask is ready to be applied.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"btcoex_ctx\",\"v1\":\"mask_count\"},\"struct_hints\":[{\"offset\":104,\"meaning\":\"bit count used to generate the coexistence mask\"}]}"
+}

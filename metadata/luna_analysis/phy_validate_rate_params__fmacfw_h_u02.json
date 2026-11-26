@@ -1,0 +1,9 @@
+{
+ "fn": "phy_validate_rate_params",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13d950",
+ "seg": 61,
+ "key": "phy_validate_rate_params__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_validate_rate_params\",\"confidence\":\"medium\",\"docstring\":\"Validates a packed rate entry against the current PHY mode and capability limits, reporting unsupported combinations through the firmware error path.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"packed_rate_word\",\"v10\":\"rate_width_code\"},\"struct_hints\":[{\"offset\":10,\"meaning\":\"Packed rate-parameter word in the 12-byte entry selected by the second argument.\"},{\"offset\":169,\"meaning\":\"PHY or rate-mode selector that chooses the validation rules.\"},{\"offset\":177,\"meaning\":\"Mode-dependent capability value used to select stricter validation for modes 2 and 3.\"},{\"offset\":179,\"meaning\":\"Capability ceiling for the rate-width code.\"},{\"offset\":180,\"meaning\":\"Rate capability limit checked against the requested rate parameters.\"},{\"offset\":181,\"meaning\":\"Capability limit for the option encoded in bit 9 of the packed rate word.\"}]}"
+}

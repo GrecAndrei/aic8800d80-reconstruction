@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_bt_message",
+ "img": "fmacfw_u02",
+ "addr": "0x12048c",
+ "seg": 22,
+ "key": "alloc_bt_message__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_send_message_with_u32\",\"confidence\":\"medium\",\"docstring\":\"Allocates message ID 143 for destination task 0 with a four-byte payload, stores the supplied value, and sends it.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"message_value\",\"v2\":\"message\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "invoke_handler_14a99c",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1099bc",
+ "seg": 2,
+ "key": "invoke_handler_14a99c__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_process_iq_signal_samples\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Processes a buffer of floating-point IQ/signal samples, applying a coefficient-table-driven RF calibration/correction and zeroing associated state slots.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"sample_count\",\n    \"a2\": \"signal_samples\",\n    \"a4\": \"calib_params\",\n    \"v19\": \"sample_count_local\",\n    \"v21\": \"coeff_byte_ptr\",\n    \"v22\": \"sample_ptr\",\n    \"v23\": \"sample_end\",\n    \"v25\": \"iq_scale\",\n    \"v26\": \"paired_sample\",\n    \"v27\": \"weighted_sample\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"float calibration scale/tangent parameter\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"float calibration offset/bias parameter\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hci_tx_alloc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c9a0",
+ "seg": 40,
+ "key": "hci_tx_alloc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_tx_buffer_alloc\",\"confidence\":\"high\",\"docstring\":\"Allocates an aligned HCI transmit buffer by carving space from a suitable free-list block and recording the allocation size.\",\"subsystem\":\"hci\",\"var_renames\":{\"v2\":\"aligned_request_size\",\"v3\":\"allocation_size_with_header\",\"v4\":\"free_block\",\"v7\":\"best_fit_block\",\"v8\":\"free_block_size\",\"v10\":\"remaining_block_size\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next free block in the allocator list\"},{\"offset\":4,\"meaning\":\"Free block size in bytes\"}]}"
+}

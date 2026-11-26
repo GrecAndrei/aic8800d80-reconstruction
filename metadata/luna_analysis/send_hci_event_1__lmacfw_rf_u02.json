@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_event_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ad58",
+ "seg": 15,
+ "key": "send_hci_event_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_event_send\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends a two-byte RF/kernel event message to the task named by an event descriptor, clears the pending event bit, and invokes the receive handler dispatcher.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"evt_desc\",\n    \"v2\": \"evt_msg\",\n    \"v3\": \"evt_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 14,\n      \"meaning\": \"destination task id for the event message\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"source byte copied to event message byte 1, likely event length/parameter\"\n    },\n    {\n      \"offset\": 26,\n      \"meaning\": \"source byte copied to event message byte 0, likely event code/status\"\n    }\n  ]\n}"
+}

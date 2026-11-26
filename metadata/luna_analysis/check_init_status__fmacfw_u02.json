@@ -1,0 +1,9 @@
+{
+ "fn": "check_init_status",
+ "img": "fmacfw_u02",
+ "addr": "0x1154d8",
+ "seg": 6,
+ "key": "check_init_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_init_status\",\"confidence\":\"medium\",\"docstring\":\"Checks initialization status bits, updates the one-shot status latch, and schedules the status worker at a mode-scaled timer deadline.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"init_status_latch\",\"result\":\"status_check_result\",\"v2\":\"delay_config\",\"v3\":\"delay_ticks\",\"v4\":\"current_timer_ticks\"},\"struct_hints\":[{\"offset\":18,\"meaning\":\"Condition byte whose nonzero value clears the initialization-status latch.\"}]}"
+}

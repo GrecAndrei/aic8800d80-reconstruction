@@ -1,0 +1,9 @@
+{
+ "fn": "aeabi_dsub",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127874",
+ "seg": 23,
+ "key": "aeabi_dsub__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_ddiv\",\n  \"confidence\": \"high\",\n  \"docstring\": \"ARM EABI libgcc software routine for IEEE-754 double-precision division, byte-identical to __aeabi_ddiv.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

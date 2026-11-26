@@ -1,0 +1,9 @@
+{
+ "fn": "timer_is_past",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1174ec",
+ "seg": 10,
+ "key": "timer_is_past__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sets a timer value and past/wrap bit in one of two timer slots selected by the timer object.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"result\": \"timer_obj\",\n    \"v1\": \"new_ticks\",\n    \"v2\": \"past_bit\",\n    \"v3\": \"past_bit\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 148,\n      \"meaning\": \"timer timestamp/timeout value\"\n    },\n    {\n      \"offset\": 152,\n      \"meaning\": \"timer slot selector or state flag\"\n    }\n  ]\n}"
+}

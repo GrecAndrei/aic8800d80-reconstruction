@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_bit10",
+ "img": "fmacfw_h_u02",
+ "addr": "0x109eb0",
+ "seg": 2,
+ "key": "mmio_set_bit10__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_calibration\",\"confidence\":\"medium\",\"docstring\":\"Coordinates RF calibration by loading or saving calibration data, interpolating cached values when needed, and starting calibration in the normal path.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"calibration_index\",\"a2\":\"calibration_data\",\"a8\":\"save_calibration\",\"v35\":\"cal_config_buffer\"},\"struct_hints\":[{\"offset\":516,\"meaning\":\"Set to the value from dword_109FF4 after calibration.\"},{\"offset\":524,\"meaning\":\"Set to the value from dword_109FF4 after calibration.\"}]}"
+}

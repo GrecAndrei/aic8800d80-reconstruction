@@ -1,0 +1,9 @@
+{
+ "fn": "check_clock_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x101924",
+ "seg": 0,
+ "key": "check_clock_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_mac_idle_state\",\"confidence\":\"high\",\"docstring\":\"Returns the supplied value when the MAC state is idle; otherwise emits the PHY-stop MAC-state error and returns the result of alloc_tx_event.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"idle_result\"}}"
+}

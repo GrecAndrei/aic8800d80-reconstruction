@@ -1,0 +1,9 @@
+{
+ "fn": "ke_evt_poll",
+ "img": "fmacfw_h_u02",
+ "addr": "0x121934",
+ "seg": 23,
+ "key": "ke_evt_poll__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_evt_poll\",\"confidence\":\"medium\",\"docstring\":\"Polls the event state and invokes the HCI preprocessor in mode 0 when the gated counters sum to at most one, otherwise stores 48 and invokes mode 1.\",\"subsystem\":\"ke\",\"struct_hints\":[{\"offset\":17,\"meaning\":\"Byte counter combined with the counter at offset 18 to select the preprocessing mode.\"},{\"offset\":18,\"meaning\":\"Byte counter combined with the counter at offset 17 to select the preprocessing mode.\"},{\"offset\":31,\"meaning\":\"Byte flag gating the check of the counters at offsets 17 and 18.\"}]}"
+}

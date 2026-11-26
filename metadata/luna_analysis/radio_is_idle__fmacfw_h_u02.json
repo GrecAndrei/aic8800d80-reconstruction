@@ -1,0 +1,9 @@
+{
+ "fn": "radio_is_idle",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102ed0",
+ "seg": 2,
+ "key": "radio_is_idle__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_initialize\",\"confidence\":\"medium\",\"docstring\":\"Brings up the RF hardware by synchronizing with its control interface, loading RF configuration, and programming transceiver registers.\",\"subsystem\":\"rf\"}"
+}

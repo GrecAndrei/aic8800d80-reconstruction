@@ -1,0 +1,9 @@
+{
+ "fn": "process_bt_service_search_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x125970",
+ "seg": 23,
+ "key": "process_bt_service_search_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_set_tone_power_offset\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Command handler that sets per-band RF tone power offsets (2.4 GHz, 5 GHz, BT) from command arguments and logs the result.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v4\": \"cmd\",\n    \"v5\": \"tone_pwr_ofst\",\n    \"v6\": \"clamped_tone_pwr_ofst\",\n    \"v8\": \"set_count_ptr\",\n    \"v13\": \"set_count_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"argv[1] string pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"argv[2] string pointer\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"global tone_pwr_ofst_2g4 byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"global tone_pwr_ofst_5g byte\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"global tone_pwr_ofst_bt byte\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"rf config byte at table+0x24 (band/state indicator)\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"rf config uint16 at table+0x28 used for rf_ctrl_set\"\n    }\n  ]\n}"
+}

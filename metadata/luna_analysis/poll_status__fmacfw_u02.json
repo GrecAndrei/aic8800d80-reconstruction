@@ -1,0 +1,9 @@
+{
+ "fn": "poll_status",
+ "img": "fmacfw_u02",
+ "addr": "0x101934",
+ "seg": 0,
+ "key": "poll_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_read_timestamp_if_ready\",\"confidence\":\"medium\",\"docstring\":\"When status bit 3 is set, reads the timer counter and acknowledges that status bit; otherwise returns the incoming value unchanged.\",\"subsystem\":\"rf\"}"
+}

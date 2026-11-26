@@ -1,0 +1,9 @@
+{
+ "fn": "dma_ring_setup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11deb0",
+ "seg": 20,
+ "key": "dma_ring_setup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dma_rings_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes two DMA ring buffer ranges from configured base/length pairs and programs the associated control word while preserving bit 19.\",\"subsystem\":\"dma\",\"var_renames\":{\"v0\":\"dma_ring_state\",\"v1\":\"dma_config\",\"v4\":\"ring0_base_and_length\",\"v8\":\"ring1_base_and_length\"}}"
+}

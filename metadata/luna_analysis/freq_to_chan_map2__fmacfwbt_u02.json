@@ -1,0 +1,9 @@
+{
+ "fn": "freq_to_chan_map2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e2a8",
+ "seg": 43,
+ "key": "freq_to_chan_map2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"freq_to_chan_map\", \"confidence\": \"medium\", \"docstring\": \"Maps an RF frequency/channel code to its channel table index, returning 255 for unsupported values.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"freq_code\", \"result\": \"chan\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_get_field",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113bb0",
+ "seg": 5,
+ "key": "mmio_get_field__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_set_reg6_byte_if_free\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes a byte value into the low or high byte of MMIO register 6, depending on which byte is zero, and returns a lane status or -1 if both bytes are occupied.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v2\": \"reg_value\",\n    \"v3\": \"byte_shift\",\n    \"v4\": \"lane_status\"\n  },\n  \"struct_hints\": []\n}"
+}

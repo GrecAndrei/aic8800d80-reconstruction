@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_local_addr_type",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132ab8",
+ "seg": 46,
+ "key": "bt_get_local_addr_type__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"llm_adv_update_name_type\", \"confidence\": \"medium\", \"docstring\": \"Scans the BLE advertising context local-name buffer to derive a validated name type/character, applies it via the flow-control/name-type setter, and clears the processed flag.\", \"subsystem\": \"ble\", \"var_renames\": {\"v3\": \"cursor\", \"v4\": \"name_end\", \"v5\": \"name_char\", \"v6\": \"raw_name_byte\", \"v7\": \"validated_name_type\", \"result\": \"setter_result\"}, \"struct_hints\": [{\"offset\": 192, \"meaning\": \"local name length byte\"}, {\"offset\": 193, \"meaning\": \"local name payload bytes\"}, {\"offset\": 350, \"meaning\": \"name processing flag cleared after update\"}]}"
+}

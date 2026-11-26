@@ -1,0 +1,9 @@
+{
+ "fn": "rf_sync_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12bd4c",
+ "seg": 39,
+ "key": "rf_sync_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_status\",\"confidence\":\"medium\",\"docstring\":\"Acknowledges the RF status word, performs status-dependent synchronization updates, and reports pending timer conditions.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"status_word\"}}"
+}

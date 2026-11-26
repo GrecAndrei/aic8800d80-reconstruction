@@ -1,0 +1,9 @@
+{
+ "fn": "crypto_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1033f8",
+ "seg": 2,
+ "key": "crypto_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init\",\"confidence\":\"high\",\"docstring\":\"Configures RF control registers, enables the RF chain, and performs RF hardware startup.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_status_shift",
+ "img": "fmacfw_u02",
+ "addr": "0x1052e8",
+ "seg": 2,
+ "key": "rx_status_shift__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_rx_threshold_window\",\"confidence\":\"medium\",\"docstring\":\"Scans backward from the saved index in the selected sample bank, records the contiguous threshold-qualified interval bounds, and returns the scan boundary index.\",\"subsystem\":\"rx\",\"var_renames\":{\"a2\":\"threshold\",\"a3\":\"rx_window_state\",\"a4\":\"sample_buffer\",\"a5\":\"use_offset_32_bank\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"End index of the threshold-qualified interval, or the empty-interval sentinel.\"},{\"offset\":4,\"meaning\":\"Index immediately before the threshold-qualified interval, or the empty-interval sentinel.\"},{\"offset\":8,\"meaning\":\"Starting index that bounds the backward scan.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_msg_81",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12301c",
+ "seg": 28,
+ "key": "ke_send_msg_81__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"inject_template_pdu\",\"confidence\":\"medium\",\"docstring\":\"Builds a type-0x81 PDU containing the fixed 36-byte template and submits it to the receive-packet processor.\",\"subsystem\":\"ke\",\"var_renames\":{\"v4\":\"pdu_buffer\",\"v5\":\"template_source\",\"v6\":\"payload_length\"}}"
+}

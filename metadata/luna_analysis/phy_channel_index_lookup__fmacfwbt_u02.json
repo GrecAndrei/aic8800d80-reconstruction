@@ -1,0 +1,9 @@
+{
+ "fn": "phy_channel_index_lookup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1349b8",
+ "seg": 52,
+ "key": "phy_channel_index_lookup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_find_free_conn_by_context\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects a Bluetooth LE link-layer connection table using an index from the current LL context and delegates to find_free_conn to obtain a free connection slot.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 61,\n      \"meaning\": \"byte index selecting the connection-context table\"\n    }\n  ]\n}"
+}

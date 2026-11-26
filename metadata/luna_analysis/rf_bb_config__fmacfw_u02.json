@@ -1,0 +1,9 @@
+{
+ "fn": "rf_bb_config",
+ "img": "fmacfw_u02",
+ "addr": "0x11063c",
+ "seg": 3,
+ "key": "rf_bb_config__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_replenish_buffers\",\"confidence\":\"medium\",\"docstring\":\"Programs the RF parameters and allocates and posts buffers until the configured replenishment count is reached.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"current_count\",\"v9\":\"allocated_buffer\",\"v11\":\"descriptor\",\"v21\":\"target_count\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Current or newly posted buffer descriptor pointer\"},{\"offset\":12,\"meaning\":\"16-bit replenished-buffer count\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "init_driver_locks",
+ "img": "fmacfwbt_u02",
+ "addr": "0x139d90",
+ "seg": 59,
+ "key": "init_driver_locks__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cal_init_data\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes global RF calibration channel and TX power table structures by zeroing pools and priming embedded list/type pointers for each entry.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"chan_list_head\",\n    \"v1\": \"chan_cursor\",\n    \"v2\": \"chan_loop_end\",\n    \"v3\": \"chan_entry\",\n    \"v4\": \"txpwr_cursor\",\n    \"v6\": \"txpwr_loop_end\",\n    \"result\": \"entry_type_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": -64,\n      \"meaning\": \"item base +0: entry type descriptor pointer (item base = v4 - 64)\"\n    },\n    {\n      \"offset\": -60,\n      \"meaning\": \"item base +4: list/self pointer initialized to v4\"\n    },\n    {\n      \"offset\": -52,\n      \"meaning\": \"item base +12: uint8 flag cleared\"\n    },\n    {\n      \"offset\": -48,\n      \"meaning\": \"item base +16: second list/self pointer initialized to v4\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"item base +72: uint16 field cleared\"\n    },\n    {\n      \"offset\": 102,\n      \"meaning\": \"u16 field of the structure at off_139E24 set to 0xFFFF sentinel\"\n    }\n  ]\n}"
+}

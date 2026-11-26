@@ -1,0 +1,9 @@
+{
+ "fn": "rf_ctrl_send",
+ "img": "fmacfw_u02",
+ "addr": "0x13bd60",
+ "seg": 60,
+ "key": "rf_ctrl_send__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_ctrl_msg_send\",\"confidence\":\"medium\",\"docstring\":\"Serializes fields from the indexed RF-control entry into an 8-byte kernel message and sends it.\",\"subsystem\":\"rf\",\"var_renames\":{\"v4\":\"message\",\"v5\":\"control_entry\",\"v6\":\"entry_status\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"16-bit value copied to message payload offset 6\"},{\"offset\":17,\"meaning\":\"Status byte compared with 1; the result is inverted into payload byte 0\"},{\"offset\":20,\"meaning\":\"16-bit value copied to message payload offset 4\"},{\"offset\":22,\"meaning\":\"Byte copied to message payload offset 2\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "chip_common_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10a800",
+ "seg": 2,
+ "key": "chip_common_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_common_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes shared RF hardware state and configures mode-dependent synthesizer controls.\",\"subsystem\":\"rf\"}"
+}

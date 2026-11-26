@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x110250",
+ "seg": 3,
+ "key": "mmio_write_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_write_locked\",\"confidence\":\"medium\",\"docstring\":\"Invokes the MMIO write handler under a nest-counted interrupt guard and returns its status.\",\"subsystem\":\"mmio\",\"var_renames\":{\"v2\":\"active_call_count\",\"v5\":\"active_call_depth\",\"v6\":\"remaining_call_depth\",\"v7\":\"irq_restore_pending\"}}"
+}

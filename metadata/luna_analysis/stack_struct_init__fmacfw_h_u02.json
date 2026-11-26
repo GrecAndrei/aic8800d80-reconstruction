@@ -1,0 +1,9 @@
+{
+ "fn": "stack_struct_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d6c8",
+ "seg": 3,
+ "key": "stack_struct_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_rx_process_packet\",\"confidence\":\"medium\",\"docstring\":\"Receives up to 256 bytes into a temporary buffer and processes the payload through the radio interface.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"receive_result\",\"v6\":\"packet_length\",\"v8\":\"packet_cursor\",\"v9\":\"tx_status_reg\",\"v10\":\"tx_data_reg\",\"v11\":\"packet_end\"}}"
+}

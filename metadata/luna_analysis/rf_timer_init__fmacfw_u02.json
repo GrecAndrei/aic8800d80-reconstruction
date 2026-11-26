@@ -1,0 +1,9 @@
+{
+ "fn": "rf_timer_init",
+ "img": "fmacfw_u02",
+ "addr": "0x10f3b0",
+ "seg": 3,
+ "key": "rf_timer_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_runtime_init\",\"confidence\":\"medium\",\"docstring\":\"Clears RF runtime state and buffers, then initializes each 16-byte entry in a 0x800-byte table.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"state_base\",\"v1\":\"table_cursor\",\"v2\":\"table_end\",\"v3\":\"table_end_address\",\"v4\":\"table_entry\",\"v5\":\"record_cursor\",\"v7\":\"word_cursor\"}}"
+}

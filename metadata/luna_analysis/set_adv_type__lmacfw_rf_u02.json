@@ -1,0 +1,9 @@
+{
+ "fn": "set_adv_type",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124b04",
+ "seg": 23,
+ "key": "set_adv_type__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parse a Wi-Fi channel argument, derive the band, center frequency, and secondary-frequency configuration, then apply the resulting RF channel setting.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"parsed_channel\",\n    \"v4\": \"channel\",\n    \"v5\": \"bandwidth\",\n    \"v8\": \"current_frequency\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"band selector (0 = 2.4 GHz, 1 = 5 GHz)\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"channel bandwidth\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"secondary or offset center frequency\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"primary center frequency\"\n    }\n  ]\n}"
+}

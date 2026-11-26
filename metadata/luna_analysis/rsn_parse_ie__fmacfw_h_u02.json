@@ -1,0 +1,9 @@
+{
+ "fn": "rsn_parse_ie",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1296c4",
+ "seg": 35,
+ "key": "rsn_parse_ie__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wifi_update_power_save\",\"confidence\":\"medium\",\"docstring\":\"Reconciles the requested power-save state with the current state and updates per-interface beacon timing accordingly.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"config\",\"v5\":\"interface_index\",\"v9\":\"requested_state\",\"v10\":\"requested_enabled\"},\"struct_hints\":[{\"offset\":113,\"meaning\":\"Interface index used to select per-interface state\"},{\"offset\":114,\"meaning\":\"Requested power-save state\"},{\"offset\":133,\"meaning\":\"Currently applied power-save state\"}]}"
+}

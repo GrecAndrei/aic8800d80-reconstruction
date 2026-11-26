@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reset_chan_cfg",
+ "img": "fmacfw_u02",
+ "addr": "0x13a654",
+ "seg": 59,
+ "key": "rf_reset_chan_cfg__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_conn_event_rf_timing_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes a BLE connection event's per-channel counter and derives its radio timing and configuration fields from the selected RF channel.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"event_flags\",\"v4\":\"rf_config_index\",\"v5\":\"channel_index\",\"v7\":\"base_timing\",\"v8\":\"previous_channel_counter\",\"v9\":\"rf_config_entry\",\"v11\":\"event_timing\",\"v12\":\"timing_extension\",\"v13\":\"rf_config_value\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Byte-swapped timing value compared against a threshold.\"},{\"offset\":27,\"meaning\":\"BLE channel index; 0xFF is a sentinel for no channel.\"},{\"offset\":28,\"meaning\":\"Index used to select an RF configuration entry.\"},{\"offset\":29,\"meaning\":\"Connection-context index.\"},{\"offset\":30,\"meaning\":\"Event flags controlling whether fields are initialized and adjusting timing.\"},{\"offset\":32,\"meaning\":\"Per-connection, per-channel 12-bit counter.\"},{\"offset\":50,\"meaning\":\"Base radio timing value.\"},{\"offset\":51,\"meaning\":\"Calculated event timing value.\"},{\"offset\":52,\"meaning\":\"Optional timing extension.\"},{\"offset\":53,\"meaning\":\"RF channel configuration value returned by rf_get_chan_cfg.\"},{\"offset\":66,\"meaning\":\"Copy of the calculated event timing value.\"}]}"
+}

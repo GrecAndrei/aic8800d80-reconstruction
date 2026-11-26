@@ -1,0 +1,9 @@
+{
+ "fn": "rf_isr",
+ "img": "fmacfwbt_u02",
+ "addr": "0x110494",
+ "seg": 3,
+ "key": "rf_isr__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_host_rx_buffer_replenish\",\"confidence\":\"medium\",\"docstring\":\"Replenishes the host-to-device SDIO buffer queue by allocating buffers, linking their descriptors, and updating the queued count.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v21\":\"target_buffer_count\",\"v6\":\"current_buffer_count\",\"v9\":\"allocated_buffer\",\"v11\":\"buffer_descriptor\",\"v19\":\"tail_descriptor\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"In the a2 context, tail descriptor pointer for the queued buffers\"},{\"offset\":12,\"meaning\":\"In the a2 context, current queued-buffer count\"},{\"offset\":48,\"meaning\":\"In the host-interface context, target buffer count for replenishment\"},{\"offset\":50,\"meaning\":\"In the host-interface context, buffer-count limit checked when allocation fails\"}]}"
+}

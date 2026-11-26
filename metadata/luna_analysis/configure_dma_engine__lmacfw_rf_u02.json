@@ -1,0 +1,9 @@
+{
+ "fn": "configure_dma_engine",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10c2e4",
+ "seg": 2,
+ "key": "configure_dma_engine__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"configure_dma_engine\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes and enables a DMA engine by programming control/status registers, waiting for the ready condition, and preparing a local transfer descriptor or buffer.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"dma_cfg_ptr\",\n    \"v1\": \"dma_reg_base\",\n    \"v5\": \"dma_reg_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"DMA source or base pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"DMA destination pointer\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"136-byte DMA descriptor or transfer buffer\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "clock_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d07c",
+ "seg": 2,
+ "key": "clock_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clock_enable\",\"confidence\":\"high\",\"docstring\":\"Enables a hardware clock by writing 0x02000000 to a fixed control register.\",\"subsystem\":\"hal\"}"
+}

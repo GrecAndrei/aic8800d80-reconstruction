@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_32",
+ "img": "fmacfw_u02",
+ "addr": "0x1092c8",
+ "seg": 2,
+ "key": "mmio_write_32__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"read_status_pair\",\"confidence\":\"medium\",\"docstring\":\"Writes command 2 to the peripheral, waits for status bit 0 to assert (confirming it remains set when initially clear), then stores the signed 15-bit upper and lower fields of the status word in the two outputs.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"upper_value_out\",\"a2\":\"lower_value_out\",\"v6\":\"status_word\",\"v7\":\"upper_value\",\"v8\":\"lower_value\"}}"
+}

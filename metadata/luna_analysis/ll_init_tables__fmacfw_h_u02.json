@@ -1,0 +1,9 @@
+{
+ "fn": "ll_init_tables",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115c20",
+ "seg": 6,
+ "key": "ll_init_tables__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_main_loop\",\"confidence\":\"medium\",\"docstring\":\"Initializes the link-layer radio and scheduler, then services controller events and RF housekeeping while sleeping when idle.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"config_pointer_slot\",\"v5\":\"controller_state_slot\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"Radio-operation flag controlling RF setup handling.\"},{\"offset\":4,\"meaning\":\"Value passed to scheduler_entry during startup.\"},{\"offset\":8,\"meaning\":\"Optional RF channel selected during startup.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "float_compare",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142fd8",
+ "seg": 68,
+ "key": "float_compare__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"float_add\",\"confidence\":\"high\",\"docstring\":\"Adds two IEEE-754 single-precision floating-point values and returns the result.\",\"subsystem\":\"libmisc\"}"
+}

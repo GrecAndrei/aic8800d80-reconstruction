@@ -1,0 +1,9 @@
+{
+ "fn": "util_get_hw_index",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1041e4",
+ "seg": 2,
+ "key": "util_get_hw_index__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"util_get_hw_index\",\"confidence\":\"medium\",\"docstring\":\"Computes a wrapping 14-bit hardware index in two-slot steps, choosing the starting slot from the referenced address\u2019s low bit and a caller selector.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"pair_offset\",\"a2\":\"parity_selector\",\"a3\":\"buffer_address_table\"}}"
+}

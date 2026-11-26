@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibration",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1048e8",
+ "seg": 2,
+ "key": "rf_calibration__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_prepare_waveform\",\"confidence\":\"medium\",\"docstring\":\"Initializes the caller-provided calibration buffer and derives TX/RX start offsets and a bounded segment count for waveform generation.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"calibration_buffer\",\"v19\":\"estimated_rx_start\",\"v20\":\"start_delay\",\"v21\":\"estimated_tx_start\",\"v22\":\"segment_count\",\"v23\":\"buffer_word\"}}"
+}

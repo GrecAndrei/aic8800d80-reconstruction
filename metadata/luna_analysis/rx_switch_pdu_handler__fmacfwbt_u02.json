@@ -1,0 +1,9 @@
+{
+ "fn": "rx_switch_pdu_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13d2f8",
+ "seg": 62,
+ "key": "rx_switch_pdu_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_ll_check_rx_pdu_filter\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks whether a received BLE link-layer PDU passes the current RX filter by switching on the PDU/status class and testing associated filter bitmaps or parameter thresholds.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"filter_ctx\",\n    \"a2\": \"pdu_param\",\n    \"result\": \"accept\",\n    \"v3\": \"threshold_group\",\n    \"v4\": \"param_value\",\n    \"v5\": \"sub_type\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 170,\n      \"meaning\": \"filter context field used as a 32-bit bitmap and/or packed 2-bit threshold table\"\n    },\n    {\n      \"offset\": 174,\n      \"meaning\": \"filter context field used as a 16-bit bitmap\"\n    }\n  ]\n}"
+}

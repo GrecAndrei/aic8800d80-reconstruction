@@ -1,0 +1,9 @@
+{
+ "fn": "process_signal_buffer",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x109d40",
+ "seg": 2,
+ "key": "process_signal_buffer__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_run_dpd_calibration_tables\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Runs the RF DPD/TX-power calibration table sequence by programming TX power, polling a calibration status flag, stopping the RF calibration manager, and recording per-table results.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_cal_status_ptr\",\n    \"a2\": \"rf_cal_table_array\",\n    \"a4\": \"rf_cal_mode\",\n    \"a5\": \"rf_cal_result_array\",\n    \"v11\": \"rf_ctrl_reg\",\n    \"v17\": \"cal_table_index\",\n    \"v44\": \"cal_table_ptr\",\n    \"v52\": \"cal_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"RF calibration parameter word 0 loaded from off_10A070\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"RF calibration parameter word 1 loaded from off_10A070\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"RF calibration parameter word 2 loaded from off_10A070\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "write_hw_mmio_word",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134a1c",
+ "seg": 52,
+ "key": "write_hw_mmio_word__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_reset_prepare_connection\",\"confidence\":\"medium\",\"docstring\":\"Clears an LLM reset control bit, releases old resources, prepares a connection context and sends its RF/link-layer parameters.\",\"subsystem\":\"ble\",\"var_renames\":{\"v6\":\"mmio_reg_ptr\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"connection parameter presence flag\"},{\"offset\":107,\"meaning\":\"byte copied into link-layer parameter messages\"},{\"offset\":108,\"meaning\":\"optional parameter flag\"},{\"offset\":116,\"meaning\":\"RF calibration byte/channel index\"}]}"
+}

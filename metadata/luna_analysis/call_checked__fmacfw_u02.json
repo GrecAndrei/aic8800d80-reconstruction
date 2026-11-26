@@ -1,0 +1,9 @@
+{
+ "fn": "call_checked",
+ "img": "fmacfw_u02",
+ "addr": "0x114058",
+ "seg": 5,
+ "key": "call_checked__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"call_after_scan_with_irq_guard\",\"confidence\":\"medium\",\"docstring\":\"Waits for MAC scanning to finish, invokes the fixed helper with 128 inside a nesting-aware IRQ guard, and returns its result after restoring interrupts when the outermost guarded call exits.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"irq_guard_depth_ptr\",\"v2\":\"remaining_irq_guard_depth\",\"v3\":\"restore_irq_on_exit\"}}"
+}

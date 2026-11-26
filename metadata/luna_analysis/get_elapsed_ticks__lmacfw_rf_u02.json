@@ -1,0 +1,9 @@
+{
+ "fn": "get_elapsed_ticks",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12266c",
+ "seg": 22,
+ "key": "get_elapsed_ticks__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"delay_ms\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Busy-waits until a global tick counter advances by 1000*a1 ticks (presumed milliseconds) and returns the absolute deadline tick.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"delay_ms\",\n    \"result\": \"deadline_ticks\"\n  },\n  \"struct_hints\": []\n}"
+}

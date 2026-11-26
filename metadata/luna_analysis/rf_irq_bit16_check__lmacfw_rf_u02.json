@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_bit16_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113d00",
+ "seg": 5,
+ "key": "rf_irq_bit16_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_irq_read_status_pair\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a two-word RF IRQ status/event pair from MMIO registers, using a bit-16 pending path and otherwise reconstructing register fields to return an IRQ source classification.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"status_word\",\n    \"a2\": \"aux_word\",\n    \"v4\": \"rf_irq_reg\",\n    \"v5\": \"irq_source\",\n    \"result\": \"pair_read_status\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_mmio_read",
+ "img": "fmacfw_u02",
+ "addr": "0x126d04",
+ "seg": 32,
+ "key": "rf_mmio_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_2g_context_count\",\"confidence\":\"medium\",\"docstring\":\"Counts eligible contexts associated with the active channel, records 2.4-GHz activity, and updates the clock divisor when required.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_context\",\"v2\":\"context_list\",\"v3\":\"current_2g_count\",\"v4\":\"active_channel_ctx\",\"v7\":\"updated_2g_count\",\"v9\":\"two_ghz_active_flag\",\"v14\":\"clock_update_ctx\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"pointer to a channel or configuration context, compared with the active channel context\"},{\"offset\":116,\"meaning\":\"value passed to phy_channel_is_5g as its first argument\"}]}"
+}

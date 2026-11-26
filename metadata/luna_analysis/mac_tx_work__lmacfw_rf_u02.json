@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_work",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10d4e8",
+ "seg": 2,
+ "key": "mac_tx_work__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_phy_work\",\"confidence\":\"medium\",\"docstring\":\"Handles RF PHY background work by computing encoded scale/gain codes from a signed measurement and raising an RF doorbell/completion signal.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"signed_rf_value\",\"v6\":\"abs_rf_value\",\"v7\":\"reference_scale\",\"v8\":\"scale_ratio\",\"v9\":\"ratio_high\",\"v10\":\"ratio_middle\",\"v11\":\"ratio_low\"},\"struct_hints\":[{\"offset\":172,\"meaning\":\"signed RF measurement/state word accessed at off_10D5D4[43]\"},{\"offset\":80,\"meaning\":\"RF configuration/control word with mode bit 0x20\"}]}"
+}

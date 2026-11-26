@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_loop",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11dafc",
+ "seg": 20,
+ "key": "ke_event_loop__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_timer_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Creates or updates a kernel timer entry for a 16-bit destination/source pair, stores its absolute expiry, inserts it in the timer list, and refreshes the active timer under a short interrupt-disabled critical section.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"dest_id\",\n    \"a2\": \"src_id\",\n    \"a3\": \"delay_ticks\",\n    \"v7\": \"irq_lock_count\",\n    \"v8\": \"timer_ctrl\",\n    \"v9\": \"existing_head_match\",\n    \"v10\": \"timer_entry\",\n    \"v12\": \"timer_list\",\n    \"v13\": \"expiry_time\",\n    \"v15\": \"lock_count\",\n    \"v16\": \"irq_disable_pending\",\n    \"v17\": \"allocated_timer\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"co_list next pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"destination task id\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"source task id\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"absolute expiry tick\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"current first timer entry\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "read_mmio_reg",
+ "img": "fmacfw_u02",
+ "addr": "0x130288",
+ "seg": 42,
+ "key": "read_mmio_reg__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_uart_command\",\"confidence\":\"medium\",\"docstring\":\"Polls the UART-related status register for a recognized input byte and conditionally invokes the large-IOCTL parser.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"uart_status_reg\"}}"
+}

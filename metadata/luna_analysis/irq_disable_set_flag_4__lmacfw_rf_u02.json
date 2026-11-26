@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable_set_flag_4",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x110b64",
+ "seg": 3,
+ "key": "irq_disable_set_flag_4__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_submit_locked\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Disables interrupts and submits a radio command/value by waiting for the RF status strobe, storing the value in the RF command context, setting the pending command flag, and triggering the RF doorbell.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"lock_count_var\",\n    \"v2\": \"rf_cmd_status_reg\",\n    \"v3\": \"lock_count_prev\",\n    \"v4\": \"lock_count_new\",\n    \"v5\": \"rf_cmd_context\",\n    \"v6\": \"rf_cmd_count_var\",\n    \"v7\": \"rf_cmd_doorbell_reg\",\n    \"v8\": \"irq_saved_flag_ptr\",\n    \"v9\": \"irq_saved_flag\",\n    \"result\": \"cmd_data\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 6164,\n      \"meaning\": \"RF command context slot holding the last issued command/value\"\n    }\n  ]\n}"
+}

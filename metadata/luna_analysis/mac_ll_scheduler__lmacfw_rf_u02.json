@@ -1,0 +1,9 @@
+{
+ "fn": "mac_ll_scheduler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10d06c",
+ "seg": 2,
+ "key": "mac_ll_scheduler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ipc_hostmsg_scheduler\", \"confidence\": \"low\", \"docstring\": \"Dequeues pending IPC host-message descriptors and allocates/fills kernel message buffers according to host-message scheduler state.\", \"subsystem\": \"ipc\", \"var_renames\": {\"a1\": \"p_msg\", \"v3\": \"state\", \"v39\": \"p_ready_flag\", \"v40\": \"p_desc_node\", \"v6\": \"p_desc\", \"v7\": \"p_msg_buf\"}, \"struct_hints\": [{\"offset\": 6, \"meaning\": \"input p_msg 16-bit field copied into allocated message at +6 (likely source or destination id)\"}, {\"offset\": 8, \"meaning\": \"input p_msg 16-bit field copied into allocated message at +8 (likely source or destination id)\"}, {\"offset\": 10, \"meaning\": \"input p_msg 16-bit length compared to 0x6c fast-path threshold\"}, {\"offset\": 516, \"meaning\": \"offset in object referenced by off_10D344 of pending host-message list head\"}]}"
+}

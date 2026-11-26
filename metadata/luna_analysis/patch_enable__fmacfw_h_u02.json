@@ -1,0 +1,9 @@
+{
+ "fn": "patch_enable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x116094",
+ "seg": 7,
+ "key": "patch_enable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init_config_tables\",\"confidence\":\"medium\",\"docstring\":\"Initializes two RF configuration tables using the current RF field value and clock prescaler.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"primary_config_table\",\"v3\":\"rf_value_source\",\"v4\":\"primary_table_end\",\"v7\":\"secondary_config_table\",\"v10\":\"rf_value_source\",\"v11\":\"secondary_table_end\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"RF field midpoint value shifted left by 14 bits\"},{\"offset\":8,\"meaning\":\"Clock prescaler returned by get_clock_prescaler()\"},{\"offset\":36,\"meaning\":\"Packed value read from the RF value source\"},{\"offset\":52,\"meaning\":\"Fixed value 0x2200 in primary-table entries; zero in secondary-table entries\"},{\"offset\":56,\"meaning\":\"Fixed value 0x003F0000\"}]}"
+}

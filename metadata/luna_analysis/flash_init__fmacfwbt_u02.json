@@ -1,0 +1,9 @@
+{
+ "fn": "flash_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10285c",
+ "seg": 1,
+ "key": "flash_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"flash_init\",\"confidence\":\"medium\",\"docstring\":\"Enables the PLL, initializes the radio, unlocks the flash controller, and writes caller-supplied and fixed values to its register block.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"flash_init_values\",\"v6\":\"flash_register_base\",\"v7\":\"fixed_register_value\",\"v8\":\"flash_register_cursor\"}}"
+}

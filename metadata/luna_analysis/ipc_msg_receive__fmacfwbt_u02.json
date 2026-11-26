@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_msg_receive",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1291b0",
+ "seg": 35,
+ "key": "ipc_msg_receive__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_msg_receive\",\"confidence\":\"medium\",\"docstring\":\"Handle a received IPC message descriptor by clearing status flags, checking a table-selected data byte/bit, and scheduling kernel/MM/RF/BL events via ke_event_lock.\",\"subsystem\":\"ipc\",\"var_renames\":{\"result\":\"buffer\",\"a3\":\"desc\",\"v3\":\"desc_index\",\"v4\":\"ipc_ctrl\",\"v6\":\"flags\",\"v8\":\"table_value\",\"v9\":\"buffer\",\"v10\":\"buffer_p4\",\"v11\":\"field_val\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"descriptor status flags word; bits 0 and 1 are cleared/updated during handling\"},{\"offset\":114,\"meaning\":\"descriptor byte used as a simple conditional flag (possibly command/type related)\"},{\"offset\":116,\"meaning\":\"descriptor/table index byte used against a 696-byte-stride table\"},{\"offset\":117,\"meaning\":\"byte field supplying a selected bit position: >>3 gives byte offset, &7 gives bit\"},{\"offset\":5,\"meaning\":\"buffer byte used as the tested field/mask\"},{\"offset\":1,\"meaning\":\"buffer byte used in a range/limit calculation\"},{\"offset\":5,\"meaning\":\"buffer byte containing the bit selected by the table value\"}]}"
+}

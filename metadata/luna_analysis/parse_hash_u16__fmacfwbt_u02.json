@@ -1,0 +1,9 @@
+{
+ "fn": "parse_hash_u16",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e0b8",
+ "seg": 43,
+ "key": "parse_hash_u16__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_hash_u16\",\"confidence\":\"medium\",\"docstring\":\"Parses a hash-tagged 16-bit field from a byte buffer, accepts only values 24 through 57, and stores the accepted value minus three into a byte destination.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"src_buffer\",\"a2\":\"src_len\",\"a3\":\"out_u8\",\"v5\":\"parsed_u16\",\"result\":\"return_value\"},\"struct_hints\":[]}"
+}

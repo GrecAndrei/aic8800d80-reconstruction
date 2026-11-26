@@ -1,0 +1,9 @@
+{
+ "fn": "conn_schedule",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1174b4",
+ "seg": 11,
+ "key": "conn_schedule__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"conn_schedule\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Schedule a radio connection event by programming an RF timestamp/table entry, polling MAC descriptor status, and removing completed descriptors when possible.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v1\": \"conn_idx\",\n    \"v2\": \"conn_ctx\",\n    \"v4\": \"conn_active\",\n    \"v5\": \"sched_entry\",\n    \"v6\": \"desc_ptr\",\n    \"v8\": \"desc_status\",\n    \"v10\": \"desc_flags\",\n    \"v41\": \"conn_mask\",\n    \"v42\": \"not_conn_mask\",\n    \"v43\": \"sched_offset\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 26,\n      \"meaning\": \"connection active/enabled flag\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"pending descriptor list head\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"current descriptor pointer\"\n    },\n    {\n      \"offset\": 80,\n      \"meaning\": \"connection schedule mode/type byte\"\n    }\n  ]\n}"
+}

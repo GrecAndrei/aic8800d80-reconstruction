@@ -1,0 +1,9 @@
+{
+ "fn": "list_get_at",
+ "img": "fmacfw_u02",
+ "addr": "0x108080",
+ "seg": 2,
+ "key": "list_get_at__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_adjust_tx_power\",\"confidence\":\"medium\",\"docstring\":\"Remaps an in/out pair of RF values using three-unit grouping and conditionally invokes the TX-power setter based on state and configuration thresholds.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"rf_value_pair\"}}"
+}

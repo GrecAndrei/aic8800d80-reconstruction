@@ -1,0 +1,9 @@
+{
+ "fn": "patch_stop",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133be4",
+ "seg": 48,
+ "key": "patch_stop__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"patch_stop\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Stops a patch operation by checking a patch-state flag or issuing HCI short command 6, otherwise clearing an MMIO interrupt, and then checking the resulting hardware-ready status.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v2\": \"irq_clear_status\"\n  }\n}"
+}

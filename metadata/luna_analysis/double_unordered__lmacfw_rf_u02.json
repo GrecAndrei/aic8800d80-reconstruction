@@ -1,0 +1,9 @@
+{
+ "fn": "double_unordered",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1279e2",
+ "seg": 23,
+ "key": "double_unordered__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"double_unordered\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Helper that determines whether a double-precision comparison is unordered, typically because either operand is NaN.\",\n  \"subsystem\": \"libmisc\"\n}"
+}

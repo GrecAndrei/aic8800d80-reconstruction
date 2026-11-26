@@ -1,0 +1,9 @@
+{
+ "fn": "is_controller_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1405ac",
+ "seg": 65,
+ "key": "is_controller_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"is_controller_ready\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns whether the Bluetooth controller is ready by testing an HCI state status indicator and, if non-zero, issuing an internal HCI command and checking the resulting status word is zero.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"state_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 6472,\n      \"meaning\": \"HCI controller status/ready pointer field\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "sys_irq_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10184c",
+ "seg": 0,
+ "key": "sys_irq_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_mac_idle_check\",\"confidence\":\"medium\",\"docstring\":\"Checks the system status for a non-idle MAC condition, reports it in the PHY-stop context, and otherwise returns the first argument unchanged.\",\"subsystem\":\"rf\"}"
+}

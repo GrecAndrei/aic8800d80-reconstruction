@@ -1,0 +1,9 @@
+{
+ "fn": "is_mode_one",
+ "img": "fmacfw_u02",
+ "addr": "0x12fea4",
+ "seg": 42,
+ "key": "is_mode_one__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_debug_severity\",\"confidence\":\"medium\",\"docstring\":\"Prints the current debug severity for a missing or zero selector, or validates and stores a severity index from 0 through 5 when selector 1 is requested.\",\"subsystem\":\"ipc\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v4\":\"selector\",\"v5\":\"current_severity\",\"v7\":\"severity_index\"}}"
+}

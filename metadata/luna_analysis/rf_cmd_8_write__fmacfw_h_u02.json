@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_8_write",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114784",
+ "seg": 5,
+ "key": "rf_cmd_8_write__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cmd_8_read\",\"confidence\":\"medium\",\"docstring\":\"Reads RF command data through the patch dispatcher, packing the command-8/9 response halves or falling back to command-7/8 results.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"out_value0\",\"a2\":\"out_value1\",\"v4\":\"cmd8_response\",\"v5\":\"cmd9_response\",\"v7\":\"fallback_cmd7_response\",\"v8\":\"fallback_cmd8_response\"}}"
+}

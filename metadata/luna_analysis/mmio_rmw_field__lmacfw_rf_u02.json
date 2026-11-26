@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_rmw_field",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113b5c",
+ "seg": 5,
+ "key": "mmio_rmw_field__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_set_reg1_bits13_16\", \"confidence\": \"medium\", \"docstring\": \"Write bits 13-16 of RF register 1 from the 4-bit argument value and return the read-back field.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"field_value\"}, \"struct_hints\": []}"
+}

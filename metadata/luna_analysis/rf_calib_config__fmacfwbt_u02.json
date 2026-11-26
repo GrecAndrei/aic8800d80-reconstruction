@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calib_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x118d80",
+ "seg": 12,
+ "key": "rf_calib_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txl_cfm_flush\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Flushes a queued list of MAC transmit buffers by updating timer/status fields, releasing each buffer, and starting or aborting transmission until no pending buffer remains.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a2\": \"pending_buffer_list\",\n    \"v7\": \"buffer_desc\",\n    \"v8\": \"timer_status_ptr\",\n    \"a3\": \"abort_flag\",\n    \"v3\": \"flush_state_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"uint16 buffer ready/valid flag checked before entering BT low-power sleep\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"uint32 descriptor flag selecting forced timer/status bits\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"uint32 descriptor pointer to timer/status word\"\n    }\n  ]\n}"
+}

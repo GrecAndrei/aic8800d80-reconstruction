@@ -1,0 +1,9 @@
+{
+ "fn": "llm_conn_active_check",
+ "img": "fmacfw_u02",
+ "addr": "0x11f4f4",
+ "seg": 21,
+ "key": "llm_conn_active_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_conn_active_check\",\"confidence\":\"medium\",\"docstring\":\"Checks and services a BLE connection's pending activity state, including event-state clearing, RX validation, and hardware-status cleanup.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"conn_ctx\",\"v9\":\"poll_start_tick\",\"v10\":\"elapsed_ticks\",\"v11\":\"status_wait_start_tick\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"connection flags; bit 0 is tested and cleared\"},{\"offset\":72,\"meaning\":\"RX-related state or entry that triggers rx_validate_entry when nonzero\"},{\"offset\":128,\"meaning\":\"connection identifier or index used in diagnostics and range checks\"},{\"offset\":1224,\"meaning\":\"link-layer event-state flag that triggers llc_clear_evt_state\"}]}"
+}

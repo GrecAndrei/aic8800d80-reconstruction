@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clear_control_bit_a",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102bf8",
+ "seg": 2,
+ "key": "rf_clear_control_bit_a__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_run_control_sequence\",\"confidence\":\"medium\",\"docstring\":\"Runs one of two RF control-register sequences, clearing selected bits, setting control lines, and inserting short delays.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"selector\",\"v1\":\"final_set_mask\",\"v2\":\"intermediate_set_mask\",\"v5\":\"control_value\",\"v6\":\"delay_counter\",\"v8\":\"intermediate_control_value\"}}"
+}

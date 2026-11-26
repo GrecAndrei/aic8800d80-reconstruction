@@ -1,0 +1,9 @@
+{
+ "fn": "mac_parse_fcf",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13d40c",
+ "seg": 61,
+ "key": "mac_parse_fcf__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_adjust_tx_rate\",\"confidence\":\"medium\",\"docstring\":\"Adjusts an encoded MAC transmit-rate selector to a supported rate, using configured fallback settings when needed.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"rate_config\",\"a2\":\"requested_rate\",\"v4\":\"rate_format\",\"v8\":\"candidate_rate_index\",\"v9\":\"minimum_rate_index\",\"v12\":\"candidate_rate_index\",\"v13\":\"candidate_rate_index\",\"v14\":\"fallback_rate_code\",\"v15\":\"candidate_rate_index\"},\"struct_hints\":[{\"offset\":170,\"meaning\":\"Per-format supported-rate bitmaps (four bytes).\"},{\"offset\":174,\"meaning\":\"16-bit supported-rate bitmap used for the legacy-rate search.\"},{\"offset\":177,\"meaning\":\"Minimum rate index considered by the legacy-rate search.\"},{\"offset\":178,\"meaning\":\"Configured fallback rate code.\"},{\"offset\":181,\"meaning\":\"Flag that causes bit 9 to be set on adjusted-rate results.\"},{\"offset\":182,\"meaning\":\"Fallback encoding bits shifted into the returned rate selector.\"},{\"offset\":183,\"meaning\":\"Flag enabling the special-format fallback case.\"},{\"offset\":195,\"meaning\":\"Rate-index cutoff used when conditionally clearing bit 14.\"}]}"
+}

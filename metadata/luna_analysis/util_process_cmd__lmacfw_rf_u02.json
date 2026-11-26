@@ -1,0 +1,9 @@
+{
+ "fn": "util_process_cmd",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111804",
+ "seg": 4,
+ "key": "util_process_cmd__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_patch_stream_cmd\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configures an RF patch command for a stream by computing FIFO size, allocating patch FIFO space, writing the stream command register, and invoking rf_enable_tx_patch when the stream is already active.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"stream_id\",\n    \"a4\": \"size\",\n    \"v4\": \"stream_idx\",\n    \"v7\": \"length\",\n    \"v8\": \"fifo_len\",\n    \"v9\": \"fifo_len\",\n    \"v10\": \"fifo_len_shifted\",\n    \"v12\": \"fifo_cursor_ptr\",\n    \"v13\": \"fifo_cursor\",\n    \"v14\": \"stream_state_table\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"16-bit FIFO cursor global accessed through off_111940\"\n    },\n    {\n      \"offset\": 260,\n      \"meaning\": \"first per-stream FIFO descriptor entry in off_111944, holding address | length << 16\"\n    },\n    {\n      \"offset\": 2076,\n      \"meaning\": \"active patch stream bitmask in off_111944\"\n    }\n  ]\n}"
+}

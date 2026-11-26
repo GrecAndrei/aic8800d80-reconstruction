@@ -1,0 +1,9 @@
+{
+ "fn": "is_ble_connected",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136570",
+ "seg": 56,
+ "key": "is_ble_connected__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_power_state_toggle\",\"confidence\":\"medium\",\"docstring\":\"When the request guard fields match, toggles the shared RF power state, initializing the PMU and recording the request on activation or disabling the radio clock on deactivation.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"request\",\"v2\":\"rf_context\"},\"struct_hints\":[{\"offset\":13,\"meaning\":\"RF power-state flag; cleared before radio-clock disable and set on activation\"},{\"offset\":20,\"meaning\":\"destination passed to the memory utility during activation\"},{\"offset\":28,\"meaning\":\"stores the request pointer during activation\"},{\"offset\":108,\"meaning\":\"nonzero request guard\"},{\"offset\":412,\"meaning\":\"request mode guard; must equal 1\"}]}"
+}

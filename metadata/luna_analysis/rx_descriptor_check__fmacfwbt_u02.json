@@ -1,0 +1,9 @@
+{
+ "fn": "rx_descriptor_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x107ed8",
+ "seg": 2,
+ "key": "rx_descriptor_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_config_update\",\"confidence\":\"low\",\"docstring\":\"Conditionally applies RF configuration and updates a pair of channel-related values using divide-by-three calculations.\",\"subsystem\":\"rf\"}"
+}

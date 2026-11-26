@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_set_band",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111c78",
+ "seg": 4,
+ "key": "wlan_set_band__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_open\",\"confidence\":\"high\",\"docstring\":\"Validates and stores the WLAN configuration, initializes the interface hardware, enables interrupts, and optionally waits until the open state is reached.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"config\",\"a2\":\"wait_for_ready\",\"v4\":\"wlan_state\",\"v6\":\"saved_config\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_channel_tx_power",
+ "img": "fmacfw_u02",
+ "addr": "0x13c698",
+ "seg": 60,
+ "key": "get_channel_tx_power__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_channel_tx_power\",\"confidence\":\"medium\",\"docstring\":\"Computes a small transmit-power policy code for a channel using table flags and special cases for management action frames.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"channel_index\",\"v4\":\"channel_table_index\",\"v5\":\"channel_policy_table\",\"v7\":\"frame_control\",\"v8\":\"action_category\",\"v9\":\"channel_entry_offset\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Index into 1320-byte channel-policy records\"},{\"offset\":29,\"meaning\":\"Channel index into per-channel records; 0xff indicates unavailable\"},{\"offset\":1200,\"meaning\":\"Nonzero channel-policy gate\"},{\"offset\":1204,\"meaning\":\"Secondary policy flag selecting return code 2\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ull_scan_event_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134690",
+ "seg": 52,
+ "key": "ull_scan_event_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ull_scan_event_get_info\", \"confidence\": \"medium\", \"docstring\": \"Retrieves scan event data and associated event information from a ULL context, preferring a parsed PDU event and falling back to stored handle or descriptor fields when needed.\", \"subsystem\": \"mac\", \"var_renames\": {\"v2\": \"scan_ctx\", \"result\": \"event_entry\", \"a1\": \"out_event_data\", \"a2\": \"out_event_info\"}, \"struct_hints\": [{\"offset\": 34, \"meaning\": \"byte containing bit0 flag indicating whether the event is PDU-backed and should be parsed\"}, {\"offset\": 40, \"meaning\": \"uint16 event handle or index value, with 0xFFFF used as an invalid/sentinel value\"}, {\"offset\": 44, \"meaning\": \"associated event info or length field in the parsed event or handle entry\"}]}"
+}

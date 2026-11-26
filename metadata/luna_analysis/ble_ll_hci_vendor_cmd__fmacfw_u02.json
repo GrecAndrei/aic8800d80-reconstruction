@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_hci_vendor_cmd",
+ "img": "fmacfw_u02",
+ "addr": "0x1404b0",
+ "seg": 64,
+ "key": "ble_ll_hci_vendor_cmd__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_hci_cmd_allowed\",\"confidence\":\"medium\",\"docstring\":\"Returns whether a command ID, or the subcommand of command 0xFF, is allowed by the configured command filter; an absent filter allows all commands.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"command_id\",\"a2\":\"subcommand_id\",\"a3\":\"command_filter\",\"v3\":\"command_id_count\",\"v4\":\"subcommand_id_count\",\"v9\":\"command_ids\",\"v10\":\"command_ids_end\",\"v5\":\"subcommand_ids\",\"v6\":\"subcommand_ids_end\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Number of command IDs in the filter\"},{\"offset\":12,\"meaning\":\"Byte array of allowed command IDs\"},{\"offset\":20,\"meaning\":\"Number of subcommand IDs for command 0xFF\"},{\"offset\":24,\"meaning\":\"Byte array of allowed subcommand IDs\"}]}"
+}

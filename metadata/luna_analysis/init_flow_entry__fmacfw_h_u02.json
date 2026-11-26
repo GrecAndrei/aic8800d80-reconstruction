@@ -1,0 +1,9 @@
+{
+ "fn": "init_flow_entry",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11a1a8",
+ "seg": 14,
+ "key": "init_flow_entry__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_station_flow_entry\",\"confidence\":\"medium\",\"docstring\":\"Initializes a station flow entry from its configuration, applies interface rate settings, and optionally activates its status.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"station_context\"},\"struct_hints\":[{\"offset\":29,\"meaning\":\"interface index used to select per-interface configuration\"},{\"offset\":30,\"meaning\":\"station feature flags, including the 0x2000 configuration bit\"},{\"offset\":44,\"meaning\":\"source flow configuration array copied into the entry\"},{\"offset\":72,\"meaning\":\"pair of pointers to flow-entry state and associated status\"},{\"offset\":82,\"meaning\":\"station rate/status flags\"}]}"
+}

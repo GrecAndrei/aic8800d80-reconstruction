@@ -1,0 +1,9 @@
+{
+ "fn": "sub_12de48",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12de48",
+ "seg": 43,
+ "key": "sub_12de48__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_find_tag_c7_len1_elem\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a TLV-style byte buffer for a tag 0xC7 element with length 1 and returns its header pointer, or null if the element is absent or malformed.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"elem_ptr\",\n    \"a2\": \"data_len\",\n    \"v2\": \"end_ptr\",\n    \"v3\": \"item_end_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"TLV tag/type byte; target value 0xC7\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"TLV length byte; matched element must have value 1\"\n    }\n  ]\n}"
+}

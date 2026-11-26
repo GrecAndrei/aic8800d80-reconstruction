@@ -1,0 +1,9 @@
+{
+ "fn": "bt_setup_conn_profile",
+ "img": "fmacfw_u02",
+ "addr": "0x134e04",
+ "seg": 52,
+ "key": "bt_setup_conn_profile__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_setup_conn_profile\",\"confidence\":\"medium\",\"docstring\":\"Processes a Bluetooth connect indication, populates the connection-profile record, and dispatches the associated profile context and status.\",\"subsystem\":\"bt\",\"var_renames\":{\"v5\":\"connect_indication\",\"v6\":\"connection_index\",\"v7\":\"connection_profile\",\"v8\":\"connection_profile_ctx\",\"v15\":\"profile_list_node\"},\"struct_hints\":[{\"offset\":48,\"meaning\":\"Connect-indication flags; bits 0x20 and 0x40 determine the profile-record flag at offset 8.\"},{\"offset\":61,\"meaning\":\"Connection index in the connect-indication object; copied into the profile record.\"},{\"offset\":8,\"meaning\":\"Boolean profile-record flag derived from the connect-indication flags at offset 48.\"},{\"offset\":9,\"meaning\":\"Connection index in the profile record.\"},{\"offset\":820,\"meaning\":\"Association ID (AID), as indicated by the diagnostic format string.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "extract_le_u16",
+ "img": "fmacfw_u02",
+ "addr": "0x130f28",
+ "seg": 42,
+ "key": "extract_le_u16__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_extract_le_u16_u8\",\"confidence\":\"medium\",\"docstring\":\"Looks up a matching record, copies its little-endian 16-bit field at byte offset 2 and byte field at offset 4 into the output object, and clears both fields if no record is found.\",\"subsystem\":\"ble\",\"struct_hints\":[{\"offset\":228,\"meaning\":\"16-bit value copied from record bytes 2\u20133 in little-endian order; cleared if no record is found\"},{\"offset\":230,\"meaning\":\"byte copied from record byte 4; cleared if no record is found\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "syscall6_check_done",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114ed0",
+ "seg": 6,
+ "key": "syscall6_check_done__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"syscall6_decode_result\",\"confidence\":\"medium\",\"docstring\":\"Calls syscall 6, writes the selected status byte to the output pointer, and returns a three-way result code.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"status_out\",\"v2\":\"syscall_result\",\"v4\":\"status_byte\"}}"
+}

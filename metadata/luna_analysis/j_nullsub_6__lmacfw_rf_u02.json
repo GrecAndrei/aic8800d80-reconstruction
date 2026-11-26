@@ -1,0 +1,9 @@
+{
+ "fn": "j_nullsub_6",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121a64",
+ "seg": 22,
+ "key": "j_nullsub_6__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"nullsub_6_thunk\",\"confidence\":\"high\",\"docstring\":\"Tail-call thunk that invokes nullsub_6 and returns its value.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

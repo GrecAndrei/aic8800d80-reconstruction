@@ -1,0 +1,9 @@
+{
+ "fn": "timer_countdown",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ba18",
+ "seg": 17,
+ "key": "timer_countdown__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_countdown_tick\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Decrement the RF countdown byte at offset 89 of the state block referenced by off_11BA44; if it reaches zero and the pending flag at off_11BA48 is set, clear that flag, invoke rf_state_process, and run state_flag_check.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"remaining_count\",\n    \"v2\": \"pending_flag_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 89,\n      \"meaning\": \"RF countdown timer byte in the state block referenced by off_11BA44\"\n    }\n  ]\n}"
+}

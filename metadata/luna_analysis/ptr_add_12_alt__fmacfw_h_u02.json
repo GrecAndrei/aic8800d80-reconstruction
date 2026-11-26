@@ -1,0 +1,9 @@
+{
+ "fn": "ptr_add_12_alt",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10dce0",
+ "seg": 3,
+ "key": "ptr_add_12_alt__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sync_mmio_bit1_from_flag\",\"confidence\":\"medium\",\"docstring\":\"Sets or clears MMIO bit 1 according to the byte flag at offset 369 from the referenced base address.\",\"subsystem\":\"mmio\",\"struct_hints\":[{\"offset\":369,\"meaning\":\"Byte flag controlling the state of MMIO bit 1\"}]}"
+}

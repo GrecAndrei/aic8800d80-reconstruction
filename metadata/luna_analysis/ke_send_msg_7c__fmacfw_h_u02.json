@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_msg_7c",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122e70",
+ "seg": 28,
+ "key": "ke_send_msg_7c__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_send_driver_start_stop_msg\",\"confidence\":\"medium\",\"docstring\":\"Builds and submits message 0x7C with vendor information and a cached radio-mode flag while updating state for a driver start or stop.\",\"subsystem\":\"ke\",\"var_renames\":{\"a2\":\"start_stop_config\",\"a1a\":\"rom_vendor_info\",\"v5\":\"message_payload\",\"v6\":\"vendor_info\",\"v7\":\"radio_state\",\"v8\":\"sw_enable\",\"v9\":\"is_5ghz\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Input config byte: nonzero selects driver start; zero selects stop.\"},{\"offset\":1,\"meaning\":\"Input config byte: nonzero selects ROM-derived vendor information.\"},{\"offset\":2,\"meaning\":\"Fallback vendor-information byte when config byte 1 is zero.\"},{\"offset\":3,\"meaning\":\"Optional start-only flag that sets bit 14 in the global flags word.\"},{\"offset\":178,\"meaning\":\"Global 16-bit flags word; bit 14 is set by the optional start-only flag.\"},{\"offset\":188,\"meaning\":\"Cached 5-GHz/radio-mode flag, populated from vendor-information bit 5.\"}]}"
+}

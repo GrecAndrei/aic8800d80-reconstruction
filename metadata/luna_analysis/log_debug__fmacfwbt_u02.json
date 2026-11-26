@@ -1,0 +1,9 @@
+{
+ "fn": "log_debug",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123b54",
+ "seg": 29,
+ "key": "log_debug__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_debug_hci_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Release a TX buffer, check the SET_MU_EDCA debug feature, and send a vendor HCI debug event with payload pointer and length.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"tx_buffer_handle\",\n    \"a3\": \"payload_len\",\n    \"a4\": \"payload_ptr\"\n  },\n  \"struct_hints\": []\n}"
+}

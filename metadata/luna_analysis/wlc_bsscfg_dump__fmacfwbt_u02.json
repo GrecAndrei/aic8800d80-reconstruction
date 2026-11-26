@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_bsscfg_dump",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f780",
+ "seg": 21,
+ "key": "wlc_bsscfg_dump__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txq_run\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Runs the WiFi MAC transmit scheduler by dequeuing up to max_frames pending frames from primary or secondary per-AC TX queues and passing each frame to the transmit preparation path.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v3\": \"processed_frames\",\n    \"v7\": \"primary_queue_heads\",\n    \"v8\": \"secondary_queue_heads\",\n    \"v9\": \"queue_idx\",\n    \"v10\": \"queue_idx_u8\",\n    \"v11\": \"frame\",\n    \"a2\": \"txq_state\",\n    \"a3\": \"max_frames\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 584,\n      \"meaning\": \"base of four secondary TX queue list heads, indexed by AC/queue number\"\n    },\n    {\n      \"offset\": 624,\n      \"meaning\": \"base of four primary TX queue list heads, indexed by AC/queue number\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"TX frame field containing associated station/device/path context pointer\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"station/device context flags; bit 0x2000 is set for transmit-path activity\"\n    }\n  ]\n}"
+}

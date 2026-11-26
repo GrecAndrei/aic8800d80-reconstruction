@@ -1,0 +1,9 @@
+{
+ "fn": "check_global_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x116174",
+ "seg": 7,
+ "key": "check_global_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"append_tkip_mic\",\"confidence\":\"high\",\"docstring\":\"Computes and appends an 8-byte TKIP Michael MIC for the payload, or writes eight zero bytes when the global bypass flag is set.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"mic_header\",\"a2\":\"mic_key\",\"a3\":\"payload\",\"a4\":\"payload_len\",\"v7\":\"mic_bytes\",\"v8\":\"mic_output_offset\",\"v9\":\"mic_byte\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"First 6-byte MAC address used in the MIC pseudoheader\"},{\"offset\":18,\"meaning\":\"Second 6-byte MAC address used in the MIC pseudoheader\"},{\"offset\":27,\"meaning\":\"QoS priority/TID used in the MIC pseudoheader\"}]}"
+}

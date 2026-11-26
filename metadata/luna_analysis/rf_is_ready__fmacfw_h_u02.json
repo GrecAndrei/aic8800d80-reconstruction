@@ -1,0 +1,9 @@
+{
+ "fn": "rf_is_ready",
+ "img": "fmacfw_h_u02",
+ "addr": "0x121844",
+ "seg": 23,
+ "key": "rf_is_ready__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_request_buffer_data\",\"confidence\":\"medium\",\"docstring\":\"Accepts one signed RF-buffer request, clamps it to half the configured capacity, and attempts a ring-buffer copy or falls back to shared-packet allocation.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"request_state\",\"v2\":\"ring_buffer_size_bytes\",\"v3\":\"request_magnitude\",\"v4\":\"clamped_request\",\"v5\":\"critical_section_refcount\",\"v6\":\"buffer_descriptor\",\"v7\":\"ring_position_units\",\"v9\":\"ring_position_bytes\",\"v11\":\"quarter_buffer_size\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Base pointer to the ring buffer\"},{\"offset\":40,\"meaning\":\"Stored clamped signed request\"},{\"offset\":48,\"meaning\":\"Pending-request or busy flag\"}]}"
+}

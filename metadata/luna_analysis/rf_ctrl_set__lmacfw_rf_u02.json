@@ -1,0 +1,9 @@
+{
+ "fn": "rf_ctrl_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10090c",
+ "seg": 0,
+ "key": "rf_ctrl_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_ctrl_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Issues an RF control command by reading a value via smem_access, asserting a command-start bit around periph_process opcode 96, then clearing/restoring the start bit.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"ctrl_reg\",\n    \"v3\": \"smem_handle\",\n    \"v4\": \"ctrl_reg_saved\",\n    \"a3\": \"cmd_value\"\n  }\n}"
+}

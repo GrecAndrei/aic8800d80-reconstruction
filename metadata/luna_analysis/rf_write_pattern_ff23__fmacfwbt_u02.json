@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_pattern_ff23",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1308dc",
+ "seg": 43,
+ "key": "rf_write_pattern_ff23__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_write_pattern_ff23\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Constructs and appends the RF pattern command with header 0xFF and ID 0x23 into a destination buffer cursor, copying fixed template/calibration table entries and optional channel-dependent data, then updates the buffer length and cursor.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"dst_pp\",\n    \"v1\": \"src_template\",\n    \"v2\": \"dst16\",\n    \"v4\": \"dst8\",\n    \"v5\": \"dst_end\",\n    \"v6\": \"src_byte\",\n    \"v7\": \"src_cal\",\n    \"v8\": \"src_cal_base\",\n    \"v9\": \"src_cal_end\",\n    \"v12\": \"pattern_flags\",\n    \"v13\": \"word_field_20\",\n    \"v14\": \"dst_word_cursor\",\n    \"v15\": \"word_field_24\",\n    \"v16\": \"word_field_26\",\n    \"v18\": \"chan_index\",\n    \"v20\": \"extra_len\",\n    \"v21\": \"src_extra\",\n    \"v23\": \"extra_byte\",\n    \"result\": \"pattern_len\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"destination buffer pointer held by a1\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"destination buffer header length byte\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"destination buffer pattern ID byte (0x23)\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"start of fixed 6-byte pattern template payload\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"RF pattern flags byte copied from calibration table\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"pattern word field sourced from calibration table\"\n    },\n    {\n      \"offset\": 22,\n      \"meaning\": \"pattern word field sourced from calibration table\"\n    }\n  ]\n}"
+}

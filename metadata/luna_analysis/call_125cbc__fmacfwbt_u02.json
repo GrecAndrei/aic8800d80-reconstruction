@@ -1,0 +1,9 @@
+{
+ "fn": "call_125cbc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1238b8",
+ "seg": 29,
+ "key": "call_125cbc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_callback_wrapper\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Thin wrapper that passes the second argument to callback_set and always returns success.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"unused\",\n    \"a2\": \"callback\"\n  },\n  \"struct_hints\": []\n}"
+}

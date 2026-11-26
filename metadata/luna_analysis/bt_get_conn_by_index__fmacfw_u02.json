@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_by_index",
+ "img": "fmacfw_u02",
+ "addr": "0x135708",
+ "seg": 53,
+ "key": "bt_get_conn_by_index__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_send_action_frame\",\"confidence\":\"medium\",\"docstring\":\"Validates the VIF and station contexts, then constructs an outgoing 802.11 Action management-frame header for the station.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"vif_ctx\",\"v4\":\"request\",\"v6\":\"sta_ctx\",\"v8\":\"tx_buffer\",\"v11\":\"frame\",\"v12\":\"sequence_number\"},\"struct_hints\":[{\"offset\":38,\"meaning\":\"Station MAC address, spanning offsets 38\u201343\"},{\"offset\":52,\"meaning\":\"Station connection state; value 2 is required\"},{\"offset\":100,\"meaning\":\"VIF MAC address, spanning offsets 100\u2013105\"},{\"offset\":108,\"meaning\":\"802.11 Action frame header begins here; frame control is 0x00D0\"},{\"offset\":112,\"meaning\":\"Receiver/destination address in the 802.11 header\"},{\"offset\":118,\"meaning\":\"Transmitter/source address in the 802.11 header\"},{\"offset\":124,\"meaning\":\"BSSID in the 802.11 header\"},{\"offset\":130,\"meaning\":\"802.11 sequence-control field\"}]}"
+}

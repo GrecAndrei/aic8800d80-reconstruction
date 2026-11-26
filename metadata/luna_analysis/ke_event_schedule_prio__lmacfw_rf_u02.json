@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_schedule_prio",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114298",
+ "seg": 5,
+ "key": "ke_event_schedule_prio__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_call_slot_1d4_critical\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Calls fixed function slot 0x1D4 under a nested IRQ-disabled critical section and restores interrupts only when the outermost call finishes.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"ke_critical_count_ptr\",\n    \"result\": \"slot_ret\",\n    \"v2\": \"next_critical_count\",\n    \"v3\": \"irq_disabled_by_this_call\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111a24",
+ "seg": 4,
+ "key": "unknown_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_set_node_flags\",\"confidence\":\"medium\",\"docstring\":\"Updates a WLAN node's status bits and performs the required hardware handshake when its current state requires it.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"node_id\",\"a2\":\"set_mask\",\"a3\":\"clear_mask\",\"v3\":\"node_handshake_word\",\"v4\":\"node_status_word\",\"v5\":\"old_status\",\"v6\":\"mmio_base\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Node status and flag bits\"},{\"offset\":8,\"meaning\":\"Node handshake or control word\"}]}"
+}

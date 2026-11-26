@@ -1,0 +1,9 @@
+{
+ "fn": "check_hardware_ready",
+ "img": "fmacfw_h_u02",
+ "addr": "0x110654",
+ "seg": 3,
+ "key": "check_hardware_ready__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_hardware_ready\",\"confidence\":\"low\",\"docstring\":\"Writes an MMIO register and then unconditionally returns 1, indicating readiness.\",\"subsystem\":\"mmio\"}"
+}

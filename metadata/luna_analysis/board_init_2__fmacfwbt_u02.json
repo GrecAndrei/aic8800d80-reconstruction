@@ -1,0 +1,9 @@
+{
+ "fn": "board_init_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ea9c",
+ "seg": 3,
+ "key": "board_init_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"board_gpio_setup\",\"confidence\":\"medium\",\"docstring\":\"Configures board-specific GPIO state and temporarily changes control-register bits while selecting alternate function 4.\",\"subsystem\":\"hal\",\"var_renames\":{\"v10\":\"control_reg_snapshot_bit19\",\"v11\":\"control_reg_snapshot_bit20\",\"v12\":\"control_reg_snapshot_bit21\",\"v13\":\"control_reg_snapshot_bit22\"}}"
+}

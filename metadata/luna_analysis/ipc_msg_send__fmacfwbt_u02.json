@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_msg_send",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12917c",
+ "seg": 35,
+ "key": "ipc_msg_send__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ipc_msg_send\", \"confidence\": \"medium\", \"docstring\": \"Populates the shared IPC transmit header with a message identifier, clears the header's ready byte, and invokes the selected host/kernel send callback unless the state check or caller flag selects an alternate send path.\", \"subsystem\": \"ipc\", \"var_renames\": {\"a2\": \"msg_id\", \"v2\": \"tx_hdr\", \"v3\": \"ipc_state_ptr\", \"v5\": \"send_cb\"}, \"struct_hints\": [{\"offset\": 2, \"meaning\": \"u16 message id/type written into the IPC transmit header\"}, {\"offset\": 8, \"meaning\": \"u8 ready/valid byte cleared after the message is sent\"}]}"
+}

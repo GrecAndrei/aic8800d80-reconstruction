@@ -1,0 +1,9 @@
+{
+ "fn": "rf_power_off",
+ "img": "fmacfw_u02",
+ "addr": "0x107e08",
+ "seg": 2,
+ "key": "rf_power_off__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_power_off\",\"confidence\":\"medium\",\"docstring\":\"Disables the RF control path and waits for the hardware status bit to assert.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_control_reg\",\"v1\":\"rf_mode_reg\",\"v3\":\"rf_status_reg\",\"v4\":\"poll_delay_counter\"}}"
+}

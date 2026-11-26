@@ -1,0 +1,9 @@
+{
+ "fn": "rf_table_lookup_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c218",
+ "seg": 40,
+ "key": "rf_table_lookup_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dispatch_queued_callback\",\"confidence\":\"medium\",\"docstring\":\"Pops one entry from the per-index RF callback queue, invokes its callback when present, and acknowledges the corresponding hardware slot.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"queue_index\",\"v1\":\"hardware_slot\",\"v7\":\"callback_entry\",\"v10\":\"callback\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Callback function pointer in a queued callback entry\"},{\"offset\":12,\"meaning\":\"First argument passed to the callback\"}]}"
+}

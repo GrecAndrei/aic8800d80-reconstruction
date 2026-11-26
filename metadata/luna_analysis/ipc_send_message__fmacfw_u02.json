@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_send_message",
+ "img": "fmacfw_u02",
+ "addr": "0x10f370",
+ "seg": 3,
+ "key": "ipc_send_message__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"controller_mode_probe\",\"confidence\":\"low\",\"docstring\":\"Passes its second argument to `is_controller_mode` and returns 1 regardless of that call's result.\",\"subsystem\":\"bt\"}"
+}

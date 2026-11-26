@@ -1,0 +1,9 @@
+{
+ "fn": "rf_status_read",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11bb18",
+ "seg": 17,
+ "key": "rf_status_read__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_submit\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Populates an RF command mailbox from an input parameter buffer, sets command type and start flags, updates an RF state byte, and triggers the RF flag.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"rf_cmd_buf\",\n    \"v8\": \"rf_state_buf\",\n    \"a1\": \"rf_input\",\n    \"a2\": \"rf_arg32\",\n    \"a3\": \"rf_arg8\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 108,\n      \"meaning\": \"RF command type or state byte\"\n    },\n    {\n      \"offset\": 100,\n      \"meaning\": \"RF command start or ready flag\"\n    },\n    {\n      \"offset\": 104,\n      \"meaning\": \"32-bit RF command payload argument\"\n    },\n    {\n      \"offset\": 110,\n      \"meaning\": \"8-bit RF command parameter\"\n    }\n  ]\n}"
+}

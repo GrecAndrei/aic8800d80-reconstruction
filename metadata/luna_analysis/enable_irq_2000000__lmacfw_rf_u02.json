@@ -1,0 +1,9 @@
+{
+ "fn": "enable_irq_2000000",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118d28",
+ "seg": 11,
+ "key": "enable_irq_2000000__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_flash_erase_sector_critical\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Erases flash sector 0 while holding a critical section with an IRQ/clock mask value of 0x2000000.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

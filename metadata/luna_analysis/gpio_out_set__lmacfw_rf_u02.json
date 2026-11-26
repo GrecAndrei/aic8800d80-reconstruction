@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_out_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10db04",
+ "seg": 2,
+ "key": "gpio_out_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_out_set\",\"confidence\":\"high\",\"docstring\":\"Reads the GPIO output data register, sets the bit corresponding to the supplied pin number, writes the modified value back, and returns it.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"pin\",\"result\":\"gpio_data_value\"},\"struct_hints\":[]}"
+}

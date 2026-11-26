@@ -1,0 +1,9 @@
+{
+ "fn": "emit_ampersand_12de20",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12de20",
+ "seg": 42,
+ "key": "emit_ampersand_12de20__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_parsed_value_16\",\"confidence\":\"medium\",\"docstring\":\"Returns the input pointer only if range_overflow_check succeeds and its first parsed value is 16.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"input\",\"a2\":\"input_length\",\"v3\":\"parsed_values\"}}"
+}

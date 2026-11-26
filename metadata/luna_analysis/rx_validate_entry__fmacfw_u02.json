@@ -1,0 +1,9 @@
+{
+ "fn": "rx_validate_entry",
+ "img": "fmacfw_u02",
+ "addr": "0x12829c",
+ "seg": 33,
+ "key": "rx_validate_entry__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_tx_entry_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a WLAN transmit entry's flags, updating its rate and timing state and triggering the associated DMA or scan/coexistence work.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"global_context\",\"v2\":\"tx_entry\",\"v3\":\"entry_flags\",\"v4\":\"has_flag_04\",\"v6\":\"updated_entry_flags\",\"v8\":\"remaining_time\",\"v9\":\"timing_mode\",\"v10\":\"time_adjustment\",\"v11\":\"pending_transfer_count\"},\"struct_hints\":[{\"offset\":85,\"meaning\":\"Transmit-entry control flags governing rate calculation, completion accounting, and timing handling.\"},{\"offset\":80,\"meaning\":\"Transmit-entry timing budget, decremented by a mode-dependent adjustment.\"},{\"offset\":106,\"meaning\":\"Selects the timing adjustment calculation mode.\"},{\"offset\":116,\"meaning\":\"Index into the duration lookup table.\"},{\"offset\":222,\"meaning\":\"Scaled duration parameter used by timing mode 2.\"},{\"offset\":90,\"meaning\":\"Global-context mode value selecting the simplified processing path.\"},{\"offset\":91,\"meaning\":\"Global-context pending-operation count decremented when an entry flag is handled.\"},{\"offset\":88,\"meaning\":\"Global-context flags; bit 0x40 enables the DMA setup path.\"}]}"
+}

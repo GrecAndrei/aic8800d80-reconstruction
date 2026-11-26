@@ -1,0 +1,9 @@
+{
+ "fn": "lld_evt_update",
+ "img": "fmacfw_u02",
+ "addr": "0x125e10",
+ "seg": 31,
+ "key": "lld_evt_update__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lld_evt_update\",\"confidence\":\"medium\",\"docstring\":\"Requests RF calibration for flagged activity records and invalidates pending-list entries whose event identifier matches the supplied context.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"activity_table\",\"v2\":\"activity_index\",\"v3\":\"activity_record\",\"v4\":\"event_context\",\"v5\":\"activity_record\",\"v6\":\"pending_event_node\",\"v7\":\"event_id\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Activity flag that can trigger an RF calibration request when offset 32 is clear\"},{\"offset\":32,\"meaning\":\"Activity state flag that suppresses the calibration request paired with offset 16\"},{\"offset\":64,\"meaning\":\"Activity flag that can trigger an RF calibration request when offset 80 is clear\"},{\"offset\":80,\"meaning\":\"Activity state flag that suppresses the calibration request paired with offset 64\"},{\"offset\":86,\"meaning\":\"Pending-list entry event identifier, set to 0xFF when it matches the context event identifier\"},{\"offset\":107,\"meaning\":\"Event identifier used to match pending-list entries\"},{\"offset\":1225,\"meaning\":\"Activity index used to select an activity record\"}]}"
+}

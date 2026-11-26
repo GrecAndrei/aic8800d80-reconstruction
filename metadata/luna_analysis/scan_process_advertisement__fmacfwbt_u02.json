@@ -1,0 +1,9 @@
+{
+ "fn": "scan_process_advertisement",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1163a8",
+ "seg": 8,
+ "key": "scan_process_advertisement__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_txdesc_init\",\"confidence\":\"high\",\"docstring\":\"Initializes the transmit descriptor array and assigns each descriptor its corresponding transmit-buffer address.\",\"subsystem\":\"mm\",\"var_renames\":{\"v0\":\"tx_desc_array_ref\",\"v1\":\"tx_buffer_base_ref\",\"v2\":\"tx_desc_array\",\"v3\":\"tx_desc_config\",\"v5\":\"desc_index\",\"v6\":\"tx_desc_entry\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"transmit descriptor count\"},{\"offset\":76,\"meaning\":\"transmit-buffer address stored in each descriptor\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "jump_10d02c",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121a58",
+ "seg": 22,
+ "key": "jump_10d02c__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_irq_handler_thunk\",\"confidence\":\"medium\",\"docstring\":\"Thin tail-call thunk that forwards to rf_irq_handler, likely as an RF interrupt entry point or patch trampoline.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "load_and_store_block",
+ "img": "fmacfw_u02",
+ "addr": "0x103258",
+ "seg": 2,
+ "key": "load_and_store_block__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"calculate_radio_dividers\",\"confidence\":\"medium\",\"docstring\":\"Calculates and stores two radio divider values from the selected mode, table entry, and configuration bytes, then returns the associated parameter block.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"encoded_table_divisor\",\"v7\":\"base_divider\",\"result\":\"radio_parameter_block\",\"v10\":\"radio_divider\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Mode flags; bit 1 enables table-based selection and bit 2 selects the numerator source.\"},{\"offset\":32,\"meaning\":\"Byte-sized divisor applied to the intermediate divider.\"}]}"
+}

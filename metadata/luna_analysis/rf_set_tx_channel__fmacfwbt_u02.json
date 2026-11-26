@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_tx_channel",
+ "img": "fmacfwbt_u02",
+ "addr": "0x110f98",
+ "seg": 3,
+ "key": "rf_set_tx_channel__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_channel_config_pack\",\"confidence\":\"medium\",\"docstring\":\"Builds a three-word RF transmit-channel configuration record, preserving selected bits in the third word while inserting a 16-bit field and a bit-31 value.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"config_words\",\"a2\":\"config_word0\",\"a3\":\"config_word1\",\"a4\":\"field_low16\",\"a5\":\"bit31_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"First configuration word, copied from the first value argument.\"},{\"offset\":4,\"meaning\":\"Second configuration word, copied from the second value argument.\"},{\"offset\":8,\"meaning\":\"Packed configuration word; selected existing bits are preserved, then the 16-bit field and bit-31 value are inserted.\"}]}"
+}

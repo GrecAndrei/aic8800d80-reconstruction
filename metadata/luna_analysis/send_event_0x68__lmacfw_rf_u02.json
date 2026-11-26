@@ -1,0 +1,9 @@
+{
+ "fn": "send_event_0x68",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1193f0",
+ "seg": 12,
+ "key": "send_event_0x68__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_send_event_0x68\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Wrapper that dispatches kernel event 0x68 (decimal 104) to the ke event handler.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a4\": \"event_param1\",\n    \"a3\": \"event_param2\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "parse_bt_name_field",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x125d44",
+ "seg": 23,
+ "key": "parse_bt_name_field__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_set_vid_pid\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parse hexadecimal VID and PID fields from an argument structure and, when a configuration status bit permits, pack them into a 32-bit device-ID value and write it through MMIO.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"args\",\n    \"v3\": \"raw_vid\",\n    \"v4\": \"pid_string\",\n    \"v5\": \"vid\",\n    \"v6\": \"pid\",\n    \"v7\": \"config_flags\",\n    \"v9\": \"vid_pid_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"pointer to hexadecimal VID string\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"pointer to hexadecimal PID string\"\n    }\n  ]\n}"
+}

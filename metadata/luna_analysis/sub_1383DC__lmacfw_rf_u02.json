@@ -1,0 +1,9 @@
+{
+ "fn": "sub_1383DC",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1383dc",
+ "seg": 23,
+ "key": "sub_1383DC__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_set_bit\", \"confidence\": \"medium\", \"docstring\": \"Reads an RF register through the radio control/status interface, conditionally sets or clears bit 6 based on the low bits of the argument, and returns the bit-6 value.\", \"subsystem\": \"rf\", \"var_renames\": {\"v3\": \"rf_reg_value\", \"v5\": \"rf_reg_value_new\", \"v10\": \"rf_reg_value_read\"}}"
+}

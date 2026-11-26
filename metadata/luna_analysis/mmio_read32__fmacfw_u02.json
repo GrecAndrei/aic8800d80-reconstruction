@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read32",
+ "img": "fmacfw_u02",
+ "addr": "0x10ed84",
+ "seg": 3,
+ "key": "mmio_read32__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_invoke_serialized\",\"confidence\":\"medium\",\"docstring\":\"Invokes the RF callback inside a nested interrupt-safe critical section, optionally waiting for a shared readiness flag first.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"critical_section_depth_ptr\",\"v3\":\"readiness_flag_ptr\",\"v5\":\"remaining_critical_section_depth\",\"v6\":\"restore_interrupts\"},\"struct_hints\":[]}"
+}

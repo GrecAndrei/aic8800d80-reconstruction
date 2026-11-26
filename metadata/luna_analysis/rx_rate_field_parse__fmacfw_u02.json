@@ -1,0 +1,9 @@
+{
+ "fn": "rx_rate_field_parse",
+ "img": "fmacfw_u02",
+ "addr": "0x12ce88",
+ "seg": 40,
+ "key": "rx_rate_field_parse__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_rate_value_lookup\",\"confidence\":\"medium\",\"docstring\":\"Looks up a 16-bit RX rate value from a format-specific table, with special handling for format IDs 13 and 14.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"rate_index\",\"v3\":\"format_id\",\"v4\":\"format_table\",\"v5\":\"format_offset\",\"v7\":\"format_entry\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"pointer to the format's 16-bit lookup table\"},{\"offset\":14,\"meaning\":\"number of entries in the lookup table\"}]}"
+}

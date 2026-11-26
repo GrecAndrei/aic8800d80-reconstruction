@@ -1,0 +1,9 @@
+{
+ "fn": "bt_cmd_guard_alt",
+ "img": "fmacfw_u02",
+ "addr": "0x13637c",
+ "seg": 55,
+ "key": "bt_cmd_guard_alt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_task_state_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Checks the Bluetooth task state, raising an event for state 1 or posting a follow-up message and resetting the state for state 3.\",\"subsystem\":\"bt\"}"
+}

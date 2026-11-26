@@ -1,0 +1,9 @@
+{
+ "fn": "ll_cmd_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x13bac8",
+ "seg": 60,
+ "key": "ll_cmd_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_offset_handler\",\"confidence\":\"medium\",\"docstring\":\"Tracks per-instance PHY channel-offset status and dispatches the deferred transmit or advertising action when an offset operation is ready or times out.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"channel_index\",\"v7\":\"channel_request_word\",\"v8\":\"channel_index\",\"v9\":\"instance_id\",\"v10\":\"request_parameter\",\"v11\":\"tx_done_status\",\"v12\":\"channel_status_word\",\"v13\":\"channel_index\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Per-instance state flag controlling the deferred action path\"},{\"offset\":448,\"meaning\":\"Per-channel timestamp used for the elapsed-time check\"},{\"offset\":452,\"meaning\":\"Per-channel status byte selected for one offset state\"},{\"offset\":453,\"meaning\":\"Alternate per-channel status byte\"}]}"
+}

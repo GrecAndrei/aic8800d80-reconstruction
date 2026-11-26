@@ -1,0 +1,9 @@
+{
+ "fn": "patch_handle_data",
+ "img": "fmacfw_u02",
+ "addr": "0x13376c",
+ "seg": 46,
+ "key": "patch_handle_data__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_crypto_finalize_input\",\"confidence\":\"medium\",\"docstring\":\"Mixes the word at offset 8 with a 0x5A marker ORed into the byte position selected at offset 12, then performs a zero-input mix and may clear an MMIO register on a flag-dependent path.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"input_word\",\"v2\":\"marker_byte_index\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"32-bit word supplied to the first crypto mix\"},{\"offset\":12,\"meaning\":\"byte index used to position the 0x5A marker\"}]}"
+}

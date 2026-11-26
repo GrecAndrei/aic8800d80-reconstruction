@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_send_no_param",
+ "img": "fmacfw_u02",
+ "addr": "0x12ca10",
+ "seg": 40,
+ "key": "ke_msg_send_no_param__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_msg_send_basic\",\"confidence\":\"high\",\"docstring\":\"Allocates and sends a kernel message with no payload.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"message_id\",\"a2\":\"destination_task_id\",\"a3\":\"source_task_id\",\"v3\":\"message\"}}"
+}

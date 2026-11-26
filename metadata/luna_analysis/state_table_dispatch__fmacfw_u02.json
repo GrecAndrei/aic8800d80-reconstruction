@@ -1,0 +1,9 @@
+{
+ "fn": "state_table_dispatch",
+ "img": "fmacfw_u02",
+ "addr": "0x13e2c0",
+ "seg": 61,
+ "key": "state_table_dispatch__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_state_code_encode\",\"confidence\":\"medium\",\"docstring\":\"Maps the entry\u2019s state and auxiliary bytes to a packed BLE status code, using 0x400 when required data is absent.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"entry\",\"v2\":\"state_param\",\"v3\":\"optional_flag\"},\"struct_hints\":[{\"offset\":169,\"meaning\":\"Selector byte choosing the encoding case (values 0\u20135).\"},{\"offset\":177,\"meaning\":\"State-dependent value or presence byte.\"},{\"offset\":182,\"meaning\":\"Auxiliary bits shifted into the result for selector values 0\u20131.\"},{\"offset\":183,\"meaning\":\"Selects the base code for selector value 5.\"},{\"offset\":194,\"meaning\":\"Enables bit 14 for selector value 5.\"}]}"
+}

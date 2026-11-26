@@ -1,0 +1,9 @@
+{
+ "fn": "util_wait_loop",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1224f4",
+ "seg": 25,
+ "key": "util_wait_loop__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"dma_channel_timeout_bump\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Extends per-DMA-channel timeout counters by 15000 ticks for each active channel indicated by low bits of the status register.\",\n  \"subsystem\": \"dma\",\n  \"var_renames\": {\n    \"v0\": \"status_reg\",\n    \"result\": \"timeout_table\",\n    \"i\": \"channel\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 0, \"meaning\": \"channel 0 timeout counter\"},\n    {\"offset\": 4, \"meaning\": \"channel 1 timeout counter\"},\n    {\"offset\": 8, \"meaning\": \"channel 2 timeout counter\"},\n    {\"offset\": 12, \"meaning\": \"channel 3 timeout counter\"},\n    {\"offset\": 16, \"meaning\": \"channel 4 timeout counter\"},\n    {\"offset\": 20, \"meaning\": \"channel 5 timeout counter\"}\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "lock_acquire",
+ "img": "fmacfw_h_u02",
+ "addr": "0x118b04",
+ "seg": 12,
+ "key": "lock_acquire__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"txl_frame_acquire\",\"confidence\":\"medium\",\"docstring\":\"Pops an available TXL frame, updates its MIC state, and reports a no-frame event if the pool is empty.\",\"subsystem\":\"mac\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_dma_buf_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13a3ac",
+ "seg": 58,
+ "key": "alloc_dma_buf_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dma_alloc_buffer\",\"confidence\":\"low\",\"docstring\":\"Disables the global interrupt mask, then delegates buffer acquisition to a helper using the object at 0x13A3C0.\",\"subsystem\":\"dma\",\"var_renames\":{},\"struct_hints\":[]}"
+}

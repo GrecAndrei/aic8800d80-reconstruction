@@ -1,0 +1,9 @@
+{
+ "fn": "set_rf_channel",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102934",
+ "seg": 1,
+ "key": "set_rf_channel__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_load_channel_config\",\"confidence\":\"medium\",\"docstring\":\"Sets up the PLL and clock, then writes nine supplied words and two fixed values to the RF configuration block.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_config_words\",\"v6\":\"rf_register_base\",\"v8\":\"rf_register_cursor\"}}"
+}

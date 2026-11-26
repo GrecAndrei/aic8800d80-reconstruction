@@ -1,0 +1,9 @@
+{
+ "fn": "branch_to_127228",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11eac8",
+ "seg": 21,
+ "key": "branch_to_127228__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"float_to_i24_wrapper\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Thin forwarding wrapper that converts a single-precision bit pattern to a 24-bit fixed-point integer via float_to_i24.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"float_bits\"\n  }\n}"
+}

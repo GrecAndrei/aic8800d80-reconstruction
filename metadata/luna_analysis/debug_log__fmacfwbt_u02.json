@@ -1,0 +1,9 @@
+{
+ "fn": "debug_log",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12dbf8",
+ "seg": 43,
+ "key": "debug_log__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"find_char_4\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Searches a buffer for a fixed five-byte pattern, rejects matches at or below offset 0x17, and stores the match offset minus two in a caller-provided byte output.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"buf\",\n    \"a2\": \"buf_len\",\n    \"a3\": \"out_byte\",\n    \"result\": \"found_ptr\",\n    \"v5\": \"found_offset\"\n  }\n}"
+}

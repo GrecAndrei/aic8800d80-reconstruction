@@ -1,0 +1,9 @@
+{
+ "fn": "hci_rx_data",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114904",
+ "seg": 6,
+ "key": "hci_rx_data__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hci_rx_data\", \"confidence\": \"medium\", \"docstring\": \"Copies a 64-byte HCI receive chunk from the BT/HCI MMIO data register into a staged descriptor buffer and schedules the corresponding receive event.\", \"subsystem\": \"bt\", \"var_renames\": {\"a1\": \"packet_flags\", \"a2\": \"src_data\", \"a3\": \"packet_len\", \"v6\": \"hci_mmio_base\", \"v7\": \"cached_tag\", \"_frame\": \"staged_hci_descriptor\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"descriptor tag or address word compared with the cached HCI receive state\"}, {\"offset\": 4, \"meaning\": \"HCI descriptor control word set or ORed from packet_flags\"}, {\"offset\": 16, \"meaning\": \"staged 64-byte HCI payload buffer\"}]}"
+}

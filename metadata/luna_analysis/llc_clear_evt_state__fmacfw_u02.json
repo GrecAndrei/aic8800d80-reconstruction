@@ -1,0 +1,9 @@
+{
+ "fn": "llc_clear_evt_state",
+ "img": "fmacfw_u02",
+ "addr": "0x12a31c",
+ "seg": 36,
+ "key": "llc_clear_evt_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_clear_evt_state\",\"confidence\":\"medium\",\"docstring\":\"Clears the event-state byte in the connection record selected by the link-layer context, then passes that record to a follow-up processor.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"link_context\",\"v1\":\"conn_entry\"},\"struct_hints\":[{\"offset\":1225,\"meaning\":\"connection-table index in the link-layer context\"},{\"offset\":134,\"meaning\":\"per-connection event-state byte cleared before processing\"}]}"
+}

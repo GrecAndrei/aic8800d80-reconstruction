@@ -1,0 +1,9 @@
+{
+ "fn": "call_1238e0_return_zero",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119ae8",
+ "seg": 13,
+ "key": "call_1238e0_return_zero__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_ll_wait_tx_ready\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Wrapper that waits for the link-layer transmit path to become ready and returns success.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

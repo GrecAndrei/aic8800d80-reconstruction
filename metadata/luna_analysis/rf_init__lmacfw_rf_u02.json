@@ -1,0 +1,9 @@
+{
+ "fn": "rf_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f50c",
+ "seg": 2,
+ "key": "rf_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_msg_init\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Initializes an RF-related message or command descriptor from global data when a status byte indicates no prior request is pending, otherwise clears the descriptor's first byte.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"desc\",\n    \"v2\": \"handler\",\n    \"v3\": \"param\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"message identifier or command code\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"length, timeout, or message parameter\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"handler or callback pointer\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"handler parameter or context pointer\"\n    }\n  ]\n}"
+}

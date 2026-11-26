@@ -1,0 +1,9 @@
+{
+ "fn": "phy_txpower_calc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13aa68",
+ "seg": 59,
+ "key": "phy_txpower_calc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_set_channel\",\"confidence\":\"medium\",\"docstring\":\"Validates the requested PHY and station context, prepares the selected PHY configuration and Bluetooth coexistence state, then delegates channel programming to phy_set_channel_1.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"phy_idx\",\"v5\":\"station_idx\",\"v6\":\"station_table\",\"v7\":\"station_entry\",\"v9\":\"request_flags\",\"v13\":\"request_flags\",\"v14\":\"phy_context\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"PHY index used to select per-PHY state\"},{\"offset\":29,\"meaning\":\"Station index; 0xFF denotes no station\"},{\"offset\":30,\"meaning\":\"PHY/channel request flags\"},{\"offset\":44,\"meaning\":\"Pointer to the selected PHY/RF configuration profile\"},{\"offset\":72,\"meaning\":\"Pointer to per-PHY channel state\"}]}"
+}

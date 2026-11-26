@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_read_0",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x100c3c",
+ "seg": 0,
+ "key": "rf_cal_read_0__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cal_apply\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configures RF control registers from stored calibration/status fields and pulses a calibration-enable strobe if the initial mode field is not 7 and no error result is supplied.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"orig_rf_ctrl\",\n    \"v6\": \"rf_ctrl_val\"\n  },\n  \"struct_hints\": []\n}"
+}

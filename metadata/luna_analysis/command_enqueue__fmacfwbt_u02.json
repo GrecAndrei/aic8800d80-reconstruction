@@ -1,0 +1,9 @@
+{
+ "fn": "command_enqueue",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114c98",
+ "seg": 6,
+ "key": "command_enqueue__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"periph_irq_init\",\"confidence\":\"medium\",\"docstring\":\"Validates its status arguments, installs and enables IRQ 38 on first use, and programs the associated peripheral registers.\",\"subsystem\":\"hal\",\"var_renames\":{\"v5\":\"irq_setup_done_flag\",\"v11\":\"peripheral_control_reg\"}}"
+}

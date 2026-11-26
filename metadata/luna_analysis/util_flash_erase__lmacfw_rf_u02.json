@@ -1,0 +1,9 @@
+{
+ "fn": "util_flash_erase",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11d8f0",
+ "seg": 20,
+ "key": "util_flash_erase__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"flash_ctrl_issue_erase\",\"confidence\":\"medium\",\"docstring\":\"Pops a pending flash erase operation for an indexed flash slot, invokes its stored erase callback, and strobes the corresponding controller command-start bit.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"flash_index\",\"v1\":\"ctrl_slot\",\"v3\":\"lock_count_ptr\",\"v4\":\"op_table_base\",\"v5\":\"op_queue_head\",\"v6\":\"popped_op\",\"v7\":\"op_node\",\"v9\":\"irq_was_disabled\",\"v10\":\"op_callback\",\"v12\":\"cmd_reg_val\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"flash operation callback pointer\"},{\"offset\":12,\"meaning\":\"flash operation argument/parameter\"}]}"
+}

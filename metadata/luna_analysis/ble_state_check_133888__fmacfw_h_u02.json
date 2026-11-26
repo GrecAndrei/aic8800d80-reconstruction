@@ -1,0 +1,9 @@
+{
+ "fn": "ble_state_check_133888",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133888",
+ "seg": 47,
+ "key": "ble_state_check_133888__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_check_state_and_reset_controller\",\"confidence\":\"medium\",\"docstring\":\"Checks the controller state and performs the corresponding reset sequence, passing its result to the controller reset routine.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"reset_status\",\"v2\":\"reset_status\"}}"
+}

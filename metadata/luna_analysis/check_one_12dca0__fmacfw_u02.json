@@ -1,0 +1,9 @@
+{
+ "fn": "check_one_12dca0",
+ "img": "fmacfw_u02",
+ "addr": "0x12dca0",
+ "seg": 42,
+ "key": "check_one_12dca0__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_find_mobility_domain_ie\",\"confidence\":\"medium\",\"docstring\":\"Scans a bounded 802.11 information-element list and returns the Mobility Domain IE (ID 54) only if its payload length is 3.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"ie_cursor\",\"a2\":\"ies_length\",\"v2\":\"ies_end\",\"v3\":\"next_ie\"}}"
+}

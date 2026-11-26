@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_8",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1145ac",
+ "seg": 6,
+ "key": "mmio_write_8__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bus_write_4\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Wrapper that submits a 4-byte bus/MMIO write request to kernel task 8 via ke_task_process.\",\n  \"subsystem\": \"bus\",\n  \"var_renames\": {\n    \"a1\": \"write_message\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "prepare_operation",
+ "img": "fmacfw_u02",
+ "addr": "0x100898",
+ "seg": 0,
+ "key": "prepare_operation__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_select_channel_profile\",\"confidence\":\"medium\",\"docstring\":\"Selects a band- and frequency-dependent RF profile value, writes a three-bit derived mask to the output pointer, and returns the selected value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"is_5ghz\",\"a2\":\"frequency_mhz\",\"a3\":\"profile_mask_out\"}}"
+}

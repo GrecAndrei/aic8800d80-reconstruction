@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_func_12d104",
+ "img": "fmacfw_u02",
+ "addr": "0x12d104",
+ "seg": 40,
+ "key": "unknown_func_12d104__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_evt_set\",\"confidence\":\"medium\",\"docstring\":\"Atomically ORs the supplied bits into the kernel event mask and returns the updated mask.\",\"subsystem\":\"ke\",\"var_renames\":{\"v1\":\"guard_counter_ptr\",\"v2\":\"event_mask_ptr\",\"v3\":\"previous_guard_count\",\"v4\":\"incremented_guard_count\",\"v6\":\"irq_restore_flag_ptr\",\"v7\":\"irq_restore_pending\",\"result\":\"updated_event_mask\"}}"
+}

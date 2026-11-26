@@ -1,0 +1,9 @@
+{
+ "fn": "ll_timer_offset_get",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11739c",
+ "seg": 10,
+ "key": "ll_timer_offset_get__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"mm_rx_get_last_rbd_timestamp\", \"confidence\": \"medium\", \"docstring\": \"Walks an RX buffer descriptor chain to the RBD whose flag is set, extracts and extends its 31-bit timestamp against a global overflow state, stores the timestamp in the RX info, and returns the previous low timestamp value.\", \"subsystem\": \"mm\", \"var_renames\": {\"a1\": \"rx_info\", \"a2\": \"rbd\", \"v3\": \"timestamp\", \"v4\": \"timer_ext_state\", \"v5\": \"prev_timer_word\", \"v7\": \"overflow_bit\"}, \"struct_hints\": [{\"offset\": 4, \"meaning\": \"RBD next pointer used to walk the RX buffer descriptor chain\"}, {\"offset\": 12, \"meaning\": \"packed timestamp field, aligned by clearing lower two bits before adding four\"}, {\"offset\": 16, \"meaning\": \"RBD status word; bit 0 selects/validates the descriptor\"}, {\"offset\": 148, \"meaning\": \"RX info timestamp output field\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_next_sequence",
+ "img": "fmacfw_u02",
+ "addr": "0x10438c",
+ "seg": 2,
+ "key": "get_next_sequence__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_get_next_sequence\",\"confidence\":\"medium\",\"docstring\":\"Returns a wrapped 14-bit sequence value, choosing a one- or two-step base advance from the next entry's low-bit tag and mode flag, then adding twice the supplied offset.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"current_sequence\",\"v4\":\"lookup_index\",\"result\":\"next_sequence\"}}"
+}

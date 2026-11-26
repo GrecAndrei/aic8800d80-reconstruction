@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_8",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x138562",
+ "seg": 23,
+ "key": "nullsub_8__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"stub_return_zero\", \"confidence\": \"medium\", \"docstring\": \"Returns zero, likely a placeholder or default stub.\", \"subsystem\": \"libmisc\", \"var_renames\": {}, \"struct_hints\": []}"
+}

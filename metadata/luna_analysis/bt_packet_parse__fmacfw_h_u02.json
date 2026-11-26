@@ -1,0 +1,9 @@
+{
+ "fn": "bt_packet_parse",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1334a4",
+ "seg": 46,
+ "key": "bt_packet_parse__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_packet_mix\",\"confidence\":\"medium\",\"docstring\":\"Seeds a BLE mixing state from two 32-bit words, then folds in two data regions and a selector reduced to three bits, treating 0xFF as zero.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"mix_state\",\"a2\":\"initial_state\",\"a3\":\"data_region_a\",\"a4\":\"data_region_b\",\"a5\":\"selector\",\"v5\":\"region_b_halfword\",\"v6\":\"region_b_word_at_offset_2\",\"v7\":\"region_a_halfword_at_offset_4\",\"v8\":\"region_a_word\",\"v9\":\"combined_word\",\"v10\":\"normalized_selector\"}}"
+}

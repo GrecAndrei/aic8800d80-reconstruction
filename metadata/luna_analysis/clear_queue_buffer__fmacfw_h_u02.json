@@ -1,0 +1,9 @@
+{
+ "fn": "clear_queue_buffer",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d2c4",
+ "seg": 2,
+ "key": "clear_queue_buffer__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_queue_buffer\",\"confidence\":\"medium\",\"docstring\":\"Zeroes 0x38 bytes at the buffer address stored in dword_10D2D0 and returns that address.\",\"subsystem\":\"rf\"}"
+}

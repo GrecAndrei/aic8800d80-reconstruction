@@ -1,0 +1,9 @@
+{
+ "fn": "tx_enqueue_frame",
+ "img": "fmacfw_u02",
+ "addr": "0x1283d4",
+ "seg": 33,
+ "key": "tx_enqueue_frame__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_rx_metadata_report\",\"confidence\":\"medium\",\"docstring\":\"Sends a one-shot receive-metadata message with fields copied from the RX status block and a converted hardware timestamp.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"rx_status\",\"v2\":\"rx_entry\",\"v3\":\"wlc_context\",\"v4\":\"record_index\",\"v5\":\"message\",\"v8\":\"timer_record_base\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Pointer to the receive-status block serialized into the report.\"},{\"offset\":107,\"meaning\":\"Byte copied from the RX entry into the report; exact field meaning is unclear.\"},{\"offset\":116,\"meaning\":\"Index selecting a timer record used to compute the reported timestamp.\"}]}"
+}

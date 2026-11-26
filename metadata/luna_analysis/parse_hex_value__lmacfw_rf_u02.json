@@ -1,0 +1,9 @@
+{
+ "fn": "parse_hex_value",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121f44",
+ "seg": 22,
+ "key": "parse_hex_value__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"parse_hex_mem_cmd\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses a debug command containing a hex memory address and optional operand, performing direct memory/register reads when possible or dispatching the access through an IPC request.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"a1\": \"arg_count\",\n    \"a2\": \"args\",\n    \"v4\": \"address\",\n    \"v5\": \"data_size\",\n    \"a2a\": \"second_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"command string pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"hex address string pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"optional operand/value string pointer\"\n    }\n  ]\n}"
+}

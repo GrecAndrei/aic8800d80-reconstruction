@@ -1,0 +1,9 @@
+{
+ "fn": "util_memcpy",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127fbc",
+ "seg": 23,
+ "key": "util_memcpy__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"udivmoddi4\", \"confidence\": \"medium\", \"docstring\": \"Computes unsigned 64-bit division, returning the quotient and optionally storing the remainder through an output pointer.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"a1\": \"dividend\", \"a2\": \"divisor\", \"a4\": \"remainder_ptr\"}, \"struct_hints\": []}"
+}

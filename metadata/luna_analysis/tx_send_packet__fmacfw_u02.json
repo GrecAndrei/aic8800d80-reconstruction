@@ -1,0 +1,9 @@
+{
+ "fn": "tx_send_packet",
+ "img": "fmacfw_u02",
+ "addr": "0x10f37c",
+ "seg": 3,
+ "key": "tx_send_packet__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init_control_state\",\"confidence\":\"low\",\"docstring\":\"Initializes two fixed RF control-state blocks with constants 80/81 and 39/40, then zeros the following eight bytes in each.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":1620,\"meaning\":\"16-bit field initialized to 80; semantic role unknown\"},{\"offset\":1622,\"meaning\":\"byte field initialized to 81; semantic role unknown\"},{\"offset\":1624,\"meaning\":\"8-byte state region zeroed\"},{\"offset\":2432,\"meaning\":\"16-bit field initialized to 39; semantic role unknown\"},{\"offset\":2434,\"meaning\":\"byte field initialized to 40; semantic role unknown\"},{\"offset\":2436,\"meaning\":\"8-byte state region zeroed\"}]}"
+}

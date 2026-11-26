@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_copy_reg",
+ "img": "fmacfw_u02",
+ "addr": "0x12be8c",
+ "seg": 39,
+ "key": "mmio_copy_reg__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_machw_irq_handler\",\"confidence\":\"medium\",\"docstring\":\"Reads and acknowledges hardware interrupt flags, handles RF/PHY-related status, and reports conflicts with pending absolute timers.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"irq_status\",\"v3\":\"phy_config_value\"}}"
+}

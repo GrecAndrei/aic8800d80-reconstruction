@@ -1,0 +1,9 @@
+{
+ "fn": "radio_read_fifo",
+ "img": "fmacfw_u02",
+ "addr": "0x11dff0",
+ "seg": 20,
+ "key": "radio_read_fifo__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_fifo_configure\",\"confidence\":\"medium\",\"docstring\":\"Programs address ranges for two radio FIFO regions and updates the associated peripheral control register.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "phy_get_rate_code",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13248c",
+ "seg": 45,
+ "key": "phy_get_rate_code__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_get_rate_code\",\"confidence\":\"medium\",\"docstring\":\"Decodes a rate code by counting consecutive 2-bit `11` groups from bits 15:2 and subtracting that count from 7.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"encoded_rate\",\"v1\":\"pair_shift\",\"result\":\"rate_code\",\"v4\":\"rate_pair\"}}"
+}

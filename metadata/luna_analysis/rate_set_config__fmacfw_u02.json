@@ -1,0 +1,9 @@
+{
+ "fn": "rate_set_config",
+ "img": "fmacfw_u02",
+ "addr": "0x11a090",
+ "seg": 13,
+ "key": "rate_set_config__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_rate_configure\",\"confidence\":\"medium\",\"docstring\":\"Selects a rate configuration using per-station rate state and records the selected configuration pointer in the transmit descriptor.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"rate_table_base\",\"v4\":\"station_rate_state\",\"v5\":\"rate_config\",\"v14\":\"rate_slot_index\",\"v15\":\"rate_table_entry_index\",\"v19\":\"station_rate_state_base\",\"v40\":\"rate_data_ptr\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"Per-station rate-state pointer to the current rate configuration\"},{\"offset\":52,\"meaning\":\"Per-station rate-state pointer to auxiliary rate data\"},{\"offset\":68,\"meaning\":\"Transmit descriptor field receiving the selected rate-configuration pointer\"},{\"offset\":78,\"meaning\":\"Rate-slot upper-bound byte\"},{\"offset\":79,\"meaning\":\"Current rate-slot index\"}]}"
+}

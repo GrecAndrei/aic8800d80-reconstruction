@@ -1,0 +1,9 @@
+{
+ "fn": "double_to_float_1",
+ "img": "fmacfw_u02",
+ "addr": "0x142fdc",
+ "seg": 68,
+ "key": "double_to_float_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_to_int\",\"confidence\":\"high\",\"docstring\":\"Converts a double-precision floating-point value to a signed 32-bit integer using ARM EABI conversion semantics.\",\"subsystem\":\"libmisc\"}"
+}

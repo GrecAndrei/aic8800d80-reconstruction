@@ -1,0 +1,9 @@
+{
+ "fn": "aeabi_ddiv",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127c90",
+ "seg": 23,
+ "key": "aeabi_ddiv__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_fadd\",\n  \"confidence\": \"high\",\n  \"docstring\": \"ARM AEABI software single-precision floating-point addition/subtraction helper matched to libgcc's __aeabi_fadd.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mm_beacon_irq",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1290c4",
+ "seg": 35,
+ "key": "mm_beacon_irq__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_update_conn_count\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Walks the BLE connection linked list and rebuilds a global connection counter, using ble_conn_get on candidate connections after clearing a control-register bit.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v0\": \"ble_state\",\n    \"v3\": \"conn_ctx\",\n    \"v4\": \"conn_info\",\n    \"v5\": \"conn_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"next connection context pointer\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"connection status flag that must be clear\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"connection status flag that must be set\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"connection index, 0xFF invalid\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_is_link_active",
+ "img": "fmacfw_u02",
+ "addr": "0x136b08",
+ "seg": 56,
+ "key": "bt_is_link_active__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_link_state_check\",\"confidence\":\"medium\",\"docstring\":\"Checks indexed BT state and context records, setting bit 12 of the supplied object's flags and returning false only when the applicable state and context conditions match and the context's low two flag bits are clear.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"context_index\",\"v2\":\"link_context\",\"v3\":\"context_status\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Index selecting a record in the 1320-byte state table.\"},{\"offset\":29,\"meaning\":\"Index selecting a 696-byte link-context record; values above 0x23 bypass the check.\"},{\"offset\":30,\"meaning\":\"16-bit flags field; bit 12 is set on the false-return path.\"},{\"offset\":72,\"meaning\":\"Pointer to an object whose 16-bit field at offset 108 is compared with 584.\"},{\"offset\":106,\"meaning\":\"State byte in a 1320-byte table record; the detailed check runs when it equals 2.\"},{\"offset\":36,\"meaning\":\"Status byte in a 696-byte link-context record; the detailed check runs when it equals 1.\"},{\"offset\":54,\"meaning\":\"Flags byte in a link-context record; its low two bits determine the false-return path.\"}]}"
+}

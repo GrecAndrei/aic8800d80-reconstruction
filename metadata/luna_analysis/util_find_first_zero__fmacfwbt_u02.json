@@ -1,0 +1,9 @@
+{
+ "fn": "util_find_first_zero",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13282c",
+ "seg": 46,
+ "key": "util_find_first_zero__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"util_find_first_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans the low 12 bits of a mask and returns the index of the first set bit, returning 12 when none of the twelve bits are set.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"mask\",\n    \"v1\": \"bit_index\",\n    \"v2\": \"bit_is_zero\",\n    \"v3\": \"set_bit_index\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_tx_power_limit",
+ "img": "fmacfw_u02",
+ "addr": "0x13c424",
+ "seg": 60,
+ "key": "lookup_tx_power_limit__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_program_tx_power_index\",\"confidence\":\"medium\",\"docstring\":\"Reads a transmit-power index from the selected configuration entry and uses it to program the corresponding RF register-table slot, conditionally clearing a control mask for indices above 0x20.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"tx_power_index\"},\"struct_hints\":[{\"offset\":452,\"meaning\":\"Start of the per-entry data area; the selected entry's first byte supplies the transmit-power index.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "nvic_configure",
+ "img": "fmacfw_u02",
+ "addr": "0x10d774",
+ "seg": 3,
+ "key": "nvic_configure__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"nvic_init_if_needed\",\"confidence\":\"low\",\"docstring\":\"Calls is_initialized when the word at a fixed memory address is zero.\",\"subsystem\":\"hal\"}"
+}

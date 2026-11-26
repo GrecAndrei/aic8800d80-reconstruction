@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_channel_10",
+ "img": "fmacfwbt_u02",
+ "addr": "0x135884",
+ "seg": 53,
+ "key": "rf_check_channel_10__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_check_channel_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks whether the RF channel requested in an HCI deauth context is available or already configured, returning busy on mismatch and applying or dispatching channel state when valid.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"channel\",\n    \"v4\": \"channel_ctx\",\n    \"v5\": \"reason_code\",\n    \"result\": \"status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"requested RF channel index in the HCI/deauth context\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"802.11 deauth reason code\"\n    },\n    {\n      \"offset\": 61,\n      \"meaning\": \"currently active RF channel index in the global RF state table\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"per-channel RF configuration/deauth readiness flag\"\n    }\n  ]\n}"
+}

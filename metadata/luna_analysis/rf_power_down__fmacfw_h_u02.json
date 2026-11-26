@@ -1,0 +1,9 @@
+{
+ "fn": "rf_power_down",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1140f4",
+ "seg": 5,
+ "key": "rf_power_down__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init_config_records\",\"confidence\":\"medium\",\"docstring\":\"Initializes two context buffers, then creates and submits one 0x6B8-byte record to the first buffer for each configured entry.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"context_ptr_slot\",\"v1\":\"config_ptr_slot\",\"v4\":\"entry_index\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Configured entry count in the configuration structure.\"},{\"offset\":628,\"meaning\":\"Primary buffer, cleared and then passed to the record handler.\"},{\"offset\":636,\"meaning\":\"Secondary buffer, cleared during initialization.\"}]}"
+}

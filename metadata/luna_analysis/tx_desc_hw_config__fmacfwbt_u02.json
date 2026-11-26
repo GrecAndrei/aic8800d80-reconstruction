@@ -1,0 +1,9 @@
+{
+ "fn": "tx_desc_hw_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1119c0",
+ "seg": 4,
+ "key": "tx_desc_hw_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_desc_hw_config\",\"confidence\":\"high\",\"docstring\":\"Applies set and clear masks to a TX descriptor's hardware control word, performs the required hardware handshake, and clears the corresponding TX header.\",\"subsystem\":\"mm\",\"var_renames\":{\"v3\":\"tx_desc_handshake_word\",\"v4\":\"tx_desc_control_word\",\"v5\":\"previous_control_value\",\"v6\":\"hardware_registers\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"TX descriptor control and status flags\"},{\"offset\":8,\"meaning\":\"TX descriptor hardware handshake word\"}]}"
+}

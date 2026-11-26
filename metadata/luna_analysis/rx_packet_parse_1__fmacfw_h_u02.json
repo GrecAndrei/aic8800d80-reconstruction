@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_parse_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11dd24",
+ "seg": 20,
+ "key": "rx_packet_parse_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_ring_build_dma_chain\",\"confidence\":\"medium\",\"docstring\":\"Consumes a byte range from the RX ring, advances its buffer and offset cursor across wraparound, and links per-slot DMA descriptors when DMA-chain mode is active.\",\"subsystem\":\"dma\",\"var_renames\":{\"a1\":\"ring_cursor_ref\",\"a2\":\"requested_length\",\"a3\":\"destination_address\",\"a4\":\"ring_offset_ref\",\"a5\":\"descriptor_slot\",\"v6\":\"current_ring_node\",\"v7\":\"ring_offset\",\"v8\":\"dma_chain_mode\",\"v10\":\"dma_descriptor\",\"v13\":\"remaining_length_after_wrap\",\"v15\":\"next_ring_node\",\"v16\":\"next_dma_descriptor\",\"v17\":\"node_start_offset\",\"v18\":\"node_end_exclusive\",\"v19\":\"node_capacity\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Ring-node pointer to the next node.\"},{\"offset\":8,\"meaning\":\"Start offset of the node's data range.\"},{\"offset\":12,\"meaning\":\"Last offset of the node's data range; the code adds one to form the exclusive endpoint.\"},{\"offset\":0,\"meaning\":\"Per-slot DMA descriptor at node offset 20 + 48*slot: source location in the ring.\"},{\"offset\":4,\"meaning\":\"Per-slot DMA descriptor: destination address.\"},{\"offset\":8,\"meaning\":\"Per-slot DMA descriptor: packed DMA control and length word.\"},{\"offset\":12,\"meaning\":\"Per-slot DMA descriptor: transfer length.\"},{\"offset\":16,\"meaning\":\"Per-slot DMA descriptor: transfer length.\"},{\"offset\":20,\"meaning\":\"Per-slot DMA descriptor: fixed control/configuration value.\"},{\"offset\":32,\"meaning\":\"Per-slot DMA descriptor: pointer to the next descriptor.\"}]}"
+}

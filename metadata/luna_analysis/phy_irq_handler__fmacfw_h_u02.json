@@ -1,0 +1,9 @@
+{
+ "fn": "phy_irq_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x112e30",
+ "seg": 4,
+ "key": "phy_irq_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_irq_handler\",\"confidence\":\"high\",\"docstring\":\"Serializes PHY interrupt processing, checks PHY status after a hardware settling delay, dispatches a USB remote-wakeup notification, and restores IRQ state.\",\"subsystem\":\"phy\",\"var_renames\":{\"v0\":\"active_handler_count\",\"v1\":\"pending_wakeup_flag\",\"v2\":\"wakeup_pending\",\"v3\":\"handler_depth\",\"v4\":\"delay_start_ticks\",\"v5\":\"delay_deadline_ticks\",\"v6\":\"ticks_remaining\",\"v7\":\"phy_status\",\"v9\":\"remaining_handler_depth\",\"v10\":\"reenable_irq_on_exit\"}}"
+}

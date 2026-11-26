@@ -1,0 +1,9 @@
+{
+ "fn": "parse_dot_separated",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121c6c",
+ "seg": 22,
+ "key": "parse_dot_separated__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"find_dot_prefixed_entry\", \"confidence\": \"medium\", \"docstring\": \"Searches a table of name entries for an exact or uniquely longer prefix match to the token before the first dot and returns the matching table-slot pointer, or null.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"v5\": \"dot_pos\", \"v6\": \"prefix_len\", \"v7\": \"ambiguous_matches\", \"v8\": \"entry_ptr\", \"v9\": \"processed_count\", \"v10\": \"candidate_name\", \"v11\": \"matched_entry_addr\"}}"
+}

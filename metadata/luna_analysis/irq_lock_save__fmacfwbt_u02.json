@@ -1,0 +1,9 @@
+{
+ "fn": "irq_lock_save",
+ "img": "fmacfwbt_u02",
+ "addr": "0x121430",
+ "seg": 23,
+ "key": "irq_lock_save__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_conn_timer_handler\",\"confidence\":\"medium\",\"docstring\":\"Periodically walks a linked list of Bluetooth connection contexts under a save-IRQ critical section, decrements per-link latency counters, services expired connection/HCI events, and computes/stores the next event tick.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"conn\",\"v1\":\"lock_count_ptr\",\"v3\":\"irq_was_disabled\",\"v8\":\"event_window_ticks\",\"v9\":\"current_tick_minus_3048\",\"v10\":\"next_event_tick\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"intrusive connection list next pointer\"},{\"offset\":24,\"meaning\":\"kernel event/task handle passed to ke_event_lock\"},{\"offset\":36,\"meaning\":\"next connection event timestamp\"},{\"offset\":72,\"meaning\":\"flag requesting HCI command handling\"},{\"offset\":106,\"meaning\":\"connection state byte; value 2 marks eligible connection\"},{\"offset\":222,\"meaning\":\"per-connection interval word scaled by 2^10\"},{\"offset\":224,\"meaning\":\"initial latency/event countdown\"},{\"offset\":225,\"meaning\":\"remaining latency/event countdown\"},{\"offset\":1224,\"meaning\":\"flag requesting kernel event lock\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "init_radio_hw",
+ "img": "fmacfw_u02",
+ "addr": "0x103478",
+ "seg": 2,
+ "key": "init_radio_hw__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_controller_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes radio-controller registers, waits for a status condition, and invokes the GPIO initialization sequence.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"controller_regs\",\"v3\":\"preserve_mask\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Control register updated with initialization bits.\"},{\"offset\":8,\"meaning\":\"Control register programmed with initialization masks and values.\"},{\"offset\":48,\"meaning\":\"Status register polled until (value & 0x22) == 0x02.\"},{\"offset\":84,\"meaning\":\"Control register updated with initialization bits.\"}]}"
+}

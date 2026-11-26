@@ -1,0 +1,9 @@
+{
+ "fn": "init_buffer_list",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1003d4",
+ "seg": 0,
+ "key": "init_buffer_list__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"chip_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initialize the chip's ASIC/system globals, memory state, radio calibration, and Bluetooth driver during early firmware bringup.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"base_ptr\",\n    \"v2\": \"state_ptr\",\n    \"v9\": \"asic_ver_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 19,\n      \"meaning\": \"chip/system state byte\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"host type byte\"\n    },\n    {\n      \"offset\": 178,\n      \"meaning\": \"status/control word used for a 0x2000 enable\"\n    },\n    {\n      \"offset\": 363,\n      \"meaning\": \"RF trim/calibration required flag\"\n    }\n  ]\n}"
+}

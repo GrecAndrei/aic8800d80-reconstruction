@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_channel",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10a868",
+ "seg": 2,
+ "key": "rf_set_channel__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel\",\"confidence\":\"high\",\"docstring\":\"Programs RF and synthesizer registers for the requested channel configuration.\",\"subsystem\":\"rf\"}"
+}

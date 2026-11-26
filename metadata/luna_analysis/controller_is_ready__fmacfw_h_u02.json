@@ -1,0 +1,9 @@
+{
+ "fn": "controller_is_ready",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1342ac",
+ "seg": 51,
+ "key": "controller_is_ready__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_clear_stats\",\"confidence\":\"medium\",\"docstring\":\"Clears the BLE statistics buffer and, when the signed status is negative and the associated flag is set, issues an interrupt-disable MMIO write first.\",\"subsystem\":\"ble\",\"var_renames\":{},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Nonzero gate for issuing the interrupt-disable MMIO write\"}]}"
+}

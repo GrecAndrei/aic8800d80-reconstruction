@@ -1,0 +1,9 @@
+{
+ "fn": "ke_message_send",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11e610",
+ "seg": 21,
+ "key": "ke_message_send__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_pbd_copy\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies a requested byte range from a linked list of packet-buffer descriptor segments into a linear destination buffer, handling source offsets, segment-length calculation, and word-rounded transfers.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"result\": \"pbd_desc\",\n    \"a2\": \"copy_len\",\n    \"a3\": \"src_offset\",\n    \"a4\": \"dst_buffer\",\n    \"v4\": \"desc\",\n    \"v9\": \"copied_offset\",\n    \"v10\": \"seg_end_plus1\",\n    \"v11\": \"seg_info\",\n    \"v12\": \"remaining_len\",\n    \"v13\": \"src_ptr\",\n    \"v14\": \"dst_ptr\",\n    \"v15\": \"dst_word_ptr\",\n    \"v16\": \"dst_word_end\",\n    \"v17\": \"src_dst_delta\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"next descriptor pointer in the packet-buffer linked list\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"segment start pointer/offset used as the source address\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"segment end pointer/offset; length is calculated from end+1-start with wraparound\"\n    }\n  ]\n}"
+}

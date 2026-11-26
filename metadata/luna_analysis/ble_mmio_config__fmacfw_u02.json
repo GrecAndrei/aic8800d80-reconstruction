@@ -1,0 +1,9 @@
+{
+ "fn": "ble_mmio_config",
+ "img": "fmacfw_u02",
+ "addr": "0x124988",
+ "seg": 29,
+ "key": "ble_mmio_config__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_set_txop\",\"confidence\":\"medium\",\"docstring\":\"Programs the BK, BE, VI, and VO 802.11 TXOP values into hardware register fields and logs the configured values.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"txop_register_mask\",\"v2\":\"txop_registers\",\"v4\":\"bk_txop\",\"v7\":\"vi_txop\",\"v8\":\"be_txop\",\"v9\":\"vo_txop\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"BK TXOP value\"},{\"offset\":2,\"meaning\":\"BE TXOP value\"},{\"offset\":4,\"meaning\":\"VI TXOP value\"},{\"offset\":6,\"meaning\":\"VO TXOP value\"}]}"
+}

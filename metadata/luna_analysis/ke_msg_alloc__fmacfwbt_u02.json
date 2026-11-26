@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_alloc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10f3a8",
+ "seg": 3,
+ "key": "ke_msg_alloc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_tx_queue_process\",\"confidence\":\"medium\",\"docstring\":\"Drains queued transmit work and checks station-associated descriptors before dispatching them to the TX preparation path.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"tx_work_item\",\"v6\":\"tx_context\",\"v8\":\"station_table\",\"v11\":\"tx_descriptor\",\"v12\":\"station_idx\",\"v13\":\"tx_descriptor_addr\",\"v14\":\"station_context\"},\"struct_hints\":[{\"offset\":108,\"meaning\":\"context state byte checked as a processing gate\"},{\"offset\":1304,\"meaning\":\"head of the station-associated transmit-descriptor queue\"},{\"offset\":1312,\"meaning\":\"head of the pending work-item queue\"},{\"offset\":29,\"meaning\":\"transmit descriptor station index\"},{\"offset\":30,\"meaning\":\"transmit descriptor flags\"},{\"offset\":35,\"meaning\":\"station field passed to the invalid-station diagnostic\"},{\"offset\":36,\"meaning\":\"station state compared against 1\"},{\"offset\":37,\"meaning\":\"station eligibility byte tested for nonzero\"}]}"
+}

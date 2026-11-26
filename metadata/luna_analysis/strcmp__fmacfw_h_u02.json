@@ -1,0 +1,9 @@
+{
+ "fn": "strcmp",
+ "img": "fmacfw_h_u02",
+ "addr": "0x143968",
+ "seg": 68,
+ "key": "strcmp__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"strcmp\",\"confidence\":\"high\",\"docstring\":\"Compares two NUL-terminated byte strings lexicographically and returns the difference between the first differing bytes.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"str1\",\"a2\":\"str2\"}}"
+}

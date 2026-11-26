@@ -1,0 +1,9 @@
+{
+ "fn": "mem_alloc_checked",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10feac",
+ "seg": 2,
+ "key": "mem_alloc_checked__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mem_alloc_user_id\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a buffer, verifies that it belongs to the heap, stores the 8-bit user ID in the byte immediately before the returned pointer, and returns the buffer.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"a1\": \"user_id\",\n    \"v2\": \"buffer\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": -1,\n      \"meaning\": \"user_id header byte stored immediately before the allocated buffer pointer\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_84_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11b0b4",
+ "seg": 16,
+ "key": "get_84_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"table_process_entry_flags\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Looks up an indexed 84-byte table entry, scans its descriptor chain for active flags, updates packet/descriptor status bits, invokes a context processor, and links the returned result.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v1\": \"table_entry\",\n    \"v3\": \"curr_desc\",\n    \"v4\": \"curr_flags\",\n    \"v6\": \"desc_base\",\n    \"v7\": \"sel_desc\",\n    \"v8\": \"sel_ctx\",\n    \"v9\": \"sel_flags\",\n    \"v12\": \"new_flags\",\n    \"v14\": \"proc_ctx\",\n    \"v15\": \"link_slot\",\n    \"v18\": \"proc_out\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"descriptor next pointer\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"table entry head pointer\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"descriptor flags word\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"descriptor base/table pointer\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"associated descriptor context or control pointer\"\n    }\n  ]\n}"
+}

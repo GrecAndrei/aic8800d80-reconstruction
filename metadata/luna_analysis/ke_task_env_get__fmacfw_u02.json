@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_env_get",
+ "img": "fmacfw_u02",
+ "addr": "0x1238c0",
+ "seg": 28,
+ "key": "ke_task_env_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_rssi_request_handle\",\"confidence\":\"medium\",\"docstring\":\"Updates the indexed RF context, performs temperature-compensated RSSI sampling, and sends the two-byte result in kernel message 47.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"request_params\",\"v4\":\"rf_context\",\"v7\":\"response_msg\"},\"struct_hints\":[{\"offset\":110,\"meaning\":\"RF context byte copied from request_params[1] before RSSI sampling\"}]}"
+}

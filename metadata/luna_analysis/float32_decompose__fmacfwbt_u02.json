@@ -1,0 +1,9 @@
+{
+ "fn": "float32_decompose",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d7cc",
+ "seg": 42,
+ "key": "float32_decompose__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"float_log2_approx\",\"confidence\":\"medium\",\"docstring\":\"Approximates the base-2 logarithm of an IEEE 32-bit float by extracting the biased exponent and mantissa bits and using segmented linear approximation constants.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"f32_bits\",\"v1\":\"mantissa_bits\",\"v2\":\"mantissa\",\"v3\":\"biased_exp_byte\",\"v4\":\"log2_term\",\"v6\":\"mantissa_f\",\"v7\":\"segment_slope\",\"v8\":\"segment_intercept\",\"result\":\"log2_out\"},\"struct_hints\":[]}"
+}

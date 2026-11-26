@@ -1,0 +1,9 @@
+{
+ "fn": "process_adv_report",
+ "img": "fmacfwbt_u02",
+ "addr": "0x140c14",
+ "seg": 65,
+ "key": "process_adv_report__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"check_scan_filter\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks whether a BLE advertising report passes the configured scan address/data filter, returning 1 to accept and 0 to reject.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"report_bdaddr\",\n    \"a2\": \"report_data\",\n    \"a3\": \"filter_entry\",\n    \"v6\": \"expected_data_len\",\n    \"v7\": \"copy_dst\",\n    \"v8\": \"copy_end\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 50,\n      \"meaning\": \"filter_entry: policy/ignore-address flag\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"filter_entry: expected BD address part 0\"\n    },\n    {\n      \"offset\": 54,\n      \"meaning\": \"filter_entry: expected BD address part 1\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"filter_entry: expected BD address part 2\"\n    },\n    {\n      \"offset\": 58,\n      \"meaning\": \"filter_entry: expected advertising data length\"\n    },\n    {\n      \"offset\": 59,\n      \"meaning\": \"filter_entry: expected advertising data bytes\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"report_data: advertising data length\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"report_data: advertising data payload\"\n    }\n  ]\n}"
+}

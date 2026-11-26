@@ -1,0 +1,9 @@
+{
+ "fn": "check_one_12deb8",
+ "img": "fmacfw_u02",
+ "addr": "0x12deb8",
+ "seg": 42,
+ "key": "check_one_12deb8__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_find_ht_operation_ie\",\"confidence\":\"high\",\"docstring\":\"Scans a length-delimited 802.11 information-element stream and returns the HT Operation element (ID 61, length 22), or NULL if it is absent or truncated.\",\"subsystem\":\"wlan\",\"var_renames\":{\"result\":\"ie_cursor\",\"a2\":\"ies_len\",\"v2\":\"ies_end\",\"v3\":\"ie_end\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"802.11 information-element ID\"},{\"offset\":1,\"meaning\":\"information-element payload length\"}]}"
+}

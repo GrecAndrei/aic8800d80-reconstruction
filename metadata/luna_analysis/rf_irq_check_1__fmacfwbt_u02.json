@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_check_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x117d64",
+ "seg": 11,
+ "key": "rf_irq_check_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_irq_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads the RF interrupt status, acknowledges or services selected RF IRQ bits, and dispatches the remaining event to conn_schedule.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"irq_status\",\n    \"v2\": \"init_irq_mask\",\n    \"v3\": \"dispatch_irq_bits\",\n    \"v4\": \"irq_bit_index\"\n  },\n  \"struct_hints\": []\n}"
+}

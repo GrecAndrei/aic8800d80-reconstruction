@@ -1,0 +1,9 @@
+{
+ "fn": "sys_control",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114e60",
+ "seg": 6,
+ "key": "sys_control__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sys_control_enqueue\",\"confidence\":\"medium\",\"docstring\":\"Queues a system-control request in a fixed pool and starts it immediately when no request is active.\",\"subsystem\":\"hal\",\"var_renames\":{\"v2\":\"command_slot\",\"v3\":\"command_pool_end\",\"v5\":\"active_command_ptr\",\"v6\":\"active_command\",\"v7\":\"queue_link_cursor\",\"v8\":\"queued_command\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next-command link in the pending queue\"},{\"offset\":8,\"meaning\":\"First stored request argument (from a2)\"},{\"offset\":12,\"meaning\":\"Second stored request argument (from a1)\"},{\"offset\":16,\"meaning\":\"Slot occupancy flag\"}]}"
+}

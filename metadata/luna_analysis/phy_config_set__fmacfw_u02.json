@@ -1,0 +1,9 @@
+{
+ "fn": "phy_config_set",
+ "img": "fmacfw_u02",
+ "addr": "0x138aa8",
+ "seg": 58,
+ "key": "phy_config_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_arp_rx_process\",\"confidence\":\"medium\",\"docstring\":\"Recognizes an ARP packet in an 802.11 SNAP frame, logs request and reply traffic, and dispatches requests targeting the interface's IPv4 address.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v5\":\"frame_control_flags\",\"v6\":\"frame_data_offset\",\"v7\":\"adjusted_frame\",\"v10\":\"arp_opcode_high\",\"v12\":\"arp_opcode\",\"v13\":\"target_ip\"},\"struct_hints\":[{\"offset\":30,\"meaning\":\"First byte of the SNAP EtherType; paired with offset 31, 0x08 0x06 identifies ARP.\"},{\"offset\":31,\"meaning\":\"Second byte of the SNAP EtherType.\"},{\"offset\":38,\"meaning\":\"High byte of the ARP opcode.\"},{\"offset\":39,\"meaning\":\"Low byte of the ARP opcode; 1 is request and 2 is reply.\"},{\"offset\":40,\"meaning\":\"ARP sender hardware address, passed to the request handler.\"},{\"offset\":56,\"meaning\":\"Start of the four-byte ARP target protocol address (IPv4).\"}]}"
+}

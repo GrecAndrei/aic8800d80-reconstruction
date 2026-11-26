@@ -1,0 +1,9 @@
+{
+ "fn": "return_fail",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f4ac",
+ "seg": 42,
+ "key": "return_fail__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"alloc_default_rx_buffer\",\"confidence\":\"medium\",\"docstring\":\"Requests an RX buffer using a zero allocation argument and returns the allocator's result.\",\"subsystem\":\"mac\"}"
+}

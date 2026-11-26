@@ -1,0 +1,9 @@
+{
+ "fn": "log_state_message",
+ "img": "fmacfwbt_u02",
+ "addr": "0x128ec4",
+ "seg": 35,
+ "key": "log_state_message__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"log_state_message\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Logs a state confirmation message when logging is enabled and conditionally sends the associated HCI event when a rate-limit counter expires.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"log_filter\",\n    \"a2\": \"state_value\",\n    \"result\": \"log_enabled\",\n    \"v5\": \"state_msg_ctrl\",\n    \"v6\": \"countdown_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"state-message trigger or pending flag\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"HCI event code or event payload word\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"rate-limit countdown counter\"\n    }\n  ]\n}"
+}

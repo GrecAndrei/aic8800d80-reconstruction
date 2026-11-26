@@ -1,0 +1,9 @@
+{
+ "fn": "rf_parse_cal_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13116c",
+ "seg": 43,
+ "key": "rf_parse_cal_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_parse_cal_entry\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses a TLV-style RF calibration entry to produce a calibration byte and channel frequency information, applying optional secondary-channel offset and returning the parsed gain/count field.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cal_blob\",\n    \"a2\": \"cal_len\",\n    \"a3\": \"cal_byte\",\n    \"a4\": \"channel_info\",\n    \"v8\": \"type6_entry\",\n    \"v9\": \"type7_entry\",\n    \"v10\": \"type7_entry\",\n    \"v11\": \"secondary_offset_entry\",\n    \"v12\": \"event_entry\",\n    \"v14\": \"channel_number\",\n    \"v15\": \"channel_minus_one\",\n    \"v16\": \"center_freq_mhz\",\n    \"v18\": \"secondary_offset_value\",\n    \"v19\": \"entry_len\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"channel_info.band_high (1 if 5 GHz channel)\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"channel_info.has_secondary_offset\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"channel_info.primary_center_freq_mhz\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"channel_info.secondary_center_freq_mhz\"\n    }\n  ]\n}"
+}

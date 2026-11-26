@@ -1,0 +1,9 @@
+{
+ "fn": "set_string_0x182588",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115f04",
+ "seg": 7,
+ "key": "set_string_0x182588__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_ioctl_set_string\",\"confidence\":\"medium\",\"docstring\":\"Forwards the set-string request to the WLAN ioctl handler using its fixed command identifier.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"request\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "is_tx_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11dc3c",
+ "seg": 21,
+ "key": "is_tx_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_state_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes wireless controller state by clearing the global state structure, storing RF FIFO-derived ready/status flags, and initializing driver locks.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v0\": \"wlc_state\",\n    \"v2\": \"ready_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 10,\n      \"meaning\": \"controller ready/status byte\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"secondary controller ready/status byte\"\n    }\n  ]\n}"
+}

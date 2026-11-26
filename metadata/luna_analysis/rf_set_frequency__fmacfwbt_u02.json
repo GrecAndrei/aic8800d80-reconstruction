@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_frequency",
+ "img": "fmacfwbt_u02",
+ "addr": "0x107370",
+ "seg": 2,
+ "key": "rf_set_frequency__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_configure_frequency\",\"confidence\":\"medium\",\"docstring\":\"Programs a fixed pattern into three RF registers, setting four 6-bit fields in one register to 3 and clearing selected fields in the other two.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"frequency_reg0\",\"v1\":\"frequency_reg1\",\"result\":\"frequency_reg2\"}}"
+}

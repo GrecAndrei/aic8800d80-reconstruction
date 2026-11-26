@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibration_do",
+ "img": "fmacfw_u02",
+ "addr": "0x123c8c",
+ "seg": 29,
+ "key": "rf_calibration_do__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_rx_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Performs receive-side RF calibration using the supplied receive parameters and calibration data.\",\"subsystem\":\"rf\"}"
+}

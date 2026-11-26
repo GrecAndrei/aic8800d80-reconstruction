@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_wait_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x12ea10",
+ "seg": 42,
+ "key": "ipc_wait_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_wait_flag\",\"confidence\":\"medium\",\"docstring\":\"Busy-waits until bit 18 is set in an IPC register.\",\"subsystem\":\"ipc\"}"
+}

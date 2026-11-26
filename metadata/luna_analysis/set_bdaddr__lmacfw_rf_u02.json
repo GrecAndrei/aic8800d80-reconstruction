@@ -1,0 +1,9 @@
+{
+ "fn": "set_bdaddr",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12513c",
+ "seg": 23,
+ "key": "set_bdaddr__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_rf_bitfield\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Command-style setter that parses decimal bit position(s) and a hex value, then writes the selected RF/MAC register bitfield.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v4\": \"bit_high\",\n    \"v5\": \"bit_low\",\n    \"v6\": \"field_value\",\n    \"v10\": \"high_word\",\n    \"v11\": \"low_word\",\n    \"v12\": \"low_bit_offset\",\n    \"v13\": \"low_word_bits\",\n    \"v14\": \"high_bit_offset\",\n    \"a5\": \"high_word_value\"\n  },\n  \"struct_hints\": []\n}"
+}

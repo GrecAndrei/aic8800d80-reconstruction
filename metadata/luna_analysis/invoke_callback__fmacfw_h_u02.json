@@ -1,0 +1,9 @@
+{
+ "fn": "invoke_callback",
+ "img": "fmacfw_h_u02",
+ "addr": "0x113fd4",
+ "seg": 5,
+ "key": "invoke_callback__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_check_wlan_data\",\"confidence\":\"medium\",\"docstring\":\"Retrieves a WLAN data buffer through a configured callback, checks its state, and waits for the state condition if the check fails.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"wlan_data\",\"v1\":\"wlan_data_ptr\",\"result\":\"state_status\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Callback or method slot used to retrieve the WLAN data buffer\"}]}"
+}

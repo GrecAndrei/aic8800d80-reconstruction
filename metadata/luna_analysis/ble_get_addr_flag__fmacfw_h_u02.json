@@ -1,0 +1,9 @@
+{
+ "fn": "ble_get_addr_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x134334",
+ "seg": 51,
+ "key": "ble_get_addr_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_get_addr_fields\",\"confidence\":\"medium\",\"docstring\":\"Initializes two outputs, selects address-related field values from the BLE context or a looked-up state object, and returns the lookup result.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"out_first_field\",\"a2\":\"out_second_field\",\"v2\":\"ble_context\",\"result\":\"state_object\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"State-object payload begins here; this address is written to the first output.\"},{\"offset\":34,\"meaning\":\"Context byte flag whose low bit selects the state-object lookup; its address is returned in the alternate path.\"},{\"offset\":40,\"meaning\":\"Context 16-bit sentinel field; its address is used for the second output when the value is not 0xFFFF.\"},{\"offset\":44,\"meaning\":\"State-object dword copied to the second output when a lookup succeeds.\"}]}"
+}

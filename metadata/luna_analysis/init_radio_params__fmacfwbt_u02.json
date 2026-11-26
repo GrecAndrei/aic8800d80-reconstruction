@@ -1,0 +1,9 @@
+{
+ "fn": "init_radio_params",
+ "img": "fmacfwbt_u02",
+ "addr": "0x137358",
+ "seg": 58,
+ "key": "init_radio_params__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_update_channel_masks\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parse a radio channel/frequency list and populate supported-channel bitmask fields in the radio configuration.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"input_buf\",\n    \"a2\": \"attr_id\",\n    \"a3\": \"flags\",\n    \"a4\": \"radio_params\",\n    \"v7\": \"entry\",\n    \"v8\": \"entry_ptr\",\n    \"v9\": \"entry_len\",\n    \"v10\": \"freq32_count\",\n    \"v11\": \"bytes_left\",\n    \"i\": \"freq32_ptr\",\n    \"v13\": \"cur_ptr\",\n    \"v14\": \"count\",\n    \"v16\": \"bytes_left2\",\n    \"v37\": \"found_len\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 48,\n      \"meaning\": \"radio_params field holding a 32-bit channel/frequency bitmap or default channel state\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"radio_params field holding a 16-bit channel bitmap derived from freq_to_chan_map2\"\n    },\n    {\n      \"offset\": 54,\n      \"meaning\": \"radio_params field holding a 16-bit channel bitmap derived from freq_to_chan_map2\"\n    }\n  ]\n}"
+}

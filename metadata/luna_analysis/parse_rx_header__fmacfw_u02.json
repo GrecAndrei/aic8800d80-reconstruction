@@ -1,0 +1,9 @@
+{
+ "fn": "parse_rx_header",
+ "img": "fmacfw_u02",
+ "addr": "0x11bfac",
+ "seg": 18,
+ "key": "parse_rx_header__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_rx_phy_status\",\"confidence\":\"medium\",\"docstring\":\"Scans RX metadata records for the configured PHY report and stores its payload in the caller's inline result buffer, clearing the result for a marker record.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"rx_status_flags\",\"v3\":\"rx_data\",\"v4\":\"rx_data_length\",\"v7\":\"remaining_bytes\",\"v8\":\"record_ptr\",\"v10\":\"record_format_word\",\"v11\":\"record_size\",\"v12\":\"record_header\",\"v13\":\"record_id\"},\"struct_hints\":[{\"offset\":84,\"meaning\":\"RX status flags; bits 0x200 and 0x400 gate record parsing\"},{\"offset\":48,\"meaning\":\"RX data length, including the 18-byte prefix skipped by the parser\"},{\"offset\":28,\"meaning\":\"Pointer to a buffer descriptor; its +8 field supplies the RX data address\"},{\"offset\":12,\"meaning\":\"Index selecting a report-configuration entry\"},{\"offset\":13,\"meaning\":\"Expected report subtype, compared with the record header's upper four bits\"},{\"offset\":224,\"meaning\":\"Output pointer to extracted report data; cleared for a marker record\"},{\"offset\":228,\"meaning\":\"Inline storage for the extracted report payload\"},{\"offset\":32,\"meaning\":\"Configured report ID compared against parsed record IDs\"}]}"
+}

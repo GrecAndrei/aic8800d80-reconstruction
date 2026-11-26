@@ -1,0 +1,9 @@
+{
+ "fn": "send_cmd_0x7c",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1231e4",
+ "seg": 29,
+ "key": "send_cmd_0x7c__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_hci_vendor_event_0x7c\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates an HCI event buffer, updates RF/5G switch configuration state, and sends the vendor event response.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"cmd_params\",\n    \"a1a\": \"extracted_info\",\n    \"v5\": \"evt_buf\",\n    \"v6\": \"vendor_info\",\n    \"v7\": \"rf_info\",\n    \"v8\": \"sw_en\",\n    \"v9\": \"status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"cmd_params byte 0: nonzero requests driver start, zero requests driver stop\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"cmd_params byte 1: selects whether vendor_info or cmd_params byte 2 is used\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"cmd_params byte 2: fallback mode/configuration byte\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"cmd_params byte 3: if nonzero and driver start, sets 5G enable flag\"\n    },\n    {\n      \"offset\": 188,\n      \"meaning\": \"rf_info low byte at offset 0xbc: status/vendor byte reflected in event\"\n    },\n    {\n      \"offset\": 178,\n      \"meaning\": \"rf_info uint16 at offset 0xb2: bit 0x4000 used as 5G enable flag\"\n    }\n  ]\n}"
+}

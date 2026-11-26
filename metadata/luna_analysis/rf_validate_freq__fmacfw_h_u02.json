@@ -1,0 +1,9 @@
+{
+ "fn": "rf_validate_freq",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13bf64",
+ "seg": 60,
+ "key": "rf_validate_freq__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_sequence_window_check\",\"confidence\":\"medium\",\"docstring\":\"Checks whether a received 12-bit sequence number is within the active receive window, with sentinel and inactive-state bypasses.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"state_table_base\",\"v5\":\"entry_id\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"Receive sequence-window length for the indexed entry.\"},{\"offset\":28,\"meaning\":\"Pointer to the entry's receive-window state.\"},{\"offset\":4,\"meaning\":\"Window start sequence number in the pointed-to state.\"},{\"offset\":316,\"meaning\":\"Base of 16-bit sequence values indexed by a1 and a2.\"},{\"offset\":453,\"meaning\":\"Base of 12-byte-strided entry-index bytes.\"}]}"
+}

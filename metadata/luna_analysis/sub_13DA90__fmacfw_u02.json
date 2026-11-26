@@ -1,0 +1,9 @@
+{
+ "fn": "sub_13DA90",
+ "img": "fmacfw_u02",
+ "addr": "0x13da90",
+ "seg": 61,
+ "key": "sub_13DA90__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_rc_rate_validate\",\"confidence\":\"medium\",\"docstring\":\"Decodes a packed 802.11 rate entry and checks its format and rate parameters against the configured capabilities.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"rate_context\",\"a2\":\"rate_index\",\"v2\":\"encoded_rate\",\"v7\":\"pre_type\",\"v9\":\"short_gi\",\"v10\":\"bandwidth\",\"v11\":\"spatial_stream_count\",\"v12\":\"rate_index_value\"},\"struct_hints\":[{\"offset\":169,\"meaning\":\"PHY or rate mode selector\"},{\"offset\":176,\"meaning\":\"maximum supported rate or MCS value\"},{\"offset\":177,\"meaning\":\"rate-format capability selector\"},{\"offset\":179,\"meaning\":\"maximum supported bandwidth\"},{\"offset\":180,\"meaning\":\"maximum supported spatial-stream count\"},{\"offset\":181,\"meaning\":\"short-GI capability\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_irq_mask_enable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1009dc",
+ "seg": 0,
+ "key": "sdio_irq_mask_enable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_load_config\",\"confidence\":\"medium\",\"docstring\":\"Copies a configuration table to the RF control memory and applies 24 RF switch settings from paired input words.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"transfer_control_reg\",\"v3\":\"source_word_offset\",\"v7\":\"transfer_chunk_index\",\"v8\":\"chunk_word_count\",\"v14\":\"rf_control_reg\",\"v15\":\"rf_switch_index\",\"i\":\"rf_switch_pair_index\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"First RF switch configuration word in each 8-byte pair.\"},{\"offset\":4,\"meaning\":\"Second RF switch configuration word in each 8-byte pair.\"}]}"
+}

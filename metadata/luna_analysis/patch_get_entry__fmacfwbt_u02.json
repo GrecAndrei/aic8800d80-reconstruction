@@ -1,0 +1,9 @@
+{
+ "fn": "patch_get_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1361f4",
+ "seg": 55,
+ "key": "patch_get_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"patch_load_entry\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies the payload of a patch entry into the patch data table and entry-length table, then allocates and sends an HCI event acknowledging the loaded entry index.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"patch_entry\",\n    \"v5\": \"entry_len\",\n    \"v8\": \"ack_packet\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"entry/slot index selected by patch request\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"16-bit payload length copied from entry+4\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"start of patch payload bytes\"\n    }\n  ]\n}"
+}

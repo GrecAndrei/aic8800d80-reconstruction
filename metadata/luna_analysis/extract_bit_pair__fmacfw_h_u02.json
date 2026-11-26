@@ -1,0 +1,9 @@
+{
+ "fn": "extract_bit_pair",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1326e0",
+ "seg": 45,
+ "key": "extract_bit_pair__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"merge_min_2bit_fields\",\"confidence\":\"medium\",\"docstring\":\"Merges packed 2-bit fields by taking the smaller value at each position, stopping before the first pair where either value is 3.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"packed_fields_a\",\"a2\":\"packed_fields_b\",\"v2\":\"bit_offset\",\"v3\":\"merged_fields\",\"v4\":\"field_a\",\"v6\":\"field_b\"}}"
+}

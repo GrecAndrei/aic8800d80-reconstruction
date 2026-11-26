@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_trace_send",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1258a0",
+ "seg": 30,
+ "key": "ipc_trace_send__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_frame_complete_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Completes the pending TX frame, copies its metadata into the TX context, and dispatches its buffer for further processing.\",\"subsystem\":\"tx\",\"var_renames\":{\"a1\":\"tx_context\",\"v1\":\"pending_frame_slot\",\"v2\":\"pending_frame\",\"v5\":\"frame_meta_index\",\"v6\":\"frame_buffer\"},\"struct_hints\":[{\"offset\":192,\"meaning\":\"Pointer to an object containing the lookup table used to resolve frame metadata\"},{\"offset\":231,\"meaning\":\"One-based lookup result derived from the frame metadata index, or zero when the index is zero\"},{\"offset\":232,\"meaning\":\"Frame metadata byte copied from offset 10\"},{\"offset\":233,\"meaning\":\"Frame metadata byte copied from offset 11\"}]}"
+}

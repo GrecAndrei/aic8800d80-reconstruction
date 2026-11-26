@@ -1,0 +1,9 @@
+{
+ "fn": "llc_get_evt_field",
+ "img": "fmacfw_u02",
+ "addr": "0x12a12c",
+ "seg": 36,
+ "key": "llc_get_evt_field__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_get_evt_field\",\"confidence\":\"medium\",\"docstring\":\"Returns the event-related byte at offset 133 in the indexed LLC connection record.\",\"subsystem\":\"ble\",\"struct_hints\":[{\"offset\":133,\"meaning\":\"event-related byte; exact semantics unclear\"}]}"
+}

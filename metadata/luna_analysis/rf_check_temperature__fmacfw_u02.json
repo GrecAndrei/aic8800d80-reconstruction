@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_temperature",
+ "img": "fmacfw_u02",
+ "addr": "0x12c4e8",
+ "seg": 40,
+ "key": "rf_check_temperature__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_check_temperature\",\"confidence\":\"medium\",\"docstring\":\"Checks the RF temperature-related state, storing a packet-derived value in the RX descriptor when enabled and otherwise taking the TPC-update action when the signed temperature is negative.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"rx_descriptor\",\"v3\":\"packet_result\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"RX metadata word; the helper receives its low 7 bits and bits 11\u201313\"},{\"offset\":36,\"meaning\":\"Stores the helper result replicated into the low and high bytes\"}]}"
+}

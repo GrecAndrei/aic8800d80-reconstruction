@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_5",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121a40",
+ "seg": 22,
+ "key": "nullsub_5__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"noop\",\n  \"confidence\": \"low\",\n  \"docstring\": \"No-operation function that returns success, likely a placeholder stub in the patch or flash initialization cluster.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

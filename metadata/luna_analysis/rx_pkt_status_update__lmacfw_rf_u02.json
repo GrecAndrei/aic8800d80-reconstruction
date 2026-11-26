@@ -1,0 +1,9 @@
+{
+ "fn": "rx_pkt_status_update",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x115754",
+ "seg": 8,
+ "key": "rx_pkt_status_update__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_adv_pdu_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a BLE advertising PDU descriptor, updates link-layer status and an advertised-header byte, builds the advertising PDU via llm_adv_pdu_build, and returns a PDU descriptor initialized by pdu_type_init.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"adv_pdu_desc\",\n    \"v5\": \"adv_rx_status\",\n    \"v10\": \"adv_context\",\n    \"v11\": \"adv_pdu\",\n    \"v12\": \"adv_alt_pdu\",\n    \"v14\": \"adv_low_nibble\",\n    \"v16\": \"adv_seq_counter\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"adv_pdu_desc rx/status or length field\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"adv_pdu_desc RSSI/quality field; 0xFF indicates invalid value\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"adv_pdu_desc alternate/filter flag\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"adv_pdu_desc pointer to advertising context or PDU list\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"a1 pointer to PDU buffer or context\"\n    },\n    {\n      \"offset\": 38,\n      \"meaning\": \"a1 uint16 status flags; bit 2 is set here\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"adv_context pointer to alternate advertising PDU\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"adv_context pointer to primary advertising PDU\"\n    },\n    {\n      \"offset\": 22,\n      \"meaning\": \"adv_pdu byte holding low nibble flag/state and high-nibble counter\"\n    }\n  ]\n}"
+}

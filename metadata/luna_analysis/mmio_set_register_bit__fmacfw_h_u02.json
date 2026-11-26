@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_register_bit",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11c210",
+ "seg": 18,
+ "key": "mmio_set_register_bit__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_mmio_bit7\",\"confidence\":\"high\",\"docstring\":\"Sets bit 7 in a fixed memory-mapped 32-bit register.\",\"subsystem\":\"hal\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "decode_adv_type",
+ "img": "fmacfw_h_u02",
+ "addr": "0x131170",
+ "seg": 42,
+ "key": "decode_adv_type__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_adv_type_fields\",\"confidence\":\"medium\",\"docstring\":\"Searches the input buffer for an advertising record, extracts two 3-bit fields from byte 3 of the match, and writes fallback values if no match is found.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"buffer\",\"a2\":\"buffer_len\",\"a3\":\"decoded_fields\",\"v5\":\"packed_fields\"}}"
+}

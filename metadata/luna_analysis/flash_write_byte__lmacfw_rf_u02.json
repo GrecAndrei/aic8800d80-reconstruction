@@ -1,0 +1,9 @@
+{
+ "fn": "flash_write_byte",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e34c",
+ "seg": 20,
+ "key": "flash_write_byte__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"flash_cache_read_u16\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a 16-bit value from a per-slot flash/cache descriptor table, invoking flash/cache initialization paths when the state is not already ready.\",\n  \"subsystem\": \"flash\",\n  \"var_renames\": {\n    \"a1\": \"packed_cache_address\",\n    \"v1\": \"cache_state_ptr\",\n    \"v2\": \"word_offset\",\n    \"v3\": \"slot_index\",\n    \"v4\": \"cache_table_base\",\n    \"v5\": \"slot_entry_stride\",\n    \"v7\": \"slot_low\",\n    \"v8\": \"cache_entry_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"volatile uint32_t pointer to the 16-bit cache line data buffer\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"volatile uint16_t cache entry limit or valid word count\"\n    }\n  ]\n}"
+}

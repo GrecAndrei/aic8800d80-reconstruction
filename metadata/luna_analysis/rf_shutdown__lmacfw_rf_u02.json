@@ -1,0 +1,9 @@
+{
+ "fn": "rf_shutdown",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11d3dc",
+ "seg": 19,
+ "key": "rf_shutdown__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_exec\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Executes an RF command by clearing pending command bits, programming command/parameter registers, conditionally invoking a flash calibration command, and updating RF control bits and GPIO.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_status_reg\",\n    \"v1\": \"rf_cmd_reg\",\n    \"v7\": \"rf_cmd_reg\",\n    \"v3\": \"rf_cmd_data\",\n    \"v5\": \"rf_calib_ptr\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "check_arg_one",
+ "img": "fmacfw_u02",
+ "addr": "0x10d3ac",
+ "seg": 2,
+ "key": "check_arg_one__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_control_bits\",\"confidence\":\"medium\",\"docstring\":\"Writes the bit-18 or bit-19 mask for input values 1 or 2, conditionally clears a separate MMIO register when the signed status is negative, and always sets bit 22 in another register.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

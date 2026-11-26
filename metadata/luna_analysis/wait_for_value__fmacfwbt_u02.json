@@ -1,0 +1,9 @@
+{
+ "fn": "wait_for_value",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1147bc",
+ "seg": 5,
+ "key": "wait_for_value__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_command_packet\",\"confidence\":\"medium\",\"docstring\":\"Validates the command type and length, copies matching input into the locked command buffer when available, and signals system flag 16.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"command_data\",\"a2\":\"expected_length\",\"v4\":\"parsed_length\",\"v5\":\"command_context\",\"v6\":\"locked_command_buffer\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"start of the command data area in the locked buffer\"},{\"offset\":8,\"meaning\":\"nonzero availability or count check for communication resources\"},{\"offset\":16,\"meaning\":\"abort or control state passed to check_abort_flag\"}]}"
+}

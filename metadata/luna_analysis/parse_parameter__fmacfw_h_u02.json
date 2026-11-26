@@ -1,0 +1,9 @@
+{
+ "fn": "parse_parameter",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12380c",
+ "seg": 28,
+ "key": "parse_parameter__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"initialize_rf_platform\",\"confidence\":\"medium\",\"docstring\":\"Initializes the RF and platform context under an IRQ-protected nesting guard, restores saved global state, and performs final MAC/HCI setup calls.\",\"subsystem\":\"rf\",\"var_renames\":{\"v4\":\"critical_depth_ptr\",\"v5\":\"saved_state_ptr\",\"v6\":\"saved_state\",\"v13\":\"restore_irq_flag\"}}"
+}

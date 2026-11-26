@@ -1,0 +1,9 @@
+{
+ "fn": "rate_get_config",
+ "img": "fmacfw_u02",
+ "addr": "0x119ec8",
+ "seg": 13,
+ "key": "rate_get_config__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_channel_operation_step\",\"confidence\":\"medium\",\"docstring\":\"Advances a transmit-channel operation by setting up or validating the PHY channel and handling packet completion.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"operation_entry\",\"v3\":\"tx_record\",\"v4\":\"channel_context\",\"v20\":\"operation_entry\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"Pointer to the channel context\"},{\"offset\":52,\"meaning\":\"Pointer to the transmit record\"},{\"offset\":77,\"meaning\":\"Operation state or mode; value 1 selects completion handling\"},{\"offset\":78,\"meaning\":\"Parameter passed to PHY channel selection\"}]}"
+}

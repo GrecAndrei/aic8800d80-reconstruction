@@ -1,0 +1,9 @@
+{
+ "fn": "strlen",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143f00",
+ "seg": 69,
+ "key": "strlen__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"strlen\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Computes the length of a null-terminated byte string using aligned 64-bit loads and zero-byte detection.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v1\": \"aligned_word_ptr\",\n    \"v3\": \"misalignment\",\n    \"v5\": \"length\",\n    \"v15\": \"misalignment_mask\"\n  },\n  \"struct_hints\": []\n}"
+}

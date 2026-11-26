@@ -1,0 +1,9 @@
+{
+ "fn": "check_buf_range_12d818",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d818",
+ "seg": 42,
+ "key": "check_buf_range_12d818__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_tlv_tag7\",\"confidence\":\"medium\",\"docstring\":\"Scans a bounded sequence of type-length-value records for tag 7 and returns the matching record only if it is fully in bounds and has a payload of at least six bytes, writing its payload length to the output byte.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"buffer_cursor\",\"a2\":\"buffer_length\",\"a3\":\"payload_length_out\",\"v3\":\"buffer_end\",\"v4\":\"payload_length\",\"v5\":\"record_end\"}}"
+}

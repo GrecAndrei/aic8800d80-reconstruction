@@ -1,0 +1,9 @@
+{
+ "fn": "ble_msg_helper",
+ "img": "fmacfw_u02",
+ "addr": "0x123780",
+ "seg": 28,
+ "key": "ble_msg_helper__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_rf_channel_calc_notify\",\"confidence\":\"medium\",\"docstring\":\"Calculates an RF channel from the supplied byte and sends message 13 from the source task to the destination task.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"channel_value_ptr\",\"a3\":\"src_task_id\",\"a4\":\"dest_task_id\"}}"
+}

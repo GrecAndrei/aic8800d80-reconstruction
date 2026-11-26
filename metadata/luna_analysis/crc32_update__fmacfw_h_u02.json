@@ -1,0 +1,9 @@
+{
+ "fn": "crc32_update",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d3b4",
+ "seg": 41,
+ "key": "crc32_update__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"crc32_update\",\"confidence\":\"high\",\"docstring\":\"Updates a CRC-32 accumulator by processing the specified bytes through a lookup table.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"data\",\"a2\":\"length\",\"a3\":\"crc\"}}"
+}

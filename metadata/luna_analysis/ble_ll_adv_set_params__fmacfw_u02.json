@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_adv_set_params",
+ "img": "fmacfw_u02",
+ "addr": "0x140b78",
+ "seg": 64,
+ "key": "ble_ll_adv_set_params__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_adv_config_matches\",\"confidence\":\"medium\",\"docstring\":\"Tests the cached advertising configuration using a flag-or-parameter match and, when applicable, compares its stored payload with the supplied length-prefixed payload.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"requested_params\",\"a2\":\"payload_descriptor\",\"a3\":\"cached_adv_config\",\"v6\":\"stored_payload_len\"},\"struct_hints\":[{\"offset\":50,\"meaning\":\"Nonzero flag that bypasses comparison of the three cached parameters\"},{\"offset\":52,\"meaning\":\"First cached 16-bit parameter compared with requested_params[0]\"},{\"offset\":54,\"meaning\":\"Second cached 16-bit parameter compared with requested_params[1]\"},{\"offset\":56,\"meaning\":\"Third cached 16-bit parameter compared with requested_params[2]\"},{\"offset\":58,\"meaning\":\"Stored payload length\"},{\"offset\":59,\"meaning\":\"Stored payload bytes\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conditional_action",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12537c",
+ "seg": 23,
+ "key": "bt_conditional_action__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_cmd_txpwr_manual_mode\", \"confidence\": \"medium\", \"docstring\": \"Handles a Bluetooth/debug command to query or update the manual transmit-power mode, printing the current value or the newly parsed setting.\", \"subsystem\": \"bt\", \"var_renames\": {\"a1\": \"argc\", \"a2\": \"argv\", \"v2\": \"manual_mode\"}}"
+}

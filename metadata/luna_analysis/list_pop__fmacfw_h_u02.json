@@ -1,0 +1,9 @@
+{
+ "fn": "list_pop",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d190",
+ "seg": 41,
+ "key": "list_pop__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"list_pop_front\",\"confidence\":\"high\",\"docstring\":\"Removes and returns the head node, clearing the tail pointer when the list becomes empty.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"list\",\"v1\":\"popped_node\",\"v2\":\"tail_node\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"List head pointer; also the next-node pointer at offset 0 of each node.\"},{\"offset\":4,\"meaning\":\"List tail pointer.\"}]}"
+}

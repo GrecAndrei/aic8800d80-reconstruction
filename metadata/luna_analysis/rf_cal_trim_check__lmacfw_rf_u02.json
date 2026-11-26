@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_trim_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11d01c",
+ "seg": 19,
+ "key": "rf_cal_trim_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_cal_trim_strobe\", \"confidence\": \"medium\", \"docstring\": \"Acquires the RF command critical section, starts the RF calibration-trim trap command with a timeout, and returns the status/control register pointer.\", \"subsystem\": \"rf\", \"var_renames\": {\"v0\": \"rf_cmd_count_ptr\", \"v1\": \"rf_tick_now\", \"v2\": \"rf_cmd_count_old\", \"v3\": \"rf_cmd_data_ptr\", \"v4\": \"rf_cmd_ctrl_ptr\", \"v5\": \"rf_cmd_count_new\", \"result\": \"rf_cmd_status_ptr\", \"v7\": \"rf_irq_locked_ptr\", \"v8\": \"rf_irq_locked_flag\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "check_abort_flag_3",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d510",
+ "seg": 42,
+ "key": "check_abort_flag_3__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"list_remove\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Unlinks a given node from a singly linked list head/tail structure, with an abort-flag path that can clear IRQ 132 when the list handle is null.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"list_head\",\n    \"a2\": \"node\",\n    \"v2\": \"list_head\",\n    \"v4\": \"current\",\n    \"v5\": \"prev\",\n    \"v6\": \"tail\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"list head first pointer; for a node argument this is the next pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"list head tail/last pointer\"\n    }\n  ]\n}"
+}

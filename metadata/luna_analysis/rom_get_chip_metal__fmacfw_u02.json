@@ -1,0 +1,9 @@
+{
+ "fn": "rom_get_chip_metal",
+ "img": "fmacfw_u02",
+ "addr": "0x114b44",
+ "seg": 5,
+ "key": "rom_get_chip_metal__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rom_get_chip_metal\",\"confidence\":\"medium\",\"docstring\":\"Queries the ROM for the chip metal revision, stores the decoded byte through the output pointer, and returns a status based on the encoded result.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"metal_out\",\"v2\":\"encoded_metal_result\"}}"
+}

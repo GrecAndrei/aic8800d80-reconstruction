@@ -1,0 +1,9 @@
+{
+ "fn": "cfm_ops_get2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x128390",
+ "seg": 33,
+ "key": "cfm_ops_get2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"cfm_ops_matches_current\",\"confidence\":\"medium\",\"docstring\":\"Checks whether the active CFM operation matches the supplied context using type-specific pointer or identifier comparisons.\",\"subsystem\":\"cfm\",\"var_renames\":{\"v1\":\"active_ops\",\"v2\":\"ops_type\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Active operation type selector\"},{\"offset\":26,\"meaning\":\"Active operation identifier used for matching\"},{\"offset\":72,\"meaning\":\"Context pointer compared with the active operation pointer\"},{\"offset\":107,\"meaning\":\"Context operation identifier compared with the active operation identifier\"},{\"offset\":1224,\"meaning\":\"Boolean state gate for the type-4 operation check\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ll_event_prepare",
+ "img": "fmacfw_u02",
+ "addr": "0x141730",
+ "seg": 65,
+ "key": "ll_event_prepare__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_event_prepare\",\"confidence\":\"medium\",\"docstring\":\"Initializes link-layer event parameters, then searches the event table for a matching entry or candidates selected by state and priority.\",\"subsystem\":\"ble\",\"var_renames\":{\"v14\":\"event_entry\",\"v15\":\"state_3_candidate\",\"v17\":\"state_1_candidate\",\"v18\":\"matching_event_entry\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Event entry state; values 1 and 3 are handled as candidate states.\"},{\"offset\":6,\"meaning\":\"First 16-bit event matching key, passed to ble_ll_adv_set_params.\"},{\"offset\":8,\"meaning\":\"Second 16-bit event matching key, passed to ble_ll_adv_set_params.\"},{\"offset\":10,\"meaning\":\"Third 16-bit event matching key, passed to ble_ll_adv_set_params.\"},{\"offset\":20,\"meaning\":\"Byte value used to rank candidate entries; the smaller value is preferred.\"}]}"
+}

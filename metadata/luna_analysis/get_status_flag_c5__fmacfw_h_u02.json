@@ -1,0 +1,9 @@
+{
+ "fn": "get_status_flag_c5",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c3a8",
+ "seg": 40,
+ "key": "get_status_flag_c5__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_bt_packet_status\",\"confidence\":\"medium\",\"docstring\":\"When BT packet parsing is enabled, parses the packet described by the nested receive context and stores the result in its status field; otherwise, it may disable an MMIO IRQ.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"packet_context\",\"v3\":\"parse_status\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"Packet header containing the packet type and length fields.\"},{\"offset\":36,\"meaning\":\"Stored parser status, with the result repeated in adjacent bytes.\"},{\"offset\":48,\"meaning\":\"Pointer to the packet context.\"},{\"offset\":72,\"meaning\":\"Pointer to the receive buffer; parsing starts four bytes into it.\"},{\"offset\":76,\"meaning\":\"Pointer to a structure containing the packet context pointer.\"}]}"
+}

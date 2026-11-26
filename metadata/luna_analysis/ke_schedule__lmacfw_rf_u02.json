@@ -1,0 +1,9 @@
+{
+ "fn": "ke_schedule",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ac80",
+ "seg": 15,
+ "key": "ke_schedule__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_schedule\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes the kernel's timed event list under critical-section protection, invoking due callbacks and programming the scheduler timer for future events.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"timed_event_list_head\",\n    \"v1\": \"sched_nesting_count\",\n    \"v2\": \"irq_disabled_flag\",\n    \"v3\": \"ke_timer_ctx\",\n    \"v4\": \"timed_event_list_head\",\n    \"result\": \"saved_sched_nesting_count\",\n    \"v6\": \"event\",\n    \"v7\": \"sched_nesting_count_after_inc\",\n    \"v8\": \"event_due_time\",\n    \"v9\": \"sched_nesting_count_after_dec\",\n    \"v10\": \"irq_disabled_state\",\n    \"v11\": \"event_callback\",\n    \"v12\": \"irq_disabled_flag_ptr\",\n    \"v13\": \"irq_was_disabled\",\n    \"v14\": \"irq_disabled_flag_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"timed event callback function pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"timed event callback argument\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"absolute due time or scheduler tick for the event\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"timer control/status word\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"current tick/time counter\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"next scheduled due time programmed to the timer\"\n    }\n  ]\n}"
+}

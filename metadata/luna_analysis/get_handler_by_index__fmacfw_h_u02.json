@@ -1,0 +1,9 @@
+{
+ "fn": "get_handler_by_index",
+ "img": "fmacfw_h_u02",
+ "addr": "0x113564",
+ "seg": 5,
+ "key": "get_handler_by_index__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_handler_by_index\",\"confidence\":\"medium\",\"docstring\":\"Returns the handler-table entry at the given index, or zero when the index exceeds 7.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"index\"}}"
+}

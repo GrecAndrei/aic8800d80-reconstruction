@@ -1,0 +1,9 @@
+{
+ "fn": "rf_select_base",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111618",
+ "seg": 4,
+ "key": "rf_select_base__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_get_select_base_flag\", \"confidence\": \"medium\", \"docstring\": \"Returns bit 21 of a selected RF table/base entry, choosing one of two table bases by the first argument and indexing 32-byte entries by the second argument.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"table_sel\", \"a2\": \"entry_idx\", \"v2\": \"base_addr\", \"v4\": \"base_addr\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"word0 of each 32-byte RF table entry; bit 21 is queried as a select/base flag\"}, {\"offset\": 32, \"meaning\": \"stride between RF table entries\"}]}"
+}

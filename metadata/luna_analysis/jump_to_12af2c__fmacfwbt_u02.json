@@ -1,0 +1,9 @@
+{
+ "fn": "jump_to_12af2c",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12159c",
+ "seg": 23,
+ "key": "jump_to_12af2c__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_conn_set_bit_wrapper\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Thin wrapper that forwards the given Bluetooth connection bit/mask to bt_conn_set_bit.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"conn_bit\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "is_valid_conn_handle",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122f10",
+ "seg": 28,
+ "key": "is_valid_conn_handle__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_cmd_set_agg_disable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a vendor/BT host command that optionally starts an RF scan and sets aggregation-disable and RX-disable state, then sends the completion event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v4\": \"scan_channel\",\n    \"v8\": \"agg_disable\",\n    \"v9\": \"agg_disable_state_ptr\",\n    \"v10\": \"disable_rx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"command byte 0: aggregation disable flag, normalized to 0/1\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"command byte 1: RF scan channel/start parameter; 0xFF means do not start scan\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"command byte 2: RX disable flag\"\n    }\n  ]\n}"
+}

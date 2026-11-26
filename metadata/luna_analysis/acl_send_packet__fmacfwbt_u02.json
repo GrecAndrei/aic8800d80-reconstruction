@@ -1,0 +1,9 @@
+{
+ "fn": "acl_send_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x127cf4",
+ "seg": 34,
+ "key": "acl_send_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_send_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Populates a Bluetooth controller HCI/ACL TX descriptor from a packet header and submits it for transmission.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"hci_pkt\",\n    \"v3\": \"tx_desc\",\n    \"v7\": \"pkt_hdr_word\",\n    \"v8\": \"status_struct\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 88,\n      \"meaning\": \"HCI packet length / parameter total length field\"\n    },\n    {\n      \"offset\": 90,\n      \"meaning\": \"first 16-bit HCI header word copied from packet\"\n    },\n    {\n      \"offset\": 92,\n      \"meaning\": \"duplicate or companion 16-bit HCI header word\"\n    },\n    {\n      \"offset\": 96,\n      \"meaning\": \"byte copied from packet offset 4\"\n    },\n    {\n      \"offset\": 97,\n      \"meaning\": \"byte copied from packet offset 3\"\n    },\n    {\n      \"offset\": 98,\n      \"meaning\": \"idle/sentinel field reset to 0xFFFF\"\n    },\n    {\n      \"offset\": 100,\n      \"meaning\": \"submit or pending flag\"\n    },\n    {\n      \"offset\": 104,\n      \"meaning\": \"payload pointer or length field\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"command or packet state\"\n    },\n    {\n      \"offset\": 110,\n      \"meaning\": \"flags, channel, or packet subtype byte\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_config_a",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114410",
+ "seg": 5,
+ "key": "get_config_a__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"alloc_error_lp_level_tx_event\",\"confidence\":\"medium\",\"docstring\":\"Allocates and returns a transmit event associated with the error low-power-level key.\",\"subsystem\":\"rf\"}"
+}

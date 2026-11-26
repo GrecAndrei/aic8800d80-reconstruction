@@ -1,0 +1,9 @@
+{
+ "fn": "check_scan_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x140b80",
+ "seg": 65,
+ "key": "check_scan_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_check_scan_enable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks stored BLE scan state and dispatches an HCI/LE scan-enable message when the scan parameters are valid.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v2\": \"state_base\",\n    \"v3\": \"scan_type\",\n    \"v4\": \"request_ctx\",\n    \"v5\": \"scan_entry\",\n    \"v7\": \"scan_enable_cond\",\n    \"v8\": \"msg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 6489,\n      \"meaning\": \"stored BLE scan type, constrained to 0..3\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"scan type field copied into the dispatched scan message\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_link_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1286f4",
+ "seg": 34,
+ "key": "bt_link_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_link_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks whether the current Bluetooth link is valid and compatible with a connection context based on link type, pointer identity, active state, and subtype fields.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"link_ptr\",\n    \"v2\": \"link_type\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"Bluetooth link object type or state byte\"\n    },\n    {\n      \"offset\": 26,\n      \"meaning\": \"Bluetooth link object subtype or attribute byte\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"connection context pointer to associated Bluetooth link\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"connection context Bluetooth link type or subtype byte\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"connection context flag suppressing active-link path\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_global_op_0x16acdc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ee6c",
+ "seg": 42,
+ "key": "bt_global_op_0x16acdc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_set_module_filter\",\"confidence\":\"high\",\"docstring\":\"Stores the requested Bluetooth module filter and writes the corresponding response header.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"module_filter_ptr\"}}"
+}

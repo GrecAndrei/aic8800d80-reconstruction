@@ -1,0 +1,9 @@
+{
+ "fn": "process_items",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12248c",
+ "seg": 22,
+ "key": "process_items__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"dbg_cmd_severity\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses debug command arguments to read or set the debug severity, rejecting severity indices above five.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v4\": \"parsed_cmd\",\n    \"v5\": \"current_severity\",\n    \"v7\": \"severity_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"argv[1] pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"argv[2] pointer\"\n    }\n  ]\n}"
+}

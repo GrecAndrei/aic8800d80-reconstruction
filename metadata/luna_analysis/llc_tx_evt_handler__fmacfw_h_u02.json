@@ -1,0 +1,9 @@
+{
+ "fn": "llc_tx_evt_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1266e4",
+ "seg": 32,
+ "key": "llc_tx_evt_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_tx_event_handler\",\"confidence\":\"medium\",\"docstring\":\"Selects the LLC environment and event time for transmit scheduling, accounting for the active link and RF trim timing.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"llc_env_base\",\"v4\":\"event_state\",\"v5\":\"current_link_obj\",\"v6\":\"link_idx\",\"v7\":\"link_env\",\"v13\":\"alternate_link_idx\",\"v14\":\"lookup_time\",\"v30\":\"alternate_link_env\",\"v31\":\"trim_status\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Event timer timestamp or counter used as the time reference.\"},{\"offset\":8,\"meaning\":\"Current link-table index.\"},{\"offset\":27,\"meaning\":\"Status or validity byte on the current link object; 0xFF selects a fallback path.\"},{\"offset\":72,\"meaning\":\"Stored link-object pointer, compared between the event descriptor and LLC environment.\"},{\"offset\":86,\"meaning\":\"Alternate link index; 0xFF denotes no alternate link.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "state_set_value",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ec60",
+ "seg": 43,
+ "key": "state_set_value__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"state_set_value\",\"confidence\":\"medium\",\"docstring\":\"Stores the supplied 32-bit value into the field at offset 4 from the global state pointer and returns the value.\",\"subsystem\":\"ke\",\"var_renames\":{\"result\":\"value\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"32-bit state value field\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "memset",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x100200",
+ "seg": 0,
+ "key": "memset__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"memset\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Optimized volatile byte-fill utility that aligns the destination and writes repeated 32-bit byte patterns to initialize a memory region.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"dest\",\n    \"a2\": \"fill_byte\",\n    \"a3\": \"len\",\n    \"v3\": \"remaining_bytes\",\n    \"v4\": \"dest_ptr\",\n    \"v6\": \"fill_word\",\n    \"v8\": \"word_dest\",\n    \"v9\": \"tail_bytes\",\n    \"v10\": \"tail_ptr\"\n  },\n  \"struct_hints\": []\n}"
+}

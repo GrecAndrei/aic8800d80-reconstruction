@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_set",
+ "img": "fmacfw_h_u02",
+ "addr": "0x125958",
+ "seg": 30,
+ "key": "ke_event_set__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_task_event_set\",\"confidence\":\"medium\",\"docstring\":\"Stores the supplied value in the BT task state, calling bt_task_init when the word at offset 4 is zero and otherwise setting the byte at offset 10.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"bt_state\",\"v2\":\"task_status\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Value supplied by the caller\"},{\"offset\":4,\"meaning\":\"Word tested to choose between bt_task_init and setting the byte flag\"},{\"offset\":10,\"meaning\":\"Byte flag set to 1 when the offset-4 word is nonzero\"}]}"
+}

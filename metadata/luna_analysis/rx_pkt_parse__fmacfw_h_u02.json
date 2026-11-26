@@ -1,0 +1,9 @@
+{
+ "fn": "rx_pkt_parse",
+ "img": "fmacfw_h_u02",
+ "addr": "0x125184",
+ "seg": 30,
+ "key": "rx_pkt_parse__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_packet_bitmap_update\",\"confidence\":\"medium\",\"docstring\":\"Updates a per-context receive-packet bitmap and recomputes its occupied range when packet entries are added or removed.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"packet_update\",\"v1\":\"packet_id\",\"v2\":\"context_id\",\"v5\":\"bitmap_base\",\"v6\":\"bitmap_byte_index\",\"v7\":\"packet_bit_mask\",\"v9\":\"bitmap_byte\",\"v13\":\"rx_context_state\"},\"struct_hints\":[{\"offset\":218,\"meaning\":\"RX bitmap scan-window size, computed from the tracked lower and upper byte indices\"},{\"offset\":220,\"meaning\":\"Number of tracked packet entries\"},{\"offset\":228,\"meaning\":\"Lowest tracked bitmap byte index, aligned down to an even value\"},{\"offset\":229,\"meaning\":\"Highest tracked bitmap byte index\"},{\"offset\":28,\"meaning\":\"Pointer to the even-aligned lower bitmap boundary in the per-context 40-byte state block\"},{\"offset\":32,\"meaning\":\"Pointer to the highest tracked bitmap byte in the per-context 40-byte state block\"}]}"
+}

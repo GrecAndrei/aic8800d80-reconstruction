@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x120fb8",
+ "seg": 22,
+ "key": "ke_timer_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ap_tbtt_timer_handler\",\"confidence\":\"medium\",\"docstring\":\"Processes AP beacon intervals, advances the DTIM countdown, and schedules the next TBTT using the hardware timer.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"vif\",\"v8\":\"dtim_countdown\",\"v12\":\"next_tbtt_time\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"VIF type or mode; value 2 gates this AP-specific processing\"},{\"offset\":107,\"meaning\":\"VIF index matched against a concurrent-context entry\"},{\"offset\":222,\"meaning\":\"Beacon interval in TU, converted to microseconds with a shift by 10\"},{\"offset\":224,\"meaning\":\"DTIM period used to reload the countdown\"},{\"offset\":225,\"meaning\":\"Current DTIM countdown\"}]}"
+}

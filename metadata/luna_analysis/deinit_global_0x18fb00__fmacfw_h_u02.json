@@ -1,0 +1,9 @@
+{
+ "fn": "deinit_global_0x18fb00",
+ "img": "fmacfw_h_u02",
+ "addr": "0x124bf0",
+ "seg": 29,
+ "key": "deinit_global_0x18fb00__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_global_stats_buffer\",\"confidence\":\"medium\",\"docstring\":\"Clears the statistics buffer referenced by the global pointer and returns the callee's result.\",\"subsystem\":\"libmisc\"}"
+}

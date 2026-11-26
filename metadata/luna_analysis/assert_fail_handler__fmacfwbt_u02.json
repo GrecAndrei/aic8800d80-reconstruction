@@ -1,0 +1,9 @@
+{
+ "fn": "assert_fail_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11acf0",
+ "seg": 15,
+ "key": "assert_fail_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txl_agg_check_rts\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Validates an HD TX status word for a retryable RTS aggregation condition, updates the associated control register and continues transmission, or raises an assertion/log when the status is unexpected.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"result\": \"tx_ctx\",\n    \"v2\": \"hd_status\",\n    \"v3\": \"ctrl_base\",\n    \"v4\": \"ctrl_reg_val\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 60,\n      \"meaning\": \"HD/TX status word read from context\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"pointer to control block whose +20 word is masked and set\"\n    }\n  ]\n}"
+}

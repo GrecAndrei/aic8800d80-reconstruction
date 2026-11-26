@@ -1,0 +1,9 @@
+{
+ "fn": "handle_ll_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x141d08",
+ "seg": 67,
+ "key": "handle_ll_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"advance_ll_event\",\"confidence\":\"medium\",\"docstring\":\"Clears pending link-layer event state and advances the scheduled event timestamp by whole intervals until it meets the RF delay guard.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"conn_index\",\"v6\":\"conn_ctx\",\"v7\":\"next_event_time\",\"i\":\"intervals_advanced\",\"v9\":\"event_time_delta\",\"v10\":\"rf_delay_ticks\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Event flags\"},{\"offset\":16,\"meaning\":\"Event interval\"},{\"offset\":24,\"meaning\":\"Scheduled event timestamp\"},{\"offset\":47,\"meaning\":\"Connection index\"},{\"offset\":4,\"meaning\":\"Connection-context flags\"},{\"offset\":40,\"meaning\":\"Connection-context anchor timestamp\"}]}"
+}

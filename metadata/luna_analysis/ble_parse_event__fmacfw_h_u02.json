@@ -1,0 +1,9 @@
+{
+ "fn": "ble_parse_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x134480",
+ "seg": 51,
+ "key": "ble_parse_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_process_rx_event\",\"confidence\":\"medium\",\"docstring\":\"Builds an internal receive message from the supplied buffers and BLE context, dispatches it to the packet processor, and handles a deferred clock/event path when its conditions match.\",\"subsystem\":\"ble\",\"var_renames\":{\"v9\":\"rx_message\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"Flag byte whose bit 0 is set when the third argument is nonzero.\"}]}"
+}

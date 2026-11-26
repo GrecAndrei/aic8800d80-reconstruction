@@ -1,0 +1,9 @@
+{
+ "fn": "start_firmware",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118624",
+ "seg": 11,
+ "key": "start_firmware__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_link_start\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes Bluetooth/LE link management and coexistence, flushes kernel timers and resets environment state, then brings up the radio and enables its clock.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"link_cfg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"byte flag or configuration selector controlling startup paths\"\n    }\n  ]\n}"
+}

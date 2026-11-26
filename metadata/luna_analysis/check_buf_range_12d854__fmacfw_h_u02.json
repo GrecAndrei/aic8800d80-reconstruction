@@ -1,0 +1,9 @@
+{
+ "fn": "check_buf_range_12d854",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d854",
+ "seg": 42,
+ "key": "check_buf_range_12d854__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_rsn_ie\",\"confidence\":\"high\",\"docstring\":\"Scans 802.11 information elements for an in-bounds RSN element with at least 18 bytes of payload and returns its pointer and length.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"ie_cursor\",\"a2\":\"ies_length\",\"a3\":\"rsn_ie_length_out\",\"v3\":\"buffer_end\",\"v4\":\"element_length\",\"v5\":\"element_end\"}}"
+}

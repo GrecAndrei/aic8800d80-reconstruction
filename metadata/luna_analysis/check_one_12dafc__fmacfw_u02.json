@@ -1,0 +1,9 @@
+{
+ "fn": "check_one_12dafc",
+ "img": "fmacfw_u02",
+ "addr": "0x12dafc",
+ "seg": 42,
+ "key": "check_one_12dafc__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_find_nested_tlv\",\"confidence\":\"medium\",\"docstring\":\"Searches a length-delimited record stream for type 0xC4 and returns its bounded child type 0xC2, setting an output flag when the child length is 3.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"cursor\",\"a2\":\"buffer_length\",\"a3\":\"child_length_is_three\",\"v3\":\"buffer_end\",\"v4\":\"outer_payload_length\",\"v5\":\"outer_record_end\",\"v6\":\"outer_payload_end\",\"v7\":\"child_record_size\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"TLV type or tag byte\"},{\"offset\":1,\"meaning\":\"TLV payload length byte\"}]}"
+}

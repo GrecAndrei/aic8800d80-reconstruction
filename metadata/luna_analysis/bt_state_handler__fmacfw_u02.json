@@ -1,0 +1,9 @@
+{
+ "fn": "bt_state_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x13d34c",
+ "seg": 61,
+ "key": "bt_state_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_mode_metric_get\",\"confidence\":\"low\",\"docstring\":\"Computes a mode-dependent metric from packed bitfields and scaling parameters, saturating the result at 10.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"mode_bitmap\",\"v2\":\"bit_loop_count\",\"v3\":\"weighted_bit_count\",\"v4\":\"packed_flag_bitmap\",\"i\":\"bit_index\",\"v6\":\"current_bit\",\"v7\":\"mode_selector\",\"v8\":\"mode_factor\",\"v9\":\"scale_value\",\"v10\":\"mode_selector_minus_one\",\"v11\":\"scaled_base\",\"v12\":\"mode_multiplier\"},\"struct_hints\":[{\"offset\":169,\"meaning\":\"Mode selector that chooses among six calculation branches.\"},{\"offset\":170,\"meaning\":\"Byte used as a bitmap in some branches and as a low-bit selector in others.\"},{\"offset\":174,\"meaning\":\"16-bit packed flags used in the metric calculation.\"},{\"offset\":179,\"meaning\":\"Scaling operand used in the mode-dependent formulas.\"},{\"offset\":180,\"meaning\":\"Scaling operand multiplied into the result.\"},{\"offset\":181,\"meaning\":\"Shift amount applied to a scaling value.\"},{\"offset\":182,\"meaning\":\"Adjustment to the shift used for packed-flag contributions.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_phy_cal_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f4a8",
+ "seg": 21,
+ "key": "wlc_phy_cal_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_sta_mgmt_unregister\",\"confidence\":\"high\",\"docstring\":\"Unregisters a station management context by clearing its list/registration state, adjusting interface association counters, flushing LLC queues, and finalizing per-interface transmit setup.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"sta_idx\",\"v1\":\"sta_mgmt_base\",\"v2\":\"vif_info_base\",\"v3\":\"sta_ctx\",\"v4\":\"vif_info_offset\",\"v13\":\"irq_save_state\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"interface/vif index used to compute per-vif info offset\"},{\"offset\":37,\"meaning\":\"station registration or linked-list active flag cleared on unregister\"},{\"offset\":44,\"meaning\":\"pointer to linked station or bsscfg context processed during unregister\"}]}"
+}

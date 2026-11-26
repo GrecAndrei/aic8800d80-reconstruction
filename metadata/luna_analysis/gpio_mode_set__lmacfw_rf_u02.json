@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_mode_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10ea74",
+ "seg": 2,
+ "key": "gpio_mode_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_pa_calibrate\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Searches and programs RF PA control register fields to match a target PA current, returning the calibration offset and storing the final gain/control value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"init_res\",\n    \"a2\": \"init_cgm\",\n    \"a3\": \"out_final_cgm\",\n    \"v3\": \"cgm_value\",\n    \"v4\": \"rf_ctrl_reg0\",\n    \"v5\": \"rf_ctrl_reg1\",\n    \"v8\": \"target_pa_ptr\",\n    \"v9\": \"current_pa\",\n    \"v10\": \"target_pa\",\n    \"v11\": \"rf_ctrl_reg0\",\n    \"v12\": \"rf_ctrl_reg1\",\n    \"v13\": \"res_value\",\n    \"v14\": \"max_iter\",\n    \"v15\": \"prev_pa\",\n    \"v16\": \"target_pa\",\n    \"v17\": \"curr_pa_err\",\n    \"v18\": \"prev_pa_err\",\n    \"v20\": \"cal_offset\",\n    \"v21\": \"init_res\",\n    \"v22\": \"init_total\",\n    \"v23\": \"search_step\",\n    \"v24\": \"saved_res\",\n    \"v25\": \"saved_cgm\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "timer_poll",
+ "img": "fmacfwbt_u02",
+ "addr": "0x100670",
+ "seg": 0,
+ "key": "timer_poll__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"timer_poll\",\"confidence\":\"medium\",\"docstring\":\"Reads the selected timer and updates a global byte with the returned value when it changes.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"timer_id\"}}"
+}

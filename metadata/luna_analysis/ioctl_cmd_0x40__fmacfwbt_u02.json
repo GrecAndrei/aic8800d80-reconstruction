@@ -1,0 +1,9 @@
+{
+ "fn": "ioctl_cmd_0x40",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1153a0",
+ "seg": 7,
+ "key": "ioctl_cmd_0x40__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ioctl_cmd_0x40\",\"confidence\":\"high\",\"docstring\":\"Dispatches ioctl command 0x40 with the supplied argument and a 4-byte parameter.\",\"subsystem\":\"wlan\"}"
+}

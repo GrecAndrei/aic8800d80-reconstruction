@@ -1,0 +1,9 @@
+{
+ "fn": "trace_event_count",
+ "img": "fmacfwbt_u02",
+ "addr": "0x108090",
+ "seg": 2,
+ "key": "trace_event_count__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_loft_q_apply_calibration\",\"confidence\":\"medium\",\"docstring\":\"Reads and logs the LOFT Q calibration value, adds it to the current 12-bit setting, and triggers the hardware update.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"loft_q_setting_reg\",\"v1\":\"current_setting\",\"v2\":\"loft_q_calibration_value\",\"v4\":\"calibration_trigger_reg\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_0x0f_bit_19",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114a44",
+ "seg": 5,
+ "key": "rf_reg_0x0f_bit_19__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_reg_0x0f_bit_19_get\",\"confidence\":\"high\",\"docstring\":\"Returns bit 19 of RF register 0x0F read through the ROM RF-register accessor.\",\"subsystem\":\"rf\"}"
+}

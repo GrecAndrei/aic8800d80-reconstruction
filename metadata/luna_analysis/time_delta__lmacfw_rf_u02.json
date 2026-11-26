@@ -1,0 +1,9 @@
+{
+ "fn": "time_delta",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ad88",
+ "seg": 15,
+ "key": "time_delta__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_time_delta\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Kernel helper that returns true when the timestamp fields of two timer/event objects are equal or fall within the configured tick delta window.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v3\": \"time_a\",\n    \"v5\": \"time_b\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"uint32_t timestamp/tick field\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mac_compute_transform",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13c870",
+ "seg": 61,
+ "key": "mac_compute_transform__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"aes_encrypt_block\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Performs an AES block encryption transform, XORing the 128-bit state with the initial round key and updating it through unrolled AES S-box/MixColumns table lookups.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v3\": \"aes_sbox_table\",\n    \"v4\": \"aes_sbox_x3_table\",\n    \"v44\": \"state_word0\",\n    \"v41\": \"state_word1\",\n    \"v46\": \"state_word2\",\n    \"v45\": \"state_word3\",\n    \"v50\": \"aes_round_key_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"AES state/block word 0\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"AES state/block word 1\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"AES state/block word 2\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"AES state/block word 3\"\n    }\n  ]\n}"
+}

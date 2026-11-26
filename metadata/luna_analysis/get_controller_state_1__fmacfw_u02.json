@@ -1,0 +1,9 @@
+{
+ "fn": "get_controller_state_1",
+ "img": "fmacfw_u02",
+ "addr": "0x134474",
+ "seg": 51,
+ "key": "get_controller_state_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_get_controller_state\",\"confidence\":\"medium\",\"docstring\":\"Selects a controller record, using the scan-command path when context flag bit 0 is set, and returns pointers to associated fields with a fallback to the context\u2019s optional 16-bit field.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"out_primary\",\"a2\":\"out_secondary\",\"v2\":\"controller_ctx\",\"result\":\"record\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Record field whose address is returned as the primary output.\"},{\"offset\":34,\"meaning\":\"Controller-context byte; bit 0 selects the scan-command lookup path.\"},{\"offset\":40,\"meaning\":\"Optional controller-context 16-bit field; 0xffff indicates it is absent.\"},{\"offset\":44,\"meaning\":\"Record field whose 32-bit value is returned as the secondary output.\"}]}"
+}

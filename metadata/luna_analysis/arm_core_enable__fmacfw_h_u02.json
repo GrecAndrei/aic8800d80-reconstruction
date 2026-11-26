@@ -1,0 +1,9 @@
+{
+ "fn": "arm_core_enable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100fac",
+ "seg": 0,
+ "key": "arm_core_enable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel\",\"confidence\":\"medium\",\"docstring\":\"Configures RF and PHY registers for the requested frequency, selecting a profile based on its frequency range.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"frequency_mhz\",\"v11\":\"profile_offset\",\"v13\":\"profile_table_base\",\"v15\":\"profile_entry\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1100d4",
+ "seg": 3,
+ "key": "rx_packet_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_packet_event_process\",\"confidence\":\"medium\",\"docstring\":\"Initializes the RX packet kernel event list and iterates over pending packet events, checking the kernel state for each event.\",\"subsystem\":\"ke\",\"var_renames\":{\"v4\":\"processed\",\"v5\":\"pkt_evt\",\"result\":\"status\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"uint16_t pending event count in RX packet event control block\"}]}"
+}

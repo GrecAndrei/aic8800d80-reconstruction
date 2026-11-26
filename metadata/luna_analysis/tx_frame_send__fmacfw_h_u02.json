@@ -1,0 +1,9 @@
+{
+ "fn": "tx_frame_send",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11bf3c",
+ "seg": 18,
+ "key": "tx_frame_send__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_handle_he_trigger_pu\",\"confidence\":\"medium\",\"docstring\":\"Processes a TX descriptor, with specialized validation and per-user setup for HE trigger-based uplink frames.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"tx_control_flags\",\"v9\":\"trigger_user_index\",\"v10\":\"trigger_user_entry\"},\"struct_hints\":[{\"offset\":48,\"meaning\":\"Header-descriptor frame-length field checked against the minimum length\"},{\"offset\":84,\"meaning\":\"TX control flags; bit 25 selects HE trigger-PU handling and bits 15\u201324 encode a user index\"}]}"
+}

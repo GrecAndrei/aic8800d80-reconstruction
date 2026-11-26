@@ -1,0 +1,9 @@
+{
+ "fn": "ke_buf_alloc",
+ "img": "fmacfw_u02",
+ "addr": "0x132324",
+ "seg": 45,
+ "key": "ke_buf_alloc__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_scan_channel_set\",\"confidence\":\"medium\",\"docstring\":\"Tunes the radio to the requested scan channel, posts the channel in a one-byte kernel message, and sends a parameterless notification.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"channel\",\"v2\":\"channel_message\"}}"
+}

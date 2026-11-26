@@ -1,0 +1,9 @@
+{
+ "fn": "adv_set_params",
+ "img": "fmacfw_u02",
+ "addr": "0x13b698",
+ "seg": 60,
+ "key": "adv_set_params__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_adv_event_configure\",\"confidence\":\"medium\",\"docstring\":\"Prepares an RF event configuration using the selected advertising context and RF parameters.\",\"subsystem\":\"rf\",\"var_renames\":{\"v7\":\"adv_contexts\",\"v8\":\"rf_contexts\",\"v9\":\"rf_context_index\",\"v17\":\"rf_event_config\",\"v21\":\"rf_context_params\",\"v28\":\"rf_event_config_words\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"RF context index in a per-advertising-context entry\"},{\"offset\":72,\"meaning\":\"Pointer to the active RF event configuration\"},{\"offset\":106,\"meaning\":\"RF mode selector used to choose the parameter source\"},{\"offset\":108,\"meaning\":\"Start of the staged RF event parameter block\"},{\"offset\":130,\"meaning\":\"Scaled incrementing counter stored in the RF event configuration\"}]}"
+}

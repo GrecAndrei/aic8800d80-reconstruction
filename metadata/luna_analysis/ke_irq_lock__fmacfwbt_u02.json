@@ -1,0 +1,9 @@
+{
+ "fn": "ke_irq_lock",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1301b4",
+ "seg": 43,
+ "key": "ke_irq_lock__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ke_irq_abort_check\", \"confidence\": \"medium\", \"docstring\": \"Temporarily acquires a nested IRQ lock, clears kernel abort contexts, checks four abort flags, and releases the lock before returning the final abort-check result.\", \"subsystem\": \"ke\", \"var_renames\": {\"v0\": \"irq_lock_count_ptr\", \"v1\": \"abort_ctx_ptr\", \"result\": \"abort_check_result\", \"v3\": \"irq_lock_count_next\", \"v4\": \"saved_irq_disable_flag\"}}"
+}

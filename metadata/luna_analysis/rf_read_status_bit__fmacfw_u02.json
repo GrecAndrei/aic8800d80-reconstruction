@@ -1,0 +1,9 @@
+{
+ "fn": "rf_read_status_bit",
+ "img": "fmacfw_u02",
+ "addr": "0x10d304",
+ "seg": 2,
+ "key": "rf_read_status_bit__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_wait_for_status_bit\",\"confidence\":\"medium\",\"docstring\":\"Checks RF status and mode bits, triggers a status request when required, waits up to 2000 timer units for status flags, and returns the selected status bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"result_bit\",\"v3\":\"start_time\",\"v4\":\"timeout_deadline\",\"v5\":\"status_word\",\"v6\":\"time_remaining\",\"v7\":\"status_flags\"}}"
+}

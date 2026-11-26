@@ -1,0 +1,9 @@
+{
+ "fn": "rf_isr_clear",
+ "img": "fmacfw_u02",
+ "addr": "0x112ca8",
+ "seg": 4,
+ "key": "rf_isr_clear__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_wakeup_isr_clear\",\"confidence\":\"medium\",\"docstring\":\"Selects the USB-wakeup handling path from a status bit, clears the associated byte flag and acknowledgment bit, and returns the handler result.\",\"subsystem\":\"mmio\",\"var_renames\":{\"v1\":\"irq_ack_base\"},\"struct_hints\":[{\"offset\":176,\"meaning\":\"Status register; bit 30 selects the handling path.\"},{\"offset\":3584,\"meaning\":\"Acknowledgment register; bit 0 is cleared.\"}]}"
+}

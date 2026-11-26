@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_init_pin_13",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10dcb0",
+ "seg": 2,
+ "key": "gpio_init_pin_13__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_init_pin_13\",\"confidence\":\"medium\",\"docstring\":\"Configure GPIO/pad pin 13 by applying a 0x2000/0x3C00 function setting, setting enable/output bits, and clearing conflicting function/pull bits.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"gpio_base\",\"result\":\"init_result\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"pin/pad enable, output, or drive control register\"},{\"offset\":12,\"meaning\":\"pin/pad function, pull, or drive select register\"}]}"
+}

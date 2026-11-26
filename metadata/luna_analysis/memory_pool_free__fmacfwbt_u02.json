@@ -1,0 +1,9 @@
+{
+ "fn": "memory_pool_free",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10fe60",
+ "seg": 3,
+ "key": "memory_pool_free__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"pkt_mem_free\",\"confidence\":\"medium\",\"docstring\":\"Validates a packet buffer's pool metadata and returns it to the appropriate pool or free list.\",\"subsystem\":\"mm\",\"var_renames\":{\"a1\":\"packet_buffer\",\"v3\":\"buffer_pool_id\",\"v4\":\"active_pool_id\",\"v5\":\"active_pool_id\"},\"struct_hints\":[{\"offset\":-4,\"meaning\":\"Pool identifier stored in the allocation header immediately before the buffer.\"}]}"
+}

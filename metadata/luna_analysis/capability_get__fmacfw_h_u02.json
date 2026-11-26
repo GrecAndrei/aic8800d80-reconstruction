@@ -1,0 +1,9 @@
+{
+ "fn": "capability_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11dfc0",
+ "seg": 20,
+ "key": "capability_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_frame_process\",\"confidence\":\"medium\",\"docstring\":\"Handles eligible RX data frames, advances the associated DMA-ring pointer, and returns the PHY-rate result.\",\"subsystem\":\"rx\",\"var_renames\":{\"v1\":\"rx_header_desc\",\"v2\":\"rx_status_flags\",\"v3\":\"frame_control_type\",\"v4\":\"next_dma_addr\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"RX header descriptor pointer\"},{\"offset\":84,\"meaning\":\"RX status and control flags\"},{\"offset\":152,\"meaning\":\"updated DMA-ring address\"},{\"offset\":8,\"meaning\":\"Within the RX header descriptor, pointer to the 802.11 frame\"},{\"offset\":12,\"meaning\":\"Within the RX header descriptor, word used to derive the next DMA address\"}]}"
+}

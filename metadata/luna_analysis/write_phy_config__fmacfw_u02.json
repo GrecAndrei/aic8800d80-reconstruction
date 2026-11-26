@@ -1,0 +1,9 @@
+{
+ "fn": "write_phy_config",
+ "img": "fmacfw_u02",
+ "addr": "0x102b80",
+ "seg": 1,
+ "key": "write_phy_config__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_phy_config\",\"confidence\":\"medium\",\"docstring\":\"Updates the low byte and bits 12\u201319 of two PHY registers using the input value and its 8-bit value minus three, then returns the updated second register.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"config_value\",\"v1\":\"first_config_reg\",\"v2\":\"second_config_reg\",\"v3\":\"derived_field_value\",\"result\":\"updated_second_config\"},\"struct_hints\":[]}"
+}

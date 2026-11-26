@@ -1,0 +1,9 @@
+{
+ "fn": "enable_nvic_irq",
+ "img": "fmacfwbt_u02",
+ "addr": "0x102a74",
+ "seg": 2,
+ "key": "enable_nvic_irq__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_irq_init\",\"confidence\":\"medium\",\"docstring\":\"Installs radio-related interrupt handlers in the vector table, configures an NVIC priority, enables interrupt lines, and unmasks interrupts globally.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"nvic_iser_base\",\"v2\":\"irq5_and_irq7_handler\",\"v4\":\"irq2_handler\",\"v5\":\"irq6_handler\",\"v6\":\"irq3_handler\",\"v7\":\"irq36_handler\",\"v8\":\"irq37_handler\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Vector-table entry for external IRQ 2\"},{\"offset\":76,\"meaning\":\"Vector-table entry for external IRQ 3\"},{\"offset\":80,\"meaning\":\"Vector-table entry for external IRQ 4\"},{\"offset\":84,\"meaning\":\"Vector-table entry for external IRQ 5\"},{\"offset\":88,\"meaning\":\"Vector-table entry for external IRQ 6\"},{\"offset\":92,\"meaning\":\"Vector-table entry for external IRQ 7\"},{\"offset\":208,\"meaning\":\"Vector-table entry for external IRQ 36\"},{\"offset\":212,\"meaning\":\"Vector-table entry for external IRQ 37\"}]}"
+}

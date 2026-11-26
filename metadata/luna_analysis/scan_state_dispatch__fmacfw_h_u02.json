@@ -1,0 +1,9 @@
+{
+ "fn": "scan_state_dispatch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1422a4",
+ "seg": 67,
+ "key": "scan_state_dispatch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"scan_state_process\",\"confidence\":\"medium\",\"docstring\":\"Updates scan and link-layer state for the indexed connection, then sends the resulting status byte.\",\"subsystem\":\"bt\",\"var_renames\":{\"v6\":\"status\",\"v8\":\"connection_index\",\"v9\":\"connection_table\",\"v11\":\"lookup_mode\",\"v14\":\"slot_entry\",\"v15\":\"slot_table_end\",\"v16\":\"connection_entry\",\"v17\":\"scan_mode\"},\"struct_hints\":[{\"offset\":116,\"meaning\":\"Connection entry byte used as a context identifier when initializing scan state and looking up a context.\"},{\"offset\":46,\"meaning\":\"Slot entry byte compared with the connection entry's byte at offset 116.\"},{\"offset\":47,\"meaning\":\"Slot entry byte compared with the requested connection index.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_handle_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x138c64",
+ "seg": 58,
+ "key": "rf_handle_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_rx_packet\",\"confidence\":\"medium\",\"docstring\":\"Optionally parses Bluetooth packet metadata and copies the received payload into the RF receive buffer, wrapping at its end.\",\"subsystem\":\"rf\",\"var_renames\":{\"v9\":\"rx_buffer_state\",\"v14\":\"payload_length\",\"v15\":\"bytes_to_buffer_end\",\"v17\":\"buffer_write_offset\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"pointer to receive-buffer state\"},{\"offset\":48,\"meaning\":\"received packet length\"},{\"offset\":8,\"meaning\":\"current receive-buffer position\"},{\"offset\":12,\"meaning\":\"last valid receive-buffer position\"}]}"
+}

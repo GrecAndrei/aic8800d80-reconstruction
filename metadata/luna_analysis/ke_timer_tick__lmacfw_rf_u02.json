@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_tick",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1244f8",
+ "seg": 23,
+ "key": "ke_timer_tick__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_ll_tick_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Kernel tick/message handler that processes message 2 and performs a link-layer state reset once every ten occurrences.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"result\": \"msg_result\",\n    \"v1\": \"ll_reset_count_next\",\n    \"off_12451C\": \"ll_reset_counter_ptr\"\n  },\n  \"struct_hints\": []\n}"
+}

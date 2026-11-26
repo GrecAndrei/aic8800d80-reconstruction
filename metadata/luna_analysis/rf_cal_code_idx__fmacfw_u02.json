@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_code_idx",
+ "img": "fmacfw_u02",
+ "addr": "0x12e100",
+ "seg": 42,
+ "key": "rf_cal_code_idx__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cal_value_to_code_idx\",\"confidence\":\"medium\",\"docstring\":\"Maps a signed RF calibration value to an even code index from 0 to 220, saturating outside the -110 to 0 range.\",\"subsystem\":\"rf\"}"
+}

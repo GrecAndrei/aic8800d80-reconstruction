@@ -1,0 +1,9 @@
+{
+ "fn": "double_to_float",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143108",
+ "seg": 69,
+ "key": "double_to_float__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_d2f\",\n  \"confidence\": \"high\",\n  \"docstring\": \"ARM AAPCS soft-float helper converting an IEEE-754 double to a single-precision float.\",\n  \"subsystem\": \"libmisc\"\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c4a4",
+ "seg": 40,
+ "key": "ke_event_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_rx_record_timestamp\",\"confidence\":\"medium\",\"docstring\":\"Stores a computed timestamp for a keyed RX record, dispatches the record through a list callback, and updates the active timestamp under IRQ protection.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"record_key_hi\",\"a2\":\"record_key_lo\",\"a3\":\"timestamp_delta\",\"v7\":\"active_update_count_ptr\",\"v9\":\"active_entry_matches_key\",\"v10\":\"timestamp_entry\",\"v13\":\"new_timestamp\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit high half of the RX record lookup key\"},{\"offset\":6,\"meaning\":\"16-bit low half of the RX record lookup key\"},{\"offset\":8,\"meaning\":\"timestamp associated with the RX record\"},{\"offset\":20,\"meaning\":\"current RX record pointer in the tracking state\"}]}"
+}

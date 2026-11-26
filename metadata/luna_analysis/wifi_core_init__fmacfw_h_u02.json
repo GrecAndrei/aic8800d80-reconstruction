@@ -1,0 +1,9 @@
+{
+ "fn": "wifi_core_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11bc48",
+ "seg": 17,
+ "key": "wifi_core_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_state_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes shared radio state and its repeated records, then selects RF control bits according to status bit 26.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"radio_state\",\"v4\":\"record_ptr\",\"v6\":\"radio_table\"},\"struct_hints\":[{\"offset\":92,\"meaning\":\"Start of nine 92-byte records initialized with repeated queue or list fields.\"},{\"offset\":1088,\"meaning\":\"Shared state anchor referenced by multiple fields.\"}]}"
+}

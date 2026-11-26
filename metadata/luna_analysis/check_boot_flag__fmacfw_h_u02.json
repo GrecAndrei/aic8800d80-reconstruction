@@ -1,0 +1,9 @@
+{
+ "fn": "check_boot_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102970",
+ "seg": 1,
+ "key": "check_boot_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_set_channel\",\"confidence\":\"medium\",\"docstring\":\"Applies the requested channel on radio 0 when it differs from cached state or firmware state forces a refresh, then saves the request.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"channel_config\",\"a2\":\"radio_id\",\"v3\":\"cached_rf_state\",\"a5\":\"channel_param_byte\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Channel selector passed as the first RF calibration argument.\"},{\"offset\":1,\"meaning\":\"Byte passed as the fourth RF calibration argument.\"},{\"offset\":2,\"meaning\":\"16-bit RF calibration parameter passed as the second argument.\"},{\"offset\":4,\"meaning\":\"16-bit RF calibration parameter passed as the third argument.\"},{\"offset\":6,\"meaning\":\"16-bit configuration value compared against cached channel state.\"},{\"offset\":8,\"meaning\":\"16-bit configuration value copied into the cached request.\"},{\"offset\":9,\"meaning\":\"Byte compared against cached state and passed as the fifth RF calibration argument.\"}]}"
+}

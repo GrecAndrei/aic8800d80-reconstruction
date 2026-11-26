@@ -1,0 +1,9 @@
+{
+ "fn": "scan_trigger",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133b7c",
+ "seg": 48,
+ "key": "scan_trigger__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_scan_trigger\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends a short Bluetooth HCI scan command and clears the corresponding IRQ or checks hardware readiness based on the returned HCI status.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v0\": \"hci_status\"\n  }\n}"
+}

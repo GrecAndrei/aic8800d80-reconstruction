@@ -1,0 +1,9 @@
+{
+ "fn": "rf_load_calib_data",
+ "img": "fmacfwbt_u02",
+ "addr": "0x106314",
+ "seg": 2,
+ "key": "rf_load_calib_data__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_shift_calibration\",\"confidence\":\"medium\",\"docstring\":\"Selects a calibration pair from the shift-index table, programs two masked RF register fields, and logs the selected index.\",\"subsystem\":\"rf\",\"var_renames\":{\"v25\":\"shift_idx\",\"v26\":\"calibration_table_index\",\"v28\":\"first_calibration_value\",\"v30\":\"second_calibration_value\"},\"struct_hints\":[{\"offset\":140,\"meaning\":\"Base offset of 32-bit shift-index entries, indexed by a2.\"}]}"
+}

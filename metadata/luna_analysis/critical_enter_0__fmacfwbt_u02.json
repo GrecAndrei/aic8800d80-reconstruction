@@ -1,0 +1,9 @@
+{
+ "fn": "critical_enter_0",
+ "img": "fmacfwbt_u02",
+ "addr": "0x110114",
+ "seg": 3,
+ "key": "critical_enter_0__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"critical_list_pop_front\",\"confidence\":\"medium\",\"docstring\":\"Removes and returns the first entry from a global list while guarding the operation with interrupt masking.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"critical_depth_ptr\",\"v1\":\"protected_list\",\"v3\":\"remaining_critical_depth\",\"v4\":\"irq_was_enabled\"}}"
+}

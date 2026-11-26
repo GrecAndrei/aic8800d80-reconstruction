@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_param_compare",
+ "img": "fmacfwbt_u02",
+ "addr": "0x119b20",
+ "seg": 14,
+ "key": "bt_conn_param_compare__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llc_conn_param_update_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Evaluates whether a BLE link-layer connection parameter candidate is acceptable and, when selected, marks the pending connection-update state before fetching or preparing the associated connection.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v3\": \"param_value\",\n    \"v7\": \"candidate_flags\",\n    \"v8\": \"conn_obj\",\n    \"v10\": \"conn_state_flags\",\n    \"v13\": \"candidate_entry\",\n    \"v14\": \"candidate_entry_state\",\n    \"v15\": \"candidate_conn\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"connection state flag word; bits 1 and 2 mark parameter-update eligibility/acceptance, and bits 0x6 are set together\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"connection parameter value (uint16) used with the candidate interval in the threshold check\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"flags word; bit 0x200000 selects an alternate parameter source via offset 68\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"pointer to target connection object derived from the second comparison argument\"\n    },\n    {\n      \"offset\": 80,\n      \"meaning\": \"primary parameter/interval value (uint16) used when flag bit 0x200000 is clear\"\n    },\n    {\n      \"offset\": 264,\n      \"meaning\": \"active/related connection pointer consulted in the low-parameter path\"\n    },\n    {\n      \"offset\": 324,\n      \"meaning\": \"candidate or related connection pointer used in the update-acceptance path\"\n    }\n  ]\n}"
+}

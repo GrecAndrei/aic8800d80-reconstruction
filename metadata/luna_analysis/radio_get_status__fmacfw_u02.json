@@ -1,0 +1,9 @@
+{
+ "fn": "radio_get_status",
+ "img": "fmacfw_u02",
+ "addr": "0x11e0b4",
+ "seg": 20,
+ "key": "radio_get_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_update_wrapped_counter\",\"confidence\":\"medium\",\"docstring\":\"Updates the selected radio counter with the supplied value, toggling bit 31 when the value rolls below the previous low-31-bit count.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"radio_context\",\"v1\":\"counter_value\",\"v2\":\"wrap_flag\",\"v3\":\"wrap_flag\"},\"struct_hints\":[{\"offset\":152,\"meaning\":\"Counter value used to update the selected radio counter.\"},{\"offset\":156,\"meaning\":\"Selects which of two radio counter registers to update.\"}]}"
+}

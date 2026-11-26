@@ -1,0 +1,9 @@
+{
+ "fn": "get_phy_config_entry",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132720",
+ "seg": 45,
+ "key": "get_phy_config_entry__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"select_phy_config_code\",\"confidence\":\"medium\",\"docstring\":\"Returns 0x1521 when the entry byte at offset 412 is 1, and 0x1421 otherwise.\",\"subsystem\":\"phy\",\"struct_hints\":[{\"offset\":412,\"meaning\":\"selector byte; value 1 selects 0x1521, otherwise 0x1421\"}]}"
+}

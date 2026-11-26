@@ -1,0 +1,9 @@
+{
+ "fn": "mac_isr_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12bf68",
+ "seg": 40,
+ "key": "mac_isr_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"mac_timestamp_irq_handler\", \"confidence\": \"medium\", \"docstring\": \"Handles a MAC timestamp/timer interrupt by evaluating target timestamp margins, clearing the associated MMIO IRQ, or programming the next timer offset.\", \"subsystem\": \"mac\", \"var_renames\": {\"v0\": \"irq_bit\", \"v1\": \"target_ctx\", \"v2\": \"timestamp_params\", \"v3\": \"target_timestamp\", \"v4\": \"timestamp_guard\", \"v6\": \"timer_regs\"}, \"struct_hints\": [{\"offset\": 12, \"meaning\": \"target timestamp field in target_ctx\"}, {\"offset\": 184, \"meaning\": \"timestamp guard/offset field at uint16_t index 92\"}, {\"offset\": 186, \"meaning\": \"timestamp guard/offset field at uint16_t index 93\"}, {\"offset\": 16, \"meaning\": \"current timestamp/base word in timer_regs\"}, {\"offset\": 8, \"meaning\": \"timer control/command word\"}, {\"offset\": 48, \"meaning\": \"timer delay/offset word\"}]}"
+}

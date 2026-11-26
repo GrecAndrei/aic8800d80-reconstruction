@@ -1,0 +1,9 @@
+{
+ "fn": "init_timer_slot",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123b30",
+ "seg": 23,
+ "key": "init_timer_slot__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_desc_chain\",\"confidence\":\"medium\",\"docstring\":\"Initializes one descriptor-table slot as a linked chain of fixed-size descriptors for a buffer length clamped to 64 KiB, then stores the chain head in the caller context.\",\"subsystem\":\"mm\",\"var_renames\":{\"v3\":\"slot_offset\",\"v4\":\"desc_table_base\",\"v5\":\"desc_default_word\",\"v6\":\"buffer_word\",\"v7\":\"desc_head\",\"v8\":\"remaining_size\",\"v10\":\"aux_word\",\"v11\":\"next_desc\",\"v12\":\"tail_size\",\"v13\":\"last_desc\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"descriptor word 0: constant/type word\"},{\"offset\":4,\"meaning\":\"descriptor word 1: auxiliary word; cleared for last descriptor\"},{\"offset\":8,\"meaning\":\"descriptor word 2: buffer/context value copied from a1[4]\"},{\"offset\":12,\"meaning\":\"descriptor word 3: next descriptor pointer, or end value in last descriptor\"},{\"offset\":16,\"meaning\":\"descriptor word 4: zeroed status/unused field\"},{\"offset\":12,\"meaning\":\"caller context a1[3]: descriptor chain head\"},{\"offset\":16,\"meaning\":\"caller context a1[4]: source descriptor value\"},{\"offset\":20,\"meaning\":\"caller context a1[5]: auxiliary descriptor value\"}]}"
+}

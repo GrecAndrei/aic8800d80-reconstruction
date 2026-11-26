@@ -1,0 +1,9 @@
+{
+ "fn": "hw_sync_write",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114514",
+ "seg": 5,
+ "key": "hw_sync_write__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hw_sync_write\",\"confidence\":\"medium\",\"docstring\":\"Reads a word through a global volatile register pointer and writes the same value back, likely to synchronize a hardware access.\",\"subsystem\":\"hal\"}"
+}

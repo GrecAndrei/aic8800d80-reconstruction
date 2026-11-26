@@ -1,0 +1,9 @@
+{
+ "fn": "queue_operation",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12fa2c",
+ "seg": 43,
+ "key": "queue_operation__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"console_process_char\",\"confidence\":\"medium\",\"docstring\":\"Dispatches a console/input character through a line editor and debug output buffer, flushing completed lines on newline/control sequences.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v3\":\"line_buffer_ptr\",\"v6\":\"line_len_ptr\",\"v7\":\"column_ptr\",\"v8\":\"column\",\"v11\":\"line_len\",\"v14\":\"line_state_ptr\",\"v15\":\"cursor_ptr\",\"v17\":\"cursor_ptr\",\"v18\":\"line_state\",\"v19\":\"next_char\",\"v21\":\"line_buffer\",\"v22\":\"line_state_ptr\"}}"
+}

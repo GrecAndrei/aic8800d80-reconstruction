@@ -1,0 +1,9 @@
+{
+ "fn": "set_rf_tx_power_compensation",
+ "img": "fmacfw_h_u02",
+ "addr": "0x121fe4",
+ "seg": 23,
+ "key": "set_rf_tx_power_compensation__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_rf_tx_power_compensation\",\"confidence\":\"medium\",\"docstring\":\"Stores the requested transmit-power value and sends a notification when it crosses a configured hysteresis band.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"requested_tx_power\",\"v2\":\"tx_power_threshold\",\"v5\":\"hysteresis_margin\",\"v6\":\"threshold_side_state\",\"v7\":\"requested_tx_power\",\"v8\":\"notification_payload\"},\"struct_hints\":[{\"offset\":142,\"meaning\":\"stored transmit-power compensation value\"},{\"offset\":143,\"meaning\":\"center of the transmit-power hysteresis threshold\"},{\"offset\":144,\"meaning\":\"hysteresis margin around the threshold\"},{\"offset\":145,\"meaning\":\"state tracking which side of the threshold the power is on\"}]}"
+}

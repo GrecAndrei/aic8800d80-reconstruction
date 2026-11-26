@@ -1,0 +1,9 @@
+{
+ "fn": "critical_section_enter",
+ "img": "fmacfwbt_u02",
+ "addr": "0x113760",
+ "seg": 5,
+ "key": "critical_section_enter__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_ctrl_service_poll\",\"confidence\":\"medium\",\"docstring\":\"Runs a guarded Bluetooth-control service poll and dispatches pending work when its call counter reaches the configured threshold.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"critical_section_depth\",\"v4\":\"service_pending_flag\",\"v6\":\"service_call_count\",\"v7\":\"remaining_critical_depth\",\"v8\":\"irq_disable_flag\",\"v9\":\"phy_register_mode\"}}"
+}

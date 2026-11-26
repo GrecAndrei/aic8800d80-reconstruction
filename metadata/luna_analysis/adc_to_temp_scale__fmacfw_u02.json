@@ -1,0 +1,9 @@
+{
+ "fn": "adc_to_temp_scale",
+ "img": "fmacfw_u02",
+ "addr": "0x105230",
+ "seg": 2,
+ "key": "adc_to_temp_scale__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_digital_power_index\",\"confidence\":\"medium\",\"docstring\":\"Scales the base power index using the configured factor for the requested power difference, clamps and stores the digital-power index, then reports the adjustment.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"power_diff\",\"a2\":\"base_power\",\"a3\":\"rf_context\",\"v6\":\"power_scale\",\"v9\":\"digital_power_index\"},\"struct_hints\":[{\"offset\":104,\"meaning\":\"Digital-power index stored as a byte and clamped to 32\u2013232.\"},{\"offset\":112,\"meaning\":\"Analog maximum index, paired with the current index at offset 116.\"},{\"offset\":116,\"meaning\":\"Analog current index, paired with the maximum index at offset 112.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_msg_88",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123094",
+ "seg": 28,
+ "key": "ke_send_msg_88__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_fw_control_request\",\"confidence\":\"medium\",\"docstring\":\"Dispatches firmware control opcodes for BCMC TIM ignore, thermal-compensation control, and extended flags, then passes the response PDU to packet processing.\",\"subsystem\":\"ke\",\"var_renames\":{\"a2\":\"request\",\"v5\":\"command_id\",\"v7\":\"response_pdu\",\"v8\":\"requested_bcmc_tim_ignore\",\"v10\":\"updated_ext_flags\",\"v12\":\"requested_temp_comp_enable\",\"v13\":\"temp_comp_enable\",\"v15\":\"rf_power_adjustment\",\"v16\":\"requested_ext_flags\",\"v18\":\"current_ext_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Request opcode\"},{\"offset\":4,\"meaning\":\"Request operand; a byte setting for some opcodes or an extended-flags value\"},{\"offset\":8,\"meaning\":\"Auxiliary request value, used for thermal-compensation configuration or an extended-flags mask operand\"},{\"offset\":363,\"meaning\":\"Global state byte for thermal-compensation enable\"},{\"offset\":364,\"meaning\":\"Global thermal-compensation configuration word\"},{\"offset\":372,\"meaning\":\"Global BCMC TIM-ignore setting in the low byte\"},{\"offset\":392,\"meaning\":\"Global extended-flags word\"}]}"
+}

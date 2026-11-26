@@ -1,0 +1,9 @@
+{
+ "fn": "int_disable_set_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x113864",
+ "seg": 5,
+ "key": "int_disable_set_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_evt_sched_pop\",\"confidence\":\"medium\",\"docstring\":\"Pops and returns the head item from the scheduler list while balancing its nested interrupt-masking guard.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"critical_depth_ptr\",\"v1\":\"scheduler_list\",\"v3\":\"remaining_critical_depth\",\"v4\":\"should_restore_interrupts\"}}"
+}

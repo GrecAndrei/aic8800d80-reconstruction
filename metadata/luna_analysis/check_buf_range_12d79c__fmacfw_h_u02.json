@@ -1,0 +1,9 @@
+{
+ "fn": "check_buf_range_12d79c",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d79c",
+ "seg": 42,
+ "key": "check_buf_range_12d79c__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_extended_supported_rates_ie\",\"confidence\":\"high\",\"docstring\":\"Scans a bounded 802.11 information-element list for a nonempty element ID 50, returning its element pointer and writing its payload length or NULL if absent or out of bounds.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"current_ie\",\"a2\":\"ie_list_len\",\"a3\":\"out_ie_len\",\"v3\":\"ie_list_end\",\"v4\":\"ie_len\",\"v5\":\"next_ie\"}}"
+}

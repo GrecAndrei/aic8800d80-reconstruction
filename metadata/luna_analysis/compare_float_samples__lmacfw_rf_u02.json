@@ -1,0 +1,9 @@
+{
+ "fn": "compare_float_samples",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x109738",
+ "seg": 2,
+ "key": "compare_float_samples__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"fit_signal_zero_crossing\",\"confidence\":\"medium\",\"docstring\":\"Fits a straight line through three (x, y) float samples, flags an invalid denominator or too-small slope, and stores the x range, status bits, and rounded zero-crossing index.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"x_samples\",\"a3\":\"y_samples\",\"a4\":\"fit_result\",\"v5\":\"x_min\",\"v10\":\"x_max\",\"v14\":\"sum_x2\",\"v15\":\"sum_x\",\"v16\":\"denominator\",\"v21\":\"slope\",\"v22\":\"intercept\",\"v25\":\"zero_crossing\",\"v26\":\"crossing_index\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"status flags: bit 2 (4) division invalid, bit 3 (8) slope too small\"},{\"offset\":1,\"meaning\":\"rounded zero-crossing index\"},{\"offset\":2,\"meaning\":\"range (max-min) of x samples\"}]}"
+}

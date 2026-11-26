@@ -1,0 +1,9 @@
+{
+ "fn": "set_xtal_ftune",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f170",
+ "seg": 2,
+ "key": "set_xtal_ftune__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_xtal_ftune\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Atomically updates the XTAL frequency-trim field in an RF/PMU control register from the supplied 5-bit tune value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"xtal_ftune\"\n  },\n  \"struct_hints\": []\n}"
+}

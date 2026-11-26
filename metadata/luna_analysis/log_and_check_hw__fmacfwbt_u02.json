@@ -1,0 +1,9 @@
+{
+ "fn": "log_and_check_hw",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1143d0",
+ "seg": 5,
+ "key": "log_and_check_hw__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_lp_level_error\",\"confidence\":\"medium\",\"docstring\":\"Invokes an LP-level error-reporting helper and, when the associated flag is set, clears that flag and selected control-register bits.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"event_result\",\"v1\":\"state_base\",\"v2\":\"control_reg\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"Flag tested before cleanup and cleared when set\"}]}"
+}

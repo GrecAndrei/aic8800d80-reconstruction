@@ -1,0 +1,9 @@
+{
+ "fn": "system_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115674",
+ "seg": 6,
+ "key": "system_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wireless_system_init\",\"confidence\":\"medium\",\"docstring\":\"Clears a platform state byte, then initializes the lock, vendor platform, RF modulation setting, and timer subsystem.\",\"subsystem\":\"hal\"}"
+}

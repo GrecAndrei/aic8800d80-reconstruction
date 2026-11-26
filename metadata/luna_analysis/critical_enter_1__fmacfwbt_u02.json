@@ -1,0 +1,9 @@
+{
+ "fn": "critical_enter_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x110154",
+ "seg": 3,
+ "key": "critical_enter_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_check_abort_flag_guarded\",\"confidence\":\"medium\",\"docstring\":\"Runs `check_abort_flag` under a nesting-aware interrupt-masked region and restores interrupts only if the outermost call acquired the mask.\",\"subsystem\":\"ke\",\"var_renames\":{\"v2\":\"critical_nesting_count_ptr\",\"v5\":\"remaining_critical_depth\",\"v6\":\"irq_restore_pending\"},\"struct_hints\":[]}"
+}

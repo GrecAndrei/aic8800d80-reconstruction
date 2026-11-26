@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_configure",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136684",
+ "seg": 57,
+ "key": "rf_cal_configure__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"apm_start_req_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles an AP manager start request by checking the VIF state, copying packed request parameters into the VIF context, and sending a status event.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a2\": \"req\",\n    \"v4\": \"vif_table\",\n    \"v8\": \"vif_idx\",\n    \"v9\": \"vif_ctxt\",\n    \"v10\": \"status_code\",\n    \"v11\": \"evt_buf\",\n    \"v19\": \"vif_ctxt\",\n    \"v22\": \"adv_valid_mask\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 51,\n      \"meaning\": \"request field: VIF index\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"request field: channel/frequency parameter\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"request field: mode/enable flag\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"VIF context field: state, expected 2 for AP start\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"VIF context field: busy/condition flag rejected by this handler\"\n    },\n    {\n      \"offset\": 412,\n      \"meaning\": \"VIF context field: packed AP start configuration word 0\"\n    },\n    {\n      \"offset\": 416,\n      \"meaning\": \"VIF context field: packed AP start configuration word 1\"\n    },\n    {\n      \"offset\": 420,\n      \"meaning\": \"VIF context field: packed AP start configuration word 2\"\n    },\n    {\n      \"offset\": 424,\n      \"meaning\": \"VIF context field: advertising payload buffer used by llm_decrypt_adv_payload\"\n    },\n    {\n      \"offset\": 461,\n      \"meaning\": \"VIF context field: advertising payload valid-bit index\"\n    },\n    {\n      \"offset\": 464,\n      \"meaning\": \"VIF context field: state flag cleared during AP start\"\n    }\n  ]\n}"
+}

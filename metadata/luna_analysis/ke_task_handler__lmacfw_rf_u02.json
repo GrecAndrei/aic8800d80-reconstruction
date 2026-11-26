@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_handler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114318",
+ "seg": 6,
+ "key": "ke_task_handler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_task_copy_descriptor_fields\",\"confidence\":\"medium\",\"docstring\":\"Reads a 72-byte kernel task descriptor through the bus, validates its magic, and selectively copies requested descriptor fields into a caller-provided buffer while checking capacity.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"requested_fields\",\"a2\":\"output_buffer\",\"a3\":\"output_size\",\"v6\":\"selected_fields\",\"v7\":\"copied_bytes\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"descriptor magic word\"},{\"offset\":4,\"meaning\":\"descriptor available-field mask\"},{\"offset\":16,\"meaning\":\"requested 4-byte field selected by bit 0x01\"},{\"offset\":20,\"meaning\":\"requested 12-byte field selected by bit 0x02\"},{\"offset\":32,\"meaning\":\"requested 20-byte field selected by bit 0x04\"},{\"offset\":52,\"meaning\":\"requested 4-byte field selected by bit 0x08\"},{\"offset\":60,\"meaning\":\"requested 4-byte field selected by bit 0x20\"},{\"offset\":64,\"meaning\":\"requested 4-byte field selected by bit 0x40\"},{\"offset\":68,\"meaning\":\"requested 4-byte field selected by bit 0x80\"}]}"
+}

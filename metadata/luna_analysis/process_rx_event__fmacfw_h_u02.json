@@ -1,0 +1,9 @@
+{
+ "fn": "process_rx_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1327c4",
+ "seg": 45,
+ "key": "process_rx_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_rx_event\",\"confidence\":\"medium\",\"docstring\":\"Processes RX event data and status from the context, then returns its associated buffer pointer.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rx_event_state\",\"v2\":\"rx_buffer\"},\"struct_hints\":[{\"offset\":336,\"meaning\":\"Pointer to the RX event buffer returned by the function.\"},{\"offset\":340,\"meaning\":\"Pointer to an auxiliary RX status or descriptor block.\"},{\"offset\":350,\"meaning\":\"RX event state byte; bit 0 selects the detailed processing path.\"}]}"
+}

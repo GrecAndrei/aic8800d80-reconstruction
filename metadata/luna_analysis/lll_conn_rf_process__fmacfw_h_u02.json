@@ -1,0 +1,9 @@
+{
+ "fn": "lll_conn_rf_process",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a994",
+ "seg": 37,
+ "key": "lll_conn_rf_process__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lll_conn_rx_process\",\"confidence\":\"medium\",\"docstring\":\"Processes up to two eligible RF staging entries for the selected connection and invokes key derivation if an entry is copied.\",\"subsystem\":\"bt\",\"var_renames\":{\"v5\":\"conn_rf_table\",\"v6\":\"entry_index\",\"v8\":\"conn_ctx\",\"v9\":\"rf_entry\",\"v10\":\"copied_any\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Pointer used as the base of the entry's source data.\"},{\"offset\":16,\"meaning\":\"Nonzero eligibility flag required to process the entry.\"},{\"offset\":32,\"meaning\":\"State byte that must be zero for the entry to be processed.\"},{\"offset\":88,\"meaning\":\"Connection field cleared when an entry passes the copy condition.\"},{\"offset\":1225,\"meaning\":\"Connection slot index used to select its RF table record.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "check_link_state",
+ "img": "fmacfw_u02",
+ "addr": "0x11b240",
+ "seg": 16,
+ "key": "check_link_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_link_tx_request_check\",\"confidence\":\"medium\",\"docstring\":\"Scans link slots for an eligible connection, processes its transmit request, and updates the selected transmit descriptor.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"bt_scheduler_state\",\"v2\":\"slot_index\",\"v3\":\"slot_context_array\",\"v5\":\"slot_index\",\"v7\":\"slot_context\",\"v8\":\"slot_state\",\"v9\":\"connection\",\"v11\":\"connection_flags\",\"v13\":\"selected_connection\",\"v16\":\"tx_descriptor\",\"v17\":\"tx_descriptor_flags\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Slot context: associated connection or connection-list pointer.\"},{\"offset\":26,\"meaning\":\"Slot context: state byte; value 1 selects the alternate active-slot path.\"},{\"offset\":190,\"meaning\":\"Scheduler state: currently selected slot index.\"},{\"offset\":197,\"meaning\":\"Scheduler state: lower slot-index scan threshold.\"},{\"offset\":36,\"meaning\":\"Connection: flags word; bit 0x200000 affects connection selection.\"},{\"offset\":68,\"meaning\":\"Connection: pointer to the selected transmit descriptor or buffer.\"},{\"offset\":72,\"meaning\":\"Connection-associated context: signed eligibility/state field.\"},{\"offset\":76,\"meaning\":\"Connection: pointer to an auxiliary context used during eligibility checks.\"},{\"offset\":8,\"meaning\":\"Transmit descriptor: flags halfword; bit 0x200 is set after successful processing.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "fw_sub_1213824_load_struct_call",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113824",
+ "seg": 5,
+ "key": "fw_sub_1213824_load_struct_call__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_state_struct_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates a field in a Bluetooth controller state structure while clearing related status fields and returns success.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"state_struct\",\n    \"v2\": \"aux_struct\",\n    \"a1\": \"field_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"field assigned from argument\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"cleared word field\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"cleared word field\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"cleared word field\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"cleared word field\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"cleared word field\"\n    }\n  ]\n}"
+}

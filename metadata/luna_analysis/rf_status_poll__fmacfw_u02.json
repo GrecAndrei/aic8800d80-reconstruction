@@ -1,0 +1,9 @@
+{
+ "fn": "rf_status_poll",
+ "img": "fmacfw_u02",
+ "addr": "0x11eaf8",
+ "seg": 20,
+ "key": "rf_status_poll__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tick_status_poll\",\"confidence\":\"medium\",\"docstring\":\"Reads the RF tick/status word and returns its 31-bit count, refreshing the stored count and epoch marker when it nears the configured threshold.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"tick_status_word\",\"result\":\"tick_count\",\"v2\":\"epoch_flag\",\"v3\":\"updated_status_word\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Reference tick count used when refreshing the status word\"},{\"offset\":4,\"meaning\":\"Tick threshold for the refresh window\"},{\"offset\":8,\"meaning\":\"Tick count with an epoch marker; read and conditionally updated\"}]}"
+}

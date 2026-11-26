@@ -1,0 +1,9 @@
+{
+ "fn": "tx_desc_release",
+ "img": "fmacfw_u02",
+ "addr": "0x13a3f4",
+ "seg": 58,
+ "key": "tx_desc_release__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_slot_alloc\",\"confidence\":\"medium\",\"docstring\":\"Allocates and initializes a record for an empty transmit slot, stores it in the slot table, and schedules its embedded timer; returns zero if the slot is occupied or allocation fails.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"slot_entry_addr\",\"v5\":\"slot_index\",\"v7\":\"allocated_record\",\"v8\":\"slot_record\",\"v9\":\"config_table\",\"v10\":\"timer_delay_base\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Timer delay base copied from the configuration table.\"},{\"offset\":8,\"meaning\":\"16-bit value supplied by the caller.\"},{\"offset\":10,\"meaning\":\"Low six bits of the caller-supplied value.\"},{\"offset\":12,\"meaning\":\"Transmit slot index.\"},{\"offset\":272,\"meaning\":\"Embedded timer or work item passed to the scheduling helper.\"},{\"offset\":276,\"meaning\":\"Timer-related metadata initialized from a global value.\"},{\"offset\":280,\"meaning\":\"Back-pointer to the containing record.\"},{\"offset\":408,\"meaning\":\"Start of the per-slot record pointer table in the owning context.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_isr_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1372a8",
+ "seg": 58,
+ "key": "gpio_isr_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_event_handler\",\"confidence\":\"low\",\"docstring\":\"Handles a radio-control event by applying a saved 0..7 field to a 3-bit register field on the first invocation, incrementing an event counter, and invoking adv_state_control.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"event_state_base\",\"v1\":\"event_count\",\"v2\":\"event_field\"},\"struct_hints\":[{\"offset\":3851,\"meaning\":\"u8 event count or first-event flag\"},{\"offset\":4,\"meaning\":\"u16 value clamped to a 3-bit register field\"}]}"
+}

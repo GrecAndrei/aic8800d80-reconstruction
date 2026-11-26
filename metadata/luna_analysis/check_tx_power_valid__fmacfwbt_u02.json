@@ -1,0 +1,9 @@
+{
+ "fn": "check_tx_power_valid",
+ "img": "fmacfwbt_u02",
+ "addr": "0x141688",
+ "seg": 66,
+ "key": "check_tx_power_valid__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_check_tx_power\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks the current BLE advertising/connection TX-power value and clears or reschedules the associated event timer based on validity and state.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v0\": \"tx_power_pp\",\n    \"v1\": \"ctx_base\",\n    \"v2\": \"obj_idx\",\n    \"v4\": \"obj_base\",\n    \"result\": \"rc\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 6480,\n      \"meaning\": \"active BLE advertising/connection object index\"\n    },\n    {\n      \"offset\": 6336,\n      \"meaning\": \"per-object retry/event timer\"\n    },\n    {\n      \"offset\": 6338,\n      \"meaning\": \"per-object state\"\n    },\n    {\n      \"offset\": 6339,\n      \"meaning\": \"per-object substate or retry counter\"\n    }\n  ]\n}"
+}

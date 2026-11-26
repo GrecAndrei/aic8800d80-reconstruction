@@ -1,0 +1,9 @@
+{
+ "fn": "sub_1096d0",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1096d0",
+ "seg": 2,
+ "key": "sub_1096d0__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_values_repair\",\"confidence\":\"medium\",\"docstring\":\"Normalizes invalid entries in a six-value RF calibration array and, in repair mode, returns a bitmask of entries that were negative.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"calibration_values\",\"v2\":\"value_index\",\"v6\":\"first_two_invalid_count\",\"result\":\"invalid_value_mask\"}}"
+}

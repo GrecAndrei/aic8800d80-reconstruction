@@ -1,0 +1,9 @@
+{
+ "fn": "rf_radio_calibrate",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ba0c",
+ "seg": 39,
+ "key": "rf_radio_calibrate__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibrate_radio\",\"confidence\":\"medium\",\"docstring\":\"Starts RF calibration, waits for the status bits to clear, then applies the post-calibration register configuration.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"cal_status_reg\",\"v1\":\"cal_control_reg\"}}"
+}

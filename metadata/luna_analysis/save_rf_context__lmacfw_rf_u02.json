@@ -1,0 +1,9 @@
+{
+ "fn": "save_rf_context",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103334",
+ "seg": 2,
+ "key": "save_rf_context__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_calc_clock_div\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Computes RF/baseband clock divider values from configuration flags and a saved RF register byte, writing the resulting dividers to related global fields.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"coefficient\",\n    \"v4\": \"saved_byte_ptr\",\n    \"v5\": \"saved_byte_signed\",\n    \"v6\": \"rate_byte\",\n    \"v7\": \"dividend\",\n    \"v10\": \"first_divider\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 0, \"meaning\": \"saved RF context word 0\"},\n    {\"offset\": 4, \"meaning\": \"saved RF context word 1\"},\n    {\"offset\": 8, \"meaning\": \"saved RF context word 2\"},\n    {\"offset\": 12, \"meaning\": \"saved RF context word 3\"},\n    {\"offset\": 16, \"meaning\": \"rf config flags: bit 2 selects rate-derived calculation, bit 4 selects coefficient set\"},\n    {\"offset\": 32, \"meaning\": \"rf config byte divisor for first divider result\"},\n    {\"offset\": 36, \"meaning\": \"rf config low-nibble index selecting a saved RF context byte\"}\n  ]\n}"
+}

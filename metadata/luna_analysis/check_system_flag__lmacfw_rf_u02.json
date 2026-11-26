@@ -1,0 +1,9 @@
+{
+ "fn": "check_system_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x122688",
+ "seg": 22,
+ "key": "check_system_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_flash_txgain_pa_drv_ibit\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles the 2.4 GHz flash TX gain PA driver ibit parameter by setting or reading it through an 8-byte RF command buffer while checking the associated flash status bit.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"mode\",\n    \"a2\": \"pa_drv_ibit\",\n    \"v2\": \"flash_txgain_status_bit\",\n    \"v4\": \"txgain_cmd_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"PA driver ibit byte of the 8-byte flash TX gain command/status buffer\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"reserved zero bytes in the command buffer\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"reserved zero byte in the command buffer\"\n    }\n  ]\n}"
+}

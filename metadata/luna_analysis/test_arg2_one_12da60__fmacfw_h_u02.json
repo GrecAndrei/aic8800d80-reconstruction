@@ -1,0 +1,9 @@
+{
+ "fn": "test_arg2_one_12da60",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12da60",
+ "seg": 42,
+ "key": "test_arg2_one_12da60__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_ie_76_len_16\",\"confidence\":\"high\",\"docstring\":\"Scans a bounded information-element list and returns the first element with ID 76 and a 16-byte payload, or NULL if none qualifies.\",\"subsystem\":\"test\",\"var_renames\":{\"result\":\"ie_cursor\",\"a2\":\"buffer_len\",\"v2\":\"buffer_end\",\"v3\":\"next_ie\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Information-element ID\"},{\"offset\":1,\"meaning\":\"Information-element payload length\"}]}"
+}

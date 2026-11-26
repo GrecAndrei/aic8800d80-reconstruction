@@ -1,0 +1,9 @@
+{
+ "fn": "get_core_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11454c",
+ "seg": 5,
+ "key": "get_core_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_core_state_update\",\"confidence\":\"medium\",\"docstring\":\"Selects a mode-dependent control value, conditionally clears its associated flag bit, resets a shared state word, and synchronizes the update with data and instruction barriers.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"control_value\",\"v1\":\"flag_bit_mask\",\"v2\":\"control_base\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"byte-valued state checked before clearing the associated flag bit\"},{\"offset\":8,\"meaning\":\"32-bit state or control word cleared during the update\"}]}"
+}

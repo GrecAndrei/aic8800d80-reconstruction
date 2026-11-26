@@ -1,0 +1,9 @@
+{
+ "fn": "send_vendor_command_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13bae8",
+ "seg": 60,
+ "key": "send_vendor_command_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_hci_vendor_command\",\"confidence\":\"medium\",\"docstring\":\"Builds an HCI opcode from the command index, updates the associated status slot when applicable, dispatches through the selected handler pair, and preprocesses the opcode.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"command_index\",\"v1\":\"hci_opcode\",\"v3\":\"entry_table_base\",\"v4\":\"command_entry\",\"v5\":\"entry_selector\",\"v6\":\"outer_status_index\",\"v7\":\"inner_status_index\",\"v8\":\"entry_arg\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Outer index into the status array, whose records have a 696-byte stride.\"},{\"offset\":17,\"meaning\":\"Selector: zero marks status offset 452; one marks status offset 453.\"},{\"offset\":22,\"meaning\":\"Inner index into the status array, with a 12-byte stride.\"},{\"offset\":452,\"meaning\":\"Status byte set to 33 when the selector at entry offset 17 is zero.\"},{\"offset\":453,\"meaning\":\"Status byte set to 33 when the selector at entry offset 17 is one.\"}]}"
+}

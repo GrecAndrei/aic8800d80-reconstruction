@@ -1,0 +1,9 @@
+{
+ "fn": "init_bt_global",
+ "img": "fmacfw_u02",
+ "addr": "0x1142f8",
+ "seg": 5,
+ "key": "init_bt_global__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_bt_globals\",\"confidence\":\"medium\",\"docstring\":\"Initializes Bluetooth global state by storing the supplied value and clearing the associated state fields.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"bt_global_state\",\"v2\":\"bt_aux_state\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"cleared during initialization\"},{\"offset\":4,\"meaning\":\"cleared during initialization\"},{\"offset\":8,\"meaning\":\"initialized from the function argument\"},{\"offset\":12,\"meaning\":\"cleared during initialization\"},{\"offset\":16,\"meaning\":\"cleared during initialization\"},{\"offset\":20,\"meaning\":\"cleared during initialization\"}]}"
+}

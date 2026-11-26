@@ -1,0 +1,9 @@
+{
+ "fn": "check_packet_type",
+ "img": "fmacfw_u02",
+ "addr": "0x11b0d0",
+ "seg": 15,
+ "key": "check_packet_type__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_check_packet_type\",\"confidence\":\"medium\",\"docstring\":\"Consults a lookup table for the encoded packet parameters and conditionally rewrites descriptor flags when the scaled table value is below a supplied limit.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"packet_info\",\"v7\":\"updated_packet_info\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "write_mmio_send_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122ef8",
+ "seg": 28,
+ "key": "write_mmio_send_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_cmd_write_send_event\",\"confidence\":\"medium\",\"docstring\":\"Writes a 32-bit command word into an HCI/controller MMIO register and then emits event code 0x72 with the supplied payload.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"p_cmd_word\",\"a3\":\"evt_len\",\"a4\":\"evt_payload\"},\"struct_hints\":[]}"
+}

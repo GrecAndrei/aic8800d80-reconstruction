@@ -1,0 +1,9 @@
+{
+ "fn": "llm_parse_adv_pdu",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132874",
+ "seg": 46,
+ "key": "llm_parse_adv_pdu__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_parse_adv_pdu\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses a BLE advertising PDU header and optional auxiliary/RX info to produce payload-length masks and related header fields.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"result\": \"adv_pdu\",\n    \"a4\": \"adv_len_mask\",\n    \"a5\": \"aux_len_mask\",\n    \"a6\": \"aux_len_alt_mask\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"advertising PDU byte 2: bits 1:0 encode a 13..16-bit length mask; bits 4:2 encode a small count/flag value\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"auxiliary advertising byte containing bits 4:3 used for extended length mask when special mode 7 or 3 is selected\"\n    }\n  ]\n}"
+}

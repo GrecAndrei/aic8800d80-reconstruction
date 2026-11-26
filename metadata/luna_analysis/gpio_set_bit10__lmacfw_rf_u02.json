@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_bit10",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1174b8",
+ "seg": 10,
+ "key": "gpio_set_bit10__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_bit10_bit19\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Performs read-modify-write updates of two MMIO registers, setting or clearing bit 10 in the first and bit 19 in the second based on the LSB of the input, and returns the new second register value.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"enable\",\n    \"v1\": \"second_reg_ptr\",\n    \"result\": \"second_reg_new\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "check_and_init_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1132b0",
+ "seg": 4,
+ "key": "check_and_init_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_start_rssi_save\",\"confidence\":\"medium\",\"docstring\":\"Configures the PHY RSSI path and calls `phy_save_rssi` with the supplied buffers while handling operation state and aborts.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"abort_flag_ptr\",\"v3\":\"busy_flag_ptr\",\"v5\":\"phy_registers\",\"v6\":\"save_status\"},\"struct_hints\":[{\"offset\":2048,\"meaning\":\"PHY register with bit 13 set in one configuration mode\"},{\"offset\":2852,\"meaning\":\"PHY register with bit 0 set in the alternate configuration mode\"},{\"offset\":2864,\"meaning\":\"PHY register with bits 19\u201328 cleared in one configuration mode\"}]}"
+}

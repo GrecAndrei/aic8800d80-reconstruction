@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127108",
+ "seg": 23,
+ "key": "rf_enable_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_enable_2\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enable the RF subsystem and, if the RF task is not present, reset the SDIO core, program the crystal frequency trim, adjust the target xtal cap, and enter the RF event loop.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_ctx\",\n    \"result\": \"rf_task\",\n    \"v2\": \"xtal_ftune\",\n    \"v3\": \"target_xtal_cap\",\n    \"v4\": \"programmed_xtal_cap\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"RF enable/command flag\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"xtal cap/frequency target\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"xtal cap/frequency current or last programmed value\"\n    }\n  ]\n}"
+}

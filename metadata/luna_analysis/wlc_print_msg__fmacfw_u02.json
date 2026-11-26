@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_print_msg",
+ "img": "fmacfw_u02",
+ "addr": "0x128c38",
+ "seg": 34,
+ "key": "wlc_print_msg__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_print_msg\",\"confidence\":\"medium\",\"docstring\":\"If the message passes the rate check, updates the shared logging context, dispatches its worker with a derived time value, and marks the input record with flag 0x200.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v4\":\"log_context\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Input record flags; bit 9 is set after dispatch.\"},{\"offset\":8,\"meaning\":\"Context counter decremented when nonzero.\"},{\"offset\":20,\"meaning\":\"Stores the input record pointer.\"},{\"offset\":28,\"meaning\":\"Context byte set to 1.\"},{\"offset\":29,\"meaning\":\"Context byte set to 4.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_chan_param_1",
+ "img": "fmacfw_u02",
+ "addr": "0x13bef8",
+ "seg": 60,
+ "key": "rf_get_chan_param_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_param_set\",\"confidence\":\"medium\",\"docstring\":\"Applies the indexed RF channel-parameter entry through the appropriate command bank and clears a per-entry byte before final configuration.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"channel_index\",\"v1\":\"channel_table_base\",\"v2\":\"channel_entry\",\"v3\":\"entry_value\",\"v5\":\"entry_offset\",\"v6\":\"phy_selector\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Byte from the entry passed as a channel-configuration argument.\"},{\"offset\":25,\"meaning\":\"Byte cleared before applying the configuration.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "check_config_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x121b7c",
+ "seg": 23,
+ "key": "check_config_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_process_command\",\"confidence\":\"medium\",\"docstring\":\"Calls the HCI command handler with argument 0 and, if it returns 4, returns the result of preprocessing arguments 0 and 1; otherwise returns the handler result.\",\"subsystem\":\"bt\",\"var_renames\":{\"result\":\"status\"}}"
+}

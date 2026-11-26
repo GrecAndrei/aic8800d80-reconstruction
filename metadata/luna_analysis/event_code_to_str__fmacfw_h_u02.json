@@ -1,0 +1,9 @@
+{
+ "fn": "event_code_to_str",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132104",
+ "seg": 44,
+ "key": "event_code_to_str__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_channel_info\",\"confidence\":\"high\",\"docstring\":\"Returns the channel-table entry for the requested 2.4- or 5-GHz channel, or NULL if no matching entry exists.\",\"subsystem\":\"phy\",\"var_renames\":{\"a2\":\"channel_number\",\"v2\":\"target_frequency_mhz\",\"v3\":\"channel_entry\",\"v4\":\"channel_table_end\",\"v5\":\"entry_frequency_mhz\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Channel entry frequency in MHz (uint16_t); entries are 6 bytes apart.\"}]}"
+}

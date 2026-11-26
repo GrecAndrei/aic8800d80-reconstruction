@@ -1,0 +1,9 @@
+{
+ "fn": "reset_event_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x120770",
+ "seg": 23,
+ "key": "reset_event_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_scan_event_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a linked list of WLC/event contexts, clears and sets a caller-provided pending-event flag based on per-context state bytes, and returns a count of mismatched or stale entries.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a1\": \"pending_event\",\n    \"v1\": \"event_context_table\",\n    \"v2\": \"context\",\n    \"result\": \"stale_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"intrusive linked-list next pointer\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"event state or queued bit\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"pending/active state bit\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"valid, allocated, or completion state bit\"\n    }\n  ]\n}"
+}

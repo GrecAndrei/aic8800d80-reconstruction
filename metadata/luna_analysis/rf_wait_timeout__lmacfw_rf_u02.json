@@ -1,0 +1,9 @@
+{
+ "fn": "rf_wait_timeout",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x115f78",
+ "seg": 8,
+ "key": "rf_wait_timeout__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_timeout_table_load\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Loads caller-supplied RF timeout values from a four-entry array, substituting default entries for zero values, scales them by 1000 into a global RF timeout/config table, and writes one additional default timeout entry.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"rf_timeout_dest_table\",\n    \"v2\": \"rf_timeout_default_table\",\n    \"v3\": \"src_cursor\",\n    \"v4\": \"dest_cursor\",\n    \"result\": \"src_end\",\n    \"v6\": \"default_cursor\",\n    \"v7\": \"selected_timeout_value\",\n    \"v8\": \"input_timeout_value\"\n  },\n  \"struct_hints\": []\n}"
+}

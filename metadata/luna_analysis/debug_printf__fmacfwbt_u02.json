@@ -1,0 +1,9 @@
+{
+ "fn": "debug_printf",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d660",
+ "seg": 3,
+ "key": "debug_printf__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"debug_vprintf\",\"confidence\":\"medium\",\"docstring\":\"Formats a format string and argument list into a bounded buffer, then emits it through the debug UART, adding a carriage return before line feeds when needed.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"format_string\",\"a2\":\"format_args\",\"v5\":\"format_result\",\"v6\":\"formatted_length\",\"v8\":\"output_cursor\",\"v9\":\"uart_status_reg\",\"v10\":\"uart_tx_reg\",\"v11\":\"output_end\"}}"
+}

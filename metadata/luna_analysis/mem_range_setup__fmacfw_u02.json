@@ -1,0 +1,9 @@
+{
+ "fn": "mem_range_setup",
+ "img": "fmacfw_u02",
+ "addr": "0x12d788",
+ "seg": 42,
+ "key": "mem_range_setup__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_find_vendor_ie\",\"confidence\":\"medium\",\"docstring\":\"Scans an 802.11 information-element list for a vendor-specific element whose payload begins with the supplied byte sequence, returning the element start and its total encoded length.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"ie_data\",\"a2\":\"ie_data_len\",\"a3\":\"payload_prefix\",\"a4\":\"payload_prefix_len\",\"a5\":\"ie_size_out\",\"v5\":\"scan_end\",\"v6\":\"buffer_end\",\"v7\":\"required_element_size\",\"v8\":\"payload_prefix_end\",\"v9\":\"element_id\",\"v10\":\"element_total_size\",\"v11\":\"element_start\",\"v13\":\"prefix_cursor\",\"v15\":\"element_payload_byte\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Information-element ID; 221 denotes a vendor-specific element.\"},{\"offset\":1,\"meaning\":\"Information-element payload length.\"},{\"offset\":2,\"meaning\":\"Start of the information-element payload.\"}]}"
+}

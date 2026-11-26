@@ -1,0 +1,9 @@
+{
+ "fn": "compare_eq",
+ "img": "fmacfwbt_u02",
+ "addr": "0x14344c",
+ "seg": 69,
+ "key": "compare_eq__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"__aeabi_fcmpeq\",\"confidence\":\"high\",\"docstring\":\"Performs IEEE 754 single-precision floating-point equality comparison for the ARM AAPCS soft-float ABI, returning 1 when equal and 0 otherwise.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

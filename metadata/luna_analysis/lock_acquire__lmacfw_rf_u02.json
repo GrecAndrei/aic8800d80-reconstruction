@@ -1,0 +1,9 @@
+{
+ "fn": "lock_acquire",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113300",
+ "seg": 5,
+ "key": "lock_acquire__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_lock_acquire\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Temporarily disables interrupts and increments a nested kernel lock depth to check kernel state, restoring the interrupt mask when the lock is released.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v2\": \"kernel_lock_depth\",\n    \"v5\": \"remaining_lock_depth\",\n    \"v6\": \"irq_disabled_by_call\",\n    \"result\": \"state_check_result\"\n  }\n}"
+}

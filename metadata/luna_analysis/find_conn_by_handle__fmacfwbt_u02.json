@@ -1,0 +1,9 @@
+{
+ "fn": "find_conn_by_handle",
+ "img": "fmacfwbt_u02",
+ "addr": "0x14054c",
+ "seg": 65,
+ "key": "find_conn_by_handle__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_check_conn_by_handle\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks a BLE connection/filter table for a primary handle value, or for a secondary value when the primary argument is the 0xff wildcard.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"primary_value_or_any\",\n    \"a2\": \"secondary_value\",\n    \"a3\": \"conn_table\",\n    \"v3\": \"primary_count\",\n    \"v4\": \"secondary_count\",\n    \"v9\": \"primary_cur\",\n    \"v10\": \"primary_end\",\n    \"v11\": \"primary_val\",\n    \"v5\": \"secondary_cur\",\n    \"v6\": \"secondary_end\",\n    \"v7\": \"secondary_val\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"primary byte-list count\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"primary byte-list values (likely connection handles/filters)\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"secondary byte-list count\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"secondary byte-list values (likely connection indices/state IDs)\"\n    }\n  ]\n}"
+}

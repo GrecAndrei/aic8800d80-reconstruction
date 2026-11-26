@@ -1,0 +1,9 @@
+{
+ "fn": "patch_mmio_write",
+ "img": "fmacfwbt_u02",
+ "addr": "0x126e94",
+ "seg": 33,
+ "key": "patch_mmio_write__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"phy_channel_tick\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears a pending flag and walks a linked list of channel contexts, invoking phy_channel_validate for entries whose channel state matches the current PHY channel.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"v0\": \"ctx\",\n    \"v1\": \"current_channel\",\n    \"v3\": \"channel_table\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 72,\n      \"meaning\": \"channel or tick value compared with current_channel\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"context flag that must be clear before processing\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"context active/enabled flag\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"PHY channel number passed to phy_channel_validate\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"validation/skip flag influencing channel processing\"\n    },\n    {\n      \"offset\": 1225,\n      \"meaning\": \"index into the 140-byte channel table\"\n    }\n  ]\n}"
+}

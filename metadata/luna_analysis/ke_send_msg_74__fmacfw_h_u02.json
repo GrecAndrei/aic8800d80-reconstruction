@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_msg_74",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122df0",
+ "seg": 28,
+ "key": "ke_send_msg_74__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_mac_address_response\",\"confidence\":\"high\",\"docstring\":\"Reads the device's six-byte MAC address from the RF or SMC source and sends it in a response packet.\",\"subsystem\":\"mac\",\"var_renames\":{\"v4\":\"response_payload\",\"v5\":\"mac_bytes_0_1\",\"v6\":\"mac_bytes_2_5\"}}"
+}

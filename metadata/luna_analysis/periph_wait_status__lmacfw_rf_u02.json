@@ -1,0 +1,9 @@
+{
+ "fn": "periph_wait_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102bb0",
+ "seg": 2,
+ "key": "periph_wait_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"dcq_configure_queues\", \"confidence\": \"medium\", \"docstring\": \"Programs caller-selected DCQ descriptor rings by writing 16-bit input values into the descriptor field at bits 11-26, then optionally updates the caller buffer with associated status values.\", \"subsystem\": \"hal\", \"var_renames\": {\"a1\": \"queue_mask\", \"a2\": \"input_values\", \"v2\": \"input_value_ptr\", \"v4\": \"queue_id\", \"v5\": \"preserve_mask\", \"v7\": \"dcq_desc_ptr\", \"v8\": \"desc_index\", \"v9\": \"old_desc_word\", \"v10\": \"input_value\", \"v11\": \"new_desc_word\", \"v14\": \"status_source\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"flag that selects status/source value readback after DCQ processing\"}, {\"offset\": 16, \"meaning\": \"first loaded status/source 64-bit value\"}, {\"offset\": 24, \"meaning\": \"loaded status/source pointer or 32-bit value\"}, {\"offset\": 32, \"meaning\": \"second loaded status/source 64-bit value\"}]}"
+}

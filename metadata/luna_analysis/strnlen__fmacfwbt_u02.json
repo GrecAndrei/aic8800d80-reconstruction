@@ -1,0 +1,9 @@
+{
+ "fn": "strnlen",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12dac4",
+ "seg": 43,
+ "key": "strnlen__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_parse_find_tlv_tag1\", \"confidence\": \"medium\", \"docstring\": \"Scan a length-delimited TLV buffer within a bounded size and return the first tag-1 record whose payload length is nonzero and at most 12 bytes, writing that length to an output pointer.\", \"subsystem\": \"rf\", \"var_renames\": {\"result\": \"cursor\", \"a2\": \"buf_len\", \"a3\": \"out_payload_len\", \"v3\": \"end_ptr\", \"v4\": \"payload_len\", \"v5\": \"next_record\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"tlv_tag_or_type\"}, {\"offset\": 1, \"meaning\": \"tlv_payload_length\"}]}"
+}

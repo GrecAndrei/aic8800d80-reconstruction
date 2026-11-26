@@ -1,0 +1,9 @@
+{
+ "fn": "check_global_value",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114088",
+ "seg": 5,
+ "key": "check_global_value__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"report_usb_transfer_error\",\"confidence\":\"medium\",\"docstring\":\"Logs whether the supplied function name matches a recognized USB-transfer handler and schedules a configured delayed event when enabled.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"function_name\"},\"struct_hints\":[{\"offset\":353,\"meaning\":\"Enables scheduling the delayed event.\"},{\"offset\":354,\"meaning\":\"Event delay in seconds.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "read_byte_register",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1005e8",
+ "seg": 0,
+ "key": "read_byte_register__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"read_byte_register\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a single byte from a fixed volatile base address at offset one.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x109bf8",
+ "seg": 2,
+ "key": "mmio_set_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_calibration_process\", \"confidence\": \"medium\", \"docstring\": \"Processes radio calibration for a calibration index by pulsing MMIO strobes, saving or restoring 32-entry table columns, invoking the calibration handler, and resetting the baseband.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"cal_index\", \"a2\": \"cal_table\", \"a3\": \"bb_channel\", \"a5\": \"raw_cal_mode\", \"a8\": \"save_cache\", \"v11\": \"cal_strobe_reg\", \"v15\": \"cal_arg4\", \"v16\": \"cache_src0\", \"v17\": \"cache_src1\", \"v18\": \"cache_src2\", \"v19\": \"cache_end\", \"v20\": \"table_dst\", \"v21\": \"cache0_val\", \"v22\": \"cache1_val\", \"v23\": \"cache1_val\", \"v24\": \"last_cache2_val\", \"v25\": \"cache2_val\", \"v27\": \"bb_strobe_reg\", \"v28\": \"bb_status_word\", \"v29\": \"cache_dst0\", \"v30\": \"cache_dst1\", \"v31\": \"cache_dst2\", \"v32\": \"cache_end\", \"v33\": \"table_src\", \"v34\": \"table0_val\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"calibration table base / first 32-entry column\"}, {\"offset\": 31, \"meaning\": \"int-index offset used to access the second table column after pointer increment\"}, {\"offset\": 63, \"meaning\": \"int-index offset used to write the duplicated third table column\"}, {\"offset\": 95, \"meaning\": \"int-index offset used to access the fourth table column\"}, {\"offset\": 129, \"meaning\": \"status/result field written after baseband processing\"}, {\"offset\": 131, \"meaning\": \"second status/result field written after baseband processing\"}]}"
+}

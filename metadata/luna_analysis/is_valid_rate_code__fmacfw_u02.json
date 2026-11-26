@@ -1,0 +1,9 @@
+{
+ "fn": "is_valid_rate_code",
+ "img": "fmacfw_u02",
+ "addr": "0x1326f4",
+ "seg": 45,
+ "key": "is_valid_rate_code__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_rate_code_to_index\",\"confidence\":\"high\",\"docstring\":\"Maps an 802.11 legacy rate code, ignoring its basic-rate flag, to an internal rate index or returns 0xFF if unsupported.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"rate_code\",\"v1\":\"normalized_rate_code\",\"result\":\"rate_index\"}}"
+}

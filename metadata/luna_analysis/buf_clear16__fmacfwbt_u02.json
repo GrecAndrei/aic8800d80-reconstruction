@@ -1,0 +1,9 @@
+{
+ "fn": "buf_clear16",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12fc7c",
+ "seg": 43,
+ "key": "buf_clear16__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"cmd_read_memory\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Debug/command handler that parses an address, optional count, and 1/2/4-byte size extension to display memory/register reads or dispatch a block read.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v4\": \"mem_addr\",\n    \"v5\": \"data_size\",\n    \"a2a\": \"read_count\",\n    \"v8\": \"read_val\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"argv[0]: command token or size-extension string\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"argv[1]: hex memory address string\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"argv[2]: optional read count string\"\n    }\n  ]\n}"
+}

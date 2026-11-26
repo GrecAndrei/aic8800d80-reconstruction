@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy_opt",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1007a4",
+ "seg": 0,
+ "key": "memcpy_opt__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_copy_adjusted_blocks\",\"confidence\":\"medium\",\"docstring\":\"Copies three 32-word blocks; for mask-selected blocks, each word is replaced by the next cyclic word with its low byte adjusted, except words equal to the block\u2019s word-15 value, while unselected blocks are copied unchanged.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"src\",\"a2\":\"dst\",\"a4\":\"block_mask\",\"v22\":\"block_index\",\"v14\":\"word_index\",\"v15\":\"current_word\",\"v12\":\"next_word\"}}"
+}

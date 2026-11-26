@@ -1,0 +1,9 @@
+{
+ "fn": "ble_scan_config",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1345a8",
+ "seg": 51,
+ "key": "ble_scan_config__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_scan_configure\",\"confidence\":\"medium\",\"docstring\":\"Builds and submits a BLE scan configuration packet from stored state, then preprocesses the associated HCI command.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"scan_flag\",\"v3\":\"scan_config\",\"v4\":\"packet\"}}"
+}

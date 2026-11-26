@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_clear_pin",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102b40",
+ "seg": 2,
+ "key": "gpio_clear_pin__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"gpio_switch_select\", \"confidence\": \"medium\", \"docstring\": \"Selects one of two GPIO-controlled states by writing a timed sequence of output-bit masks with settling delays.\", \"subsystem\": \"hal\", \"var_renames\": {\"result\": \"mode_selector\", \"v2\": \"mode_is_zero\", \"v4\": \"initial_reg_value\", \"v6\": \"cleared_reg_value\", \"v8\": \"pulsed_reg_value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "store_hci_event_info",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122d7c",
+ "seg": 27,
+ "key": "store_hci_event_info__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_store_event_info_and_send\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies fields from an HCI event-info buffer into a saved event structure and sends fixed vendor HCI event 0x8A via hci_evt_alloc_send.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"event_info_src\",\n    \"v6\": \"event_info_dst\",\n    \"v4\": \"src_event_word0\",\n    \"v7\": \"src_event_word1\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first 32-bit field of saved HCI event info\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"second 32-bit field of saved HCI event info\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"16-bit field of saved HCI event info\"\n    }\n  ]\n}"
+}

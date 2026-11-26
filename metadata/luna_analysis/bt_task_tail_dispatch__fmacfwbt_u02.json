@@ -1,0 +1,9 @@
+{
+ "fn": "bt_task_tail_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x113f60",
+ "seg": 5,
+ "key": "bt_task_tail_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_ctrl_task_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Calls the Bluetooth controller main task when the byte-sized guard at 0x113F6C is clear.\",\"subsystem\":\"bt\"}"
+}

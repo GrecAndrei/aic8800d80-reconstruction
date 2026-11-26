@@ -1,0 +1,9 @@
+{
+ "fn": "send_cmd_0x76",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122b8c",
+ "seg": 26,
+ "key": "send_cmd_0x76__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_hci_send_0x76_response\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends a 12-byte Bluetooth HCI response buffer for identifier 0x76, populating selected fields from indexed command/context tables.\",\"subsystem\":\"bt\",\"var_renames\":{\"v5\":\"resp_buf\",\"v6\":\"cmd_ctx_entry\",\"v7\":\"param_index\",\"v8\":\"param_ctx_entry\",\"v9\":\"param_flag\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"cmd_ctx_entry byte at +34: secondary parameter index; 0xFF means none\"},{\"offset\":336,\"meaning\":\"cmd_ctx_entry pointer at +336: source word at +20 copied to resp_buf offset 0\"},{\"offset\":689,\"meaning\":\"cmd_ctx_entry byte at +689: value copied to resp_buf offset 8 when param_flag is nonzero\"},{\"offset\":106,\"meaning\":\"param_ctx_entry byte at +106: flag selecting source byte for resp_buf offset 8\"},{\"offset\":142,\"meaning\":\"param_ctx_entry byte at +142: value copied to resp_buf offset 8 when param_flag is zero\"}]}"
+}

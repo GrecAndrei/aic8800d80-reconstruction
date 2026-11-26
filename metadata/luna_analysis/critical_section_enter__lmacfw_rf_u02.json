@@ -1,0 +1,9 @@
+{
+ "fn": "critical_section_enter",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x112878",
+ "seg": 4,
+ "key": "critical_section_enter__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_wakeup_critical_section\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Executes a pending USB/RF remote-wakeup handshake inside a disable-IRQ nesting critical section, clearing the pending flag and tracing or dispatching the wakeup event.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"critical_nesting_count_ptr\",\n    \"v1\": \"remote_wakeup_pending_ptr\",\n    \"v2\": \"remote_wakeup_pending\",\n    \"v3\": \"critical_nesting_count\",\n    \"v4\": \"timer_ticks_now\",\n    \"v5\": \"wakeup_deadline_ticks\",\n    \"v6\": \"ticks_remaining\",\n    \"v7\": \"wakeup_status_reg\",\n    \"result\": \"wakeup_event_result\",\n    \"v9\": \"next_critical_nesting_count\",\n    \"v10\": \"irq_disabled_by_this_call\"\n  }\n}"
+}

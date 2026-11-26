@@ -1,0 +1,9 @@
+{
+ "fn": "phy_set_channel_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13a9b4",
+ "seg": 59,
+ "key": "phy_set_channel_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_handle_txu_discard\",\"confidence\":\"high\",\"docstring\":\"Logs a TXU discard record, allocates a retransmission event when status bit 0 is set, and calls the registration routine inside a nested IRQ-safe critical section.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"txu_discard_record\",\"v6\":\"discard_flags\",\"v8\":\"irq_lock_depth_ptr\",\"v10\":\"remaining_lock_depth\",\"v11\":\"irq_restore_needed\"},\"struct_hints\":[{\"offset\":27,\"meaning\":\"Diagnostic byte included in the TXU-discard log.\"},{\"offset\":30,\"meaning\":\"TXU-discard status flags; bit 0 controls retransmission-event allocation.\"},{\"offset\":32,\"meaning\":\"Diagnostic 16-bit value included in the TXU-discard log.\"}]}"
+}

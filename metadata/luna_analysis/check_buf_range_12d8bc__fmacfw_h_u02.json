@@ -1,0 +1,9 @@
+{
+ "fn": "check_buf_range_12d8bc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d8bc",
+ "seg": 42,
+ "key": "check_buf_range_12d8bc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_tlv_0x44_with_long_payload\",\"confidence\":\"medium\",\"docstring\":\"Scans a length-prefixed buffer for tag 0x44 and returns its address while storing the payload length only if the complete record is in bounds and its total size exceeds 21 bytes.\",\"subsystem\":\"test\",\"var_renames\":{\"result\":\"cursor\",\"a2\":\"buffer_length\",\"a3\":\"out_payload_length\",\"v3\":\"buffer_end\",\"v4\":\"payload_length\",\"v5\":\"record_end\"},\"struct_hints\":[]}"
+}

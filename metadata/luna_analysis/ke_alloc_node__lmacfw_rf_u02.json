@@ -1,0 +1,9 @@
+{
+ "fn": "ke_alloc_node",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x110bf8",
+ "seg": 3,
+ "key": "ke_alloc_node__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ipc_send_kmsg\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates an IPC kernel message packet, fills its header with the source/type and payload length, copies the payload, posts the packet into an available message descriptor, and sets the send/doorbell flag.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"a1\": \"msg_src\",\n    \"a2\": \"payload\",\n    \"a3\": \"payload_len\",\n    \"v7\": \"node\",\n    \"v8\": \"node\",\n    \"v9\": \"tx_desc\",\n    \"v10\": \"desc_status_old\",\n    \"v11\": \"desc_status_mask\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"message packet header byte 0: payload length low byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"message packet header byte 1: payload length high nibble\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"message packet header byte 2: source/task/type field\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"message packet header byte 3: reserved/destination zero field\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"tx descriptor word 0: allocated message packet pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"tx descriptor word 1: reserved/zero field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"tx descriptor word 2: total packet size plus preserved status bits and 0x80000000 send/ready mask\"\n    }\n  ]\n}"
+}

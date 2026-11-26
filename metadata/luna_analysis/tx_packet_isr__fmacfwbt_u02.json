@@ -1,0 +1,9 @@
+{
+ "fn": "tx_packet_isr",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11e184",
+ "seg": 21,
+ "key": "tx_packet_isr__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_packet_isr\",\n  \"confidence\": \"high\",\n  \"docstring\": \"WiFi MAC TX packet interrupt handler that walks the TX descriptor queue, enqueues packet buffers, programs the RF transmit channel for scheduled packets, and clears related TX MMIO interrupts.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a1\": \"tx_desc_ptr\",\n    \"v3\": \"tx_state\",\n    \"v5\": \"tx_desc\",\n    \"v6\": \"tx_irq_status\",\n    \"v13\": \"pkt\",\n    \"v16\": \"tx_channel\",\n    \"v12\": \"pkt_len\",\n    \"v17\": \"next_desc\",\n    \"v9\": \"tx_busy\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"tx_state head/first packet pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"tx_state packet count\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"tx_state tail/last packet pointer\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"tx_state accumulated length/timestamp\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"tx_state busy/enqueue flag\"\n    }\n  ]\n}"
+}

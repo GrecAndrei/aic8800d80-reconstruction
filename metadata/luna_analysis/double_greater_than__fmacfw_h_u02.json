@@ -1,0 +1,9 @@
+{
+ "fn": "double_greater_than",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142e88",
+ "seg": 68,
+ "key": "double_greater_than__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_greater_than\",\"confidence\":\"high\",\"docstring\":\"Returns whether the first double-precision operand is greater than the second.\",\"subsystem\":\"libmisc\"}"
+}

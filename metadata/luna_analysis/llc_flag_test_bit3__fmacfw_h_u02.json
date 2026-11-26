@@ -1,0 +1,9 @@
+{
+ "fn": "llc_flag_test_bit3",
+ "img": "fmacfw_h_u02",
+ "addr": "0x126f08",
+ "seg": 32,
+ "key": "llc_flag_test_bit3__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_update_active_request\",\"confidence\":\"medium\",\"docstring\":\"Selects a pending LLC request from the status flags, marks the previous request when replacing it, and invokes the semaphore lock when a request is active.\",\"subsystem\":\"llc\",\"var_renames\":{\"v0\":\"llc_context\",\"v1\":\"next_request\",\"v2\":\"current_request\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"Pointer to the currently selected request\"},{\"offset\":88,\"meaning\":\"Status flags; bits 2 and 3 select pending requests\"},{\"offset\":16,\"meaning\":\"Byte flag set on the previous request before replacement\"}]}"
+}

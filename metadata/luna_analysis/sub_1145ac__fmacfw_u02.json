@@ -1,0 +1,9 @@
+{
+ "fn": "sub_1145ac",
+ "img": "fmacfw_u02",
+ "addr": "0x1145ac",
+ "seg": 5,
+ "key": "sub_1145ac__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_timer_window_check\",\"confidence\":\"medium\",\"docstring\":\"Checks timer-related time guards, logs a denial when a guard fails, and writes the resulting allow-or-deny flag.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"timer_record\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Timer identifier included in the denial diagnostic.\"},{\"offset\":12,\"meaning\":\"Timer deadline compared against the current hardware timer.\"}]}"
+}

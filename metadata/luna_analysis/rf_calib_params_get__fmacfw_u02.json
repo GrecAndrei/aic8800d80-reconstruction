@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calib_params_get",
+ "img": "fmacfw_u02",
+ "addr": "0x12abd0",
+ "seg": 37,
+ "key": "rf_calib_params_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calib_params_get\",\"confidence\":\"medium\",\"docstring\":\"Builds a parameter report in the caller's buffer from the selected RF calibration context, advances its sequence counter, and records the number of emitted entries.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"calib_context_table\",\"v3\":\"calib_context\",\"v4\":\"sequence_number\",\"v5\":\"status_flags\",\"v8\":\"calib_record\",\"v9\":\"output_record\",\"v10\":\"record_count\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Per-record active/valid byte; records are 48 bytes apart.\"},{\"offset\":20,\"meaning\":\"Per-record byte copied to the serialized entry.\"},{\"offset\":24,\"meaning\":\"Per-record 64-bit payload copied to the serialized entry.\"},{\"offset\":32,\"meaning\":\"Per-record selector/state byte, compared with 1 when filtering entries.\"},{\"offset\":33,\"meaning\":\"Per-record filtering or validity byte.\"},{\"offset\":36,\"meaning\":\"Per-record 32-bit value added to the difference of global reference values in the output.\"},{\"offset\":115,\"meaning\":\"Context status byte reflected in the output flags.\"},{\"offset\":120,\"meaning\":\"Context sequence counter, copied to the output and then incremented.\"},{\"offset\":135,\"meaning\":\"Context filtering-enable byte used when deciding whether to emit records.\"},{\"offset\":136,\"meaning\":\"Context field updated with the emitted record count.\"},{\"offset\":1,\"meaning\":\"Output length field derived from the number of emitted entries.\"},{\"offset\":7,\"meaning\":\"Second output length field derived from the number of emitted entries.\"},{\"offset\":9,\"meaning\":\"Output sequence number byte.\"},{\"offset\":10,\"meaning\":\"Output status/validity flags byte.\"},{\"offset\":11,\"meaning\":\"Start of packed 13-byte output entries.\"}]}"
+}

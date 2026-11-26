@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_lock",
+ "img": "fmacfwbt_u02",
+ "addr": "0x124f60",
+ "seg": 31,
+ "key": "ke_event_lock__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_timer_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Update a kernel timer\u2019s expiry time and insert it into the sorted timer list under IRQ protection, waking the kernel if the new time is already in the past.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v4\": \"timer_lock_count\",\n    \"v5\": \"timer_ctrl\",\n    \"v6\": \"current_tick\",\n    \"v7\": \"timer_list\",\n    \"v8\": \"timer_compare_fn\",\n    \"v10\": \"new_head_timer\",\n    \"v11\": \"lock_count_after_dec\",\n    \"v12\": \"irq_lock_requested\",\n    \"v13\": \"timer_compare_fn\",\n    \"v14\": \"timer_ctrl\",\n    \"v15\": \"head_timer_tick\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"timer callback/context pointer\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"timer expiry tick\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"current kernel tick/time\"\n    }\n  ]\n}"
+}

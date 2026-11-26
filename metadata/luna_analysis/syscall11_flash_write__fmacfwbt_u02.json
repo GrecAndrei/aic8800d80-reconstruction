@@ -1,0 +1,9 @@
+{
+ "fn": "syscall11_flash_write",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1150c0",
+ "seg": 6,
+ "key": "syscall11_flash_write__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_hw_info_field\",\"confidence\":\"medium\",\"docstring\":\"Calls syscall 11, selects the byte at the requested index, decodes its chosen nibble as signed magnitude, writes the value through the output pointer, and returns a decode status.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"byte_index\",\"a2\":\"decoded_value_out\",\"v3\":\"packed_syscall_result\",\"v4\":\"encoded_nibble\",\"result\":\"decode_status\",\"v6\":\"sign_multiplier\"}}"
+}

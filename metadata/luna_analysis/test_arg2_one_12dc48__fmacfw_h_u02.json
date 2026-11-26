@@ -1,0 +1,9 @@
+{
+ "fn": "test_arg2_one_12dc48",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12dc48",
+ "seg": 42,
+ "key": "test_arg2_one_12dc48__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_record_stream_terminator\",\"confidence\":\"medium\",\"docstring\":\"Scans length-prefixed records and returns the zero-tagged terminal record only when the supplied offset reaches or passes its end and the record is at least six bytes long.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"requested_end\",\"v3\":\"record_size\",\"v4\":\"record_end\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Record tag; zero marks the terminal record.\"},{\"offset\":1,\"meaning\":\"Record payload length; two header bytes are added to obtain the record size.\"}]}"
+}

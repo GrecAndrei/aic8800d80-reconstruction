@@ -1,0 +1,9 @@
+{
+ "fn": "tx_channel_setup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11b70c",
+ "seg": 17,
+ "key": "tx_channel_setup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"setup_tx_channel\",\"confidence\":\"medium\",\"docstring\":\"Prepares per-channel transmit packet state from connection metadata and a packet descriptor, clearing cached channel state when no usable packet is available.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"channel_index\",\"v22\":\"packet_info\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"32-bit flags; bit 0x200000 selects the packet-parsing path.\"},{\"offset\":76,\"meaning\":\"Pointer to a packet buffer or descriptor used by the alternate setup path.\"},{\"offset\":82,\"meaning\":\"16-bit flags; bit 0x4 enables the alternate buffer-handling path.\"}]}"
+}

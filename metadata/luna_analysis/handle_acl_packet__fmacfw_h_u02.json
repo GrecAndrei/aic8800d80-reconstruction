@@ -1,0 +1,9 @@
+{
+ "fn": "handle_acl_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136a90",
+ "seg": 56,
+ "key": "handle_acl_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dequeue_eligible_acl_packet\",\"confidence\":\"medium\",\"docstring\":\"Selects and removes an eligible ACL queue entry, updates queue bookkeeping, and signals when no further eligible entry remains.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"connection\",\"a3\":\"result_flag\",\"v8\":\"selected_packet\",\"v12\":\"previous_packet\",\"v15\":\"next_matching_packet\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"connection handle copied into a generated message\"},{\"offset\":53,\"meaning\":\"pending queue bitmask\"},{\"offset\":54,\"meaning\":\"ACL queue-selection flags\"},{\"offset\":310,\"meaning\":\"queue eligibility bitmap\"},{\"offset\":572,\"meaning\":\"head of the pending ACL packet list\"},{\"offset\":27,\"meaning\":\"packet queue class or state used for eligibility checks\"},{\"offset\":72,\"meaning\":\"pointer to the packet's associated descriptor\"},{\"offset\":216,\"meaning\":\"flag field in the associated descriptor\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "wait_hw_interrupt_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123358",
+ "seg": 23,
+ "key": "wait_hw_interrupt_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wait_hw_interrupt_flag\",\"confidence\":\"medium\",\"docstring\":\"Polls a hardware status register until its interrupt flag is set while pumping UART bytes into a message queue and returning on a successful queue message.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v0\":\"status_reg\",\"v1\":\"uart_byte\"}}"
+}

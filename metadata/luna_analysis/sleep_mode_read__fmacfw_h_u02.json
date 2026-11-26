@@ -1,0 +1,9 @@
+{
+ "fn": "sleep_mode_read",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1159a4",
+ "seg": 6,
+ "key": "sleep_mode_read__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_sleep_mode\",\"confidence\":\"medium\",\"docstring\":\"Checks sleep, Wi-Fi, Bluetooth, and radio state to handle low-power transitions and queue the corresponding events.\",\"subsystem\":\"mm\"}"
+}

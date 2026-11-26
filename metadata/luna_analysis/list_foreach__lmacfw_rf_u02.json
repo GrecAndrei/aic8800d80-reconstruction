@@ -1,0 +1,9 @@
+{
+ "fn": "list_foreach",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e840",
+ "seg": 21,
+ "key": "list_foreach__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"list_insert_sorted\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Inserts a node into a singly linked list at the first position where the supplied comparator returns nonzero, updating the head's tail pointer.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v3\": \"cur_node\",\n    \"v4\": \"list_head\",\n    \"v7\": \"prev_node\",\n    \"a2\": \"node\",\n    \"a3\": \"cmp\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"next pointer for linked list node or head\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"tail/last pointer for linked list head\"\n    }\n  ]\n}"
+}

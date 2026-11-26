@@ -1,0 +1,9 @@
+{
+ "fn": "bad_func_0x12f4b8",
+ "img": "fmacfw_u02",
+ "addr": "0x12f4b8",
+ "seg": 42,
+ "key": "bad_func_0x12f4b8__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_irq_state_check\",\"confidence\":\"medium\",\"docstring\":\"Conditionally masks or unmasks interrupts while checking and updating two global state words.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"state_word_ptr\",\"v1\":\"previous_value\",\"v2\":\"incremented_value\",\"v3\":\"irq_state_ptr\"}}"
+}

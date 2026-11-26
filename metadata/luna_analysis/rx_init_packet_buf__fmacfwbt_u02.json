@@ -1,0 +1,9 @@
+{
+ "fn": "rx_init_packet_buf",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13e30c",
+ "seg": 62,
+ "key": "rx_init_packet_buf__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rx_update_ewma\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates a 16-bit exponential moving average from a fixed-point ratio of two buffer fields, using a saturating counter for zero samples and an init flag for the first valid average.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v1\": \"prev_value\",\n    \"v3\": \"scaled_current\",\n    \"v4\": \"ratio\",\n    \"v5\": \"zero_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"previous/denominator value; zero indicates missing sample\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"current/numerator value scaled by 65536\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"16-bit moving average\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"saturating counter of consecutive zero/invalid samples\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"moving-average initialized flag\"\n    }\n  ]\n}"
+}

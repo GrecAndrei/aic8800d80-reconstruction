@@ -1,0 +1,9 @@
+{
+ "fn": "find_record_by_id",
+ "img": "fmacfw_u02",
+ "addr": "0x138218",
+ "seg": 57,
+ "key": "find_record_by_id__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_find_record_by_addr\",\"confidence\":\"medium\",\"docstring\":\"Returns the active record whose six-byte key matches the three 16-bit words at the supplied address, or zero if no record matches.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"record\",\"v2\":\"records_end\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"record occupied/valid flag\"},{\"offset\":2,\"meaning\":\"six-byte lookup key, likely a Bluetooth device address, spanning offsets 2\u20137\"}]}"
+}

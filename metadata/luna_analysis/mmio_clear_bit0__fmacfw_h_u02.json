@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_clear_bit0",
+ "img": "fmacfw_h_u02",
+ "addr": "0x107d30",
+ "seg": 2,
+ "key": "mmio_clear_bit0__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_pll_startup\",\"confidence\":\"medium\",\"docstring\":\"Configures and triggers the RF PLL, polls its ready bit, then clears the control bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"pll_control_reg\",\"v1\":\"pll_config_reg\",\"v3\":\"pll_status_reg\",\"v4\":\"poll_delay_counter\"}}"
+}

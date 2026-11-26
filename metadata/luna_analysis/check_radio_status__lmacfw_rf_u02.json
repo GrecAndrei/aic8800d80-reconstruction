@@ -1,0 +1,9 @@
+{
+ "fn": "check_radio_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x122c94",
+ "seg": 22,
+ "key": "check_radio_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_calibration_temp_level\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads or writes the RF calibration temperature level and associated range from efuse or flash depending on the selected calibration source.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"mode\",\n    \"a2\": \"temp_level\",\n    \"a3\": \"unused_arg\",\n    \"v3\": \"efuse_source_flag\",\n    \"v7\": \"temp_range_base\",\n    \"v8\": \"efuse_remainder\",\n    \"v4\": \"efuse_remainder\",\n    \"a1a\": \"calib_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"packed calibration temp-level byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"packed calibration status/source byte\"\n    }\n  ]\n}"
+}

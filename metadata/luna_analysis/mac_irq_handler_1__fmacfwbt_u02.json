@@ -1,0 +1,9 @@
+{
+ "fn": "mac_irq_handler_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f03c",
+ "seg": 21,
+ "key": "mac_irq_handler_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_rxbuf2_timeout_poll\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls pending RX buffer2 descriptors in a ring and invokes RX/TX timeout handling until the ring cursor reaches the write pointer.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"rxbuf2_ring_ctrl\",\n    \"v1\": \"wrptr_ptr\",\n    \"v2\": \"read_ptr\",\n    \"v3\": \"expected_rxbuf2_seq\",\n    \"v4\": \"rdptr_ptr\",\n    \"v5\": \"rxbuf_ptr\",\n    \"v6\": \"rxbuf_desc\",\n    \"v7\": \"rxbuf_seq\",\n    \"v8\": \"ring_end\",\n    \"v9\": \"cur_addr\",\n    \"v10\": \"remaining_bytes\",\n    \"v11\": \"gen_flag\",\n    \"v12\": \"ring_start\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"rxbuf2_ctrl ring start address\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"rxbuf2_ctrl ring end address\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"rxbuf2_ctrl read/cursor pointer with generation bit\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"rxbuf descriptor sequence/valid field at rxbuf+0x14\"\n    },\n    {\n      \"offset\": 156,\n      \"meaning\": \"rxbuf descriptor flush/timeout flag at rxbuf+0x9c\"\n    }\n  ]\n}"
+}

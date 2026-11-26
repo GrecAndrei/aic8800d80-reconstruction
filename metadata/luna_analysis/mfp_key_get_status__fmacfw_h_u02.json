@@ -1,0 +1,9 @@
+{
+ "fn": "mfp_key_get_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x128ddc",
+ "seg": 34,
+ "key": "mfp_key_get_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mfp_key_status_is_clear\",\"confidence\":\"medium\",\"docstring\":\"Returns nonzero when the status gate is active and the context and every linked-list entry have a zero status word.\",\"subsystem\":\"mfp\",\"var_renames\":{\"v1\":\"list_node\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next pointer for each linked-list entry.\"},{\"offset\":4,\"meaning\":\"Status word; a nonzero value causes the check to fail.\"}]}"
+}

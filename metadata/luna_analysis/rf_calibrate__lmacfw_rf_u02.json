@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibrate",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101e18",
+ "seg": 1,
+ "key": "rf_calibrate__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_calibrate\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs and polls radio calibration registers for the selected RF path or channel parameters.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

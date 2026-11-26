@@ -1,0 +1,9 @@
+{
+ "fn": "load_bt_config",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1141a4",
+ "seg": 5,
+ "key": "load_bt_config__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_host_ipc_start_feature\",\"confidence\":\"medium\",\"docstring\":\"Checks feature flag 256 using the host-IPC-start label, then returns 1.\",\"subsystem\":\"ipc\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "queue_counters_equal",
+ "img": "fmacfw_u02",
+ "addr": "0x119d4c",
+ "seg": 13,
+ "key": "queue_counters_equal__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_queue_contexts_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the per-queue TX context arrays and passes each context with its queue metadata to the TX command handler.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v3\":\"queue_array_cursor\",\"v4\":\"queue_count_cursor\",\"v6\":\"queue_metadata_cursor\",\"v7\":\"queue_array_end\",\"v8\":\"queue_context_array\",\"v10\":\"queue_context_count\",\"v11\":\"context_word_offset\",\"v12\":\"context_index\",\"v13\":\"tx_queue_context\",\"v14\":\"hw_clock_multiplier\"},\"struct_hints\":[{\"offset\":100,\"meaning\":\"Pointer to inline state at offset 152.\"},{\"offset\":104,\"meaning\":\"Pointer to an in-context address at offset 175; exact purpose unclear.\"},{\"offset\":108,\"meaning\":\"Initialized to 24; likely a size or limit field.\"},{\"offset\":152,\"meaning\":\"Inline control bytes initialized to 0x84, 0, 0, and 5.\"},{\"offset\":172,\"meaning\":\"Embedded word initialized from a shared global and referenced by the pointer at offset 120.\"},{\"offset\":176,\"meaning\":\"RF-field-derived configuration value shifted left by 14.\"},{\"offset\":180,\"meaning\":\"Hardware clock multiplier.\"},{\"offset\":188,\"meaning\":\"Initialized from a shared global configuration word.\"},{\"offset\":340,\"meaning\":\"Pointer to the queue's 8-byte metadata record.\"}]}"
+}

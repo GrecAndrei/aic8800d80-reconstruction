@@ -1,0 +1,9 @@
+{
+ "fn": "tx_irq_handler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11052c",
+ "seg": 3,
+ "key": "tx_irq_handler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sdio_tx_desc_replenish\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes RX IRQ state and then replenishes the SDIO host-to-device TX descriptor ring by allocating, linking, and posting descriptors until the queue reaches its configured target depth, writing the doorbell.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"a1\": \"host_txq_ops\",\n    \"a2\": \"txq_state\",\n    \"v21\": \"target_depth\",\n    \"v6\": \"current_count\",\n    \"v9\": \"buf_idx\",\n    \"v11\": \"new_desc\",\n    \"v12\": \"buf_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"host_txq_ops context pointer passed to allocator/release callbacks\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"host_txq_ops virtual/operation table pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"txq_state tail descriptor pointer\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"txq_state current descriptor count (uint16)\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"descriptor buffer address field\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"descriptor next descriptor pointer field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"descriptor control or length field zero-initialized on allocation\"\n    }\n  ]\n}"
+}

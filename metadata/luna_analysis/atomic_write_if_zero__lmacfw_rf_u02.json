@@ -1,0 +1,9 @@
+{
+ "fn": "atomic_write_if_zero",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x109120",
+ "seg": 2,
+ "key": "atomic_write_if_zero__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"insert_sorted_desc_u32\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Inserts a uint32 value into a descending-sorted volatile uint32 array by scanning for the first entry not greater than the value, shifting subsequent entries right, and returning the packed length/index state.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"packed_len_index\",\n    \"a2\": \"value\",\n    \"a3\": \"array\",\n    \"v3\": \"next_index\",\n    \"v4\": \"candidate_entry\",\n    \"v5\": \"shift_stop\",\n    \"v6\": \"shift_dst\"\n  },\n  \"struct_hints\": []\n}"
+}

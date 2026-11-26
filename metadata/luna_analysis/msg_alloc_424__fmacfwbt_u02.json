@@ -1,0 +1,9 @@
+{
+ "fn": "msg_alloc_424",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12eff4",
+ "seg": 43,
+ "key": "msg_alloc_424__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_msg_alloc_0x424\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocate a Bluetooth message (internal type 0x424), copy a capped payload from a source descriptor into it, schedule the kernel event, and send it as an HCI event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v5\": \"msg\",\n    \"v6\": \"src_ptr\",\n    \"v7\": \"payload_len\",\n    \"v8\": \"msg\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 0, \"meaning\": \"message field holding the original source payload pointer\"},\n    {\"offset\": 4, \"meaning\": \"message field holding copied payload length capped at 0x400\"},\n    {\"offset\": 8, \"meaning\": \"message field/start of copied HCI event payload\"}\n  ]\n}"
+}

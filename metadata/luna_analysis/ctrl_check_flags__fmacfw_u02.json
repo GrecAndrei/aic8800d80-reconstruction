@@ -1,0 +1,9 @@
+{
+ "fn": "ctrl_check_flags",
+ "img": "fmacfw_u02",
+ "addr": "0x127048",
+ "seg": 32,
+ "key": "ctrl_check_flags__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ctrl_update_active_context\",\"confidence\":\"medium\",\"docstring\":\"Selects a context according to control flag bits, marks the previous context when switching, and polls control events.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"ctrl_state\",\"v1\":\"selected_context\",\"v2\":\"active_context\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Byte flag set on the previous context when it is replaced.\"},{\"offset\":44,\"meaning\":\"Pointer to the currently active context.\"},{\"offset\":88,\"meaning\":\"Control flags; bits 2 and 3 select candidate contexts.\"}]}"
+}

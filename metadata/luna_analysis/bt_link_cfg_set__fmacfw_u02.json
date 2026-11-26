@@ -1,0 +1,9 @@
+{
+ "fn": "bt_link_cfg_set",
+ "img": "fmacfw_u02",
+ "addr": "0x126824",
+ "seg": 32,
+ "key": "bt_link_cfg_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_link_event_time_adjust\",\"confidence\":\"medium\",\"docstring\":\"Adjusts a Bluetooth link event's candidate time against other link timing windows and passes the selected time to the controller handler.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"link_table_base\",\"v4\":\"controller_context\",\"v5\":\"associated_link_context\",\"v6\":\"link_index\",\"v7\":\"link_record\",\"v14\":\"candidate_event_time\",\"v30\":\"peer_link_record\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Controller-context timestamp used as the event timing reference.\"},{\"offset\":8,\"meaning\":\"Controller-context link index.\"},{\"offset\":27,\"meaning\":\"Associated-link byte; 0xff is treated as an absent or invalid value.\"},{\"offset\":72,\"meaning\":\"On the input object, pointer to an associated link context; on a link-table record, pointer used to identify its active context.\"},{\"offset\":86,\"meaning\":\"Related link index or identifier; 0xff is treated as absent.\"}]}"
+}

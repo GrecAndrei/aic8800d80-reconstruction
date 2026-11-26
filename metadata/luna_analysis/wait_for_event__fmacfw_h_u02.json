@@ -1,0 +1,9 @@
+{
+ "fn": "wait_for_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x131f90",
+ "seg": 44,
+ "key": "wait_for_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wait_for_hci_event\",\"confidence\":\"medium\",\"docstring\":\"Checks the HCI command state, optionally synthesizes and processes a PDU from shared event state, then writes the supplied values to the MAC header.\",\"subsystem\":\"bt\",\"var_renames\":{\"v7\":\"shared_state\",\"v8\":\"normalized_input_flag\",\"v9\":\"event_state_word\",\"v10\":\"pdu_buffer\",\"v11\":\"pdu_payload_byte\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Word gating synthetic PDU generation; zero causes a PDU to be generated.\"},{\"offset\":8,\"meaning\":\"Halfword set to 0xFF when a synthetic PDU is generated.\"},{\"offset\":375,\"meaning\":\"Normalized input flag controlling whether the byte at offset 376 is copied into the PDU.\"},{\"offset\":376,\"meaning\":\"Byte copied into the synthetic PDU when offset 375 is nonzero.\"}]}"
+}

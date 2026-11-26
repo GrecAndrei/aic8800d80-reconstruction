@@ -1,0 +1,9 @@
+{
+ "fn": "syscall6_get_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114ea4",
+ "seg": 6,
+ "key": "syscall6_get_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"syscall6_get_status\",\"confidence\":\"medium\",\"docstring\":\"Calls the fixed syscall vector with selector 6, stores the encoded result byte through the output pointer, and returns 0, 1, or 2 according to the result encoding.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"status_out\",\"v2\":\"syscall_result\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "sub_13DB2C",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13db2c",
+ "seg": 62,
+ "key": "sub_13DB2C__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rc_check_rate_constraint\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks whether a candidate PHY rate descriptor satisfies the station's rate-control capability constraints for PPDU format, SGI, bandwidth, NSS, and MCS/legacy rate, logging failures.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"rate_ctl\",\n    \"a2\": \"rate_idx\",\n    \"v2\": \"rate_word\",\n    \"v7\": \"ppdu_type_bit\",\n    \"v9\": \"sgi_bit\",\n    \"v10\": \"bw_field\",\n    \"v11\": \"nss_field\",\n    \"v12\": \"mcs_or_legacy_field\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 169,\n      \"meaning\": \"rate-control state or mode byte\"\n    },\n    {\n      \"offset\": 176,\n      \"meaning\": \"maximum allowed MCS or legacy rate field\"\n    },\n    {\n      \"offset\": 177,\n      \"meaning\": \"capability/mode field controlling PPDU-format checks\"\n    },\n    {\n      \"offset\": 179,\n      \"meaning\": \"maximum allowed bandwidth field\"\n    },\n    {\n      \"offset\": 180,\n      \"meaning\": \"maximum allowed NSS field\"\n    },\n    {\n      \"offset\": 181,\n      \"meaning\": \"maximum allowed SGI field\"\n    }\n  ]\n}"
+}

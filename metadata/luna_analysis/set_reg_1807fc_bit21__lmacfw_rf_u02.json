@@ -1,0 +1,9 @@
+{
+ "fn": "set_reg_1807fc_bit21",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123f8c",
+ "seg": 23,
+ "key": "set_reg_1807fc_bit21__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_reg_1807fc_bit21\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Update bit 21 of the register referenced by off_123F9C from bit_val and return bit_val unchanged.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"bit_val\"\n  }\n}"
+}

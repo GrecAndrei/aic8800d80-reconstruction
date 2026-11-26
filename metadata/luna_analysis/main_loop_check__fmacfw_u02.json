@@ -1,0 +1,9 @@
+{
+ "fn": "main_loop_check",
+ "img": "fmacfw_u02",
+ "addr": "0x133abc",
+ "seg": 48,
+ "key": "main_loop_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_main_loop_check\",\"confidence\":\"medium\",\"docstring\":\"Checks controller and Bluetooth connection state, dispatching pending receive handling or profile setup as appropriate.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"connection_ctx\",\"v1\":\"connection_state\"},\"struct_hints\":[{\"offset\":48,\"meaning\":\"Connection-context flags; bit 0x40 gates RF table initialization in state 2.\"},{\"offset\":59,\"meaning\":\"Connection state used to select profile and setup handling.\"}]}"
+}

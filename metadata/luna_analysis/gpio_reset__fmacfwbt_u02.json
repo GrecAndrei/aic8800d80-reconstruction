@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_reset",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10de48",
+ "seg": 3,
+ "key": "gpio_reset__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_reset\",\"confidence\":\"medium\",\"docstring\":\"Configures GPIO-related control registers with fixed values and returns the prior value of the control register at offset 0x0C.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"gpio_regs\",\"v2\":\"first_preserve_mask\",\"v3\":\"second_preserve_mask\",\"result\":\"previous_control_value\"}}"
+}

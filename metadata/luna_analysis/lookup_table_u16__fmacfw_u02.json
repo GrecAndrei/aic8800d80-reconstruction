@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_table_u16",
+ "img": "fmacfw_u02",
+ "addr": "0x11939c",
+ "seg": 12,
+ "key": "lookup_table_u16__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lookup_table_u16\",\"confidence\":\"medium\",\"docstring\":\"Returns a 16-bit entry from a global table using an index combined from the two arguments.\",\"subsystem\":\"phy\"}"
+}

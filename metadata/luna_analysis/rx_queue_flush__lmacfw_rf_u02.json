@@ -1,0 +1,9 @@
+{
+ "fn": "rx_queue_flush",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x117d6c",
+ "seg": 10,
+ "key": "rx_queue_flush__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_scan_pdu_queue_flush\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes queued BLE link-layer scan PDUs, waiting for RF idle and invoking llm_scan_pdu_cfg on each entry up to an optional limit.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"llm_ctx\",\n    \"a3\": \"max_count\",\n    \"v3\": \"processed_count\",\n    \"v6\": \"scan_pdu_list_head\",\n    \"v7\": \"scan_pdu\",\n    \"v8\": \"scan_pdu_param\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 48,\n      \"meaning\": \"queued scan PDU list head\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"scan PDU parameter byte passed to llm_scan_pdu_cfg\"\n    },\n    {\n      \"offset\": 53,\n      \"meaning\": \"scan PDU pending/configured flag cleared during processing\"\n    }\n  ]\n}"
+}

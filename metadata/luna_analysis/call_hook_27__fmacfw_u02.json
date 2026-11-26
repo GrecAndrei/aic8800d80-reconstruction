@@ -1,0 +1,9 @@
+{
+ "fn": "call_hook_27",
+ "img": "fmacfw_u02",
+ "addr": "0x114bac",
+ "seg": 5,
+ "key": "call_hook_27__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"invoke_hook_27\",\"confidence\":\"high\",\"docstring\":\"Calls the hook function stored at address 0x1FC with hook index 27 and returns its result.\",\"subsystem\":\"libmisc\"}"
+}

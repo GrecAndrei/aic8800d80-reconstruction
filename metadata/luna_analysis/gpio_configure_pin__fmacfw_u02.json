@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_configure_pin",
+ "img": "fmacfw_u02",
+ "addr": "0x10dd44",
+ "seg": 3,
+ "key": "gpio_configure_pin__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_configure_pin\",\"confidence\":\"high\",\"docstring\":\"Configures a GPIO pin's control bits, writes the supplied value to its per-pin register, and initializes shared GPIO state if its ready flag is clear.\",\"subsystem\":\"gpio\",\"var_renames\":{\"result\":\"pin_index\",\"a2\":\"pin_mode\",\"a3\":\"pin_config_value\",\"v3\":\"pin_mask\",\"v6\":\"pin_mask_clear\",\"v9\":\"controller_initialized\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Pin-mode control bit; set when pin_mode is 2 and cleared otherwise.\"},{\"offset\":20,\"meaning\":\"Secondary pin-mode control bit; set when pin_mode is 0 and cleared for other non-2 modes.\"},{\"offset\":36,\"meaning\":\"Register assigned the one-hot mask for the selected pin.\"},{\"offset\":44,\"meaning\":\"Grouped configuration fields ORed with 7 shifted by the pin index rounded down to a multiple of four.\"}]}"
+}

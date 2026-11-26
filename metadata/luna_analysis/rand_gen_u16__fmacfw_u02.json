@@ -1,0 +1,9 @@
+{
+ "fn": "rand_gen_u16",
+ "img": "fmacfw_u02",
+ "addr": "0x138bf4",
+ "seg": 58,
+ "key": "rand_gen_u16__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rxu_cntrl_spurious\",\"confidence\":\"high\",\"docstring\":\"Handles a suspicious received 802.11 control frame by finding its matching RX context and invoking the deauthentication callback when the transmitter is absent from the context's linked list.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"rx_context_table\",\"v3\":\"context_index\",\"i\":\"context_ptr\",\"v6\":\"context_offset\",\"v7\":\"peer_list_entry\"},\"struct_hints\":[{\"offset\":38,\"meaning\":\"MAC address in a linked-list entry, compared with the frame transmitter address\"},{\"offset\":100,\"meaning\":\"six-byte context MAC address, compared with the frame receiver address\"},{\"offset\":106,\"meaning\":\"context state; value 2 is required\"},{\"offset\":108,\"meaning\":\"context active or valid flag\"},{\"offset\":240,\"meaning\":\"head pointer for the linked list of peer entries\"}]}"
+}

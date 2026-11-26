@@ -1,0 +1,9 @@
+{
+ "fn": "rf_init_phy",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1216ec",
+ "seg": 22,
+ "key": "rf_init_phy__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"trace_active_tx_descriptor\", \"confidence\": \"medium\", \"docstring\": \"Reads and logs TX queue pointer/status registers, selects the active TX descriptor based on queue-active bits, and passes descriptor fields to a debug/IPC handler.\", \"subsystem\": \"mac\", \"var_renames\": {\"v1\": \"txlist_cptr\", \"v2\": \"ac0_sptr\", \"v3\": \"ac1_sptr\", \"v4\": \"ac2_sptr\", \"v5\": \"ac3_sptr\", \"v6\": \"hiq_sptr\"}, \"struct_hints\": [{\"offset\": 24, \"meaning\": \"TX descriptor frame length\"}]}"
+}

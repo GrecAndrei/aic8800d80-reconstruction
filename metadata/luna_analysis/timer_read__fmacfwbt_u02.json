@@ -1,0 +1,9 @@
+{
+ "fn": "timer_read",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1005b0",
+ "seg": 0,
+ "key": "timer_read__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_status_code_get\",\"confidence\":\"medium\",\"docstring\":\"Decodes selector-specific hardware status bits into small result codes and clears a pending IRQ for unsupported selectors.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"status_selector\",\"v2\":\"status_register_first_read\",\"v3\":\"status_register_second_read\",\"v4\":\"auxiliary_status_predicate\",\"v5\":\"system_status_bit21\",\"v6\":\"status_field_8_11\",\"v7\":\"status_bit27\"}}"
+}

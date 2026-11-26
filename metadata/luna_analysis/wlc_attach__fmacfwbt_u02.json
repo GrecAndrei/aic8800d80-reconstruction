@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_attach",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f16c",
+ "seg": 21,
+ "key": "wlc_attach__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_attach\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the WLAN core by zeroing per-BSS configuration contexts and programming four DMA/queue context groups.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v0\": \"bsscfg_iter\",\n    \"v1\": \"bsscfg_zero_base\",\n    \"v2\": \"bsscfg_end\",\n    \"v3\": \"zero_ptr\",\n    \"v4\": \"zero_ptr_adj\",\n    \"i\": \"queue_init_iter\",\n    \"v6\": \"zero_ptr2\",\n    \"v7\": \"zero_ptr2_adj\",\n    \"v8\": \"wlc_ctx_base\",\n    \"v9\": \"desc_base_a\",\n    \"v10\": \"desc_base_b\",\n    \"v11\": \"desc_base_c\",\n    \"v13\": \"desc_base_d\",\n    \"result\": \"ret\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"wlc global control or feature word\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"context0 auxiliary/clear byte field\"\n    },\n    {\n      \"offset\": 188,\n      \"meaning\": \"context0 alternate descriptor base\"\n    },\n    {\n      \"offset\": 336,\n      \"meaning\": \"context0 descriptor base\"\n    },\n    {\n      \"offset\": 728,\n      \"meaning\": \"context1 alternate descriptor base\"\n    },\n    {\n      \"offset\": 8856,\n      \"meaning\": \"context1 descriptor base\"\n    },\n    {\n      \"offset\": 1728,\n      \"meaning\": \"context2 alternate descriptor base\"\n    },\n    {\n      \"offset\": 17280,\n      \"meaning\": \"context2 descriptor base\"\n    },\n    {\n      \"offset\": 2276,\n      \"meaning\": \"context3 alternate descriptor base\"\n    },\n    {\n      \"offset\": 2424,\n      \"meaning\": \"context3 descriptor base\"\n    }\n  ]\n}"
+}

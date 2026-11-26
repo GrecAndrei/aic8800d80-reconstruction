@@ -1,0 +1,9 @@
+{
+ "fn": "rf_scan_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b9ac",
+ "seg": 61,
+ "key": "rf_scan_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_scan_process_entries\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes consecutive pending RF scan queue entries by clearing each entry, invoking the context callback, advancing to the returned entry offset, and returning the number of entries handled.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"scan_ctx\",\n    \"v1\": \"entry_ptr\",\n    \"v2\": \"processed_count\",\n    \"v4\": \"entry_cb\",\n    \"v5\": \"next_entry_offset\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"function pointer to process a scan entry\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"12-bit scan queue or sequence counter\"\n    },\n    {\n      \"offset\": 262,\n      \"meaning\": \"current entry offset within scan context\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"entry state byte, relative to current entry; value 2 means pending\"\n    }\n  ]\n}"
+}

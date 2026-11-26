@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_clear_a",
+ "img": "fmacfwbt_u02",
+ "addr": "0x107c60",
+ "seg": 2,
+ "key": "rf_irq_clear_a__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_frequency_apply\",\"confidence\":\"medium\",\"docstring\":\"Applies the RF frequency setting through a control-bit handshake and waits for the hardware completion flag.\",\"subsystem\":\"rf\",\"var_renames\":{}}"
+}

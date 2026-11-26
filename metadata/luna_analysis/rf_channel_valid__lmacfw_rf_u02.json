@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_valid",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10da88",
+ "seg": 2,
+ "key": "rf_channel_valid__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_mark_valid\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs the per-channel RF validity/enable bit in a 16-entry hardware register table and records the channel index in the global valid-mask field.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"chan\",\n    \"v1\": \"chan_bit\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"global RF channel valid/enabled bitmask word at off_10DAD4[1]\"\n    }\n  ]\n}"
+}

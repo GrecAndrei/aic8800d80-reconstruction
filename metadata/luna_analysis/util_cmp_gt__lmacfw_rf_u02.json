@@ -1,0 +1,9 @@
+{
+ "fn": "util_cmp_gt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127f64",
+ "seg": 23,
+ "key": "util_cmp_gt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"__aeabi_fcmpge\",\"confidence\":\"high\",\"docstring\":\"AEABI floating-point comparison helper returning the greater-or-equal result code for two single-precision floats.\",\"subsystem\":\"libmisc\"}"
+}

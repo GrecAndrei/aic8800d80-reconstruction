@@ -1,0 +1,9 @@
+{
+ "fn": "util_scale_index",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119d18",
+ "seg": 13,
+ "key": "util_scale_index__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_send_rf_table_word\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a two-byte kernel message, fills it with a 16-bit value read from an indexed RF calibration/temperature table entry, and dispatches the message.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v4\": \"table_base\",\n    \"v6\": \"scaled_index\",\n    \"v7\": \"message\",\n    \"v8\": \"table_entry\",\n    \"v9\": \"input_byte\",\n    \"v10\": \"message\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"a2 input byte: table index\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"a2 second byte: value written into the selected table entry\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_config",
+ "img": "fmacfw_u02",
+ "addr": "0x110e24",
+ "seg": 3,
+ "key": "mmio_write_config__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_slave_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the SDIO device interface, configures its MMIO registers, and waits for the host CMD5 and I/O-enable handshakes.\",\"subsystem\":\"hal\"}"
+}

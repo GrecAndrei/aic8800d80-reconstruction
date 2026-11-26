@@ -1,0 +1,9 @@
+{
+ "fn": "llc_env_lookup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1265d4",
+ "seg": 32,
+ "key": "llc_env_lookup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_ch_switch_schedule\",\"confidence\":\"medium\",\"docstring\":\"Queues a channel-switch request, scheduling its hardware instant when sufficiently far away or dispatching it immediately otherwise.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"switch_instant\",\"v7\":\"switch_request\",\"v8\":\"switch_scheduler\",\"v10\":\"scheduler_active_state\",\"v13\":\"switch_instant\",\"v14\":\"current_hardware_clock\",\"v12\":\"pending_event_count\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Switch instant, compared against the current hardware clock\"},{\"offset\":32,\"meaning\":\"Scheduler active-state field\"},{\"offset\":68,\"meaning\":\"Callback invoked for an immediately handled request\"},{\"offset\":72,\"meaning\":\"Current switch request pointer\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable_tx_patch_dup",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1116bc",
+ "seg": 4,
+ "key": "rf_enable_tx_patch_dup__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_enable_tx_patch_wrapper\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Thin wrapper that tail-calls rf_enable_tx_patch to enable the RF TX patch.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_tx_kick",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116628",
+ "seg": 10,
+ "key": "wlan_tx_kick__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_tx_kick\",\"confidence\":\"medium\",\"docstring\":\"If a WLAN TX context is not already marked active, checks its kernel/task state and, when the kick flag is set, invokes the context's saved kick callback with its cookie.\",\"subsystem\":\"wlan\",\"var_renames\":{\"result\":\"tx_ctx\",\"a2\":\"kick\",\"v2\":\"saved_ctx\",\"v4\":\"kick_fn\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"kick callback function pointer\"},{\"offset\":48,\"meaning\":\"callback cookie/context passed as first argument\"},{\"offset\":52,\"meaning\":\"TX active/status byte\"}]}"
+}

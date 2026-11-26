@@ -1,0 +1,9 @@
+{
+ "fn": "check_radio_interrupt",
+ "img": "fmacfw_u02",
+ "addr": "0x11c310",
+ "seg": 18,
+ "key": "check_radio_interrupt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_check_interrupt\",\"confidence\":\"medium\",\"docstring\":\"Checks radio readiness and the RF status condition, updates the associated status and control registers when both qualify, and returns the last readiness or status result.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"radio_ready\",\"v2\":\"control_register_ptr\",\"v3\":\"control_register_value\"}}"
+}

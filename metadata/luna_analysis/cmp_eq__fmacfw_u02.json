@@ -1,0 +1,9 @@
+{
+ "fn": "cmp_eq",
+ "img": "fmacfw_u02",
+ "addr": "0x1433b0",
+ "seg": 68,
+ "key": "cmp_eq__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"float_compare_equal\",\"confidence\":\"high\",\"docstring\":\"Implements the ARM EABI single-precision floating-point equality comparison helper.\",\"subsystem\":\"libmisc\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bad_func_0x12f408",
+ "img": "fmacfw_u02",
+ "addr": "0x12f408",
+ "seg": 42,
+ "key": "bad_func_0x12f408__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"assert_fail\",\"confidence\":\"medium\",\"docstring\":\"Logs the failed assertion with its expression, source file, and line number, then runs the fatal assertion handling path.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"assertion\",\"a2\":\"source_file\",\"a3\":\"line_number\",\"v3\":\"assert_depth\"}}"
+}

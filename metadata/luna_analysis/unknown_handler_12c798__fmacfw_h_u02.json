@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_handler_12c798",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c798",
+ "seg": 40,
+ "key": "unknown_handler_12c798__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_process_queued_packets\",\"confidence\":\"high\",\"docstring\":\"Drains the pending TX packet list and passes each popped packet to tx_pkt_process under interrupt protection.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"tx_processing_depth_ptr\",\"v1\":\"pending_tx_queue\",\"result\":\"packet\",\"v3\":\"remaining_processing_depth\",\"v4\":\"restore_irq_enabled\"}}"
+}

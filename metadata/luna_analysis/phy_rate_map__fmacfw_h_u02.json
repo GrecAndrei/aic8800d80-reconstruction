@@ -1,0 +1,9 @@
+{
+ "fn": "phy_rate_map",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f3e8",
+ "seg": 42,
+ "key": "phy_rate_map__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_event_flag\",\"confidence\":\"medium\",\"docstring\":\"Returns the result of the event-flag check.\",\"subsystem\":\"libmisc\"}"
+}

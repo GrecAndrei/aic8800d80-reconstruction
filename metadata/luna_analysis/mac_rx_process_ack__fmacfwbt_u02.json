@@ -1,0 +1,9 @@
+{
+ "fn": "mac_rx_process_ack",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b13c",
+ "seg": 60,
+ "key": "mac_rx_process_ack__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_channel_table_entry\",\"confidence\":\"medium\",\"docstring\":\"Locates and caches the RF calibration entry for a channel table, marks the supplied table/message header with bit 0x4000, and programs the selected RF channel table.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_ctx\",\"a2\":\"table_base\",\"a3\":\"table_offset\",\"v6\":\"channel_table_ptr\",\"v8\":\"cal_entry_len\",\"v9\":\"cal_extra\",\"v10\":\"cal_extra\"},\"struct_hints\":[{\"offset\":51,\"meaning\":\"cached RF calibration entry length/offset\"},{\"offset\":53,\"meaning\":\"cached second byte returned by rf_get_cal_entry\"}]}"
+}

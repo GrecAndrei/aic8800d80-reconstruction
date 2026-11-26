@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_pin_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10db9c",
+ "seg": 3,
+ "key": "gpio_pin_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_configure_pin\",\"confidence\":\"medium\",\"docstring\":\"Configures a GPIO pin's mode and per-pin control value, performing controller setup when its initialization flag is clear.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"pin_index\",\"a2\":\"pin_mode\",\"a3\":\"pin_config_value\",\"v3\":\"pin_mask\",\"v4\":\"gpio_register_base\",\"v5\":\"gpio_register_base\",\"v6\":\"clear_pin_mask\",\"v7\":\"gpio_register_base\",\"v9\":\"gpio_init_flag_set\"},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "memcmp",
+ "img": "fmacfw_u02",
+ "addr": "0x143710",
+ "seg": 68,
+ "key": "memcmp__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"memcmp\",\"confidence\":\"high\",\"docstring\":\"Compares two byte ranges, using aligned 32-bit loads where possible, and returns the first unsigned-byte difference or zero if they match.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v3\":\"first_word_ptr\",\"v4\":\"second_word_ptr\",\"v5\":\"second_word\",\"v8\":\"tail_length_minus_one\",\"v9\":\"second_byte_ptr\",\"v10\":\"first_byte_ptr\",\"v11\":\"first_byte\",\"v13\":\"second_byte\"},\"struct_hints\":[]}"
+}

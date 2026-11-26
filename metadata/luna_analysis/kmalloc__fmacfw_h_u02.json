@@ -1,0 +1,9 @@
+{
+ "fn": "kmalloc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111130",
+ "seg": 3,
+ "key": "kmalloc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_send_message\",\"confidence\":\"medium\",\"docstring\":\"Builds a type-and-length-prefixed RF message in an available packet buffer and submits it through the configured descriptor.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"message_type\",\"a2\":\"payload\",\"a3\":\"payload_length\",\"v8\":\"packet_buffer\",\"v9\":\"submit_descriptor\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Pointer to the message packet buffer\"},{\"offset\":8,\"meaning\":\"Transfer length and control flags\"}]}"
+}

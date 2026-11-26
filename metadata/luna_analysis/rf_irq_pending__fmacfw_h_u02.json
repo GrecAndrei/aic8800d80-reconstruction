@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_pending",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10db00",
+ "seg": 3,
+ "key": "rf_irq_pending__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_irq_dispatch_pending\",\"confidence\":\"high\",\"docstring\":\"Dispatches pending RF interrupts for indices 0\u20137, acknowledging each interrupt before invoking its registered handler.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"irq_registers\",\"v1\":\"initial_pending_mask\",\"v2\":\"irq_index\",\"v3\":\"handler_table\",\"v4\":\"callback_status\",\"v5\":\"pending_mask\",\"v6\":\"irq_handler\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Interrupt bitmask consulted when encoding the handler argument.\"},{\"offset\":20,\"meaning\":\"Interrupt bitmask consulted when encoding the handler argument.\"},{\"offset\":32,\"meaning\":\"Pending interrupt bitmask.\"},{\"offset\":36,\"meaning\":\"Interrupt acknowledgement register; written with the current interrupt's one-hot bit.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mac_ctrl_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x100e00",
+ "seg": 0,
+ "key": "mac_ctrl_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_configure\",\"confidence\":\"medium\",\"docstring\":\"Configures a radio channel by applying bandwidth-specific register settings, invoking rf_ctrl_set, and loading per-channel calibration bytes from the selected RF table.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_channel_freq_mhz\",\"a2\":\"phy_bw_mode\",\"v11\":\"rf_channel_group_index\",\"v12\":\"rf_cal_table\",\"v15\":\"rf_band_select_bits\",\"v16\":\"rf_cal_entry\"}}"
+}

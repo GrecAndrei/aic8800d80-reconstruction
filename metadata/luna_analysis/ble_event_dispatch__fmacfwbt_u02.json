@@ -1,0 +1,9 @@
+{
+ "fn": "ble_event_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1190b4",
+ "seg": 13,
+ "key": "ble_event_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_event_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a BLE event descriptor, clears the associated MMIO interrupt, updates connection RX status fields, and forwards the event to the connection receive path.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v2\": \"event_desc_pair\",\n    \"v3\": \"ll_event_status\",\n    \"v6\": \"ll_event_data\",\n    \"v7\": \"rx_ack_value\",\n    \"v8\": \"event_status_byte\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 72,\n      \"meaning\": \"context field holding paired event descriptor/base pointers\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"BLE event status/control word\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"BLE event data/payload word\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"BLE event flags word cleared before dispatch\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"BLE event descriptor status/pointer field zeroed before ack setup\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_cmd",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1006d8",
+ "seg": 0,
+ "key": "mmio_write_cmd__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_pulse_command\",\"confidence\":\"high\",\"docstring\":\"Writes 17 to the configured MMIO register, waits for the timer to advance 10 ticks, clears the register, then waits another 10 ticks.\",\"subsystem\":\"mmio\",\"var_renames\":{\"v0\":\"initial_timer\",\"v1\":\"first_deadline\",\"v3\":\"first_timer_delta\",\"v4\":\"second_timer\",\"v5\":\"second_deadline\",\"v7\":\"second_timer_delta\",\"v8\":\"first_spin_count\",\"v9\":\"second_spin_count\"}}"
+}

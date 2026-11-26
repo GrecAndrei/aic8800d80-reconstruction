@@ -1,0 +1,9 @@
+{
+ "fn": "skip_leading_spaces",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f5bc",
+ "seg": 42,
+ "key": "skip_leading_spaces__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tokenize_args\",\"confidence\":\"high\",\"docstring\":\"Destructively splits a mutable argument string on spaces and tabs into a pointer array, removing double-quote delimiters for quoted tokens and limiting the result to 16 tokens.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"input_cursor\",\"a2\":\"token_ptrs\",\"v2\":\"token_count\",\"v4\":\"scan_ptr\"},\"struct_hints\":[]}"
+}

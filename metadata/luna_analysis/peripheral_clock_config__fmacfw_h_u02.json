@@ -1,0 +1,9 @@
+{
+ "fn": "peripheral_clock_config",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10c5bc",
+ "seg": 2,
+ "key": "peripheral_clock_config__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"peripheral_clock_init\",\"confidence\":\"medium\",\"docstring\":\"Enables a group of clock-control bits and initializes several peripheral MMIO registers with fixed values.\",\"subsystem\":\"hal\"}"
+}

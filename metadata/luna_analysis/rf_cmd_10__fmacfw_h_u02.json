@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_10",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11498c",
+ "seg": 5,
+ "key": "rf_cmd_10__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_calibration_adjustment\",\"confidence\":\"medium\",\"docstring\":\"Reads an RF value, decodes its selected nibble as a signed calibration adjustment into the output pointer, and returns a status for the encoding path or a zero value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"adjustment_out\",\"v2\":\"encoded_value\",\"v3\":\"selected_nibble\",\"v5\":\"adjustment\"}}"
+}

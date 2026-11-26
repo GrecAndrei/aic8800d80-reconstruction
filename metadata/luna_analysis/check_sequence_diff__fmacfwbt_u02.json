@@ -1,0 +1,9 @@
+{
+ "fn": "check_sequence_diff",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125f18",
+ "seg": 32,
+ "key": "check_sequence_diff__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"check_sequence_range_diff\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Normalizes two sequence start/end ranges modulo a period, optionally writes the merged range to an output pair, and returns the span from the earliest start to the latest end.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"range_a\",\n    \"a2\": \"range_b\",\n    \"a3\": \"out_range\",\n    \"a4\": \"seq_period\",\n    \"v4\": \"start_diff\",\n    \"v5\": \"lower_range\",\n    \"v6\": \"candidate_start\",\n    \"v7\": \"candidate_end\",\n    \"v8\": \"new_start\",\n    \"v11\": \"end_a\",\n    \"v12\": \"end_b\",\n    \"v13\": \"start_a\",\n    \"v14\": \"start_b\",\n    \"result\": \"merged_span\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"primary sequence word, treated as the start/lower endpoint of a range\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"secondary sequence word, treated as the end/associated higher endpoint of a range\"\n    }\n  ]\n}"
+}

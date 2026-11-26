@@ -1,0 +1,9 @@
+{
+ "fn": "invalid_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x114bb8",
+ "seg": 5,
+ "key": "invalid_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"call_irq_guarded_callback\",\"confidence\":\"medium\",\"docstring\":\"Invokes the callback stored at address 0x1C8 with nesting-aware IRQ protection, restoring interrupts when the outermost call exits.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"irq_nesting_counter\",\"result\":\"callback_result\",\"v2\":\"remaining_nesting\",\"v3\":\"restore_irqs\"}}"
+}

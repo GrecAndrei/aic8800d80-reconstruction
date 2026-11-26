@@ -1,0 +1,9 @@
+{
+ "fn": "is_mode_one_v2",
+ "img": "fmacfw_u02",
+ "addr": "0x12ff20",
+ "seg": 42,
+ "key": "is_mode_one_v2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_temp_comp_configure\",\"confidence\":\"medium\",\"docstring\":\"Parses the temperature-compensation enable value and optional period, applies RF calibration or disable operations when the enable state changes, and configures the channel when called with one argument.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v4\":\"parsed_enable_value\",\"v5\":\"temp_comp_enabled\",\"v6\":\"enable_value\",\"v7\":\"temp_comp_config\",\"v9\":\"period_ms\"},\"struct_hints\":[{\"offset\":363,\"meaning\":\"temperature-compensation enabled flag\"},{\"offset\":364,\"meaning\":\"temperature-compensation period in milliseconds\"}]}"
+}

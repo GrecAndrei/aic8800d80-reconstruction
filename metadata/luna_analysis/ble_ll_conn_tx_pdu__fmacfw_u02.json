@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_tx_pdu",
+ "img": "fmacfw_u02",
+ "addr": "0x13f5d0",
+ "seg": 61,
+ "key": "ble_ll_conn_tx_pdu__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_sched_update\",\"confidence\":\"medium\",\"docstring\":\"Validates and refreshes scheduler slots for a BLE connection, marking slot state and processing pending transmit flags.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"conn_ctx\",\"v18\":\"slot_index\",\"v20\":\"slot_index\",\"v21\":\"sched_item_check_result\",\"v22\":\"slot_count\"},\"struct_hints\":[{\"offset\":14,\"meaning\":\"Per-slot flag set while processing scheduler entries.\"},{\"offset\":124,\"meaning\":\"Validation field passed to rx_desc_validate and cleared during processing.\"},{\"offset\":126,\"meaning\":\"Adjacent status field reset alongside the validation field.\"},{\"offset\":136,\"meaning\":\"Start of a four-element array of 16-bit slot indices.\"},{\"offset\":184,\"meaning\":\"Scheduler slot count.\"},{\"offset\":190,\"meaning\":\"Sentinel field controlling whether transmit-flag processing is invoked.\"}]}"
+}

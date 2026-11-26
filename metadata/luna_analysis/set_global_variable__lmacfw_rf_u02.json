@@ -1,0 +1,9 @@
+{
+ "fn": "set_global_variable",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11f4b4",
+ "seg": 21,
+ "key": "set_global_variable__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_global_u32\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Stores the input as a 32-bit value into the global variable at offset +4 from the base referenced by off_11F4BC and returns the input.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"global uint32_t store target relative to off_11F4BC\"\n    }\n  ]\n}"
+}

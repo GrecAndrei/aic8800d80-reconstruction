@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1431f8",
+ "seg": 68,
+ "key": "double_compare__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"float_compare\",\"confidence\":\"high\",\"docstring\":\"Compares two single-precision floating-point values using the ARM libgcc comparison routine.\",\"subsystem\":\"libmisc\"}"
+}

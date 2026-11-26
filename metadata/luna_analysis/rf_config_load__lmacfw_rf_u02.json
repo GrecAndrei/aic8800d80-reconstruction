@@ -1,0 +1,9 @@
+{
+ "fn": "rf_config_load",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126764",
+ "seg": 23,
+ "key": "rf_config_load__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_notch_filter_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enable or disable one of up to three RF notch filters by logging the command and programming MMIO enable bits and per-notch register values from a configuration table.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"notch_filter\",\n    \"v21\": \"notch_config_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"notch filter 1 configuration block\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"notch filter 2 configuration block\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"notch filter 3 configuration block\"\n    }\n  ]\n}"
+}

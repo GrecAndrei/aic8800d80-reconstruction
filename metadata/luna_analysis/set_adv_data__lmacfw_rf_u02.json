@@ -1,0 +1,9 @@
+{
+ "fn": "set_adv_data",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124c70",
+ "seg": 23,
+ "key": "set_adv_data__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel_bw\",\"confidence\":\"medium\",\"docstring\":\"Parses an RF bandwidth/channel command, computes primary and secondary frequency offsets, programs the baseband/clock bandwidth setting, and returns the configured mode.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v4\":\"primary_bw_arg\",\"v5\":\"secondary_bw_arg\",\"v6\":\"offset_arg\",\"v7\":\"extra_offset_arg\",\"v8\":\"bw_mode\",\"v9\":\"freq_config_ptr\",\"v10\":\"freq_high_byte\",\"v11\":\"freq_low_byte\"},\"struct_hints\":[]}"
+}

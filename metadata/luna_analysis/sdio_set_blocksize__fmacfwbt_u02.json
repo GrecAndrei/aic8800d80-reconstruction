@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_set_blocksize",
+ "img": "fmacfwbt_u02",
+ "addr": "0x137274",
+ "seg": 58,
+ "key": "sdio_set_blocksize__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_scanu_cancel\", \"confidence\": \"medium\", \"docstring\": \"Allocates and sends an HCI event buffer, issues a short HCI cancel command, and logs the returned scan-update cancellation status.\", \"subsystem\": \"bt\", \"var_renames\": {\"v0\": \"evt_buf\", \"v1\": \"cancel_status\"}, \"struct_hints\": []}"
+}

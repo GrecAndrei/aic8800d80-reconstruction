@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_wait_bit",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113c14",
+ "seg": 5,
+ "key": "mmio_wait_bit__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_write_byte_slot\",\"confidence\":\"medium\",\"docstring\":\"Writes byte_value into either bits 16-23 or bits 24-31 of a 32-bit MMIO register if that byte field is zero, returning 1 for bits 16-23, 0 for bits 24-31, or -1 if both fields are occupied.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"byte_value\",\"v2\":\"reg_status\",\"v3\":\"field_shift\",\"v4\":\"field_result\"}}"
+}

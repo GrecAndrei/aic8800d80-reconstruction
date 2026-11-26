@@ -1,0 +1,9 @@
+{
+ "fn": "set_reg_1807fc_bit6",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123f64",
+ "seg": 23,
+ "key": "set_reg_1807fc_bit6__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_reg_1807fc_bit6\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Set or clear bit 6 of the RF register referenced by off_123F74 from the supplied value and return the value unchanged.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"RF register word containing bit6\"\n    }\n  ]\n}"
+}

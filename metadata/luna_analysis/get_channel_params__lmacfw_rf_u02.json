@@ -1,0 +1,9 @@
+{
+ "fn": "get_channel_params",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1152d8",
+ "seg": 6,
+ "key": "get_channel_params__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"phy_channel_params_init\", \"confidence\": \"medium\", \"docstring\": \"Initializes a per-channel parameter entry in a global PHY/RF table, clearing selected fields and programming a fixed default 64-bit mask.\", \"subsystem\": \"phy\", \"var_renames\": {\"a1\": \"chan_idx\", \"v1\": \"table_base\", \"v3\": \"entry_offset\", \"v4\": \"aux_index\", \"v5\": \"params_ptr\", \"v6\": \"aux_ptr\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"cleared uint32 field in channel parameter entry\"}, {\"offset\": 4, \"meaning\": \"cleared uint32 field in channel parameter entry\"}, {\"offset\": 8, \"meaning\": \"uint64 default/mask value programmed as 0xFFFFFFFF0000039E\"}, {\"offset\": 16, \"meaning\": \"uint32 field set to -1, likely invalid sentinel\"}, {\"offset\": 20, \"meaning\": \"cleared uint32 field in channel parameter entry\"}, {\"offset\": 32, \"meaning\": \"cleared uint8 flag field in channel parameter entry\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11457c",
+ "seg": 6,
+ "key": "mmio_write_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_write16\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the caller-supplied transaction pointer to kernel task 2 as a 16-bit MMIO write request through the kernel task handler.\",\"subsystem\":\"hal\"}"
+}

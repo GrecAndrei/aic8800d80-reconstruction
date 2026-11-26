@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_get_time",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1413a0",
+ "seg": 65,
+ "key": "ke_timer_get_time__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_process_pending_event\",\"confidence\":\"medium\",\"docstring\":\"Validates the active request state, dispatches deferred events, processes matching queued entries, and then rechecks link-layer state.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"request_context\",\"v4\":\"queue_entry_cursor\",\"v6\":\"matched_entry\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Request type; value 5 selects a special processing path.\"},{\"offset\":3,\"meaning\":\"Request phase; values 0\u20131 dispatch an event and value 2 enters processing.\"},{\"offset\":4,\"meaning\":\"Queued-entry state; matching entries in state 1 are claimed by setting this field to 2.\"}]}"
+}

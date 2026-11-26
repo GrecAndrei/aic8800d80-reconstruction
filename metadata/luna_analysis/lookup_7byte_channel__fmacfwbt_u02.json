@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_7byte_channel",
+ "img": "fmacfwbt_u02",
+ "addr": "0x128024",
+ "seg": 34,
+ "key": "lookup_7byte_channel__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"chan_ctxt_del\", \"confidence\": \"medium\", \"docstring\": \"Clears a channel-context table entry by index, tracing if linked VIFs remain and marking handle/state fields invalid.\", \"subsystem\": \"mac\", \"var_renames\": {\"v2\": \"chan_ctxt_base\", \"v4\": \"chan_ctxt\", \"v6\": \"chan_ctxt\"}, \"struct_hints\": [{\"offset\": 14, \"meaning\": \"u16 handle/state field set to 0x00FF as invalid\"}, {\"offset\": 24, \"meaning\": \"u8 state field checked for 0xFF and set invalid\"}, {\"offset\": 25, \"meaning\": \"u8 linked VIF count checked before deletion\"}, {\"offset\": 27, \"meaning\": \"u8 invalid marker set to 0xFF\"}]}"
+}

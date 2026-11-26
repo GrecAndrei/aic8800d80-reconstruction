@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_switch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x119cb4",
+ "seg": 14,
+ "key": "rf_channel_switch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_desc_ring_enqueue\",\"confidence\":\"medium\",\"docstring\":\"Validates an incoming LLC descriptor against a per-channel context, enqueues it into a hardware command ring with 4-byte-aligned size accounting, programs the associated HW control registers, decrements the per-channel outstanding counter, and recycles the source descriptor.\",\"subsystem\":\"mac\",\"var_renames\":{\"v5\":\"src_desc\",\"v6\":\"chan_ctx\",\"v8\":\"cmd_ring\",\"v9\":\"ctrl_ctx\",\"v10\":\"ring_slot_ptr\",\"v11\":\"hw_reg_base\",\"v12\":\"prev_len_byte\",\"v14\":\"aligned_len\",\"v15\":\"word_count\",\"v16\":\"total_xfer_len\",\"v17\":\"ctrl_reg_read\",\"v18\":\"prev_seq_num\",\"v20\":\"status_word\",\"v21\":\"new_seq_num\",\"v22\":\"next_desc\",\"v23\":\"cfg_ptr\"},\"struct_hints\":[{\"offset\":82,\"meaning\":\"desc validity/ready flag bit (bit 0)\"},{\"offset\":68,\"meaning\":\"per-channel context pointer in a1\"},{\"offset\":324,\"meaning\":\"ctrl_ctx pointer back-ref in chan_ctx\"},{\"offset\":76,\"meaning\":\"hw_reg_base pointer in ctrl_ctx\"},{\"offset\":28,\"meaning\":\"ring_slot array base in cmd_ring (uint16_t*)\"},{\"offset\":32,\"meaning\":\"ring read pointer in cmd_ring\"},{\"offset\":36,\"meaning\":\"ring write pointer in cmd_ring\"},{\"offset\":9,\"meaning\":\"status/command word in src_desc (bit fields 19-22 = length/type)\"},{\"offset\":17,\"meaning\":\"next-descriptor or back-link field in src_desc\"},{\"offset\":40,\"meaning\":\"cumulative byte offset in chan_ctx\"},{\"offset\":10,\"meaning\":\"sequence number (uint16_t) in chan_ctx\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "conn_table_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x116540",
+ "seg": 8,
+ "key": "conn_table_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"conn_table_get_params\",\"confidence\":\"medium\",\"docstring\":\"Selects the connection-table entry from the request index, marks and dispatches the request, then returns the resolved connection parameters.\",\"subsystem\":\"conn\",\"var_renames\":{\"a1\":\"request\",\"v2\":\"conn_table_base\",\"v4\":\"conn_entry_offset\"},\"struct_hints\":[{\"offset\":27,\"meaning\":\"Caller-supplied value copied into the request\"},{\"offset\":29,\"meaning\":\"Connection-table slot index\"},{\"offset\":97,\"meaning\":\"Request state or flag set to 1 before dispatch\"}]}"
+}

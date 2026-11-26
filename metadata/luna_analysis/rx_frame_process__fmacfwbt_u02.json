@@ -1,0 +1,9 @@
+{
+ "fn": "rx_frame_process",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a2b4",
+ "seg": 37,
+ "key": "rx_frame_process__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_state_machine_step_if_ready\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"When the parent kernel context is enabled and unblocked, clear pending event-lock flags in the selected 140-byte state-machine entry and advance the state machine.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v2\": \"state_index\",\n    \"v3\": \"state_machine_base\",\n    \"v4\": \"state_machine\",\n    \"v5\": \"state_machine_offset\",\n    \"v8\": \"pending_event_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"parent-context flag that blocks state-machine stepping when nonzero\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"parent-context state-machine enable flag\"\n    },\n    {\n      \"offset\": 1225,\n      \"meaning\": \"parent-context selected state-machine index\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"first event-lock header in the 140-byte state-machine entry\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"first pending event flag cleared under the lock at entry offset 0\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"second event-lock header in the 140-byte state-machine entry\"\n    },\n    {\n      \"offset\": 64,\n      \"meaning\": \"second pending event flag cleared under the lock at entry offset 48\"\n    },\n    {\n      \"offset\": 96,\n      \"meaning\": \"third event-lock header in the 140-byte state-machine entry\"\n    },\n    {\n      \"offset\": 114,\n      \"meaning\": \"third pending event flag cleared under the lock at entry offset 96\"\n    }\n  ]\n}"
+}

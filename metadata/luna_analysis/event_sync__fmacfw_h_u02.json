@@ -1,0 +1,9 @@
+{
+ "fn": "event_sync",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ef88",
+ "seg": 42,
+ "key": "event_sync__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_frequency_and_halt\",\"confidence\":\"medium\",\"docstring\":\"Gets the PHY state, calls the RF frequency setter, and then enters an infinite loop.\",\"subsystem\":\"rf\"}"
+}

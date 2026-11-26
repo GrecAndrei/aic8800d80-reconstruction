@@ -1,0 +1,9 @@
+{
+ "fn": "send_msg",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10f1d4",
+ "seg": 3,
+ "key": "send_msg__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_state_regions\",\"confidence\":\"low\",\"docstring\":\"Writes two marker pairs into a fixed memory region and zeroes the regions immediately following them.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v0\":\"state_base\",\"v1\":\"first_region\"}}"
+}

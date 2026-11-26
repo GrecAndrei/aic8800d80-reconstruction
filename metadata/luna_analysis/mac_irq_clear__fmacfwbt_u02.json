@@ -1,0 +1,9 @@
+{
+ "fn": "mac_irq_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c408",
+ "seg": 40,
+ "key": "mac_irq_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_irq_clear\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads and acknowledges pending MAC interrupt bits, routes ownership events to WiFi or Bluetooth kernel tasks, and services the unlock interrupt with timed MMIO control writes.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v2\": \"pending_irq_bits\",\n    \"v8\": \"timer_now\",\n    \"v9\": \"timer_elapsed\",\n    \"v12\": \"timer_elapsed\",\n    \"v14\": \"timer_elapsed\",\n    \"v15\": \"timer_elapsed\",\n    \"v17\": \"timer_deadline\",\n    \"v18\": \"timer_elapsed\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": -4,\n      \"meaning\": \"interrupt clear/ack register relative to MAC IRQ status pointer\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"state flag byte influencing WiFi versus Bluetooth interrupt routing\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "set_mode_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x113558",
+ "seg": 4,
+ "key": "set_mode_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_usb_wlan_send_completion\",\"confidence\":\"medium\",\"docstring\":\"Records the USB WLAN send result and, on success, drains pending entries while dispatching supported message types and reporting unsupported ones.\",\"subsystem\":\"ipc\",\"var_renames\":{\"a3\":\"send_error\",\"v3\":\"send_state\",\"v5\":\"pending_count\",\"v9\":\"queued_entry\",\"v10\":\"message\",\"v11\":\"message_type\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Message control byte; its upper nibble selects the dispatch path.\"}]}"
+}

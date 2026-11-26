@@ -1,0 +1,9 @@
+{
+ "fn": "double_greater_equal",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142e74",
+ "seg": 68,
+ "key": "double_greater_equal__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_greater_equal\",\"confidence\":\"high\",\"docstring\":\"Returns whether the first double-precision value is greater than or equal to the second using the ARM EABI comparison routine.\",\"subsystem\":\"libmisc\"}"
+}

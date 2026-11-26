@@ -1,0 +1,9 @@
+{
+ "fn": "tx_build_short_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b42c",
+ "seg": 60,
+ "key": "tx_build_short_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_chan_info_wrapper\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Extracts a channel field from the packed argument and invokes the RF channel-information lookup, discarding the returned result.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a3\": \"packed_channel_arg\"\n  },\n  \"struct_hints\": []\n}"
+}

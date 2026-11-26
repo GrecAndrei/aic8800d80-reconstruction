@@ -1,0 +1,9 @@
+{
+ "fn": "dummy_store_global",
+ "img": "fmacfw_u02",
+ "addr": "0x1146b8",
+ "seg": 5,
+ "key": "dummy_store_global__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rewrite_global_word\",\"confidence\":\"high\",\"docstring\":\"Reads the 32-bit word referenced by a global pointer and writes the unchanged value back to the same location.\",\"subsystem\":\"bt\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_clock_disable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x107cc8",
+ "seg": 2,
+ "key": "pmu_clock_disable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"pmu_clock_disable\",\"confidence\":\"medium\",\"docstring\":\"Configures the PMU clock-control registers, waits for status bit 0 to assert, and then clears the clock enable bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"clock_ctrl_reg\",\"v1\":\"clock_config_reg\",\"v3\":\"clock_status_reg\",\"v4\":\"delay_counter\"}}"
+}

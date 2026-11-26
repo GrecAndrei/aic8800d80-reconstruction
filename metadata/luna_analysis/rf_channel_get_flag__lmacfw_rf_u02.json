@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_get_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111524",
+ "seg": 4,
+ "key": "rf_channel_get_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_apply_flags\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Applies RF channel flags and programs the radio channel-select handshake, then resets the associated channel timer entry.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"channel\",\n    \"a2\": \"set_mask\",\n    \"a3\": \"clear_mask\",\n    \"v3\": \"entry_offset\",\n    \"v4\": \"ctrl_ptr\",\n    \"v5\": \"ctrl_word\",\n    \"v6\": \"handshake_ptr\",\n    \"v7\": \"rf_cmd_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"per-channel status/control word\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"per-channel RF handshake/command word\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"RF control register holding channel-select command\"\n    }\n  ]\n}"
+}

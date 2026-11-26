@@ -1,0 +1,9 @@
+{
+ "fn": "llc_ctrl_pdu_send",
+ "img": "fmacfw_u02",
+ "addr": "0x11f448",
+ "seg": 21,
+ "key": "llc_ctrl_pdu_send__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_conn_pending_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches pending work from two four-slot connection tables until no work remains or the optional dispatch limit is reached.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"dispatch_count\",\"v7\":\"primary_pending_slots\",\"v8\":\"secondary_pending_slots\",\"v9\":\"slot_index\",\"v10\":\"connection_index\",\"v11\":\"connection_ctx\"},\"struct_hints\":[{\"offset\":584,\"meaning\":\"First four-entry pending-work table, with entries eight bytes apart.\"},{\"offset\":624,\"meaning\":\"Second four-entry pending-work table, with entries eight bytes apart.\"},{\"offset\":72,\"meaning\":\"Pointer from the selected connection context to a scheduler or state object.\"},{\"offset\":108,\"meaning\":\"16-bit flags field on that object; this function sets bit 0x2000.\"}]}"
+}

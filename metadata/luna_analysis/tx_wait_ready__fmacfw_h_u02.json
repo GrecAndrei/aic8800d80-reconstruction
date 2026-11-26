@@ -1,0 +1,9 @@
+{
+ "fn": "tx_wait_ready",
+ "img": "fmacfw_h_u02",
+ "addr": "0x103e14",
+ "seg": 2,
+ "key": "tx_wait_ready__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_wait_for_completion\",\"confidence\":\"medium\",\"docstring\":\"Sets the TX wait flag, spins until the end-address value is nonnegative, then logs completion and requests a 16 KiB dump from 0x00100000.\",\"subsystem\":\"tx\",\"var_renames\":{\"v0\":\"end_addr_ptr\"}}"
+}

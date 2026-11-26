@@ -1,0 +1,9 @@
+{
+ "fn": "chip_common_write",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f1e0",
+ "seg": 2,
+ "key": "chip_common_write__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"chip_common_write_regs\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes a fixed sequence of common chip register fields, choosing a few values from a status/identification byte and applying optional follow-up configuration.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"chip_status_ptr\",\n    \"v1\": \"chip_status_alt_value\",\n    \"v2\": \"chip_status_value\",\n    \"result\": \"write_result\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"chip status/identification byte; bits 0xC0 select an alternate configuration value\"\n    },\n    {\n      \"offset\": 375,\n      \"meaning\": \"conditional status byte that enables alternate post-write configuration when zero\"\n    }\n  ]\n}"
+}

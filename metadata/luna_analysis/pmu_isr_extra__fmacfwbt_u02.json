@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_isr_extra",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10cbec",
+ "seg": 2,
+ "key": "pmu_isr_extra__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"pmu_buffer_request_isr\",\"confidence\":\"medium\",\"docstring\":\"Drains pending hardware buffer requests, signals a system event, and acknowledges the interrupt source.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"irq_status_reg\",\"v1\":\"request_data_reg\",\"v2\":\"request_ack_reg\",\"v3\":\"request_addr\"}}"
+}

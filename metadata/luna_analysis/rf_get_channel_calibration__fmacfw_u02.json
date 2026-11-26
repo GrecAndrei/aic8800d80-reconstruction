@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_channel_calibration",
+ "img": "fmacfw_u02",
+ "addr": "0x1304f8",
+ "seg": 42,
+ "key": "rf_get_channel_calibration__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_info_init\",\"confidence\":\"medium\",\"docstring\":\"Lazily loads RF calibration values, clamps the temperature level, records RSSI, and marks the calibration state initialized.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"calibration_state\",\"v3\":\"calibration_value\",\"v4\":\"rssi\",\"v5\":\"temperature_calibration_level\",\"v6\":\"clamped_temperature_level\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"one-time initialization flag\"},{\"offset\":2,\"meaning\":\"temperature calibration level, clamped to -7 through 8\"},{\"offset\":3,\"meaning\":\"status byte set to 0x80\"},{\"offset\":4,\"meaning\":\"calibration value, defaulted to 15 and capped at 31\"},{\"offset\":6,\"meaning\":\"cached RSSI sample\"}]}"
+}

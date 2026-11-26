@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_dispatch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117560",
+ "seg": 10,
+ "key": "ke_msg_dispatch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_rx_event_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Validates a received PHY event against connection and channel state, updates its descriptor and counters, and forwards it to the WLAN and event handlers.\",\"subsystem\":\"phy\",\"var_renames\":{\"v5\":\"connection_id\",\"v6\":\"phy_connection_table\",\"v7\":\"event_descriptor\",\"v8\":\"phy_connection\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Connection index used to select the PHY connection state.\"},{\"offset\":72,\"meaning\":\"Pointer to frame metadata; its field at +108 is inspected.\"},{\"offset\":76,\"meaning\":\"Pointer to an event descriptor whose flags at +68 are updated.\"}]}"
+}

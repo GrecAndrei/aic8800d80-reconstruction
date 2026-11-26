@@ -1,0 +1,9 @@
+{
+ "fn": "mac_event_init",
+ "img": "fmacfw_u02",
+ "addr": "0x1059e8",
+ "seg": 2,
+ "key": "mac_event_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_ana_power_cal_init\",\"confidence\":\"high\",\"docstring\":\"Initializes the analog-power calibration index list from the corresponding bits in the mask.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"ana_power_cal_mask\",\"a2\":\"cal_state\",\"v5\":\"bit_position\",\"v6\":\"ana_power_index\",\"v8\":\"previous_count\",\"v9\":\"selected_power_index\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"Array of selected analog-power calibration indices.\"},{\"offset\":56,\"meaning\":\"Number of selected calibration indices.\"},{\"offset\":60,\"meaning\":\"Last selected analog-power index, initialized to 15.\"}]}"
+}

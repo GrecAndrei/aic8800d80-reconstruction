@@ -1,0 +1,9 @@
+{
+ "fn": "buf_calc_1",
+ "img": "fmacfw_u02",
+ "addr": "0x12d89c",
+ "seg": 42,
+ "key": "buf_calc_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_ie_find_supported_rates\",\"confidence\":\"medium\",\"docstring\":\"Scans a buffer of information elements for element ID 1 and returns it when its declared payload is nonempty and within the size limit.\",\"subsystem\":\"wlan\",\"var_renames\":{\"result\":\"ie_data\",\"a2\":\"ie_data_len\",\"a3\":\"ie_len_out\",\"v3\":\"ie_data_end\",\"v4\":\"ie_len\",\"v5\":\"next_ie\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Information element ID\"},{\"offset\":1,\"meaning\":\"Information element payload length\"}]}"
+}

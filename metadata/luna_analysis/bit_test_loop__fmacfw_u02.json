@@ -1,0 +1,9 @@
+{
+ "fn": "bit_test_loop",
+ "img": "fmacfw_u02",
+ "addr": "0x13262c",
+ "seg": 45,
+ "key": "bit_test_loop__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"util_get_msb_index\",\"confidence\":\"medium\",\"docstring\":\"Scans bits 11 through 0 and returns the index of the highest set bit, returning 12 for zero and 255 when none of those bits is set.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"scan_index\",\"v2\":\"shifted_bit_test\",\"v3\":\"tested_bit_index\"}}"
+}

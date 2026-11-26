@@ -1,0 +1,9 @@
+{
+ "fn": "llc_conn_env_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1322a8",
+ "seg": 45,
+ "key": "llc_conn_env_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"llm_env_get\", \"confidence\": \"medium\", \"docstring\": \"Processes a BLE link-layer environment query by activating the corresponding environment event and returning the result via SDIO configuration or an HCI event.\", \"subsystem\": \"ble\", \"var_renames\": {\"v2\": \"env_base\", \"v4\": \"env_idx\", \"a2\": \"env_idx_msg\"}, \"struct_hints\": [{\"offset\": 37, \"meaning\": \"boolean flag selecting SDIO config path versus HCI event path for the environment entry\"}, {\"offset\": 672, \"meaning\": \"kernel event word or lock associated with this link-layer environment entry\"}]}"
+}

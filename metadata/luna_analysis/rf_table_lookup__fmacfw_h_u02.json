@@ -1,0 +1,9 @@
+{
+ "fn": "rf_table_lookup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10dcf8",
+ "seg": 3,
+ "key": "rf_table_lookup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_handle_wakeup\",\"confidence\":\"medium\",\"docstring\":\"For wakeup subtype 3, selects the radio mode from the BT-wakeup status and updates RF bit 2 from a configuration flag.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"wakeup_type\",\"v3\":\"is_bt_wakeup\",\"v4\":\"radio_mode\"}}"
+}

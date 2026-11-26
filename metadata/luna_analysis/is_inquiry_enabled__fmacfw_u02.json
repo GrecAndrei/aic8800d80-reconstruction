@@ -1,0 +1,9 @@
+{
+ "fn": "is_inquiry_enabled",
+ "img": "fmacfw_u02",
+ "addr": "0x1102fc",
+ "seg": 3,
+ "key": "is_inquiry_enabled__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"is_inquiry_enabled\",\"confidence\":\"medium\",\"docstring\":\"Queries whether Bluetooth inquiry is enabled through the command-state handler while preserving the IRQ state across nested access.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"critical_section_nesting_count\",\"v5\":\"remaining_nesting_count\",\"v6\":\"should_restore_irq_state\"}}"
+}

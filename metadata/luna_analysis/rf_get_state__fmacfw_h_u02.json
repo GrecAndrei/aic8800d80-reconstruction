@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10f318",
+ "seg": 3,
+ "key": "rf_get_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_state\",\"confidence\":\"medium\",\"docstring\":\"Runs common RF setup and dispatches the callback sequence for the current RF state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"state_ptr\",\"v1\":\"state\",\"v4\":\"result\",\"v5\":\"state\",\"v10\":\"callback_table\",\"v13\":\"callback_table\",\"v17\":\"callback_table\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"State-1 callback slot\"},{\"offset\":12,\"meaning\":\"State-1 callback slot\"},{\"offset\":24,\"meaning\":\"State-2 callback slot\"},{\"offset\":28,\"meaning\":\"State-2 callback slot\"},{\"offset\":32,\"meaning\":\"State-3 callback slot\"},{\"offset\":36,\"meaning\":\"State-3 callback slot\"}]}"
+}

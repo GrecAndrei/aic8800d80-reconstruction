@@ -1,0 +1,9 @@
+{
+ "fn": "timer_get_raw",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1111cc",
+ "seg": 3,
+ "key": "timer_get_raw__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_set_phase_config\",\"confidence\":\"high\",\"docstring\":\"Updates the SDIO phase configuration register using its control-bit write sequence and logs the resulting phase value.\",\"subsystem\":\"mmio\",\"var_renames\":{\"a1\":\"phase_config\",\"v1\":\"phase_register\",\"v2\":\"requested_phase\",\"v3\":\"current_phase\",\"v4\":\"staged_config\"}}"
+}

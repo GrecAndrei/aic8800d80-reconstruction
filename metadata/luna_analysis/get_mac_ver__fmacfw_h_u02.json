@@ -1,0 +1,9 @@
+{
+ "fn": "get_mac_ver",
+ "img": "fmacfw_h_u02",
+ "addr": "0x120368",
+ "seg": 22,
+ "key": "get_mac_ver__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_mac_version\",\"confidence\":\"medium\",\"docstring\":\"Extracts revision values from four version registers, substitutes 150 for values outside 1\u2013150, caches them in shared revision slots (duplicating the fourth), and returns the first revision.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"mac_revision\",\"v1\":\"revision_reg_2\",\"v2\":\"revision_cache\",\"v3\":\"raw_revision_2\",\"v4\":\"revision_2\",\"v5\":\"revision_reg_3\",\"v6\":\"revision_3\",\"v7\":\"revision_reg_4\",\"v8\":\"revision_4\"},\"struct_hints\":[]}"
+}

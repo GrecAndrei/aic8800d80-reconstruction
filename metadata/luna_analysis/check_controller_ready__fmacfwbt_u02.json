@@ -1,0 +1,9 @@
+{
+ "fn": "check_controller_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122df4",
+ "seg": 27,
+ "key": "check_controller_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_handle_controller_ready\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles Bluetooth controller readiness by storing event bytes into a per-index HCI context, optionally clearing the readiness interrupt, and emitting HCI event code 0x86.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v4\": \"hci_ctx_base\",\n    \"v6\": \"ctx_index\",\n    \"v9\": \"hci_ctx\",\n    \"v10\": \"event_param_byte\",\n    \"a2\": \"event_data\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"per-controller ready/active flag checked before clearing the readiness interrupt\"\n    },\n    {\n      \"offset\": 143,\n      \"meaning\": \"controller field populated from event_data[1]\"\n    },\n    {\n      \"offset\": 144,\n      \"meaning\": \"controller field populated from event_data[2] and used as event parameter\"\n    }\n  ]\n}"
+}

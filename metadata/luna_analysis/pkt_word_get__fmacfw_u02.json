@@ -1,0 +1,9 @@
+{
+ "fn": "pkt_word_get",
+ "img": "fmacfw_u02",
+ "addr": "0x12ca3c",
+ "seg": 40,
+ "key": "pkt_word_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_queue_extract_if\",\"confidence\":\"medium\",\"docstring\":\"Removes and returns the first queue element accepted by a predicate, updating the queue head or tail as needed.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"queue\",\"a2\":\"match_fn\",\"a3\":\"match_arg\",\"v3\":\"current_element\",\"v7\":\"previous_element\",\"i\":\"predicate_result\",\"v9\":\"next_element\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"queue head pointer\"},{\"offset\":4,\"meaning\":\"queue tail pointer\"}]}"
+}

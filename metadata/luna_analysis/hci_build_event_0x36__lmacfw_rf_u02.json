@@ -1,0 +1,9 @@
+{
+ "fn": "hci_build_event_0x36",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119b90",
+ "seg": 13,
+ "key": "hci_build_event_0x36__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_build_event_0x36\",\"confidence\":\"medium\",\"docstring\":\"Wrapper/dispatcher for HCI event 0x36 that resolves a channel/status byte from the supplied buffer and forwards the event arguments to the kernel event handler.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"unused_a1\",\"a2\":\"channel_status_byte_ptr\"},\"struct_hints\":[]}"
+}

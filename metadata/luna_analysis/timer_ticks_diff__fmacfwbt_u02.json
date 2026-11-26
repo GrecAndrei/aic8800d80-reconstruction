@@ -1,0 +1,9 @@
+{
+ "fn": "timer_ticks_diff",
+ "img": "fmacfwbt_u02",
+ "addr": "0x118150",
+ "seg": 11,
+ "key": "timer_ticks_diff__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_within_window\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Return true if the timer tick at offset 32 of a2 lies from the tick at offset 32 of a1 up to 63 ticks later, i.e. within a 64-tick forward window.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v2\": \"first_tick\",\n    \"v3\": \"second_tick\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"volatile uint16_t timer tick value\"\n    }\n  ]\n}"
+}

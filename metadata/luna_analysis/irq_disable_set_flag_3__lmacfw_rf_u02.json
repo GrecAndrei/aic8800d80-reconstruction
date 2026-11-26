@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable_set_flag_3",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x110ab8",
+ "seg": 3,
+ "key": "irq_disable_set_flag_3__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_cmd_enqueue\", \"confidence\": \"medium\", \"docstring\": \"Appends an RF command descriptor to a pending command list under an interrupt-disabled critical section, updates a length/accumulator field, and triggers the radio command start sequence.\", \"subsystem\": \"rf\", \"var_renames\": {\"v3\": \"lock_count_ptr\", \"v4\": \"cmd_status_reg\", \"v5\": \"saved_lock_count\", \"v6\": \"new_lock_count\", \"v7\": \"rf_cmd_ctx\", \"v8\": \"rf_cmd_accum_ptr\", \"v10\": \"irq_disable_flag_ptr\", \"v12\": \"rf_cmd_accum_ptr\", \"result\": \"start_cmd\"}, \"struct_hints\": [{\"offset\": 3076, \"meaning\": \"RF command context tail/last-command pointer field\"}, {\"offset\": 4, \"meaning\": \"next descriptor pointer field of appended command node\"}]}"
+}

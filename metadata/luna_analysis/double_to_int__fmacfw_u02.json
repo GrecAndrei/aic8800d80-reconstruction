@@ -1,0 +1,9 @@
+{
+ "fn": "double_to_int",
+ "img": "fmacfw_u02",
+ "addr": "0x14302c",
+ "seg": 68,
+ "key": "double_to_int__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_to_uint\",\"confidence\":\"high\",\"docstring\":\"Converts a double-precision value to a 32-bit unsigned integer using ARM EABI semantics.\",\"subsystem\":\"libmisc\"}"
+}

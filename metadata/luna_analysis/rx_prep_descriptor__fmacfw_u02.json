@@ -1,0 +1,9 @@
+{
+ "fn": "rx_prep_descriptor",
+ "img": "fmacfw_u02",
+ "addr": "0x127b5c",
+ "seg": 33,
+ "key": "rx_prep_descriptor__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_roc_event_handler\",\"confidence\":\"medium\",\"docstring\":\"Processes ROC request and completion events, updating the ROC context and dispatching associated radio and command actions.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v2\":\"roc_context\",\"v5\":\"event_type\",\"v6\":\"roc_state\",\"v8\":\"control_flags\",\"v11\":\"control_flags\",\"v15\":\"requested_duration_ms\",\"v16\":\"adjusted_duration_us\"},\"struct_hints\":[{\"offset\":88,\"meaning\":\"Control flags in the secondary control context; bits gate ROC handling and completion.\"},{\"offset\":128,\"meaning\":\"ROC state used to select state-specific actions.\"},{\"offset\":132,\"meaning\":\"Adjusted ROC duration in microseconds.\"},{\"offset\":136,\"meaning\":\"ROC pending/completion marker; 0xFF is treated as inactive.\"}]}"
+}

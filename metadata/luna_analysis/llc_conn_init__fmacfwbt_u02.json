@@ -1,0 +1,9 @@
+{
+ "fn": "llc_conn_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11a728",
+ "seg": 15,
+ "key": "llc_conn_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llc_conn_start\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prepares a BLE link-layer connection event by configuring RF/channel descriptors, calibration state, and the controller context, then marks the event as started.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"conn\",\n    \"v3\": \"src_params\",\n    \"v10\": \"rf_channel_cfg\",\n    \"v11\": \"active_ctx\",\n    \"v6\": \"cal_param\",\n    \"v12\": \"rf_ctrl_word0\",\n    \"v13\": \"rf_ctrl_word1\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 72,\n      \"meaning\": \"u64 pair of pointers to event descriptor/context and active link-layer state\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"pointer to source LL/TX descriptor parameters copied into the event descriptor\"\n    },\n    {\n      \"offset\": 29,\n      \"meaning\": \"u8 RF channel index used to select a per-channel configuration/calibration entry\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"u16 link-layer flags; bit 0x2000 selects the RF configuration path\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"alternate active context pointer used when the RF table entry is unavailable\"\n    },\n    {\n      \"offset\": 82,\n      \"meaning\": \"u16 controller state flags; modified with 0x0006 during event start\"\n    }\n  ]\n}"
+}

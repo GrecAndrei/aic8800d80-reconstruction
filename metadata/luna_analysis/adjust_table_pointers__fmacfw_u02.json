@@ -1,0 +1,9 @@
+{
+ "fn": "adjust_table_pointers",
+ "img": "fmacfw_u02",
+ "addr": "0x12018c",
+ "seg": 22,
+ "key": "adjust_table_pointers__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_table_entry\",\"confidence\":\"medium\",\"docstring\":\"Marks the indexed table entry inactive and, if it was selected, reselects the first active entry in its group or clears that group\u2019s cursor.\",\"subsystem\":\"wlan\",\"var_renames\":{\"result\":\"table\",\"a2\":\"entry_index\",\"v3\":\"first_group_cursor\",\"v4\":\"entry_ptr\",\"v5\":\"first_entry_active\",\"v6\":\"second_group_first_entry_active\",\"v7\":\"replacement_entry\"},\"struct_hints\":[{\"offset\":579,\"meaning\":\"Per-entry active flag, repeated at a 120-byte stride across the table entries.\"},{\"offset\":1200,\"meaning\":\"Cursor pointer for the first four-entry group.\"},{\"offset\":1204,\"meaning\":\"Cursor pointer for the final two-entry group.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_buffer_by_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x104828",
+ "seg": 2,
+ "key": "alloc_buffer_by_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_find_optimal_scan_offset\",\"confidence\":\"medium\",\"docstring\":\"Computes a smoothed lookup-value gradient and returns the scan offset with the strongest response for the selected mode.\",\"subsystem\":\"rf\",\"var_renames\":{\"v8\":\"scan_stride\",\"v11\":\"minimum_delta_index\",\"v23\":\"best_score\",\"v25\":\"best_offset\"}}"
+}

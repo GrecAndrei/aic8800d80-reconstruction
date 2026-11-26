@@ -1,0 +1,9 @@
+{
+ "fn": "get_channel_number",
+ "img": "fmacfw_u02",
+ "addr": "0x11c394",
+ "seg": 18,
+ "key": "get_channel_number__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_get_channel_number\",\"confidence\":\"medium\",\"docstring\":\"Decodes packed PHY channel metadata into bandwidth and configuration outputs, performs conditional radio-bit clears, and returns the derived channel number.\",\"subsystem\":\"phy\",\"var_renames\":{\"v6\":\"packed_channel_config\",\"v7\":\"config_table_index\",\"v8\":\"channel_width_units\",\"v9\":\"channel_number_offset\",\"v11\":\"channel_group_index\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Packed channel configuration containing width and channel-index fields.\"},{\"offset\":12,\"meaning\":\"Index used to select a per-configuration table entry.\"}]}"
+}

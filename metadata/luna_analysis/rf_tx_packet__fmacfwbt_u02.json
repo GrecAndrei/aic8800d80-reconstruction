@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x127394",
+ "seg": 33,
+ "key": "rf_tx_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ble_scan_adv_report_send\", \"confidence\": \"medium\", \"docstring\": \"Processes received BLE advertising data, sends the host/HCI event and pending scan advertising reports, then either schedules the next transmit buffer or clears the associated IRQ.\", \"subsystem\": \"ble\", \"var_renames\": {\"v1\": \"ctrl\", \"v2\": \"packed_event\", \"v3\": \"suppress_flag\", \"v4\": \"ctrl_flags\", \"v5\": \"scan_report_list\", \"v6\": \"adv_report_base\", \"v7\": \"rssi_params_base\", \"v8\": \"time_margin\", \"v9\": \"timestamp_delta\", \"v10\": \"entry_timestamp\", \"v11\": \"entry_timestamp\", \"v12\": \"adv_entry\"}, \"struct_hints\": [{\"offset\": 16, \"meaning\": \"scan report list pointer\"}, {\"offset\": 40, \"meaning\": \"current packet pointer\"}, {\"offset\": 44, \"meaning\": \"irq/host event pending flag\"}, {\"offset\": 80, \"meaning\": \"64-bit packed timestamp/event value\"}, {\"offset\": 88, \"meaning\": \"control status/flags byte\"}, {\"offset\": 91, \"meaning\": \"flag that suppresses immediate report/event processing\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "msg_alloc_0x40c",
+ "img": "fmacfw_u02",
+ "addr": "0x12ee14",
+ "seg": 42,
+ "key": "msg_alloc_0x40c__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_msg_send_buffer_copy_status\",\"confidence\":\"medium\",\"docstring\":\"Copies the descriptor\u2019s inline bytes to its target buffer, dispatches the resulting range, and sends a 4-byte status in message 0x40c.\",\"subsystem\":\"ke\",\"var_renames\":{\"v5\":\"status_payload\",\"v6\":\"destination_buffer\",\"v7\":\"destination_address_in_range\",\"v8\":\"copy_length\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"destination buffer address\"},{\"offset\":4,\"meaning\":\"inline payload length in bytes\"},{\"offset\":8,\"meaning\":\"inline payload bytes\"}]}"
+}

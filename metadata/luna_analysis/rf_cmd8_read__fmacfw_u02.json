@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd8_read",
+ "img": "fmacfw_u02",
+ "addr": "0x1148c4",
+ "seg": 5,
+ "key": "rf_cmd8_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cmd8_read\",\"confidence\":\"medium\",\"docstring\":\"Reads RF command results 8 and 9 into packed outputs, falling back to results 7 and 8 when the primary result is zero, and returns a status code.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"out_word0\",\"a2\":\"out_word1\"}}"
+}

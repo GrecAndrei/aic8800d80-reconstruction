@@ -1,0 +1,9 @@
+{
+ "fn": "rf_temperature_compensation",
+ "img": "fmacfw_u02",
+ "addr": "0x1304b0",
+ "seg": 42,
+ "key": "rf_temperature_compensation__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_temperature_compensation\",\"confidence\":\"medium\",\"docstring\":\"Reads and logs the RF temperature, updating the cached value and triggering an RF check when it changes by more than 4 \u00b0C.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"temperature_c\",\"v1\":\"temperature_delta_c\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"cached RF temperature in \u00b0C\"}]}"
+}

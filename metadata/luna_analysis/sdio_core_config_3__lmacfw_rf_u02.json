@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_core_config_3",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10e170",
+ "seg": 2,
+ "key": "sdio_core_config_3__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sdio_core_config_3\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configures an SDIO/GPIO peripheral block and an auxiliary register block, starts the hardware operation, waits for a ready/status bit, reads a counter value, and returns a scaled float derived from that counter.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"sdio_reg_base\",\n    \"v1\": \"aux_reg_base\",\n    \"v2\": \"cfg_value_a\",\n    \"v3\": \"cfg_value_b\",\n    \"v4\": \"cfg_value_c\",\n    \"v5\": \"counter_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"control/reset register: zeroed at entry\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"start/trigger register: written with 1 after configuration\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"configuration register with masked bitfield update; bit 25 is set\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"configuration register programmed from global configuration values\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"counter/status register read for return value calculation\"\n    },\n    {\n      \"offset\": 7,\n      \"meaning\": \"ready/status register polled and then written for acknowledgment\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"auxiliary register programmed with 296\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_read_input",
+ "img": "fmacfw_u02",
+ "addr": "0x11597c",
+ "seg": 6,
+ "key": "gpio_read_input__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_pending_irq_status\",\"confidence\":\"medium\",\"docstring\":\"Performs mode-dependent peripheral setup and sets the shared status byte if any enabled NVIC interrupt among IRQs 0\u201395 is pending.\",\"subsystem\":\"ke\",\"var_renames\":{\"v9\":\"hardware_mode\",\"v11\":\"irq_bank_index\",\"v12\":\"nvic_enable_bank\",\"result\":\"pending_irq_flag\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "phy_read_table",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1064e0",
+ "seg": 2,
+ "key": "phy_read_table__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_phy_read_table\",\"confidence\":\"low\",\"docstring\":\"Reads PHY table data through the supplied 16-bit buffer while interacting with RF MMIO registers.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

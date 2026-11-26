@@ -1,0 +1,9 @@
+{
+ "fn": "hw_poll_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10df08",
+ "seg": 3,
+ "key": "hw_poll_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hw_poll_status\",\"confidence\":\"medium\",\"docstring\":\"Waits until the control word at offset 0x1c equals 1, writes 1 back, and returns an integer derived from the word at offset 0x10.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"hw_state\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Unsigned value used to compute the return value.\"},{\"offset\":28,\"meaning\":\"Control/status word polled until it equals 1, then written with 1.\"}]}"
+}

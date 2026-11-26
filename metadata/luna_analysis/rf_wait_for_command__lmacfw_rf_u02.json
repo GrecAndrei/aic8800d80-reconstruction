@@ -1,0 +1,9 @@
+{
+ "fn": "rf_wait_for_command",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x108cb8",
+ "seg": 2,
+ "key": "rf_wait_for_command__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_rssi_agc\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Issues a fixed RF read command, polls the ready bit, and extracts two signed 15-bit response values, most likely RSSI and AGC.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"delay_count\",\n    \"v3\": \"delay_count\",\n    \"v4\": \"delay_count\",\n    \"v5\": \"delay_count\",\n    \"v6\": \"rf_status\",\n    \"v7\": \"rf_field_high\",\n    \"v8\": \"rf_field_low\"\n  },\n  \"struct_hints\": []\n}"
+}

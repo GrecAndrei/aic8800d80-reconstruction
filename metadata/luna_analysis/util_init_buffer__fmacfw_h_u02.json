@@ -1,0 +1,9 @@
+{
+ "fn": "util_init_buffer",
+ "img": "fmacfw_h_u02",
+ "addr": "0x113fc4",
+ "seg": 5,
+ "key": "util_init_buffer__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_flag_if_unset\",\"confidence\":\"medium\",\"docstring\":\"Calls rf_get_flag only when the byte-sized global flag at 0x113FD0 is clear.\",\"subsystem\":\"rf\"}"
+}

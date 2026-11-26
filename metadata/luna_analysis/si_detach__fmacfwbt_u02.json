@@ -1,0 +1,9 @@
+{
+ "fn": "si_detach",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11facc",
+ "seg": 22,
+ "key": "si_detach__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"si_detach\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Detaches the shared interface context by walking the registered context list and tearing down each WLAN BSS configuration.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"i\": \"ctx\",\n    \"j\": \"bsscfg\",\n    \"result\": \"ret\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"next pointer in the context or BSS configuration linked list\"\n    },\n    {\n      \"offset\": 240,\n      \"meaning\": \"head of the BSS configuration linked list for the context\"\n    }\n  ]\n}"
+}

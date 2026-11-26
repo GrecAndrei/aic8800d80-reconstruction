@@ -1,0 +1,9 @@
+{
+ "fn": "rf_iqk_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10aed0",
+ "seg": 2,
+ "key": "rf_iqk_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_iq_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Runs the RF transmit IQ/LOFT calibration sequence while preserving the existing control state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v7\":\"saved_control_word\",\"v8\":\"control_word_with_bit0_cleared\",\"v78\":\"saved_control_bit0\"}}"
+}

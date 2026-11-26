@@ -1,0 +1,9 @@
+{
+ "fn": "copy_stats",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10f05c",
+ "seg": 3,
+ "key": "copy_stats__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_peripheral_init\",\"confidence\":\"medium\",\"docstring\":\"Copies a 24-byte configuration block into the active buffer, initializes and enables the hardware, enables its NVIC interrupt, then conditionally clears context and resets the block.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"config_source\",\"v1\":\"config_words_0_1\",\"v2\":\"config_destination\",\"v3\":\"config_words_3_4\",\"v4\":\"config_word_2\",\"v5\":\"config_word_5\",\"v6\":\"config_words_4_5\"}}"
+}

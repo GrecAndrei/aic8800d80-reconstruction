@@ -1,0 +1,9 @@
+{
+ "fn": "clear_rx_config",
+ "img": "fmacfw_u02",
+ "addr": "0x115ae4",
+ "seg": 6,
+ "key": "clear_rx_config__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_wifi_bt_coex_events\",\"confidence\":\"medium\",\"docstring\":\"Checks Wi-Fi/BT coexistence state and RF/GPIO gates, then dispatches the corresponding idle or BT event when eligible.\",\"subsystem\":\"patch\",\"var_renames\":{\"v1\":\"lp_state_slot\",\"v2\":\"lp_state_ptr\",\"v3\":\"coex_state_slot\",\"v5\":\"coex_entry\",\"v7\":\"rf_status_cache\",\"v14\":\"rf_status\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Head pointer for the linked list of coexistence gate entries.\"},{\"offset\":106,\"meaning\":\"Per-entry state byte that selects different processing branches.\"},{\"offset\":108,\"meaning\":\"Secondary per-entry gate byte checked when the state byte is zero.\"}]}"
+}

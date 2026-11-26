@@ -1,0 +1,9 @@
+{
+ "fn": "wait_for_uart_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10cd24",
+ "seg": 2,
+ "key": "wait_for_uart_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"check_uart_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Masks UART status/event bits 0xF00 and, when present, stores them in UART event registers while optionally raising an event-pending flag.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"uart_event_bits\",\n    \"v2\": \"uart_event_save_ptr\",\n    \"v3\": \"uart_event_control_ptr\",\n    \"v4\": \"uart_event_pending_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"UART control/status byte tested before setting pending\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"UART event pending byte written when the control byte is set\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "timer_disable_delay_alt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11d9dc",
+ "seg": 20,
+ "key": "timer_disable_delay_alt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_disable_delay\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears the enable bit of a timer or delay control register to disable the delay mechanism and marks the peripheral block busy.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 4808,\n      \"meaning\": \"timer/delay control register, bit 0 used as enable/clear\"\n    }\n  ]\n}"
+}

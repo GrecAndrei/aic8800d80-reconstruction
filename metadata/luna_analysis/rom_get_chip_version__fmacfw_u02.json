@@ -1,0 +1,9 @@
+{
+ "fn": "rom_get_chip_version",
+ "img": "fmacfw_u02",
+ "addr": "0x114acc",
+ "seg": 5,
+ "key": "rom_get_chip_version__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rom_get_chip_version\",\"confidence\":\"medium\",\"docstring\":\"Queries the ROM version service, decodes the selected nonzero upper or lower nibble into the output version, and returns 0 for upper-nibble encoding, 1 for lower-nibble encoding, or 2 when the byte is zero.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"version_out\",\"v2\":\"raw_version\",\"v3\":\"version_code\",\"result\":\"return_code\",\"v5\":\"decoded_version\"}}"
+}

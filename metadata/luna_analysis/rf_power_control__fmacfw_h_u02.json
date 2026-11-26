@@ -1,0 +1,9 @@
+{
+ "fn": "rf_power_control",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115500",
+ "seg": 6,
+ "key": "rf_power_control__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wake_wifi_hardware\",\"confidence\":\"medium\",\"docstring\":\"Requests the Wi-Fi hardware wakeup handshake, reconciles power-mode bits, and refreshes state for active contexts after acknowledgment.\",\"subsystem\":\"hal\",\"var_renames\":{\"v2\":\"wakeup_control_reg\",\"v10\":\"context_entry\"},\"struct_hints\":[{\"offset\":37,\"meaning\":\"Active/valid flag for a context entry.\"},{\"offset\":189,\"meaning\":\"Previous hardware-state flag used to validate and refresh wakeup state.\"},{\"offset\":340,\"meaning\":\"Pointer to a destination updated with the value read from MMIO register 0x40501010.\"}]}"
+}

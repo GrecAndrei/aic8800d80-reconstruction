@@ -1,0 +1,9 @@
+{
+ "fn": "rf_mmio_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x107aa0",
+ "seg": 2,
+ "key": "rf_mmio_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Loads TX settings, programs the RF frequency, samples the measurement register under several control configurations, and passes the samples to the min/max helper before restoring the RF controls.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_control_reg\",\"v2\":\"rf_setup_reg\",\"v3\":\"rf_mode_reg\",\"v4\":\"mode_preserve_mask\",\"v5\":\"measurement_reg\",\"v8\":\"rf_mode_reg_alias\",\"v9\":\"first_sample\",\"v10\":\"second_sample_raw\",\"v11\":\"mode_preserve_mask\",\"v14\":\"selected_mode_value\",\"v15\":\"alternate_mode_value\",\"v16\":\"first_mode_value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "parse_decimal_string",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12faf8",
+ "seg": 42,
+ "key": "parse_decimal_string__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_debug_config_command\",\"confidence\":\"high\",\"docstring\":\"Prints the current debug mask and module selector, or updates one from a hexadecimal argument selected by a decimal operation code.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"arg_count\",\"a2\":\"argv\",\"v4\":\"operation_code\",\"v6\":\"debug_mask\",\"v7\":\"current_debug_module\",\"v8\":\"debug_module\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"argument 1 string containing the decimal operation code\"},{\"offset\":8,\"meaning\":\"argument 2 string containing the hexadecimal setting value\"}]}"
+}

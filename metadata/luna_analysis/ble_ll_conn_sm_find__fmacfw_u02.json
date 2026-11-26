@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_sm_find",
+ "img": "fmacfw_u02",
+ "addr": "0x13f794",
+ "seg": 62,
+ "key": "ble_ll_conn_sm_find__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_tx_prepare\",\"confidence\":\"medium\",\"docstring\":\"Prepares a connection context's bookkeeping fields, submits a link-layer PDU, and updates the context after transmission.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"connection_ctx\"},\"struct_hints\":[{\"offset\":136,\"meaning\":\"16-bit bookkeeping value initialized from the value at offset 184 minus 1, clamped at zero\"},{\"offset\":138,\"meaning\":\"16-bit bookkeeping value initialized from the value at offset 184 minus 2, clamped at zero\"},{\"offset\":140,\"meaning\":\"16-bit bookkeeping value initialized from the value at offset 184 minus 3, clamped at zero\"},{\"offset\":148,\"meaning\":\"32-bit field initialized to 0x10000\"},{\"offset\":152,\"meaning\":\"field set to 5 after PDU transmission\"},{\"offset\":164,\"meaning\":\"byte set to the low-byte value at offset 184 minus 4 after PDU transmission\"},{\"offset\":184,\"meaning\":\"16-bit source value used to derive other bookkeeping values\"},{\"offset\":190,\"meaning\":\"16-bit field initialized to 0xffff\"}]}"
+}

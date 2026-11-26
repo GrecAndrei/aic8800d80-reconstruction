@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_core_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10e21c",
+ "seg": 2,
+ "key": "sdio_core_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sdio_core_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configure and enable the SDIO core peripheral registers, wait for completion, and return a float-calculated status/measurement.\",\n  \"subsystem\": \"sdio\",\n  \"var_renames\": {\n    \"v0\": \"core_regs\",\n    \"v1\": \"aux_regs\",\n    \"v2\": \"init_cfg_0\",\n    \"v3\": \"init_cfg_1\",\n    \"v4\": \"init_cfg_2\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"core initialization/control register\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"core enable/start register\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"core configuration register field\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"core configuration register mask/enable field\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"core measurement/status register used by the float return value\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"core ready/status register polled and acknowledged\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"auxiliary peripheral register byte offset 0x38 written with fixed value 296\"\n    }\n  ]\n}"
+}

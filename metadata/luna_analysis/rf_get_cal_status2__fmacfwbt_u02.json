@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_cal_status2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131474",
+ "seg": 43,
+ "key": "rf_get_cal_status2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_update_cal_status2\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parse an RF calibration AMP status entry and update the cached status words and saved status nibble only when the entry's low-nibble status changes.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cal_amp_data\",\n    \"a2\": \"amp_entry_type\",\n    \"a3\": \"cal_status_cache\",\n    \"a4\": \"status_updated\",\n    \"result\": \"amp_entry_ptr\",\n    \"v7\": \"status_byte\",\n    \"v11\": \"status_word_last\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3,\n      \"meaning\": \"AMP entry byte whose low nibble is compared against cached status\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"first 24-bit little-endian status field in AMP entry\"\n    },\n    {\n      \"offset\": 7,\n      \"meaning\": \"second 24-bit little-endian status field in AMP entry\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"third 24-bit little-endian status field in AMP entry\"\n    },\n    {\n      \"offset\": 13,\n      \"meaning\": \"fourth 24-bit little-endian status field in AMP entry\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"cached status word\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"cached status word\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"cached status word\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"cached status word\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"saved full status byte\"\n    },\n    {\n      \"offset\": 17,\n      \"meaning\": \"saved status low nibble\"\n    }\n  ]\n}"
+}

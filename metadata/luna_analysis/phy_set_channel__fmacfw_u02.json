@@ -1,0 +1,9 @@
+{
+ "fn": "phy_set_channel",
+ "img": "fmacfw_u02",
+ "addr": "0x136fec",
+ "seg": 57,
+ "key": "phy_set_channel__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_set_channel\",\"confidence\":\"medium\",\"docstring\":\"Records the requested channel and connection-derived parameters in shared PHY state, then resumes the associated LL task, clearing a hardware status register on the gated path.\",\"subsystem\":\"phy\",\"var_renames\":{\"v5\":\"phy_work_state\",\"v7\":\"phy_context_index\",\"v10\":\"connection\",\"v13\":\"ll_task_argument\"},\"struct_hints\":[{\"offset\":366,\"meaning\":\"Index used to select a per-context state entry.\"}]}"
+}

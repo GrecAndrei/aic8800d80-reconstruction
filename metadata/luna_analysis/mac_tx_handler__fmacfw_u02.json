@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x11dd44",
+ "seg": 20,
+ "key": "mac_tx_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_tx_pack_chain\",\"confidence\":\"medium\",\"docstring\":\"Walks a linked transmit-buffer chain, packs the requested byte range into linked control entries, and updates the caller\u2019s buffer cursor and offset.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"buffer_cursor\",\"a2\":\"requested_length\",\"a3\":\"offset_inout\",\"v3\":\"tx_chain_state\",\"v4\":\"buffer_offset\",\"v5\":\"current_buffer\",\"v7\":\"previous_tx_entry\",\"v9\":\"is_final_fragment\",\"v10\":\"remaining_length\",\"v12\":\"fragment_length\",\"v13\":\"tx_entry\",\"v18\":\"segment_start\",\"v19\":\"segment_end\",\"v20\":\"segment_available\",\"v25\":\"last_consumed_buffer\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Next buffer in the input chain.\"},{\"offset\":12,\"meaning\":\"Segment endpoint used to calculate available bytes.\"}]}"
+}

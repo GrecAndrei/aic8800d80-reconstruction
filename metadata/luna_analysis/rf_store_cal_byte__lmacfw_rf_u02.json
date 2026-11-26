@@ -1,0 +1,9 @@
+{
+ "fn": "rf_store_cal_byte",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12529c",
+ "seg": 23,
+ "key": "rf_store_cal_byte__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"debug_log_rssi\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Logs the current RSSI byte value via a printf-style debug dispatcher.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"off_1252B0\": \"rssi_value_ptr\"\n  },\n  \"struct_hints\": []\n}"
+}

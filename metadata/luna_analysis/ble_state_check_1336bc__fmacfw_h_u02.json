@@ -1,0 +1,9 @@
+{
+ "fn": "ble_state_check_1336bc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1336bc",
+ "seg": 46,
+ "key": "ble_state_check_1336bc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_dispatch_with_state_guard\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the message and performs the configured IRQ/MMIO write when the state is negative and handler 6 does not return 7.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"message\"}}"
+}

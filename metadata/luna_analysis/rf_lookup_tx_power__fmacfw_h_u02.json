@@ -1,0 +1,9 @@
+{
+ "fn": "rf_lookup_tx_power",
+ "img": "fmacfw_h_u02",
+ "addr": "0x138890",
+ "seg": 58,
+ "key": "rf_lookup_tx_power__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_request_tx_power_lookup\",\"confidence\":\"medium\",\"docstring\":\"Stores a TX-power lookup request in the next queue slot, dispatches it, and returns the slot address or zero if the guarded slot is busy.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"queue_state\",\"v4\":\"write_index\",\"v5\":\"request_slots\",\"v6\":\"request_slot\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Input/request pointer\"},{\"offset\":16,\"meaning\":\"Byte copied from the input object at offset 16\"},{\"offset\":68,\"meaning\":\"Request argument passed as a3\"},{\"offset\":76,\"meaning\":\"16-bit request argument passed as a2; also checked for nonzero in the guarded busy check\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "fatal_error_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x117ab8",
+ "seg": 10,
+ "key": "fatal_error_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_config_pending_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Scans five configuration slots, dispatches eligible commands, records per-slot deadlines, and sets the corresponding active-command bits under the interrupt lock.\",\"subsystem\":\"phy\",\"var_renames\":{\"i\":\"slot_index\",\"v0\":\"critical_section_depth\",\"v5\":\"active_command_mask_ptr\"}}"
+}

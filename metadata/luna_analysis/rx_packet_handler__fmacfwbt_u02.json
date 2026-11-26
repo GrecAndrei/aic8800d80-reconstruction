@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x126698",
+ "seg": 32,
+ "key": "rx_packet_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_rx_packet_handler\",\"confidence\":\"medium\",\"docstring\":\"Handles received RX metadata or a RX timeout for a Bluetooth link, resolves a connection/context pointer and computes scheduling timing before invoking the Bluetooth connection state machine.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"now\",\"a3\":\"rx_desc\",\"v6\":\"ctx\",\"v16\":\"table_entry\",\"v17\":\"conn_idx\",\"v7\":\"state_entry\",\"v8\":\"half_interval\",\"v9\":\"interval\",\"v10\":\"rx_time\",\"v11\":\"target_time\",\"v12\":\"rf_time\",\"v13\":\"time_delta\",\"v14\":\"event_time\",\"v18\":\"interval_ticks\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"rx_desc: 32-bit RX timestamp or scheduling base\"},{\"offset\":8,\"meaning\":\"rx_desc: connection/state table index\"},{\"offset\":10,\"meaning\":\"rx_desc: packet type/validity byte; 0xFF invalid\"},{\"offset\":11,\"meaning\":\"rx_desc: channel or RF state index\"},{\"offset\":24,\"meaning\":\"pending table entry: validity/type byte; 0xFF inactive\"},{\"offset\":27,\"meaning\":\"pending table entry: connection index into 1320-byte table\"},{\"offset\":106,\"meaning\":\"state/connection entry: state/role byte\"},{\"offset\":116,\"meaning\":\"state/connection entry: RF channel or table index\"},{\"offset\":222,\"meaning\":\"state/connection entry: uint16 interval ticks\"}]}"
+}

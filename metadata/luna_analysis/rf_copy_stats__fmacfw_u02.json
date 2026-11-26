@@ -1,0 +1,9 @@
+{
+ "fn": "rf_copy_stats",
+ "img": "fmacfw_u02",
+ "addr": "0x10f204",
+ "seg": 3,
+ "key": "rf_copy_stats__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_initialize\",\"confidence\":\"medium\",\"docstring\":\"Copies a 24-byte radio configuration block into runtime storage, initializes radio hardware and interrupt handling, and clears a buffer when the selected mode is 3.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"radio_config_src\",\"v2\":\"radio_config_dst\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Start of the 24-byte radio configuration block copied to runtime storage\"}]}"
+}

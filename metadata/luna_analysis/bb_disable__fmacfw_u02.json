@@ -1,0 +1,9 @@
+{
+ "fn": "bb_disable",
+ "img": "fmacfw_u02",
+ "addr": "0x101260",
+ "seg": 0,
+ "key": "bb_disable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_configure_frequency\",\"confidence\":\"medium\",\"docstring\":\"Configures RF and baseband registers for the requested operating frequency.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"frequency_mhz\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_link_type",
+ "img": "fmacfwbt_u02",
+ "addr": "0x128744",
+ "seg": 34,
+ "key": "bt_link_type__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_link_is_type6\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns true only if bt_link_check succeeds and either the global BT link count/validity field is zero or the referenced BT link/context has type byte 6.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"link_id\",\n    \"result\": \"link_ok\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 40,\n      \"meaning\": \"global pointer to BT link/context structure (off_128768 + 10 words)\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"global BT link count or validity flag for the pointer at offset 40 (off_128768 + 11 words)\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"uint8_t type/state field in the BT link/context compared against 6\"\n    }\n  ]\n}"
+}

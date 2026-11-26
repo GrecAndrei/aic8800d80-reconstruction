@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable_set_flag_preserve",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x110320",
+ "seg": 3,
+ "key": "irq_disable_set_flag_preserve__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"irq_disable_call_kernel_state_guard\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Disables interrupts when not already in IRQ mode, marks the disable flag, invokes check_kernel_state under a nesting guard, and re-enables interrupts only when the guard depth reaches zero and this call disabled them.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v2\": \"guard_count_ptr\",\n    \"v3\": \"kernel_state_arg\",\n    \"v5\": \"guard_count\",\n    \"v6\": \"guard_count_next\",\n    \"v7\": \"irq_disabled_by_this_call\",\n    \"result\": \"kernel_state_result\"\n  },\n  \"struct_hints\": []\n}"
+}

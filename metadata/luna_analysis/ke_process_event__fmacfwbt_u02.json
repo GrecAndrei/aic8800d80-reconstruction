@@ -1,0 +1,9 @@
+{
+ "fn": "ke_process_event",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13cc88",
+ "seg": 62,
+ "key": "ke_process_event__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rx_calc_fcs\", \"confidence\": \"medium\", \"docstring\": \"Computes the 802.11 FCS/CRC over a received PDU by normalizing dynamic frame-control bits and processing the MAC header, payload, and optional extra segment.\", \"subsystem\": \"mac\", \"var_renames\": {\"a1\": \"crc_ctx\", \"a2\": \"pdu_ptr\", \"a3\": \"pdu_len\", \"a4\": \"payload_off\", \"a5\": \"extra_ptr\", \"v9\": \"payload_ptr\", \"v10\": \"payload_len\", \"v50\": \"fc_norm\", \"v51\": \"addr_copy\"}, \"struct_hints\": [{\"offset\": 80, \"meaning\": \"CRC/FCS context state word (low 64-bit)\"}, {\"offset\": 88, \"meaning\": \"CRC/FCS context state word\"}, {\"offset\": 92, \"meaning\": \"CRC/FCS context state word\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "unaligned_word_load",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1334f0",
+ "seg": 46,
+ "key": "unaligned_word_load__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_crypto_update\",\"confidence\":\"high\",\"docstring\":\"Feeds bytes into a buffered BLE cryptographic context, mixing each complete little-endian 32-bit word and retaining any trailing bytes.\",\"subsystem\":\"ble\",\"var_renames\":{\"result\":\"context\",\"a2\":\"input_data\",\"a3\":\"input_length\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"partial 32-bit input word buffered between calls\"},{\"offset\":12,\"meaning\":\"number of bytes currently buffered in the partial word\"}]}"
+}

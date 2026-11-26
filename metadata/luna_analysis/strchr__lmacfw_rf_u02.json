@@ -1,0 +1,9 @@
+{
+ "fn": "strchr",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12841c",
+ "seg": 23,
+ "key": "strchr__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"strchr\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Searches a NUL-terminated byte string for the first occurrence of a specified byte, using an aligned word-at-a-time scan when the pointer is 4-byte aligned.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"ptr\",\n    \"a2\": \"ch\",\n    \"v2\": \"scan_ptr\",\n    \"v3\": \"char_word_pattern\",\n    \"v4\": \"word\",\n    \"v5\": \"byte\",\n    \"v6\": \"byte\",\n    \"v7\": \"byte\",\n    \"v8\": \"byte\",\n    \"v9\": \"word\"\n  }\n}"
+}

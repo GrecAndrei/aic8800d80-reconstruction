@@ -1,0 +1,9 @@
+{
+ "fn": "util_cmp_ge",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127f78",
+ "seg": 23,
+ "key": "util_cmp_ge__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"__aeabi_fcmpgt\", \"confidence\": \"high\", \"docstring\": \"Library helper that compares two single-precision floats and returns nonzero if the first argument is greater than the second.\", \"subsystem\": \"libmisc\"}"
+}

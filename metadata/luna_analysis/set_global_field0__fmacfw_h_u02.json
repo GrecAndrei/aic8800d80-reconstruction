@@ -1,0 +1,9 @@
+{
+ "fn": "set_global_field0",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12e8ec",
+ "seg": 42,
+ "key": "set_global_field0__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_global_field0\",\"confidence\":\"high\",\"docstring\":\"Writes the supplied value to the global 32-bit field and returns it unchanged.\",\"subsystem\":\"test\"}"
+}

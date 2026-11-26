@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_reg_0x70001408",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f14c",
+ "seg": 2,
+ "key": "mmio_set_reg_0x70001408__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_update_reg_0x70001408\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Wrapper that performs a fixed MMIO register update on address 0x70001408 via the critical-section helper.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"dword_10F158\": \"reg_addr_0x70001408\"\n  },\n  \"struct_hints\": []\n}"
+}

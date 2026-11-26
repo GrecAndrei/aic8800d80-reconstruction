@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_schedule",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b150",
+ "seg": 39,
+ "key": "ke_timer_schedule__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_scan_cancel_req_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a Bluetooth scan-cancel request, using a short HCI command and then either marking a request flag or issuing an HCI event depending on the command result.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v5\": \"send_status\",\n    \"a4\": \"param\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 11,\n      \"meaning\": \"scan_cancel_request_or_pending_byte\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_send",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f814",
+ "seg": 2,
+ "key": "ke_msg_send__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_pbd_list_fill\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Fills a packet-buffer descriptor list from a fragment list, aligns the base pointer, and tags each buffer with its pool ID and debug pattern before it is used in a DMA/IPC transfer.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"a2\": \"frag_list\",\n    \"a3\": \"alignment\",\n    \"v6\": \"mod\",\n    \"v7\": \"pad\",\n    \"v8\": \"pool0\",\n    \"v9\": \"pool1\",\n    \"v10\": \"idx\",\n    \"v11\": \"buf_list\",\n    \"v13\": \"len\",\n    \"v14\": \"desc\",\n    \"v15\": \"buffer_ptr\",\n    \"v28\": \"aligned_ptr\",\n    \"v29\": \"pool_id\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"base buffer pointer or first descriptor-list word\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"fragment/buffer count\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"base address of 12-byte descriptor array\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"descriptor length field in 12-byte entry\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"descriptor buffer-address field in 12-byte entry\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_wait_event",
+ "img": "fmacfw_u02",
+ "addr": "0x131688",
+ "seg": 43,
+ "key": "ke_wait_event__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_scan_report_send\",\"confidence\":\"medium\",\"docstring\":\"Builds and sends a scan-report message from the active scan slot, optionally sending an auxiliary notification for flagged report data.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"scan_report_info\",\"a3\":\"source_task_id\",\"a4\":\"destination_task_id\",\"v7\":\"report_message\",\"v8\":\"scan_slot_index\",\"v9\":\"scan_slot_context\",\"v10\":\"report_record\",\"v15\":\"auxiliary_message\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"First report payload word copied into the outgoing message.\"},{\"offset\":8,\"meaning\":\"Second report payload word copied into the outgoing message.\"},{\"offset\":12,\"meaning\":\"16-bit report field copied into the outgoing message.\"},{\"offset\":24,\"meaning\":\"Report code byte copied into the outgoing message header.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "after_helper_call",
+ "img": "fmacfw_u02",
+ "addr": "0x112f70",
+ "seg": 4,
+ "key": "after_helper_call__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_pending_usb_remote_wakeup\",\"confidence\":\"high\",\"docstring\":\"Consumes a pending USB remote-wakeup request under an IRQ-safe nesting guard and dispatches the action selected by USB status bit 14.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"critical_section_depth_ptr\",\"v1\":\"remote_wakeup_pending_ptr\",\"v2\":\"remote_wakeup_pending\",\"v3\":\"critical_section_depth\",\"v4\":\"wait_start_tick\",\"v5\":\"wait_deadline_tick\",\"v6\":\"ticks_remaining\",\"v7\":\"usb_wakeup_status\"},\"struct_hints\":[{\"offset\":804,\"meaning\":\"Hardware register whose bit 0 is temporarily set during the wait and then cleared.\"},{\"offset\":178,\"meaning\":\"USB status register; bit 14 selects the remote-wakeup handling branch.\"}]}"
+}

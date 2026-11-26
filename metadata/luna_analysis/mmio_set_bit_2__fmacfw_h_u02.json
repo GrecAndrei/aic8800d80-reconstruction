@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_bit_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1118bc",
+ "seg": 4,
+ "key": "mmio_set_bit_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_hw_init\",\"confidence\":\"medium\",\"docstring\":\"Performs the WLAN hardware handshake, initializes MMIO state, and returns a USB-init-done transmit event.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v5\":\"index\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Handshake/status register; bit 0 is polled until clear and the sign bit is polled for completion.\"}]}"
+}

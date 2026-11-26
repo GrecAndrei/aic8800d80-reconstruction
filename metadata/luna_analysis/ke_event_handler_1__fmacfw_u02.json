@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_handler_1",
+ "img": "fmacfw_u02",
+ "addr": "0x141b70",
+ "seg": 66,
+ "key": "ke_event_handler_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_action_frame_build\",\"confidence\":\"medium\",\"docstring\":\"Allocates a packet context, builds a category-22 802.11 Action frame, and returns 27 for action 6 or 26 for other actions (0 if allocation fails).\",\"subsystem\":\"mac\",\"var_renames\":{\"v13\":\"packet_buffer\",\"v16\":\"sequence_counter\",\"v17\":\"previous_sequence_number\",\"v19\":\"destination_mac_word0\",\"v20\":\"destination_mac_tail\",\"v21\":\"sequence_number\",\"v22\":\"context_mac_tail\"},\"struct_hints\":[{\"offset\":108,\"meaning\":\"802.11 frame begins here; frame-control byte is 0xD0\"},{\"offset\":112,\"meaning\":\"destination address\"},{\"offset\":118,\"meaning\":\"source address\"},{\"offset\":124,\"meaning\":\"BSSID\"},{\"offset\":130,\"meaning\":\"sequence-control field, set to sequence number shifted left by 4\"},{\"offset\":132,\"meaning\":\"Action category, set to 22\"},{\"offset\":133,\"meaning\":\"Action code\"},{\"offset\":136,\"meaning\":\"Optional action parameter, written when the action code is 6\"}]}"
+}

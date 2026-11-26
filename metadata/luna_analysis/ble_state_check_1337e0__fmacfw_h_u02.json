@@ -1,0 +1,9 @@
+{
+ "fn": "ble_state_check_1337e0",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1337e0",
+ "seg": 46,
+ "key": "ble_state_check_1337e0__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_reset_controller_by_state\",\"confidence\":\"medium\",\"docstring\":\"Selects a reset argument from the BLE state and fallback HCI/MMIO paths, then calls the BLE controller reset routine.\",\"subsystem\":\"ble\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "read_hw_status_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114af0",
+ "seg": 6,
+ "key": "read_hw_status_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"command_status_handler\",\"confidence\":\"medium\",\"docstring\":\"Acknowledges command status bits, dispatches callbacks for queued command records, and advances or clears the pending queue.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"hardware_status\",\"v1\":\"command_queue_head_slot\",\"v2\":\"command_node\",\"v3\":\"completion_callback_slot\",\"v4\":\"active_entry_end\",\"v5\":\"active_entry\",\"v8\":\"command_node\",\"v9\":\"completion_callback_slot\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next command-list node pointer\"},{\"offset\":4,\"meaning\":\"Byte flag gating callback dispatch\"},{\"offset\":8,\"meaning\":\"Callback argument\"},{\"offset\":12,\"meaning\":\"Callback argument\"},{\"offset\":16,\"meaning\":\"Byte marker cleared when the node matches an active-entry record\"}]}"
+}

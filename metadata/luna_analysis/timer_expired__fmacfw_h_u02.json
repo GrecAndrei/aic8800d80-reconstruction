@@ -1,0 +1,9 @@
+{
+ "fn": "timer_expired",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13b7bc",
+ "seg": 60,
+ "key": "timer_expired__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_timer_expired\",\"confidence\":\"medium\",\"docstring\":\"Returns whether a 16-bit timer deadline has passed relative to the current hardware tick.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"deadline\"}}"
+}

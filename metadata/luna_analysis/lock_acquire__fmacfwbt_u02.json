@@ -1,0 +1,9 @@
+{
+ "fn": "lock_acquire",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1146d0",
+ "seg": 5,
+ "key": "lock_acquire__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lock_acquire\",\"confidence\":\"medium\",\"docstring\":\"Atomically pops and returns the first entry from a global list, preserving the prior interrupt state across nested critical sections.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"critical_section_depth\",\"v1\":\"lock_list\",\"v3\":\"remaining_depth\",\"v4\":\"restore_interrupts\"}}"
+}

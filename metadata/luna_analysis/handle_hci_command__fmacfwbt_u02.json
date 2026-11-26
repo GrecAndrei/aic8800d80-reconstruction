@@ -1,0 +1,9 @@
+{
+ "fn": "handle_hci_command",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122d9c",
+ "seg": 27,
+ "key": "handle_hci_command__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"handle_hci_command\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a received HCI command by optionally copying its header and payload into a shared command buffer, then dispatching an HCI kernel event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"cmd_src\",\n    \"a3\": \"event_param\",\n    \"a4\": \"event_buf\",\n    \"v4\": \"cmd_first_byte\",\n    \"v6\": \"orig_event_buf\",\n    \"v7\": \"state_base\",\n    \"v8\": \"cmd_word0\",\n    \"v9\": \"cmd_word2\",\n    \"v10\": \"cmd_word3\",\n    \"v11\": \"cmd_word5\",\n    \"v12\": \"cmd_word4\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"source command word 0; its low byte gates the copy and the word is stored into state_base + 266\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"source command word 1 copied into shared command buffer offset 4\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"source command word 2 copied into shared command buffer offset 8\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"source command word 3 copied into shared command buffer offset 12\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"source command word 4 copied into shared command buffer offset 16\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"source command word 5 copied into shared command buffer offset 20\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"source command word 6 copied into shared command buffer offset 24\"\n    }\n  ]\n}"
+}

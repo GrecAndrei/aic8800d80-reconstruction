@@ -1,0 +1,9 @@
+{
+ "fn": "bsscfg_index",
+ "img": "fmacfw_h_u02",
+ "addr": "0x128748",
+ "seg": 34,
+ "key": "bsscfg_index__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bsscfg_link_chanctx\",\"confidence\":\"high\",\"docstring\":\"Attaches a BSS configuration to a channel context, updating reference state and notifying dependent channel and link subsystems.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"bsscfg_index\",\"a2\":\"chanctx_index\",\"v7\":\"chanctx\",\"v13\":\"bsscfg\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Channel-context active marker, set when its first BSS configuration is linked.\"},{\"offset\":24,\"meaning\":\"Channel-context validity or slot marker; 0xff denotes an empty slot.\"},{\"offset\":25,\"meaning\":\"Channel-context reference count.\"},{\"offset\":72,\"meaning\":\"BSS configuration's channel-context pointer.\"},{\"offset\":85,\"meaning\":\"BSS configuration link/status flags, cleared during linking.\"},{\"offset\":86,\"meaning\":\"BSS configuration link/channel marker, reset to 0xff.\"}]}"
+}

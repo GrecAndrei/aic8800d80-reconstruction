@@ -1,0 +1,9 @@
+{
+ "fn": "adv_data_parse",
+ "img": "fmacfw_u02",
+ "addr": "0x131604",
+ "seg": 43,
+ "key": "adv_data_parse__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_adv_data_update_cfm_handler\",\"confidence\":\"medium\",\"docstring\":\"Updates per-activity state from an advertising-data operation result, conditionally queues a follow-up message, and sends a completion response.\",\"subsystem\":\"ble\",\"var_renames\":{\"v4\":\"activity_index\",\"v7\":\"activity_context\",\"v8\":\"related_context_index\",\"v9\":\"related_context_flag\",\"v10\":\"followup_message\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Index used to select a related context.\"},{\"offset\":52,\"meaning\":\"Activity state byte, set to 1 or 2.\"},{\"offset\":106,\"meaning\":\"Related-context flag or status; zero permits the follow-up message.\"}]}"
+}

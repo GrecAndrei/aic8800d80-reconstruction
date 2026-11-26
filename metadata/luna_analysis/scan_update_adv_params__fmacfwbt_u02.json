@@ -1,0 +1,9 @@
+{
+ "fn": "scan_update_adv_params",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13d730",
+ "seg": 62,
+ "key": "scan_update_adv_params__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"scan_calc_adv_params\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Calculates and returns a packed 16-bit BLE scan/advertising control word (mode, channel/map, interval bits, and flags) by randomly selecting values from the scan context parameters.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"scan_ctx\",\n    \"v2\": \"rand_value\",\n    \"v3\": \"adv_mode\",\n    \"v4\": \"param_max\",\n    \"v5\": \"rand_bits\",\n    \"v7\": \"param_min\",\n    \"v8\": \"channel_min\",\n    \"v10\": \"adv_channel\",\n    \"v34\": \"selected_bit\",\n    \"v36\": \"map_index\",\n    \"v37\": \"map_mask_byte\",\n    \"v38\": \"bit_index\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 169,\n      \"meaning\": \"advertising/scan mode or type used as the high 11-bit field\"\n    },\n    {\n      \"offset\": 170,\n      \"meaning\": \"byte array/channel map base, indexed by map_index\"\n    },\n    {\n      \"offset\": 174,\n      \"meaning\": \"16-bit allowed-channel or parameter mask\"\n    },\n    {\n      \"offset\": 176,\n      \"meaning\": \"limit for the selected bit/channel index\"\n    },\n    {\n      \"offset\": 177,\n      \"meaning\": \"minimum channel/range value\"\n    },\n    {\n      \"offset\": 178,\n      \"meaning\": \"maximum/fallback channel value\"\n    },\n    {\n      \"offset\": 179,\n      \"meaning\": \"maximum value for the random range/interval field\"\n    },\n    {\n      \"offset\": 180,\n      \"meaning\": \"count/limit for map_index selection\"\n    },\n    {\n      \"offset\": 182,\n      \"meaning\": \"advertising/scan flag or policy byte encoded around bit 10\"\n    }\n  ]\n}"
+}

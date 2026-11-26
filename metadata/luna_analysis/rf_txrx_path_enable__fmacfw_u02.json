@@ -1,0 +1,9 @@
+{
+ "fn": "rf_txrx_path_enable",
+ "img": "fmacfw_u02",
+ "addr": "0x107678",
+ "seg": 2,
+ "key": "rf_txrx_path_enable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_measure_lpf_bypass_power\",\"confidence\":\"high\",\"docstring\":\"Temporarily configures the RF path, samples the 15-bit LPF-bypass power value into the context, and returns the subsequent status-check result.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"lpf_bypass_power\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"Measured LPF-bypass power value\"}]}"
+}

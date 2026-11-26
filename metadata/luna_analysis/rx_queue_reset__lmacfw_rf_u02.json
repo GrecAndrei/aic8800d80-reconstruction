@@ -1,0 +1,9 @@
+{
+ "fn": "rx_queue_reset",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b80c",
+ "seg": 17,
+ "key": "rx_queue_reset__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_rx_filter_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates the MM receive filter/queue context for a descriptor, tracks duplicate entries, and programs related baseband/RX filter registers.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v0\": \"rx_ctx\",\n    \"v1\": \"rx_filter_regs\",\n    \"v2\": \"rx_desc\",\n    \"v3\": \"rx_msg\",\n    \"v6\": \"is_duplicate\",\n    \"v7\": \"prev_desc\",\n    \"v8\": \"desc_type\",\n    \"v13\": \"desc_type\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"Rx filter/TID class index byte\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"Rx flow identity field used for duplicate matching\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"Rx flow identity field used for duplicate matching\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"Rx flow identity field used for duplicate matching\"\n    },\n    {\n      \"offset\": 13,\n      \"meaning\": \"Rx flow identity byte used for duplicate matching\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"Rx descriptor flags word with state-dependent low byte\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"Descriptor queue state byte (4 active, 1 superseded)\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"Descriptor type/state byte used to select Rx-filter path\"\n    },\n    {\n      \"offset\": 26,\n      \"meaning\": \"Descriptor byte copied into the Rx message\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_schedule",
+ "img": "fmacfw_u02",
+ "addr": "0x12c7f8",
+ "seg": 40,
+ "key": "ke_event_schedule__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_timer_schedule\",\"confidence\":\"medium\",\"docstring\":\"Drains the timed work queue, arms the hardware timer for deadlines at least 50 ticks away, and dispatches near or expired entries as kernel messages and TX packets.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"timer_environment\",\"v1\":\"interrupt_lock_depth\",\"v2\":\"irq_restore_pending\",\"v3\":\"timer_context\",\"v4\":\"deadline_tick\",\"v5\":\"ticks_until_deadline\",\"v7\":\"current_tick\",\"v9\":\"scheduled_packet\",\"v13\":\"timed_queue_head\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"Head of the pending timed-work list in the scheduler environment\"},{\"offset\":8,\"meaning\":\"Scheduled deadline tick in a timed-work entry\"},{\"offset\":4,\"meaning\":\"16-bit message-routing identifier passed to ke_msg_send_no_param\"},{\"offset\":6,\"meaning\":\"Second 16-bit message-routing identifier passed to ke_msg_send_no_param\"}]}"
+}

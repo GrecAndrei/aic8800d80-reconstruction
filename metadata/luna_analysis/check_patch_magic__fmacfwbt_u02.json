@@ -1,0 +1,9 @@
+{
+ "fn": "check_patch_magic",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1154e8",
+ "seg": 7,
+ "key": "check_patch_magic__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"apply_firmware_patches\",\"confidence\":\"medium\",\"docstring\":\"Validates patch metadata, applies address/value patches, and copies configured word ranges to their destinations.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v0\":\"patch_header\",\"v1\":\"patch_entries\",\"v2\":\"patch_index\",\"v3\":\"replacement_value\",\"v4\":\"patch_target\",\"v5\":\"copy_table_cursor\",\"v6\":\"copy_table_end\",\"v7\":\"copy_destination\",\"v8\":\"copy_destination_entry\",\"v9\":\"copy_source_cursor\",\"v10\":\"copy_word_index\",\"v11\":\"copy_address_delta\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Patch metadata magic value.\"},{\"offset\":4,\"meaning\":\"Pointer to address/value patch entries.\"},{\"offset\":8,\"meaning\":\"Expected base-derived boundary value checked before applying patches.\"},{\"offset\":12,\"meaning\":\"Number of address/value patch entries.\"},{\"offset\":0,\"meaning\":\"Patch entry target address.\"},{\"offset\":4,\"meaning\":\"Patch entry replacement word.\"},{\"offset\":16,\"meaning\":\"Copy-table source pointer array, parallel to the destination array.\"},{\"offset\":32,\"meaning\":\"Copy-table word-count array, parallel to the destination and source arrays.\"}]}"
+}

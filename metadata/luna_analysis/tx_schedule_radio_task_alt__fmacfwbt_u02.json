@@ -1,0 +1,9 @@
+{
+ "fn": "tx_schedule_radio_task_alt",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136588",
+ "seg": 56,
+ "key": "tx_schedule_radio_task_alt__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_schedule_radio_task_alt\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Updates radio scheduling state and conditionally enables the RF core or issues an HCI completion event/command.\",\n  \"subsystem\": \"rf\"\n}"
+}

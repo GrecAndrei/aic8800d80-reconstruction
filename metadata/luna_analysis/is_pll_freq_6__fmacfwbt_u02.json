@@ -1,0 +1,9 @@
+{
+ "fn": "is_pll_freq_6",
+ "img": "fmacfwbt_u02",
+ "addr": "0x135b80",
+ "seg": 54,
+ "key": "is_pll_freq_6__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_is_pll_freq_6\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends an HCI short command and returns true when the response indicates RF PLL frequency code 6.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

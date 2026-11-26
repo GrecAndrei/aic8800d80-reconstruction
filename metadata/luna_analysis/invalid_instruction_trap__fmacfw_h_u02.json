@@ -1,0 +1,9 @@
+{
+ "fn": "invalid_instruction_trap",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11b278",
+ "seg": 16,
+ "key": "invalid_instruction_trap__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_sched_item\",\"confidence\":\"medium\",\"docstring\":\"Processes one indexed scheduler entry under IRQ protection, advancing its countdown and fetching a new item when an update or expiration requires it.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"sched_index\",\"v4\":\"sched_state_base\",\"v5\":\"irq_nesting_count\",\"v6\":\"sched_entry_state\",\"v7\":\"update_pending\",\"v8\":\"irq_nesting_count_value\",\"v9\":\"schedule_word\",\"v12\":\"ticks_remaining\"}}"
+}

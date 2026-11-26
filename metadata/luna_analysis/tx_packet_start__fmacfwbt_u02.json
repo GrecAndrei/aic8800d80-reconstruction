@@ -1,0 +1,9 @@
+{
+ "fn": "tx_packet_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1280c8",
+ "seg": 34,
+ "key": "tx_packet_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_tx_packet_start\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies a transmit packet descriptor into a 28-byte per-slot TX state table and, when the slot is the active one, briefly disables IRQs, initializes RF/GPIO for transmission, and traces the packet.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"tx_packet_desc\",\n    \"v1\": \"slot_idx\",\n    \"v4\": \"tx_state_base\",\n    \"v5\": \"active_tx_slot\",\n    \"v7\": \"tx_state_slot\",\n    \"v8\": \"rf_init_refcount\",\n    \"v9\": \"refcount_after_dec\",\n    \"v10\": \"irq_was_disabled\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"tx_packet_desc byte slot/connection index\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"tx_packet_desc uint32 copied to state slot offset 4\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"tx_packet_desc uint32 copied to state slot offset 8\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"tx_packet_desc uint16 copied to state slot offset 12\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"TX state slot offset 12: value passed to util_format_string\"\n    }\n  ]\n}"
+}

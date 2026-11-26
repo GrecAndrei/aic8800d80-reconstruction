@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_tx_entry",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11cd3c",
+ "seg": 19,
+ "key": "rf_get_tx_entry__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_tx_table_entry\",\"confidence\":\"medium\",\"docstring\":\"Computes the address of a 6-byte RF TX table entry from the base pointer/value at offset 0 and the entry index byte at offset 10 of the global RF table descriptor.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[{\"offset\":0,\"meaning\":\"uint32_t base pointer or base value of the 6-byte RF TX entry table\"},{\"offset\":10,\"meaning\":\"uint8_t selected RF TX table/channel index\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "set_event_mode",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x112e28",
+ "seg": 4,
+ "key": "set_event_mode__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"process_pending_send_events\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sets an event/send mode and, when in the normal mode, drains the pending kernel/IPC message list by freeing completed messages or forwarding error messages; otherwise logs a USB WLAN send error.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"a3\": \"send_error\",\n    \"v3\": \"event_mode_ptr\",\n    \"v4\": \"new_event_mode\",\n    \"v5\": \"event_count_ptr\",\n    \"v6\": \"pending_events\",\n    \"v7\": \"pending_event_list\",\n    \"v8\": \"kernel_state_ref\",\n    \"v9\": \"list_node\",\n    \"v10\": \"message\",\n    \"v11\": \"message_status_nibble\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"message byte whose upper nibble encodes completion/status\"\n    }\n  ]\n}"
+}

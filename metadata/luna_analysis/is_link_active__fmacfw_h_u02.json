@@ -1,0 +1,9 @@
+{
+ "fn": "is_link_active",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13623c",
+ "seg": 55,
+ "key": "is_link_active__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"me_set_active_cfm\",\"confidence\":\"high\",\"docstring\":\"Handles the ME set-active confirmation path by validating the ME and link state and dispatching the corresponding follow-up message.\",\"subsystem\":\"mm\"}"
+}

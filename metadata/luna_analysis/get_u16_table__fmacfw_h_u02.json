@@ -1,0 +1,9 @@
+{
+ "fn": "get_u16_table",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11925c",
+ "seg": 12,
+ "key": "get_u16_table__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_u16_table\",\"confidence\":\"high\",\"docstring\":\"Returns the 16-bit table entry at index a1 | (a2 << 1).\",\"subsystem\":\"bt\"}"
+}

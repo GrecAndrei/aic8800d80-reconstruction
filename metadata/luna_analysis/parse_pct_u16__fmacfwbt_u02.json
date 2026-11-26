@@ -1,0 +1,9 @@
+{
+ "fn": "parse_pct_u16",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e1a8",
+ "seg": 43,
+ "key": "parse_pct_u16__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"parse_pct_u16\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a byte buffer for a percent token, extracts associated uint16 fields, and returns the next parse position only if the first extracted field equals 4.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"buf\",\n    \"result\": \"next\",\n    \"v3\": \"fields\"\n  },\n  \"struct_hints\": []\n}"
+}

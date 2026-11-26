@@ -1,0 +1,9 @@
+{
+ "fn": "is_greater_equal",
+ "img": "fmacfw_h_u02",
+ "addr": "0x143284",
+ "seg": 68,
+ "key": "is_greater_equal__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"is_greater_equal\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the first floating-point operand is greater than or equal to the second.\",\"subsystem\":\"libmisc\"}"
+}

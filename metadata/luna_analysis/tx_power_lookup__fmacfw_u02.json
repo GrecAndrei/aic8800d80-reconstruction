@@ -1,0 +1,9 @@
+{
+ "fn": "tx_power_lookup",
+ "img": "fmacfw_u02",
+ "addr": "0x1389d0",
+ "seg": 58,
+ "key": "tx_power_lookup__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_power_lookup_submit\",\"confidence\":\"medium\",\"docstring\":\"Populates the next rotating lookup-request descriptor, dispatches it to the RF command handler, and returns the descriptor pointer.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"request_ring_state\",\"v4\":\"request_slot_index\",\"v5\":\"request_descriptor_ring\",\"v6\":\"request_descriptor\"},\"struct_hints\":[{\"offset\":68,\"meaning\":\"Current rotating descriptor index in the ring-control object.\"},{\"offset\":12,\"meaning\":\"Pointer argument stored in the request descriptor.\"},{\"offset\":16,\"meaning\":\"Byte copied from offset 16 of the pointed-to object.\"},{\"offset\":68,\"meaning\":\"Third argument stored in the request descriptor.\"},{\"offset\":76,\"meaning\":\"16-bit lookup argument stored in the request descriptor.\"}]}"
+}

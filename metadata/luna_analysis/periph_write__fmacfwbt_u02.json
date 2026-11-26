@@ -1,0 +1,9 @@
+{
+ "fn": "periph_write",
+ "img": "fmacfwbt_u02",
+ "addr": "0x114e6c",
+ "seg": 6,
+ "key": "periph_write__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"write_hw_control_on_zero\",\"confidence\":\"low\",\"docstring\":\"Writes 0x20000 to a fixed volatile register when the input is zero, then returns the input unchanged.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"status\"}}"
+}

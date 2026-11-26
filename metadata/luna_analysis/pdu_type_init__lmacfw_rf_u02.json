@@ -1,0 +1,9 @@
+{
+ "fn": "pdu_type_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1156a0",
+ "seg": 7,
+ "key": "pdu_type_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"adv_pdu_type_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates the per-adv PDU-type configuration slot and, depending on the slot state, reconfigures the radio or delegates to the advertising PDU-type handler.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"pdu_ctx\",\n    \"a2\": \"pdu_desc\",\n    \"a3\": \"adv_pdu_type\",\n    \"v5\": \"pdu_type_slot\",\n    \"v6\": \"slot_current_ptr\",\n    \"v9\": \"llm_global_state\",\n    \"result\": \"ret_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"adv PDU type slot current descriptor/context pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"adv PDU type slot previous/backup context pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"adv PDU type slot valid/active flag\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"global LLM state mode/enable byte\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"PDU descriptor control flags; bit 0x00200000 selects the active context\"\n    }\n  ]\n}"
+}

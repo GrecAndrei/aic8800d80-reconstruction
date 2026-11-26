@@ -1,0 +1,9 @@
+{
+ "fn": "rf_command_call",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133704",
+ "seg": 46,
+ "key": "rf_command_call__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_write_header_params\",\"confidence\":\"medium\",\"docstring\":\"Writes `a4` and `a3` to the fixed header location 0x180C and, when `hci_cmd_handler(6)` returns 6, queues the message ID stored at offset 2 of `a2`.\",\"subsystem\":\"ble\",\"struct_hints\":[{\"offset\":2,\"meaning\":\"message ID queued when the handler returns 6\"}]}"
+}

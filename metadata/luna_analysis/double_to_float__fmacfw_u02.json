@@ -1,0 +1,9 @@
+{
+ "fn": "double_to_float",
+ "img": "fmacfw_u02",
+ "addr": "0x142a3c",
+ "seg": 68,
+ "key": "double_to_float__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"uint64_to_double\",\"confidence\":\"medium\",\"docstring\":\"Converts an unsigned 64-bit integer to double precision, matching the ARM __aeabi_ul2d helper.\",\"subsystem\":\"libmisc\"}"
+}

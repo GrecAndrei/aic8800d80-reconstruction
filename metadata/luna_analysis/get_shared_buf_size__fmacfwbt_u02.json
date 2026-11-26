@@ -1,0 +1,9 @@
+{
+ "fn": "get_shared_buf_size",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f870",
+ "seg": 43,
+ "key": "get_shared_buf_size__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"shared_buf_size_get\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns the fixed 1024-byte size used for a shared buffer.\",\n  \"subsystem\": \"mm\"\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "iterate_word_array",
+ "img": "fmacfw_u02",
+ "addr": "0x12ccd4",
+ "seg": 40,
+ "key": "iterate_word_array__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_handler_table_lookup\",\"confidence\":\"medium\",\"docstring\":\"Searches an array of 8-byte entries backward for a matching 16-bit key and returns its associated 32-bit value, or zero if no entry matches.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"lookup_key\",\"a2\":\"table_base_ref\",\"a3\":\"entry_count\",\"v3\":\"entry_index\",\"v5\":\"table_base\",\"v6\":\"entry_key\",\"v7\":\"entry_offset\",\"v8\":\"entry_ptr\",\"result\":\"entry_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"16-bit lookup key\"},{\"offset\":4,\"meaning\":\"associated 32-bit value, likely a handler pointer\"}]}"
+}

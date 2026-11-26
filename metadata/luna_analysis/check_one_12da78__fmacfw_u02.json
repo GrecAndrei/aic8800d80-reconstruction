@@ -1,0 +1,9 @@
+{
+ "fn": "check_one_12da78",
+ "img": "fmacfw_u02",
+ "addr": "0x12da78",
+ "seg": 42,
+ "key": "check_one_12da78__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_find_ext_channel_switch_ie\",\"confidence\":\"high\",\"docstring\":\"Scans a bounded 802.11 information-element stream for an Extended Channel Switch Announcement element (ID 60) with a four-byte payload and returns its start, or NULL.\",\"subsystem\":\"mac\"}"
+}

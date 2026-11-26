@@ -1,0 +1,9 @@
+{
+ "fn": "mac_build_control_frame",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b600",
+ "seg": 61,
+ "key": "mac_build_control_frame__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_send_scan_report_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Filters a received BLE frame, parses advertising data for a scan context, and sends an HCI scan/advertising-report event to the host.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v5\": \"scan_context_index\",\n    \"v6\": \"scan_context_entry\",\n    \"v7\": \"adv_parse_result\",\n    \"v11\": \"hci_evt_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 17,\n      \"meaning\": \"scan context state or report-enabled flag\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"stored scan/report length or count used in event calculation\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"advertising payload pointer\"\n    }\n  ]\n}"
+}

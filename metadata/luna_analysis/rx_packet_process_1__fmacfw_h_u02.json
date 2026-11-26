@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_process_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115f88",
+ "seg": 7,
+ "key": "rx_packet_process_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_rx_packet_prepare\",\"confidence\":\"medium\",\"docstring\":\"Prepares RX buffer bounds and descriptor flags, and conditionally increments an indexed receive counter based on the packet status word.\",\"subsystem\":\"ll\",\"var_renames\":{\"result\":\"rx_packet_info\",\"v2\":\"rx_context\",\"v3\":\"rx_payload_len\",\"v4\":\"rx_context_flags\",\"v5\":\"rx_descriptor\",\"v10\":\"descriptor_flags\",\"v11\":\"rx_status_word\",\"v12\":\"rx_counter_ptr\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"RX status word whose bits gate receive accounting\"},{\"offset\":50,\"meaning\":\"RX payload length used to form buffer bounds\"},{\"offset\":72,\"meaning\":\"Pointer to the RX working context\"},{\"offset\":76,\"meaning\":\"Pointer to the RX descriptor state\"},{\"offset\":40,\"meaning\":\"RX context flags; bits 0 and 1 are updated\"}]}"
+}

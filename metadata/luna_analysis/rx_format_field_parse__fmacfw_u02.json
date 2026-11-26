@@ -1,0 +1,9 @@
+{
+ "fn": "rx_format_field_parse",
+ "img": "fmacfw_u02",
+ "addr": "0x12cf2c",
+ "seg": 40,
+ "key": "rx_format_field_parse__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_format_field_parse\",\"confidence\":\"medium\",\"docstring\":\"Selects a format entry using the low-byte format ID and high-byte field selector, then applies its indexed word-array parser or the entry\u2019s fallback list.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"status_flag_ptr\",\"v4\":\"format_id\",\"v5\":\"field_selector\",\"v6\":\"format_table\",\"v7\":\"format_entry_offset\",\"v8\":\"primary_descriptor_table\",\"v9\":\"format_entry\",\"v10\":\"selected_array_descriptor\",\"v12\":\"fallback_descriptor\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Pointer to the primary table of word-array descriptors.\"},{\"offset\":4,\"meaning\":\"Pointer to the fallback word-array descriptor.\"},{\"offset\":8,\"meaning\":\"Pointer to the field-selector index table.\"},{\"offset\":14,\"meaning\":\"Field-selector count or upper bound.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "exit_critical_section",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123240",
+ "seg": 23,
+ "key": "exit_critical_section__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"debug_process_command_queue\", \"confidence\": \"medium\", \"docstring\": \"Drains queued debug shell commands under nested critical sections, parses dot-separated command tokens from queue payloads, invokes matching table handlers, and reports empty, unknown, out-of-range, or failed commands over UART.\", \"subsystem\": \"hal\", \"var_renames\": {\"v0\": \"critical_nesting_ptr\", \"v1\": \"queue_head\", \"v3\": \"command_item\", \"v4\": \"nesting_after_pop\", \"v5\": \"irq_saved_state\", \"v6\": \"command_table\", \"v7\": \"arg_count\", \"a1\": \"argv\", \"v10\": \"irq_saved_state_after_pop\", \"v11\": \"command_entry\", \"v12\": \"handler_ret\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"debug queue item: intrusive list link\"}, {\"offset\": 4, \"meaning\": \"debug queue item: command string payload\"}, {\"offset\": 0, \"meaning\": \"command table entry: command name string\"}, {\"offset\": 4, \"meaning\": \"command table entry: usage or help string\"}, {\"offset\": 8, \"meaning\": \"command table entry: minimum argument count\"}, {\"offset\": 10, \"meaning\": \"command table entry: maximum argument count\"}, {\"offset\": 12, \"meaning\": \"command table entry: command handler pointer\"}]}"
+}

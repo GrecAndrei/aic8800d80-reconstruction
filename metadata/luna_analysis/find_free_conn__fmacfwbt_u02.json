@@ -1,0 +1,9 @@
+{
+ "fn": "find_free_conn",
+ "img": "fmacfwbt_u02",
+ "addr": "0x127f58",
+ "seg": 34,
+ "key": "find_free_conn__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_acl_conn_lookup_or_alloc\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Finds an existing Bluetooth ACL connection entry matching the supplied descriptor or allocates and initializes a new one from the free list, returning the connection index through the output argument.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"conn_desc\",\n    \"a2\": \"conn_idx\",\n    \"v2\": \"conn_table\",\n    \"v5\": \"conn_entry\",\n    \"i\": \"table_idx\",\n    \"v7\": \"alloc_entry\",\n    \"v8\": \"new_conn_idx\",\n    \"v13\": \"conn_entry_ptr\",\n    \"v14\": \"bt_env_ptr\",\n    \"v16\": \"active_conn_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"connection descriptor byte 0\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"connection descriptor byte 1 or sequence field\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"connection descriptor bytes 2-3\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"connection descriptor bytes 4-5\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"connection descriptor bytes 6-7\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"connection descriptor tail bytes\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"connection index/state, 0xFF marks invalid/free\"\n    }\n  ]\n}"
+}

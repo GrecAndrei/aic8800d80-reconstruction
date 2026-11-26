@@ -1,0 +1,9 @@
+{
+ "fn": "get_conn_by_index",
+ "img": "fmacfw_h_u02",
+ "addr": "0x131f4c",
+ "seg": 44,
+ "key": "get_conn_by_index__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_conn_index\",\"confidence\":\"medium\",\"docstring\":\"Resets the indexed connection\u2019s auxiliary region, dispatches its operation when the slot status is nonzero, or issues a fallback response otherwise.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"conn_index_ptr\",\"v2\":\"conn_table_base\",\"v4\":\"conn_index\"},\"struct_hints\":[{\"offset\":37,\"meaning\":\"Per-connection status or validity byte tested for nonzero\"},{\"offset\":672,\"meaning\":\"Start of a per-connection auxiliary region passed to a reset helper\"}]}"
+}

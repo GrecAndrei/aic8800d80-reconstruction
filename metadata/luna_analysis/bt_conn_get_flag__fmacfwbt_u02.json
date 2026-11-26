@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_get_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a788",
+ "seg": 38,
+ "key": "bt_conn_get_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_conn_update_state_flag\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Looks up a Bluetooth connection entry from the caller record, clears any pending event, advances the entry state machine, and updates its associated flag byte with a state-dependent value.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"caller_ctx\",\n    \"v1\": \"bt_conn_table_base\",\n    \"v2\": \"conn_index\",\n    \"v3\": \"conn_entry\",\n    \"v4\": \"pending_event\",\n    \"v5\": \"conn_entry_base\",\n    \"v6\": \"state_code\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1225,\n      \"meaning\": \"caller context field containing Bluetooth connection entry index\"\n    },\n    {\n      \"offset\": 114,\n      \"meaning\": \"Bluetooth connection entry pending/event flag\"\n    },\n    {\n      \"offset\": 115,\n      \"meaning\": \"Bluetooth connection entry auxiliary event/state byte cleared before processing\"\n    },\n    {\n      \"offset\": 121,\n      \"meaning\": \"Bluetooth connection entry state/ready byte selecting state code 3 versus 2\"\n    },\n    {\n      \"offset\": 113,\n      \"meaning\": \"Bluetooth connection entry flag byte/identifier passed to set_flag_byte\"\n    }\n  ]\n}"
+}

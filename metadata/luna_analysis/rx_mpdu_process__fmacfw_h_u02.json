@@ -1,0 +1,9 @@
+{
+ "fn": "rx_mpdu_process",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11c498",
+ "seg": 19,
+ "key": "rx_mpdu_process__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_mpdu_process\",\"confidence\":\"medium\",\"docstring\":\"Processes an RX MPDU, synchronizing on its hardware status and releasing associated buffer references and queue entries.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"rx_buffer\",\"v7\":\"rx_flags\"},\"struct_hints\":[{\"offset\":68,\"meaning\":\"Pointer to a reference-counted RX buffer whose status is checked and whose reference is released.\"},{\"offset\":76,\"meaning\":\"Pointer to associated RX metadata whose flags are updated.\"}]}"
+}

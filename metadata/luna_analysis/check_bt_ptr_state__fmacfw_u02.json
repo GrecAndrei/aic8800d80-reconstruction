@@ -1,0 +1,9 @@
+{
+ "fn": "check_bt_ptr_state",
+ "img": "fmacfw_u02",
+ "addr": "0x1146f0",
+ "seg": 5,
+ "key": "check_bt_ptr_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_bt_mode_state\",\"confidence\":\"medium\",\"docstring\":\"Updates BT-associated mode state by selecting 0x800 or 0x1000, conditionally clearing the corresponding flag bit, and resetting an associated field.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"mode_value\",\"v1\":\"mode_bit\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"state byte checked against 1\"},{\"offset\":8,\"meaning\":\"field cleared to zero\"},{\"offset\":136,\"meaning\":\"field assigned the selected mode value\"},{\"offset\":332,\"meaning\":\"flags word with the selected mode bit cleared\"}]}"
+}

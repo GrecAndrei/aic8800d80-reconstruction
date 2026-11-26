@@ -1,0 +1,9 @@
+{
+ "fn": "tx_prepare_descriptor",
+ "img": "fmacfwbt_u02",
+ "addr": "0x120b78",
+ "seg": 23,
+ "key": "tx_prepare_descriptor__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_prepare_descriptor\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prepares a transmit descriptor by computing 802.11 TX duration and, unless disabled by configuration, querying UMAC hardware time-on-air before populating descriptor fields.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v9\": \"frame_len\",\n    \"v13\": \"mpdu_count\",\n    \"v51\": \"tx_duration_us\",\n    \"v17\": \"time_on_air_status_reg\",\n    \"v16\": \"time_on_air_cmd_reg\",\n    \"v19\": \"hw_time_on_air_us\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"tx descriptor/context length used for duration calculation\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"PHY rate/class parameter passed to mac_duration_calc\"\n    },\n    {\n      \"offset\": 112,\n      \"meaning\": \"MPDU count for aggregate transmit duration\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"configuration flag bit7 selects software duration instead of hardware time-on-air\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"configuration field selecting time-on-air calibration/rate table index\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "validate_value_range",
+ "img": "fmacfwbt_u02",
+ "addr": "0x102984",
+ "seg": 1,
+ "key": "validate_value_range__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"value_to_bucket\",\"confidence\":\"medium\",\"docstring\":\"Maps an unsigned value into one of six ordered buckets using fixed thresholds.\",\"subsystem\":\"hal\"}"
+}

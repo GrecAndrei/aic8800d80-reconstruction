@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_6",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10cadc",
+ "seg": 2,
+ "key": "nullsub_6__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_pmu_stub_return_zero\",\"confidence\":\"low\",\"docstring\":\"No-op stub in the PMU-related code cluster that returns zero.\",\"subsystem\":\"hal\"}"
+}

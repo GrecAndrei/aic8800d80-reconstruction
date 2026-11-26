@@ -1,0 +1,9 @@
+{
+ "fn": "get_rf_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1205e0",
+ "seg": 22,
+ "key": "get_rf_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_firmware_subsystems\",\"confidence\":\"medium\",\"docstring\":\"Initializes RF, controller, channel and security, LLC, and Bluetooth state before returning the result of RF PHY initialization.\",\"subsystem\":\"mm\"}"
+}

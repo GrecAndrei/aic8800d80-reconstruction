@@ -1,0 +1,9 @@
+{
+ "fn": "bt_ready_check",
+ "img": "fmacfw_u02",
+ "addr": "0x136820",
+ "seg": 56,
+ "key": "bt_ready_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_ready_notify\",\"confidence\":\"medium\",\"docstring\":\"Checks a BT status sentinel, conditionally clears a hardware control mask when the associated pointer is null, and submits a message to the kernel.\",\"subsystem\":\"bt\"}"
+}

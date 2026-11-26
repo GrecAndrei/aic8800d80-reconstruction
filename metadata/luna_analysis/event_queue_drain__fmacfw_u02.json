@@ -1,0 +1,9 @@
+{
+ "fn": "event_queue_drain",
+ "img": "fmacfw_u02",
+ "addr": "0x1210f8",
+ "seg": 22,
+ "key": "event_queue_drain__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_tbtt_timer_process\",\"confidence\":\"medium\",\"docstring\":\"Walks active MAC contexts, advances their TBTT-related countdowns, handles expired deadlines, and dispatches pending kernel events.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"current_entry\",\"v9\":\"list_cursor\",\"v10\":\"scaled_interval\",\"v12\":\"scheduled_time\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"next entry in the context list\"},{\"offset\":48,\"meaning\":\"link node checked for membership in another list\"},{\"offset\":106,\"meaning\":\"context state\"},{\"offset\":107,\"meaning\":\"context identifier used to match another list entry\"},{\"offset\":222,\"meaning\":\"interval value used to calculate a timer deadline\"},{\"offset\":224,\"meaning\":\"countdown reload value\"},{\"offset\":225,\"meaning\":\"countdown value\"}]}"
+}

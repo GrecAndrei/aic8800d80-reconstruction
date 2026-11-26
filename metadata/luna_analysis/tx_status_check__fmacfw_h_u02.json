@@ -1,0 +1,9 @@
+{
+ "fn": "tx_status_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11a770",
+ "seg": 14,
+ "key": "tx_status_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_tx_status\",\"confidence\":\"medium\",\"docstring\":\"Returns unchanged for a nonnegative status; otherwise asserts on an invalid retry state or clears the status, updates the linked descriptor control bits, and dispatches the context.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"status_flags\",\"v3\":\"tx_descriptor\",\"v4\":\"tx_control_flags\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Pointer to a linked TX descriptor or control block\"},{\"offset\":60,\"meaning\":\"Signed TX status and flag word\"}]}"
+}

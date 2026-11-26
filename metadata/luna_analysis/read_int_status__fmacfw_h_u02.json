@@ -1,0 +1,9 @@
+{
+ "fn": "read_int_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11c1d0",
+ "seg": 18,
+ "key": "read_int_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_interrupt_status\",\"confidence\":\"medium\",\"docstring\":\"Gates the hardware-counter result on a configuration bit and RF status, stores the result or zero in a status slot, and sets control-register bit 7 when the checks pass.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"counter_result\",\"v2\":\"control_register\",\"v3\":\"control_value\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Status slot written with the counter result when the checks pass, or cleared otherwise.\"}]}"
+}

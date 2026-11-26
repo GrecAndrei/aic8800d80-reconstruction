@@ -1,0 +1,9 @@
+{
+ "fn": "util_read_halfword",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13e130",
+ "seg": 61,
+ "key": "util_read_halfword__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_smoothed_ratio\",\"confidence\":\"medium\",\"docstring\":\"When the denominator at offset 0 is nonzero, initializes or updates the averaged ratio at offset 4 and resets the zero-denominator counter; otherwise, it saturating-increments that counter.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"denominator\",\"v3\":\"scaled_numerator\",\"v4\":\"ratio\",\"v5\":\"zero_denominator_count\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Denominator for the ratio calculation\"},{\"offset\":2,\"meaning\":\"Numerator source, scaled by 2^16 before division\"},{\"offset\":4,\"meaning\":\"Stored ratio average, initialized from the first ratio and thereafter smoothed with a 3:1 weighting\"},{\"offset\":8,\"meaning\":\"Low byte counts consecutive zero-denominator samples, saturating at 255\"},{\"offset\":9,\"meaning\":\"Nonzero byte indicates that the ratio average has been initialized\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "sec_table_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x129b58",
+ "seg": 36,
+ "key": "sec_table_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sec_table_get_entry\",\"confidence\":\"medium\",\"docstring\":\"Computes the next strided security-table address from a supplied range, updates the cursor and remaining-entry state, and returns zero when no entry remains.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"next_cursor\",\"v6\":\"indexed_record\",\"v7\":\"entry_stride\",\"v8\":\"range_step_count\",\"v9\":\"entries_to_consume\",\"v12\":\"remaining_entries\",\"result\":\"candidate_address\"},\"struct_hints\":[{\"offset\":19,\"meaning\":\"Remaining-entry count/state; 0xFF is a special sentinel.\"},{\"offset\":28,\"meaning\":\"Entry stride in bytes.\"},{\"offset\":44,\"meaning\":\"Cursor updated to the position after the supplied range.\"},{\"offset\":106,\"meaning\":\"Flag controlling the interrupt/MMIO handling path in the indexed record.\"},{\"offset\":132,\"meaning\":\"Per-record offset used to derive the table address.\"}]}"
+}

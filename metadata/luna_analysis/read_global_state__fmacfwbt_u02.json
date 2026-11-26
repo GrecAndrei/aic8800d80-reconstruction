@@ -1,0 +1,9 @@
+{
+ "fn": "read_global_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123cc8",
+ "seg": 30,
+ "key": "read_global_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_peripheral_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes flash/GPIO/PMU/radio peripherals and issues the corresponding HCI command or event based on a configuration blob and the current global radio state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v4\":\"radio_state_ptr\",\"v5\":\"radio_state_value\",\"a2\":\"config_ptr\",\"a3\":\"hci_param\",\"a4\":\"event_code\"},\"struct_hints\":[{\"offset\":68,\"meaning\":\"uint16_t configuration field copied into the radio/global state\"}]}"
+}

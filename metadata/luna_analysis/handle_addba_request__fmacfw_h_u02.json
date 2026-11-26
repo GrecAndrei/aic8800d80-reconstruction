@@ -1,0 +1,9 @@
+{
+ "fn": "handle_addba_request",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130c78",
+ "seg": 42,
+ "key": "handle_addba_request__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"collect_filtered_range_bytes\",\"confidence\":\"medium\",\"docstring\":\"Copies qualifying bytes from two validated ranges into the output list and stores the copied count in output[0].\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"input_buffer\",\"a2\":\"input_length\",\"a3\":\"output_list\",\"v7\":\"output_count\",\"v15\":\"range_length\",\"v8\":\"first_range_cursor\",\"v9\":\"first_range_end\",\"v11\":\"second_range_cursor\",\"v12\":\"second_range_end\"}}"
+}

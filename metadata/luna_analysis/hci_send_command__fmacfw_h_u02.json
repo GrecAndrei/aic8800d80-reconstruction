@@ -1,0 +1,9 @@
+{
+ "fn": "hci_send_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102e9c",
+ "seg": 2,
+ "key": "hci_send_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_send_command\",\"confidence\":\"medium\",\"docstring\":\"Reads values from a fixed memory location and passes them to the UART data path with selectors 0x20, 0x30, and 0x40.\",\"subsystem\":\"bt\"}"
+}

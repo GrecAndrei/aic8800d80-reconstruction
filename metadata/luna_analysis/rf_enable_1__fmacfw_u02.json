@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable_1",
+ "img": "fmacfw_u02",
+ "addr": "0x10ef50",
+ "seg": 3,
+ "key": "rf_enable_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the RF control registers and applies additional configuration when the RF mode flag is enabled.\",\"subsystem\":\"rf\"}"
+}

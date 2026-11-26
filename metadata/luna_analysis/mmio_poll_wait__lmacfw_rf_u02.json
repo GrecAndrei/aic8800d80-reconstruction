@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_poll_wait",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11dd10",
+ "seg": 20,
+ "key": "mmio_poll_wait__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ke_task_run\", \"confidence\": \"medium\", \"docstring\": \"Dispatches pending kernel events/messages, enforcing timer deadlines and interrupt critical sections while invoking ke_evt_handler and cleaning up buffers.\", \"subsystem\": \"ke\", \"var_renames\": {\"v0\": \"task_ctx_base\", \"v1\": \"run_nest_count\", \"v2\": \"irq_lock_state\", \"v3\": \"tick_counter_base\", \"v4\": \"task_cb\", \"v5\": \"timer_timestamp\", \"v7\": \"event_hdr\", \"v11\": \"saved_run_nest_count\", \"v12\": \"next_timer_task\", \"v13\": \"updated_run_nest_count\"}, \"struct_hints\": [{\"offset\": 8, \"meaning\": \"timer timestamp / due tick\"}, {\"offset\": 4, \"meaning\": \"16-bit event destination or source header field\"}, {\"offset\": 6, \"meaning\": \"16-bit event source or destination header field\"}]}"
+}

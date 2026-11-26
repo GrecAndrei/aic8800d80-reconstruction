@@ -1,0 +1,9 @@
+{
+ "fn": "timeout_decrement",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1272a4",
+ "seg": 33,
+ "key": "timeout_decrement__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_timeout_decrement\",\"confidence\":\"medium\",\"docstring\":\"Ticks down a transmit timeout byte and, on expiry with the pending flag set, clears the flag, sends a MAC command, and checks transmit readiness.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"timeout_remaining\"},\"struct_hints\":[{\"offset\":89,\"meaning\":\"transmit timeout countdown byte\"}]}"
+}

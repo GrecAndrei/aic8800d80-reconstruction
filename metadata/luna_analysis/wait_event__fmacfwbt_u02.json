@@ -1,0 +1,9 @@
+{
+ "fn": "wait_event",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10f1c8",
+ "seg": 3,
+ "key": "wait_event__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"release_pool_object\",\"confidence\":\"medium\",\"docstring\":\"Frees the pool-allocated object passed as the second argument and returns 1.\",\"subsystem\":\"ke\",\"var_renames\":{\"a2\":\"pool_object\"}}"
+}

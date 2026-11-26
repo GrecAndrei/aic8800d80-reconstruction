@@ -1,0 +1,9 @@
+{
+ "fn": "check_controller_ready_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1404cc",
+ "seg": 65,
+ "key": "check_controller_ready_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hci_check_controller_ready\", \"confidence\": \"medium\", \"docstring\": \"Sends short HCI command 0x0B to probe controller readiness, validates TX power on success, and conditionally updates an MMIO field when a negative controller status is present.\", \"subsystem\": \"bt\", \"var_renames\": {}, \"struct_hints\": []}"
+}

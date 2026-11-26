@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_reg",
+ "img": "fmacfw_h_u02",
+ "addr": "0x110ce4",
+ "seg": 3,
+ "key": "mmio_write_reg__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the RF I/O control block, synchronizes with its command interface, and submits an IPC command.\",\"subsystem\":\"rf\"}"
+}

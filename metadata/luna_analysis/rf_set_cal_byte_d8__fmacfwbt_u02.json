@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_cal_byte_d8",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131060",
+ "seg": 43,
+ "key": "rf_set_cal_byte_d8__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_cal_byte_d8\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Looks up a calibration entry and copies its byte at offset 2 into the output structure field at offset 0xd8.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cal_data\",\n    \"a2\": \"cal_key\",\n    \"a3\": \"out_ctx\",\n    \"result\": \"entry_or_byte\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"third byte of calibration entry used as extracted value\"\n    },\n    {\n      \"offset\": 216,\n      \"meaning\": \"output context field 0xd8 storing calibration byte\"\n    }\n  ]\n}"
+}

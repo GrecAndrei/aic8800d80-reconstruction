@@ -1,0 +1,9 @@
+{
+ "fn": "event_counter",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102948",
+ "seg": 1,
+ "key": "event_counter__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_ctrl_apply_entry\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Applies a single RF control entry from the RF state block and increments a byte-sized apply/event counter.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 36,\n      \"meaning\": \"RF control identifier\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"RF control value\"\n    }\n  ]\n}"
+}

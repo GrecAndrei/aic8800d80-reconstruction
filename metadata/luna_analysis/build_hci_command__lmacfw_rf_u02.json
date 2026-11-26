@@ -1,0 +1,9 @@
+{
+ "fn": "build_hci_command",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123a20",
+ "seg": 23,
+ "key": "build_hci_command__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_build_data_frame_header\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds a 24-byte IEEE 802.11 ToDS Data frame header from cached MAC addresses and an incremented hardware sequence counter, returning the header length.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"tx_header\",\n    \"v4\": \"seq_reg_ptr\",\n    \"v5\": \"seq_num\",\n    \"v6\": \"dst_addr_hi\",\n    \"v7\": \"src_addr_hi\",\n    \"v8\": \"dst_addr_lo\",\n    \"v10\": \"raw_src_addr_lo\",\n    \"v11\": \"raw_src_addr_hi\",\n    \"v14\": \"raw_dst_addr_lo\",\n    \"v15\": \"raw_dst_addr_hi\",\n    \"v16\": \"src_addr_lo\",\n    \"v17\": \"src_addr_hi\",\n    \"v19\": \"dst_addr_lo\",\n    \"v20\": \"dst_addr_hi\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"IEEE 802.11 Frame Control, low byte (0x08: Type=Data, Subtype=0)\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"IEEE 802.11 Frame Control, high byte (0x02: ToDS=1)\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"Duration field (16-bit little-endian)\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"Addr1 / receiver MAC address\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"Addr2 / transmitter MAC address\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"Addr3 / BSSID MAC address\"\n    },\n    {\n      \"offset\": 22,\n      \"meaning\": \"Sequence Control (seq << 4)\"\n    }\n  ]\n}"
+}

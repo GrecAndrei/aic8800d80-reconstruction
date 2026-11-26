@@ -1,0 +1,9 @@
+{
+ "fn": "adv_pdu_type_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x13b638",
+ "seg": 60,
+ "key": "adv_pdu_type_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_rx_channel_status_handle\",\"confidence\":\"medium\",\"docstring\":\"For receive records with rate code 2, dispatches channel-specific RF handling and parses the PHY status.\",\"subsystem\":\"rf\",\"var_renames\":{\"a3\":\"rx_info\"}}"
+}

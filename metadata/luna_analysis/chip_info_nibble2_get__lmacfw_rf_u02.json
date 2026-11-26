@@ -1,0 +1,9 @@
+{
+ "fn": "chip_info_nibble2_get",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101a88",
+ "seg": 0,
+ "key": "chip_info_nibble2_get__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"chip_info_nibble2_get\",\"confidence\":\"medium\",\"docstring\":\"Reads the second-byte low nibble from the chip-info register and returns its encoded value decremented by one.\",\"subsystem\":\"hal\",\"var_renames\":{},\"struct_hints\":[]}"
+}

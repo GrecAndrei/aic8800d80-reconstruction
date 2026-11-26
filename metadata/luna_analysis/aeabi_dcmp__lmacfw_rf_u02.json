@@ -1,0 +1,9 @@
+{
+ "fn": "aeabi_dcmp",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127e14",
+ "seg": 23,
+ "key": "aeabi_dcmp__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"__aeabi_ul2f\", \"confidence\": \"medium\", \"docstring\": \"ARM EABI soft-float runtime routine that converts an unsigned long to a single-precision float.\", \"subsystem\": \"libmisc\", \"var_renames\": {}, \"struct_hints\": []}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1102f0",
+ "seg": 3,
+ "key": "mmio_write_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_ioctl_invoke\",\"confidence\":\"medium\",\"docstring\":\"Invokes the WLAN ioctl handler with the global context inside a nesting-aware critical section that restores interrupts on the outermost exit.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"request\",\"v2\":\"critical_depth_ptr\",\"v3\":\"handler_context\",\"v5\":\"critical_depth\",\"v6\":\"depth_after_exit\",\"v7\":\"restore_irqs\"}}"
+}

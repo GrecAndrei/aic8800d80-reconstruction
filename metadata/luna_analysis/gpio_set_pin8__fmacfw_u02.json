@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_pin8",
+ "img": "fmacfw_u02",
+ "addr": "0x10cc94",
+ "seg": 2,
+ "key": "gpio_set_pin8__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_set_pin8\",\"confidence\":\"high\",\"docstring\":\"Writes 0x100 to the GPIO register, asserting the output associated with pin 8.\",\"subsystem\":\"hal\"}"
+}

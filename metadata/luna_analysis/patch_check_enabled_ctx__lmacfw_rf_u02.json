@@ -1,0 +1,9 @@
+{
+ "fn": "patch_check_enabled_ctx",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121a84",
+ "seg": 22,
+ "key": "patch_check_enabled_ctx__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_patch_enable_ctx\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Handles a patch context whose state is 3 by allocating a host RX buffer, sending the 28-byte context with a 0xC0DE marker, signaling the kernel, and then enabling the RF path.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"patch_ctx\",\n    \"v2\": \"host_rx_buf\",\n    \"v3\": \"host_rx_buf\",\n    \"v4\": \"send_ack_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"Magic 0xC0DE marker at the end of the transmitted 28-byte patch context\"\n    }\n  ]\n}"
+}

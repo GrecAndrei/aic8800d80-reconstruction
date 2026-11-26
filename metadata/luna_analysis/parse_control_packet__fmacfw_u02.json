@@ -1,0 +1,9 @@
+{
+ "fn": "parse_control_packet",
+ "img": "fmacfw_u02",
+ "addr": "0x1160c8",
+ "seg": 7,
+ "key": "parse_control_packet__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"prepare_buffer_descriptor\",\"confidence\":\"medium\",\"docstring\":\"Sets buffer address bounds and descriptor flags, then conditionally increments the counter for the selected slot.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"source_context\",\"a2\":\"slot_index_base\",\"v2\":\"buffer_context\",\"v3\":\"buffer_length\",\"v4\":\"context_flags\",\"v5\":\"descriptor\",\"v6\":\"slot_index\",\"v7\":\"buffer_start\",\"v10\":\"descriptor_flags\",\"v11\":\"global_flags\",\"v12\":\"slot_entry\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Descriptor pointer to the buffer context fields.\"},{\"offset\":28,\"meaning\":\"Descriptor buffer-range start address.\"},{\"offset\":32,\"meaning\":\"Descriptor buffer-range end address.\"},{\"offset\":36,\"meaning\":\"Buffer-context slot index.\"},{\"offset\":40,\"meaning\":\"Buffer-context state flags.\"},{\"offset\":68,\"meaning\":\"Descriptor control flags.\"},{\"offset\":172,\"meaning\":\"Start of the buffer context's inline data area.\"}]}"
+}

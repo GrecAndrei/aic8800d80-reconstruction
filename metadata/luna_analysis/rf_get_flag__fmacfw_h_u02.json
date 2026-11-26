@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x113578",
+ "seg": 5,
+ "key": "rf_get_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_check_rx_watchdog\",\"confidence\":\"medium\",\"docstring\":\"Obtains the RX buffer and checks its configured state, disabling global IRQ handling if the buffer is missing or the state persists through five retries.\",\"subsystem\":\"rf\",\"var_renames\":{\"v7\":\"rx_buffer\",\"v14\":\"retries_remaining\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_init_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10dda0",
+ "seg": 3,
+ "key": "gpio_init_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_clock_measure\",\"confidence\":\"medium\",\"docstring\":\"Configures a hardware clock measurement, waits for completion, acknowledges the result, and converts the measured count to a floating-point value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"clock_measure_regs\",\"v4\":\"measurement_count_as_double\",\"v5\":\"scaled_count\",\"v6\":\"normalized_count\",\"v7\":\"calibration_value\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"measurement start or enable register\"},{\"offset\":8,\"meaning\":\"measurement configuration register\"},{\"offset\":12,\"meaning\":\"measurement configuration register\"},{\"offset\":16,\"meaning\":\"measured clock count\"},{\"offset\":28,\"meaning\":\"measurement completion status and acknowledgement\"}]}"
+}

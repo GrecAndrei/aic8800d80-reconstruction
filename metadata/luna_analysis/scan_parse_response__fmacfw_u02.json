@@ -1,0 +1,9 @@
+{
+ "fn": "scan_parse_response",
+ "img": "fmacfw_u02",
+ "addr": "0x139ef8",
+ "seg": 58,
+ "key": "scan_parse_response__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_rx_eapol_check\",\"confidence\":\"medium\",\"docstring\":\"Checks the LLC/SNAP EtherType at the computed frame offset and dispatches a trace when it is EAPOL (0x888e).\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"frame\",\"v3\":\"payload_offset\"}}"
+}

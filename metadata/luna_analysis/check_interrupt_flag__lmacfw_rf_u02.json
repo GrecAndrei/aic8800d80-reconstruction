@@ -1,0 +1,9 @@
+{
+ "fn": "check_interrupt_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11f74c",
+ "seg": 21,
+ "key": "check_interrupt_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"trace_printf_if_flag\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Conditionally forwards a printf-style format and vararg list to hci_cmd_init when the supplied event/interrupt flag intersects the global 16-bit mask behind off_11F770, otherwise returns the flag unchanged.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"event_flag\",\n    \"fmt\": \"format\",\n    \"varg_r2\": \"args\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_ring_next_idx",
+ "img": "fmacfw_h_u02",
+ "addr": "0x104274",
+ "seg": 2,
+ "key": "tx_ring_next_idx__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_ring_next_index\",\"confidence\":\"medium\",\"docstring\":\"Computes the next wrapped 14-bit transmit-ring index, advancing by 2*a1 plus a one- or two-slot offset selected by the entry tag and a2.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"ring_index\",\"v4\":\"next_ring_index\"}}"
+}

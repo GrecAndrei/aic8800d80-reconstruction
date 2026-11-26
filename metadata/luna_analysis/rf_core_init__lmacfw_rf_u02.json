@@ -1,0 +1,9 @@
+{
+ "fn": "rf_core_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x108d34",
+ "seg": 2,
+ "key": "rf_core_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_exec_command_mask\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Executes RF commands whose indices are selected by a bitmask, waits for each command to complete, and optionally stores the command response values into a caller-provided buffer.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"command_mask\",\n    \"a2\": \"result_buf\",\n    \"v9\": \"cmd_reg_mask\",\n    \"v10\": \"result_count\",\n    \"v11\": \"rf_cmd_reg\",\n    \"v14\": \"cmd_base\",\n    \"i\": \"cmd_index\",\n    \"v17\": \"cmd_index\",\n    \"v18\": \"cmd_result_a\",\n    \"v19\": \"cmd_result_b\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first RF command response word\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"second RF command response word\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_clock_prescaler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102ab0",
+ "seg": 1,
+ "key": "get_clock_prescaler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_clock_prescaler\",\"confidence\":\"medium\",\"docstring\":\"Returns the prescaler value computed as a low-bit mask whose width is encoded in bits 4\u20137 of the register byte.\",\"subsystem\":\"rf\"}"
+}

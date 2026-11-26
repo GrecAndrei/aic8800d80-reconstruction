@@ -1,0 +1,9 @@
+{
+ "fn": "controller_init",
+ "img": "fmacfw_u02",
+ "addr": "0x12ecf8",
+ "seg": 42,
+ "key": "controller_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_usb_off_notify\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the USB-off event, clears bit 1 in a status word, and returns success.\",\"subsystem\":\"ipc\",\"struct_hints\":[{\"offset\":80,\"meaning\":\"Status/flags word with bit 1 cleared.\"}]}"
+}

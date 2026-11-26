@@ -1,0 +1,9 @@
+{
+ "fn": "llm_adv_pdu_build_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132f20",
+ "seg": 46,
+ "key": "llm_adv_pdu_build_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_adv_pdu_build_cmd\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates connection statistics and then delegates to the BLE advertising PDU builder with the supplied parameter.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

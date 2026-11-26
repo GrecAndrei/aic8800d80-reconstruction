@@ -1,0 +1,9 @@
+{
+ "fn": "process_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10f2b0",
+ "seg": 3,
+ "key": "process_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_state_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches Bluetooth processing for the current mode, including its event, IRQ, timer, and callback work.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"mode_state_ptr\",\"v1\":\"mode_state\",\"v5\":\"mode_state\",\"v10\":\"mode_callbacks\",\"v13\":\"mode_callbacks\",\"v17\":\"mode_callbacks\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"First callback slot for mode 1\"},{\"offset\":12,\"meaning\":\"Second callback slot for mode 1\"},{\"offset\":24,\"meaning\":\"First callback slot for mode 2\"},{\"offset\":28,\"meaning\":\"Second callback slot for mode 2\"},{\"offset\":32,\"meaning\":\"First callback slot for mode 3\"},{\"offset\":36,\"meaning\":\"Second callback slot for mode 3\"}]}"
+}

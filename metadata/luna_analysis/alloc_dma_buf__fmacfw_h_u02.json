@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_dma_buf",
+ "img": "fmacfw_h_u02",
+ "addr": "0x118be8",
+ "seg": 12,
+ "key": "alloc_dma_buf__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"drain_wlan_ioctl_queue\",\"confidence\":\"medium\",\"docstring\":\"Drains queued WLAN request nodes, invoking each node\u2019s callback when applicable and otherwise dispatching eligible nodes to the WLAN ioctl handler.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"interrupt_lock_depth\",\"v1\":\"irq_restore_needed\",\"v2\":\"request_queue\",\"v5\":\"request_node\",\"v8\":\"request_callback\"},\"struct_hints\":[{\"offset\":76,\"meaning\":\"Pointer to an object whose field at offset +72 supplies the callback\u2019s second argument.\"},{\"offset\":88,\"meaning\":\"Optional callback function pointer.\"},{\"offset\":92,\"meaning\":\"First argument passed to the callback.\"},{\"offset\":96,\"meaning\":\"Flag that suppresses fallback WLAN ioctl dispatch when nonzero.\"},{\"offset\":98,\"meaning\":\"Flag cleared when the callback returns nonzero.\"}]}"
+}

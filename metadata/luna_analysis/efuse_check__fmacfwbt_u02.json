@@ -1,0 +1,9 @@
+{
+ "fn": "efuse_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x128fe8",
+ "seg": 35,
+ "key": "efuse_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_event_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks MM state and readiness flags, then posts or clears a kernel event and optionally falls back to the MMIO event handler.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"a1\": \"ctx\",\n    \"v1\": \"ctl\",\n    \"v3\": \"ready_mask\",\n    \"v4\": \"condition_met\",\n    \"v5\": \"event_cfg\",\n    \"v6\": \"event_ctx\",\n    \"v7\": \"event_id\",\n    \"v8\": \"event_object\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"ctx_flags: bit 2 pending/cleared\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"ctx_ready\"\n    },\n    {\n      \"offset\": 149,\n      \"meaning\": \"ctx_enabled_or_mode\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"ctl_pending_ctx\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"ctl_mmio_event_pending\"\n    },\n    {\n      \"offset\": 29,\n      \"meaning\": \"ctl_event_state\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"ctl_timer_or_override\"\n    }\n  ]\n}"
+}

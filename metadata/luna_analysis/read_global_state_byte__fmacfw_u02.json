@@ -1,0 +1,9 @@
+{
+ "fn": "read_global_state_byte",
+ "img": "fmacfw_u02",
+ "addr": "0x13bf78",
+ "seg": 60,
+ "key": "read_global_state_byte__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_status_byte\",\"confidence\":\"medium\",\"docstring\":\"Returns the status byte at offset 26 of the object referenced by the global context, or performs a channel-parameter lookup and returns sentinel 33 when the object is absent or already has that value.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":24,\"meaning\":\"Pointer to the object whose status byte is read at offset 26.\"},{\"offset\":32,\"meaning\":\"Guard flag that suppresses the fallback lookup when set.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "main_event_handler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x112f6c",
+ "seg": 5,
+ "key": "main_event_handler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wd_event_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a Wi-Fi debug event by allocating a packet buffer, sending a control or data packet, retrying failed transmissions, and freeing the buffer when the send path stalls.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v4\": \"debug_active_ptr\",\n    \"v6\": \"packet_alloc_result\",\n    \"v7\": \"packet_buffer\",\n    \"v8\": \"packet_base_ptr\",\n    \"v9\": \"packet_len_ptr\",\n    \"v10\": \"packet_len\",\n    \"v11\": \"packet_addr\",\n    \"v12\": \"send_status\",\n    \"v13\": \"control_mode_ptr\",\n    \"v14\": \"retry_count\",\n    \"v15\": \"packet_len_value\",\n    \"v16\": \"retry_packet_addr\",\n    \"v17\": \"retry_send_status\",\n    \"v18\": \"debug_reason_ptr\"\n  },\n  \"struct_hints\": []\n}"
+}

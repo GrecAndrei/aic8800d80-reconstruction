@@ -1,0 +1,9 @@
+{
+ "fn": "trace_printf",
+ "img": "fmacfw_u02",
+ "addr": "0x1236c8",
+ "seg": 28,
+ "key": "trace_printf__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_no_param_msg_58\",\"confidence\":\"medium\",\"docstring\":\"Looks up the station indexed by the first byte of `a2`, then sends parameterless kernel message 58 using `a4` and `a3` as task arguments.\",\"subsystem\":\"ke\",\"var_renames\":{\"a2\":\"station_index_ptr\"}}"
+}

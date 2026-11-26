@@ -1,0 +1,9 @@
+{
+ "fn": "output_byte_colon",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1238fc",
+ "seg": 29,
+ "key": "output_byte_colon__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_trace_output_byte_colon\", \"confidence\": \"medium\", \"docstring\": \"Formats an RF debug byte by emitting its lookup entry and then an ASCII colon via the HCI event/output send path.\", \"subsystem\": \"rf\", \"var_renames\": {\"a2\": \"byte_ptr\"}}"
+}

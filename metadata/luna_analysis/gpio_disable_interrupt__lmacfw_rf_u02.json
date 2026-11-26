@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_disable_interrupt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10db78",
+ "seg": 2,
+ "key": "gpio_disable_interrupt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"gpio_disable_interrupt\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears the interrupt-mask bit for the selected GPIO pin and returns the corresponding pin mask.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"pin\",\n    \"result\": \"pin_mask\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"GPIO register at off_10DB8C + 8, likely the interrupt mask/control register\"\n    }\n  ]\n}"
+}

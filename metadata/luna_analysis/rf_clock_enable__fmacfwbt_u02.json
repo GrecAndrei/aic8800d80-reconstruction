@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clock_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115b90",
+ "seg": 7,
+ "key": "rf_clock_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_wakeup_sequence\",\"confidence\":\"medium\",\"docstring\":\"Completes the WLAN wake-up handshake, clears a pending wake interrupt when needed, and applies mode-dependent register and station-timer updates.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v2\":\"wakeup_control_reg\",\"v3\":\"wlan_env\",\"v4\":\"wakeup_control_reg\",\"v5\":\"op_mode_ptr\",\"v8\":\"wakeup_mode_ptr\",\"v10\":\"sta_ctx\",\"v11\":\"timer_value\"},\"struct_hints\":[{\"offset\":37,\"meaning\":\"Per-entry active flag checked before updating the entry.\"},{\"offset\":340,\"meaning\":\"Per-entry word updated with the current hardware timer value.\"},{\"offset\":189,\"meaning\":\"Environment flag that gates the mode-register update.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llc_evt_dispatch",
+ "img": "fmacfw_u02",
+ "addr": "0x12a5f4",
+ "seg": 37,
+ "key": "llc_evt_dispatch__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_evt_schedule\",\"confidence\":\"medium\",\"docstring\":\"Selects an available per-connection event slot, records its parameters, and queues the event for processing.\",\"subsystem\":\"ble\",\"var_renames\":{\"v7\":\"conn_table_base\",\"v8\":\"conn_idx\",\"v9\":\"conn_ctx\",\"v10\":\"event_slot_index\",\"v11\":\"conn_ctx\",\"v13\":\"event_slot_ptr\",\"v14\":\"event_slot_index\",\"v15\":\"conn_base\",\"v17\":\"event_slot_ptr\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Pending/occupied flag for the first 48-byte event slot; the second slot uses the corresponding flag at offset 64.\"},{\"offset\":40,\"meaning\":\"Event-slot period or reload value derived from a5.\"},{\"offset\":112,\"meaning\":\"Connection state byte; this function proceeds only when it equals 1.\"},{\"offset\":1225,\"meaning\":\"Byte-sized connection index used to select the connection context.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "chip_info_nibble0_get",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101ab0",
+ "seg": 0,
+ "key": "chip_info_nibble0_get__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"chip_info_nibble0_get\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads the volatile chip status/info byte, extracts its low 4-bit nibble, and returns it adjusted as a zero-based value.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"volatile chip info/status byte whose low nibble is decoded\"\n    }\n  ]\n}"
+}

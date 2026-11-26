@@ -1,0 +1,9 @@
+{
+ "fn": "acl_rx_setup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x141a30",
+ "seg": 66,
+ "key": "acl_rx_setup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"acl_rx_context_setup\",\"confidence\":\"medium\",\"docstring\":\"Acquires an ACL receive object and initializes its embedded RX state from the connection and optional source parameters.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"out_rx_object\",\"a2\":\"acl_connection\",\"a3\":\"source_params\",\"v13\":\"rx_state\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"On the ACL connection, pointer to associated state used when selecting the lock mode.\"},{\"offset\":100,\"meaning\":\"On the ACL connection, 32-bit parameter copied into the embedded RX state.\"},{\"offset\":104,\"meaning\":\"On the ACL connection, 16-bit parameter copied into the embedded RX state.\"},{\"offset\":107,\"meaning\":\"On the ACL connection, byte copied to the acquired object's offset 28.\"},{\"offset\":1224,\"meaning\":\"On the ACL connection, byte used in lock-mode selection.\"},{\"offset\":112,\"meaning\":\"On the embedded RX state, 32-bit value copied from source parameters at offset 38.\"},{\"offset\":116,\"meaning\":\"On the embedded RX state, 16-bit value copied from source parameters at offset 42.\"},{\"offset\":133,\"meaning\":\"On the embedded RX state, value supplied in the a4 argument.\"}]}"
+}

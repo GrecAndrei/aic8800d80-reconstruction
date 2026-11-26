@@ -1,0 +1,9 @@
+{
+ "fn": "enable_radio_controller",
+ "img": "fmacfw_u02",
+ "addr": "0x1032fc",
+ "seg": 2,
+ "key": "enable_radio_controller__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"calibrate_mdll_duty_cycle\",\"confidence\":\"high\",\"docstring\":\"Sweeps the MDLL feedback control to derive a duty setting and stores the result for the selected clock mode.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"clock_mode\",\"v1\":\"mdll_control_reg\",\"v2\":\"mdll_trigger_reg\",\"v3\":\"previous_feedback_state\",\"v4\":\"calibration_pass\",\"v5\":\"duty_sum\",\"v6\":\"sweep_value\",\"v7\":\"sweep_step\",\"v8\":\"measured_duty\",\"v9\":\"sample_count\",\"v19\":\"stored_duty_setting\"}}"
+}

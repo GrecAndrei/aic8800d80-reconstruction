@@ -1,0 +1,9 @@
+{
+ "fn": "find_by_index",
+ "img": "fmacfw_u02",
+ "addr": "0x130018",
+ "seg": 42,
+ "key": "find_by_index__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"debug_command_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Parses the shared command text, dispatches ordinary commands, and handles a diagnostic command by dumping stack memory and toggling a debug flag.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v1\":\"command_length\",\"v2\":\"result\",\"v4\":\"command_node\",\"v5\":\"command_node\",\"v8\":\"psp_value\",\"v9\":\"msp_value\",\"v10\":\"debug_flag_ptr\",\"v11\":\"debug_flag_value\",\"v12\":\"msp_dump_addr\",\"v13\":\"msp_dump_end\",\"v15\":\"psp_dump_addr\",\"v16\":\"psp_dump_end\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"inline command text copied into the command node\"}]}"
+}

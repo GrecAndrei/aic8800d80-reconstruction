@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_send_2",
+ "img": "fmacfw_u02",
+ "addr": "0x114d34",
+ "seg": 6,
+ "key": "ke_event_send_2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_event_send_2\",\"confidence\":\"medium\",\"docstring\":\"Requests event bit 2 for the specified task by calling the kernel task handler with event mask 4.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"task_id\"}}"
+}

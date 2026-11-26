@@ -1,0 +1,9 @@
+{
+ "fn": "bt_dev_update",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12aa04",
+ "seg": 38,
+ "key": "bt_dev_update__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_dev_update\",\"confidence\":\"medium\",\"docstring\":\"Updates Bluetooth device/connection timer and state bookkeeping for a device-table entry, processing an update event and decrementing its countdown before returning the affected device entry.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"bt_dev_table\",\"v2\":\"dev_index\",\"v3\":\"update_state\",\"v4\":\"bt_dev_entry\",\"v7\":\"bt_dev_entry\",\"v21\":\"conn_index\",\"v6\":\"bt_conn_entry\",\"v8\":\"tick_time\",\"v17\":\"countdown\",\"v14\":\"timestamp_prev\",\"v15\":\"timestamp_curr\",\"v19\":\"timer64\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"base timestamp for connected-state timing\"},{\"offset\":16,\"meaning\":\"update event/state selector\"},{\"offset\":17,\"meaning\":\"device-table index\"},{\"offset\":18,\"meaning\":\"connection state index passed to bt_conn_get_state\"},{\"offset\":19,\"meaning\":\"update countdown or retry limit\"},{\"offset\":24,\"meaning\":\"previous timestamp used for elapsed-time delta\"},{\"offset\":28,\"meaning\":\"current timestamp used for elapsed-time delta\"},{\"offset\":36,\"meaning\":\"64-bit timer or counter state\"},{\"offset\":44,\"meaning\":\"alternative base timestamp when device connection flag is not set\"},{\"offset\":112,\"meaning\":\"bt_dev_entry offset for connection/state flag\"},{\"offset\":113,\"meaning\":\"bt_dev_entry offset for connection-table index\"},{\"offset\":132,\"meaning\":\"bt_dev_entry offset for pending/event flag\"}]}"
+}

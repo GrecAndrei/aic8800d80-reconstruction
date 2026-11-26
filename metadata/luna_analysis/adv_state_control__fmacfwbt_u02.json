@@ -1,0 +1,9 @@
+{
+ "fn": "adv_state_control",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1383e0",
+ "seg": 58,
+ "key": "adv_state_control__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"adv_state_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects a matching advertising-state table entry, copies its state fields into an allocated Bluetooth buffer, and dispatches the resulting radio/LE state event.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v0\": \"ctrl_base\",\n    \"v1\": \"event_state\",\n    \"v2\": \"state_table_ptr\",\n    \"v4\": \"entry_cursor\",\n    \"v5\": \"entry_index\",\n    \"v6\": \"entry_state_key\",\n    \"v7\": \"alloc_buf\",\n    \"v8\": \"out_buf\",\n    \"v9\": \"copied_state_qword\",\n    \"v10\": \"copied_state_byte\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3851,\n      \"meaning\": \"advertising/radio event state byte in controller control block\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"pointer to advertising/state table base\"\n    },\n    {\n      \"offset\": 367,\n      \"meaning\": \"table entry count\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"state or event key byte in a 6-byte table entry\"\n    },\n    {\n      \"offset\": 352,\n      \"meaning\": \"first 64 bits of copied advertising/radio state payload\"\n    },\n    {\n      \"offset\": 356,\n      \"meaning\": \"copied 16-bit state payload field\"\n    },\n    {\n      \"offset\": 366,\n      \"meaning\": \"copied byte field adjacent to state payload\"\n    },\n    {\n      \"offset\": 368,\n      \"meaning\": \"copied byte field in state payload\"\n    },\n    {\n      \"offset\": 369,\n      \"meaning\": \"copied byte field in state payload\"\n    },\n    {\n      \"offset\": 372,\n      \"meaning\": \"copied 32-bit field in state payload\"\n    }\n  ]\n}"
+}

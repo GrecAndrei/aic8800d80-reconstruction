@@ -1,0 +1,9 @@
+{
+ "fn": "conn_handle_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115f4c",
+ "seg": 7,
+ "key": "conn_handle_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"conn_wait_pending\",\"confidence\":\"medium\",\"docstring\":\"Waits on the object stored at context offset 72, clears that slot after the wait, and returns the wait result or null if no object was pending.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"conn_context\",\"result\":\"wait_result\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"pending wait target pointer, cleared after waiting\"}]}"
+}

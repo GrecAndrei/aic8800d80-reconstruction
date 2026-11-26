@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_cfg_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10daf0",
+ "seg": 2,
+ "key": "gpio_cfg_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"gpio_cfg_set\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Sets the configuration bit for the selected GPIO pin by OR-ing a shifted bit mask into the MMIO register at offset 8 from the GPIO base and returns the updated register value.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"pin\",\n    \"result\": \"reg_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"GPIO configuration bit register\"\n    }\n  ]\n}"
+}

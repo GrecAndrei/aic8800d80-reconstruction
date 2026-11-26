@@ -1,0 +1,9 @@
+{
+ "fn": "dma_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102e04",
+ "seg": 2,
+ "key": "dma_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"apply_selected_config_table\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Selects one of two configuration bases and writes the table's high/low 64-bit and 32-bit fields to three 16-byte peripheral slots.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"table_select\",\n    \"v1\": \"cfg64\",\n    \"v2\": \"cfg32\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"32-bit configuration value used for the third write\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"low 32 bits of 64-bit configuration value used for the second write\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"high 32 bits of 64-bit configuration value used for the first write\"\n    }\n  ]\n}"
+}

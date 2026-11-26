@@ -1,0 +1,9 @@
+{
+ "fn": "strncasecmp",
+ "img": "fmacfw_u02",
+ "addr": "0x143f1c",
+ "seg": 68,
+ "key": "strncasecmp__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"strncasecmp\",\"confidence\":\"high\",\"docstring\":\"Compares up to the specified number of bytes in two strings without regard to uppercase or lowercase, returning the difference at the first mismatch.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v3\":\"first_cursor\",\"v4\":\"first_end\",\"v5\":\"comparison_difference\",\"v6\":\"first_normalized_char\",\"v7\":\"first_char\",\"v8\":\"second_char\",\"v9\":\"second_char_raw\",\"v10\":\"second_char_case_class\",\"v12\":\"second_normalized_char\",\"result\":\"comparison_result\"},\"struct_hints\":[]}"
+}

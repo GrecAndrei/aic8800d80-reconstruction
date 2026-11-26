@@ -1,0 +1,9 @@
+{
+ "fn": "critical_section_enter_alt",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117978",
+ "seg": 10,
+ "key": "critical_section_enter_alt__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_event_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Scans five radio-event slots, advances each eligible slot\u2019s deadline, sets its pending bit, and invokes its event handler.\",\"subsystem\":\"radio\",\"var_renames\":{\"i\":\"event_index\",\"v0\":\"critical_nesting_depth\",\"v5\":\"pending_event_mask\"},\"struct_hints\":[{\"offset\":158,\"meaning\":\"Per-slot status byte checked before dispatch\"},{\"offset\":190,\"meaning\":\"Selected event index used when slot-selection mode is enabled\"},{\"offset\":208,\"meaning\":\"Mode flag controlling selected-slot exclusion\"},{\"offset\":336,\"meaning\":\"Per-slot dispatch-enable or configuration word\"}]}"
+}

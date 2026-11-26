@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_ucode_download",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f82c",
+ "seg": 22,
+ "key": "wlc_ucode_download__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_idle_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Services controller idle/sleep conditions by draining pending Bluetooth events and polling timer/status hardware for idle transitions.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"status\",\n    \"v1\": \"ctx\",\n    \"v9\": \"start_tick\",\n    \"v10\": \"elapsed_ticks\",\n    \"v11\": \"poll_start_tick\",\n    \"v14\": \"poll_elapsed_ticks\",\n    \"v15\": \"masked_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"idle request/status flag, bit 0 tested and cleared\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"pending HCI LE event indicator\"\n    },\n    {\n      \"offset\": 128,\n      \"meaning\": \"controller/device mode byte used in idle logging and mode tests\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"pending Bluetooth connection flush flag\"\n    }\n  ]\n}"
+}

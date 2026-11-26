@@ -1,0 +1,9 @@
+{
+ "fn": "mac_handle_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13e494",
+ "seg": 61,
+ "key": "mac_handle_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_process_command_frame\",\"confidence\":\"medium\",\"docstring\":\"Processes a MAC command for the indexed context, clearing bit 13 of the frame-control word and applying context-dependent interrupt gating.\",\"subsystem\":\"mac\",\"var_renames\":{\"v11\":\"frame_control\",\"v12\":\"frame_control_without_bit_13\",\"v13\":\"frame_control_bit_13\"},\"struct_hints\":[{\"offset\":29,\"meaning\":\"MAC context table index; values of 32 or greater are rejected\"},{\"offset\":30,\"meaning\":\"Frame-control word; bit 13 is captured and then cleared\"},{\"offset\":76,\"meaning\":\"Pointer to a context/state block\"},{\"offset\":64,\"meaning\":\"Context status word; bit 0x2000 controls a conditional path\"},{\"offset\":72,\"meaning\":\"Context status word; bit 0x400000 is captured\"}]}"
+}

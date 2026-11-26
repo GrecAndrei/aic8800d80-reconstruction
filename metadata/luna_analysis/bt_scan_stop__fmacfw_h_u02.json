@@ -1,0 +1,9 @@
+{
+ "fn": "bt_scan_stop",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a204",
+ "seg": 36,
+ "key": "bt_scan_stop__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"p2p_process_noa_ie\",\"confidence\":\"high\",\"docstring\":\"Searches a received 802.11 management frame for a P2P vendor IE containing the Notice of Absence attribute and forwards that attribute to the NoA handler when processing is enabled.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"noa_attr\",\"v8\":\"frame\",\"v9\":\"ie_cursor\",\"v10\":\"ies_end\",\"v11\":\"ie_length\",\"v12\":\"ie_id\",\"v13\":\"ie\",\"v14\":\"attribute_end\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Nonzero flag suppressing this processing path.\"},{\"offset\":1224,\"meaning\":\"Nonzero gate enabling this processing path.\"},{\"offset\":28,\"meaning\":\"16-bit received-frame length used to bound IE parsing.\"},{\"offset\":36,\"meaning\":\"Start of the management-frame IE region after the fixed header and body.\"}]}"
+}

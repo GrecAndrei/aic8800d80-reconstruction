@@ -1,0 +1,9 @@
+{
+ "fn": "safe_snprintf",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d648",
+ "seg": 42,
+ "key": "safe_snprintf__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_vendor_ie\",\"confidence\":\"high\",\"docstring\":\"Scans a length-delimited 802.11 IE buffer for a vendor-specific (ID 221) element whose payload begins with the supplied byte sequence, returning the element start and writing its total encoded length.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"ie_cursor\",\"a2\":\"remaining_len\",\"a3\":\"payload_prefix\",\"a4\":\"prefix_len\",\"a5\":\"ie_total_len_out\",\"v5\":\"scan_end\",\"v6\":\"buffer_end\",\"v9\":\"ie_id\",\"v10\":\"ie_total_len\",\"v11\":\"ie_start\",\"v13\":\"prefix_cursor\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"IE element ID\"},{\"offset\":1,\"meaning\":\"IE payload length\"},{\"offset\":2,\"meaning\":\"IE payload begins\"}]}"
+}

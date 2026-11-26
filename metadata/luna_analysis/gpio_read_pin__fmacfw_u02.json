@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_read_pin",
+ "img": "fmacfw_u02",
+ "addr": "0x10d7f8",
+ "seg": 3,
+ "key": "gpio_read_pin__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_read_pin\",\"confidence\":\"high\",\"docstring\":\"Returns bit 0 of the GPIO input register.\",\"subsystem\":\"gpio\"}"
+}

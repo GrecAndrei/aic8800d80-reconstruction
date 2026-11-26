@@ -1,0 +1,9 @@
+{
+ "fn": "rx_buffer_alloc",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b044",
+ "seg": 15,
+ "key": "rx_buffer_alloc__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_msg_process_pending\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pops one queued kernel item and, if present, exits the associated critical section and drains the context's pending list while state-checking each entry.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"result\": \"next_item\",\n    \"v1\": \"ctx\",\n    \"v2\": \"item\",\n    \"v3\": \"state_ptr\",\n    \"v4\": \"pending_list\",\n    \"a2\": \"first_item\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"state/task pointer used to check each queued kernel item\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"head of pending kernel message/item list\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"busy/pending flag cleared before processing queued items\"\n    }\n  ]\n}"
+}

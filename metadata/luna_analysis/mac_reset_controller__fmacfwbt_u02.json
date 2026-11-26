@@ -1,0 +1,9 @@
+{
+ "fn": "mac_reset_controller",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c1c8",
+ "seg": 18,
+ "key": "mac_reset_controller__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_controller_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the global MAC controller context after reset by zeroing its state, populating descriptor and queue tables, and setting a status-dependent configuration register field.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"mac_ctrl\",\n    \"v4\": \"desc\",\n    \"v6\": \"queue_state\",\n    \"v9\": \"status_bit26\",\n    \"v10\": \"reg_masked\",\n    \"v11\": \"reg_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 56,\n      \"meaning\": \"controller base/address field initialized to 0x200000\"\n    },\n    {\n      \"offset\": 92,\n      \"meaning\": \"start of 10-entry descriptor ring, stride 92 bytes\"\n    }\n  ]\n}"
+}

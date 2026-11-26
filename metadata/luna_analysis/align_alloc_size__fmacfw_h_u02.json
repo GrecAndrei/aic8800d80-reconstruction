@@ -1,0 +1,9 @@
+{
+ "fn": "align_alloc_size",
+ "img": "fmacfw_h_u02",
+ "addr": "0x119bec",
+ "seg": 13,
+ "key": "align_alloc_size__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"btm_calc_alloc_words\",\"confidence\":\"medium\",\"docstring\":\"Returns the number of additional 32-bit words needed beyond the 4-byte-aligned size at offset 24 plus four bytes to cover the requested size.\",\"subsystem\":\"btm\",\"var_renames\":{\"a1\":\"entry\",\"a2\":\"requested_size\",\"v2\":\"aligned_base_size\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"16-bit size used to derive the aligned allocation baseline\"}]}"
+}

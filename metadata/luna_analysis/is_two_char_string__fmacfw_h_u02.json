@@ -1,0 +1,9 @@
+{
+ "fn": "is_two_char_string",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f8ec",
+ "seg": 42,
+ "key": "is_two_char_string__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_access_width_suffix\",\"confidence\":\"medium\",\"docstring\":\"Returns 1 for a trailing `.b`, 2 for `.h`, 4 when no qualifying suffix is present, and -1 for another suffix after a nonempty prefix.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"string_length\",\"v3\":\"string_end\",\"v5\":\"suffix_char\"}}"
+}

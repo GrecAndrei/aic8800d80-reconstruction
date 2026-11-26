@@ -1,0 +1,9 @@
+{
+ "fn": "set_adv_interval",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124a88",
+ "seg": 23,
+ "key": "set_adv_interval__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_adv_interval\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Implements a BLE advertising-interval set command by parsing three decimal arguments and programming the corresponding hardware registers, with an error dispatch when the argument count is too low.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"arg_count\",\n    \"a2\": \"argv\",\n    \"v4\": \"first_numeric_arg\",\n    \"v7\": \"second_numeric_arg\",\n    \"v9\": \"third_numeric_arg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"argv pointer for first numeric parameter\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"argv pointer for second numeric parameter\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"argv pointer for third numeric parameter\"\n    }\n  ]\n}"
+}

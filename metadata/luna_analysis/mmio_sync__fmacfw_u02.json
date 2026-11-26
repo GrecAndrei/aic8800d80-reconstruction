@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_sync",
+ "img": "fmacfw_u02",
+ "addr": "0x111884",
+ "seg": 4,
+ "key": "mmio_sync__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"configure_mmio_sync_regions\",\"confidence\":\"medium\",\"docstring\":\"Stores the configured MMIO base and primary register address in shared state, copies a value to the base\u2019s offset-4 register, and sets bits 6\u20137 in offset-3 bytes across a register range and listed registers.\",\"subsystem\":\"mmio\",\"var_renames\":{\"v0\":\"configured_mmio_base\",\"result\":\"primary_register_address\",\"v4\":\"register_address\",\"v5\":\"register_range_end\",\"v6\":\"register_address_list\",\"v8\":\"listed_register_address\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"Control byte whose bits 6\u20137 are set.\"},{\"offset\":4,\"meaning\":\"Register initialized with the configured value.\"},{\"offset\":2324,\"meaning\":\"Shared-state slot storing the primary register address.\"},{\"offset\":2836,\"meaning\":\"Shared-state slot storing the configured MMIO base.\"}]}"
+}

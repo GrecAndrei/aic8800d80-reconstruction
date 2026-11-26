@@ -1,0 +1,9 @@
+{
+ "fn": "check_entry_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11b7a8",
+ "seg": 17,
+ "key": "check_entry_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cal_process_pending_entry\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears a calibration entry's pending flag and, unless the entry is the active one in a running calibration state, invokes get_cal_item on the entry's saved handle before clearing the handle.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"entry_idx\",\n    \"v1\": \"cal_table_base\",\n    \"v2\": \"cal_entry\",\n    \"v3\": \"cal_status\",\n    \"v4\": \"saved_entry_idx\",\n    \"v6\": \"cal_entry_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 36,\n      \"meaning\": \"per-entry calibration item handle, relative to entry base\"\n    },\n    {\n      \"offset\": 46,\n      \"meaning\": \"per-entry pending/completion flag byte, relative to entry base\"\n    },\n    {\n      \"offset\": 190,\n      \"meaning\": \"global active calibration entry index byte\"\n    },\n    {\n      \"offset\": 208,\n      \"meaning\": \"global calibration status word; bit 0 gates reprocessing\"\n    }\n  ]\n}"
+}

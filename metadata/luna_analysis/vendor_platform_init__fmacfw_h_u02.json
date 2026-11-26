@@ -1,0 +1,9 @@
+{
+ "fn": "vendor_platform_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132088",
+ "seg": 44,
+ "key": "vendor_platform_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_platform_init\",\"confidence\":\"medium\",\"docstring\":\"Clears BLE platform state and initializes the HCI control block, locks, and transmit buffer.\",\"subsystem\":\"bt\"}"
+}

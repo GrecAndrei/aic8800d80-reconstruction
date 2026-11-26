@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy_from_rodata",
+ "img": "fmacfw_u02",
+ "addr": "0x1064bc",
+ "seg": 2,
+ "key": "memcpy_from_rodata__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_program_shift_index\",\"confidence\":\"medium\",\"docstring\":\"Uses the selected shift index to look up and program two RF register bitfields.\",\"subsystem\":\"rf\",\"var_renames\":{\"v25\":\"shift_idx\",\"v26\":\"lookup_index\",\"v28\":\"first_field_value\",\"v30\":\"second_field_value\"},\"struct_hints\":[{\"offset\":140,\"meaning\":\"Array of 32-bit shift_idx values indexed by a2.\"}]}"
+}

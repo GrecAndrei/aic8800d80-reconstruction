@@ -1,0 +1,9 @@
+{
+ "fn": "process_rx_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x116764",
+ "seg": 9,
+ "key": "process_rx_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_apply\",\"confidence\":\"medium\",\"docstring\":\"Selects a calibration record, updates its associated register and status state, and applies the calibration value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"input_control_flags\",\"v3\":\"register_status_block\",\"v4\":\"calibration_context\",\"v7\":\"register_block_cursor\",\"v15\":\"calibration_status_flags\",\"v17\":\"calibration_record\",\"v19\":\"record_flags\",\"v24\":\"register_control_word\"},\"struct_hints\":[{\"offset\":30,\"meaning\":\"Status/control bits used to gate calibration setup.\"},{\"offset\":36,\"meaning\":\"Control flags; bit 21 affects the selected setup mode.\"},{\"offset\":72,\"meaning\":\"Pointer to the register/status block.\"},{\"offset\":76,\"meaning\":\"Pointer to calibration state or context.\"}]}"
+}

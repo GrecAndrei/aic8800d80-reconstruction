@@ -1,0 +1,9 @@
+{
+ "fn": "mem_get_stats",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f4b8",
+ "seg": 2,
+ "key": "mem_get_stats__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mem_stats_configure_dma\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies selected status words from a memory/DMA register base into a configuration buffer, then initializes the DMA engine and device interrupts while performing cleanup when the related state byte equals 3.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"stats_from_src_off32\",\n    \"v1\": \"stats_from_src_off24\",\n    \"v2\": \"dma_stats_cfg_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"source register/status field copied into output buffer offset 0\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"source register/status field copied into output buffer offset 8\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"source register/status word copied into output buffer offset 16\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"DMA/stats configuration buffer field from source offset 24\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"DMA/stats configuration buffer field from source offset 32\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"32-bit DMA/stats configuration field from source offset 44\"\n    }\n  ]\n}"
+}

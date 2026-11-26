@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_tx_submit",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1165b0",
+ "seg": 10,
+ "key": "wlan_tx_submit__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_tx_submit\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prepares a WLAN transmit request by copying descriptor fields, clearing TX control status, optionally logging, and dispatching it to the LLM/MAC PDU configuration routine.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v2\": \"tx_desc_ptrs\",\n    \"v5\": \"tx_control_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"pair of transmit descriptor/control pointers in a1\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"tx control flag word; bit 0 participates in a trace/log condition\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"tx control field copied to the lower descriptor\"\n    },\n    {\n      \"offset\": 64,\n      \"meaning\": \"tx control status word with selected bits cleared\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"tx control 64-bit field cleared\"\n    },\n    {\n      \"offset\": 60,\n      \"meaning\": \"tx control field cleared\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"tx control field cleared\"\n    },\n    {\n      \"offset\": 96,\n      \"meaning\": \"lower descriptor field cleared\"\n    },\n    {\n      \"offset\": 100,\n      \"meaning\": \"lower descriptor field receiving tx_control_value\"\n    }\n  ]\n}"
+}

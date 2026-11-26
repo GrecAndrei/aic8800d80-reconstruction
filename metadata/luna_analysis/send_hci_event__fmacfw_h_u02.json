@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12249c",
+ "seg": 24,
+ "key": "send_hci_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_hci_event\",\"confidence\":\"medium\",\"docstring\":\"Allocates a two-byte HCI event payload, stores the supplied bytes, and submits it to the packet-processing pipeline.\",\"subsystem\":\"bt\"}"
+}

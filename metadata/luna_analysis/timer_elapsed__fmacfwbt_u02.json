@@ -1,0 +1,9 @@
+{
+ "fn": "timer_elapsed",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b998",
+ "seg": 61,
+ "key": "timer_elapsed__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_elapsed\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Tests whether a tick value has elapsed by computing a wrap-safe difference against the current shifted timer word and returning the 16-bit sign bit.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"tick\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"volatile timer/state word; bits above 10 provide the current tick count\"\n    }\n  ]\n}"
+}

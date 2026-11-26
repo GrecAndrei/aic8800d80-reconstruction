@@ -1,0 +1,9 @@
+{
+ "fn": "check_nvic_irq_status",
+ "img": "fmacfw_u02",
+ "addr": "0x1155b0",
+ "seg": 6,
+ "key": "check_nvic_irq_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_pending_nvic_irqs\",\"confidence\":\"medium\",\"docstring\":\"Handles controller-specific status flags and reports a special condition or an enabled NVIC pending interrupt, ignoring bit 4 of the second pending bank.\",\"subsystem\":\"ke\",\"var_renames\":{\"v2\":\"controller_regs\",\"v3\":\"controller_status\",\"v4\":\"shifted_controller_status\",\"v5\":\"status_flags\",\"v6\":\"masked_status_flags\",\"i\":\"nvic_bank\",\"result\":\"enabled_pending_mask\"},\"struct_hints\":[{\"offset\":260,\"meaning\":\"Controller status register; bit 4 gates special status handling.\"},{\"offset\":388,\"meaning\":\"Controller register written with 0x10 during special status handling.\"}]}"
+}

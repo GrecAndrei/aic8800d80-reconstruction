@@ -1,0 +1,9 @@
+{
+ "fn": "process_packet_queue",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13e3c4",
+ "seg": 62,
+ "key": "process_packet_queue__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"scan_process_packet_queue\", \"confidence\": \"medium\", \"docstring\": \"Process a BLE scan RX packet queue by initializing queue descriptors, dispatching received LL PDUs, encoding per-entry status words by advertising/scan PDU type, and advancing scan advertising parameters.\", \"subsystem\": \"ble\", \"var_renames\": {\"v1\": \"pending_packet_count\", \"v3\": \"pending_packet_count_minus_1\", \"v4\": \"queue_entry_ptr\", \"v5\": \"last_entry_index\", \"v7\": \"ll_pdu_type\", \"v8\": \"entry_status_word\", \"v9\": \"entry_index\"}, \"struct_hints\": [{\"offset\": 10, \"meaning\": \"uint16_t status word of first queue entry (initialized to -1, later set to dispatch result or encoded PDU status)\"}, {\"offset\": 169, \"meaning\": \"uint8_t current BLE LL PDU/advertising type selector (switched over cases 0..5)\"}, {\"offset\": 170, \"meaning\": \"indexed byte/uint16 table used by ADV/SCAN PDU handling, accessed via offset+180\"}, {\"offset\": 178, \"meaning\": \"uint8_t packet status/flag byte contributing to low bits of entry_status_word\"}, {\"offset\": 179, \"meaning\": \"uint8_t packet status byte shifted into bit 7 of entry_status_word\"}, {\"offset\": 180, \"meaning\": \"uint8_t index into table at offset 170; selects rate/channel/subfield bits\"}, {\"offset\": 181, \"meaning\": \"uint8_t packet status byte shifted into bit 9 of entry_status_word\"}, {\"offset\": 182, \"meaning\": \"uint8_t packet status byte shifted into bit 10 of entry_status_word\"}, {\"offset\": 184, \"meaning\": \"uint16_t pending packet/queue-entry count for the scan RX queue\"}]}"
+}

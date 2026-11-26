@@ -1,0 +1,9 @@
+{
+ "fn": "patch_flag_get",
+ "img": "fmacfw_u02",
+ "addr": "0x1337bc",
+ "seg": 46,
+ "key": "patch_flag_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_patch_update_delay\",\"confidence\":\"medium\",\"docstring\":\"Selects a patch delay from the input, RX-rate parsing, or a register-derived value and applies it.\",\"subsystem\":\"bt\",\"var_renames\":{\"value\":\"delay_value\",\"v2\":\"selected_delay\"}}"
+}

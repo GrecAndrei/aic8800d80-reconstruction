@@ -1,0 +1,9 @@
+{
+ "fn": "hci_send_test_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x134228",
+ "seg": 50,
+ "key": "hci_send_test_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_send_test_command\",\"confidence\":\"medium\",\"docstring\":\"Allocates an HCI TX event, submits a fixed six-byte command from address 0x180B, and clears a state byte.\",\"subsystem\":\"hci\",\"var_renames\":{}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "increment_debug_counter",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123394",
+ "seg": 23,
+ "key": "increment_debug_counter__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_debug_write_register\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes an MMIO register value derived from a context structure while updating debug count and accumulation globals.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"reg_info\",\n    \"v1\": \"offset_ptr\",\n    \"v2\": \"reg_value\",\n    \"result\": \"write_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"MMIO register value or address used for the write\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "process_packet_params",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12e9d8",
+ "seg": 42,
+ "key": "process_packet_params__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"test_dump_memory\",\"confidence\":\"medium\",\"docstring\":\"Emits a hexadecimal dump of the requested memory range in 16-byte lines, optionally appending a printable-ASCII column.\",\"subsystem\":\"test\",\"var_renames\":{\"result\":\"base_address\",\"a2\":\"element_count\",\"a3\":\"element_size\",\"a4\":\"show_ascii\",\"v5\":\"aligned_address\",\"v6\":\"line_byte_count\",\"v19\":\"bytes_remaining\"}}"
+}

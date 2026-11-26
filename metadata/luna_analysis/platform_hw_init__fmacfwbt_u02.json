@@ -1,0 +1,9 @@
+{
+ "fn": "platform_hw_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123524",
+ "seg": 29,
+ "key": "platform_hw_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ipc_msg_dispatch_resume_submsgs\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans sub-message IDs in an IPC message buffer, maps recognized IDs to their payload offsets, and dispatches the corresponding data blocks through the IPC message-sending path.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"a2\": \"msg_ptr\",\n    \"v8\": \"sub_msg_id\",\n    \"v9\": \"raw_sub_msg_id\",\n    \"v6\": \"sub_msg_index\",\n    \"v7\": \"sub_msg_cursor\",\n    \"v13\": \"payload_ptr\",\n    \"_frame.v17\": \"array_index\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 670,\n      \"meaning\": \"uint16_t sub_msg_id array\"\n    },\n    {\n      \"offset\": 702,\n      \"meaning\": \"sub_msg_id count\"\n    },\n    {\n      \"offset\": 704,\n      \"meaning\": \"add_vif request count\"\n    },\n    {\n      \"offset\": 592,\n      \"meaning\": \"array base for repeated 12-byte entries\"\n    }\n  ]\n}"
+}

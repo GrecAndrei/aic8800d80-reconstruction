@@ -1,0 +1,9 @@
+{
+ "fn": "irq_combined_status",
+ "img": "fmacfw_u02",
+ "addr": "0x12bff0",
+ "seg": 39,
+ "key": "irq_combined_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_machw_gen_handler\",\"confidence\":\"high\",\"docstring\":\"Reads and acknowledges enabled MAC hardware interrupt sources, dispatches selected handlers, and reports any unhandled pending bits.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"active_irq_bits\",\"v1\":\"special_irq_bits\",\"v2\":\"secondary_irq_status\"}}"
+}

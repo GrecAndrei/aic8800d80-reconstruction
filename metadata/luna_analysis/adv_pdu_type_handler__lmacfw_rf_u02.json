@@ -1,0 +1,9 @@
+{
+ "fn": "adv_pdu_type_handler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1153f4",
+ "seg": 7,
+ "key": "adv_pdu_type_handler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_adv_pdu_tx\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Queues an advertising PDU for MAC transmission by selecting the PDU-type-specific status/event registers and storing the packet pointer with the corresponding TX control kick.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"pdu_ptr\",\n    \"a2\": \"adv_pdu_type\",\n    \"v22\": \"start_tick\",\n    \"v23\": \"tick_deadline\",\n    \"v24\": \"tick_delta\",\n    \"v25\": \"start_tick\",\n    \"v26\": \"tick_deadline\",\n    \"v27\": \"tick_delta\",\n    \"v28\": \"start_tick\",\n    \"v29\": \"tick_deadline\",\n    \"v30\": \"tick_delta\",\n    \"v15\": \"kick_reg\",\n    \"v16\": \"kick_reg\",\n    \"v17\": \"kick_reg\"\n  }\n}"
+}

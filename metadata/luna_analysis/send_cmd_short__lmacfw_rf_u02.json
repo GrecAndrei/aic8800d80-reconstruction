@@ -1,0 +1,9 @@
+{
+ "fn": "send_cmd_short",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11488c",
+ "seg": 6,
+ "key": "send_cmd_short__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bus_send_cmd_short\", \"confidence\": \"medium\", \"docstring\": \"Writes a fixed 10-byte command buffer to the bus shared-memory window at 0x1000000.\", \"subsystem\": \"ipc\", \"var_renames\": {\"a1\": \"cmd_buf\"}, \"struct_hints\": []}"
+}

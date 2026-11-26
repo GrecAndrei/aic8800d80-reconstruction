@@ -1,0 +1,9 @@
+{
+ "fn": "tx_slot_state_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b028",
+ "seg": 38,
+ "key": "tx_slot_state_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_slot_state_reset\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears and reinitializes a 32-byte TX-slot state entry from a table by index, releasing any pending kernel event lock before setting slot identity, owner/state fields, and returning the slot pointer.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"slot_idx\",\n    \"v1\": \"state_table\",\n    \"v2\": \"slot_ptr\",\n    \"v3\": \"slot_idx_u8\",\n    \"v4\": \"slot_off\",\n    \"v6\": \"slot_ptr\",\n    \"result\": \"slot_ptr\",\n    \"v7\": \"global_init_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"slot initialization value copied from global dword_12B060, possibly timestamp/event/state id\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"slot self/owner pointer or associated context pointer\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"slot state field initialized to 3\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"slot index stored as a byte\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"lock/event pending flag; if set, ke_event_set_lock is called before the slot is cleared\"\n    }\n  ]\n}"
+}

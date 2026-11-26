@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_sleep",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10cb48",
+ "seg": 2,
+ "key": "rf_cmd_sleep__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cmd_sleep\",\"confidence\":\"high\",\"docstring\":\"Writes the sleep command value to the RF command register.\",\"subsystem\":\"rf\"}"
+}

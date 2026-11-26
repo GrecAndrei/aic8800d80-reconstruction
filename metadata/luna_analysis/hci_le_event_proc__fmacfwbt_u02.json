@@ -1,0 +1,9 @@
+{
+ "fn": "hci_le_event_proc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1284c0",
+ "seg": 34,
+ "key": "hci_le_event_proc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_le_event_proc\",\"confidence\":\"medium\",\"docstring\":\"Processes a Bluetooth LE event buffer and its controller state, clearing completed event flags, adjusting pending link/ACL counters, triggering RF or ACL transmission, and scheduling or reporting advertising/scan results.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"le_ctrl\",\"v2\":\"evt\",\"v3\":\"evt_flags\",\"v4\":\"acl_ready_flag\",\"v5\":\"evt_payload\",\"v6\":\"evt_flags\",\"v7\":\"pending_evts\",\"v8\":\"next_tx_time\",\"v9\":\"adv_scan_mode\",\"v10\":\"time_delta\",\"v11\":\"pending_evts\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"event buffer data/payload pointer\"},{\"offset\":80,\"meaning\":\"event scheduled TX timestamp/anchor\"},{\"offset\":85,\"meaning\":\"event status flags byte\"},{\"offset\":106,\"meaning\":\"advertising/scan mode\"},{\"offset\":116,\"meaning\":\"link or context index\"},{\"offset\":222,\"meaning\":\"LE timing interval\"},{\"offset\":88,\"meaning\":\"LE controller state byte; bit 0x40 enables RF TX after last pending event\"},{\"offset\":90,\"meaning\":\"active LE link count\"},{\"offset\":91,\"meaning\":\"pending LE event counter\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_12f378",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f378",
+ "seg": 42,
+ "key": "unknown_12f378__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"irq_restore_if_counter_zero\",\"confidence\":\"low\",\"docstring\":\"Disables IRQs when they were enabled, increments the global counter and restores its prior value unless the increment wraps to zero, then may re-enable IRQs if the prior counter value was zero.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"counter_ptr\",\"v1\":\"counter_before\",\"v2\":\"counter_after_increment\",\"v3\":\"irq_flag_ptr\"}}"
+}

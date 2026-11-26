@@ -1,0 +1,9 @@
+{
+ "fn": "poll_register_bit",
+ "img": "fmacfw_u02",
+ "addr": "0x1222c0",
+ "seg": 24,
+ "key": "poll_register_bit__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_increment_masked_registers\",\"confidence\":\"medium\",\"docstring\":\"Adds 15000 to each of six volatile 32-bit register slots whose corresponding mask bit is set, then returns the register-array base.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"register_mask_ptr\",\"result\":\"register_base\",\"i\":\"register_index\"}}"
+}

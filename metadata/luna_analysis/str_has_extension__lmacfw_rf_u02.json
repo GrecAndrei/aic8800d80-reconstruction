@@ -1,0 +1,9 @@
+{
+ "fn": "str_has_extension",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121f10",
+ "seg": 22,
+ "key": "str_has_extension__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"str_get_file_ext_type\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Classifies a filename string as having extension '.b' (returns 1), '.h' (returns 2), another one-character extension (returns -1), or no valid short extension (returns 4).\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"filename\",\n    \"v2\": \"str_len\",\n    \"v3\": \"str_end\",\n    \"v5\": \"ext_char\"\n  }\n}"
+}

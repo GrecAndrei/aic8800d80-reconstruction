@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_irq_enable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1009a0",
+ "seg": 0,
+ "key": "sdio_irq_enable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_poll_copy_block\",\"confidence\":\"medium\",\"docstring\":\"Polls the supplied MMIO condition, copies a fixed 96-byte block while bit 26 of a control register is set, then clears that bit.\",\"subsystem\":\"mmio\",\"var_renames\":{\"v2\":\"control_reg\",\"v3\":\"copy_destination\",\"v4\":\"saved_control_value\",\"v6\":\"poll_result\"}}"
+}

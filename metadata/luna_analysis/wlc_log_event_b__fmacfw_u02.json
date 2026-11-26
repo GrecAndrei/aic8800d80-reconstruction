@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_log_event_b",
+ "img": "fmacfw_u02",
+ "addr": "0x128cf0",
+ "seg": 34,
+ "key": "wlc_log_event_b__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_ps_disable_cfm\",\"confidence\":\"medium\",\"docstring\":\"Handles a validated power-save-disable confirmation, decrements the pending count, clears selected entry flags when the count reaches zero, and sends the completion message.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"disable_context\",\"i\":\"entry\",\"v6\":\"remaining_count\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Pending-state byte cleared before sending the completion message.\"},{\"offset\":2,\"meaning\":\"Destination task identifier used for the completion message.\"},{\"offset\":4,\"meaning\":\"Entry flags word; bits 1\u20133 are cleared when the entry gates match.\"},{\"offset\":8,\"meaning\":\"Pending-confirmation counter in the disable context, decremented toward zero.\"},{\"offset\":8,\"meaning\":\"List head pointer in the entry-list owner.\"},{\"offset\":106,\"meaning\":\"Entry gate byte that must be zero before its flags are updated.\"},{\"offset\":108,\"meaning\":\"Entry gate byte that must be nonzero before its flags are updated.\"}]}"
+}

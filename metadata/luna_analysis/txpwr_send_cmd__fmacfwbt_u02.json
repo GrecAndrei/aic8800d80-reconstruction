@@ -1,0 +1,9 @@
+{
+ "fn": "txpwr_send_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136890",
+ "seg": 57,
+ "key": "txpwr_send_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txpwr_send_cmd\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds and sends the HCI event for the pending TX-power command, optionally initializes the related BT/RF TX-entry context, then enters the TX-entry path and clears the pending pointer.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"pending_txpwr_ptr\",\n    \"v3\": \"txpwr_ctx\",\n    \"v4\": \"txpwr_evt\",\n    \"v5\": \"txpwr_idx\",\n    \"v7\": \"old_txpwr_idx\",\n    \"v8\": \"status_evt\",\n    \"v9\": \"conn_ctx\",\n    \"v11\": \"remote_addr_ctx\",\n    \"v16\": \"tx_entry_ctx\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 0, \"meaning\": \"TX-power parameter word copied to tx_entry_ctx +192\"},\n    {\"offset\": 4, \"meaning\": \"TX-power parameter word copied to tx_entry_ctx +196\"},\n    {\"offset\": 8, \"meaning\": \"TX-power parameter word copied to tx_entry_ctx +200\"},\n    {\"offset\": 12, \"meaning\": \"TX-power parameter byte copied to tx_entry_ctx +204\"},\n    {\"offset\": 44, \"meaning\": \"TX-power value copied to conn_ctx +1208\"},\n    {\"offset\": 48, \"meaning\": \"TX-power 16-bit value\"},\n    {\"offset\": 51, \"meaning\": \"TX-power/entry index\"}\n  ]\n}"
+}

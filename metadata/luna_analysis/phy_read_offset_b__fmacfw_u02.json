@@ -1,0 +1,9 @@
+{
+ "fn": "phy_read_offset_b",
+ "img": "fmacfw_u02",
+ "addr": "0x121960",
+ "seg": 23,
+ "key": "phy_read_offset_b__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_table_byte_is_not_0x21\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the byte at the indexed PHY-table location differs from 0x21.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"block_index\",\"a2\":\"entry_index\"},\"struct_hints\":[{\"offset\":452,\"meaning\":\"Start of the byte entries, indexed with a 12-byte stride within each block.\"}]}"
+}

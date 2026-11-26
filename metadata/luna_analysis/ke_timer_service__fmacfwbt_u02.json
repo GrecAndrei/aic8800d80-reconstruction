@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_service",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1250c8",
+ "seg": 31,
+ "key": "ke_timer_service__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_timer_service\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Services the kernel timer list by checking the head timer deadline, preserving interrupt state, popping processable timer entries, and invoking their expiration callbacks.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"timer_list_head\",\n    \"v4\": \"timer_list_head\",\n    \"v1\": \"timer_guard_count\",\n    \"v2\": \"irq_saved_state\",\n    \"v3\": \"timer_state\",\n    \"v6\": \"timer_entry\",\n    \"v8\": \"head_due_tick\",\n    \"v11\": \"timer_callback\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"timer_entry.next intrusive list link\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"timer_entry.callback function pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"timer_entry.callback argument\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"timer_entry.due tick\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "call_fw_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x121cd8",
+ "seg": 23,
+ "key": "call_fw_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_configure\",\"confidence\":\"medium\",\"docstring\":\"Waits for the request event, initializes the selected and linked MAC cores, and records channel parameters when the radio context is idle.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"wait_status\",\"v8\":\"core_selector\",\"v9\":\"mac_core_record\",\"v11\":\"linked_core_context\",\"v12\":\"radio_context\",\"v13\":\"rf_state\",\"inited\":\"setup_result\"},\"struct_hints\":[{\"offset\":35,\"meaning\":\"Core selector passed to mac_core_setup for a linked context.\"},{\"offset\":44,\"meaning\":\"Pointer to a linked MAC-core context, if present.\"},{\"offset\":106,\"meaning\":\"Radio-state gate; value 2 enables the special power-down path.\"},{\"offset\":116,\"meaning\":\"Saved request channel selector, written when the radio-state gate is clear.\"},{\"offset\":117,\"meaning\":\"First accompanying request parameter saved with the channel selector.\"},{\"offset\":118,\"meaning\":\"Second accompanying request parameter saved with the channel selector.\"},{\"offset\":1224,\"meaning\":\"Flag that must be clear for the special power-down path.\"}]}"
+}

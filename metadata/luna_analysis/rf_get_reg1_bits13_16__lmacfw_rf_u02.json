@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_reg1_bits13_16",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113b4c",
+ "seg": 5,
+ "key": "rf_get_reg1_bits13_16__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_reg1_bits13_16\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Reads RF register 1 through MMIO and returns the four-bit field extracted from bits 13 through 16.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

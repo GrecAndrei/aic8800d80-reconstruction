@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_channel_cfg",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136eac",
+ "seg": 57,
+ "key": "rf_set_channel_cfg__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel_config\",\"confidence\":\"medium\",\"docstring\":\"Caches the requested RF channel configuration, applies fields from the RF initialization record when available, and conditionally performs an MMIO write.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"rf_state\",\"v7\":\"rf_state_index\",\"v8\":\"channel_config_words\",\"v10\":\"rf_init_record\",\"v18\":\"field_width\",\"v20\":\"field_mask\",\"v22\":\"rf_status_ptr\",\"v23\":\"mmio_write_result\"},\"struct_hints\":[{\"offset\":352,\"meaning\":\"RF configuration word passed to rf_hw_init_2\"},{\"offset\":356,\"meaning\":\"Second RF configuration word\"},{\"offset\":366,\"meaning\":\"Index used to select the per-channel RF state slot\"},{\"offset\":2,\"meaning\":\"RF initialization record value copied into RF state\"},{\"offset\":6,\"meaning\":\"RF initialization record field used to compose an RF setting\"},{\"offset\":58,\"meaning\":\"RF initialization record bitfield width used to form a mask\"}]}"
+}

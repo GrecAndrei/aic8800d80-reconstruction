@@ -1,0 +1,9 @@
+{
+ "fn": "bb_reset",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10397c",
+ "seg": 2,
+ "key": "bb_reset__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bb_reset\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Performs a baseband reset sequence by toggling a reset/access control bit and loading a 288-word initialization table into the BB memory window while programming BB control bits 16:17.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"a1\": \"source_base\",\n    \"v1\": \"bb_ctrl_reg\",\n    \"v5\": \"bb_ctrl_reg_alias\",\n    \"v2\": \"chunk_offset\",\n    \"v7\": \"chunk_word_count\",\n    \"v6\": \"phase_counter\",\n    \"v9\": \"dst_src_delta\",\n    \"v10\": \"src_ptr\",\n    \"v11\": \"dst_ptr\",\n    \"v12\": \"word\",\n    \"result\": \"end_ptr\"\n  },\n  \"struct_hints\": []\n}"
+}

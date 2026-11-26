@@ -1,0 +1,9 @@
+{
+ "fn": "lld_evt_timer_set",
+ "img": "fmacfw_u02",
+ "addr": "0x123920",
+ "seg": 28,
+ "key": "lld_evt_timer_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lld_evt_tx_cleanup_notify\",\"confidence\":\"medium\",\"docstring\":\"Releases the supplied TX buffer, emits a SET MU EDCA trace, and sends a parameterless message.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"tx_buffer\"}}"
+}

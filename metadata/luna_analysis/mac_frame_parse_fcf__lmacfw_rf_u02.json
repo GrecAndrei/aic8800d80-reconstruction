@@ -1,0 +1,9 @@
+{
+ "fn": "mac_frame_parse_fcf",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x109100",
+ "seg": 2,
+ "key": "mac_frame_parse_fcf__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_gain_correction_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates RF gain/correction output bytes and a state code from signed measurement thresholds and a current-state lookup table.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a3\": \"state_ptr\",\n    \"a4\": \"correction_out\",\n    \"a5\": \"measurement_vector\"\n  },\n  \"struct_hints\": []\n}"
+}

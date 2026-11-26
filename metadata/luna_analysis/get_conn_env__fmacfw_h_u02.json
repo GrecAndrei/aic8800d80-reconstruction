@@ -1,0 +1,9 @@
+{
+ "fn": "get_conn_env",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11a7c0",
+ "seg": 14,
+ "key": "get_conn_env__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"release_conn_env\",\"confidence\":\"medium\",\"docstring\":\"Detaches the indexed connection-environment pointer, decrements its reference count, invokes its handler when the count reaches zero, and returns 84 if an environment was present.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"conn_index\",\"v1\":\"conn_table_base\",\"v2\":\"conn_env\",\"v3\":\"refcount_after_decrement\",\"v4\":\"conn_index\"},\"struct_hints\":[{\"offset\":14,\"meaning\":\"Connection-environment reference count\"},{\"offset\":40,\"meaning\":\"Per-index pointer to the connection environment\"},{\"offset\":340,\"meaning\":\"Value passed to the connection-environment handler\"}]}"
+}

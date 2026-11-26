@@ -1,0 +1,9 @@
+{
+ "fn": "init_bt_global_0x190310",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1255f4",
+ "seg": 30,
+ "key": "init_bt_global_0x190310__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_bt_packet_storage\",\"confidence\":\"medium\",\"docstring\":\"Clears the BT statistics storage and initializes four consecutive fixed packet-header objects.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"stats_storage_base\",\"v1\":\"fixed_packet_headers\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Statistics buffer initialized within the cleared storage block.\"}]}"
+}

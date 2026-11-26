@@ -1,0 +1,9 @@
+{
+ "fn": "tx_init_data_buffer",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13c448",
+ "seg": 61,
+ "key": "tx_init_data_buffer__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_init_data_buffer\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears and initializes a TX data buffer descriptor from a rate/PLCP parameter table and a small control field.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v1\": \"tx_buf_desc\",\n    \"v4\": \"plcp_rate_val\",\n    \"v5\": \"tx_param_len\",\n    \"v6\": \"is_pow2_len\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"a1: table row index, likely a rate/channel selector\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"a1: length/antenna-like field tested for power-of-two encoding\"\n    },\n    {\n      \"offset\": 22,\n      \"meaning\": \"a1: table subcolumn index used together with the row index\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"a1: pointer to the TX data buffer/descriptor\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"v1: word field filled from global defaults selected by the power-of-two test\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"v1: 16-bit PLCP/rate value fetched from the global parameter table\"\n    },\n    {\n      \"offset\": 262,\n      \"meaning\": \"v1: zeroed byte flag or padding field\"\n    },\n    {\n      \"offset\": 263,\n      \"meaning\": \"v1: copy of the a1+20 control/length value\"\n    },\n    {\n      \"offset\": 264,\n      \"meaning\": \"v1: set to a1+20 minus one when that value is a power of two, otherwise left cleared/default\"\n    }\n  ]\n}"
+}

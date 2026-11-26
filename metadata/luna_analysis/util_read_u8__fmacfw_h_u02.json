@@ -1,0 +1,9 @@
+{
+ "fn": "util_read_u8",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123528",
+ "seg": 28,
+ "key": "util_read_u8__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mfp_key_update_from_u8\",\"confidence\":\"medium\",\"docstring\":\"Reads one byte from the input buffer and passes it with the 16-bit argument to the MFP key update routine.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"value_ptr\"}}"
+}

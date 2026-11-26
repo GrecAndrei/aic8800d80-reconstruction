@@ -1,0 +1,9 @@
+{
+ "fn": "check_rx_active",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1138f4",
+ "seg": 5,
+ "key": "check_rx_active__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_switch_to_rx\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Applies RF RX switch/timing configuration and orders the resulting MMIO updates with memory barriers.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rx_switch_value\",\n    \"v1\": \"irq_mask\",\n    \"v2\": \"rf_switch_base\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_packet_parse",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a618",
+ "seg": 38,
+ "key": "bt_packet_parse__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_packet_get_struct\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Scans a received Bluetooth packet buffer for fixed marker bytes and, when the marker matches, optionally clears a controller IRQ bit and returns a pool structure pointer rather than the original context.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"ctx\",\n    \"a2\": \"pkt\",\n    \"a4\": \"offset\",\n    \"v4\": \"payload\",\n    \"v5\": \"struct_index\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"IRQ-enable or ready flag\"\n    },\n    {\n      \"offset\": 1225,\n      \"meaning\": \"structure/packet index\"\n    },\n    {\n      \"offset\": 132,\n      \"meaning\": \"base pointer or pool handle\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clock_enable_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c2e8",
+ "seg": 40,
+ "key": "rf_clock_enable_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_clock_enable\",\"confidence\":\"medium\",\"docstring\":\"Clears bit 0 of the RF clock-control register and returns the result of disabling global IRQ mask 0x400.\",\"subsystem\":\"rf\"}"
+}

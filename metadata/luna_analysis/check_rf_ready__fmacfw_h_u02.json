@@ -1,0 +1,9 @@
+{
+ "fn": "check_rf_ready",
+ "img": "fmacfw_h_u02",
+ "addr": "0x101960",
+ "seg": 0,
+ "key": "check_rf_ready__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_is_ready\",\"confidence\":\"medium\",\"docstring\":\"Returns true when the RF MMIO value at off_101970 is greater than 1.\",\"subsystem\":\"rf\"}"
+}

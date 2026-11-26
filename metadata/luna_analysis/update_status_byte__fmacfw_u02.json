@@ -1,0 +1,9 @@
+{
+ "fn": "update_status_byte",
+ "img": "fmacfw_u02",
+ "addr": "0x100670",
+ "seg": 0,
+ "key": "update_status_byte__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init_and_cache_status\",\"confidence\":\"medium\",\"docstring\":\"Initializes the chip peripheral, caches its returned status byte when it changes, and returns that status.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"init_status\"}}"
+}

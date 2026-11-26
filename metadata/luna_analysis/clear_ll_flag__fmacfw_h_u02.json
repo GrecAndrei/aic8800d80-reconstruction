@@ -1,0 +1,9 @@
+{
+ "fn": "clear_ll_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x141ef8",
+ "seg": 67,
+ "key": "clear_ll_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_ll_flag\",\"confidence\":\"medium\",\"docstring\":\"Updates the LL context, clears bit 0 of its 16-bit flags and the byte at offset 2, then decrements a global byte counter.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"ll_context\",\"v3\":\"global_counter\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"16-bit flags; bit 0 is cleared\"},{\"offset\":2,\"meaning\":\"byte field reset to zero\"}]}"
+}

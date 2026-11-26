@@ -1,0 +1,9 @@
+{
+ "fn": "bt_ll_flow_control_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a32c",
+ "seg": 37,
+ "key": "bt_ll_flow_control_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_conn_flow_control_check\",\"confidence\":\"medium\",\"docstring\":\"Returns true when the gated connection scan finds a state-2 connection whose indexed status byte is zero.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"conn\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Head of the linked connection list\"},{\"offset\":17,\"meaning\":\"Gate that must be clear for the connection scan to proceed\"},{\"offset\":18,\"meaning\":\"Mode byte; the scan proceeds when its value is at most 1\"},{\"offset\":106,\"meaning\":\"Connection state, required to equal 2\"},{\"offset\":1224,\"meaning\":\"Nonzero eligibility flag required to select a connection\"},{\"offset\":1225,\"meaning\":\"Connection index used to select a table entry\"},{\"offset\":133,\"meaning\":\"Per-connection status byte tested for zero\"}]}"
+}

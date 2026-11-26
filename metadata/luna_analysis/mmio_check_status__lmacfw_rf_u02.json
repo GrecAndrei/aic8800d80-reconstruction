@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_check_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124968",
+ "seg": 23,
+ "key": "mmio_check_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_force_idle\", \"confidence\": \"medium\", \"docstring\": \"Forces RF idle when a pending status trigger is set, polls timer-backed hardware status with a 30000-tick timeout, manages an idle reference count and IRQ critical section, then dispatches forced-idle and rx-stat-stop events.\", \"subsystem\": \"rf\", \"var_renames\": {\"v0\": \"rf_idle_refcount_ptr\", \"v1\": \"rf_idle_status_ptr\", \"v2\": \"rf_idle_start_tick\", \"v3\": \"rf_idle_elapsed_ticks\", \"v6\": \"irq_disable_saved\"}}"
+}

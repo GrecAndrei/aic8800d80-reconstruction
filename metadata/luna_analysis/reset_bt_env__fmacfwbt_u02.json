@@ -1,0 +1,9 @@
+{
+ "fn": "reset_bt_env",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125958",
+ "seg": 31,
+ "key": "reset_bt_env__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_env_reset\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Zero-initializes a Bluetooth environment descriptor and initializes four fixed-stride HCI command slots.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"bt_env_ptr\",\n    \"v1\": \"hci_cmd_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"Bluetooth environment field or substructure cleared after the 0x18-byte reset\"\n    },\n    {\n      \"offset\": 38,\n      \"meaning\": \"second HCI command slot, suggesting a 38-byte command descriptor stride\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"third HCI command slot\"\n    },\n    {\n      \"offset\": 114,\n      \"meaning\": \"fourth HCI command slot\"\n    }\n  ]\n}"
+}

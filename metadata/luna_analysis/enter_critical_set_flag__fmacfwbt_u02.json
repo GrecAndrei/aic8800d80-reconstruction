@@ -1,0 +1,9 @@
+{
+ "fn": "enter_critical_set_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1151f4",
+ "seg": 6,
+ "key": "enter_critical_set_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"irq_guarded_call\",\"confidence\":\"medium\",\"docstring\":\"Invokes a fixed no-argument routine under a nested IRQ-masking guard, conditionally re-enabling IRQs when the nesting count returns to zero.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"critical_depth_ptr\",\"v2\":\"remaining_depth\",\"v3\":\"restore_irqs\"}}"
+}

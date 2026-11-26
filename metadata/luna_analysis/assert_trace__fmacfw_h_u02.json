@@ -1,0 +1,9 @@
+{
+ "fn": "assert_trace",
+ "img": "fmacfw_h_u02",
+ "addr": "0x134cc4",
+ "seg": 52,
+ "key": "assert_trace__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_process_connect_indication\",\"confidence\":\"medium\",\"docstring\":\"Builds and dispatches a connection indication event using the station context and updates related connection state.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"tx_event_state\",\"v6\":\"station_index\",\"v7\":\"tx_event_buffer\",\"v8\":\"station_context\",\"v11\":\"pending_tx_event\",\"v16\":\"active_station_count\"},\"struct_hints\":[{\"offset\":116,\"meaning\":\"Station connection state or status\"},{\"offset\":368,\"meaning\":\"Peer address data copied into the connection event\"},{\"offset\":372,\"meaning\":\"Association ID copied into the connection event\"}]}"
+}

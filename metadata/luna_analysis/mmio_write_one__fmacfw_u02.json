@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_one",
+ "img": "fmacfw_u02",
+ "addr": "0x12b8a8",
+ "seg": 39,
+ "key": "mmio_write_one__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_trigger_wait\",\"confidence\":\"medium\",\"docstring\":\"Writes 1 to the RF control register and busy-waits until its low byte clears.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"control_status_reg\"}}"
+}

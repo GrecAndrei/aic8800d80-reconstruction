@@ -1,0 +1,9 @@
+{
+ "fn": "dma_free_buf",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1219c4",
+ "seg": 23,
+ "key": "dma_free_buf__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"dma_free_buf\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Releases a DMA buffer by setting a system status flag, clearing a DMA control/status bit in memory-mapped I/O, and notifying the host through an HCI command.\",\n  \"subsystem\": \"dma\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"MMIO word at base+0x4; bit 4 is cleared, likely a DMA buffer-busy or channel-enable/status bit\"\n    }\n  ]\n}"
+}

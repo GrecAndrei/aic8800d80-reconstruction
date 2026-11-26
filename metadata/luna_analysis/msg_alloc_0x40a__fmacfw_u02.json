@@ -1,0 +1,9 @@
+{
+ "fn": "msg_alloc_0x40a",
+ "img": "fmacfw_u02",
+ "addr": "0x12edac",
+ "seg": 42,
+ "key": "msg_alloc_0x40a__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_send_zeroed_msg_0x40a\",\"confidence\":\"medium\",\"docstring\":\"Allocates a 12-byte payload for message 0x40A, zeroes it, and sends it with source a3 and destination a4.\",\"subsystem\":\"ke\",\"var_renames\":{\"v4\":\"message_payload\"}}"
+}

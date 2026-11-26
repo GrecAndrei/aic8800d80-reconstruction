@@ -1,0 +1,9 @@
+{
+ "fn": "util_hex_convert",
+ "img": "fmacfw_h_u02",
+ "addr": "0x137388",
+ "seg": 57,
+ "key": "util_hex_convert__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_scan_confirm\",\"confidence\":\"medium\",\"docstring\":\"Selects a scan-confirmation message from the RF mode, queues its payload, and completes packet and HCI command processing.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"confirmation_value\",\"v4\":\"confirm_msg_id\",\"v5\":\"confirm_payload\"},\"struct_hints\":[{\"offset\":3850,\"meaning\":\"Selects confirmation message 0x1003 when equal to 1, otherwise 0x1001.\"}]}"
+}

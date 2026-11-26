@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable_tx_patch",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11164c",
+ "seg": 4,
+ "key": "rf_enable_tx_patch__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_enable_tx_patch\",\"confidence\":\"medium\",\"docstring\":\"Getter/setter wrapper for the RF TX-patch channel flag bit 0x8000000, valid for channel indices 0 through 5, selecting get or set from the first argument.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"mode\",\"a2\":\"channel\"},\"struct_hints\":[]}"
+}

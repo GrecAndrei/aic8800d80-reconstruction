@@ -1,0 +1,9 @@
+{
+ "fn": "parse_adv_report_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x141b40",
+ "seg": 67,
+ "key": "parse_adv_report_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_adv_report\",\"confidence\":\"medium\",\"docstring\":\"Copies and decodes fields from a raw advertising receive record into the output report, including header-derived flags and scaled measurement values.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"header_word\",\"v5\":\"existing_flags\",\"v7\":\"header_shift\",\"v8\":\"decoded_flags\",\"v9\":\"input_word_at_2\",\"v12\":\"input_byte_at_10\",\"v14\":\"raw_measurement\",\"v17\":\"shifted_measurement\",\"v19\":\"scaled_byte_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Decoded 16-bit header and status flags\"},{\"offset\":2,\"meaning\":\"Header field extracted from bits 7\u20139\"},{\"offset\":4,\"meaning\":\"Boolean decoded from header bit 6\"},{\"offset\":5,\"meaning\":\"Header field extracted from bits 10\u201314; also used as a shift amount\"},{\"offset\":7,\"meaning\":\"Byte copied from input offset 10\"},{\"offset\":8,\"meaning\":\"16-bit value copied from input bytes 11\u201312\"},{\"offset\":12,\"meaning\":\"Input byte scaled by a shift selected from decoded flag bit 2\"},{\"offset\":16,\"meaning\":\"Raw measurement shifted by the header-derived amount\"},{\"offset\":24,\"meaning\":\"32-bit value copied from input offset 2\"},{\"offset\":28,\"meaning\":\"32-bit value copied from input offset 6\"},{\"offset\":41,\"meaning\":\"Byte copied from input offset 13\"},{\"offset\":48,\"meaning\":\"Fixed-point scaled value derived from the shifted measurement\"}]}"
+}

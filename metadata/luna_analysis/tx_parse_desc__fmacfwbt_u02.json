@@ -1,0 +1,9 @@
+{
+ "fn": "tx_parse_desc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x104470",
+ "seg": 2,
+ "key": "tx_parse_desc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_vector_angle_from_desc\",\"confidence\":\"medium\",\"docstring\":\"Extracts two signed 12-bit components from an indexed word and returns their approximate atan2 angle as a float.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"packed_component_word\",\"v4\":\"lower_component\",\"v5\":\"upper_component\",\"v6\":\"upper_component_sign\",\"v7\":\"lower_component_sign\",\"v8\":\"abs_upper_component\",\"v9\":\"abs_lower_component\",\"v10\":\"normalized_component_ratio\",\"v24\":\"normalized_component_ratio\"}}"
+}

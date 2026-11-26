@@ -1,0 +1,9 @@
+{
+ "fn": "nvic_set_priority",
+ "img": "fmacfw_u02",
+ "addr": "0x10d784",
+ "seg": 3,
+ "key": "nvic_set_priority__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"nvic_set_priority\",\"confidence\":\"high\",\"docstring\":\"Writes a fixed priority value to an NVIC priority register and issues data and instruction synchronization barriers.\",\"subsystem\":\"hal\"}"
+}

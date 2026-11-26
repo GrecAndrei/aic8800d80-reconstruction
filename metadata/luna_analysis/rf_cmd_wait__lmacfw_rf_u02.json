@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_wait",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11d348",
+ "seg": 19,
+ "key": "rf_cmd_wait__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_wait\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Polls an RF command status register until completion, updates associated RF control/status bits, and returns the RF command status block.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_cmd_status_ptr\",\n    \"v7\": \"rf_cmd_saved_value\",\n    \"result\": \"rf_cmd_result_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"Saved RF command value or result field\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"RF command completion/status field (bit 31 set after command wait)\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_prepare",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13d554",
+ "seg": 61,
+ "key": "tx_prepare__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_select_tx_rate\",\"confidence\":\"medium\",\"docstring\":\"Selects a hash-determined allowed transmit-rate setting from the configuration and packs the selected mode and flags into a 16-bit rate code.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"rate_config\",\"v5\":\"selection_hash\",\"v10\":\"selected_rate_index\",\"result\":\"rate_code\"},\"struct_hints\":[{\"offset\":169,\"meaning\":\"Rate-selection mode\"},{\"offset\":170,\"meaning\":\"Mode-dependent rate-group bitmap or packed rate table\"},{\"offset\":174,\"meaning\":\"Allowed-rate bitmap used by modes 0 and 1\"},{\"offset\":176,\"meaning\":\"Rate-index limit used during selection\"},{\"offset\":177,\"meaning\":\"Lower rate-index bound or mode-dependent threshold\"},{\"offset\":178,\"meaning\":\"Upper rate-index bound\"},{\"offset\":180,\"meaning\":\"Rate-group count or selector limit\"},{\"offset\":181,\"meaning\":\"Limit for the rate-code field at bit 9\"},{\"offset\":182,\"meaning\":\"Configured flag used for the rate-code field at bit 10\"}]}"
+}

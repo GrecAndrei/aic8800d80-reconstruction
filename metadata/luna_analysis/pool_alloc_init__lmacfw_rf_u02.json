@@ -1,0 +1,9 @@
+{
+ "fn": "pool_alloc_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116654",
+ "seg": 10,
+ "key": "pool_alloc_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_tx_queue_drain\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Drains a global WLAN transmit message/entry queue under an interrupt-protected pop loop, invoking each popped entry's stored callback and validating kernel state when the entry flag is clear.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v0\": \"irq_lock_count_ptr\",\n    \"v1\": \"irq_disable_saved_ptr\",\n    \"v2\": \"queue_head_ptr\",\n    \"v4\": \"tx_entry_ptr\",\n    \"v5\": \"remaining_irq_lock_count\",\n    \"v6\": \"irq_was_disabled\",\n    \"v7\": \"entry_callback\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 44,\n      \"meaning\": \"callback function pointer\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"callback context or first callback argument\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"pointer to associated descriptor/packet object used by the callback\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"byte flag indicating whether kernel-state validation is required\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_isr_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1294f8",
+ "seg": 35,
+ "key": "rf_isr_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_rx_packet_irq\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes an RX packet indication by resolving the associated PBD, scheduling an MM kernel event, and conditionally invoking the beacon IRQ handler.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v1\": \"mm_rx_ctrl\",\n    \"v2\": \"rx_status_index\",\n    \"v3\": \"pbd\",\n    \"v4\": \"timestamp_base\",\n    \"v5\": \"hw_timestamp\",\n    \"v6\": \"rf_ctrl_reg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 29,\n      \"meaning\": \"RX descriptor byte used as a table index; 0xFF marks invalid\"\n    },\n    {\n      \"offset\": 27,\n      \"meaning\": \"RX descriptor validity byte; 0xFF marks invalid\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"PBD flag indicating the descriptor is busy or already occupied\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"PBD flag indicating the descriptor is ready or valid\"\n    }\n  ]\n}"
+}

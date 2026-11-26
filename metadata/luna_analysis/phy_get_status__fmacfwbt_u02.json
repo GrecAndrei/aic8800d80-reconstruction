@@ -1,0 +1,9 @@
+{
+ "fn": "phy_get_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10eff0",
+ "seg": 3,
+ "key": "phy_get_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_control_level_update\",\"confidence\":\"medium\",\"docstring\":\"Adjusts and writes the stored RF control level, clamps it at -62, and either clears the active flag or schedules another update.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"control_state\",\"v1\":\"adjustment_amount\",\"v2\":\"updated_level\",\"v4\":\"current_tick\"},\"struct_hints\":[{\"offset\":5,\"meaning\":\"Adjustment component used to calculate the next control level.\"},{\"offset\":7,\"meaning\":\"Stored control level, read before adjustment and overwritten with the result.\"},{\"offset\":8,\"meaning\":\"Interval multiplier used to schedule the next update.\"},{\"offset\":11,\"meaning\":\"Active flag cleared when the level reaches its lower clamp.\"}]}"
+}

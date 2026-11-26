@@ -1,0 +1,9 @@
+{
+ "fn": "dma_rx_setup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122450",
+ "seg": 25,
+ "key": "dma_rx_setup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_rx_setup\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds an RX configuration table from a template and context values, writes a control byte to RF MMIO, arms RX enable flags and timeout counters, then schedules the EDCA M1 event.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rx_ctx\",\n    \"v2\": \"dst_ptr\",\n    \"v3\": \"mask\",\n    \"v4\": \"end_ptr\",\n    \"v5\": \"src_value_ptr\",\n    \"v6\": \"template_ptr\",\n    \"v7\": \"template_word\",\n    \"v8\": \"no_merge\",\n    \"v9\": \"out_word\",\n    \"v1\": \"low_value\",\n    \"v10\": \"ctrl_blk\",\n    \"v11\": \"deadline_ptr\",\n    \"v12\": \"enable1_ptr\",\n    \"v13\": \"enable2_ptr\",\n    \"v14\": \"tick_now\",\n    \"v15\": \"timeout_arr_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 444,\n      \"meaning\": \"array of per-entry 32-bit RX configuration values\"\n    },\n    {\n      \"offset\": 410,\n      \"meaning\": \"byte field in control block written to MMIO and cached\"\n    }\n  ]\n}"
+}

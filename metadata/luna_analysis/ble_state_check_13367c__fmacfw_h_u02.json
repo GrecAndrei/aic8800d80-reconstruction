@@ -1,0 +1,9 @@
+{
+ "fn": "ble_state_check_13367c",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13367c",
+ "seg": 46,
+ "key": "ble_state_check_13367c__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_controller_isr_gate\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the controller ISR value unless the BLE state is negative and command 6 does not return 10, in which case it disables the configured IRQ before dispatching that result.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"dispatch_value\",\"v2\":\"irq_disable_result\"}}"
+}

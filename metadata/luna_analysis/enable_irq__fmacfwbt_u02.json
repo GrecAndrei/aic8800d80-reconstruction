@@ -1,0 +1,9 @@
+{
+ "fn": "enable_irq",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c790",
+ "seg": 19,
+ "key": "enable_irq__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"enable_irq\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enables an interrupt source by setting bit 0x80 in a volatile interrupt-enable register.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

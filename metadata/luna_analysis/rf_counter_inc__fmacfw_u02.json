@@ -1,0 +1,9 @@
+{
+ "fn": "rf_counter_inc",
+ "img": "fmacfw_u02",
+ "addr": "0x11d7b0",
+ "seg": 20,
+ "key": "rf_counter_inc__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_counter_inc\",\"confidence\":\"medium\",\"docstring\":\"Increments the RF counter and resets it after it exceeds the configured threshold, invoking a stub hook on rollover.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"counter_state\",\"v1\":\"counter_threshold\",\"v2\":\"incremented_count\"},\"struct_hints\":[{\"offset\":10,\"meaning\":\"8-bit counter value\"},{\"offset\":11,\"meaning\":\"counter rollover threshold\"}]}"
+}

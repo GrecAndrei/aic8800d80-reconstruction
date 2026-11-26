@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_pattern_bf0c",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1309b4",
+ "seg": 43,
+ "key": "rf_write_pattern_bf0c__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_write_pattern_bf0c\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Appends the fixed 14-byte RF pattern beginning with 0xBF 0x0C, followed by fields copied from the global RF parameter table, to the buffer pointer held in a1, advances that pointer, and returns the written length.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"out_cursor\",\n    \"v2\": \"rf_param_table\",\n    \"v3\": \"out_buf\",\n    \"v4\": \"param_word_1\",\n    \"v5\": \"param_word_2\",\n    \"v6\": \"param_word_3\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"pattern byte 0xBF\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"pattern byte 0x0C\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"u32 copied from RF table offset 48\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"u16 copied from RF table offset 52\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"u16 copied from RF table offset 54\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"u16 copied from RF table offset 56\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"u16 copied from RF table offset 58\"\n    }\n  ]\n}"
+}

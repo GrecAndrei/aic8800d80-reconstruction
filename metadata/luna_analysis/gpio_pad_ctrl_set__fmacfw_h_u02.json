@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_pad_ctrl_set",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10e8b4",
+ "seg": 3,
+ "key": "gpio_pad_ctrl_set__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_pa_current_calibrate\",\"confidence\":\"high\",\"docstring\":\"Sweeps the RF PA control code to find the setting whose measured PA current is closest to the target, returning the selected code's offset from the initial setting.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"initial_control_code\",\"v1\":\"target_pa_current_ptr\",\"v2\":\"current_control_code\",\"v3\":\"previous_pa_current\",\"v5\":\"control_register\",\"v7\":\"control_code_offset\",\"v9\":\"measured_pa_current\",\"v16\":\"sweep_direction\",\"v17\":\"initial_control_code\"}}"
+}

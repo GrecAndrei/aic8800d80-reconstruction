@@ -1,0 +1,9 @@
+{
+ "fn": "mac_irq_disable",
+ "img": "fmacfw_u02",
+ "addr": "0x104298",
+ "seg": 2,
+ "key": "mac_irq_disable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"configure_wireless_hw_control\",\"confidence\":\"low\",\"docstring\":\"Programs multiple system-control MMIO fields to configure the wireless hardware block.\",\"subsystem\":\"mac\"}"
+}

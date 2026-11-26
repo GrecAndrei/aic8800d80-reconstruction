@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibration_meas",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136e44",
+ "seg": 56,
+ "key": "rf_calibration_meas__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_trace_scanu_request\",\"confidence\":\"medium\",\"docstring\":\"Emits a feature-flagged SCANU request trace using the supplied value and a 16-bit global value, then returns 2.\",\"subsystem\":\"rf\"}"
+}

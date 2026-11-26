@@ -1,0 +1,9 @@
+{
+ "fn": "process_llcp_pdu",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119af4",
+ "seg": 13,
+ "key": "process_llcp_pdu__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_llcp_process_pdu\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a Bluetooth LE link-layer control PDU by preparing its header, creating a three-byte BLE kernel message containing the PDU byte, header result, and a constant control field, then dispatching it through the RX/indication handler.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"llcp_pdu\",\n    \"a4\": \"pdu_param\",\n    \"v7\": \"tx_header_value\",\n    \"v9\": \"tx_header_value\",\n    \"v10\": \"llcp_msg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first byte of the input LLCP PDU copied into the message\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"value returned by tx_header_prepare copied into the message\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"constant 4 written as a message subtype or control field\"\n    }\n  ]\n}"
+}

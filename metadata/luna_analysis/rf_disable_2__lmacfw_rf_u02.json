@@ -1,0 +1,9 @@
+{
+ "fn": "rf_disable_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12716c",
+ "seg": 23,
+ "key": "rf_disable_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_disable_2\",\"confidence\":\"medium\",\"docstring\":\"Clears the RF control byte and conditionally acquires the kernel task interrupt lock when the associated task state bit is set.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"task_state\"},\"struct_hints\":[{\"offset\":1,\"meaning\":\"RF control flag byte cleared during disable\"}]}"
+}

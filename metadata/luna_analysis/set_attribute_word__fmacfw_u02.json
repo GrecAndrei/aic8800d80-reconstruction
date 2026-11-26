@@ -1,0 +1,9 @@
+{
+ "fn": "set_attribute_word",
+ "img": "fmacfw_u02",
+ "addr": "0x120270",
+ "seg": 22,
+ "key": "set_attribute_word__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_shared_base_value\",\"confidence\":\"medium\",\"docstring\":\"Stores a context value, selects the minimum registered value as the shared base, and updates each listed context's normalized quotient and active marker.\",\"subsystem\":\"hal\",\"var_renames\":{\"v3\":\"manager_env\",\"v4\":\"previous_lock_depth\",\"v6\":\"updated_lock_depth\",\"v7\":\"shared_minimum\",\"v9\":\"entry_value\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Manager linked-list head\"},{\"offset\":18,\"meaning\":\"Manager state or count used to choose the update path\"},{\"offset\":20,\"meaning\":\"Index of the context supplying the current shared minimum\"},{\"offset\":107,\"meaning\":\"Context index\"},{\"offset\":222,\"meaning\":\"16-bit per-context value used to select the shared minimum\"},{\"offset\":224,\"meaning\":\"Per-context normalized quotient; initialized together with the marker byte\"},{\"offset\":225,\"meaning\":\"Per-context active marker\"}]}"
+}

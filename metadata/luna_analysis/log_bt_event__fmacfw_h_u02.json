@@ -1,0 +1,9 @@
+{
+ "fn": "log_bt_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1316e4",
+ "seg": 44,
+ "key": "log_bt_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"log_bt_event\",\"confidence\":\"medium\",\"docstring\":\"Builds and submits a Bluetooth event record containing a link context snapshot, or an empty record when no context exists.\",\"subsystem\":\"bt\",\"var_renames\":{\"v6\":\"link_id\",\"v7\":\"event_record\",\"v8\":\"link_context\",\"v12\":\"event_index\",\"v14\":\"event_count\"},\"struct_hints\":[{\"offset\":184,\"meaning\":\"Number of entries serialized from the link context\"}]}"
+}

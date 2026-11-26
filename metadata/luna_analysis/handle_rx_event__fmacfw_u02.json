@@ -1,0 +1,9 @@
+{
+ "fn": "handle_rx_event",
+ "img": "fmacfw_u02",
+ "addr": "0x11ca94",
+ "seg": 19,
+ "key": "handle_rx_event__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_rx_event_handle\",\"confidence\":\"medium\",\"docstring\":\"Handles a pending radio receive event for the selected slot, acknowledges its descriptor, and updates associated PHY and radio state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"radio_context\",\"v1\":\"event_status\",\"v2\":\"slot_index\",\"v3\":\"descriptor_table\",\"v4\":\"slot_entry\",\"v5\":\"slot_state\",\"v13\":\"event_descriptor\",\"v16\":\"descriptor_flags\",\"v17\":\"poll_retry_count\"},\"struct_hints\":[{\"offset\":26,\"meaning\":\"per-slot event state; zero indicates no pending descriptor\"},{\"offset\":36,\"meaning\":\"per-slot descriptor pointer\"},{\"offset\":8,\"meaning\":\"descriptor status and control flags\"},{\"offset\":60,\"meaning\":\"descriptor completion/status word\"}]}"
+}

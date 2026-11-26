@@ -1,0 +1,9 @@
+{
+ "fn": "get_modulation_type",
+ "img": "fmacfw_u02",
+ "addr": "0x110224",
+ "seg": 3,
+ "key": "get_modulation_type__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_modulation_type\",\"confidence\":\"medium\",\"docstring\":\"Clears an eight-byte result buffer and processes one value from offset 0x6B8 for each entry indicated by the associated 16-bit count.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"lookup_context\",\"v4\":\"result_buffer\",\"v5\":\"entry_index\",\"v6\":\"entry_value\",\"v7\":\"entry_count\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"16-bit number of entries to process\"}]}"
+}

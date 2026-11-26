@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b4d4",
+ "seg": 40,
+ "key": "bt_get_conn_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_send_conn_info_event\", \"confidence\": \"medium\", \"docstring\": \"Builds a Bluetooth connection-info event from a connection context entry and associated local info, then dispatches it through the BLE event path.\", \"subsystem\": \"bt\", \"var_renames\": {\"v3\": \"conn_table_base\", \"v4\": \"conn_entry\", \"v6\": \"local_info_index\", \"v9\": \"secondary_entry\", \"v10\": \"event_class\", \"v12\": \"event_msg\", \"v13\": \"conn_counter_table\", \"v14\": \"local_info_entry\", \"v15\": \"event_payload\", \"v16\": \"conn_seq_counter\"}, \"struct_hints\": [{\"offset\": 116, \"meaning\": \"conn_entry field: local_info_index\"}, {\"offset\": 1224, \"meaning\": \"conn_entry field: active/reserved flag\"}, {\"offset\": 72, \"meaning\": \"conn_entry field: secondary entry pointer\"}, {\"offset\": 254, \"meaning\": \"off_12B5B8 field: 16-bit connection info sequence counter\"}, {\"offset\": 28, \"meaning\": \"event_msg field: connection entry index\"}, {\"offset\": 29, \"meaning\": \"event_msg field: local info type/address type\"}, {\"offset\": 72, \"meaning\": \"event_msg field: payload pointer\"}, {\"offset\": 88, \"meaning\": \"event_msg field: caller argument a2\"}, {\"offset\": 92, \"meaning\": \"event_msg field: caller argument a3\"}]}"
+}

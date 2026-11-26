@@ -1,0 +1,9 @@
+{
+ "fn": "sec_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x118b34",
+ "seg": 12,
+ "key": "sec_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"btm_security_check_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Resets per-link state, derives a 0x200 status from the descriptor\u2019s low flag bit, and dispatches the supplied kernel message.\",\"subsystem\":\"bt\",\"var_renames\":{\"v7\":\"descriptor_state\",\"v8\":\"descriptor_flags\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"64-bit state field cleared\"},{\"offset\":28,\"meaning\":\"Descriptor reference or state word, refreshed under an IRQ guard when bit 0 is set\"},{\"offset\":64,\"meaning\":\"State word set to 0 or 0x200 according to bit 0 of the descriptor byte at offset 4\"},{\"offset\":68,\"meaning\":\"Control word with bits 19\u201323 cleared\"},{\"offset\":72,\"meaning\":\"State word cleared\"}]}"
+}

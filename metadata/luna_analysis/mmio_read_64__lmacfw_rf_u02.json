@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_64",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1145c4",
+ "seg": 6,
+ "key": "mmio_read_64__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_read_64\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Performs a kernel-mediated 64-bit MMIO read by dispatching the provided address through the task handler.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"addr\"\n  },\n  \"struct_hints\": []\n}"
+}

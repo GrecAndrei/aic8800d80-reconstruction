@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_schedule_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ecb0",
+ "seg": 43,
+ "key": "ke_event_schedule_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"debug_printf_filter\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Variadic debug printf helper that parses leading 0x80-prefixed category/severity control bytes, suppresses disabled messages, and forwards the remaining format and arguments to debug_printf.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v1\": \"debug_cfg\",\n    \"v2\": \"fmt_cursor\",\n    \"v4\": \"prefix_byte\",\n    \"v5\": \"prefix_byte_raw\",\n    \"v6\": \"prefix_code\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"debug category enable bitmask (0x80-prefixed category bits)\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"debug enable/severity threshold used to filter printed messages\"\n    }\n  ]\n}"
+}

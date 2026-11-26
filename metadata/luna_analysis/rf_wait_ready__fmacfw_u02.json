@@ -1,0 +1,9 @@
+{
+ "fn": "rf_wait_ready",
+ "img": "fmacfw_u02",
+ "addr": "0x10f458",
+ "seg": 3,
+ "key": "rf_wait_ready__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dispatch_state\",\"confidence\":\"medium\",\"docstring\":\"Sends a packet, initializes the RF timer, and invokes the callback pair configured for the current state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"state_ptr\",\"v1\":\"state\",\"v5\":\"state\",\"v10\":\"state_callbacks\",\"v13\":\"state_callbacks\",\"v17\":\"state_callbacks\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"first callback for state 1\"},{\"offset\":12,\"meaning\":\"second callback for state 1\"},{\"offset\":24,\"meaning\":\"first callback for state 2\"},{\"offset\":28,\"meaning\":\"second callback for state 2\"},{\"offset\":32,\"meaning\":\"first callback for state 3\"},{\"offset\":36,\"meaning\":\"second callback for state 3\"}]}"
+}

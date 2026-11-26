@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_freq",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102968",
+ "seg": 1,
+ "key": "rf_check_freq__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_freq_to_band\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Classifies a 5 GHz RF center frequency in MHz into an internal band index by comparing it against fixed frequency thresholds.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"freq_mhz\"\n  }\n}"
+}

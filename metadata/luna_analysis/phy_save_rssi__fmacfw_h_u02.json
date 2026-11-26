@@ -1,0 +1,9 @@
+{
+ "fn": "phy_save_rssi",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111fdc",
+ "seg": 4,
+ "key": "phy_save_rssi__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_submit_rx_buffer\",\"confidence\":\"medium\",\"docstring\":\"Queues an aligned caller-provided buffer for WLAN reception, clamps its capacity to the configured maximum, and arms the corresponding hardware descriptor.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"queue_id\",\"a2\":\"buffer_addr\",\"a3\":\"buffer_capacity\",\"v3\":\"queue_index\",\"v4\":\"queue_entry\",\"v5\":\"queue_status_reg\",\"v6\":\"rx_descriptor_table\",\"v7\":\"rx_descriptor\",\"v8\":\"max_buffer_capacity\",\"v9\":\"queue_register_base\",\"v10\":\"descriptor_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Software queue entry: registered buffer address\"},{\"offset\":4,\"meaning\":\"Software queue entry: buffer capacity\"},{\"offset\":8,\"meaning\":\"Software queue entry: ready/active marker\"},{\"offset\":0,\"meaning\":\"RX DMA descriptor: buffer length (16-bit)\"},{\"offset\":3,\"meaning\":\"RX DMA descriptor: control flags\"},{\"offset\":4,\"meaning\":\"RX DMA descriptor: buffer address\"}]}"
+}

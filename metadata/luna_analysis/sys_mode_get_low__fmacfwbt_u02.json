@@ -1,0 +1,9 @@
+{
+ "fn": "sys_mode_get_low",
+ "img": "fmacfwbt_u02",
+ "addr": "0x101968",
+ "seg": 0,
+ "key": "sys_mode_get_low__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sys_mode_get_low\",\"confidence\":\"medium\",\"docstring\":\"Returns the system mode encoded in the low nibble, converted from a one-based value to zero-based.\",\"subsystem\":\"hal\"}"
+}

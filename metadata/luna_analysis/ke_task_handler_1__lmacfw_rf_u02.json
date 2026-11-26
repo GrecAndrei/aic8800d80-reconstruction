@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_handler_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11af78",
+ "seg": 15,
+ "key": "ke_task_handler_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_event_schedule\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates and initializes a timed RF event, dispatching it immediately or deferring it through the RF/kernel event state when its timestamp has not yet expired.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"scheduled_time\",\n    \"v6\": \"event\",\n    \"v7\": \"event\",\n    \"v8\": \"rf_ctx\",\n    \"v9\": \"state_ptr\",\n    \"v10\": \"state\",\n    \"v12\": \"pending_count\",\n    \"v13\": \"scheduled_time\",\n    \"v14\": \"now_tick\",\n    \"v15\": \"count_before\",\n    \"v16\": \"count_after\",\n    \"v17\": \"irq_enable_flag\",\n    \"v18\": \"irq_enable_state\",\n    \"v19\": \"count_after_wait\",\n    \"v20\": \"irq_enable_saved\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"event scheduled_time/start timestamp\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"kernel/event task state flag or pointer\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"event dispatch callback function pointer\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"current/pending event pointer\"\n    }\n  ]\n}"
+}

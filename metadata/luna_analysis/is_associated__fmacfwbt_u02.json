@@ -1,0 +1,9 @@
+{
+ "fn": "is_associated",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c7a4",
+ "seg": 19,
+ "key": "is_associated__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"get_tx_rate\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns an 802.11 transmit-rate encoding selected from a fixed status condition, a cached rate field, or a fallback HT/VHT MCS value.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 68,\n      \"meaning\": \"pointer to status/station context whose flag word controls rate selection\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"status flags; bit 0x200 selects a fixed/global rate encoding\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"pointer to a context or descriptor whose signed offset-60 field validates cached rate selection\"\n    },\n    {\n      \"offset\": 60,\n      \"meaning\": \"signed state/index field used to choose the cached transmit rate\"\n    },\n    {\n      \"offset\": 580,\n      \"meaning\": \"cached transmit rate value\"\n    },\n    {\n      \"offset\": 309,\n      \"meaning\": \"MCS/rate byte used to derive a fallback transmit-rate encoding\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_rx_stats",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10ffc0",
+ "seg": 3,
+ "key": "get_rx_stats__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"report_rx_stats\",\"confidence\":\"medium\",\"docstring\":\"Copies selected fields from the RX statistics block into an RX record, dispatches it, and logs two associated values.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rx_stats\",\"v2\":\"rx_event_record\",\"v5\":\"rx_stats_payload\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"16-bit field copied into the dispatched RX record\"},{\"offset\":4,\"meaning\":\"16-bit field copied into the dispatched RX record\"},{\"offset\":6,\"meaning\":\"16-bit field copied into the dispatched RX record\"},{\"offset\":8,\"meaning\":\"16-bit field copied into the dispatched RX record\"},{\"offset\":20,\"meaning\":\"64-bit value copied into the RX event area\"},{\"offset\":28,\"meaning\":\"32-bit value passed to log_event\"},{\"offset\":32,\"meaning\":\"32-bit value passed to log_event\"}]}"
+}

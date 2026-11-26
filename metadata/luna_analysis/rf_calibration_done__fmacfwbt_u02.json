@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibration_done",
+ "img": "fmacfwbt_u02",
+ "addr": "0x101888",
+ "seg": 0,
+ "key": "rf_calibration_done__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_done\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the RF calibration status value is greater than one.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

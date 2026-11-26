@@ -1,0 +1,9 @@
+{
+ "fn": "link_env_get",
+ "img": "fmacfw_u02",
+ "addr": "0x1250f4",
+ "seg": 30,
+ "key": "link_env_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_acl_tx_queue_update\",\"confidence\":\"medium\",\"docstring\":\"Scans active per-link ACL transmit entries, marks newly observed packet indices in a bitmap, and updates the link\u2019s pending count and bitmap range.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"tx_state_table_base\",\"v6\":\"tx_entry\",\"v7\":\"link_env_array_base\",\"v15\":\"packet_index\",\"v17\":\"bitmap_byte_index\",\"v18\":\"packet_bit_mask\",\"v19\":\"bitmap_byte\",\"v20\":\"link_index\",\"v21\":\"min_bitmap_byte\",\"v23\":\"max_bitmap_byte\",\"v29\":\"link_index\"},\"struct_hints\":[{\"offset\":107,\"meaning\":\"Link index used to select per-link transmit state\"},{\"offset\":220,\"meaning\":\"Count of newly marked pending transmit entries\"},{\"offset\":228,\"meaning\":\"Lower bitmap range boundary\"},{\"offset\":229,\"meaning\":\"Upper bitmap range boundary\"}]}"
+}

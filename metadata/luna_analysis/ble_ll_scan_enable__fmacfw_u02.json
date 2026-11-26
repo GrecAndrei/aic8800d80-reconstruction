@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_scan_enable",
+ "img": "fmacfw_u02",
+ "addr": "0x140470",
+ "seg": 64,
+ "key": "ble_ll_scan_enable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_scan_enable\",\"confidence\":\"medium\",\"docstring\":\"Schedules a link-layer event when the value for selector 0xB is 4; otherwise, it conditionally invokes a shared handler.\",\"subsystem\":\"ble\"}"
+}

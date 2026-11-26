@@ -1,0 +1,9 @@
+{
+ "fn": "set_tx_buffer",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1272f0",
+ "seg": 33,
+ "key": "set_tx_buffer__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_set_tx_buffer\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates the queued Bluetooth HCI/Radio transmit buffer pointer, emits event/completion packets for the old or new buffer, and performs brief interrupt-protected TX accounting.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"new_buffer\",\n    \"v1\": \"tx_ctrl\",\n    \"v2\": \"new_buffer\",\n    \"v3\": \"old_buffer\",\n    \"v4\": \"event_buffer\",\n    \"v5\": \"tx_busy_count\",\n    \"v8\": \"complete_event_buffer\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 40,\n      \"meaning\": \"current/old transmit buffer pointer in the HCI TX context\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"pending/queued transmit buffer pointer in the HCI TX context\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"transmit buffer state byte (2 pending/queued, 4 completed/unchanged)\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"transmit buffer packet/type state byte (3 appears to mark a special completed/terminated state)\"\n    }\n  ]\n}"
+}

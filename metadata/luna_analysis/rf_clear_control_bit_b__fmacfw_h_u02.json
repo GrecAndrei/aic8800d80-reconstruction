@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clear_control_bit_b",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102c5c",
+ "seg": 2,
+ "key": "rf_clear_control_bit_b__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_control_register_b\",\"confidence\":\"medium\",\"docstring\":\"Selects one of two delayed RF control-register bit sequences based on whether the argument is zero and returns the selected value (0x20 or 0x02).\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"selector\",\"v2\":\"selector_is_zero\",\"v4\":\"control_value_after_first_clear\",\"v6\":\"control_value_after_second_clear\",\"v8\":\"control_value_before_final_set\"}}"
+}

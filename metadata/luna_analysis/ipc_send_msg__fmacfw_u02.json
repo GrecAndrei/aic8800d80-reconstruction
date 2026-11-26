@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_send_msg",
+ "img": "fmacfw_u02",
+ "addr": "0x136024",
+ "seg": 54,
+ "key": "ipc_send_msg__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"apm_update_basicrate\",\"confidence\":\"high\",\"docstring\":\"Copies the basic-rate update payload into the station context when its state is 2, checks the context version, and queues a completion message.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"basic_rate_param\",\"v7\":\"sta_idx\",\"v9\":\"sta_ctx\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Update parameter station index\"},{\"offset\":2,\"meaning\":\"Update parameter: start of the 13-byte basic-rate configuration payload\"},{\"offset\":106,\"meaning\":\"Station-table state byte; the update proceeds only when it equals 2\"},{\"offset\":192,\"meaning\":\"Station-context basic-rate configuration block, first word\"},{\"offset\":196,\"meaning\":\"Station-context basic-rate configuration block, second word\"},{\"offset\":200,\"meaning\":\"Station-context basic-rate configuration block, third word\"},{\"offset\":204,\"meaning\":\"Final byte of the station-context basic-rate configuration block\"}]}"
+}

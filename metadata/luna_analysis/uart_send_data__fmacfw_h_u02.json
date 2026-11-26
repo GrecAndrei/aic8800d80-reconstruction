@@ -1,0 +1,9 @@
+{
+ "fn": "uart_send_data",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102e08",
+ "seg": 2,
+ "key": "uart_send_data__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_write_strided_records\",\"confidence\":\"medium\",\"docstring\":\"Copies packed records into the selected RF table using a 16- or 32-byte destination stride, bracketed by RF control operations.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"layout_selector\",\"a2\":\"first_record_index\",\"a3\":\"record_count\",\"a4\":\"source_records\",\"v6\":\"destination_byte_offset\",\"v7\":\"destination_stride_words\",\"v8\":\"payload_words_per_record\",\"v12\":\"records_copied\"}}"
+}

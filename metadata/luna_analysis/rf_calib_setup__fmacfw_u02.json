@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calib_setup",
+ "img": "fmacfw_u02",
+ "addr": "0x12a7e0",
+ "seg": 37,
+ "key": "rf_calib_setup__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calib_state_update\",\"confidence\":\"medium\",\"docstring\":\"Advances the RF calibration state and timing counters for the selected context, invoking rf_calib_required when its countdown expires.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"calib_entry_table\",\"v2\":\"calib_context_index\",\"v3\":\"calib_state\",\"v6\":\"rf_context\",\"v7\":\"calib_entry\",\"v8\":\"elapsed_ticks\",\"v13\":\"calib_entry_ptr\",\"v14\":\"previous_counter\",\"v15\":\"current_counter\",\"v16\":\"calib_mode\",\"v17\":\"countdown\",\"v20\":\"fallback_time_value\",\"v21\":\"rf_context_index\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Alternate time value used in calibration mode\"},{\"offset\":16,\"meaning\":\"Calibration state\"},{\"offset\":17,\"meaning\":\"Calibration-entry index\"},{\"offset\":18,\"meaning\":\"Calibration selector passed to rf_calib_required\"},{\"offset\":19,\"meaning\":\"Countdown byte; 255 is a sentinel\"},{\"offset\":24,\"meaning\":\"Previous counter or tick sample\"},{\"offset\":28,\"meaning\":\"Current counter or tick sample\"},{\"offset\":36,\"meaning\":\"64-bit progress counter, with its low word accumulated and high word decremented\"},{\"offset\":44,\"meaning\":\"Alternate time base used outside calibration mode\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "global_table_lookup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142494",
+ "seg": 68,
+ "key": "global_table_lookup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_80211_action_frame\",\"confidence\":\"medium\",\"docstring\":\"Applies a state- and marker-triggered IRQ/MMIO workaround, forwards frames whose control field matches subtype 0xD0, and returns zero.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"frame\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"802.11 frame-control field; mask 0xFC matching 0xD0 identifies an action frame\"}]}"
+}

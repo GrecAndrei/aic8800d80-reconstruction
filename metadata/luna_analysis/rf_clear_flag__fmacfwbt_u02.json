@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clear_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13a574",
+ "seg": 59,
+ "key": "rf_clear_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_clear_flag\",\"confidence\":\"medium\",\"docstring\":\"Reads and returns a byte-sized RF status flag at offset 114, then clears the corresponding 16-bit field.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"old_flag\"},\"struct_hints\":[{\"offset\":114,\"meaning\":\"status flag field accessed as byte and cleared as 16-bit word\"}]}"
+}

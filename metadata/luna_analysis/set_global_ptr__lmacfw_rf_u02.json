@@ -1,0 +1,9 @@
+{
+ "fn": "set_global_ptr",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11f4a8",
+ "seg": 21,
+ "key": "set_global_ptr__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"set_global_ptr\", \"confidence\": \"medium\", \"docstring\": \"Writes the supplied 32-bit value to the global location addressed by off_11F4B0 and returns it.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"result\": \"value\"}, \"struct_hints\": []}"
+}

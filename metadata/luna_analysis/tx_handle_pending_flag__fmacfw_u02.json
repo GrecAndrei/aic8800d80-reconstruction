@@ -1,0 +1,9 @@
+{
+ "fn": "tx_handle_pending_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x136b68",
+ "seg": 56,
+ "key": "tx_handle_pending_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_maybe_send_status_event\",\"confidence\":\"medium\",\"docstring\":\"When the input status has bit 0x1000 set, updates per-context notification flags and conditionally queues message 65 with values copied from the context.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"event_mask\",\"v4\":\"message\"},\"struct_hints\":[{\"offset\":27,\"meaning\":\"Byte in the first argument used as an index into the event-mask table.\"},{\"offset\":30,\"meaning\":\"Status word in the first argument; bit 0x1000 gates processing.\"},{\"offset\":32,\"meaning\":\"16-bit context value copied into the outgoing message payload.\"},{\"offset\":34,\"meaning\":\"Context byte copied into the outgoing message payload.\"},{\"offset\":53,\"meaning\":\"Context notification flags; bits 1 and 3 prevent repeated notifications.\"},{\"offset\":310,\"meaning\":\"Context event mask/value tested against the table-derived mask.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_feature_check_4",
+ "img": "fmacfw_h_u02",
+ "addr": "0x140330",
+ "seg": 64,
+ "key": "bt_feature_check_4__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_check_feature_status\",\"confidence\":\"medium\",\"docstring\":\"Calls handler 0x0B and, unless it returns 4, writes 129 to an MMIO field when a referenced signed value is negative.\",\"subsystem\":\"bt\"}"
+}

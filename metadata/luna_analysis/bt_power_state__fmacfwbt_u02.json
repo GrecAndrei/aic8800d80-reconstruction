@@ -1,0 +1,9 @@
+{
+ "fn": "bt_power_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1285f8",
+ "seg": 34,
+ "key": "bt_power_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_link_state_event\", \"confidence\": \"medium\", \"docstring\": \"Allocates and sends a Bluetooth HCI link-state event, filling it from the link context and a scaled RF/link parameter table and marking the report flag when the global link condition is met.\", \"subsystem\": \"bt\", \"var_renames\": {\"result\": \"link_ctx\", \"v1\": \"link_info_ptr\", \"v2\": \"link_ctx_copy\", \"v3\": \"bt_state_ptr\", \"v4\": \"link_table_index\", \"v5\": \"evt_buf\", \"v8\": \"link_table_base\"}, \"struct_hints\": [{\"offset\": 72, \"meaning\": \"pointer to link state/info context\"}, {\"offset\": 107, \"meaning\": \"event state/subcode byte copied from link context\"}, {\"offset\": 116, \"meaning\": \"index into 696-byte link/RF parameter table\"}]}"
+}

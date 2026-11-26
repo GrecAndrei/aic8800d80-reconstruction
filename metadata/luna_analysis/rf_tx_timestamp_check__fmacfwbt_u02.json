@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_timestamp_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11e4f4",
+ "seg": 21,
+ "key": "rf_tx_timestamp_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_timestamp_extend\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Extends a 31-bit raw timestamp by detecting rollover and toggling the high extension bit, then updates the selected timestamp state.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"result\": \"ctx\",\n    \"v1\": \"raw_timestamp\",\n    \"v2\": \"rollover_bit\",\n    \"v3\": \"rollover_bit\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 152,\n      \"meaning\": \"raw 31-bit timestamp value\"\n    },\n    {\n      \"offset\": 156,\n      \"meaning\": \"timestamp slot selector flag\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "parse_integer",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12fb74",
+ "seg": 43,
+ "key": "parse_integer__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"parse_integer\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Parses a numeric string with optional sign and automatic decimal/octal/hex base, returning its integer value and optionally storing a pointer to the terminating character.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"str\",\n    \"a2\": \"endptr\",\n    \"a3\": \"base\",\n    \"v3\": \"ch\",\n    \"v4\": \"is_negative\",\n    \"i\": \"value\",\n    \"v6\": \"digit\",\n    \"v8\": \"next_ch\"\n  },\n  \"struct_hints\": []\n}"
+}

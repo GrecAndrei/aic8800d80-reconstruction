@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calc_power",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13c2e4",
+ "seg": 60,
+ "key": "rf_calc_power__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_sync_link_entry\",\"confidence\":\"medium\",\"docstring\":\"Writes the configured word to the 32-byte table slot selected by the record\u2019s byte-sized index, optionally triggering a bulk MMIO update when the index exceeds 32 and the global guard is active.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"entry_index\"},\"struct_hints\":[{\"offset\":452,\"meaning\":\"Byte-sized index selecting the destination table slot\"}]}"
+}

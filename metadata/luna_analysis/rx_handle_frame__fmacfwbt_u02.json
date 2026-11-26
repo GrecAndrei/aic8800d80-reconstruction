@@ -1,0 +1,9 @@
+{
+ "fn": "rx_handle_frame",
+ "img": "fmacfwbt_u02",
+ "addr": "0x121678",
+ "seg": 23,
+ "key": "rx_handle_frame__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_add_key\",\"confidence\":\"medium\",\"docstring\":\"Processes a WLAN key-add command, logging GTK or PTK installation and writing key material/parameters into hardware control registers.\",\"subsystem\":\"mac\",\"var_renames\":{\"v4\":\"key_index_or_group_sentinel\",\"v5\":\"key_parameter\",\"v7\":\"return_value\",\"v18\":\"key_byte0\",\"v9\":\"hw_key_entry\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"command byte 0\"},{\"offset\":1,\"meaning\":\"key index or 0xFF group-key sentinel\"},{\"offset\":8,\"meaning\":\"key word 0\"},{\"offset\":12,\"meaning\":\"key word 1\"},{\"offset\":16,\"meaning\":\"key word 2\"},{\"offset\":20,\"meaning\":\"key word 3\"},{\"offset\":40,\"meaning\":\"key type/index selector\"},{\"offset\":41,\"meaning\":\"key parameter/sequence\"}]}"
+}

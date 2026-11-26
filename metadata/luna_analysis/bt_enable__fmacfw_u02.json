@@ -1,0 +1,9 @@
+{
+ "fn": "bt_enable",
+ "img": "fmacfw_u02",
+ "addr": "0x1009a0",
+ "seg": 0,
+ "key": "bt_enable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_load_operation_table\",\"confidence\":\"medium\",\"docstring\":\"Prepares a destination and copies 96 words from a static operation table while temporarily enabling bit 26 in a control register.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"control_reg\",\"v3\":\"destination\",\"v4\":\"saved_control_value\"}}"
+}

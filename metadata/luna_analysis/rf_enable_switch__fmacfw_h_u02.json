@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable_switch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x103ff4",
+ "seg": 2,
+ "key": "rf_enable_switch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_configure_switch\",\"confidence\":\"medium\",\"docstring\":\"Programs a five-bit RF switch field and an auxiliary control register, pulsing associated control bits while restoring the original gate-bit state.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"switch_field_value\",\"a2\":\"aux_control_value\"}}"
+}

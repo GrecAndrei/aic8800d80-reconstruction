@@ -1,0 +1,9 @@
+{
+ "fn": "ke_acquire_lock",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1042bc",
+ "seg": 2,
+ "key": "ke_acquire_lock__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_remove_iq_dc_offset\",\"confidence\":\"high\",\"docstring\":\"Computes the mean I/Q bias across 8192 packed samples in the selected buffer and subtracts those DC offsets from each sample.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"iq_samples\",\"v7\":\"max_i\",\"v6\":\"max_q\",\"v1\":\"min_i\",\"v9\":\"sum_i\",\"v8\":\"sum_q\",\"v10\":\"i_sample\",\"v11\":\"q_sample\",\"v16\":\"corrected_i\"}}"
+}

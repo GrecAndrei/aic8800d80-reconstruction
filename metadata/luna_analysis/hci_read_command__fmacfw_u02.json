@@ -1,0 +1,9 @@
+{
+ "fn": "hci_read_command",
+ "img": "fmacfw_u02",
+ "addr": "0x122bc0",
+ "seg": 26,
+ "key": "hci_read_command__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_store_command_params\",\"confidence\":\"medium\",\"docstring\":\"Copies two request bytes into the indexed Bluetooth connection context, clears its trailing control byte, conditionally acknowledges a hardware register, and posts a parameterless kernel message.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"connection_table_base\",\"v6\":\"connection_index\",\"v9\":\"connection_context\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Flag gating a hardware register clear.\"},{\"offset\":143,\"meaning\":\"First request byte stored in the connection context.\"},{\"offset\":144,\"meaning\":\"Second request byte stored in the connection context.\"},{\"offset\":145,\"meaning\":\"Byte cleared to zero before posting the kernel message.\"}]}"
+}

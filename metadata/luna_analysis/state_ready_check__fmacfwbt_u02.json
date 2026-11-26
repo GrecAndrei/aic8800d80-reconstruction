@@ -1,0 +1,9 @@
+{
+ "fn": "state_ready_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f754",
+ "seg": 43,
+ "key": "state_ready_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"is_not_ready\", \"confidence\": \"low\", \"docstring\": \"Returns 1 when a state byte is not 3 or a status field at offset 0x224 is nonzero, otherwise returns 0, effectively indicating whether the associated state is not ready.\", \"subsystem\": \"ke\", \"var_renames\": {\"result\": \"pending_status\"}, \"struct_hints\": [{\"offset\": 548, \"meaning\": \"pending/busy status field used for readiness check\"}]}"
+}

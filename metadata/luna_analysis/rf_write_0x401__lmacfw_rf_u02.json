@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_0x401",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121490",
+ "seg": 22,
+ "key": "rf_write_0x401__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dbg_mem_read\",\"confidence\":\"medium\",\"docstring\":\"Handles a debug memory-read request by sending a kernel message, reading the target address or using a special access path, storing the returned value, and logging the read with a DBG format string.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a2\":\"addr_ptr\",\"v5\":\"msg\",\"v6\":\"target_addr\",\"v7\":\"msg\",\"v8\":\"read_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"target memory address or pointer to it\"},{\"offset\":4,\"meaning\":\"value read from the target address\"}]}"
+}

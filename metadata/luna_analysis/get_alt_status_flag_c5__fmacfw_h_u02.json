@@ -1,0 +1,9 @@
+{
+ "fn": "get_alt_status_flag_c5",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c3f8",
+ "seg": 40,
+ "key": "get_alt_status_flag_c5__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_bt_packet_and_update_status\",\"confidence\":\"medium\",\"docstring\":\"When the alternate BT parsing flag is enabled, parses packet fields from the nested context and stores the parser result in both bytes of its status word; otherwise it may disable an MMIO interrupt.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"packet_state\",\"v4\":\"parsed_status\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"Encoded packet header; bits 11\u201313 select the parser type and bits 0\u20136 provide another parser input.\"},{\"offset\":36,\"meaning\":\"Status word updated with the parser result duplicated into both bytes.\"}]}"
+}

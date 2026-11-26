@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_sm_get_by_handle",
+ "img": "fmacfw_u02",
+ "addr": "0x13f17c",
+ "seg": 61,
+ "key": "ble_ll_conn_sm_get_by_handle__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_sm_set_phy_params\",\"confidence\":\"medium\",\"docstring\":\"Updates two per-connection PHY-related fields after range checks and adjusts the connection-state flags when either value changes.\",\"subsystem\":\"ble\",\"var_renames\":{\"v4\":\"conn_entry\",\"v7\":\"conn_sm\"},\"struct_hints\":[{\"offset\":166,\"meaning\":\"connection state flags; bits 0x20 and 0x80 control the change path\"},{\"offset\":179,\"meaning\":\"first stored PHY-related setting, compared with and assigned from a2\"},{\"offset\":180,\"meaning\":\"second stored PHY-related setting, compared with and assigned from a3\"}]}"
+}

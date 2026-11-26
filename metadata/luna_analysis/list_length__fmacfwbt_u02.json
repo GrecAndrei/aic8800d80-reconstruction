@@ -1,0 +1,9 @@
+{
+ "fn": "list_length",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d594",
+ "seg": 42,
+ "key": "list_length__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"list_length\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Counts the nodes in a singly linked list by following the next-pointer field at offset 0 until null.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"head_ptr\",\n    \"v1\": \"node\",\n    \"result\": \"count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"intrusive linked-list next pointer\"\n    }\n  ]\n}"
+}

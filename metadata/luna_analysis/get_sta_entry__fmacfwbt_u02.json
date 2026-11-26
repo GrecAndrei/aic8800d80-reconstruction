@@ -1,0 +1,9 @@
+{
+ "fn": "get_sta_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x116ac0",
+ "seg": 9,
+ "key": "get_sta_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sta_prepare_txpwr_entry\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Computes a per-STA table entry from the context index, marks the context, checks an entry control/abort field, and applies the resulting transmit-power limit.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v2\": \"sta_table_base\",\n    \"v4\": \"sta_entry_offset\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 29,\n      \"meaning\": \"STA table index byte\"\n    },\n    {\n      \"offset\": 27,\n      \"meaning\": \"STA context byte copied from input parameter\"\n    },\n    {\n      \"offset\": 97,\n      \"meaning\": \"STA context validity/active flag\"\n    },\n    {\n      \"offset\": 572,\n      \"meaning\": \"Control or abort field within the per-STA table entry\"\n    }\n  ]\n}"
+}

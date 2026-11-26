@@ -1,0 +1,9 @@
+{
+ "fn": "patch_check_loaded",
+ "img": "fmacfw_u02",
+ "addr": "0x1361fc",
+ "seg": 55,
+ "key": "patch_check_loaded__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_patch_check_loaded\",\"confidence\":\"medium\",\"docstring\":\"Evaluates a patch-related readiness condition, conditionally clears a hardware register, and passes the resulting value to the Bluetooth readiness check.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"register_clear_result\"}}"
+}

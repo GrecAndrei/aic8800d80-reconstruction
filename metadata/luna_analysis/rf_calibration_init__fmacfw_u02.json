@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibration_init",
+ "img": "fmacfw_u02",
+ "addr": "0x1232f0",
+ "seg": 28,
+ "key": "rf_calibration_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mm_set_resume_res\",\"confidence\":\"high\",\"docstring\":\"Walks the sub-message IDs in an MM resume-response structure and maps recognized IDs to their associated payload fields.\",\"subsystem\":\"mm\",\"var_renames\":{\"a2\":\"resume_response\",\"v6\":\"sub_msg_index\",\"v7\":\"sub_msg_id_cursor\",\"v8\":\"sub_msg_id\",\"v13\":\"payload_ptr\"},\"struct_hints\":[{\"offset\":668,\"meaning\":\"P2P flag logged for the add-VIF request\"},{\"offset\":670,\"meaning\":\"Start of the 16-bit sub-message ID array\"},{\"offset\":592,\"meaning\":\"Start of 12-byte records indexed for sub-message ID 0x87\"},{\"offset\":702,\"meaning\":\"Number of sub-message IDs\"},{\"offset\":704,\"meaning\":\"Add-VIF request count\"}]}"
+}

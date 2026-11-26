@@ -1,0 +1,9 @@
+{
+ "fn": "write_bf_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130658",
+ "seg": 42,
+ "key": "write_bf_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"write_bf_header\",\"confidence\":\"high\",\"docstring\":\"Writes a 14-byte BF header and its template fields at the current output cursor, advances the cursor, and returns 14.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"cursor_ref\",\"v2\":\"header_template\",\"v3\":\"header_out\"}}"
+}

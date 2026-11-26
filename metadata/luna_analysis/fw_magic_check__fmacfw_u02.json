@@ -1,0 +1,9 @@
+{
+ "fn": "fw_magic_check",
+ "img": "fmacfw_u02",
+ "addr": "0x118ab0",
+ "seg": 11,
+ "key": "fw_magic_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_context_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes a set of four RF contexts and configures two associated timing structures, optionally skipping contexts already marked active.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"context_ptr\",\"v3\":\"context_aux_base\",\"v4\":\"context_state_base\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"Pointer into the per-context auxiliary storage.\"},{\"offset\":72,\"meaning\":\"Pointer to the per-context auxiliary block.\"},{\"offset\":76,\"meaning\":\"Pointer to the per-context secondary block.\"},{\"offset\":97,\"meaning\":\"Byte checked to decide whether an existing context can be skipped.\"}]}"
+}

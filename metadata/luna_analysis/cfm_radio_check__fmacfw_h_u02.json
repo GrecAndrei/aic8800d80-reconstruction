@@ -1,0 +1,9 @@
+{
+ "fn": "cfm_radio_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x127bf4",
+ "seg": 33,
+ "key": "cfm_radio_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"cfm_radio_record_lookup_or_add\",\"confidence\":\"medium\",\"docstring\":\"Finds or updates a matching radio record, allocating a free record on a miss and returning its handle, or 1 if none is available.\",\"subsystem\":\"cfm\",\"var_renames\":{\"a1\":\"radio_descriptor\",\"a2\":\"entry_handle_out\",\"v2\":\"radio_entries_base\",\"i\":\"entry_index\",\"v5\":\"entry\",\"v7\":\"allocated_entry\",\"v8\":\"entry_handle\",\"v11\":\"stored_state\",\"v12\":\"input_state\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Radio descriptor data used to match an input descriptor.\"},{\"offset\":5,\"meaning\":\"State byte compared and conditionally updated when a descriptor matches.\"},{\"offset\":24,\"meaning\":\"Validity/handle byte; 0xFF marks an unused entry.\"}]}"
+}

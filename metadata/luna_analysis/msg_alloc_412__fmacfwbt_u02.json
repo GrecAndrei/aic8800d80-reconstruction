@@ -1,0 +1,9 @@
+{
+ "fn": "msg_alloc_412",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f094",
+ "seg": 43,
+ "key": "msg_alloc_412__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_hci_dbg_write_mem\", \"confidence\": \"medium\", \"docstring\": \"Processes a Bluetooth debug write-memory request by performing a masked volatile write to the target address, capturing the resulting value, logging the operation, and sending an HCI event response.\", \"subsystem\": \"bt\", \"var_renames\": {\"a2\": \"req\", \"v5\": \"resp_buf\", \"v6\": \"resp_msg\", \"v7\": \"target\", \"v8\": \"packed_resp\", \"v9\": \"readback\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"target memory address from req word 0\"}, {\"offset\": 4, \"meaning\": \"bit mask for the memory write from req word 1\"}, {\"offset\": 8, \"meaning\": \"data value to write from req word 2\"}]}"
+}

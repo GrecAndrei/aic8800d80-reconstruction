@@ -1,0 +1,9 @@
+{
+ "fn": "phy_chan_set",
+ "img": "fmacfw_u02",
+ "addr": "0x117564",
+ "seg": 10,
+ "key": "phy_chan_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_channel_configure\",\"confidence\":\"high\",\"docstring\":\"Configures the requested PHY channel by initializing its state, applying rate and TX-length settings, issuing the channel command, and initializing the DMA ring.\",\"subsystem\":\"phy\",\"var_renames\":{\"v4\":\"phy_config_entry\",\"v7\":\"phy_state_words\",\"v10\":\"irq_lock_depth\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Channel number passed to TX-length validation and used to select per-channel runtime state.\"},{\"offset\":30,\"meaning\":\"16-bit flags; bit 0 controls associated state-word clearing and whether a global count is incremented.\"},{\"offset\":76,\"meaning\":\"Pointer to a word array initialized before DMA ring setup.\"},{\"offset\":82,\"meaning\":\"16-bit status flags; bit 0 is set after DMA ring initialization.\"}]}"
+}

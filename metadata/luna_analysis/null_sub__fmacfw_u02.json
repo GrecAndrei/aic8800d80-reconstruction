@@ -1,0 +1,9 @@
+{
+ "fn": "null_sub",
+ "img": "fmacfw_u02",
+ "addr": "0x133598",
+ "seg": 46,
+ "key": "null_sub__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_switch_update\",\"confidence\":\"medium\",\"docstring\":\"Converts two band-specific channel numbers to frequencies and updates the channel-switch state fields for the requested transition.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"first_channel\",\"a3\":\"second_channel\",\"v6\":\"frequency_difference\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Band selector: zero selects 2.4 GHz; one selects 5 GHz.\"},{\"offset\":1,\"meaning\":\"Channel-switch state.\"},{\"offset\":4,\"meaning\":\"Frequency slot derived from the first channel.\"},{\"offset\":6,\"meaning\":\"Frequency slot derived from the second channel.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "radio_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1009a0",
+ "seg": 0,
+ "key": "radio_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_radio_init\",\"confidence\":\"medium\",\"docstring\":\"Allocates a buffer and calls an initialization helper with bit 26 of a control register set, then clears that bit and returns the helper result.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"control_reg\",\"v3\":\"allocated_buffer\",\"v4\":\"saved_control_value\",\"v6\":\"allocation_info\"}}"
+}

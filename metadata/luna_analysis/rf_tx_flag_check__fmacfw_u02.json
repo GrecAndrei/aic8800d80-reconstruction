@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_flag_check",
+ "img": "fmacfw_u02",
+ "addr": "0x124fa0",
+ "seg": 30,
+ "key": "rf_tx_flag_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"apm_probe_sta_cfm\",\"confidence\":\"high\",\"docstring\":\"Handles an AP-mode station probe result, recording a success timestamp or queuing a follow-up message after repeated failures.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"sta_ctx\",\"a2\":\"status_flags\",\"v3\":\"probe_fail_count\",\"v5\":\"sta_idx\",\"v6\":\"probe_timestamp\",\"v7\":\"msg_payload\",\"v8\":\"msg_ptr\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"VIF index\"},{\"offset\":35,\"meaning\":\"station index\"},{\"offset\":38,\"meaning\":\"station MAC address\"},{\"offset\":664,\"meaning\":\"station record probe timestamp\"},{\"offset\":668,\"meaning\":\"consecutive probe failure count\"}]}"
+}

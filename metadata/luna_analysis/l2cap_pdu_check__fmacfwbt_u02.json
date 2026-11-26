@@ -1,0 +1,9 @@
+{
+ "fn": "l2cap_pdu_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ff00",
+ "seg": 43,
+ "key": "l2cap_pdu_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlan_set_monitor\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses two 12-hex-character MAC/BSSID strings from a command argument structure and writes the resulting monitor-mode address configuration, returning -2 on invalid lengths.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"v3\": \"mac_str\",\n    \"v4\": \"mac_high\",\n    \"v5\": \"mac_low\",\n    \"v7\": \"mac_low16\",\n    \"v8\": \"bssid_high\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"pointer to a 12-char hex MAC string\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"pointer to a 12-char hex BSSID string\"\n    }\n  ]\n}"
+}

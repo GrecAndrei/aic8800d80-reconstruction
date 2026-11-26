@@ -1,0 +1,9 @@
+{
+ "fn": "hci_tx_packet",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1149a4",
+ "seg": 6,
+ "key": "hci_tx_packet__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_tx_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Thin wrapper that submits the supplied buffer as an HCI packet of type 1 with size/flag 0x40 via hci_tx_data.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"packet\"\n  },\n  \"struct_hints\": []\n}"
+}

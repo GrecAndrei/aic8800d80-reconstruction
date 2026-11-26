@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_power_off",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12baec",
+ "seg": 39,
+ "key": "rf_set_power_off__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_power_off\",\"confidence\":\"high\",\"docstring\":\"Turns off the RF power path by clearing radio-enable bits, programming shutdown controls, and committing the updated register state.\",\"subsystem\":\"rf\"}"
+}

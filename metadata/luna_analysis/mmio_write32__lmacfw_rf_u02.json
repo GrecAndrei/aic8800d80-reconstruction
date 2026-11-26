@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write32",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113ad0",
+ "seg": 5,
+ "key": "mmio_write32__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_write_reg\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes a 32-bit value to an RF register index 0..31 through the bandgap-trimmed indirect MMIO register window, issuing start commands and clearing the access controls after the write.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"reg_idx\",\n    \"a2\": \"value\",\n    \"v4\": \"rf_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 64,\n      \"meaning\": \"access command/busy register, set before the RF write and cleared afterward\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"write command field, programmed to 0x8800 before selecting the register window\"\n    },\n    {\n      \"offset\": 84,\n      \"meaning\": \"control register loaded with 0x275 before the write, with bit 0x4 cleared after it\"\n    },\n    {\n      \"offset\": 2048,\n      \"meaning\": \"RF register data window base; a reg_idx maps to offset 2048 + 4 * reg_idx\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "double_gt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127b40",
+ "seg": 23,
+ "key": "double_gt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"__aeabi_dcmpgt\",\"confidence\":\"high\",\"docstring\":\"ARM EABI soft-float helper that compares two double values and returns 1 when the first operand is greater than the second.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

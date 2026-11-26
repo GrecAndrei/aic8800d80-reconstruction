@@ -1,0 +1,9 @@
+{
+ "fn": "bt_ctrl_main_task",
+ "img": "fmacfwbt_u02",
+ "addr": "0x113514",
+ "seg": 4,
+ "key": "bt_ctrl_main_task__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_wd_rx_process\",\"confidence\":\"medium\",\"docstring\":\"Obtains a receive buffer and processes pending WD receive data, retrying failures up to five times before marking a system error.\",\"subsystem\":\"rf\",\"var_renames\":{\"v7\":\"rx_buffer\",\"v13\":\"rx_complete_flag\",\"v14\":\"retry_count\"}}"
+}

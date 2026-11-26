@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_schedule",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114218",
+ "seg": 5,
+ "key": "ke_event_schedule__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_event_schedule\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Runs the kernel event scheduler callback under a nested interrupt critical section and restores IRQs only when the nesting depth returns to zero.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"lock_depth_ptr\",\n    \"v2\": \"lock_depth_after_decrement\",\n    \"v3\": \"irq_reenable_required\",\n    \"result\": \"callback_result\",\n    \"off_114250\": \"irq_reenable_required\",\n    \"off_114254\": \"irq_lock_depth\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 440,\n      \"meaning\": \"function-pointer slot for the event scheduler callback\"\n    }\n  ]\n}"
+}

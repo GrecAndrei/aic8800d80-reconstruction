@@ -1,0 +1,9 @@
+{
+ "fn": "rf_send_command_0x1419",
+ "img": "fmacfw_u02",
+ "addr": "0x1369cc",
+ "seg": 56,
+ "key": "rf_send_command_0x1419__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_connection_cleanup\",\"confidence\":\"medium\",\"docstring\":\"Processes teardown for a Bluetooth connection, emits associated notifications, updates remaining-link callback state, and rechecks Bluetooth readiness.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"connection\",\"v2\":\"connection_message_payload\",\"v4\":\"completion_message_payload\",\"v5\":\"other_connection\"},\"struct_hints\":[{\"offset\":107,\"meaning\":\"Bluetooth connection index\"},{\"offset\":108,\"meaning\":\"Connection active flag\"}]}"
+}

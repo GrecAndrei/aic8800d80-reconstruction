@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_core_config_0",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10df54",
+ "seg": 2,
+ "key": "sdio_core_config_0__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sdio_core_configure_0\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the first SDIO core register window, toggles GPIO13 and waits for a ready status while returning a scaled measurement derived from a hardware counter.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"sdio_core_base\",\n    \"v1\": \"sdio_aux_base\",\n    \"v5\": \"measured_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"SDIO core base word 0 cleared during initialization\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"SDIO core base word 1 set to trigger or enable the operation\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"SDIO core base word 2 control field; bit 25 is set after masking the field\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"SDIO core base word 3 configuration bits ORed from globals/constants\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"SDIO core base word 4 counter or measurement value used for the returned float\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"SDIO core base word 7 status/ready field polled then written back\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"SDIO auxiliary base word 14 configured to 296\"\n    }\n  ]\n}"
+}

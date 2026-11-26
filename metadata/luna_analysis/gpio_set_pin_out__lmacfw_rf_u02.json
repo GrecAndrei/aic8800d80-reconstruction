@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_pin_out",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10dba4",
+ "seg": 2,
+ "key": "gpio_set_pin_out__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"gpio_set_pin_out\", \"confidence\": \"medium\", \"docstring\": \"Sets a GPIO pin bit in a volatile output or configuration register by OR-ing a shifted bit mask.\", \"subsystem\": \"gpio\", \"var_renames\": {\"a1\": \"pin\"}}"
+}

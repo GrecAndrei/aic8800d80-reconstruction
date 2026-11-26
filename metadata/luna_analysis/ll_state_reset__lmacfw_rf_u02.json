@@ -1,0 +1,9 @@
+{
+ "fn": "ll_state_reset",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12632c",
+ "seg": 23,
+ "key": "ll_state_reset__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ll_state_reset\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Resets the link-layer/COB state and any buffered DUT records, clears associated control bits and counters, and updates the interrupt/lock state under a critical section.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v1\": \"dut_count_ptr\",\n    \"v2\": \"dut_record_ptr\",\n    \"v8\": \"irq_counter_ptr\",\n    \"v9\": \"irq_mask_ptr\",\n    \"v10\": \"old_irq_counter\",\n    \"v13\": \"irq_lock_ptr\",\n    \"v15\": \"control_reg_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first 16-bit DUT record field\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"DUT record byte field at +2\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"DUT record byte field at +3\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"DUT record byte field at +4\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"DUT record byte field at +5\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "dispatch_if_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f7a4",
+ "seg": 43,
+ "key": "dispatch_if_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_host_dispatch_if_ready\",\"confidence\":\"medium\",\"docstring\":\"When the IPC/PMU ready state is 3, allocate a host RX shared buffer, copy a 28-byte message/descriptor stamped with 0xC0DE, and signal the host; if no host RX buffer is available, schedule the Uf host RX buffer error.\",\"subsystem\":\"ipc\",\"var_renames\":{\"result\":\"msg\",\"v1\":\"msg\",\"v2\":\"host_buf\",\"v3\":\"host_buf\",\"v4\":\"ready_flag_ptr\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"0xC0DE dispatch marker/cookie word in the host-dispatched descriptor/message\"}]}"
+}

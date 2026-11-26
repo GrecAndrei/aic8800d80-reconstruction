@@ -1,0 +1,9 @@
+{
+ "fn": "run_with_busy_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11c1b4",
+ "seg": 18,
+ "key": "run_with_busy_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"run_status_checks\",\"confidence\":\"medium\",\"docstring\":\"Sets the global busy flag while checking hardware/firmware status, clears it, and then checks the mode flag.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"busy_flag_ptr\"}}"
+}

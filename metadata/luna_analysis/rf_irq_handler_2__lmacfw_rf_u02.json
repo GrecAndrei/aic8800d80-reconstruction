@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_handler_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11d470",
+ "seg": 19,
+ "key": "rf_irq_handler_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_irq_handler\",\"confidence\":\"high\",\"docstring\":\"Handles RF interrupt status by dispatching RF state-machine, hardware timer, GPIO/busy, fatal-error, and pending absolute-timer conditions.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"irq_status\",\"result\":\"ret\",\"v2\":\"rf_gpio_base\",\"v3\":\"gpio_status\"},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "compare_uint16_field",
+ "img": "fmacfw_u02",
+ "addr": "0x117d10",
+ "seg": 10,
+ "key": "compare_uint16_field__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"u16_field_forward_delta_le_63\",\"confidence\":\"medium\",\"docstring\":\"Returns true when the 16-bit value at offset 32 in the second object is greater than or equal to the first object's value and no more than 63 ahead.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v2\":\"first_field_value\",\"v3\":\"second_field_value\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"16-bit value used in the forward-distance comparison; specific semantics unknown\"}]}"
+}

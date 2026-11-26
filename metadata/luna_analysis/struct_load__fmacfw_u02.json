@@ -1,0 +1,9 @@
+{
+ "fn": "struct_load",
+ "img": "fmacfw_u02",
+ "addr": "0x109db4",
+ "seg": 2,
+ "key": "struct_load__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_sample_pairs\",\"confidence\":\"medium\",\"docstring\":\"Compares two three-float vectors, then evaluates selected paired samples using a multiplier and additive offset from the context.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"sample_count\",\"a2\":\"sample_data\",\"a4\":\"parameter_block\",\"v19\":\"sample_count\",\"v21\":\"selection_mask\",\"v22\":\"sample_ptr\",\"v23\":\"sample_end\",\"v24\":\"mask_byte\",\"v25\":\"multiplier\",\"v26\":\"paired_sample\",\"v27\":\"scaled_sample\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"float multiplier applied to each sample\"},{\"offset\":12,\"meaning\":\"float additive offset in the per-sample calculation\"}]}"
+}

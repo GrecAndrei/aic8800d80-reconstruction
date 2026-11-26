@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x130590",
+ "seg": 43,
+ "key": "ke_event_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_ensure_ready\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Return a cached radio status if ready, otherwise reset GPIO and wait for the radio to become ready.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"radio ready or initialized flag\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"cached radio status byte\"\n    }\n  ]\n}"
+}

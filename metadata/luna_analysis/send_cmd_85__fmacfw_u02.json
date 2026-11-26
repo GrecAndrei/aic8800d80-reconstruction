@@ -1,0 +1,9 @@
+{
+ "fn": "send_cmd_85",
+ "img": "fmacfw_u02",
+ "addr": "0x123194",
+ "seg": 28,
+ "key": "send_cmd_85__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_send_wifi_disable_cfm\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends a confirmation containing the Wi-Fi disable state derived from the inverted register bit 16.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"confirmation_payload\",\"v5\":\"wifi_control_register\",\"v6\":\"wifi_disable\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"wifi_disable confirmation field\"}]}"
+}

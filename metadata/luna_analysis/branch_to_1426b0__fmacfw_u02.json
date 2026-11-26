@@ -1,0 +1,9 @@
+{
+ "fn": "branch_to_1426b0",
+ "img": "fmacfw_u02",
+ "addr": "0x12d708",
+ "seg": 41,
+ "key": "branch_to_1426b0__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"branch_trampoline_1426b0\",\"confidence\":\"low\",\"docstring\":\"Forwards its argument to the routine at 0x1426b0 and returns that routine's result.\",\"subsystem\":\"libmisc\"}"
+}

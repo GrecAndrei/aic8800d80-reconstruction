@@ -1,0 +1,9 @@
+{
+ "fn": "rx_parse_pkt_header",
+ "img": "fmacfw_u02",
+ "addr": "0x13cb7c",
+ "seg": 60,
+ "key": "rx_parse_pkt_header__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_aes_cmac_subkey_double\",\"confidence\":\"medium\",\"docstring\":\"Doubles a 128-bit value in GF(2^128), applying the 0x87 reduction when its most significant bit is set.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"middle_words\",\"v2\":\"byte_carry_mask\",\"v3\":\"original_first_word\",\"v4\":\"original_last_word\",\"v5\":\"shifted_last_word\"}}"
+}

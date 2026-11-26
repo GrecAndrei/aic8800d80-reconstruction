@@ -1,0 +1,9 @@
+{
+ "fn": "ll_encrypt_packet",
+ "img": "fmacfw_u02",
+ "addr": "0x13b0e0",
+ "seg": 59,
+ "key": "ll_encrypt_packet__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_rx_phy_status_process\",\"confidence\":\"medium\",\"docstring\":\"Processes received BLE PHY metadata, validates it against per-channel state, and issues corresponding radio updates.\",\"subsystem\":\"ble\",\"var_renames\":{\"v7\":\"channel_index\",\"v10\":\"channel_config_table\",\"v11\":\"channel_config_entry\",\"v12\":\"channel_entry_offset\",\"a4a\":\"channel_config_entry\"}}"
+}

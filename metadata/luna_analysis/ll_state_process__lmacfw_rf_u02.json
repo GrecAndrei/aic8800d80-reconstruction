@@ -1,0 +1,9 @@
+{
+ "fn": "ll_state_process",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126258",
+ "seg": 23,
+ "key": "ll_state_process__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ll_cob_dut_start\", \"confidence\": \"medium\", \"docstring\": \"Initialize the Bluetooth LE link-layer COB controller for DUT operation by clearing COB state, dispatching the COB DUT-start event, configuring RF/xtal settings, and setting COB state 5.\", \"subsystem\": \"ble\", \"var_renames\": {\"v3\": \"cob_state_ptr\", \"v9\": \"cob_control_flags_ptr\", \"v10\": \"cob_param_block_ptr\"}, \"struct_hints\": []}"
+}

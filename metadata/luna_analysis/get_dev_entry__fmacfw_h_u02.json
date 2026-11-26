@@ -1,0 +1,9 @@
+{
+ "fn": "get_dev_entry",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12abe0",
+ "seg": 37,
+ "key": "get_dev_entry__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lll_get_dev_entry\",\"confidence\":\"medium\",\"docstring\":\"Refreshes the selected device's connection and channel-state metadata, clears its state counters, and invokes the shared-memory copy helper.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"device_table_base\",\"v4\":\"connection_state_flags\",\"v5\":\"device_index\",\"v7\":\"channel_entry_node\",\"v8\":\"channel_state_table\",\"v9\":\"channel_index\",\"v11\":\"channel_state_value\",\"v12\":\"secondary_channel_state\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"First state counter, thresholded into a connection-state flag and then cleared.\"},{\"offset\":20,\"meaning\":\"Second state counter, thresholded into a connection-state flag and then cleared.\"},{\"offset\":28,\"meaning\":\"Device index selecting a 1320-byte connection record.\"},{\"offset\":29,\"meaning\":\"Cached connection-state flags.\"},{\"offset\":31,\"meaning\":\"Flag gating state refresh and then indicating whether the selected record matches the active record.\"},{\"offset\":72,\"meaning\":\"Connection-record identity compared with the global active-record identity.\"},{\"offset\":240,\"meaning\":\"Head pointer for the connection record's linked channel-entry list.\"},{\"offset\":35,\"meaning\":\"Linked-node channel index used to select a channel-state row.\"}]}"
+}

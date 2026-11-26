@@ -1,0 +1,9 @@
+{
+ "fn": "disable_interrupts_and_update",
+ "img": "fmacfw_u02",
+ "addr": "0x133dec",
+ "seg": 49,
+ "key": "disable_interrupts_and_update__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_conn_ack_timeout_check\",\"confidence\":\"medium\",\"docstring\":\"Briefly protects shared state with a nested IRQ lock, then schedules a connection ACK timeout or queues a kernel message according to per-connection flags.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"conn_idx\",\"v4\":\"irq_nesting_depth\",\"v5\":\"conn_ctx\",\"v6\":\"conn_status_byte\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Connection status byte, returned and checked for zero before scheduling the timeout\"},{\"offset\":108,\"meaning\":\"Per-connection flag that gates ACK-timeout scheduling\"}]}"
+}

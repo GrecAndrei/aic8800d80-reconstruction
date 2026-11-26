@@ -1,0 +1,9 @@
+{
+ "fn": "rf_hardware_init",
+ "img": "fmacfw_u02",
+ "addr": "0x10eb18",
+ "seg": 3,
+ "key": "rf_hardware_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_hardware_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes RF-related MMIO registers, invokes the RF enable and analog-control routines, and restores the saved states of control-register bits 19\u201322.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"analog_ctrl_registers\",\"v10\":\"saved_bit19_state\",\"v11\":\"saved_bit20_state\",\"v12\":\"saved_bit21_state\",\"v13\":\"saved_bit22_state\"}}"
+}

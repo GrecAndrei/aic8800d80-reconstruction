@@ -1,0 +1,9 @@
+{
+ "fn": "memory_word_compare",
+ "img": "fmacfw_u02",
+ "addr": "0x125cf4",
+ "seg": 31,
+ "key": "memory_word_compare__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_periodic_window_merge\",\"confidence\":\"medium\",\"docstring\":\"Aligns two periodic time windows, optionally writes their enclosing bounds, and returns the resulting span.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"window_a\",\"a2\":\"window_b\",\"a3\":\"merged_window\",\"a4\":\"period\",\"v4\":\"start_delta\",\"v5\":\"window_to_align\",\"v6\":\"adjusted_start\",\"v7\":\"adjusted_end\",\"v11\":\"window_a_end\",\"v12\":\"window_b_end\",\"v13\":\"window_a_start\",\"v14\":\"window_b_start\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Window start timestamp\"},{\"offset\":4,\"meaning\":\"Window end timestamp\"}]}"
+}

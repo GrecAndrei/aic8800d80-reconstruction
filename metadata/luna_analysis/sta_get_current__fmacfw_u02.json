@@ -1,0 +1,9 @@
+{
+ "fn": "sta_get_current",
+ "img": "fmacfw_u02",
+ "addr": "0x128ad4",
+ "seg": 34,
+ "key": "sta_get_current__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_sta_lookup_current_bss\",\"confidence\":\"medium\",\"docstring\":\"Returns the station matching the supplied address in the current BSS, invoking the station-index helper when the BSS record field at offset 72 is set and otherwise queuing a two-byte message.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"sta_addr\",\"v1\":\"global_context\",\"v2\":\"bss_entry\",\"v4\":\"message_payload\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"current BSS index in the global context\"},{\"offset\":72,\"meaning\":\"field that selects the station-index helper or message-queue path\"},{\"offset\":107,\"meaning\":\"byte copied into the queued message payload\"}]}"
+}

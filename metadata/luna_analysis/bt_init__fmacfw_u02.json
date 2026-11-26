@@ -1,0 +1,9 @@
+{
+ "fn": "bt_init",
+ "img": "fmacfw_u02",
+ "addr": "0x100b14",
+ "seg": 0,
+ "key": "bt_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init\",\"confidence\":\"medium\",\"docstring\":\"Configures and enables the RF hardware, programming a parameter-derived register field and fixed control bits.\",\"subsystem\":\"rf\"}"
+}

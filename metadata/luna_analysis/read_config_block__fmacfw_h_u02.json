@@ -1,0 +1,9 @@
+{
+ "fn": "read_config_block",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d5cc",
+ "seg": 41,
+ "key": "read_config_block__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"fast_sqrtf\",\"confidence\":\"high\",\"docstring\":\"Estimates the square root of a positive float using a table-derived initial guess and one Newton iteration.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"value\",\"v25\":\"sqrt_estimate\",\"v27\":\"sqrt_scale_table\",\"v28\":\"sqrt_bit_adjust_table\"}}"
+}

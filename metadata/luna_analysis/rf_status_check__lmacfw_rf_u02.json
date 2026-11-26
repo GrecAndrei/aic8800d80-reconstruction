@@ -1,0 +1,9 @@
+{
+ "fn": "rf_status_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113c98",
+ "seg": 5,
+ "key": "rf_status_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_status_write\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Attempts to write two values into RF status/control MMIO registers, choosing the first idle register pair and returning 1, 0, or -1 to indicate which pair was written or that the interface is busy.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v4\": \"rf_reg7_val\",\n    \"v5\": \"rf_reg8_val\"\n  }\n}"
+}

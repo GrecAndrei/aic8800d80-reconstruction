@@ -1,0 +1,9 @@
+{
+ "fn": "bt_stop",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133b3c",
+ "seg": 47,
+ "key": "bt_stop__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_stop\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Stops or disables the Bluetooth controller by issuing HCI short command 6 when needed, clears the Bluetooth IRQ as a fallback, and waits for hardware-ready status.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v2\": \"irq_clear_result\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_fifo_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11e430",
+ "seg": 21,
+ "key": "rf_fifo_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_timestamp_update\",\"confidence\":\"medium\",\"docstring\":\"Reads the current hardware timestamp, updates TX timestamp context and control values, programs related RF timestamp registers, and returns the summed timestamp.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"ts_reg_base\",\"v4\":\"first_raw_ts\",\"v8\":\"second_raw_ts\",\"v7\":\"first_ts_low\",\"v14\":\"ctrl_reg_val\"}}"
+}

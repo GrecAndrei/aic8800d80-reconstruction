@@ -1,0 +1,9 @@
+{
+ "fn": "check_abort_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d470",
+ "seg": 42,
+ "key": "check_abort_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"co_list_push_back\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Appends a node to the tail of a RivieraWaves co_list by updating the list first/last pointers and clearing the node's next link, with optional debug logging for invalid input.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"list\",\n    \"v2\": \"list\",\n    \"a2\": \"node\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"list header first pointer / element next pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"list header last pointer\"\n    }\n  ]\n}"
+}

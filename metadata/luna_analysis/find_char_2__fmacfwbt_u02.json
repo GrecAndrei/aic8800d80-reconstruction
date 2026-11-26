@@ -1,0 +1,9 @@
+{
+ "fn": "find_char_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12db80",
+ "seg": 43,
+ "key": "find_char_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_parse_find_type7_record\", \"confidence\": \"medium\", \"docstring\": \"Scans a TLV-style volatile byte buffer for a record with type byte 7 and total length greater than 7 bytes, returning the record pointer and writing its payload length to the output argument.\", \"subsystem\": \"rf\", \"var_renames\": {\"v3\": \"end\", \"v4\": \"record_payload_len\", \"v5\": \"next_record\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"record type byte\"}, {\"offset\": 1, \"meaning\": \"record payload length excluding the two-byte header\"}]}"
+}

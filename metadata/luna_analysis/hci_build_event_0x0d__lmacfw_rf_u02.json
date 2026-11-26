@@ -1,0 +1,9 @@
+{
+ "fn": "hci_build_event_0x0d",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119bd8",
+ "seg": 13,
+ "key": "hci_build_event_0x0d__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_build_event_link_key_request\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds/dispatches the Bluetooth HCI Link Key Request event (code 0x0D), reading the first event-data byte and invoking the kernel event handler with the supplied arguments.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"evt_data\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first byte of HCI event data passed to the event handler\"\n    }\n  ]\n}"
+}

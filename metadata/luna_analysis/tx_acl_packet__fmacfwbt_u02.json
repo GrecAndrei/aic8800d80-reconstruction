@@ -1,0 +1,9 @@
+{
+ "fn": "tx_acl_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x127b14",
+ "seg": 34,
+ "key": "tx_acl_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_acl_send_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches a pending Bluetooth ACL packet for an HCI/ACL context after clearing its transmit flags and acquiring the kernel event lock.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"acl_ctx\",\n    \"v3\": \"acl_flags\",\n    \"v4\": \"pending_acl_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"kernel event lock/context field\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"event bit mask component\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"ACL context/list entry pointer used to identify the connection or packet\"\n    },\n    {\n      \"offset\": 85,\n      \"meaning\": \"ACL status flags; bit0 pending transmit, bit5 additional transmit state\"\n    },\n    {\n      \"offset\": 88,\n      \"meaning\": \"event bit mask component\"\n    }\n  ]\n}"
+}

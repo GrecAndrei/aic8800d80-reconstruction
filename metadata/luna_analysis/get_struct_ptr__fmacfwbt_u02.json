@@ -1,0 +1,9 @@
+{
+ "fn": "get_struct_ptr",
+ "img": "fmacfwbt_u02",
+ "addr": "0x129fac",
+ "seg": 37,
+ "key": "get_struct_ptr__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_state_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Set or clear an RF channel state record, clearing associated kernel event locks and applying lookup-table entries from a configuration message.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"state_pool_base\",\n    \"v4\": \"state_pool_offset\",\n    \"v5\": \"state_index\",\n    \"v6\": \"state_ctx\",\n    \"v10\": \"state_value\",\n    \"v11\": \"state_ctx\",\n    \"v24\": \"state_ctx\",\n    \"a2\": \"state_msg\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 16, \"meaning\": \"primary state event pending/lock flag\"},\n    {\"offset\": 20, \"meaning\": \"current lookup-table entry byte\"},\n    {\"offset\": 24, \"meaning\": \"lookup-table entry associated value\"},\n    {\"offset\": 28, \"meaning\": \"lookup-table entry timestamp/tick value\"},\n    {\"offset\": 48, \"meaning\": \"secondary embedded ke_event context\"},\n    {\"offset\": 64, \"meaning\": \"secondary event pending/lock flag\"},\n    {\"offset\": 113, \"meaning\": \"lookup table index\"},\n    {\"offset\": 120, \"meaning\": \"last configured channel/state value\"},\n    {\"offset\": 121, \"meaning\": \"state machine busy flag\"},\n    {\"offset\": 132, \"meaning\": \"state active/configured flag\"}\n  ]\n}"
+}

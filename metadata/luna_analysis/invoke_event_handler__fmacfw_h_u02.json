@@ -1,0 +1,9 @@
+{
+ "fn": "invoke_event_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10caa4",
+ "seg": 2,
+ "key": "invoke_event_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dequeue_event\",\"confidence\":\"medium\",\"docstring\":\"Waits for the event-ready flag, returns the next queued item's address plus 20 (or 20 when empty), and disables the MMIO interrupt when the queue is empty and the signed status is negative.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"event_ready_flag_ptr\",\"v1\":\"event_node\",\"v2\":\"signed_status\",\"v4\":\"signed_status\"},\"struct_hints\":[{\"offset\":612,\"meaning\":\"queued-event list in the shared state\"},{\"offset\":20,\"meaning\":\"start of the returned event payload relative to its list node\"}]}"
+}

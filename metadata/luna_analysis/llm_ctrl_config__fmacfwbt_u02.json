@@ -1,0 +1,9 @@
+{
+ "fn": "llm_ctrl_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132154",
+ "seg": 45,
+ "key": "llm_ctrl_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_ctrl_config\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies optional HCI/vendor configuration blocks to BLE controller state and sets the corresponding enable bits.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"cmd_params\",\n    \"v4\": \"llm_ctrl_env\",\n    \"v14\": \"group2_dst\",\n    \"v22\": \"group3_dst\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 32, \"meaning\": \"start of second optional 12-byte cmd_params block\"},\n    {\"offset\": 44, \"meaning\": \"start of third optional 56-byte cmd_params block\"},\n    {\"offset\": 102, \"meaning\": \"cmd_params byte copied to llm_ctrl_env offset 373\"},\n    {\"offset\": 103, \"meaning\": \"cmd_params presence flag for first configuration block\"},\n    {\"offset\": 104, \"meaning\": \"cmd_params presence flag for second configuration block\"},\n    {\"offset\": 105, \"meaning\": \"cmd_params presence flag for third configuration block\"},\n    {\"offset\": 106, \"meaning\": \"cmd_params presence flag that sets llm_ctrl_env enable bit 3\"},\n    {\"offset\": 373, \"meaning\": \"llm_ctrl_env control-config byte\"},\n    {\"offset\": 374, \"meaning\": \"llm_ctrl_env control-enable flags\"}\n  ]\n}"
+}

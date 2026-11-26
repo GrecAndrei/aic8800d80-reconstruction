@@ -1,0 +1,9 @@
+{
+ "fn": "util_is_zero",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127f8c",
+ "seg": 23,
+ "key": "util_is_zero__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"util_is_zero\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Utility that tests two 64-bit arguments for zero, returning 0 when both are zero, -1 when only the first is nonzero, and delegating nonzero second-argument cases to a helper.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v2\": \"scratch\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "list_insert",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10fb38",
+ "seg": 3,
+ "key": "list_insert__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_heap_free\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Validate a native heap buffer, decrement its reference count, and return it to the corresponding memory pool when the count reaches zero.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"a1\": \"heap\",\n    \"a2\": \"buf\",\n    \"v4\": \"heap0_desc\",\n    \"v5\": \"pool_id\",\n    \"v6\": \"pool_table\",\n    \"v7\": \"critical_count\",\n    \"v8\": \"heap0_base\",\n    \"v10\": \"pattern\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"heap base address\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"heap size\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"native pool count\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"pool control table base\"\n    },\n    {\n      \"offset\": -4,\n      \"meaning\": \"buffer header: native pool id\"\n    },\n    {\n      \"offset\": -3,\n      \"meaning\": \"buffer header: allocation pattern/magic\"\n    },\n    {\n      \"offset\": -2,\n      \"meaning\": \"buffer header: reference count\"\n    }\n  ]\n}"
+}

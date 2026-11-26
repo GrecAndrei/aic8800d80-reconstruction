@@ -1,0 +1,9 @@
+{
+ "fn": "enable_uart",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10cf2c",
+ "seg": 2,
+ "key": "enable_uart__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_uart_enable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enables the UART peripheral by writing 0x100 to the memory-mapped register address stored at off_10CF38.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

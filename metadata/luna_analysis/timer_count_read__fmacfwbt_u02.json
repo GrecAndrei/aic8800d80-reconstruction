@@ -1,0 +1,9 @@
+{
+ "fn": "timer_count_read",
+ "img": "fmacfwbt_u02",
+ "addr": "0x101818",
+ "seg": 0,
+ "key": "timer_count_read__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_timer_count_read\",\"confidence\":\"medium\",\"docstring\":\"Copies the 64-bit radio timer count to the caller's buffer and logs when a nonzero radio index is requested.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"count_out\",\"a2\":\"radio_id\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"64-bit radio timer count\"}]}"
+}

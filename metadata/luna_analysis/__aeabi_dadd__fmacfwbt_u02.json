@@ -1,0 +1,9 @@
+{
+ "fn": "__aeabi_dadd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1427d8",
+ "seg": 69,
+ "key": "__aeabi_dadd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"__aeabi_dadd\", \"confidence\": \"high\", \"docstring\": \"ARM EABI double-precision floating-point addition helper, identified by exact library match to linked __aeabi_dadd.\", \"subsystem\": \"libmisc\", \"var_renames\": {}, \"struct_hints\": []}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_trace_channel2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136fe4",
+ "seg": 57,
+ "key": "rf_trace_channel2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_scan_cancel_confirm\",\"confidence\":\"medium\",\"docstring\":\"Sends and processes PDU 4107, logs the scan-cancel confirmation value when feature 8 is enabled, and converts the first input byte to hexadecimal.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1358c0",
+ "seg": 53,
+ "key": "ke_msg_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"auth_handler\",\"confidence\":\"medium\",\"docstring\":\"Dispatches an authentication event according to its status, type, and subtype, routing it to DMA setup, crypto status handling, LL event scheduling, or message allocation.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"event\",\"v1\":\"event_fields\",\"v3\":\"status\",\"v5\":\"event_type\",\"v6\":\"event_subtype\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"event type\"},{\"offset\":14,\"meaning\":\"event subtype\"},{\"offset\":16,\"meaning\":\"event status\"},{\"offset\":18,\"meaning\":\"event payload\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_status",
+ "img": "fmacfw_u02",
+ "addr": "0x1019d0",
+ "seg": 0,
+ "key": "rf_get_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_check_mac_idle\",\"confidence\":\"high\",\"docstring\":\"Logs when the MAC state is non-idle; otherwise returns the first argument.\",\"subsystem\":\"rf\"}"
+}

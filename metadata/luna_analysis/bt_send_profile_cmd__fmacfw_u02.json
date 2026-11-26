@@ -1,0 +1,9 @@
+{
+ "fn": "bt_send_profile_cmd",
+ "img": "fmacfw_u02",
+ "addr": "0x135598",
+ "seg": 52,
+ "key": "bt_send_profile_cmd__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_profile_cmd_handle\",\"confidence\":\"medium\",\"docstring\":\"Appends profile payload data to a shared buffer capped at 800 bytes, then dispatches to a vendor command or connection-profile setup based on the record's control field.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"profile_context\",\"v3\":\"input_length\",\"v4\":\"profile_setup_arg\",\"v5\":\"buffered_length\",\"v6\":\"copy_length\",\"v7\":\"payload_cursor\",\"v8\":\"payload_destination\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Input record length; values above 5 determine the payload copy length.\"},{\"offset\":14,\"meaning\":\"Input control field passed to connection-profile setup; zero selects the vendor-command path.\"},{\"offset\":16,\"meaning\":\"Input command identifier, masked with 0x3fff for the vendor command.\"},{\"offset\":18,\"meaning\":\"Start of the input payload.\"},{\"offset\":14,\"meaning\":\"Profile-context buffered payload length.\"},{\"offset\":16,\"meaning\":\"Profile-context length copied by this call.\"},{\"offset\":20,\"meaning\":\"Start of the profile-context payload buffer.\"}]}"
+}

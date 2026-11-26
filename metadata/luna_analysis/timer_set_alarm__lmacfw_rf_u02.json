@@ -1,0 +1,9 @@
+{
+ "fn": "timer_set_alarm",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11118c",
+ "seg": 4,
+ "key": "timer_set_alarm__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_set_alarm\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Arms the timer subsystem by storing pending and current timer entry pointers in a timer control block and setting the 0xC0 control bits on every timer table entry plus several extra timer entries.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"pending_timer_entry\",\n    \"v1\": \"current_entry_ptr\",\n    \"result\": \"current_timer_entry\",\n    \"v2\": \"timer_control_block\",\n    \"v4\": \"timer_entry\",\n    \"v5\": \"timer_entry_end\",\n    \"v6\": \"extra_timer_entry_base\",\n    \"v7\": \"timer_control_block\",\n    \"v8\": \"extra_timer_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3,\n      \"meaning\": \"byte control/status field; ORing 0xC0 marks the timer entry armed\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"word field initialized from a pending alarm/time value\"\n    },\n    {\n      \"offset\": 2324,\n      \"meaning\": \"timer control block slot storing the current timer entry pointer\"\n    },\n    {\n      \"offset\": 2836,\n      \"meaning\": \"timer control block slot storing the pending timer entry pointer\"\n    }\n  ]\n}"
+}

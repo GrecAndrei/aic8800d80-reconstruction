@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_40580020",
+ "img": "fmacfw_u02",
+ "addr": "0x102960",
+ "seg": 1,
+ "key": "mmio_write_40580020__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_setup_channel_6_tx\",\"confidence\":\"medium\",\"docstring\":\"Executes three bit-31-polled commands, invokes the transmit handler with 2437 MHz parameters, and writes the final control value.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

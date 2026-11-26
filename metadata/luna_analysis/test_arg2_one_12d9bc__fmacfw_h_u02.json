@@ -1,0 +1,9 @@
+{
+ "fn": "test_arg2_one_12d9bc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d9bc",
+ "seg": 42,
+ "key": "test_arg2_one_12d9bc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_test_subelement\",\"confidence\":\"medium\",\"docstring\":\"Scans for a 0xC4 container and returns its well-formed 0xC2 subelement, setting the output flag when the subelement payload length is 3.\",\"subsystem\":\"test\",\"var_renames\":{\"result\":\"cursor\",\"a2\":\"buffer_len\",\"a3\":\"payload_len_is_three_out\",\"v3\":\"buffer_end\",\"v4\":\"record_payload_len\",\"v5\":\"record_end\",\"v6\":\"container_end\",\"v7\":\"subelement_size\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"TLV element ID (searched as 0xC4 for the container and 0xC2 for the subelement)\"},{\"offset\":1,\"meaning\":\"TLV payload length in bytes\"}]}"
+}

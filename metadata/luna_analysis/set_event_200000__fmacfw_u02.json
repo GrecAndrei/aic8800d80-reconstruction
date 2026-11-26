@@ -1,0 +1,9 @@
+{
+ "fn": "set_event_200000",
+ "img": "fmacfw_u02",
+ "addr": "0x11d828",
+ "seg": 20,
+ "key": "set_event_200000__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_event_set_200000\",\"confidence\":\"medium\",\"docstring\":\"Sets the MAC event indicated by bit 0x200000 through a shared event-setting routine.\",\"subsystem\":\"mac\",\"var_renames\":{},\"struct_hints\":[]}"
+}

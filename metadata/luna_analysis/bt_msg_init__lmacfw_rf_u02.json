@@ -1,0 +1,9 @@
+{
+ "fn": "bt_msg_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f5c8",
+ "seg": 2,
+ "key": "bt_msg_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_msg_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes two Bluetooth message list heads and adjacent descriptor/ID fields within a static control block.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"msg_ctrl\",\n    \"v1\": \"first_list_head\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1620,\n      \"meaning\": \"uint16 descriptor field before first list head\"\n    },\n    {\n      \"offset\": 1622,\n      \"meaning\": \"byte descriptor field before first list head\"\n    },\n    {\n      \"offset\": 1624,\n      \"meaning\": \"first message list head\"\n    },\n    {\n      \"offset\": 2432,\n      \"meaning\": \"uint16 descriptor field before second list head\"\n    },\n    {\n      \"offset\": 2434,\n      \"meaning\": \"byte descriptor field before second list head\"\n    },\n    {\n      \"offset\": 2436,\n      \"meaning\": \"second message list head\"\n    }\n  ]\n}"
+}

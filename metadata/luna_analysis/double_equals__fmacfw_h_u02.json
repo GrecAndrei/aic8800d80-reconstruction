@@ -1,0 +1,9 @@
+{
+ "fn": "double_equals",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142e38",
+ "seg": 68,
+ "key": "double_equals__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_equals\",\"confidence\":\"high\",\"docstring\":\"Returns whether two double-precision values are equal.\",\"subsystem\":\"libmisc\"}"
+}

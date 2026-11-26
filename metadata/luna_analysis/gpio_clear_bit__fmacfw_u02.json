@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_clear_bit",
+ "img": "fmacfw_u02",
+ "addr": "0x10dd14",
+ "seg": 3,
+ "key": "gpio_clear_bit__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_clear_bit\",\"confidence\":\"high\",\"docstring\":\"Clears the selected bit in a GPIO MMIO register and returns the bit mask.\",\"subsystem\":\"gpio\",\"var_renames\":{\"a1\":\"bit_index\",\"result\":\"bit_mask\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "cfm_event_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x127a1c",
+ "seg": 33,
+ "key": "cfm_event_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"cfm_roc_event_handler\",\"confidence\":\"high\",\"docstring\":\"Processes remain-on-channel events, updating ROC state, posting IPC notifications, and clearing associated radio state.\",\"subsystem\":\"cfm\",\"var_renames\":{\"a1\":\"event\",\"v2\":\"roc_context\",\"v5\":\"event_status\",\"v6\":\"roc_state\",\"v15\":\"event_duration\",\"v16\":\"adjusted_duration_ms\"},\"struct_hints\":[{\"offset\":112,\"meaning\":\"ROC-related IPC message or payload\"},{\"offset\":128,\"meaning\":\"ROC state\"},{\"offset\":132,\"meaning\":\"ROC duration in milliseconds, adjusted by 35 ms for longer durations\"},{\"offset\":136,\"meaning\":\"ROC operation marker, set to 0xFF when inactive\"}]}"
+}

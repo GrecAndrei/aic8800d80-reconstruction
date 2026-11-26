@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_rssi_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119e3c",
+ "seg": 14,
+ "key": "rf_get_rssi_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_process_channel_cmd\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes an RF command by switching channel, configuring TX power, waiting for the radio/baseband to settle, and reporting the command result through the kernel event path.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v4\": \"rssi_status_ptr\",\n    \"v5\": \"rssi_status_value\",\n    \"v9\": \"tx_power\",\n    \"a2\": \"channel_arg\",\n    \"a3\": \"cmd_data\",\n    \"a4\": \"cmd_type\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"channel/TX power configuration word copied from global state\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"center frequency in MHz; initialized to 2412\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"band/channel flag field set to zero\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"rf_wait_timeout status or result buffer\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_is_connected",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13c5d0",
+ "seg": 60,
+ "key": "bt_conn_is_connected__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_conn_build_packet\",\"confidence\":\"medium\",\"docstring\":\"Builds an 18-byte per-connection packet with an incremented counter and a 64-bit helper result, appending it to the input when no output buffer is supplied.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"conn\",\"a2\":\"input_data\",\"a3\":\"input_len\",\"a4\":\"output_buf\",\"result\":\"conn_ctx\",\"v5\":\"packet_out\",\"v6\":\"counter_before_increment\",\"v7\":\"counter\",\"v8\":\"counter_bytes\",\"v12\":\"helper_result_bytes\",\"v13\":\"zero_fill_ptr\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Connection table index\"},{\"offset\":72,\"meaning\":\"Per-connection 64-bit packet counter\"},{\"offset\":97,\"meaning\":\"Byte copied into the packet header field at offset 2\"},{\"offset\":1204,\"meaning\":\"Per-entry connection context pointer\"}]}"
+}

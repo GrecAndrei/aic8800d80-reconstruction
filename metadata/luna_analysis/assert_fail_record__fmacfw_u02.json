@@ -1,0 +1,9 @@
+{
+ "fn": "assert_fail_record",
+ "img": "fmacfw_u02",
+ "addr": "0x12d210",
+ "seg": 40,
+ "key": "assert_fail_record__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_assert_fail_record\",\"confidence\":\"medium\",\"docstring\":\"Clears and populates a global failure-context record, then invokes a helper with the sentinel value -1.\",\"subsystem\":\"ke\",\"var_renames\":{\"v1\":\"failure_record\",\"v2\":\"record_subfield_ptr\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"stores the value returned by mmio_base_read\"},{\"offset\":36,\"meaning\":\"stores a pointer to the record at offset 4\"}]}"
+}

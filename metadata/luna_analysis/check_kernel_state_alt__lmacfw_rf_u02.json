@@ -1,0 +1,9 @@
+{
+ "fn": "check_kernel_state_alt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e76c",
+ "seg": 21,
+ "key": "check_kernel_state_alt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"co_list_push_front\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Pushes a node onto the front of a RivieraWaves co_list intrusive linked list header, updating node and list front/back links.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"result\": \"list\",\n    \"v2\": \"list_hdr\",\n    \"a2\": \"node\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"front pointer in list header; next pointer in intrusive node\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"back pointer in list header\"\n    }\n  ]\n}"
+}

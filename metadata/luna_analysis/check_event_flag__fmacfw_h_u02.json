@@ -1,0 +1,9 @@
+{
+ "fn": "check_event_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10cc54",
+ "seg": 2,
+ "key": "check_event_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_dispatch_pending_patch_events\",\"confidence\":\"medium\",\"docstring\":\"Processes each asserted event by acknowledging it and dispatching its patch payload, then disables the associated global IRQ and writes the terminal control value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"event_status_register\",\"v1\":\"event_descriptor_ptr\",\"v2\":\"event_ack_register\",\"v3\":\"event_descriptor\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Start of the patch payload passed to patch_dispatch\"}]}"
+}

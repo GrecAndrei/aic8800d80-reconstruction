@@ -1,0 +1,9 @@
+{
+ "fn": "rf_control_set_bit3",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10189c",
+ "seg": 0,
+ "key": "rf_control_set_bit3__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_control_set_bit3\",\"confidence\":\"medium\",\"docstring\":\"Sets or clears bit 3 of the RF control register from the least significant bit of the input and returns the updated register value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"enabled\"}}"
+}

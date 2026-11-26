@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_wait_ready",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111dbc",
+ "seg": 4,
+ "key": "wlan_wait_ready__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_configure_tx_queue\",\"confidence\":\"high\",\"docstring\":\"Configures a WLAN transmit queue and, when a queue buffer is provided, allocates and records its shared FIFO region.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a2\":\"queue_id\",\"a3\":\"queue_mode\",\"a4\":\"requested_size\",\"v8\":\"fifo_allocation_size\",\"v13\":\"fifo_offset\"},\"struct_hints\":[{\"offset\":260,\"meaning\":\"Per-queue FIFO base address table, indexed by queue_id minus one.\"},{\"offset\":2076,\"meaning\":\"Active transmit-queue bitmap.\"}]}"
+}

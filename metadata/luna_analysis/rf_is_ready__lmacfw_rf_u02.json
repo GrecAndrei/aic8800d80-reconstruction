@@ -1,0 +1,9 @@
+{
+ "fn": "rf_is_ready",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126104",
+ "seg": 23,
+ "key": "rf_is_ready__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"pcie_dump_device_ids\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Query PCIe vendor/device/subsystem/revision identifiers and emit a trace string, skipping the query when the PCIe status bit at off_126164 is already set.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v1\": \"pcie_query_ret\",\n    \"_frame\": \"pcie_ids\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"packed PCIe vendor_id/device_id\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"subsystem_vendor_id\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"subsystem_device_id\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"revision_id\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_acl_queue_process",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x117590",
+ "seg": 10,
+ "key": "tx_acl_queue_process__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_acl_tx_queue_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a Bluetooth ACL connection's TX queue by checking link-layer state, allocating a packet descriptor, attaching the connection/packet to a link-slot queue, and scheduling or reporting ACL transmission events.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"acl_ctx\",\"v5\":\"state_obj\",\"v7\":\"queue_state\",\"v22\":\"tx_ctrl\",\"v25\":\"free_desc_list\",\"v26\":\"link_table_base\",\"v27\":\"desc_node\",\"v28\":\"link_entry_table\",\"v29\":\"link_slot\",\"v30\":\"link_entry\",\"v45\":\"packet_ptr\",\"v46\":\"lock_count\",\"v47\":\"send_status\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"bit0 backpressure or retry-pending flag in the ACL context\"},{\"offset\":28,\"meaning\":\"pointer to the current TX descriptor or packet buffer\"},{\"offset\":48,\"meaning\":\"pointer to the payload/data node attached to the ACL queue\"}]}"
+}

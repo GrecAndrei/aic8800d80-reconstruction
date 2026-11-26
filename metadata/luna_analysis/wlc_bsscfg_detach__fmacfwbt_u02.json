@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_bsscfg_detach",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12054c",
+ "seg": 23,
+ "key": "wlc_bsscfg_detach__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_bsscfg_detach_all\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Iterates the BSS configuration list attached to a WL core and detaches each bsscfg entry by calling wlc_bsscfg_down.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"result\": \"wlc\",\n    \"v1\": \"bsscfg\",\n    \"v2\": \"wlc_saved\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 240,\n      \"meaning\": \"pointer to head of BSS configuration list/link\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"next pointer in BSS configuration list node\"\n    }\n  ]\n}"
+}

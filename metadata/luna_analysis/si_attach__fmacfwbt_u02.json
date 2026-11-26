@@ -1,0 +1,9 @@
+{
+ "fn": "si_attach",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11fa5c",
+ "seg": 22,
+ "key": "si_attach__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"si_attach\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the silicon/backplane attach context by clearing its control block, configuring four core structures with default self/ops pointers and bytes, checking an abort flag during each core setup, and marking the context complete.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"si_info\",\n    \"v1\": \"core_ptr\",\n    \"v2\": \"core_ops\",\n    \"v3\": \"core_end\",\n    \"v4\": \"current_core\",\n    \"result\": \"status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 52,\n      \"meaning\": \"core_info pointer field initialized from off_11FAC8\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"core_info self pointer\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"core_info default byte field set to 5\"\n    },\n    {\n      \"offset\": 109,\n      \"meaning\": \"core_info default byte field set to 127\"\n    },\n    {\n      \"offset\": 110,\n      \"meaning\": \"core_info default byte field set to 127\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"si_info byte field set to 0xff after core initialization\"\n    }\n  ]\n}"
+}

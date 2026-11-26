@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_control_bit",
+ "img": "fmacfw_h_u02",
+ "addr": "0x103a54",
+ "seg": 2,
+ "key": "rf_set_control_bit__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_enable_dfe_and_rf_interface\",\"confidence\":\"medium\",\"docstring\":\"Sets RF/DFE interface control bits, waits for two hardware status bits, and returns the result of checking feature 0x2000.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"poll_delay_count\",\"v4\":\"poll_delay_count\"},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_reset_config",
+ "img": "fmacfw_h_u02",
+ "addr": "0x107b08",
+ "seg": 2,
+ "key": "pmu_reset_config__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibrate_clock\",\"confidence\":\"medium\",\"docstring\":\"Enables the RF measurement path, captures four counter samples under selected control settings, and passes them to compute a timer interval.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_control_reg\",\"v2\":\"rf_clock_control_reg\",\"v3\":\"measurement_mode_reg\",\"v5\":\"measurement_result_reg\"}}"
+}

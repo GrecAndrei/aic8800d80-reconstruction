@@ -1,0 +1,9 @@
+{
+ "fn": "tx_pkt_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1116e0",
+ "seg": 4,
+ "key": "tx_pkt_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_pkt_config\",\"confidence\":\"medium\",\"docstring\":\"Configures TX packet state and sets the 0xC0 control flags on the descriptor pool and several fixed descriptors.\",\"subsystem\":\"rf\",\"var_renames\":{\"v4\":\"descriptor_cursor\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"Control/status byte whose top two bits are set to 1.\"},{\"offset\":4,\"meaning\":\"Second 32-bit descriptor word, initialized from a global value.\"}]}"
+}

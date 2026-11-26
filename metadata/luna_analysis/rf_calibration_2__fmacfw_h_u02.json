@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibration_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10f410",
+ "seg": 3,
+ "key": "rf_calibration_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": ""
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hci_cmd_send_short",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d0b0",
+ "seg": 41,
+ "key": "hci_cmd_send_short__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_cmd_get_short\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Retrieves a 16-bit HCI command-table entry for an encoded command identifier and word index, acknowledging related MMIO IRQ events and validating bounds.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"status_ptr\",\n    \"v2\": \"param_word_idx\",\n    \"v3\": \"cmd_entry_id\",\n    \"v4\": \"cmd_table_base\",\n    \"v5\": \"entry_offset\",\n    \"v7\": \"entry_addr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"uint32_t pointer to 16-bit command parameter table\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"uint16_t parameter word count or maximum valid index\"\n    }\n  ]\n}"
+}

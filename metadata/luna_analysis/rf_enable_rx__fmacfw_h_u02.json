@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable_rx",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10ee10",
+ "seg": 3,
+ "key": "rf_enable_rx__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_enable_rx\",\"confidence\":\"high\",\"docstring\":\"Configures the RF receive registers and enables the receive path, applying additional setup for a selected configuration.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

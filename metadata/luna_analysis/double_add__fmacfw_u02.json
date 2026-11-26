@@ -1,0 +1,9 @@
+{
+ "fn": "double_add",
+ "img": "fmacfw_u02",
+ "addr": "0x14261c",
+ "seg": 68,
+ "key": "double_add__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_round\",\"confidence\":\"medium\",\"docstring\":\"Rounds an IEEE-754 double to an integral-valued double, with halfway cases rounded away from zero.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v1\":\"exponent_field\",\"v2\":\"unbiased_exponent\",\"v3\":\"result_high_word\",\"v4\":\"input_bits\",\"v5\":\"result_low_word\",\"v6\":\"fraction_mask\",\"v7\":\"rounding_increment\",\"v8\":\"low_word_carry\",\"v9\":\"incremented_low_word\"}}"
+}

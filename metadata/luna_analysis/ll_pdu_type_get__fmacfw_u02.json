@@ -1,0 +1,9 @@
+{
+ "fn": "ll_pdu_type_get",
+ "img": "fmacfw_u02",
+ "addr": "0x13ce78",
+ "seg": 61,
+ "key": "ll_pdu_type_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_pdu_type_select\",\"confidence\":\"medium\",\"docstring\":\"Adjusts an encoded link-layer PDU type to a candidate allowed by the link's support masks and per-class bounds.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"link_ctx\",\"a2\":\"encoded_type\",\"v2\":\"type_index\",\"v5\":\"candidate_index\",\"v6\":\"candidate_limit\",\"v8\":\"fallback_type\",\"v9\":\"candidate_index\",\"v11\":\"updated_type\"},\"struct_hints\":[{\"offset\":169,\"meaning\":\"Fallback type code used when no supported candidate is found.\"},{\"offset\":170,\"meaning\":\"Packed per-index capability values consulted for selected type classes.\"},{\"offset\":174,\"meaning\":\"Bitmap of supported candidate indices.\"},{\"offset\":176,\"meaning\":\"Upper bound for candidate indices in several type classes.\"},{\"offset\":178,\"meaning\":\"Candidate-index limit used when scanning the bitmap at offset 174.\"},{\"offset\":181,\"meaning\":\"Flag that causes bit 9 to be added to selected encodings.\"},{\"offset\":195,\"meaning\":\"Flag consulted when handling the bit-14 boundary condition.\"}]}"
+}

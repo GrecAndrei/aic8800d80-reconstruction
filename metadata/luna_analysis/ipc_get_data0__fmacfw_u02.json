@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_get_data0",
+ "img": "fmacfw_u02",
+ "addr": "0x12ea44",
+ "seg": 42,
+ "key": "ipc_get_data0__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_get_data0\",\"confidence\":\"high\",\"docstring\":\"Returns the current value of the IPC data0 register.\",\"subsystem\":\"ipc\"}"
+}

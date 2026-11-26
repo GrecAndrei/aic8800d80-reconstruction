@@ -1,0 +1,9 @@
+{
+ "fn": "table_lookup_wrapper",
+ "img": "fmacfw_u02",
+ "addr": "0x1119dc",
+ "seg": 4,
+ "key": "table_lookup_wrapper__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lookup_table_entries_1_to_5\",\"confidence\":\"medium\",\"docstring\":\"Calls both table lookup routines for indices 1 through 5 and returns the second routine\u2019s result for index 5.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"i\":\"entry_index\",\"result\":\"last_lookup_result\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_poll_event_a",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11256c",
+ "seg": 4,
+ "key": "ke_poll_event_a__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_poll_event_usb_suspend\",\"confidence\":\"medium\",\"docstring\":\"Polls the USB suspend status bit, logs or dispatches the corresponding kernel event, and sets an event-processed flag.\",\"subsystem\":\"ke\",\"var_renames\":{},\"struct_hints\":[{\"offset\":178,\"meaning\":\"status-register offset whose bit 0x4000 indicates USB suspend\"}]}"
+}

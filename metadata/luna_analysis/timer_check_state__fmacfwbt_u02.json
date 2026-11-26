@@ -1,0 +1,9 @@
+{
+ "fn": "timer_check_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x118170",
+ "seg": 11,
+ "key": "timer_check_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"cfms_timer_check_state\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Timer expiration handler that checks a CFMS state object and, for state 2, queues a 12-byte CFMS message, increments an RF-calibration pending counter, and calls rf_calib_init.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"state_word\",\n    \"v3\": \"cfms_state\",\n    \"v6\": \"msg\",\n    \"v10\": \"node\",\n    \"v11\": \"slot_index\",\n    \"v13\": \"slot_offset\",\n    \"v16\": \"slot_ptr\",\n    \"v17\": \"pending_count_ptr\",\n    \"v18\": \"seq_num\",\n    \"v19\": \"state_val\",\n    \"v20\": \"pending_count\",\n    \"v21\": \"irq_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"sequence number logged as sn=%d\"\n    },\n    {\n      \"offset\": 84,\n      \"meaning\": \"signed timer/state field checked for expiration; low 30 bits copied into the message\"\n    }\n  ]\n}"
+}

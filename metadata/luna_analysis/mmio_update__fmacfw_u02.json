@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_update",
+ "img": "fmacfw_u02",
+ "addr": "0x122184",
+ "seg": 24,
+ "key": "mmio_update__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_config_apply\",\"confidence\":\"medium\",\"docstring\":\"Applies table-driven PHY register values, using caller-provided values for selected entries, then initializes related PHY state.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"register_ptr\",\"v2\":\"table_value_mask\",\"v3\":\"register_end\",\"v4\":\"config_values\",\"v5\":\"config_table\",\"v6\":\"table_value\",\"v8\":\"table_entry_low12\",\"v9\":\"phy_config_data\",\"v13\":\"timer_queue_state\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"start of the per-register configuration values consumed by the register table\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_check_state",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114e90",
+ "seg": 6,
+ "key": "bt_check_state__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_panic_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Logs a BT panic, sets a kernel event if the BT context state byte indicates an active state, then polls UART input and processes received bytes in a message loop.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"rx_byte\",\n    \"v1\": \"event\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 6,\n      \"meaning\": \"BT context state byte\"\n    }\n  ]\n}"
+}

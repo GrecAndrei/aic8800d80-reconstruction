@@ -1,0 +1,9 @@
+{
+ "fn": "msg_alloc_0x403",
+ "img": "fmacfw_u02",
+ "addr": "0x12efe0",
+ "seg": 42,
+ "key": "msg_alloc_0x403__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dbg_mem_write_send\",\"confidence\":\"medium\",\"docstring\":\"Processes a debug memory-write request, performing the write and recording its readback except in selected modes, then logs and sends the address/value pair in a 0x403 kernel message.\",\"subsystem\":\"hal\",\"var_renames\":{\"v5\":\"allocated_payload\",\"v6\":\"message_payload\",\"v7\":\"target_address_ptr\",\"v8\":\"target_address\",\"v9\":\"readback_value\",\"v10\":\"requested_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"target memory address\"},{\"offset\":4,\"meaning\":\"value to write\"}]}"
+}

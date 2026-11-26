@@ -1,0 +1,9 @@
+{
+ "fn": "tx_done_queue",
+ "img": "fmacfw_u02",
+ "addr": "0x13ba78",
+ "seg": 60,
+ "key": "tx_done_queue__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_adv_queue_select\",\"confidence\":\"medium\",\"docstring\":\"Returns the head entry's handle unless the oldest queued entry exceeds its per-slot timing threshold and its state field is clear, in which case it returns that oldest entry's handle.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"queue_head_ref\",\"v1\":\"first_queue_entry\",\"result\":\"selected_handle\",\"v3\":\"oldest_entry_age\",\"v4\":\"current_entry\",\"v5\":\"entry_timestamp\",\"v6\":\"entry_age\",\"v7\":\"selected_slot\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next queue entry pointer.\"},{\"offset\":8,\"meaning\":\"Timestamp used to calculate the entry's age.\"},{\"offset\":26,\"meaning\":\"Handle or slot index associated with the queue entry.\"},{\"offset\":4,\"meaning\":\"Per-slot state field gating age-based selection.\"},{\"offset\":14,\"meaning\":\"Per-slot timing threshold, scaled by 1024.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llc_evt_is_valid",
+ "img": "fmacfw_u02",
+ "addr": "0x12a04c",
+ "seg": 36,
+ "key": "llc_evt_is_valid__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_evt_check\",\"confidence\":\"medium\",\"docstring\":\"Checks the indexed LLC event record, optionally clears its non-0xFF marker, and decrements a shared counter when its state byte is 1.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"clear_event_marker\",\"v2\":\"llc_context_base\",\"v3\":\"event_record\"},\"struct_hints\":[{\"offset\":112,\"meaning\":\"Event-record state byte; value 1 triggers a decrement of the shared counter.\"},{\"offset\":113,\"meaning\":\"Event marker byte; 0xFF denotes an empty or invalid marker.\"}]}"
+}

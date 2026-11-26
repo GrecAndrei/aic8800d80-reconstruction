@@ -1,0 +1,9 @@
+{
+ "fn": "get_phy_status",
+ "img": "fmacfw_u02",
+ "addr": "0x11b490",
+ "seg": 17,
+ "key": "get_phy_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"txl_process_queue_event\",\"confidence\":\"medium\",\"docstring\":\"Handles an indexed TXL queue event by marking its context, checking queue-specific hardware status bits, and updating the corresponding queue state.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"queue_idx\",\"v1\":\"txl_context_base\",\"v2\":\"queue_entry\",\"v3\":\"queue_entry_state\",\"v6\":\"queue_hw_field_clear\",\"v7\":\"queue_status_ptr\"},\"struct_hints\":[{\"offset\":160,\"meaning\":\"TXL context enable flag\"},{\"offset\":24,\"meaning\":\"Per-index queue state or pointer, checked for zero and later assigned\"},{\"offset\":47,\"meaning\":\"Per-index byte flag set to 1 during event handling\"}]}"
+}

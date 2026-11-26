@@ -1,0 +1,9 @@
+{
+ "fn": "rf_read_rssi",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11cd68",
+ "seg": 19,
+ "key": "rf_read_rssi__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_read_rssi\",\"confidence\":\"medium\",\"docstring\":\"Reads a signed 16-bit RF RSSI sample from MMIO, logging invalid readings and clearing a pending status bit while returning a busy flag when that status bit is set; otherwise it returns the RSSI sample.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"rssi\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "fault_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x124e34",
+ "seg": 30,
+ "key": "fault_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_irq_guarded_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Runs a reentrant IRQ-masked dispatch, updating a shared status record for a matching value and forwarding nonmatching values to `cmd_handler_c`.\",\"subsystem\":\"ke\",\"var_renames\":{\"v1\":\"irq_nesting_count\",\"v2\":\"shared_value_slot\",\"v3\":\"argument_matches_shared_value\",\"v5\":\"remaining_irq_nesting\",\"v6\":\"irq_restore_pending\",\"v7\":\"status_record\",\"v8\":\"copied_field_value\",\"result\":\"handler_result\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Status or state word in the shared record; assigned different values depending on whether the referenced object is present.\"},{\"offset\":12,\"meaning\":\"Field read from the object referenced by the shared value and copied into the status record.\"},{\"offset\":48,\"meaning\":\"Destination field in the shared status record for the value read at offset 12.\"}]}"
+}

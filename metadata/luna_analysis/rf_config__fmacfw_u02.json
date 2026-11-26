@@ -1,0 +1,9 @@
+{
+ "fn": "rf_config",
+ "img": "fmacfw_u02",
+ "addr": "0x100b90",
+ "seg": 0,
+ "key": "rf_config__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_clear_config_bits\",\"confidence\":\"medium\",\"docstring\":\"Clears selected bits in several RF control registers, zeroes a byte-sized setting, and returns the address of the register whose bit 12 was cleared.\",\"subsystem\":\"rf\"}"
+}

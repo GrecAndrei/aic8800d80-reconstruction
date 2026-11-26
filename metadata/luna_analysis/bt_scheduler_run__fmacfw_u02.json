@@ -1,0 +1,9 @@
+{
+ "fn": "bt_scheduler_run",
+ "img": "fmacfw_u02",
+ "addr": "0x110c60",
+ "seg": 3,
+ "key": "bt_scheduler_run__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_scheduler_run\",\"confidence\":\"medium\",\"docstring\":\"Processes queued timed work items, waiting for MAC transmission at accumulated intervals while invoking the inquiry-state helper and maintaining IRQ-safe queue bookkeeping.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"scheduler_context\",\"v1\":\"critical_section_depth\",\"v2\":\"irq_restore_pending\",\"v3\":\"queue_head_slot\",\"v4\":\"schedule_entry\",\"v5\":\"step_count\",\"v6\":\"step_node\",\"v7\":\"step_index\",\"v8\":\"next_wait_index\",\"v9\":\"previous_step_index\",\"v10\":\"current_step\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Linked-list pointer to the first or next scheduled step\"},{\"offset\":8,\"meaning\":\"Number of scheduled steps in the entry\"},{\"offset\":11,\"meaning\":\"7-bit interval associated with a scheduled step\"},{\"offset\":3074,\"meaning\":\"Pending-work count in the scheduler context\"},{\"offset\":3080,\"meaning\":\"Head pointer for the queued schedule entries\"}]}"
+}

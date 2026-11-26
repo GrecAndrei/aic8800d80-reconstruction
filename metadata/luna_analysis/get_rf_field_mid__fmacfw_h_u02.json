@@ -1,0 +1,9 @@
+{
+ "fn": "get_rf_field_mid",
+ "img": "fmacfw_h_u02",
+ "addr": "0x101a2c",
+ "seg": 0,
+ "key": "get_rf_field_mid__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_rf_field_mid\",\"confidence\":\"high\",\"docstring\":\"Reads an RF MMIO register, extracts bits 4\u20137, and returns the extracted value minus one.\",\"subsystem\":\"rf\"}"
+}

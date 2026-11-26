@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_sync_2",
+ "img": "fmacfw_u02",
+ "addr": "0x111910",
+ "seg": 4,
+ "key": "mmio_sync_2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"configure_mmio_sync\",\"confidence\":\"medium\",\"docstring\":\"Programs the MMIO synchronization buffer, triggers and waits for the hardware handshake, then enables the associated path.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"sync_buffer\",\"v1\":\"sync_config_word\",\"v2\":\"mmio_regs\",\"result\":\"sync_request_status\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Synchronization request/control register; bit 5 is triggered and polled until cleared.\"},{\"offset\":2304,\"meaning\":\"Control register with synchronization-path enable bits.\"},{\"offset\":2312,\"meaning\":\"Register read and rewritten to flush or synchronize MMIO writes.\"},{\"offset\":2324,\"meaning\":\"Register receiving the synchronization buffer address.\"}]}"
+}

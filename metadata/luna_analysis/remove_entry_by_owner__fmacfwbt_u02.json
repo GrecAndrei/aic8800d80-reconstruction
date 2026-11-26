@@ -1,0 +1,9 @@
+{
+ "fn": "remove_entry_by_owner",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12876c",
+ "seg": 34,
+ "key": "remove_entry_by_owner__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_link_update_tx_power\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Searches the Bluetooth link table for an entry owned by the given context and updates its TX-power field, defaulting to 15 when no valid entry is present.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"conn_ctx\",\n    \"v1\": \"index\",\n    \"v2\": \"link_entry\",\n    \"v3\": \"entry_owner\",\n    \"v4\": \"tx_power\",\n    \"v5\": \"current_link\",\n    \"v6\": \"current_link\",\n    \"v7\": \"match_entry\",\n    \"v8\": \"tx_power_limit\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"TX power field updated from link table entry\"\n    },\n    {\n      \"offset\": 25,\n      \"meaning\": \"valid/active flag in connection context\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"owner/context pointer in link table entry\"\n    },\n    {\n      \"offset\": 109,\n      \"meaning\": \"first TX power candidate in link table entry\"\n    },\n    {\n      \"offset\": 110,\n      \"meaning\": \"second TX power candidate or limit in link table entry\"\n    }\n  ]\n}"
+}

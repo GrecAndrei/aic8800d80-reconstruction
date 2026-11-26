@@ -1,0 +1,9 @@
+{
+ "fn": "process_global_167204",
+ "img": "fmacfw_u02",
+ "addr": "0x114574",
+ "seg": 5,
+ "key": "process_global_167204__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_lp_level_power_error\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the LP-level power error event and conditionally clears associated control fields and resets a flag.\",\"subsystem\":\"rf\"}"
+}

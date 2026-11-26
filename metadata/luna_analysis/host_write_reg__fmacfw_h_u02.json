@@ -1,0 +1,9 @@
+{
+ "fn": "host_write_reg",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1076e4",
+ "seg": 2,
+ "key": "host_write_reg__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_adjust_tx_gain\",\"confidence\":\"medium\",\"docstring\":\"Converts the Q14 linear power input to dB, adjusts the configured gain relative to the calibration-table reference, and reloads the PHY table.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"power_q14\",\"a3\":\"phy_config\",\"v3\":\"gain_base\",\"v7\":\"power_db\",\"v8\":\"saturation_threshold\",\"v9\":\"sma_threshold\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Gain base used to calculate the adjusted transmit gain; overwritten with the result.\"}]}"
+}

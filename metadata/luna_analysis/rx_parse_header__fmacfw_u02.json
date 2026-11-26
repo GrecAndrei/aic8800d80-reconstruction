@@ -1,0 +1,9 @@
+{
+ "fn": "rx_parse_header",
+ "img": "fmacfw_u02",
+ "addr": "0x127ea4",
+ "seg": 33,
+ "key": "rx_parse_header__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_config_update\",\"confidence\":\"medium\",\"docstring\":\"Copies an indexed RF configuration record from the input buffer and reapplies radio settings when that record is active.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"record_index\",\"v3\":\"config_payload\",\"v4\":\"record_table_base\",\"v5\":\"active_record_ptr\",\"v6\":\"config_word_2\",\"v7\":\"record_ptr\",\"v8\":\"rf_lock_depth_ptr\",\"v9\":\"rf_lock_depth\",\"v10\":\"restore_interrupts\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"first copied 32-bit RF configuration value\"},{\"offset\":8,\"meaning\":\"second copied 32-bit RF configuration value\"},{\"offset\":12,\"meaning\":\"copied 16-bit RF configuration value; its low byte is passed to a helper\"}]}"
+}

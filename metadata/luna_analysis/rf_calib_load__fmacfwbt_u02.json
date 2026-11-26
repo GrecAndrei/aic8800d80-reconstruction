@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calib_load",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131734",
+ "seg": 44,
+ "key": "rf_calib_load__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_rf_calib_evt_post\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies a fixed 254-byte RF calibration payload into a static buffer and posts an HCI/IPC event (0x1403) with the provided parameters.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"calib_payload\",\n    \"a3\": \"evt_param2\",\n    \"a4\": \"evt_param1\"\n  },\n  \"struct_hints\": []\n}"
+}

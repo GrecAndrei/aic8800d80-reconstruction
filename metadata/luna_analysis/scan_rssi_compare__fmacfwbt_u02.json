@@ -1,0 +1,9 @@
+{
+ "fn": "scan_rssi_compare",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c7ac",
+ "seg": 41,
+ "key": "scan_rssi_compare__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"scan_rssi_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates a scan context by comparing a computed RSSI candidate against the stored RSSI, marks linked scan entries, and removes entries owned by the context.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"scan_ctx\",\n    \"v2\": \"stored_rssi\",\n    \"v3\": \"candidate_rssi\",\n    \"i\": \"scan_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 109,\n      \"meaning\": \"updated or selected RSSI byte\"\n    },\n    {\n      \"offset\": 110,\n      \"meaning\": \"stored or previous RSSI byte; 127 appears to be invalid/sentinel\"\n    },\n    {\n      \"offset\": 420,\n      \"meaning\": \"first raw RSSI component byte\"\n    },\n    {\n      \"offset\": 464,\n      \"meaning\": \"second raw RSSI component byte subtracted from offset 420\"\n    },\n    {\n      \"offset\": 240,\n      \"meaning\": \"first intrusive linked scan-entry pointer\"\n    },\n    {\n      \"offset\": 350,\n      \"meaning\": \"scan-entry flag byte; bit 0x10 is set by this routine\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"owner pointer passed to remove_entry_by_owner\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_pin7",
+ "img": "fmacfw_u02",
+ "addr": "0x10cca4",
+ "seg": 2,
+ "key": "gpio_set_pin7__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_set_pin7\",\"confidence\":\"high\",\"docstring\":\"Writes the 0x80 mask to the GPIO register associated with pin 7.\",\"subsystem\":\"hal\",\"var_renames\":{},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_global_166e84",
+ "img": "fmacfw_u02",
+ "addr": "0x1130c4",
+ "seg": 4,
+ "key": "get_global_166e84__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_mmio_register_ptr\",\"confidence\":\"medium\",\"docstring\":\"Returns a pointer to a fixed volatile 32-bit memory-mapped location.\",\"subsystem\":\"hal\"}"
+}

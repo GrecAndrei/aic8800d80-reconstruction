@@ -1,0 +1,9 @@
+{
+ "fn": "wait_for_tx_ready",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1238e0",
+ "seg": 23,
+ "key": "wait_for_tx_ready__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_fcs_error_stats_update\",\"confidence\":\"medium\",\"docstring\":\"Reads and validates FCS/other error counters, reports anomaly codes or packet error rate, and updates saved counter state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"prev_fcs_ok_ptr\",\"v1\":\"prev_fcs_err_ptr\",\"v2\":\"other_err_ptr\",\"v3\":\"curr_fcs_ok\",\"v19\":\"curr_fcs_err\",\"v4\":\"fcs_ok_delta\",\"v5\":\"fcs_err_delta\",\"v6\":\"other_err_count\",\"v8\":\"err_code\",\"v20\":\"err_code\",\"v10\":\"err_code\",\"v11\":\"total_delta\",\"v12\":\"valid_total\",\"v13\":\"err_code\",\"v14\":\"report_init_flag_ptr\",\"v16\":\"fcs_only_err_delta\",\"v17\":\"per_int_part\"}}"
+}

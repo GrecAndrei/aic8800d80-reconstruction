@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_flag",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13eb30",
+ "seg": 61,
+ "key": "rf_check_flag__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_update_channel_selection\",\"confidence\":\"medium\",\"docstring\":\"Honors channel-selection guards and countdowns, then selects an eligible channel from the configured range when dynamic selection is enabled.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"state_flags\",\"v5\":\"current_channel_index\",\"v23\":\"upper_channel_index\",\"v24\":\"lower_channel_index\",\"v43\":\"selected_channel_index\"},\"struct_hints\":[{\"offset\":136,\"meaning\":\"Channel index used to access a 12-byte channel record\"},{\"offset\":138,\"meaning\":\"Alternate channel index used to access a 12-byte channel record\"},{\"offset\":152,\"meaning\":\"Selection countdown timer\"},{\"offset\":166,\"meaning\":\"Channel-selection mode and guard flags\"},{\"offset\":174,\"meaning\":\"Channel eligibility bitmap\"},{\"offset\":177,\"meaning\":\"Lower bound of the channel-index range\"},{\"offset\":178,\"meaning\":\"Upper bound of the channel-index range\"}]}"
+}

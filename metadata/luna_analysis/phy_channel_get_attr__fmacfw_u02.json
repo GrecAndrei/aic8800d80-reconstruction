@@ -1,0 +1,9 @@
+{
+ "fn": "phy_channel_get_attr",
+ "img": "fmacfw_u02",
+ "addr": "0x1190b4",
+ "seg": 12,
+ "key": "phy_channel_get_attr__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_tx_path_configure\",\"confidence\":\"medium\",\"docstring\":\"Populates the selected channel's transmit-path configuration and returns whether the path-status check succeeds.\",\"subsystem\":\"phy\",\"var_renames\":{\"v11\":\"phy_context_index\",\"v19\":\"channel_phy_context\",\"v22\":\"tx_path_config\",\"v31\":\"tx_path_context\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Pointer to the transmit-path configuration block.\"},{\"offset\":124,\"meaning\":\"Mode word formed from arguments a2 and a3.\"},{\"offset\":132,\"meaning\":\"Packed control word combining input parameters and channel-context flags.\"}]}"
+}

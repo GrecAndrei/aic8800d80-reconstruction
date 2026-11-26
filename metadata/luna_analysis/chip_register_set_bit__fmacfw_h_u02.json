@@ -1,0 +1,9 @@
+{
+ "fn": "chip_register_set_bit",
+ "img": "fmacfw_h_u02",
+ "addr": "0x129388",
+ "seg": 34,
+ "key": "chip_register_set_bit__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ps_upm_exit\",\"confidence\":\"medium\",\"docstring\":\"Performs the PS UPM exit sequence by updating its control registers and conditionally clearing a power-save bit.\",\"subsystem\":\"mac\"}"
+}

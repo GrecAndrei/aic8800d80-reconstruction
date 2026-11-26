@@ -1,0 +1,9 @@
+{
+ "fn": "channel_table_lookup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11c3b8",
+ "seg": 18,
+ "key": "channel_table_lookup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sta_rate_status_update\",\"confidence\":\"medium\",\"docstring\":\"For an eligible indexed entry, conditionally stores the supplied value, sets its update marker, and returns the value unchanged.\",\"subsystem\":\"sta\",\"var_renames\":{\"a2\":\"entry_index\",\"result\":\"value\",\"v2\":\"table_base\",\"v3\":\"entry\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Nonzero gate for processing the entry\"},{\"offset\":36,\"meaning\":\"Receives the supplied value when the offset-46 gate is nonzero\"},{\"offset\":45,\"meaning\":\"Update marker set to 1\"},{\"offset\":46,\"meaning\":\"Nonzero gate for storing the supplied value\"}]}"
+}

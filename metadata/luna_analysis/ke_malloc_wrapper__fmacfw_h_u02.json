@@ -1,0 +1,9 @@
+{
+ "fn": "ke_malloc_wrapper",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1321e4",
+ "seg": 45,
+ "key": "ke_malloc_wrapper__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_schedule_state\",\"confidence\":\"low\",\"docstring\":\"Schedules an event for the supplied state, sends that state in a one-byte message, and updates a fixed RF control field.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"message_payload\"}}"
+}

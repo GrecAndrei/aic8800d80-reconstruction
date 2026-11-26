@@ -1,0 +1,9 @@
+{
+ "fn": "map_event_type",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x112ef4",
+ "seg": 5,
+ "key": "map_event_type__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_event_params\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects a pointer to an RF parameter/status block for a given event type, preparing the type-1 block from a template and optionally patching a value derived from RF register 2.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"event_type\",\n    \"v2\": \"rf_params\",\n    \"v4\": \"rf_reg2\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"uint32 field in the RF parameter block patched using the high halfword of rf_get_reg2()\"\n    },\n    {\n      \"offset\": 370,\n      \"meaning\": \"byte flag in a global RF/status structure that enables the register-based patch\"\n    }\n  ]\n}"
+}

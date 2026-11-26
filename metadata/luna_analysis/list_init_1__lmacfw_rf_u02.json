@@ -1,0 +1,9 @@
+{
+ "fn": "list_init_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e71c",
+ "seg": 20,
+ "key": "list_init_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"co_list_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Zero the two fields of an RW co_list header, typically head and tail, and return the initialized list pointer.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"result\": \"list\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"list_head\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"list_tail\"\n    }\n  ]\n}"
+}

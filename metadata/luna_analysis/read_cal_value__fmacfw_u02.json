@@ -1,0 +1,9 @@
+{
+ "fn": "read_cal_value",
+ "img": "fmacfw_u02",
+ "addr": "0x12b540",
+ "seg": 39,
+ "key": "read_cal_value__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_machw_idle_irq_handler\",\"confidence\":\"medium\",\"docstring\":\"Checks the MAC hardware state and, when status bit 7 is set, clears it and bit 2 in an adjacent control register before signaling event 0x02000000.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"reg_base\",\"v1\":\"masked_control_value\"}}"
+}

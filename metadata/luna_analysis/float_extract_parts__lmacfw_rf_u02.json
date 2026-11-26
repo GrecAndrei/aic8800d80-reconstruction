@@ -1,0 +1,9 @@
+{
+ "fn": "float_extract_parts",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e964",
+ "seg": 21,
+ "key": "float_extract_parts__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"float_log2_bits\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Approximates log2 of a positive IEEE single-precision number supplied as raw 32-bit bits by extracting the exponent and applying a piecewise-linear correction to the mantissa.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"float_bits\",\n    \"v1\": \"mantissa_bits\",\n    \"v2\": \"mantissa_as_uint\",\n    \"v3\": \"exponent_field\",\n    \"v4\": \"log2_mantissa_term\",\n    \"result\": \"return_bits\"\n  },\n  \"struct_hints\": []\n}"
+}

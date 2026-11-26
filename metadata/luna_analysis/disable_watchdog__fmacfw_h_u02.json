@@ -1,0 +1,9 @@
+{
+ "fn": "disable_watchdog",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11ea84",
+ "seg": 20,
+ "key": "disable_watchdog__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"disable_watchdog\",\"confidence\":\"medium\",\"docstring\":\"Clears the watchdog control bit, masks its interrupt source, and waits for RF-register completion when required.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"control_reg\",\"result\":\"irq_state\"}}"
+}

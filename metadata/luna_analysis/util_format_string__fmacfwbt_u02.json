@@ -1,0 +1,9 @@
+{
+ "fn": "util_format_string",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c6ac",
+ "seg": 41,
+ "key": "util_format_string__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_llm_issue_cmd\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Passes a command byte to the Bluetooth link-layer manager handler and writes the returned status and result bytes into an MMIO control register.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"cmd\",\n    \"v3\": \"llm_cmd_buf\",\n    \"v4\": \"status_out\",\n    \"v5\": \"result_out\",\n    \"v2\": \"llm_cmd_reg\",\n    \"result\": \"rc\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"command byte or LLM message buffer input\"\n    },\n    {\n      \"offset\": 7,\n      \"meaning\": \"handler status byte written to register bits 8-15\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"handler result byte written to register bits 0-7\"\n    }\n  ]\n}"
+}

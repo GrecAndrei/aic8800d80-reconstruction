@@ -1,0 +1,9 @@
+{
+ "fn": "tx_timeout_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11e540",
+ "seg": 21,
+ "key": "tx_timeout_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_tx_timestamp_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a packet descriptor, updates the associated TX timestamp or timeout control word and hardware timestamp register, then invokes RF timestamp checking.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v1\": \"desc\",\n    \"v2\": \"ctrl_flags\",\n    \"v3\": \"frame_type\",\n    \"v4\": \"timestamp\",\n    \"v5\": \"reg_base\",\n    \"v6\": \"timeout_reg_word\",\n    \"v10\": \"trace_msg\",\n    \"v11\": \"trace_line\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"descriptor pointer, asserted absent or unexpectedly present depending on packet context\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"descriptor-present or packet-context flag\"\n    },\n    {\n      \"offset\": 84,\n      \"meaning\": \"control/flag word containing timestamp update, reorder, and event-related bits\"\n    },\n    {\n      \"offset\": 152,\n      \"meaning\": \"computed TX timestamp or timeout value for the packet context\"\n    },\n    {\n      \"offset\": 160,\n      \"meaning\": \"fallback timestamp base or address used when no descriptor is present\"\n    }\n  ]\n}"
+}

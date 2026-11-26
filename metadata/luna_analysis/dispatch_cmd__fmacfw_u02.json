@@ -1,0 +1,9 @@
+{
+ "fn": "dispatch_cmd",
+ "img": "fmacfw_u02",
+ "addr": "0x10a764",
+ "seg": 2,
+ "key": "dispatch_cmd__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_select_gain_fit_candidate\",\"confidence\":\"medium\",\"docstring\":\"Evaluates gain-fit candidates and returns the selected candidate code, logging a fit failure when the extended search finds none.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"gain\",\"v17\":\"selected_candidate_index\"}}"
+}

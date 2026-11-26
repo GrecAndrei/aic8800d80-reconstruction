@@ -1,0 +1,9 @@
+{
+ "fn": "get_constant_1000",
+ "img": "fmacfw_u02",
+ "addr": "0x1019f0",
+ "seg": 0,
+ "key": "get_constant_1000__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_constant_1000\",\"confidence\":\"high\",\"docstring\":\"Returns the constant value 1000.\",\"subsystem\":\"rf\"}"
+}

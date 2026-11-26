@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_bit_1",
+ "img": "fmacfw_u02",
+ "addr": "0x116f34",
+ "seg": 9,
+ "key": "mmio_set_bit_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_dma_channel_reset\",\"confidence\":\"medium\",\"docstring\":\"Pulses the reset request for the selected DMA channel and waits for its hardware status field to become idle.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"channel_id\",\"v1\":\"channel_state_mask\",\"v2\":\"channel_bit\",\"v9\":\"dma_status_reg\",\"v10\":\"dma_status_reg\",\"v11\":\"dma_status_reg\",\"v12\":\"dma_status_reg\",\"v13\":\"dma_status_reg\",\"v14\":\"dma_status_reg\"}}"
+}

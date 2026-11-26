@@ -1,0 +1,9 @@
+{
+ "fn": "parse_len_value",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12211c",
+ "seg": 22,
+ "key": "parse_len_value__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"parse_goto_value\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses command arguments into a target function pointer or PC, optionally dereferences it, logs the goto and PC values, programs related control registers, and tail-calls the target handler.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"arg_count\",\n    \"a2\": \"arg_block\",\n    \"v3\": \"mode_flag\",\n    \"v4\": \"target_func\",\n    \"v5\": \"jump_arg\",\n    \"v6\": \"reg_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"first command argument string pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"second command argument string pointer\"\n    }\n  ]\n}"
+}

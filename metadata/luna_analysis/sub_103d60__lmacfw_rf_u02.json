@@ -1,0 +1,9 @@
+{
+ "fn": "sub_103d60",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103d60",
+ "seg": 2,
+ "key": "sub_103d60__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_calc_table_index\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Calculates a wrapped RF calibration-table index from a global table state, a retrieved table-pointer parity, and two selection inputs.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"global_rf_table_index\",\n    \"v4\": \"rf_table_entry_index\",\n    \"result\": \"rf_table_index\"\n  },\n  \"struct_hints\": []\n}"
+}

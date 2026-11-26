@@ -1,0 +1,9 @@
+{
+ "fn": "rf_save_cal_values",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13a54c",
+ "seg": 59,
+ "key": "rf_save_cal_values__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_save_cal_values\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Conditionally stores three RF calibration values into an RF instance record and marks the save/valid flag if it has not already been set.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"cal_obj\",\n    \"result\": \"cal_values\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 108,\n      \"meaning\": \"saved RF calibration value 0\"\n    },\n    {\n      \"offset\": 110,\n      \"meaning\": \"saved RF calibration value 1\"\n    },\n    {\n      \"offset\": 112,\n      \"meaning\": \"saved RF calibration value 2\"\n    },\n    {\n      \"offset\": 114,\n      \"meaning\": \"valid/save marker word; low byte unused, high byte set by 0x0100\"\n    },\n    {\n      \"offset\": 115,\n      \"meaning\": \"RF calibration saved/valid flag byte\"\n    }\n  ]\n}"
+}

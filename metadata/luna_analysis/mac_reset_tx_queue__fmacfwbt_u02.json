@@ -1,0 +1,9 @@
+{
+ "fn": "mac_reset_tx_queue",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13afc0",
+ "seg": 60,
+ "key": "mac_reset_tx_queue__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_reset_tx_queue\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reset a MAC transmit queue context by clearing two 32-bit queue registers, setting bit 0 in its 16-bit control field, and then preparing the frame through the transmit path.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"tx_queue_ctx\",\n    \"a2\": \"tx_frame_arg\",\n    \"v2\": \"tx_queue_ctrl\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 30,\n      \"meaning\": \"volatile TX queue control/status field; bit 0 is set during reset/prepare\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"volatile TX queue 32-bit state register cleared before frame preparation\"\n    },\n    {\n      \"offset\": 80,\n      \"meaning\": \"volatile TX queue 32-bit state register cleared before frame preparation\"\n    }\n  ]\n}"
+}

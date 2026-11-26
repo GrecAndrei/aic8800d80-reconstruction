@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1414ac",
+ "seg": 65,
+ "key": "ke_timer_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_timer_check\",\"confidence\":\"high\",\"docstring\":\"Checks the current kernel timer entry and dispatches its event when the entry is eligible.\",\"subsystem\":\"ke\",\"var_renames\":{\"v1\":\"timer_env\",\"v2\":\"timer_index\",\"v4\":\"timer_entry\"},\"struct_hints\":[{\"offset\":6336,\"meaning\":\"Start of timer-entry array; entries are 136 bytes apart\"},{\"offset\":6480,\"meaning\":\"Current timer index, with a negative value used as a sentinel\"},{\"offset\":2,\"meaning\":\"Timer-entry state code; value 5 selects special handling\"},{\"offset\":3,\"meaning\":\"Timer-entry dispatch status; values up to 1 are eligible\"}]}"
+}

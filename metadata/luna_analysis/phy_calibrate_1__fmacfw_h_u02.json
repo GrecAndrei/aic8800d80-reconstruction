@@ -1,0 +1,9 @@
+{
+ "fn": "phy_calibrate_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117ffc",
+ "seg": 11,
+ "key": "phy_calibrate_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"txl_process_confirmations\",\"confidence\":\"medium\",\"docstring\":\"Processes pending transmit-confirmation entries for the selected queue while protecting shared queue state.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"confirmation_queue\",\"v2\":\"event_mask\",\"v4\":\"confirmation_entry\",\"v5\":\"irq_nesting_count\"}}"
+}

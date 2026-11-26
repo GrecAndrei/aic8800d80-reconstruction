@@ -1,0 +1,9 @@
+{
+ "fn": "call_packet_helper",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119b4c",
+ "seg": 13,
+ "key": "call_packet_helper__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"tx_packet_check_wrapper\", \"confidence\": \"low\", \"docstring\": \"Wrapper that calls a packet-check routine with the second and fourth arguments and returns zero.\", \"subsystem\": \"ble\", \"var_renames\": {}, \"struct_hints\": []}"
+}

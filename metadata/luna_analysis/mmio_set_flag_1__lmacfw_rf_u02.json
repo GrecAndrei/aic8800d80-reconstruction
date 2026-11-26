@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_flag_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1248a4",
+ "seg": 23,
+ "key": "mmio_set_flag_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_pump_event_flag\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sets an initialization flag, then either dispatches a pending event or runs the kernel event loop for event 144 before recording completion and copying an event result.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"event_flag_ptr\",\n    \"v1\": \"event_result_ptr\",\n    \"v2\": \"event_result_value\"\n  },\n  \"struct_hints\": []\n}"
+}

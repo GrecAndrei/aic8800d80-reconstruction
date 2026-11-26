@@ -1,0 +1,9 @@
+{
+ "fn": "sys_command_40d",
+ "img": "fmacfw_u02",
+ "addr": "0x10f90c",
+ "seg": 3,
+ "key": "sys_command_40d__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_message_0x40d\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends message 0x40D with an 8-byte payload from task 13 to task 1, returning the send helper's result.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"message\"}}"
+}

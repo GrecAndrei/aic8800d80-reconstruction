@@ -1,0 +1,9 @@
+{
+ "fn": "strcpy",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1287dc",
+ "seg": 23,
+ "key": "strcpy__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"strcpy\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Copies a null-terminated source string into the destination buffer.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

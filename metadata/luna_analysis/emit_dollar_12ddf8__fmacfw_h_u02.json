@@ -1,0 +1,9 @@
+{
+ "fn": "emit_dollar_12ddf8",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ddf8",
+ "seg": 42,
+ "key": "emit_dollar_12ddf8__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_dollar_value\",\"confidence\":\"medium\",\"docstring\":\"Parses a value using the `$`-tagged range check, accepts values from 9 through 18, and stores the value minus 3.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"input\",\"a2\":\"input_length\",\"a3\":\"output_value\",\"v5\":\"parsed_value\"}}"
+}

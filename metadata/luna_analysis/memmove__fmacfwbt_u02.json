@@ -1,0 +1,9 @@
+{
+ "fn": "memmove",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143940",
+ "seg": 69,
+ "key": "memmove__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"memmove\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Safely copies a buffer of specified length from source to destination, handling overlapping regions and optimizing aligned transfers with word copies.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"dest\",\n    \"a2\": \"src\",\n    \"a3\": \"len\",\n    \"v3\": \"src_end\",\n    \"v4\": \"dest_end\",\n    \"v6\": \"dest\",\n    \"v7\": \"len_minus_1\",\n    \"v8\": \"src_block_end\",\n    \"v11\": \"src_word\",\n    \"v12\": \"dst_word\",\n    \"v13\": \"word_blocks\",\n    \"v18\": \"tail_src_ptr\",\n    \"v19\": \"tail_word\"\n  },\n  \"struct_hints\": []\n}"
+}

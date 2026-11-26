@@ -1,0 +1,9 @@
+{
+ "fn": "send_data_packet",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x112c20",
+ "seg": 4,
+ "key": "send_data_packet__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_data_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks RF send/busy state flags, clears an RF context control field, and submits the packet parameters to rf_channel_update while handling late busy conditions.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"busy_flag\",\n    \"v3\": \"send_state_flag\",\n    \"v4\": \"rf_context_base\",\n    \"v5\": \"rf_channel_ret\",\n    \"v6\": \"rf_channel_ret\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2864,\n      \"meaning\": \"RF context/control word cleared during send setup with mask 0xE007FFFF\"\n    }\n  ]\n}"
+}

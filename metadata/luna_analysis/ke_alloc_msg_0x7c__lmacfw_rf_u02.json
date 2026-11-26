@@ -1,0 +1,9 @@
+{
+ "fn": "ke_alloc_msg_0x7c",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1197dc",
+ "seg": 13,
+ "key": "ke_alloc_msg_0x7c__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_msg_build_driver_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds and dispatches a two-byte ke status message for driver start/stop, deriving RF vendor information and 5G/software-enable state.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v5\": \"msg_body\",\n    \"a1a\": \"rf_vendor_info_buf\",\n    \"v6\": \"vendor_info_byte\",\n    \"v7\": \"rf_state_base\",\n    \"v8\": \"sw_en\",\n    \"v9\": \"is_5g\",\n    \"v11\": \"alt_vendor_info_byte\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"driver start/stop flag\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"vendor_info source selector\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"vendor_info byte used when selector is clear\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"5G enable flag\"\n    },\n    {\n      \"offset\": 188,\n      \"meaning\": \"RF/driver state byte for sw_en or 5G status\"\n    },\n    {\n      \"offset\": 178,\n      \"meaning\": \"RF/driver state word; bit 14 appears to force or mark 5G mode\"\n    }\n  ]\n}"
+}

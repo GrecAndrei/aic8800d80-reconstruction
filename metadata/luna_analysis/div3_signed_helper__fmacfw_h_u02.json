@@ -1,0 +1,9 @@
+{
+ "fn": "div3_signed_helper",
+ "img": "fmacfw_h_u02",
+ "addr": "0x107da4",
+ "seg": 2,
+ "key": "div3_signed_helper__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"populate_3x3_sample_grid\",\"confidence\":\"medium\",\"docstring\":\"Generates a 3\u00d73 sample grid around the supplied x/y centers and stores its coordinates in separate nine-element arrays.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"grid_data\",\"v1\":\"y_span\",\"v2\":\"y_step\",\"v3\":\"y_start\",\"v4\":\"x_step\",\"result\":\"output_cursor\",\"v9\":\"x_coordinate\",\"v10\":\"x_output_ptr\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"x span used to compute the grid spacing\"},{\"offset\":4,\"meaning\":\"y span used to compute the grid spacing\"},{\"offset\":8,\"meaning\":\"x center coordinate\"},{\"offset\":12,\"meaning\":\"y center coordinate\"},{\"offset\":16,\"meaning\":\"start of the nine generated x coordinates\"},{\"offset\":52,\"meaning\":\"start of the nine generated y coordinates\"}]}"
+}

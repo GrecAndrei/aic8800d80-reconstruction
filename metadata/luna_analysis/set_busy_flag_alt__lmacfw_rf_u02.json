@@ -1,0 +1,9 @@
+{
+ "fn": "set_busy_flag_alt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e5e0",
+ "seg": 20,
+ "key": "set_busy_flag_alt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_busy_flag_atomic\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Atomically sets bits in a global busy-flag state while managing the interrupt-lock condition.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"busy_mask\",\n    \"result\": \"updated_busy_mask\",\n    \"v2\": \"busy_flag_ptr\",\n    \"v6\": \"irq_lock_ptr\",\n    \"v7\": \"irq_lock_state\"\n  }\n}"
+}

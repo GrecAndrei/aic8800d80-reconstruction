@@ -1,0 +1,9 @@
+{
+ "fn": "core_rev_read",
+ "img": "fmacfw_u02",
+ "addr": "0x1178c8",
+ "seg": 10,
+ "key": "core_rev_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_core_revision_read\",\"confidence\":\"medium\",\"docstring\":\"Reads the masked PHY core configuration, conditionally enables the radio clock, dispatches the encoded revision index, and caches the configuration.\",\"subsystem\":\"phy\",\"var_renames\":{\"v0\":\"masked_core_config\",\"result\":\"revision_result\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "handle_state_change",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123020",
+ "seg": 22,
+ "key": "handle_state_change__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_ctrl_ef_he_off\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Controls the ef_he_off RF bit by reading it when the operation argument is zero and setting it when one, logging the resulting bit value and rejecting other arguments with -21.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"ef_he_off_after_set\",\n    \"v3\": \"ef_he_off_read\",\n    \"a1\": \"do_set\"\n  },\n  \"struct_hints\": []\n}"
+}

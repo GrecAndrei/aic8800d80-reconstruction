@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_tx_check",
+ "img": "fmacfw_u02",
+ "addr": "0x129c60",
+ "seg": 35,
+ "key": "wlc_tx_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_tx_state_check\",\"confidence\":\"medium\",\"docstring\":\"Advances the context state and, for states 1 or 2, invokes the RX processor, dispatching a worker with the embedded context and saved word in state 2.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"state\",\"v2\":\"context\",\"v3\":\"worker_arg\"},\"struct_hints\":[{\"offset\":96,\"meaning\":\"embedded context passed to the worker\"},{\"offset\":114,\"meaning\":\"processing state byte\"},{\"offset\":116,\"meaning\":\"word passed as the worker argument\"}]}"
+}

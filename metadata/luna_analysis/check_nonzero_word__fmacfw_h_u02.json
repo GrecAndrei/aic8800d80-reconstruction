@@ -1,0 +1,9 @@
+{
+ "fn": "check_nonzero_word",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1093d8",
+ "seg": 2,
+ "key": "check_nonzero_word__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"insert_sorted_u32_descending\",\"confidence\":\"medium\",\"docstring\":\"Inserts a 32-bit value into a descending-order word array, shifting later entries right or appending when no existing entry is less than or equal to it.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"value\",\"a3\":\"words\",\"v3\":\"next_index\",\"v4\":\"current_slot\",\"v5\":\"shift_start\",\"v6\":\"shift_cursor\"}}"
+}

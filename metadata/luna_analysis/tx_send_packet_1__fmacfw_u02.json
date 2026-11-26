@@ -1,0 +1,9 @@
+{
+ "fn": "tx_send_packet_1",
+ "img": "fmacfw_u02",
+ "addr": "0x139ab0",
+ "seg": 58,
+ "key": "tx_send_packet_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_scan_rx_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Applies scan/address filtering to a received BLE packet and dispatches the resulting scan event through a kernel message.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"packet_data\",\"v10\":\"packet_length\",\"v17\":\"scan_filter_entry\",\"v18\":\"scan_filter_id\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"pointer to receive-buffer context\"},{\"offset\":48,\"meaning\":\"received packet length in bytes\"},{\"offset\":84,\"meaning\":\"frame flags; bits 0x600 gate wildcard address lookup\"}]}"
+}

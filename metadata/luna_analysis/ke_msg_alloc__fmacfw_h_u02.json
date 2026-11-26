@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_alloc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x135838",
+ "seg": 53,
+ "key": "ke_msg_alloc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_msg_alloc_and_process\",\"confidence\":\"medium\",\"docstring\":\"Allocates a message buffer, writes its type and payload length, copies the payload, and passes the completed buffer through the message-processing path.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"message_type\",\"a2\":\"payload\",\"a3\":\"payload_len\",\"v9\":\"message_buffer\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Message type byte\"},{\"offset\":2,\"meaning\":\"Payload length (16-bit)\"},{\"offset\":4,\"meaning\":\"Payload bytes\"}]}"
+}

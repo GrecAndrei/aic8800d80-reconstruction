@@ -1,0 +1,9 @@
+{
+ "fn": "controller_status_byte",
+ "img": "fmacfw_u02",
+ "addr": "0x12a46c",
+ "seg": 37,
+ "key": "controller_status_byte__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_conn_status_check\",\"confidence\":\"medium\",\"docstring\":\"Returns the default status unless the LLC gates permit scanning, then reports whether the first matching connection has a zero status byte in the indexed connection table.\",\"subsystem\":\"ble\",\"var_renames\":{\"result\":\"status\",\"v1\":\"conn_env\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Pointer to the indexed connection table\"},{\"offset\":8,\"meaning\":\"Connection-list head\"},{\"offset\":17,\"meaning\":\"Nonzero gate that causes an immediate zero return\"},{\"offset\":18,\"meaning\":\"Scan proceeds only when this byte is at most 1\"},{\"offset\":0,\"meaning\":\"Next link in the connection list\"},{\"offset\":106,\"meaning\":\"Connection state compared with 2\"},{\"offset\":1224,\"meaning\":\"Marker required to be nonzero for a match\"},{\"offset\":1225,\"meaning\":\"Index into 140-byte connection-table entries\"},{\"offset\":133,\"meaning\":\"Per-entry status byte tested for zero\"}]}"
+}

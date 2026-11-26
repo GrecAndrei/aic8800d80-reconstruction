@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x137024",
+ "seg": 57,
+ "key": "rf_cmd_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_scan_idle_cancel_cfm\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates and sends the scan idle cancel confirmation HCI event using a status word from the RF/status block, then traces that value.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"status_words\",\n    \"v1\": \"evt\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3848,\n      \"meaning\": \"uint16_t scan idle cancel confirmation/status value\"\n    }\n  ]\n}"
+}

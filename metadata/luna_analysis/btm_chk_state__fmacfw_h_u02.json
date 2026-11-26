@@ -1,0 +1,9 @@
+{
+ "fn": "btm_chk_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x119124",
+ "seg": 12,
+ "key": "btm_chk_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_probe_response\",\"confidence\":\"high\",\"docstring\":\"Builds and queues an 802.11 probe response for the AP vif addressed to the supplied destination MAC.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"vif\",\"a2\":\"destination_mac\",\"v10\":\"tx_descriptor\",\"v11\":\"frame\",\"v13\":\"sequence_counter\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Transmit descriptor: pointer to frame storage.\"},{\"offset\":100,\"meaning\":\"Vif MAC address (six bytes).\"},{\"offset\":106,\"meaning\":\"Vif type; this function requires type 2.\"},{\"offset\":107,\"meaning\":\"Vif index.\"}]}"
+}

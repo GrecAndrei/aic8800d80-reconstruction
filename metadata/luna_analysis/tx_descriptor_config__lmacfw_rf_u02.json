@@ -1,0 +1,9 @@
+{
+ "fn": "tx_descriptor_config",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12686c",
+ "seg": 23,
+ "key": "tx_descriptor_config__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_config_apply\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans and patches selected bit fields in a 128-byte RF configuration table according to a mode argument, then commits the stored control value via rf_ctrl_set.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"mode\",\n    \"v1\": \"rf_cfg_base\",\n    \"v2\": \"entry_ptr\",\n    \"v3\": \"mode_off_clear_mask\",\n    \"v4\": \"mode_off_set_value\",\n    \"v5\": \"mode_on_clear_mask\",\n    \"v6\": \"table_end\",\n    \"v7\": \"mode_on_set_bits\",\n    \"v8\": \"entry_value\",\n    \"v11\": \"field_nibble\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 36,\n      \"meaning\": \"RF configuration flag byte controlling whether the table update path is taken\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"RF control value passed to rf_ctrl_set after the configuration table is updated\"\n    }\n  ]\n}"
+}

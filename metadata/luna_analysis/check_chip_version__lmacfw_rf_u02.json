@@ -1,0 +1,9 @@
+{
+ "fn": "check_chip_version",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1233cc",
+ "seg": 23,
+ "key": "check_chip_version__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_update_calibration_data\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates an RF calibration table from a byte-array parameter when its identifier matches an expected value, writes an RF control register, and accumulates a calibration scale/error as a float.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"calib_data\",\n    \"v1\": \"expected_id\",\n    \"v2\": \"cal_scale_exp\",\n    \"v3\": \"cal_raw_value\",\n    \"v4\": \"cal_table_base\",\n    \"v5\": \"global_counter_ptr\",\n    \"v7\": \"table_entry\",\n    \"v8\": \"old_counter\",\n    \"v9\": \"counter_delta\",\n    \"v11\": \"raw_value_f\",\n    \"result\": \"scale_f\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"calibration entry word assembled from input bytes 4 and 5\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"calibration entry sample counter byte\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"calibration entry byte copied from input byte 6\"\n    }\n  ]\n}"
+}

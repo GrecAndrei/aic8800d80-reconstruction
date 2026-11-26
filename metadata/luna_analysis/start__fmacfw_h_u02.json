@@ -1,0 +1,9 @@
+{
+ "fn": "start",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1001a8",
+ "seg": 0,
+ "key": "start__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"boot_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Selects the normal or tagged alternate boot vector, installs its stack pointer, and transfers control to its entry point.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"handoff_stack_pointer\",\"v1\":\"handoff_entry_address\"}}"
+}

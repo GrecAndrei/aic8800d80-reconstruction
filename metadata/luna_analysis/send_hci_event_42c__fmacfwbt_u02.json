@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_event_42c",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f318",
+ "seg": 43,
+ "key": "send_hci_event_42c__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"reboot_event_loop\",\"confidence\":\"medium\",\"docstring\":\"Schedules the reboot kernel event, locks/acquires the reboot control identifier 0x42C, and enters the task polling loop.\",\"subsystem\":\"ke\",\"var_renames\":{},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "build_tx_packet_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x141ee4",
+ "seg": 68,
+ "key": "build_tx_packet_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_build_tx_packet_2\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Clears a Bluetooth connection-environment entry flag, updates timing state, and fetches the selected connection environment for the second TX-packet build variant.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v2\": \"env_index\",\n    \"v3\": \"conn_state_flags\",\n    \"v4\": \"env_table_base\",\n    \"v6\": \"env_entry\",\n    \"v7\": \"timestamp_deadline\",\n    \"v9\": \"elapsed_time\",\n    \"i\": \"selected_env_index\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint16 conn_state_flags\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"uint32 timestamp_step\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"uint64 timestamp_deadline\"\n    },\n    {\n      \"offset\": 47,\n      \"meaning\": \"uint8 env_index\"\n    },\n    {\n      \"offset\": 52,\n      \"meaning\": \"event_lock_reference\"\n    }\n  ]\n}"
+}

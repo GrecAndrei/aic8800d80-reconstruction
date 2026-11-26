@@ -1,0 +1,9 @@
+{
+ "fn": "critical_section_exit",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x115dbc",
+ "seg": 8,
+ "key": "critical_section_exit__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_apply_pdu_config_locked\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Atomically applies enabled radio PDU configurations, updates RF status and mask registers, and releases the nested critical section while returning the resulting busy flag.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"critical_section_count\",\n    \"v1\": \"radio_config_table\",\n    \"v2\": \"radio_config_base\",\n    \"v3\": \"radio_config_offsets\",\n    \"v4\": \"radio_config_values\",\n    \"v5\": \"radio_config_status_reg\",\n    \"v6\": \"radio_pdu_active_mask\",\n    \"i\": \"pdu_type\",\n    \"v8\": \"saved_critical_count\",\n    \"v10\": \"updated_pdu_mask\",\n    \"v13\": \"remaining_critical_count\",\n    \"v14\": \"irq_disable_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 112,\n      \"meaning\": \"uint32 word at config-table offset 0x70 used as an active/valid flag for a radio PDU configuration entry\"\n    },\n    {\n      \"offset\": 143,\n      \"meaning\": \"byte at config-table offset 0x8f cleared during RF configuration application\"\n    }\n  ]\n}"
+}

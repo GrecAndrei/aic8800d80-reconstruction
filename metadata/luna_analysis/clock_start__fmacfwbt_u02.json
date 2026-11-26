@@ -1,0 +1,9 @@
+{
+ "fn": "clock_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1006d8",
+ "seg": 0,
+ "key": "clock_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_clock_start\",\"confidence\":\"medium\",\"docstring\":\"Writes 17 and then 0 to a hardware control register, waiting about 10 timer ticks after each write, and returns 32.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"first_wait_start_tick\",\"v1\":\"first_wait_deadline\",\"v3\":\"first_deadline_delta\",\"v9\":\"first_poll_spin_count\",\"v4\":\"second_wait_start_tick\",\"v6\":\"second_wait_deadline\",\"v8\":\"second_deadline_delta\",\"v10\":\"second_poll_spin_count\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibrate_power",
+ "img": "fmacfw_u02",
+ "addr": "0x104de0",
+ "seg": 2,
+ "key": "rf_calibrate_power__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibrate_power\",\"confidence\":\"medium\",\"docstring\":\"Resets the RF core and uses a temperature delta and six calibration values to calibrate RF power.\",\"subsystem\":\"rf\",\"var_renames\":{\"a5\":\"calibration_values\"}}"
+}

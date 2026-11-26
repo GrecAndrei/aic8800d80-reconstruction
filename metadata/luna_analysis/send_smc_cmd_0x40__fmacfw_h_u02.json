@@ -1,0 +1,9 @@
+{
+ "fn": "send_smc_cmd_0x40",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114c18",
+ "seg": 6,
+ "key": "send_smc_cmd_0x40__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_smc_cmd_0x40\",\"confidence\":\"medium\",\"docstring\":\"Submits the 0x40 SMC command through the patch layer with a four-byte argument.\",\"subsystem\":\"patch\"}"
+}

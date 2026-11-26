@@ -1,0 +1,9 @@
+{
+ "fn": "rf_rssi_read",
+ "img": "fmacfw_u02",
+ "addr": "0x124b3c",
+ "seg": 29,
+ "key": "rf_rssi_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_config_set\",\"confidence\":\"medium\",\"docstring\":\"Writes six byte-valued configuration parameters to radio MMIO registers, dispatches a vendor event, and submits the configuration payload.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"config_bytes\",\"v3\":\"scale_factor\"}}"
+}

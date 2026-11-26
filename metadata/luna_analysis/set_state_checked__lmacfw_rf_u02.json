@@ -1,0 +1,9 @@
+{
+ "fn": "set_state_checked",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123f4c",
+ "seg": 23,
+ "key": "set_state_checked__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_state_checked\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Bounds-checks a state value, returning 1 for values 0..23 and storing larger values through a volatile state pointer before returning 0.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"state\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "periph_process",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1006c0",
+ "seg": 0,
+ "key": "periph_process__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"periph_process_register_banks\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies and conditionally processes three 32-word peripheral register banks from a source pointer to a destination pointer, using a bitmask to select banks and a bank-local sentinel word to drive register-value adjustment.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"src_base\",\n    \"a2\": \"dst_base\",\n    \"a4\": \"bank_mask\",\n    \"v22\": \"bank\",\n    \"v4\": \"src_block_ptr\",\n    \"v7\": \"bank_word_base\",\n    \"v9\": \"bank_end_count\",\n    \"v10\": \"entry_count\",\n    \"v11\": \"next_index\",\n    \"v12\": \"next_word\",\n    \"v13\": \"low_byte\",\n    \"v14\": \"src_index\",\n    \"v15\": \"src_word\",\n    \"v18\": \"src_end\",\n    \"v19\": \"src_ptr\",\n    \"v20\": \"dst_ptr\",\n    \"v21\": \"copied_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 60,\n      \"meaning\": \"bank-local sentinel/default word at byte offset 0x3C, read as src_base + 60 + 128*bank\"\n    }\n  ]\n}"
+}

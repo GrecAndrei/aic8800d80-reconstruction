@@ -1,0 +1,9 @@
+{
+ "fn": "read_status_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x1425d4",
+ "seg": 68,
+ "key": "read_status_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_rx_action_frame_handle\",\"confidence\":\"medium\",\"docstring\":\"Checks for an 802.11 Action frame and passes matching buffers to adv_report_process, while also clearing an MMIO register when a separate status-and-marker condition is met.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"rx_frame\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Frame-control field; the 0xFC mask checks for the Action frame subtype.\"}]}"
+}

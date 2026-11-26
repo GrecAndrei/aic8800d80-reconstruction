@@ -1,0 +1,9 @@
+{
+ "fn": "patch_aware_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c80c",
+ "seg": 41,
+ "key": "patch_aware_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_tx_timeout_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Registers or updates an HCI transmit-keyed timeout entry, stores an absolute deadline, schedules the related kernel event/timer, and flags immediate expiry.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"hci_key_hi\",\n    \"a2\": \"hci_key_lo\",\n    \"a3\": \"timeout_ticks\",\n    \"v3\": \"debug_assert_state\",\n    \"v7\": \"irq_nesting_count\",\n    \"v8\": \"hci_tx_ctx\",\n    \"v9\": \"ctx_entry_matches\",\n    \"v10\": \"tx_entry\",\n    \"v13\": \"timeout_abs\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"upper 16-bit HCI transmit key field\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"lower 16-bit HCI transmit key field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"absolute timeout deadline for the transmit entry\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"pointer to currently tracked HCI transmit entry in the timeout context\"\n    }\n  ]\n}"
+}

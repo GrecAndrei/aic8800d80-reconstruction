@@ -1,0 +1,9 @@
+{
+ "fn": "double_eq",
+ "img": "fmacfw_u02",
+ "addr": "0x142f78",
+ "seg": 68,
+ "key": "double_eq__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_eq\",\"confidence\":\"high\",\"docstring\":\"Returns whether two double-precision values are equal, implementing the ARM EABI comparison helper.\",\"subsystem\":\"libmisc\"}"
+}

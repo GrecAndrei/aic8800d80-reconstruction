@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_tx_power",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1073dc",
+ "seg": 2,
+ "key": "rf_set_tx_power__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_read_tx_power\",\"confidence\":\"medium\",\"docstring\":\"Configures the RF power measurement path, stores its 15-bit reading in the caller's context, and logs the result.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"rf_mode_reg\",\"v3\":\"rf_power_ctrl_reg\",\"v5\":\"power_read_reg\",\"v6\":\"measured_power\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"measured RF power reading\"}]}"
+}

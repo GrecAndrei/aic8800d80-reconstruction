@@ -1,0 +1,9 @@
+{
+ "fn": "llm_decrypt_adv_payload",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1329b0",
+ "seg": 46,
+ "key": "llm_decrypt_adv_payload__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_parse_adv_name\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a length-prefixed BLE advertising name and builds a character-class bitmask, logging invalid name bytes via a debug MMIO field.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"name_data\",\n    \"v2\": \"length\",\n    \"v8\": \"p\",\n    \"v9\": \"char_class_mask\",\n    \"v10\": \"ch\",\n    \"v11\": \"char_class\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"length byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"first name byte\"\n    }\n  ]\n}"
+}

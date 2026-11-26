@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calibration_table_get",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x117cb4",
+ "seg": 10,
+ "key": "rf_calibration_table_get__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"sta_mgmt_unregister\", \"confidence\": \"high\", \"docstring\": \"Unregisters the station context for a given station index by clearing its active/registered flag and notifying the associated kernel object under a critical section.\", \"subsystem\": \"wlan\", \"var_renames\": {\"a1\": \"sta_idx\", \"v1\": \"sta_table_base\", \"v4\": \"sta_ctx\", \"v6\": \"sta_ctx\", \"v8\": \"assoc_obj_ptr\", \"v12\": \"irq_disabled_saved\"}, \"struct_hints\": [{\"offset\": 35, \"meaning\": \"byte flag in station context cleared during unregister\"}, {\"offset\": 44, \"meaning\": \"pointer to associated object/task used for notification\"}]}"
+}

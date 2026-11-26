@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_synth",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124150",
+ "seg": 23,
+ "key": "rf_write_synth__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_write_synth_reg\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes the same byte value into the low two byte fields of a volatile RF synthesizer register while preserving the upper halfword, then traces the resulting register value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"byte_value\",\n    \"v1\": \"synth_reg_value\"\n  }\n}"
+}

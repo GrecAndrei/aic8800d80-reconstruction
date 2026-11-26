@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_core_setup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ae68",
+ "seg": 2,
+ "key": "sdio_core_setup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibrate_loft\",\"confidence\":\"medium\",\"docstring\":\"Runs the RF LOFT calibration sequence after saving and clearing a radio-control bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v74\":\"saved_radio_ctrl_bit0\"}}"
+}

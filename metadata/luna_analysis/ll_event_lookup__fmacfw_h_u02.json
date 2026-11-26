@@ -1,0 +1,9 @@
+{
+ "fn": "ll_event_lookup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115f60",
+ "seg": 7,
+ "key": "ll_event_lookup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_event_enqueue\",\"confidence\":\"high\",\"docstring\":\"Appends an event node to the FIFO for queue index `a1`, clears its next link, and returns the internal queue slot (`a1 + 22`).\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"queue_index\",\"a2\":\"event_node\",\"v2\":\"event_queue_table\",\"v4\":\"insertion_target\",\"result\":\"queue_slot\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Queue head pointer, or event node next pointer depending on the object\"},{\"offset\":8,\"meaning\":\"Queue tail pointer\"}]}"
+}

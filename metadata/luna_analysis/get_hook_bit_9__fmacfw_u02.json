@@ -1,0 +1,9 @@
+{
+ "fn": "get_hook_bit_9",
+ "img": "fmacfw_u02",
+ "addr": "0x114848",
+ "seg": 5,
+ "key": "get_hook_bit_9__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_hook_bit_9\",\"confidence\":\"high\",\"docstring\":\"Calls the installed hook with selector 1 and returns bit 9 of its result.\",\"subsystem\":\"libmisc\"}"
+}

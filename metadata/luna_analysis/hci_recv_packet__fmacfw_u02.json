@@ -1,0 +1,9 @@
+{
+ "fn": "hci_recv_packet",
+ "img": "fmacfw_u02",
+ "addr": "0x135ab0",
+ "seg": 54,
+ "key": "hci_recv_packet__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_packet_get_nested_u16\",\"confidence\":\"medium\",\"docstring\":\"Validates a nested length-bounded packet layout and extracts the 16-bit value at the resulting indexed location.\",\"subsystem\":\"bt\",\"var_renames\":{\"result\":\"packet_base\",\"v3\":\"first_table_byte_offset\",\"v4\":\"remaining_length_after_first_table\",\"v5\":\"first_table_base\",\"v6\":\"nested_table_byte_offset\",\"v7\":\"remaining_length_after_nested_table\",\"v8\":\"nested_table_base\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"16-bit first-table selector or count, scaled by four to locate an entry; its low byte is also used for bounds checking\"},{\"offset\":10,\"meaning\":\"start of the first table, whose entries are addressed with a four-byte stride\"}]}"
+}

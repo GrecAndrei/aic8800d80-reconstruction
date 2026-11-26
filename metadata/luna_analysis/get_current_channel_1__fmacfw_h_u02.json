@@ -1,0 +1,9 @@
+{
+ "fn": "get_current_channel_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11f5b0",
+ "seg": 21,
+ "key": "get_current_channel_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_tx_slot_mask\",\"confidence\":\"medium\",\"docstring\":\"When the controller state gates are satisfied, writes a contiguous mask derived from the value at offset 118 into bits 8\u201315 of a control register, provided the value is at most 8.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"mask_width\"},\"struct_hints\":[{\"offset\":118,\"meaning\":\"Mask width or slot count used to form a contiguous bit mask (0\u20138).\"}]}"
+}

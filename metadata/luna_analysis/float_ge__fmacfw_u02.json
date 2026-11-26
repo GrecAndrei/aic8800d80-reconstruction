@@ -1,0 +1,9 @@
+{
+ "fn": "float_ge",
+ "img": "fmacfw_u02",
+ "addr": "0x1433ec",
+ "seg": 68,
+ "key": "float_ge__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"aeabi_fcmpge\",\"confidence\":\"high\",\"docstring\":\"Implements the ARM EABI greater-than-or-equal comparison for two single-precision floating-point operands.\",\"subsystem\":\"libmisc\"}"
+}

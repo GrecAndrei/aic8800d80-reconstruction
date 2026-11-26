@@ -1,0 +1,9 @@
+{
+ "fn": "call_indirect_table",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10efa4",
+ "seg": 2,
+ "key": "call_indirect_table__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"call_slot_0x1b0\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Calls the function pointer stored in literal/table slot 0x1b0, likely one entry in an HAL or subsystem callback dispatch table.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 432,\n      \"meaning\": \"function pointer table slot invoked by this wrapper\"\n    }\n  ]\n}"
+}

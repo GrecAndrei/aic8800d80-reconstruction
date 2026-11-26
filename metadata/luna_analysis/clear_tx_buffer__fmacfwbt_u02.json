@@ -1,0 +1,9 @@
+{
+ "fn": "clear_tx_buffer",
+ "img": "fmacfwbt_u02",
+ "addr": "0x127040",
+ "seg": 33,
+ "key": "clear_tx_buffer__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hci_clear_tx_buffer\", \"confidence\": \"medium\", \"docstring\": \"Clears or advances the current HCI transmit buffer entry, optionally allocates and sends a Bluetooth HCI event, and updates wake/sleep-related state.\", \"subsystem\": \"bt\", \"var_renames\": {\"v0\": \"hci_tx_state\", \"v2\": \"tx_buffer\", \"v3\": \"hci_event_buf\", \"v4\": \"event_type\", \"v6\": \"entry_matched\", \"v7\": \"previous_tx_buffer\", \"v8\": \"event_type_after_notify\", \"v16\": \"event_type_after_sleep_exit\"}, \"struct_hints\": [{\"offset\": 4, \"meaning\": \"identifier/parameter field compared between HCI tx entries\"}, {\"offset\": 6, \"meaning\": \"identifier/parameter field compared between HCI tx entries\"}, {\"offset\": 8, \"meaning\": \"identifier/parameter field compared between HCI tx entries\"}, {\"offset\": 10, \"meaning\": \"identifier/parameter field compared between HCI tx entries\"}, {\"offset\": 12, \"meaning\": \"name or format-string pointer used for logging\"}, {\"offset\": 14, \"meaning\": \"packed event/status field copied into the HCI event\"}, {\"offset\": 16, \"meaning\": \"buffer state byte (observed values include 1 and 4)\"}, {\"offset\": 24, \"meaning\": \"event or state byte copied into the HCI event; values 3 and 4 are special\"}, {\"offset\": 26, \"meaning\": \"payload byte copied into the HCI event\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "is_conn_active",
+ "img": "fmacfw_u02",
+ "addr": "0x13c710",
+ "seg": 60,
+ "key": "is_conn_active__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_adv_build_payload\",\"confidence\":\"medium\",\"docstring\":\"Builds an 18-byte advertising payload using per-slot state and an RF-derived 64-bit value, returning zero if the slot context is absent.\",\"subsystem\":\"ble\",\"var_renames\":{\"result\":\"adv_context\",\"v5\":\"output_buf\",\"v6\":\"sequence_counter\",\"v7\":\"next_sequence_counter\",\"v8\":\"counter_output\",\"v9\":\"bit_shift\",\"v12\":\"power_output\",\"v14\":\"power_value_low\",\"v15\":\"power_value_high\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Slot index used to select the advertising context\"},{\"offset\":72,\"meaning\":\"64-bit counter incremented when building the payload\"},{\"offset\":97,\"meaning\":\"Byte copied into the payload header\"}]}"
+}

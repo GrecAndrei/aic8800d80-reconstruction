@@ -1,0 +1,9 @@
+{
+ "fn": "wait_for_hw_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x120bd0",
+ "seg": 22,
+ "key": "wait_for_hw_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_process_pending_events\",\"confidence\":\"medium\",\"docstring\":\"Processes pending wireless event flags, including channel-timer updates and MAC status or receive-filter handling.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"channel_context\",\"v3\":\"event_state\",\"v4\":\"pending_flags\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Event-state control flags\"},{\"offset\":30,\"meaning\":\"Pending event bitfield\"},{\"offset\":116,\"meaning\":\"Channel identifier\"},{\"offset\":120,\"meaning\":\"Channel-related timer tick\"}]}"
+}

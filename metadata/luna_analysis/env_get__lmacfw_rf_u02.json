@@ -1,0 +1,9 @@
+{
+ "fn": "env_get",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11bd44",
+ "seg": 17,
+ "key": "env_get__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"env_get\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Pops an entry from the environment free list, writes an offset-derived byte into the entry and the caller's output, copies source fields into the entry, and returns a non-zero status if the list is empty.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"a1\": \"src_entry\",\n    \"a2\": \"out_byte\",\n    \"v4\": \"slot\",\n    \"v5\": \"slot_stamp\",\n    \"v6\": \"src_word2\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"slot word copied from src_entry offset 0\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"slot word copied from src_entry offset 4\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"slot 16-bit word copied from src_entry offset 8\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"slot byte field set from the slot's pool offset and returned via out_byte\"\n    }\n  ]\n}"
+}

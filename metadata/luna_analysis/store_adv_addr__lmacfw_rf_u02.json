@@ -1,0 +1,9 @@
+{
+ "fn": "store_adv_addr",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11972c",
+ "seg": 13,
+ "key": "store_adv_addr__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_store_adv_addr\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies two 34-byte advertising-address records from a source buffer into global destination pointers and notifies the kernel.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"adv_src\",\n    \"v4\": \"adv_dst1\",\n    \"v5\": \"adv_dst2\"\n  }\n}"
+}

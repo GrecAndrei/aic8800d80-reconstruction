@@ -1,0 +1,9 @@
+{
+ "fn": "radio_status_read",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11b0b4",
+ "seg": 15,
+ "key": "radio_status_read__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"read_radio_status\",\"confidence\":\"medium\",\"docstring\":\"When the context flag at offset 37 is set, copies a block from the radio-state area into a global buffer and queries state for the connection identifier at offset 35; otherwise it clears two cached words.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"snapshot_enabled\",\"v2\":\"radio_status_cache\",\"v3\":\"context\"},\"struct_hints\":[{\"offset\":35,\"meaning\":\"Connection identifier passed to the state helper\"},{\"offset\":37,\"meaning\":\"Flag gating the radio-state copy and state query\"}]}"
+}

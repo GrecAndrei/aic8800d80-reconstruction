@@ -1,0 +1,9 @@
+{
+ "fn": "init_patch_table",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13bba8",
+ "seg": 60,
+ "key": "init_patch_table__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_init_state_entries_for_id\",\"confidence\":\"medium\",\"docstring\":\"Scans 32 slots and initializes each active state entry whose selector matches the supplied ID, preparing the corresponding HCI opcode first.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"table_cursor\",\"v2\":\"state_entry\",\"v4\":\"match_id\",\"v6\":\"table_end\",\"v7\":\"active_marker\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Selector compared with the supplied ID\"},{\"offset\":25,\"meaning\":\"Byte cleared before state initialization\"}]}"
+}

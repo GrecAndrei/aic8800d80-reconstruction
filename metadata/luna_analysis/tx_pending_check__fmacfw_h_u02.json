@@ -1,0 +1,9 @@
+{
+ "fn": "tx_pending_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1161e4",
+ "seg": 8,
+ "key": "tx_pending_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_pending_check\",\"confidence\":\"medium\",\"docstring\":\"Checks and prepares a station's pending TX frame, updates associated TX queue state, and invokes station rate-status processing.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"sta\",\"v2\":\"sta_status_flags\",\"v3\":\"tx_context\",\"v4\":\"tx_pending_state\",\"v15\":\"sta_tx_flags\",\"v17\":\"pending_frame\",\"v21\":\"frame_control\"},\"struct_hints\":[{\"offset\":30,\"meaning\":\"Station flags; bit 3 gates this pending-frame path and bit 0 controls setting the Protected Frame bit.\"},{\"offset\":36,\"meaning\":\"Station status flags; bit 21 controls whether this TX-pending path is skipped.\"},{\"offset\":72,\"meaning\":\"Pointer to TX queue/context metadata.\"},{\"offset\":76,\"meaning\":\"Pointer to per-station TX pending state containing pending-item references and control flags.\"}]}"
+}

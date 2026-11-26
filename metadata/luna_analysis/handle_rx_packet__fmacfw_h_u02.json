@@ -1,0 +1,9 @@
+{
+ "fn": "handle_rx_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132654",
+ "seg": 45,
+ "key": "handle_rx_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"decode_status_code_mask\",\"confidence\":\"medium\",\"docstring\":\"Scans a length-prefixed buffer, accumulates validated codes below 12 into a bitmask, and performs a special MMIO write for larger codes when the shared status is negative.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"buffer\",\"a2\":\"require_high_bit\",\"v2\":\"count\",\"v8\":\"cursor\",\"v9\":\"code_mask\",\"v10\":\"decoded_code\"}}"
+}

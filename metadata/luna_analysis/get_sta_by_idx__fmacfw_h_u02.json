@@ -1,0 +1,9 @@
+{
+ "fn": "get_sta_by_idx",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12004c",
+ "seg": 22,
+ "key": "get_sta_by_idx__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_sta_slot_and_update_cursors\",\"confidence\":\"medium\",\"docstring\":\"Clears the selected station-slot marker and reselects any matching cursor from the first marked slot in its range, or clears the cursor if none remain.\",\"subsystem\":\"mm\",\"var_renames\":{\"result\":\"sta_ctx\",\"a2\":\"sta_idx\",\"v2\":\"cursor\",\"v4\":\"candidate_ptr\"},\"struct_hints\":[{\"offset\":480,\"meaning\":\"Start of six 120-byte station slots.\"},{\"offset\":579,\"meaning\":\"Marker byte at offset +99 within the first slot; the same field repeats at a 120-byte stride.\"},{\"offset\":1200,\"meaning\":\"Cursor for the first four slots.\"},{\"offset\":1204,\"meaning\":\"Cursor for the last two slots.\"}]}"
+}

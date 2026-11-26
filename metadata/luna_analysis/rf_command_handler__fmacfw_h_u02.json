@@ -1,0 +1,9 @@
+{
+ "fn": "rf_command_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11ab34",
+ "seg": 15,
+ "key": "rf_command_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_handle_command_packet\",\"confidence\":\"medium\",\"docstring\":\"Selects a pending RF command entry, parses its packet buffer, and links the parsed packet into the active receive queue.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"command_queue\",\"v3\":\"pending_entry\",\"v4\":\"entry_flags\",\"v6\":\"rx_context\",\"v7\":\"rx_entry\",\"v8\":\"rx_metadata\",\"v9\":\"rx_flags\",\"v14\":\"packet_buffer\",\"v18\":\"parsed_packet\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Receive-entry state flags; bit 0x200000 marks a pending item.\"},{\"offset\":68,\"meaning\":\"Pointer to the receive context containing indexed receive entries.\"},{\"offset\":76,\"meaning\":\"Pointer to per-entry receive metadata.\"}]}"
+}

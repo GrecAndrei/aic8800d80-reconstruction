@@ -1,0 +1,9 @@
+{
+ "fn": "cmd_handler_a",
+ "img": "fmacfw_u02",
+ "addr": "0x12d248",
+ "seg": 41,
+ "key": "cmd_handler_a__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"co_list_push_back\",\"confidence\":\"high\",\"docstring\":\"Appends a list header to the tail of an intrusive list and clears the new header\u2019s next pointer.\",\"subsystem\":\"ke\",\"var_renames\":{\"result\":\"list\",\"a2\":\"list_hdr\",\"v2\":\"list\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"List head pointer; also the list header\u2019s next pointer.\"},{\"offset\":4,\"meaning\":\"List tail pointer.\"}]}"
+}

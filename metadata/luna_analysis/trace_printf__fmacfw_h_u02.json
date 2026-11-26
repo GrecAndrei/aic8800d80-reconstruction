@@ -1,0 +1,9 @@
+{
+ "fn": "trace_printf",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123780",
+ "seg": 28,
+ "key": "trace_printf__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_instance_parameter_request\",\"confidence\":\"medium\",\"docstring\":\"Updates a byte in the indexed instance context and allocates and sends a two-byte kernel message with ID 47.\",\"subsystem\":\"ke\",\"var_renames\":{\"a2\":\"request_param\",\"v4\":\"instance_context\",\"v7\":\"reply_param\"},\"struct_hints\":[{\"offset\":110,\"meaning\":\"Per-instance byte updated from request_param[1]\"}]}"
+}

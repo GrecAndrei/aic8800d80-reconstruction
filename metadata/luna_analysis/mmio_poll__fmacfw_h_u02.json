@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_poll",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100898",
+ "seg": 0,
+ "key": "mmio_poll__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_select_frequency_table\",\"confidence\":\"medium\",\"docstring\":\"Selects an RF table address for the requested band and frequency, and writes a three-bit mask derived from the associated byte values.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"is_5ghz\",\"a2\":\"frequency_mhz\",\"a3\":\"mask_out\"}}"
+}

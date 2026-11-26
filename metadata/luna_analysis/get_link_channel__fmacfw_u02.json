@@ -1,0 +1,9 @@
+{
+ "fn": "get_link_channel",
+ "img": "fmacfw_u02",
+ "addr": "0x11018c",
+ "seg": 3,
+ "key": "get_link_channel__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_pending_rx_packets\",\"confidence\":\"medium\",\"docstring\":\"Clears an 8-byte scratch area, processes each pending receive item through the command handler, and returns the final handler result.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"processed_count\",\"v6\":\"rx_packet\",\"v7\":\"pending_count\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"16-bit count of pending receive items\"}]}"
+}

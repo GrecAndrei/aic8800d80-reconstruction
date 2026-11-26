@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare",
+ "img": "fmacfw_u02",
+ "addr": "0x14273c",
+ "seg": 68,
+ "key": "double_compare__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"aeabi_dadd\",\"confidence\":\"high\",\"docstring\":\"Adds two IEEE-754 double-precision values using the ARM EABI helper implementation.\",\"subsystem\":\"libmisc\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_desc_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113f3c",
+ "seg": 5,
+ "key": "rx_desc_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_unpack_signed_nibbles\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Unpacks six sign-magnitude nibble fields from one of three RF/MMIO status register pairs into a signed-byte buffer and returns per-byte zero/fallback status flags.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"source_set\",\n    \"a2\": \"out_bytes\",\n    \"v5\": \"reg_addr\",\n    \"v6\": \"src_word\",\n    \"v7\": \"next_word\",\n    \"v8\": \"byte_idx\",\n    \"v10\": \"nibble\",\n    \"v13\": \"magnitude\",\n    \"v14\": \"out_byte\",\n    \"v15\": \"out_byte_ptr\",\n    \"result\": \"status_flags\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"RF/MMIO address for source register set 0\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"RF/MMIO address for source register set 1\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"RF/MMIO address for source register set 2\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"output signed byte field 0\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"output signed byte field 1\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"output signed byte field 2\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"output signed byte field 3\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"output signed byte field 4\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"output signed byte field 5\"\n    }\n  ]\n}"
+}

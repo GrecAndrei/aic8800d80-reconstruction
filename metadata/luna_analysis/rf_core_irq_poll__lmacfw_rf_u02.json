@@ -1,0 +1,9 @@
+{
+ "fn": "rf_core_irq_poll",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10747c",
+ "seg": 2,
+ "key": "rf_core_irq_poll__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_core_adjust_measure\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Executes an RF-core adjustment/measurement sequence that toggles control bits, waits through timer strobes, samples 15-bit values, selects configuration codes based on sample order, and compares the samples via timer_delta_compare.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v4\": \"rf_cfg_mask\",\n    \"v5\": \"rf_sample_reg\",\n    \"v7\": \"sample_1\",\n    \"v8\": \"sample_1_gt_sample_2\",\n    \"v9\": \"rf_cfg_bits_1\",\n    \"v10\": \"rf_threshold_1\",\n    \"v11\": \"rf_cfg_bits_2\",\n    \"v12\": \"rf_threshold_2\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"threshold_1\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"sample_1\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"sample_2\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"sample_3\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"sample_4\"\n    }\n  ]\n}"
+}

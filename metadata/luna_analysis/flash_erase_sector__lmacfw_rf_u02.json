@@ -1,0 +1,9 @@
+{
+ "fn": "flash_erase_sector",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e1e4",
+ "seg": 20,
+ "key": "flash_erase_sector__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_state_set\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Sets the kernel task state for a packed task identifier and processes the task's pending kernel message list when the state changes.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"task_id\",\n    \"a2\": \"state\",\n    \"v5\": \"task_index\",\n    \"v6\": \"task_type\",\n    \"v7\": \"state_ptr\",\n    \"v9\": \"callback\",\n    \"v10\": \"message_list\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"local task descriptor field containing a pointer to the per-task-type state array\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"local task descriptor field containing the per-task-type index/count limit\"\n    }\n  ]\n}"
+}

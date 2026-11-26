@@ -1,0 +1,9 @@
+{
+ "fn": "hci_cmd_handle",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13264e",
+ "seg": 45,
+ "key": "hci_cmd_handle__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_cmd_return_constant_8\",\"confidence\":\"low\",\"docstring\":\"Returns the constant value 8 without inspecting arguments or modifying state.\",\"subsystem\":\"bt\"}"
+}

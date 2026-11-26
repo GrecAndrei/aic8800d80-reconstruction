@@ -1,0 +1,9 @@
+{
+ "fn": "sta_rate_limit_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11c410",
+ "seg": 18,
+ "key": "sta_rate_limit_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sta_rate_config_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches to the packet-type handler with the station's configured rate unless that rate is 1023 or global mode equals 2.\",\"subsystem\":\"sta\",\"var_renames\":{\"v1\":\"station_rate\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"station index\"},{\"offset\":68,\"meaning\":\"pointer to packet/status context passed to the handler\"},{\"offset\":1222,\"meaning\":\"per-station rate setting; 1023 is treated as a sentinel\"}]}"
+}

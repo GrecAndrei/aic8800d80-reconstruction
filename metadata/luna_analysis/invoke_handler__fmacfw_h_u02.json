@@ -1,0 +1,9 @@
+{
+ "fn": "invoke_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117f1c",
+ "seg": 11,
+ "key": "invoke_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_enqueue_tx_buffer\",\"confidence\":\"medium\",\"docstring\":\"Invokes the registered data provider, wraps its returned buffer in a node, appends it to the transmit queue under IRQ protection, and signals pending work.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"callback_buffer\",\"v3\":\"tx_node\",\"v6\":\"irq_nesting_counter\",\"v7\":\"queue_status\",\"v8\":\"irq_nesting_depth\",\"v9\":\"tx_queue_state\",\"v12\":\"tx_work_pending\",\"v15\":\"tx_tail\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Transmit-node payload pointer, set to the callback buffer plus a configured offset.\"},{\"offset\":4,\"meaning\":\"Transmit-node next pointer.\"},{\"offset\":4,\"meaning\":\"Queue-state tail-node pointer.\"},{\"offset\":12,\"meaning\":\"16-bit transmit enqueue counter.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "j_nullsub_6",
+ "img": "fmacfw_u02",
+ "addr": "0x12f534",
+ "seg": 42,
+ "key": "j_nullsub_6__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"no_op_stub_thunk\",\"confidence\":\"low\",\"docstring\":\"Forwards to a no-op stub and returns its result.\",\"subsystem\":\"wlan\"}"
+}

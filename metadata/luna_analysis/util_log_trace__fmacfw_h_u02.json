@@ -1,0 +1,9 @@
+{
+ "fn": "util_log_trace",
+ "img": "fmacfw_h_u02",
+ "addr": "0x131920",
+ "seg": 44,
+ "key": "util_log_trace__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_link_event\",\"confidence\":\"medium\",\"docstring\":\"Transmits a PDU and processes interrupt status and connection-specific state.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"connection_ctx\",\"v6\":\"interrupt_status\",\"v7\":\"connection_index\",\"v8\":\"connection_flags\",\"v36\":\"link_state\",\"v73\":\"connection_record_offset\"},\"struct_hints\":[{\"offset\":120,\"meaning\":\"Connection flags; bits 1 and 2 select processing paths.\"},{\"offset\":129,\"meaning\":\"Connection index used to select a per-connection record.\"},{\"offset\":106,\"meaning\":\"Per-connection state discriminator, compared against values 2 and 3.\"}]}"
+}

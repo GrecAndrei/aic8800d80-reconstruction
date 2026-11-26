@@ -1,0 +1,9 @@
+{
+ "fn": "read_config_byte",
+ "img": "fmacfw_u02",
+ "addr": "0x122794",
+ "seg": 24,
+ "key": "read_config_byte__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_rx_poll_step\",\"confidence\":\"medium\",\"docstring\":\"Processes an active WLAN receive cycle, dispatching a received frame and otherwise advancing retry, channel, or transmit handling.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v1\":\"rx_context\",\"v4\":\"retry_count\",\"v5\":\"context_flags\",\"v9\":\"remaining_count\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"context flags; bit 0 is set when no frame is returned\"},{\"offset\":36,\"meaning\":\"receive-cycle time or scheduling value\"},{\"offset\":108,\"meaning\":\"active-state guard\"},{\"offset\":116,\"meaning\":\"channel or radio-context index\"},{\"offset\":128,\"meaning\":\"receive retry counter\"},{\"offset\":136,\"meaning\":\"time offset used for scheduling\"},{\"offset\":146,\"meaning\":\"countdown decremented during processing\"},{\"offset\":148,\"meaning\":\"countdown enable or validity flag\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llc_conn_env_get_by_handle",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1319a0",
+ "seg": 44,
+ "key": "llc_conn_env_get_by_handle__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llc_conn_env_set_channel_map\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Look up the BLE LLC connection environment by handle and validate/update its channel-map or channel state, setting or clearing the corresponding connection flags.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"rx_conn_info\",\n    \"v3\": \"conn_env\",\n    \"v4\": \"channel_map_or_index\",\n    \"v5\": \"conn_flags\",\n    \"v7\": \"conn_flags\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint8 connection handle at start of rx_conn_info\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"uint16 channel-map/channel-index field in rx_conn_info\"\n    },\n    {\n      \"offset\": 340,\n      \"meaning\": \"pointer to per-connection LLC environment inside handle table entry\"\n    },\n    {\n      \"offset\": 166,\n      \"meaning\": \"LLC connection environment flags byte\"\n    },\n    {\n      \"offset\": 190,\n      \"meaning\": \"16-bit channel-map/channel-index state in LLC connection environment\"\n    }\n  ]\n}"
+}

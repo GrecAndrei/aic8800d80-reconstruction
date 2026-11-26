@@ -1,0 +1,9 @@
+{
+ "fn": "clock_disable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d08c",
+ "seg": 2,
+ "key": "clock_disable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clock_disable\",\"confidence\":\"medium\",\"docstring\":\"Writes the hardware control value used to disable a clock.\",\"subsystem\":\"hal\"}"
+}

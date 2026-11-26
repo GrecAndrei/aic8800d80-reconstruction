@@ -1,0 +1,9 @@
+{
+ "fn": "hw_block_enable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10df70",
+ "seg": 3,
+ "key": "hw_block_enable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_measurement_validate\",\"confidence\":\"medium\",\"docstring\":\"Requests RF table updates for stages 1\u20133, reads two mailbox values, and computes a validation result from them.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_mailbox\",\"v5\":\"first_transformed_value\",\"v6\":\"rf_mailbox\",\"v7\":\"second_raw_value\",\"v12\":\"second_transformed_value\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"request flag\"},{\"offset\":16,\"meaning\":\"mailbox value\"},{\"offset\":28,\"meaning\":\"completion flag\"}]}"
+}

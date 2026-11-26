@@ -1,0 +1,9 @@
+{
+ "fn": "irq_handler",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1019b4",
+ "seg": 0,
+ "key": "irq_handler__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"irq_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Services an interrupt by testing bit 8 of a memory-mapped status register, invoking the corresponding handler, and acknowledging the interrupt by writing that bit to a clear register.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

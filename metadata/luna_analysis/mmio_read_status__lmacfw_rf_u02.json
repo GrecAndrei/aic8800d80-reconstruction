@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113b88",
+ "seg": 5,
+ "key": "mmio_read_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"mmio_read_status\", \"confidence\": \"medium\", \"docstring\": \"Reads the fixed MMIO register at offset 6 and extracts a byte from the high or low status/data fields, returning a code indicating which byte was valid.\", \"subsystem\": \"mmio\", \"var_renames\": {\"a1\": \"status_byte\", \"v2\": \"reg_word\"}}"
+}

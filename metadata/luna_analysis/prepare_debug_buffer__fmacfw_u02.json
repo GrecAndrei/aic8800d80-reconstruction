@@ -1,0 +1,9 @@
+{
+ "fn": "prepare_debug_buffer",
+ "img": "fmacfw_u02",
+ "addr": "0x10d808",
+ "seg": 3,
+ "key": "prepare_debug_buffer__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"log_vprintf\",\"confidence\":\"medium\",\"docstring\":\"Formats the supplied argument list into a temporary buffer, writes the resulting text to the debug output, and returns the formatted length.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"format_string\",\"a2\":\"format_arguments\",\"v4\":\"formatted_length\",\"v6\":\"output_length\",\"v8\":\"output_cursor\",\"v11\":\"output_end\",\"v9\":\"output_status_register\",\"v10\":\"output_data_register\"}}"
+}

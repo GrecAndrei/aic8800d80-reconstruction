@@ -1,0 +1,9 @@
+{
+ "fn": "ke_state_event_0",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124520",
+ "seg": 23,
+ "key": "ke_state_event_0__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_periodic_event_handler\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a periodic kernel event by polling messages and, after 1000 increments of an internal timer counter, either resetting the link-layer state or setting an RF flag and scheduling a future tick deadline.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"timer_count_ptr\",\n    \"v1\": \"message_result\",\n    \"v2\": \"next_timer_count\",\n    \"v3\": \"tick_now\"\n  }\n}"
+}

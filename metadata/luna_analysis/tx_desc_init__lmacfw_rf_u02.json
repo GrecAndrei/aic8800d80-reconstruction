@@ -1,0 +1,9 @@
+{
+ "fn": "tx_desc_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113df8",
+ "seg": 5,
+ "key": "tx_desc_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_unpack_signed_values\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a selected RF MMIO register from a global address table and unpacks its first three bytes into signed 4-bit values stored in an output buffer while returning per-byte status bits.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"reg_index\",\n    \"a2\": \"out_values\",\n    \"v14\": \"reg_addr_table\",\n    \"v5\": \"raw_reg_value\",\n    \"v6\": \"byte_index\",\n    \"v7\": \"status_bits\",\n    \"v8\": \"raw_byte\",\n    \"v9\": \"decoded_value\",\n    \"v10\": \"magnitude_nibble\",\n    \"v11\": \"sign_multiplier\",\n    \"v12\": \"out_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"decoded signed RF value for byte 0\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"decoded signed RF value for byte 1\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"decoded signed RF value for byte 2\"\n    }\n  ]\n}"
+}

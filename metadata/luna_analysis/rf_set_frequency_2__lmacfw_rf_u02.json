@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_frequency_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126f90",
+ "seg": 23,
+ "key": "rf_set_frequency_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_frequency_2\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads and logs the current RF frequency offset or trim value, and if it differs by more than four units from the cached value, updates the cached offset, calls freq_offset_to_channel, and refreshes the RX index.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"freq_offset\",\n    \"v2\": \"offset_delta\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3,\n      \"meaning\": \"cached RF frequency offset or trim byte\"\n    }\n  ]\n}"
+}

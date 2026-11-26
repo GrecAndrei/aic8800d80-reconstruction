@@ -1,0 +1,9 @@
+{
+ "fn": "llm_ctrl_msg_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x126714",
+ "seg": 32,
+ "key": "llm_ctrl_msg_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_ctrl_msg_handler\",\"confidence\":\"medium\",\"docstring\":\"Stores the control-message arguments in a descriptor, forwards it to the LLM control context, and schedules or immediately invokes its callback according to the requested tick.\",\"subsystem\":\"ble\",\"var_renames\":{\"v6\":\"msg_descriptor\",\"v7\":\"msg_descriptor\",\"v8\":\"llm_ctrl_context\",\"v10\":\"handler_active\",\"v12\":\"dispatch_refcount\",\"v13\":\"scheduled_tick\",\"v14\":\"current_tick\",\"v15\":\"previous_refcount\",\"v16\":\"incremented_refcount\",\"v17\":\"irq_guard_state\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"control-handler active or busy state\"},{\"offset\":68,\"meaning\":\"callback function pointer invoked with the message descriptor\"},{\"offset\":72,\"meaning\":\"pending message descriptor pointer\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "kernel_event_wait",
+ "img": "fmacfw_u02",
+ "addr": "0x115f68",
+ "seg": 7,
+ "key": "kernel_event_wait__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_txdesc_init\",\"confidence\":\"high\",\"docstring\":\"Initializes each transmit-descriptor slot, assigns its per-slot buffer, and invokes the slot setup handler.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"descriptor_array_ref\",\"v1\":\"tx_buffer_base_ref\",\"v2\":\"descriptor_array\",\"v3\":\"tx_config_ref\",\"v5\":\"slot_index\",\"v6\":\"descriptor_entry\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Inclusive upper bound of the configured TX descriptor slots.\"},{\"offset\":76,\"meaning\":\"Pointer to this slot's 80-byte backing buffer.\"}]}"
+}

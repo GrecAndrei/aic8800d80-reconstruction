@@ -1,0 +1,9 @@
+{
+ "fn": "bt_validate_ll_control",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13d11c",
+ "seg": 61,
+ "key": "bt_validate_ll_control__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_ll_control_descriptor_is_valid\",\"confidence\":\"medium\",\"docstring\":\"Returns whether a packed link-layer control descriptor satisfies the connection context's bitmask and per-field range restrictions.\",\"subsystem\":\"bt\",\"var_renames\":{},\"struct_hints\":[{\"offset\":170,\"meaning\":\"Packed control-validation data: bytes are tested as bits, while the low halfword contains 2-bit per-field range parameters.\"},{\"offset\":174,\"meaning\":\"16-bit mask used for control-descriptor bit membership checks.\"}]}"
+}

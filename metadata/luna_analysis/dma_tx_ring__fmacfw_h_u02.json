@@ -1,0 +1,9 @@
+{
+ "fn": "dma_tx_ring",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13a2b4",
+ "seg": 58,
+ "key": "dma_tx_ring__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dma_tx_ring_alloc\",\"confidence\":\"high\",\"docstring\":\"Allocates and initializes a TX DMA entry for the requested ring index, returning 0 if its slot is occupied or the entry pool is empty.\",\"subsystem\":\"dma\",\"var_renames\":{\"a1\":\"ring_context_base\",\"a2\":\"ring_index\",\"v3\":\"entry_slot_address\",\"v5\":\"ring_index_byte\",\"v7\":\"tx_entry\",\"v8\":\"tx_entry\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Ring index copied from a2.\"},{\"offset\":272,\"meaning\":\"Region initialized by copying from the shared DMA configuration area.\"},{\"offset\":276,\"meaning\":\"Value loaded from dword_13A31C.\"},{\"offset\":280,\"meaning\":\"Self-pointer set to the TX entry address.\"},{\"offset\":408,\"meaning\":\"Per-index TX-entry pointer slot, checked for occupancy and then set to the allocated entry.\"}]}"
+}

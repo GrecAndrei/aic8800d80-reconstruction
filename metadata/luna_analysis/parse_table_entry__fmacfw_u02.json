@@ -1,0 +1,9 @@
+{
+ "fn": "parse_table_entry",
+ "img": "fmacfw_u02",
+ "addr": "0x10402c",
+ "seg": 2,
+ "key": "parse_table_entry__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_program_table_entry\",\"confidence\":\"medium\",\"docstring\":\"Initializes the indexed 12-word RF table entry when defaults are enabled, then copies it into the RF memory window while selecting each bank.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"table_base\",\"a2\":\"entry_index\",\"a3\":\"skip_default_init\",\"v4\":\"source_word_start\",\"v5\":\"bank_select_reg\",\"v6\":\"rf_window_base\",\"v7\":\"destination_bank_offset\",\"v8\":\"table_data_base\",\"v15\":\"source_word_index\",\"result\":\"bank_select_value\"}}"
+}

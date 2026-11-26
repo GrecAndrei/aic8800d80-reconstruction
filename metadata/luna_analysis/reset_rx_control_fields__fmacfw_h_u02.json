@@ -1,0 +1,9 @@
+{
+ "fn": "reset_rx_control_fields",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11f278",
+ "seg": 21,
+ "key": "reset_rx_control_fields__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"reset_connection_rx_control_fields\",\"confidence\":\"medium\",\"docstring\":\"Sets the connection context\u2019s control byte at offset 52 and clears the byte at offset 163 and word at offset 184.\",\"subsystem\":\"bt\",\"var_renames\":{\"result\":\"connection\"}}"
+}

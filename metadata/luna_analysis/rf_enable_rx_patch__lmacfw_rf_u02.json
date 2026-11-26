@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable_rx_patch",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111670",
+ "seg": 4,
+ "key": "rf_enable_rx_patch__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_enable_rx_patch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Gets or writes the 0x200000 RX-patch flag for valid RF channels 0 through 5, selecting the operation based on the first argument.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"channel\"\n  },\n  \"struct_hints\": []\n}"
+}

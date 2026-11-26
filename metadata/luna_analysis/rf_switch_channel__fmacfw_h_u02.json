@@ -1,0 +1,9 @@
+{
+ "fn": "rf_switch_channel",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1220dc",
+ "seg": 24,
+ "key": "rf_switch_channel__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_switch_channel\",\"confidence\":\"medium\",\"docstring\":\"Merges the supplied RF configuration into a register-value buffer, writes an RF register byte, updates switch state and timing fields, then allocates an EDCA M1 transmit event.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_config\",\"v2\":\"register_value_buffer\",\"v3\":\"register_preserve_mask\",\"v4\":\"register_value_buffer_end\",\"v5\":\"rf_config_word_ptr\",\"v6\":\"rf_register_read_ptr\"},\"struct_hints\":[{\"offset\":444,\"meaning\":\"Start of an array of RF configuration words used to construct register values.\"}]}"
+}

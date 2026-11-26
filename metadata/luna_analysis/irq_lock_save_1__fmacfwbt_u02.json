@@ -1,0 +1,9 @@
+{
+ "fn": "irq_lock_save_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f810",
+ "seg": 43,
+ "key": "irq_lock_save_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_queue_post_locked\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Posts an item to the global kernel queue under a nested IRQ lock and updates per-queue pending counters.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v3\": \"irq_nesting_ptr\",\n    \"v5\": \"irq_nesting_count\",\n    \"v6\": \"irq_lock_needed\",\n    \"result\": \"send_result\",\n    \"a1\": \"queue_id_or_priority\",\n    \"a2\": \"msg_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 504,\n      \"meaning\": \"global counter decremented after the queued item is sent\"\n    }\n  ]\n}"
+}

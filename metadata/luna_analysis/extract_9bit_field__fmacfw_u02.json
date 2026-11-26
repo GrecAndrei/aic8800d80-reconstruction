@@ -1,0 +1,9 @@
+{
+ "fn": "extract_9bit_field",
+ "img": "fmacfw_u02",
+ "addr": "0x12dfa0",
+ "seg": 42,
+ "key": "extract_9bit_field__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_extract_9bit_field\",\"confidence\":\"medium\",\"docstring\":\"Extracts a 9-bit value from byte 4 bit 7 and byte 5, positioned at bits 22\u201330.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"data\"}}"
+}

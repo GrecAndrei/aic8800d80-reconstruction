@@ -1,0 +1,9 @@
+{
+ "fn": "set_bt_irq_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x136e74",
+ "seg": 56,
+ "key": "set_bt_irq_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_irq_flag_set\",\"confidence\":\"medium\",\"docstring\":\"Sets a BT IRQ-related flag and dispatches the AP low-power-enter event.\",\"subsystem\":\"bt\",\"var_renames\":{},\"struct_hints\":[]}"
+}

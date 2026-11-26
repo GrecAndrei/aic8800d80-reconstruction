@@ -1,0 +1,9 @@
+{
+ "fn": "parse_data_8",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e0e0",
+ "seg": 43,
+ "key": "parse_data_8__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"parse_tlv_eq_len_22\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a TLV byte buffer for a record whose tag byte is 0x3d ('=') and whose length field is 22, returning a pointer to the record or null if it is absent or malformed.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"record\",\n    \"a2\": \"buf_len\",\n    \"v2\": \"end\",\n    \"v3\": \"next_record\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"TLV tag byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"TLV payload length byte\"\n    }\n  ]\n}"
+}

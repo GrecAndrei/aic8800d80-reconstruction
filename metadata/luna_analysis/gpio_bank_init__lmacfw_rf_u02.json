@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_bank_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10ed50",
+ "seg": 2,
+ "key": "gpio_bank_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"gpio_bank_power_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes a GPIO bank/pin alternate-function mode while applying an associated control, strobe, and TX-power setup sequence.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"gpio_bank\",\n    \"v6\": \"power_config_word\",\n    \"v7\": \"mode_control_reg\",\n    \"v5\": \"strobe_control_reg\",\n    \"v4\": \"enable_control_reg\",\n    \"v8\": \"data_register\",\n    \"v9\": \"data_value\",\n    \"result\": \"gpio_mode_result\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"power configuration word copied from dword_10EE64\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"power parameter field set to 5610\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"zeroed flag/reserved field\"\n    }\n  ]\n}"
+}

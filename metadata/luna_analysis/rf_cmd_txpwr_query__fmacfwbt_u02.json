@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_txpwr_query",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136fa0",
+ "seg": 57,
+ "key": "rf_cmd_txpwr_query__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_cmd_txpwr_get\", \"confidence\": \"medium\", \"docstring\": \"Handles a host RF command that retrieves a tx-power calibration entry by index and returns it as an HCI event, sending a zeroed event when the index is out of range.\", \"subsystem\": \"rf\", \"var_renames\": {\"a2\": \"cmd_params\", \"v4\": \"txpwr_table\", \"v6\": \"evt_buf\", \"v7\": \"evt_payload\", \"v8\": \"entry_idx\", \"v10\": \"entry_values\"}, \"struct_hints\": [{\"offset\": 4, \"meaning\": \"tx-power table entry count\"}, {\"offset\": 8, \"meaning\": \"start of 60-byte tx-power table entries (15 uint32 values each)\"}]}"
+}

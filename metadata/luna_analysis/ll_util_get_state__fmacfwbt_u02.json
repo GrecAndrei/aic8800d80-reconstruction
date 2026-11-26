@@ -1,0 +1,9 @@
+{
+ "fn": "ll_util_get_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111150",
+ "seg": 3,
+ "key": "ll_util_get_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_util_get_state\",\"confidence\":\"medium\",\"docstring\":\"Returns 1 when the first global flag is set; otherwise returns the secondary stored state byte.\",\"subsystem\":\"ble\"}"
+}

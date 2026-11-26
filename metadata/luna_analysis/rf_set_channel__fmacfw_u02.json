@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_channel",
+ "img": "fmacfw_u02",
+ "addr": "0x101a88",
+ "seg": 0,
+ "key": "rf_set_channel__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel\",\"confidence\":\"medium\",\"docstring\":\"Writes the low 11 bits of the requested channel to an RF register, clears the corresponding field in another register, and sets the low 11 bits of a third register.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"channel\",\"v1\":\"register_mask\",\"result\":\"channel_11bit\"}}"
+}

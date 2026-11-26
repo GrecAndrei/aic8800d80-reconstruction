@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_tx_pwr",
+ "img": "fmacfw_u02",
+ "addr": "0x13cbec",
+ "seg": 61,
+ "key": "rf_get_tx_pwr__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_ccmp_frame_crypt\",\"confidence\":\"medium\",\"docstring\":\"Processes an 802.11 frame with CCMP/AES-CCM, building associated data from a frame-control field with mutable flags masked.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v9\":\"payload_ptr\",\"v10\":\"payload_len\",\"v13\":\"round_key_words_0_1\",\"v14\":\"round_key_word_3\",\"v15\":\"round_key_word_2\",\"v16\":\"aes_round_constant_table\",\"v17\":\"aes_sbox\",\"v18\":\"expanded_key_ptr\",\"v19\":\"round_constant\",\"v50\":\"masked_frame_control\",\"v51\":\"header_aad_bytes\"},\"struct_hints\":[{\"offset\":80,\"meaning\":\"Start of the 16-byte AES key used for frame protection\"}]}"
+}

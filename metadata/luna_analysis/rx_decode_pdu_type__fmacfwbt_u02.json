@@ -1,0 +1,9 @@
+{
+ "fn": "rx_decode_pdu_type",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13cf14",
+ "seg": 62,
+ "key": "rx_decode_pdu_type__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rx_decode_pdu_type\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Decodes an RX PDU type/status word, mapping low-bit type values to the next supported type and adjusting error/extended-status bits from a PDU context.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a2\": \"pdu_status\",\n    \"v2\": \"pdu_type\",\n    \"v5\": \"pdu_type\",\n    \"v6\": \"pdu_limit\",\n    \"v8\": \"fallback_pdu_type\",\n    \"v9\": \"pdu_type\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 169,\n      \"meaning\": \"fallback/default PDU type value\"\n    },\n    {\n      \"offset\": 170,\n      \"meaning\": \"PDU type support map or indexed byte/bitmask table\"\n    },\n    {\n      \"offset\": 174,\n      \"meaning\": \"16-bit bitmask of supported low-7-bit PDU types\"\n    },\n    {\n      \"offset\": 176,\n      \"meaning\": \"maximum PDU type/index used for table lookup\"\n    },\n    {\n      \"offset\": 178,\n      \"meaning\": \"PDU type limit used for fallback search\"\n    },\n    {\n      \"offset\": 181,\n      \"meaning\": \"flag that forces status bit 0x200 when nonzero\"\n    },\n    {\n      \"offset\": 195,\n      \"meaning\": \"threshold controlling clearing of status bit 0x4000\"\n    }\n  ]\n}"
+}

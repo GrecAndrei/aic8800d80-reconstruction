@@ -1,0 +1,9 @@
+{
+ "fn": "buf_calc_2",
+ "img": "fmacfw_u02",
+ "addr": "0x12d8dc",
+ "seg": 42,
+ "key": "buf_calc_2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_find_ext_supported_rates_ie\",\"confidence\":\"medium\",\"docstring\":\"Scans a bounded information-element stream for element ID 50 (Extended Supported Rates) and returns its header pointer while storing its nonzero payload length.\",\"subsystem\":\"wlan\",\"var_renames\":{\"result\":\"ie_cursor\",\"a2\":\"buffer_len\",\"a3\":\"length_out\",\"v3\":\"buffer_end\",\"v4\":\"ie_payload_len\",\"v5\":\"ie_end\"}}"
+}

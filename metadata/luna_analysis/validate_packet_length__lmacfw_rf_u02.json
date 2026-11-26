@@ -1,0 +1,9 @@
+{
+ "fn": "validate_packet_length",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10a36c",
+ "seg": 2,
+ "key": "validate_packet_length__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_gain_calib_fit\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Evaluates a four-sample RF gain calibration fit, selects the valid sample with the extreme value, and returns the corresponding gain/step or a fit-failure offset.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"mode\",\n    \"a2\": \"gain_code\",\n    \"a3\": \"ref_values\",\n    \"a4\": \"samples\",\n    \"v6\": \"ref_base\",\n    \"v7\": \"result_status_ptr\",\n    \"i\": \"sample_slot\",\n    \"v9\": \"sub_idx\",\n    \"v10\": \"fit_idx\",\n    \"v12\": \"cmp_flags\",\n    \"v14\": \"has_flag_one\",\n    \"v16\": \"sample_idx\",\n    \"v17\": \"best_sample_idx\",\n    \"v20\": \"valid_byte\",\n    \"v21\": \"gain_result\",\n    \"v29\": \"scan_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"gain_fit_x_values\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"gain_fit_y_values\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"per_sample_status_bytes\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"per_sample_float_blocks\"\n    }\n  ]\n}"
+}

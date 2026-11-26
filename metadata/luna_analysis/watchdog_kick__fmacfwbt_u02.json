@@ -1,0 +1,9 @@
+{
+ "fn": "watchdog_kick",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d404",
+ "seg": 3,
+ "key": "watchdog_kick__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_irq_process\",\"confidence\":\"medium\",\"docstring\":\"Reads the GPIO interrupt status, acknowledges pending sources at bits 15 and 10, and sets system flag 0x20000000 when bit 10 is pending.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"pending_irq_status\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "phy_set_txpower",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x105494",
+ "seg": 2,
+ "key": "phy_set_txpower__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_select_analog_power_cal_indexes\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Filters a bitmask of analog power calibration indexes by band-specific range and stores the valid indexes in an RF calibration queue.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cal_index_mask\",\n    \"a2\": \"rf_cal_ctx\",\n    \"a3\": \"range_band_sel\",\n    \"v5\": \"idx\",\n    \"v6\": \"low_cal_index\",\n    \"v7\": \"high_cal_index\",\n    \"v10\": \"stored_idx\",\n    \"v11\": \"queue_count\",\n    \"v12\": \"queued_idx\",\n    \"result\": \"status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 624,\n      \"meaning\": \"uint32_t calibration index queue count or position\"\n    },\n    {\n      \"offset\": 592,\n      \"meaning\": \"uint32_t calibration index array base used with the queue count\"\n    },\n    {\n      \"offset\": 628,\n      \"meaning\": \"current queued analog power calibration index or calibration command word; also accessed as part of a 64-bit command field\"\n    },\n    {\n      \"offset\": 632,\n      \"meaning\": \"fallback or first calibration index field written when no valid queued index exists\"\n    }\n  ]\n}"
+}

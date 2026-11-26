@@ -1,0 +1,9 @@
+{
+ "fn": "schedule_callbacks",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121610",
+ "seg": 22,
+ "key": "schedule_callbacks__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"post_hw_ready_ke_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Waits for hardware readiness, posts the resulting kernel event, and then busy-waits.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"event\"\n  }\n}"
+}

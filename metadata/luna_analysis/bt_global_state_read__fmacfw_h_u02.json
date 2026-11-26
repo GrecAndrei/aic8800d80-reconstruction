@@ -1,0 +1,9 @@
+{
+ "fn": "bt_global_state_read",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1403d0",
+ "seg": 64,
+ "key": "bt_global_state_read__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_global_state_is_clear\",\"confidence\":\"medium\",\"docstring\":\"Returns true when the global state pointer is null, or when HCI state 0xB is 3 and the pointed-to state word is zero.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"bt_global_context\"},\"struct_hints\":[{\"offset\":6472,\"meaning\":\"Pointer to a volatile 32-bit state word; null is treated as clear.\"}]}"
+}

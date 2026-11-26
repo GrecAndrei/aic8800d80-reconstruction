@@ -1,0 +1,9 @@
+{
+ "fn": "llm_pdu_cfg_update",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1159c8",
+ "seg": 8,
+ "key": "llm_pdu_cfg_update__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_pdu_cfg_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes queued link-layer PDU configuration entries for the selected PDU index, applies hardware/table updates, runs completion callbacks, and clears the corresponding active configuration bit under interrupt protection.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"result\": \"pdu_type\",\n    \"v1\": \"pdu_slot\",\n    \"v2\": \"list_entry\",\n    \"v3\": \"pdu_idx\",\n    \"v4\": \"cfg_base\",\n    \"v5\": \"cfg_val_table\",\n    \"v6\": \"cfg_reg_ptr\",\n    \"v10\": \"old_active_bits\",\n    \"v13\": \"old_irq_lock_count\",\n    \"v14\": \"new_irq_lock_count\",\n    \"v16\": \"irq_disabled\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"PDU slot linked-list head for queued configuration entries\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"16-bit list-entry flag selecting the callback completion path\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"List-entry field pointing to a per-entry queue or context structure\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"PDU slot state/enable field cleared when the queue becomes empty\"\n    }\n  ]\n}"
+}

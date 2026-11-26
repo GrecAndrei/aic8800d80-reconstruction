@@ -1,0 +1,9 @@
+{
+ "fn": "mfp_check_rsn_cap",
+ "img": "fmacfw_h_u02",
+ "addr": "0x128c84",
+ "seg": 34,
+ "key": "mfp_check_rsn_cap__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mfp_check_rsn_capability\",\"confidence\":\"medium\",\"docstring\":\"Checks RSN/MFP policy for a BSS configuration and updates the global MFP setup state, clearing configuration flags when protection is unavailable.\",\"subsystem\":\"mfp\",\"var_renames\":{\"a1\":\"bsscfg\",\"v1\":\"mfp_ctx\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Configuration flags word; reset to zero or have bit 1 cleared.\"},{\"offset\":108,\"meaning\":\"Boolean prerequisite for MFP setup.\"},{\"offset\":149,\"meaning\":\"Boolean selector for the setup path.\"}]}"
+}

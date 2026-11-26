@@ -1,0 +1,9 @@
+{
+ "fn": "parse_ll_header",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13ebbc",
+ "seg": 62,
+ "key": "parse_ll_header__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_ll_calc_packet_duration\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Derives a link-layer packet airtime/duration from header bitfields by selecting and scaling entries from precomputed timing tables.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"hdr16\",\n    \"v2\": \"hdr_bits11_13\",\n    \"v6\": \"table_value\",\n    \"v7\": \"divisor_minus_one\",\n    \"v8\": \"byte8_low3\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 6,\n      \"meaning\": \"16-bit link-layer header/timing fields used to select duration table entries\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"byte containing a low 3-bit selector field used in some timing paths\"\n    }\n  ]\n}"
+}

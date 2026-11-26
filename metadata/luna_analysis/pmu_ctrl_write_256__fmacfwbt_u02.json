@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_ctrl_write_256",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10caec",
+ "seg": 2,
+ "key": "pmu_ctrl_write_256__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"pmu_ctrl_write_256\",\"confidence\":\"high\",\"docstring\":\"Writes the constant 256 to a volatile register address referenced by a literal.\",\"subsystem\":\"hal\"}"
+}

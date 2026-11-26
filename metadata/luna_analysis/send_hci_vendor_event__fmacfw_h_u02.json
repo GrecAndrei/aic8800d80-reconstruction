@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_vendor_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1229d8",
+ "seg": 25,
+ "key": "send_hci_vendor_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_hci_vendor_event\",\"confidence\":\"medium\",\"docstring\":\"Writes the vendor-event header using the supplied arguments and returns zero.\",\"subsystem\":\"bt\"}"
+}

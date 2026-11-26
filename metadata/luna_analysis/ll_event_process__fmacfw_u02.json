@@ -1,0 +1,9 @@
+{
+ "fn": "ll_event_process",
+ "img": "fmacfw_u02",
+ "addr": "0x1415ec",
+ "seg": 65,
+ "key": "ll_event_process__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_event_process\",\"confidence\":\"medium\",\"docstring\":\"Processes the current BLE link-layer event, updating hardware status and resetting its associated advertising activity when required.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"ll_context_base\",\"v2\":\"event_index\",\"v4\":\"event_context\"},\"struct_hints\":[{\"offset\":6338,\"meaning\":\"Per-event context state, checked for state 5.\"},{\"offset\":6339,\"meaning\":\"Per-event activity discriminator, split at values 1 and 2.\"},{\"offset\":6480,\"meaning\":\"Current event or activity index.\"}]}"
+}

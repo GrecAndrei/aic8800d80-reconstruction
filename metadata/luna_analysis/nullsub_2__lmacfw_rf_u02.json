@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10dbec",
+ "seg": 2,
+ "key": "nullsub_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"stub_return_zero\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Returns zero, likely an unimplemented or disabled stub function.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

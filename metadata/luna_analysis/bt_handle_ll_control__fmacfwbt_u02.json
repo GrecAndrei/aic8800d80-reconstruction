@@ -1,0 +1,9 @@
+{
+ "fn": "bt_handle_ll_control",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13d5e8",
+ "seg": 62,
+ "key": "bt_handle_ll_control__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"scan_update_adv_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates packed BLE scan/advertising control fields by selecting a valid channel from channel maps or falling back to PRNG-based selection.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v4\": \"control_bits\",\n    \"v5\": \"random_bits\",\n    \"v6\": \"count_bits\",\n    \"v8\": \"channel_idx\",\n    \"v9\": \"channel_min\",\n    \"v12\": \"channel_idx\",\n    \"v13\": \"candidate_idx\",\n    \"v14\": \"channel_count\",\n    \"result\": \"updated_params\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 170,\n      \"meaning\": \"channel map byte array indexed by bits 3-4 of control word\"\n    },\n    {\n      \"offset\": 174,\n      \"meaning\": \"16-bit channel map mask used with 7-bit channel candidates\"\n    },\n    {\n      \"offset\": 177,\n      \"meaning\": \"minimum channel index threshold\"\n    },\n    {\n      \"offset\": 178,\n      \"meaning\": \"current channel count/index (0-3)\"\n    },\n    {\n      \"offset\": 181,\n      \"meaning\": \"active-scan or response-enable flag that forces bit 9\"\n    },\n    {\n      \"offset\": 182,\n      \"meaning\": \"stored next-channel value shifted into bit 10\"\n    },\n    {\n      \"offset\": 183,\n      \"meaning\": \"duplicate-filter or LL control flag\"\n    },\n    {\n      \"offset\": 195,\n      \"meaning\": \"maximum count used to validate the bit-14 field\"\n    }\n  ]\n}"
+}

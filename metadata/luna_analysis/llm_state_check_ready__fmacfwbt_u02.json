@@ -1,0 +1,9 @@
+{
+ "fn": "llm_state_check_ready",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1340b4",
+ "seg": 50,
+ "key": "llm_state_check_ready__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_le_state_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks BLE link-layer/vif state and prepares the appropriate HCI response or reconnection/scan initialization path.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v4\": \"vif_idx\",\n    \"v8\": \"response_buf\",\n    \"v9\": \"vif_table_base\",\n    \"v10\": \"vif_ctxt\",\n    \"v12\": \"hci_cmd_state\",\n    \"v16\": \"event_state\",\n    \"v18\": \"mode_flag\",\n    \"v21\": \"reassoc_request\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 61,\n      \"meaning\": \"caller message vif index\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"caller message flags word; bit 0x20 indicates reassociation request\"\n    },\n    {\n      \"offset\": 59,\n      \"meaning\": \"caller message event/state byte\"\n    },\n    {\n      \"offset\": 54,\n      \"meaning\": \"16-bit event payload length starting at +64\"\n    },\n    {\n      \"offset\": 64,\n      \"meaning\": \"caller message event payload, including six-byte address\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"vif context status byte used as busy/scan condition\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"vif context active/ready byte\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"vif context address type or state sentinel; 0xff appears invalid\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"vif context 32-bit channel/connection context pointer\"\n    }\n  ]\n}"
+}

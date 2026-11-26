@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_clear_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1248f0",
+ "seg": 23,
+ "key": "mmio_clear_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_clear_flag\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears a volatile byte status flag, locks kernel interrupts, and dispatches an event handler.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"off_12490C\": \"status_flag_ptr\",\n    \"asc_130090\": \"event_handler_name\"\n  },\n  \"struct_hints\": []\n}"
+}

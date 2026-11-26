@@ -1,0 +1,9 @@
+{
+ "fn": "radio_isr",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117788",
+ "seg": 10,
+ "key": "radio_isr__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_interrupt_handler\",\"confidence\":\"high\",\"docstring\":\"Processes masked radio interrupt status, runs the busy-flag path when bit 0x10 is set, dispatches encoded RF commands, and acknowledges the handled status.\",\"subsystem\":\"radio\",\"var_renames\":{\"v0\":\"pending_irq_status\"}}"
+}

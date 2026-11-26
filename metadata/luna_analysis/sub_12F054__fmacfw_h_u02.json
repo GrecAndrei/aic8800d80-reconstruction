@@ -1,0 +1,9 @@
+{
+ "fn": "sub_12F054",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f054",
+ "seg": 42,
+ "key": "sub_12F054__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dump_tx_queue_state\",\"confidence\":\"high\",\"docstring\":\"Logs TX queue pointers and status, selects a pending packet from the hardware status bits, and dumps its descriptor and packet data.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"tx_list_cptr_reg\",\"v2\":\"ac0_sptr_reg\",\"v3\":\"ac1_sptr_reg\",\"v4\":\"ac2_sptr_reg\",\"v5\":\"ac3_sptr_reg\",\"v6\":\"hiq_sptr_reg\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Packet buffer start address.\"},{\"offset\":20,\"meaning\":\"Inclusive packet buffer end address, used with the start address to derive the dump length.\"},{\"offset\":24,\"meaning\":\"Frame length.\"},{\"offset\":36,\"meaning\":\"Pointer to a packet substructure dumped as 52 bytes.\"},{\"offset\":60,\"meaning\":\"TX queue entry status word.\"}]}"
+}

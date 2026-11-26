@@ -1,0 +1,9 @@
+{
+ "fn": "rf_chan_pwr_calc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1359bc",
+ "seg": 54,
+ "key": "rf_chan_pwr_calc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_power_calculate\",\"confidence\":\"medium\",\"docstring\":\"Validates the active channel's frequency selection, then updates its channel-specific power-calibration state under the RF lock.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"rf_profile_index\",\"v6\":\"rf_profile\",\"v12\":\"selected_frequency_slot\",\"v13\":\"rf_context\",\"v15\":\"rf_lock_handle\",\"v19\":\"power_table_entry\"},\"struct_hints\":[{\"offset\":35,\"meaning\":\"Channel or band selector used for frequency validation and power-table indexing in the RF profile.\"},{\"offset\":116,\"meaning\":\"RF profile index used to select a 696-byte channel configuration.\"},{\"offset\":412,\"meaning\":\"Nonzero RF-context flag passed to select the lock-acquisition mode.\"},{\"offset\":4,\"meaning\":\"16-bit channel-specific table value incremented modulo 0x1000.\"}]}"
+}

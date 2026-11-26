@@ -1,0 +1,9 @@
+{
+ "fn": "state_set_flags",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ec54",
+ "seg": 43,
+ "key": "state_set_flags__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"state_set_flags\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Stores a 32-bit state/flag value into a volatile RAM global and returns the written value.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"result\": \"flags\"\n  }\n}"
+}

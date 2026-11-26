@@ -1,0 +1,9 @@
+{
+ "fn": "pkt_buf_alloc",
+ "img": "fmacfw_u02",
+ "addr": "0x12cae4",
+ "seg": 40,
+ "key": "pkt_buf_alloc__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mm_pkt_buf_alloc\",\"confidence\":\"medium\",\"docstring\":\"Allocates an aligned packet-buffer block from the best-fitting free block, preserving the block size in a header.\",\"subsystem\":\"mm\",\"var_renames\":{\"v2\":\"aligned_payload_size\",\"v3\":\"allocation_size_with_header\",\"v4\":\"free_block\",\"v5\":\"lock_depth_ptr\",\"v6\":\"previous_lock_depth\",\"v7\":\"best_fit_block\",\"v8\":\"free_block_size\",\"v9\":\"allocated_block_base\",\"v10\":\"remaining_free_size\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next free block pointer.\"},{\"offset\":4,\"meaning\":\"Block size in bytes; the allocated block header stores its total size here.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "util_feature_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a364",
+ "seg": 37,
+ "key": "util_feature_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_channel_offset_get\", \"confidence\": \"medium\", \"docstring\": \"Selects a 140-byte RF channel table entry using an index field from the supplied context, outputs two offset fields from the entry, and returns whether the second offset is below the first.\", \"subsystem\": \"rf\", \"var_renames\": {\"v6\": \"table_entry\", \"v7\": \"offset_b\"}, \"struct_hints\": [{\"offset\": 1224, \"meaning\": \"context flag consulted before clearing IRQ 1311\"}, {\"offset\": 1225, \"meaning\": \"index selecting a 140-byte RF/channel table entry\"}, {\"offset\": 124, \"meaning\": \"second 32-bit field in selected table entry, written to *a3\"}, {\"offset\": 128, \"meaning\": \"first 32-bit field in selected table entry, written to *a2\"}]}"
+}

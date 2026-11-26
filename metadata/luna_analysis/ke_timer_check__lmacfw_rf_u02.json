@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c88c",
+ "seg": 19,
+ "key": "ke_timer_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_timer_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Advances the current pending kernel timer's elapsed counter and dispatches or forwards the associated timer entry when the expiry threshold or completion flag is reached, otherwise removes the entry from the queue.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v1\": \"timer_ctrl\",\n    \"v2\": \"timer_ctx\",\n    \"v3\": \"expiry_ticks\",\n    \"v4\": \"elapsed_ticks\",\n    \"v5\": \"event_arg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": -12,\n      \"meaning\": \"container/list header preceding the timer/context object\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"pointer to the current timer/context entry\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"16-bit event/message argument associated with the timer\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"8-bit elapsed tick counter\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"completion or forced-dispatch flag\"\n    },\n    {\n      \"offset\": 367,\n      \"meaning\": \"8-bit expiry threshold in the target timer/context object\"\n    }\n  ]\n}"
+}

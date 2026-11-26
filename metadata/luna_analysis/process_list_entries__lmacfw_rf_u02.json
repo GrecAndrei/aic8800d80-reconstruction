@@ -1,0 +1,9 @@
+{
+ "fn": "process_list_entries",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e184",
+ "seg": 20,
+ "key": "process_list_entries__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"flash_lookup_entry\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Searches an array of 8-byte table entries for a 16-bit key and returns the associated 32-bit value, reloading the table base via flash controller initialization when a zero entry is encountered.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"key\",\n    \"a2\": \"table_ptr\",\n    \"a3\": \"entry_count\",\n    \"v3\": \"index\",\n    \"v5\": \"base_addr\",\n    \"v6\": \"entry_key\",\n    \"v7\": \"entry_offset\",\n    \"v8\": \"entry_addr\",\n    \"result\": \"entry_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint16_t table entry key\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"uint32_t table entry value\"\n    }\n  ]\n}"
+}

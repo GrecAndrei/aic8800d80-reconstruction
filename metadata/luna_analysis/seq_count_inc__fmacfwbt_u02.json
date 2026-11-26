@@ -1,0 +1,9 @@
+{
+ "fn": "seq_count_inc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11dbf0",
+ "seg": 21,
+ "key": "seq_count_inc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"seq_count_inc\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Increments a one-byte sequence counter stored in a global state structure and resets it after the incremented value exceeds an adjacent limit byte.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"seq_state\",\n    \"v1\": \"seq_limit\",\n    \"v2\": \"next_seq\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 10,\n      \"meaning\": \"one-byte sequence counter\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"sequence counter limit or wrap threshold\"\n    }\n  ]\n}"
+}

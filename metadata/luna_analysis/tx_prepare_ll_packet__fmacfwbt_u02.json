@@ -1,0 +1,9 @@
+{
+ "fn": "tx_prepare_ll_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13c5b4",
+ "seg": 61,
+ "key": "tx_prepare_ll_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_filter_ll_frame\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Filters a link-layer frame by validating rate and frame-control criteria, marking an output decision and optionally posting a kernel event for selected management frames.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"frame_info\",\n    \"a2\": \"field_offset\",\n    \"a3\": \"buffer_len\",\n    \"a4\": \"filter_result\",\n    \"v4\": \"frame_data\",\n    \"v5\": \"frame_flags\",\n    \"v6\": \"rate_byte\",\n    \"v11\": \"aux_index\",\n    \"v12\": \"vif_index\",\n    \"v13\": \"frame_len\",\n    \"v17\": \"target_context\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"pointer to packet data buffer\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"secondary context index\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"primary vif or table index\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"flags byte; bit 3 selects packet-processing path\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"16-bit subtype or index field in parsed frame\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"32-bit field; low 24 bits used as timestamp or sequence value\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"8-byte field cleared before kernel event processing\"\n    },\n    {\n      \"offset\": 480,\n      \"meaning\": \"stored timestamp or sequence counter in target context\"\n    },\n    {\n      \"offset\": 579,\n      \"meaning\": \"context enable or pending byte\"\n    }\n  ]\n}"
+}

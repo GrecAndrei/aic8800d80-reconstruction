@@ -1,0 +1,9 @@
+{
+ "fn": "dispatch_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13b988",
+ "seg": 60,
+ "key": "dispatch_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_dispatch_command\",\"confidence\":\"medium\",\"docstring\":\"Dispatches a Bluetooth command descriptor by decoding its selector and channel fields, returning a per-link value or performing fallback state initialization.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"device_index\",\"a2\":\"command_buffer\",\"a3\":\"command_type\",\"v6\":\"channel_index\",\"v8\":\"channel_index\",\"v9\":\"device_index\",\"v10\":\"payload_byte\",\"v13\":\"selector_group\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Per-device state flag checked before fallback initialization.\"},{\"offset\":448,\"meaning\":\"Per-channel word compared against a timing threshold.\"},{\"offset\":452,\"meaning\":\"Per-channel byte returned for selected command paths.\"},{\"offset\":453,\"meaning\":\"Alternate per-channel byte returned for selected command paths.\"}]}"
+}

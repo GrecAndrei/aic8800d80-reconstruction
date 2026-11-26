@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101ac4",
+ "seg": 0,
+ "key": "rf_get_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_status\",\"confidence\":\"medium\",\"docstring\":\"Reads the current RF band/frequency state, maps the frequency to a calibration band, and returns two computed RF status/correction bytes.\",\"subsystem\":\"rf\",\"var_renames\":{\"v4\":\"rf_frequency_mhz\",\"v10\":\"calibration_band\",\"v11\":\"status_correction\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"RF band/status flag selecting the 5 GHz versus 2.4 GHz frequency threshold path\"},{\"offset\":40,\"meaning\":\"current RF channel frequency in MHz used to select the calibration band\"}]}"
+}

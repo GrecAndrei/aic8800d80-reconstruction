@@ -1,0 +1,9 @@
+{
+ "fn": "is_not_equal",
+ "img": "fmacfw_h_u02",
+ "addr": "0x143270",
+ "seg": 68,
+ "key": "is_not_equal__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"float_equal\",\"confidence\":\"high\",\"docstring\":\"Returns whether two single-precision floating-point values are equal.\",\"subsystem\":\"libmisc\"}"
+}

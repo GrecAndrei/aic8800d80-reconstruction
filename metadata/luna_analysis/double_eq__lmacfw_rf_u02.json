@@ -1,0 +1,9 @@
+{
+ "fn": "double_eq",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127af0",
+ "seg": 23,
+ "key": "double_eq__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_dcmpeq\",\n  \"confidence\": \"high\",\n  \"docstring\": \"AEABI helper that tests two IEEE 754 double-precision values for equality and returns a boolean result.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

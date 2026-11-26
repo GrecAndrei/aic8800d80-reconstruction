@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_band_alt",
+ "img": "fmacfw_u02",
+ "addr": "0x136fa4",
+ "seg": 56,
+ "key": "rf_set_band_alt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"scanu_vendor_ie_set\",\"confidence\":\"medium\",\"docstring\":\"Copies vendor-IE data into shared storage and posts a two-byte update request to the scan task.\",\"subsystem\":\"mac\",\"var_renames\":{\"v5\":\"message_payload\",\"v6\":\"vendor_ie_storage\",\"v7\":\"vendor_ie_length\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"16-bit vendor-IE data length\"},{\"offset\":2,\"meaning\":\"selector or flags byte copied into the update request\"},{\"offset\":3,\"meaning\":\"vendor-IE data bytes\"}]}"
+}

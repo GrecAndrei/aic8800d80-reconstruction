@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_schedule_alt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114258",
+ "seg": 5,
+ "key": "ke_event_schedule_alt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_event_schedule_locked\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Wrapper that calls kernel-event slot 0x1D0 under a reentrant IRQ-disabled scheduling lock maintained by a nesting counter.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"nesting_count_ptr\",\n    \"v2\": \"remaining_nesting_count\",\n    \"v3\": \"irq_disabled_here\",\n    \"result\": \"slot_result\"\n  },\n  \"struct_hints\": []\n}"
+}

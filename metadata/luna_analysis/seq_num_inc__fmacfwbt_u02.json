@@ -1,0 +1,9 @@
+{
+ "fn": "seq_num_inc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x112f60",
+ "seg": 4,
+ "key": "seq_num_inc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_wlan_rx_process\",\"confidence\":\"medium\",\"docstring\":\"Validates and dispatches USB WLAN receive buffers, parsing type-1 data packets and queueing type-0x11 messages.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"rx_buf\",\"a2\":\"rx_len\",\"a3\":\"usb_rx_status\",\"v9\":\"packet_type\",\"v10\":\"declared_len\",\"v11\":\"rx_queue_env\",\"v12\":\"queued_count\",\"v14\":\"queue_slot_index\",\"v15\":\"queue_entry\"},\"struct_hints\":[{\"offset\":1636,\"meaning\":\"Base of the pending receive-message ring; entries have a 20-byte stride, with the packet pointer at entry offset 0 and declared length at offset 12.\"},{\"offset\":2432,\"meaning\":\"Next receive-message ring slot index, wrapped modulo 40.\"},{\"offset\":2433,\"meaning\":\"Number of queued receive messages.\"},{\"offset\":2434,\"meaning\":\"Receive-message queue capacity.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_write",
+ "img": "fmacfwbt_u02",
+ "addr": "0x137054",
+ "seg": 57,
+ "key": "rf_cmd_write__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_write\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates an HCI event buffer, marks it as an RF command event, copies one command byte, and sends it.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v5\": \"cmd_buf\",\n    \"a2\": \"cmd_source\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"HCI event or RF command identifier (set to 1)\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"RF command subcode byte copied from the source buffer\"\n    }\n  ]\n}"
+}

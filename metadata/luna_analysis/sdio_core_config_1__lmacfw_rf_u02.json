@@ -1,0 +1,9 @@
+{
+ "fn": "sdio_core_config_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10e008",
+ "seg": 2,
+ "key": "sdio_core_config_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sdio_core_config_measure\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configures and starts an SDIO-core calibration/measurement block, polls completion, reads a raw count, waits, and returns a scaled floating-point result.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"core_regs\",\n    \"v1\": \"aux_regs\",\n    \"v2\": \"mask_a\",\n    \"v3\": \"mask_b\",\n    \"v4\": \"bits_a\",\n    \"v5\": \"raw_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"core control register written zero\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"trigger/start register written one\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"bitfield register, clears bits 16-27 and sets bit 25\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"configuration register assembled from mask/value globals\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"raw measurement/count output\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"status register polled until equals one then acked\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"aux register at aux_regs[14] programmed to 296\"\n    }\n  ]\n}"
+}

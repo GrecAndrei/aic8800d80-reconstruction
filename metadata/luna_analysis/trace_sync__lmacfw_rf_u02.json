@@ -1,0 +1,9 @@
+{
+ "fn": "trace_sync",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10d624",
+ "seg": 2,
+ "key": "trace_sync__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"trace_sync\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Synchronizes trace output by strobing a hardware trace control bit and inserting a full data/instruction synchronization barrier.\",\n  \"subsystem\": \"hal\",\n  \"struct_hints\": [\n    {\n      \"offset\": 128,\n      \"meaning\": \"trace/control register word at byte offset 0x80 from the pointed-to MMIO base; bit 15 is set as a sync/strobe.\"\n    }\n  ]\n}"
+}

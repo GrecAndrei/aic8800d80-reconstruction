@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_send_event",
+ "img": "fmacfw_u02",
+ "addr": "0x1237f4",
+ "seg": 28,
+ "key": "ke_msg_send_event__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_rx_pdu_event_send\",\"confidence\":\"medium\",\"docstring\":\"Builds and sends a two-byte BLE receive-event message, optionally parsing the packet header when its type is enabled and its metadata passes the size and status checks.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"rx_packet\",\"a3\":\"src_task_id\",\"a4\":\"dst_task_id\",\"v5\":\"message_payload\",\"v7\":\"message_payload\",\"v8\":\"packet_type_enabled\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Packet size or length field checked against 32 bytes\"},{\"offset\":40,\"meaning\":\"Packet type selector used to choose an enable bit\"}]}"
+}

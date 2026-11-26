@@ -1,0 +1,9 @@
+{
+ "fn": "tx_schedule_radio_task",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13649c",
+ "seg": 56,
+ "key": "tx_schedule_radio_task__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"txpwr_radio_task_process\", \"confidence\": \"medium\", \"docstring\": \"Polls the transmit-power radio command status for opcode 7, optionally clears the associated radio IRQ, and calls txpwr_get_state when the command reaches a ready state.\", \"subsystem\": \"rf\", \"var_renames\": {\"v0\": \"txpwr_cmd_state\"}, \"struct_hints\": []}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llm_rx_validate_pdu",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132810",
+ "seg": 46,
+ "key": "llm_rx_validate_pdu__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_rx_validate_pdu\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects a BLE link-layer RX status or validation code by returning the highest-priority nonzero byte among PDU descriptor fields at offsets 3, 2, and 1.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"pdu\"\n  }\n}"
+}

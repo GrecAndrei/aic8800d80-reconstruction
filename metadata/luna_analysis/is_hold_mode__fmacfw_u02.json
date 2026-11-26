@@ -1,0 +1,9 @@
+{
+ "fn": "is_hold_mode",
+ "img": "fmacfw_u02",
+ "addr": "0x110480",
+ "seg": 3,
+ "key": "is_hold_mode__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"is_hold_mode\",\"confidence\":\"medium\",\"docstring\":\"Reads the hold-mode state through the shared word accessor while balancing the nested interrupt-disable state.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"irq_nesting_depth\",\"v3\":\"remaining_irq_nesting_depth\",\"v4\":\"irq_restore_pending\"}}"
+}

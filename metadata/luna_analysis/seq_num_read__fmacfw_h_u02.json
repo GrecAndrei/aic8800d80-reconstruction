@@ -1,0 +1,9 @@
+{
+ "fn": "seq_num_read",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11d694",
+ "seg": 20,
+ "key": "seq_num_read__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"seq_num_commit\",\"confidence\":\"medium\",\"docstring\":\"Promotes the pending sequence byte at state offset 11 into offset 10 and clears bit 8 of the associated control register.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"seq_state\",\"v1\":\"control_reg\",\"v2\":\"control_value\"},\"struct_hints\":[{\"offset\":10,\"meaning\":\"Current sequence/state byte; tested before being overwritten.\"},{\"offset\":11,\"meaning\":\"Pending sequence/state byte copied into offset 10.\"}]}"
+}

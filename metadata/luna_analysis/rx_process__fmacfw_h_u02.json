@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13e1e8",
+ "seg": 61,
+ "key": "rx_process__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_rx_process\",\"confidence\":\"medium\",\"docstring\":\"Processes Bluetooth RX records by decoding packet-format-specific control words and validating candidate LL control commands.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"rx_context\",\"v1\":\"rx_record_count\",\"v3\":\"record_count_minus_one\",\"v4\":\"record_init_ptr\",\"v5\":\"last_record_index\",\"v8\":\"packet_format\",\"v9\":\"ll_control_word\",\"v10\":\"record_ptr\",\"v11\":\"record_index\"},\"struct_hints\":[{\"offset\":10,\"meaning\":\"Per-record word initialized to 0xFFFF and later populated with a state result or decoded control word.\"},{\"offset\":169,\"meaning\":\"Packet-format selector used to choose the control-word decoding layout.\"},{\"offset\":170,\"meaning\":\"Packed RX data used to extract format-specific control fields.\"},{\"offset\":184,\"meaning\":\"Number of RX records, each advanced by a 12-byte stride.\"}]}"
+}

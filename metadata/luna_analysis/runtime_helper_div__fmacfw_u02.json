@@ -1,0 +1,9 @@
+{
+ "fn": "runtime_helper_div",
+ "img": "fmacfw_u02",
+ "addr": "0x106568",
+ "seg": 2,
+ "key": "runtime_helper_div__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_phy_update_calibration_accumulator\",\"confidence\":\"medium\",\"docstring\":\"Updates an indexed RF calibration accumulator using a 20\u00d7 scaled input and logs when the input exceeds the saturation or SMA thresholds.\",\"subsystem\":\"rf\",\"var_renames\":{\"v7\":\"indexed_accumulator_addr\",\"v9\":\"previous_accumulator\",\"v11\":\"adjustment_and_saturation_limit\",\"v12\":\"scaled_input\",\"v13\":\"sma_threshold\"},\"struct_hints\":[{\"offset\":140,\"meaning\":\"Base of the per-index calibration accumulator array.\"},{\"offset\":164,\"meaning\":\"64-bit pair: low word is an accumulator adjustment and high word is the saturation limit.\"},{\"offset\":172,\"meaning\":\"SMA threshold compared against the scaled input.\"}]}"
+}

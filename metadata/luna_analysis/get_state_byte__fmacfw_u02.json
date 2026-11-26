@@ -1,0 +1,9 @@
+{
+ "fn": "get_state_byte",
+ "img": "fmacfw_u02",
+ "addr": "0x112c64",
+ "seg": 4,
+ "key": "get_state_byte__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_usb_suspend_state\",\"confidence\":\"medium\",\"docstring\":\"Returns the `usb_susp` byte through the selected read path and sets a related global byte flag to one.\",\"subsystem\":\"hal\"}"
+}

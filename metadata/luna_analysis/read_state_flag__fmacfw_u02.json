@@ -1,0 +1,9 @@
+{
+ "fn": "read_state_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x1136b8",
+ "seg": 4,
+ "key": "read_state_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"watchdog_rx_poll\",\"confidence\":\"medium\",\"docstring\":\"Obtains a watchdog RX buffer, processes it through the state-load path, and retries failed loads up to five times while recording threshold conditions.\",\"subsystem\":\"hal\",\"var_renames\":{\"v7\":\"rx_buffer\",\"v13\":\"threshold_reached_flag\",\"v14\":\"retries_remaining\"}}"
+}

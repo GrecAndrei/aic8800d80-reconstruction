@@ -1,0 +1,9 @@
+{
+ "fn": "chip_state_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x121984",
+ "seg": 23,
+ "key": "chip_state_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_shared_s16_update\",\"confidence\":\"medium\",\"docstring\":\"Clamps a signed offset to the configured span, stores it in shared state, and dispatches the corresponding work under an IRQ-protected lock.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"requested_offset\",\"v2\":\"configured_span\",\"v3\":\"offset_magnitude\",\"v4\":\"clamped_offset\",\"v5\":\"irq_lock_depth_ptr\",\"v10\":\"buffer_position\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"clamped signed offset\"},{\"offset\":48,\"meaning\":\"active or busy guard flag\"}]}"
+}

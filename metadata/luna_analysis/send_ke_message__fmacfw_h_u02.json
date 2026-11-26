@@ -1,0 +1,9 @@
+{
+ "fn": "send_ke_message",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11eb54",
+ "seg": 21,
+ "key": "send_ke_message__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_ke_message\",\"confidence\":\"medium\",\"docstring\":\"Allocates a 24-byte kernel message with fixed identifiers, copies the supplied parameters into it, and submits it for processing.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"message_params\",\"v2\":\"message_buffer\",\"v4\":\"message_buffer\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_0x403",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121544",
+ "seg": 22,
+ "key": "rf_write_0x403__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"dbg_mem_write\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a debug memory-write request by writing the supplied 32-bit value to the requested address and returning the target address and read-back value in an 8-byte IPC reply.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"a2\": \"cmd_params\",\n    \"v5\": \"reply_msg\",\n    \"v6\": \"target_ptr\",\n    \"v7\": \"reply_msg\",\n    \"v8\": \"target_addr\",\n    \"v9\": \"readback\",\n    \"v10\": \"write_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"32-bit target address word of the debug command\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"32-bit write value word of the debug command\"\n    }\n  ]\n}"
+}

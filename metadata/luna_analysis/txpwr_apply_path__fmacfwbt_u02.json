@@ -1,0 +1,9 @@
+{
+ "fn": "txpwr_apply_path",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136544",
+ "seg": 56,
+ "key": "txpwr_apply_path__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"txpwr_apply_path\", \"confidence\": \"medium\", \"docstring\": \"Applies TXPWR path 0 and clears the associated MMIO IRQ only when the signed path/calibration value is negative and the short HCI command does not return status 2.\", \"subsystem\": \"rf\", \"var_renames\": {}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"signed TXPWR path or calibration value; negative selects IRQ clear before applying path 0\"}]}"
+}

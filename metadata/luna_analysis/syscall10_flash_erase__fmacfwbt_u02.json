@@ -1,0 +1,9 @@
+{
+ "fn": "syscall10_flash_erase",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115078",
+ "seg": 6,
+ "key": "syscall10_flash_erase__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"flash_erase_result_decode\",\"confidence\":\"medium\",\"docstring\":\"Calls syscall 10, selects the requested result byte, decodes its nonzero nibble as a signed-magnitude value through the output pointer, and returns a decoding status.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"result_byte_index\",\"a2\":\"decoded_value_out\",\"v3\":\"shifted_syscall_result\",\"v4\":\"encoded_nibble\",\"v6\":\"sign_multiplier\"},\"struct_hints\":[]}"
+}

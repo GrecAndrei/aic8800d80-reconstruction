@@ -1,0 +1,9 @@
+{
+ "fn": "get_hw_info_bit19",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1151c0",
+ "seg": 6,
+ "key": "get_hw_info_bit19__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_hw_info_bit19\",\"confidence\":\"high\",\"docstring\":\"Returns bit 19 of the value obtained by calling the ROM hardware-info routine with selector 15.\",\"subsystem\":\"hal\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mem_free_ret",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f5bc",
+ "seg": 2,
+ "key": "mem_free_ret__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mem_free_handler\",\"confidence\":\"medium\",\"docstring\":\"Handler-style wrapper that frees the buffer referenced by the second argument and returns success.\",\"subsystem\":\"mm\",\"var_renames\":{\"a1\":\"unused_context\",\"a2\":\"buffer_ptr\"},\"struct_hints\":[]}"
+}

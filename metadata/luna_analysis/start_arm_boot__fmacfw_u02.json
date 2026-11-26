@@ -1,0 +1,9 @@
+{
+ "fn": "start_arm_boot",
+ "img": "fmacfw_u02",
+ "addr": "0x1044e0",
+ "seg": 2,
+ "key": "start_arm_boot__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dump_tone_type3\",\"confidence\":\"high\",\"docstring\":\"Configures and runs the hardware sequence for a type-3 tone dump, waits for completion, then restores and clears the associated control registers.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"tone_dump_control_reg\",\"v3\":\"saved_reg_value\",\"v5\":\"end_addr_reg\"},\"struct_hints\":[{\"offset\":116,\"meaning\":\"MMIO register whose bits 4\u20137 are set to 0xA during dump setup.\"}]}"
+}

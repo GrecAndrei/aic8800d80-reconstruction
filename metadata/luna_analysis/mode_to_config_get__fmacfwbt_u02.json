@@ -1,0 +1,9 @@
+{
+ "fn": "mode_to_config_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11347c",
+ "seg": 4,
+ "key": "mode_to_config_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calib_mode_config_get\",\"confidence\":\"medium\",\"docstring\":\"Returns the calibration configuration for a mode, refreshing the mode-1 record and applying hardware-derived values when available.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"mode\",\"result\":\"config\",\"v2\":\"mode1_config\",\"v3\":\"hardware_info\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"32-bit mode-specific configuration value\"}]}"
+}

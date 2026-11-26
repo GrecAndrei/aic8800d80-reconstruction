@@ -1,0 +1,9 @@
+{
+ "fn": "tx_event_handle",
+ "img": "fmacfwbt_u02",
+ "addr": "0x119888",
+ "seg": 13,
+ "key": "tx_event_handle__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ble_tx_event_handle\", \"confidence\": \"medium\", \"docstring\": \"Processes a BLE TX event chain, writing a completion/status word into associated descriptor contexts until the expected event type bits are encountered.\", \"subsystem\": \"ble\", \"var_renames\": {\"v1\": \"tx_event_ctx\", \"v2\": \"tx_event_status\", \"v3\": \"tx_event\", \"v4\": \"tx_event_type\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"next TX event pointer\"}, {\"offset\": 36, \"meaning\": \"TX event type/flags field; bits 19-21 compared with 0x380000\"}, {\"offset\": 76, \"meaning\": \"pointer to associated TX event context/descriptor\"}, {\"offset\": 28, \"meaning\": \"TX event context active/count field; zero stops traversal\"}, {\"offset\": 32, \"meaning\": \"TX event context pointer whose word-minus-three status field is updated\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_save_regs",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11397c",
+ "seg": 5,
+ "key": "rf_save_regs__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_hostif_init_buffers\",\"confidence\":\"medium\",\"docstring\":\"Initializes the host-interface work buffers and applies the configured USB IN aggregation count, defaulting it to 10 when unset.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"memory_context\",\"v3\":\"small_work_buffer\",\"v6\":\"large_work_buffer\",\"v21\":\"usb_in_aggregation_count\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Pointer to the 0x140-byte work buffer\"},{\"offset\":20,\"meaning\":\"Pointer to the 0xCB8-byte work buffer\"},{\"offset\":24,\"meaning\":\"Available work-buffer size\"},{\"offset\":368,\"meaning\":\"Configured USB IN aggregation count; zero selects the default of 10\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "zero_buffer_range",
+ "img": "fmacfw_u02",
+ "addr": "0x10c8f8",
+ "seg": 2,
+ "key": "zero_buffer_range__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_shared_buffer_init\",\"confidence\":\"medium\",\"docstring\":\"Clears firmware buffers, optionally initializes a shared region under a status-bit handshake, stores a source word in that region, and then selects a GPIO alternate function.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"init_source_value\",\"v2\":\"fill_byte\",\"v3\":\"shared_buffer_ref\"}}"
+}

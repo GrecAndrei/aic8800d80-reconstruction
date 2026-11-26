@@ -1,0 +1,9 @@
+{
+ "fn": "timer_read_count",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111218",
+ "seg": 4,
+ "key": "timer_read_count__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_read_count\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Issues the timer count read command to the hardware timer interface, waits for the command trigger bit to clear, and programs the command buffer address after completion.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"cmd_buf\",\n    \"v1\": \"cmd_arg\",\n    \"v2\": \"hw_base\",\n    \"result\": \"done_bit\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"hardware command trigger/status register bit; bit 5 is set to start and polled until clear\"\n    },\n    {\n      \"offset\": 2324,\n      \"meaning\": \"command-buffer address register written after the command completes\"\n    }\n  ]\n}"
+}

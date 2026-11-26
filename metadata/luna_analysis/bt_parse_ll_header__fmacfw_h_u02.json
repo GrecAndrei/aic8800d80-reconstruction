@@ -1,0 +1,9 @@
+{
+ "fn": "bt_parse_ll_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13cd38",
+ "seg": 61,
+ "key": "bt_parse_ll_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_update_ll_header_index\",\"confidence\":\"medium\",\"docstring\":\"Selects or advances the LL-header index using connection-specific bounds and eligibility bitmaps.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"conn_ctx\",\"a2\":\"ll_header\",\"v2\":\"header_index\",\"v6\":\"scan_limit\",\"v9\":\"candidate_index\"},\"struct_hints\":[{\"offset\":174,\"meaning\":\"Bitmap of eligible candidate indices.\"},{\"offset\":176,\"meaning\":\"Upper bound for the header index.\"},{\"offset\":178,\"meaning\":\"Candidate-index scan limit.\"},{\"offset\":181,\"meaning\":\"Flag propagated to header bit 9.\"}]}"
+}

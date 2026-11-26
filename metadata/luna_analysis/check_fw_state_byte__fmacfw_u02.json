@@ -1,0 +1,9 @@
+{
+ "fn": "check_fw_state_byte",
+ "img": "fmacfw_u02",
+ "addr": "0x13bfb4",
+ "seg": 60,
+ "key": "check_fw_state_byte__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_adv_activity_start\",\"confidence\":\"medium\",\"docstring\":\"Initializes and schedules a BLE advertising activity for the requested interface and selector, returning 3 when the state lookup yields sentinel 33.\",\"subsystem\":\"ble\",\"var_renames\":{\"v6\":\"activity_slot\",\"v7\":\"activity_slot_byte\",\"v8\":\"activity_context\",\"v10\":\"scaled_timer_value\",\"v11\":\"activity_timing_value\",\"v12\":\"interface_context_base\",\"v15\":\"interface_activity_entry\",\"v16\":\"timer_counter_snapshot\",\"v17\":\"activity_task_id\",\"v18\":\"timer_counter_after_setup\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Snapshot of the hardware timer counter\"},{\"offset\":12,\"meaning\":\"Caller-provided 16-bit activity parameter (a3)\"},{\"offset\":16,\"meaning\":\"Interface index (a1)\"},{\"offset\":17,\"meaning\":\"Activity flag initialized to 1\"},{\"offset\":18,\"meaning\":\"Activity flag initialized to 1\"},{\"offset\":20,\"meaning\":\"Mode-selected timing value (64 or 256)\"},{\"offset\":22,\"meaning\":\"Caller-provided selector (a2)\"},{\"offset\":23,\"meaning\":\"Scaled timer value\"}]}"
+}

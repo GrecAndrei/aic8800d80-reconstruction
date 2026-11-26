@@ -1,0 +1,9 @@
+{
+ "fn": "is_initialized_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x138528",
+ "seg": 57,
+ "key": "is_initialized_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_scan_start\",\"confidence\":\"medium\",\"docstring\":\"Initializes scan state and starts a scan, detecting a Direct SSID and copying optional request data.\",\"subsystem\":\"rf\",\"var_renames\":{\"v7\":\"scan_request\",\"v8\":\"direct_ssid_match\",\"v12\":\"request_extra_data\",\"v13\":\"request_extra_data_len\"},\"struct_hints\":[{\"offset\":252,\"meaning\":\"SSID length in the scan request\"},{\"offset\":253,\"meaning\":\"SSID bytes in the scan request\"},{\"offset\":360,\"meaning\":\"Optional request data pointer\"},{\"offset\":364,\"meaning\":\"Optional request data length\"}]}"
+}

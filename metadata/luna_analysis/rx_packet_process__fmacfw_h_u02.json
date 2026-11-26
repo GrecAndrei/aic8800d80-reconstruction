@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_process",
+ "img": "fmacfw_h_u02",
+ "addr": "0x104500",
+ "seg": 2,
+ "key": "rx_packet_process__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_iq_phase_angle\",\"confidence\":\"medium\",\"docstring\":\"Extracts two signed 12-bit components from a packed RF sample and computes their quadrant-corrected phase angle.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"packed_iq_sample\",\"v4\":\"low_component\",\"v5\":\"high_component\",\"v6\":\"high_component_sign\",\"v7\":\"low_component_sign\",\"v8\":\"abs_high_component\",\"v9\":\"abs_low_component\",\"v10\":\"minor_major_ratio\"}}"
+}

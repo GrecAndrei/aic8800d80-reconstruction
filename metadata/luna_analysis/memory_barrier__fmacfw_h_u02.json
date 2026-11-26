@@ -1,0 +1,9 @@
+{
+ "fn": "memory_barrier",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114578",
+ "seg": 5,
+ "key": "memory_barrier__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_register_sync\",\"confidence\":\"medium\",\"docstring\":\"Reads and writes back the value at the register address stored at 0x114584, likely to synchronize RF register access.\",\"subsystem\":\"rf\"}"
+}

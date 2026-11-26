@@ -1,0 +1,9 @@
+{
+ "fn": "select_fuse_bank",
+ "img": "fmacfw_u02",
+ "addr": "0x1043d4",
+ "seg": 2,
+ "key": "select_fuse_bank__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"correct_iq_dc_offset\",\"confidence\":\"high\",\"docstring\":\"Computes the mean signed 12-bit I/Q values across the selected 8192-sample buffer and subtracts those means from the samples in place.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"min_i\",\"v2\":\"iq_sample_buffer\",\"v4\":\"sample_ptr\",\"v6\":\"max_q\",\"v7\":\"max_i\",\"v8\":\"sum_q\",\"v9\":\"sum_i\",\"v10\":\"sample_i\",\"v11\":\"sample_q\",\"v12\":\"packed_sample\",\"v13\":\"sample_i\",\"v14\":\"sample_q\"}}"
+}

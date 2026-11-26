@@ -1,0 +1,9 @@
+{
+ "fn": "hci_uart_dma_rx_start",
+ "img": "fmacfw_u02",
+ "addr": "0x11ecb8",
+ "seg": 21,
+ "key": "hci_uart_dma_rx_start__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_uart_rx_drain\",\"confidence\":\"medium\",\"docstring\":\"Polls the UART receive interface, forwards nonzero words in batches of up to four through hci_vendor_cmd_send, and updates receive and interrupt bookkeeping.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"rx_status_control_reg\",\"v1\":\"rx_data_reg\",\"v2\":\"batch_word_count\",\"v3\":\"received_word\",\"_0\":\"vendor_cmd_batch\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"number of received words in the batch\"}]}"
+}

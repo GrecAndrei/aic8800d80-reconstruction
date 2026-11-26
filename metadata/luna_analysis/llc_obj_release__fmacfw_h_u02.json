@@ -1,0 +1,9 @@
+{
+ "fn": "llc_obj_release",
+ "img": "fmacfw_h_u02",
+ "addr": "0x127788",
+ "seg": 33,
+ "key": "llc_obj_release__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_conn_rf_update\",\"confidence\":\"medium\",\"docstring\":\"Refreshes the connection's RF readiness value, passes it to low-level RF processing, and updates a connection flag.\",\"subsystem\":\"llc\",\"var_renames\":{\"a1\":\"conn_env\",\"v2\":\"rf_ready\"},\"struct_hints\":[{\"offset\":85,\"meaning\":\"Connection flags byte; this function clears bit 6 and sets bit 5.\"},{\"offset\":88,\"meaning\":\"RF readiness value passed to rf_is_ready and replaced with its return value.\"}]}"
+}

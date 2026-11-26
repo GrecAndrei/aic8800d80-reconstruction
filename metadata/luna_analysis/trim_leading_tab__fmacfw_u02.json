@@ -1,0 +1,9 @@
+{
+ "fn": "trim_leading_tab",
+ "img": "fmacfw_u02",
+ "addr": "0x12f65c",
+ "seg": 42,
+ "key": "trim_leading_tab__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_process_tabbed_bytes\",\"confidence\":\"medium\",\"docstring\":\"Processes bytes before a trailing tab, forwarding non-tab values to the GPIO helper and advancing the shared position to the next eight-byte boundary at embedded tabs.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"input_start\",\"a2\":\"input_end\",\"a3\":\"minimum_position\",\"v3\":\"last_input_byte\",\"v4\":\"position_counter\",\"v8\":\"source_address\",\"v10\":\"tab_lookup_base\",\"v11\":\"input_cursor\",\"v12\":\"last_processed_byte\",\"v13\":\"current_byte\"}}"
+}

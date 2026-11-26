@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_poll_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12bae4",
+ "seg": 40,
+ "key": "mmio_poll_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_calibration_sequence\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Runs a radio calibration/initialization sequence that strobes a poll bit, waits for an RF event, programs gain and offset registers, and stores status-derived values.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_start_status\",\n    \"variant_cached\": \"rf_event_flag\",\n    \"v3\": \"rf_control_reg\",\n    \"v14\": \"rf_control_reg\",\n    \"v22\": \"rf_status_reg\",\n    \"v26\": \"calibration_offset_a\",\n    \"v25\": \"calibration_offset_b\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 6,\n      \"meaning\": \"stack byte holding one calibration offset value\"\n    },\n    {\n      \"offset\": 7,\n      \"meaning\": \"stack byte holding another calibration offset value\"\n    }\n  ]\n}"
+}

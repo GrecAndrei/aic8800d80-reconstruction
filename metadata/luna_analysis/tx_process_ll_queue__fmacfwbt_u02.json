@@ -1,0 +1,9 @@
+{
+ "fn": "tx_process_ll_queue",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13e26c",
+ "seg": 62,
+ "key": "tx_process_ll_queue__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_tx_sort_ll_queue\",\"confidence\":\"medium\",\"docstring\":\"Sorts a fixed-capacity BLE link-layer transmit queue of 12-byte entries by adjacent paired timestamp keys and entry validity flags.\",\"subsystem\":\"ble\",\"var_renames\":{\"result\":\"ll_tx_queue\",\"a2\":\"timestamp_keys\",\"v2\":\"queue_count_minus_1\",\"v4\":\"entry_base\",\"v5\":\"index\",\"v6\":\"last_swap_index\",\"v7\":\"key_ptr\",\"v8\":\"cur_entry\",\"v9\":\"prev_last_swap_index\",\"v10\":\"key_low\",\"v11\":\"key_high\",\"v12\":\"key_pair\",\"v13\":\"swap_buf\"},\"struct_hints\":[{\"offset\":184,\"meaning\":\"uint16 count of valid TX LL queue entries\"},{\"offset\":16,\"meaning\":\"start of 12-byte TX LL queue entry array\"},{\"offset\":9,\"meaning\":\"entry validity/type byte used by the sorting rule\"},{\"offset\":4,\"meaning\":\"start of paired 32-bit timestamp key array in the second argument\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_disable_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1240ac",
+ "seg": 23,
+ "key": "rf_disable_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_disable_timing\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects RF disable timing by programming bitfields in two RF registers and dispatching the corresponding mode/event trace.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"timing_mode\",\n    \"v1\": \"rf_timing_reg_a\",\n    \"v2\": \"rf_timing_reg_b\",\n    \"v3\": \"reg_a_base\",\n    \"v4\": \"reg_b_base\"\n  }\n}"
+}

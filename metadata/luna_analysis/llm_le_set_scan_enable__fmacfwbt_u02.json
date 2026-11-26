@@ -1,0 +1,9 @@
+{
+ "fn": "llm_le_set_scan_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134008",
+ "seg": 50,
+ "key": "llm_le_set_scan_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"llm_le_set_scan_enable\", \"confidence\": \"medium\", \"docstring\": \"Processes the BLE link-layer manager request to enable or disable scanning, protecting the shared scan state and returning an error when command submission or link-layer conditions are invalid.\", \"subsystem\": \"ble\", \"var_renames\": {\"a2\": \"cmd_params\", \"v3\": \"state_index\", \"v4\": \"critical_count_ptr\", \"v5\": \"ll_state_ptr\", \"v6\": \"ll_state_byte\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"First uint16 of cmd_params; passed to init_rf_config as scan parameters\"}, {\"offset\": 2, \"meaning\": \"Byte used as index into 1320-byte link-layer/scan state contexts\"}, {\"offset\": 106, \"meaning\": \"LL state byte that must be clear before RF initialization\"}, {\"offset\": 108, \"meaning\": \"LL state byte that must be set before RF initialization\"}]}"
+}

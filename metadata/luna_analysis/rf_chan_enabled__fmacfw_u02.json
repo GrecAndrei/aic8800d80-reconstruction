@@ -1,0 +1,9 @@
+{
+ "fn": "rf_chan_enabled",
+ "img": "fmacfw_u02",
+ "addr": "0x13a504",
+ "seg": 58,
+ "key": "rf_chan_enabled__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_is_enabled\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the selected RF table entry's 16-bit field at offset 76 is zero.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[{\"offset\":68,\"meaning\":\"Byte index selecting an entry in the RF table.\"},{\"offset\":76,\"meaning\":\"16-bit per-entry field tested for zero.\"}]}"
+}

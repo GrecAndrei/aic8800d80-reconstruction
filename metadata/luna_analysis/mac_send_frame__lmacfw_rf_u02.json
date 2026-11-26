@@ -1,0 +1,9 @@
+{
+ "fn": "mac_send_frame",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x100a80",
+ "seg": 0,
+ "key": "mac_send_frame__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_channel_configure\", \"confidence\": \"medium\", \"docstring\": \"Programs radio band, primary/secondary channel relationship, and bandwidth-control registers during RF channel or band configuration.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"band\", \"a2\": \"primary_channel_or_freq\", \"a3\": \"secondary_channel_or_freq\", \"a4\": \"bandwidth_mode\", \"a5\": \"flags\", \"v12\": \"bandwidth_mode_sel\", \"v16\": \"bandwidth_field_bits\"}, \"struct_hints\": []}"
+}

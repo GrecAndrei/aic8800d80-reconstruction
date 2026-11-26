@@ -1,0 +1,9 @@
+{
+ "fn": "bus_read_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114838",
+ "seg": 6,
+ "key": "bus_read_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bus_read_2\", \"confidence\": \"high\", \"docstring\": \"Wrapper that reads two bytes from the fixed bus/firmware base address 0x100000 into the caller-provided destination buffer.\", \"subsystem\": \"hal\", \"var_renames\": {\"a1\": \"dst\"}}"
+}

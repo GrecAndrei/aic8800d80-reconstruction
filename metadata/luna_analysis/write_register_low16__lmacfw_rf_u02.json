@@ -1,0 +1,9 @@
+{
+ "fn": "write_register_low16",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118340",
+ "seg": 11,
+ "key": "write_register_low16__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_reg_write_low16\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes the low 16 bits of the hardware register referenced by off_118350 while preserving its upper 16 bits.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a2\": \"new_low16\"\n  },\n  \"struct_hints\": []\n}"
+}

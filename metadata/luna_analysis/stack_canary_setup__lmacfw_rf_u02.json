@@ -1,0 +1,9 @@
+{
+ "fn": "stack_canary_setup",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x117a7c",
+ "seg": 10,
+ "key": "stack_canary_setup__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"patch_check_mac_time_ctx\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Populates a local time/state context, gets the current MAC time, and calls patch_check_enabled_ctx when the state low nibble is 2.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"_frame.v1\": \"mac_time\",\n    \"_frame.v2\": \"ctx_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint64_t current MAC time filled by mac_time_get\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"state/flag word from global context; low nibble compared to 2\"\n    }\n  ]\n}"
+}

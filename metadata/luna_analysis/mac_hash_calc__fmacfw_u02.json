@@ -1,0 +1,9 @@
+{
+ "fn": "mac_hash_calc",
+ "img": "fmacfw_u02",
+ "addr": "0x12dfb0",
+ "seg": 42,
+ "key": "mac_hash_calc__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_hash_calc\",\"confidence\":\"medium\",\"docstring\":\"Builds a masked packed value from the nibble-folded byte at input offset 5 and the low 9 bits of the second argument, then sets bits 16\u201321.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"input_bytes\",\"a2\":\"field_9bit\"}}"
+}

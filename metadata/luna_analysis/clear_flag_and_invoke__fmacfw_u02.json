@@ -1,0 +1,9 @@
+{
+ "fn": "clear_flag_and_invoke",
+ "img": "fmacfw_u02",
+ "addr": "0x107e70",
+ "seg": 2,
+ "key": "clear_flag_and_invoke__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_synth_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Programs the RF synthesizer, triggers its calibration sequence, waits for the status bit to assert, and then clears the control bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"synth_control_register\",\"v1\":\"synth_config_register\",\"v3\":\"synth_status_register\",\"v4\":\"poll_delay_counter\"}}"
+}

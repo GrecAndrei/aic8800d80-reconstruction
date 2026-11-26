@@ -1,0 +1,9 @@
+{
+ "fn": "rf_core_cmd_post",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x107214",
+ "seg": 2,
+ "key": "rf_core_cmd_post__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_core_post_gain\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Adjusts an RF core gain command using measured power and threshold parameters, then posts the updated command.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"pwr_hih\",\n    \"a2\": \"gain_params\",\n    \"a3\": \"rf_cmd\",\n    \"v3\": \"gain_base\",\n    \"v7\": \"pwr_db_x10\",\n    \"v8\": \"sat_threshold\",\n    \"v9\": \"sma_threshold\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"RF core command context gain_base field\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"gain_params target level\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"gain_params saturation threshold\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"gain_params small-signal threshold\"\n    }\n  ]\n}"
+}

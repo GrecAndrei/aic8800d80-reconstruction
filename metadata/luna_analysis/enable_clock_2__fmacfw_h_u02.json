@@ -1,0 +1,9 @@
+{
+ "fn": "enable_clock_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d0f4",
+ "seg": 2,
+ "key": "enable_clock_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"enable_radio_clock\",\"confidence\":\"medium\",\"docstring\":\"Writes bit 26 to the radio clock-control register.\",\"subsystem\":\"rf\"}"
+}

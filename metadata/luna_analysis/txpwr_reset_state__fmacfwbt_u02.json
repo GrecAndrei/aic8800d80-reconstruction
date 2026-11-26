@@ -1,0 +1,9 @@
+{
+ "fn": "txpwr_reset_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136870",
+ "seg": 57,
+ "key": "txpwr_reset_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txpwr_reset_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears the 16-byte transmit-power state block and sends internal HCI command 7 to reset or reapply the TX-power state.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"v0\": \"txpwr_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"start of 16-byte TX-power state/context buffer\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"TX-power state byte explicitly cleared after the memset\"\n    }\n  ]\n}"
+}

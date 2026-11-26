@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_retrieve",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ddcc",
+ "seg": 20,
+ "key": "ke_task_retrieve__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_task_exist\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a kernel task list for a task matching the given destination and index, returning true if found.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v2\": \"task\",\n    \"a1\": \"dst\",\n    \"a2\": \"idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"next list pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"destination task identifier\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"destination index\"\n    }\n  ]\n}"
+}

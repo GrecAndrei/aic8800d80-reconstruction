@@ -1,0 +1,9 @@
+{
+ "fn": "return_two",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d328",
+ "seg": 41,
+ "key": "return_two__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"return_two\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Returns the constant value 2, likely serving as a fixed status code or stub return value within this link-order cluster.\",\n  \"subsystem\": \"hci\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

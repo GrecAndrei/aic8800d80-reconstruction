@@ -1,0 +1,9 @@
+{
+ "fn": "wait_ll_ready",
+ "img": "fmacfw_u02",
+ "addr": "0x1371a4",
+ "seg": 57,
+ "key": "wait_ll_ready__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_process\",\"confidence\":\"medium\",\"docstring\":\"Increments a byte service counter, updates a 3-bit control field from a capped configuration value when the counter is zero, then runs the BLE link-layer state machine.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"service_counter\",\"v2\":\"config_value\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit configuration value used to set control-register bits 6\u20138 after being capped at 7\"},{\"offset\":3851,\"meaning\":\"Byte service counter incremented on each call; zero triggers the control-field update\"}]}"
+}

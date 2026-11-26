@@ -1,0 +1,9 @@
+{
+ "fn": "scan_control_update",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122924",
+ "seg": 25,
+ "key": "scan_control_update__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_scan_apply_config\",\"confidence\":\"medium\",\"docstring\":\"Applies BLE scan enable and configuration settings to controller registers, then updates header word 102.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"scan_config\",\"v4\":\"scan_enable_request\",\"v10\":\"scan_control_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Scan-enable request, honored only when the global scan permission is set\"},{\"offset\":2,\"meaning\":\"Controls bit 31 of a scan-control register\"},{\"offset\":4,\"meaning\":\"Enables updating the scan parameter registers\"},{\"offset\":8,\"meaning\":\"Value copied to a scan parameter register\"},{\"offset\":12,\"meaning\":\"Value shifted into the upper bits of a scan parameter register\"}]}"
+}

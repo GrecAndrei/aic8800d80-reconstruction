@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_write_53",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123804",
+ "seg": 29,
+ "key": "rf_reg_write_53__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_cmd_conn_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Bluetooth HCI command handler that validates a connection index, queries or drives the connection state machine, and returns a status result in an allocated HCI event buffer.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"cmd_payload\",\n    \"v3\": \"evt_alloc_ptr\",\n    \"v4\": \"evt_payload\",\n    \"v5\": \"conn_index\",\n    \"v6\": \"conn_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"connection index selector from HCI command payload\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"command request/mode byte\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"command argument/state value\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"32-bit command parameter\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"32-bit command parameter\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"32-bit command parameter used in timestamp or address calculation\"\n    },\n    {\n      \"offset\": 222,\n      \"meaning\": \"BT connection context field shifted by 10 for clock/timestamp interval calculation\"\n    },\n    {\n      \"offset\": 1224,\n      \"meaning\": \"BT connection context active or in-use flag\"\n    }\n  ]\n}"
+}

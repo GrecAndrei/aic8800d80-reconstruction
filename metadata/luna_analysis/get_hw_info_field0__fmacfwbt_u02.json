@@ -1,0 +1,9 @@
+{
+ "fn": "get_hw_info_field0",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115144",
+ "seg": 6,
+ "key": "get_hw_info_field0__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_get_hw_info_field0\",\"confidence\":\"medium\",\"docstring\":\"Queries the ROM hardware-info service with selector 17 and returns the low three bits of its result.\",\"subsystem\":\"hal\",\"var_renames\":{}}"
+}

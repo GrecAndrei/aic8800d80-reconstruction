@@ -1,0 +1,9 @@
+{
+ "fn": "init_state_table",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13b558",
+ "seg": 60,
+ "key": "init_state_table__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_init_state_table\",\"confidence\":\"medium\",\"docstring\":\"Builds a Bluetooth state-table initialization record from connection and controller parameters and assigns it a sequence value.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"connection_idx\",\"v7\":\"connection_table_base\",\"v8\":\"bt_context_table\",\"v9\":\"bt_context_idx\",\"v16\":\"request_context\",\"v17\":\"command_buffer\",\"v22\":\"sequence_counter\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Pointer to the command buffer in the request context.\"},{\"offset\":108,\"meaning\":\"Request opcode/type, initialized to 0xD0.\"},{\"offset\":112,\"meaning\":\"Beginning of the request parameter words copied from connection and controller state.\"},{\"offset\":130,\"meaning\":\"Sequence value derived from an incrementing counter.\"}]}"
+}

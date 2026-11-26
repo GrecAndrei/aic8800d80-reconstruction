@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_by_idx",
+ "img": "fmacfw_u02",
+ "addr": "0x13208c",
+ "seg": 44,
+ "key": "bt_get_conn_by_idx__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_conn_idx_check\",\"confidence\":\"medium\",\"docstring\":\"Checks a byte in the indexed Bluetooth connection slot, allocating a kernel buffer with the index when set or sending a parameterless message otherwise.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"conn_idx_ptr\",\"v2\":\"conn_table_base\",\"v4\":\"conn_idx\"},\"struct_hints\":[{\"offset\":37,\"meaning\":\"byte flag checked to choose between buffer allocation and message sending\"}]}"
+}

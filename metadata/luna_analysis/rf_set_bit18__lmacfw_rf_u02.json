@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_bit18",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124178",
+ "seg": 23,
+ "key": "rf_set_bit18__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_bit18\",\"confidence\":\"medium\",\"docstring\":\"Set or clear bit 18 of the RF register referenced by off_124194 and log the resulting register value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"reg_value\",\"a1\":\"bit18_value\"},\"struct_hints\":[]}"
+}

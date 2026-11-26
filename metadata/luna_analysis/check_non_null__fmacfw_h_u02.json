@@ -1,0 +1,9 @@
+{
+ "fn": "check_non_null",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12063c",
+ "seg": 22,
+ "key": "check_non_null__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_other_entry_state\",\"confidence\":\"medium\",\"docstring\":\"Unless bypassed by its first mode argument, scans the global linked list excluding the input entry for one with a nonzero byte at offset 108 and bytes 413 and 106 both equal to 2, emitting a diagnostic code if none qualifies.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"current_entry\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next pointer in the linked list.\"},{\"offset\":106,\"meaning\":\"Secondary state code; value 2 is required for a qualifying entry.\"},{\"offset\":108,\"meaning\":\"Nonzero filter flag for entries considered by the scan.\"},{\"offset\":413,\"meaning\":\"State code; value 2 is required before offset 106 is checked.\"}]}"
+}

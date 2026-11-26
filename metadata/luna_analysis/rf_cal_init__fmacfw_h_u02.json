@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10f040",
+ "seg": 3,
+ "key": "rf_cal_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_cal_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the RF calibration setting by writing byte 0xC2 and storing the same byte at offset 7 of a global byte area.\",\"subsystem\":\"rf\"}"
+}

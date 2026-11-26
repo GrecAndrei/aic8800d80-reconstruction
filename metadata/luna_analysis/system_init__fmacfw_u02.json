@@ -1,0 +1,9 @@
+{
+ "fn": "system_init",
+ "img": "fmacfw_u02",
+ "addr": "0x1157b4",
+ "seg": 6,
+ "key": "system_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"system_init\",\"confidence\":\"medium\",\"docstring\":\"Clears a startup flag and invokes initialization helpers for kernel and Bluetooth state.\",\"subsystem\":\"ke\",\"var_renames\":{},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "set_bss_cap",
+ "img": "fmacfw_h_u02",
+ "addr": "0x120130",
+ "seg": 22,
+ "key": "set_bss_cap__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_bss_cap\",\"confidence\":\"medium\",\"docstring\":\"Stores the supplied BSS cap and recomputes normalized cap values for linked entries using the minimum cap.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"bss_entry\",\"a2\":\"cap\",\"v3\":\"bss_state\",\"v5\":\"bss_count\",\"v7\":\"min_cap\",\"i\":\"entry\",\"v9\":\"entry_cap\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Head of the linked BSS-entry list\"},{\"offset\":18,\"meaning\":\"BSS-entry count\"},{\"offset\":20,\"meaning\":\"Index of the selected minimum-cap BSS entry\"},{\"offset\":107,\"meaning\":\"BSS index used to select the entry in the global table\"},{\"offset\":222,\"meaning\":\"16-bit BSS cap value\"},{\"offset\":224,\"meaning\":\"Normalized cap ratio byte; initialized to 1\"},{\"offset\":225,\"meaning\":\"Normalized-cap validity flag\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_worker",
+ "img": "fmacfw_u02",
+ "addr": "0x124d3c",
+ "seg": 30,
+ "key": "unknown_worker__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_timer_set\",\"confidence\":\"medium\",\"docstring\":\"Updates a timer entry\u2019s absolute expiration time in the ordered timer queue and reprograms the hardware timer when the queue\u2019s earliest entry changes.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"timer_entry\",\"a2\":\"expiration_time\",\"v4\":\"critical_section_depth\",\"v6\":\"current_time\",\"v7\":\"timer_list\",\"v10\":\"first_timer\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"timer callback pointer\"},{\"offset\":12,\"meaning\":\"absolute expiration time\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_copy_cal_params",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1359cc",
+ "seg": 54,
+ "key": "rf_copy_cal_params__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_copy_cal_params\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies selected RF calibration words from a source structure into a destination parameter block and triggers an associated event.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a3\": \"cal_data\",\n    \"a4\": \"dst_params\",\n    \"v20\": \"src_value32\",\n    \"v17\": \"index_plus_1\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 116,\n      \"meaning\": \"uint16_t calibration field copied from cal_data+4\"\n    },\n    {\n      \"offset\": 124,\n      \"meaning\": \"uint32_t calibration field copied from *cal_data\"\n    },\n    {\n      \"offset\": 130,\n      \"meaning\": \"uint16_t value computed as 16 * index_plus_1\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "scan_done_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c710",
+ "seg": 41,
+ "key": "scan_done_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"scan_done_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks a pending scan-complete condition and, when the relevant status flag is set, forwards the associated LL RX PDU to llm_rx_pdu_handler and stores the derived status; otherwise it clears the related IRQ if the scanned signed state value is negative.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v2\": \"rx_pdu_ctx\",\n    \"v3\": \"llm_rx_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 76,\n      \"meaning\": \"pointer to an LL RX descriptor/context from the scan context (a2)\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"pointer to the RX PDU context within the LL RX descriptor\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"RX status field updated from the handler return value\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"packed RX PDU information word: low 7 bits and bits 11-13 are extracted as handler arguments\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"pointer to an RX payload/base buffer within the source context (first argument)\"\n    }\n  ]\n}"
+}

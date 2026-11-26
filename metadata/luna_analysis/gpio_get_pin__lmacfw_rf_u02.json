@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_get_pin",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10dbd0",
+ "seg": 2,
+ "key": "gpio_get_pin__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"gpio_get_pin\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Reads the state of a GPIO pin by masking a bit in the port input/status register and returns true if the pin is set.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"pin\"\n  }\n}"
+}

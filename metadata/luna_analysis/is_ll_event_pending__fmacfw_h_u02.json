@@ -1,0 +1,9 @@
+{
+ "fn": "is_ll_event_pending",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11f28c",
+ "seg": 21,
+ "key": "is_ll_event_pending__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_pending_ll_events\",\"confidence\":\"medium\",\"docstring\":\"Processes and dispatches pending link-layer events until the queue is empty, a lock or state check fails, or the optional event limit is reached, then returns the number dispatched.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"pending_item\",\"v4\":\"dispatched_count\",\"v8\":\"pending_event_list\",\"v9\":\"dispatch_type\",\"v10\":\"event_message\"},\"struct_hints\":[{\"offset\":572,\"meaning\":\"Head of the pending link-layer event list\"}]}"
+}

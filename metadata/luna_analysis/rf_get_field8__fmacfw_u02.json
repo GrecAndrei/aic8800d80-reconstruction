@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_field8",
+ "img": "fmacfw_u02",
+ "addr": "0x101ac4",
+ "seg": 0,
+ "key": "rf_get_field8__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_field8\",\"confidence\":\"medium\",\"docstring\":\"Returns bits 8\u201311 of the RF register minus one, truncated to an unsigned byte.\",\"subsystem\":\"rf\"}"
+}

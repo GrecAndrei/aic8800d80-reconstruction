@@ -1,0 +1,9 @@
+{
+ "fn": "get_acl_conn_slot",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13465c",
+ "seg": 51,
+ "key": "get_acl_conn_slot__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_get_acl_conn_slot\",\"confidence\":\"medium\",\"docstring\":\"Checks the ACL connection entry selected by the current BLE connection index against the supplied argument and returns the helper result.\",\"subsystem\":\"ble\",\"struct_hints\":[{\"offset\":61,\"meaning\":\"current ACL connection-slot index\"}]}"
+}

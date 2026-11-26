@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_freq",
+ "img": "fmacfw_u02",
+ "addr": "0x13ba0c",
+ "seg": 60,
+ "key": "rf_set_freq__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_task_create_2002\",\"confidence\":\"medium\",\"docstring\":\"Creates kernel task 0x2002 with a packed state derived from the argument and the descriptor at 0x1F4000.\",\"subsystem\":\"ke\"}"
+}

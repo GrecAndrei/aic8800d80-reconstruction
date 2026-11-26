@@ -1,0 +1,9 @@
+{
+ "fn": "bt_link_active",
+ "img": "fmacfw_u02",
+ "addr": "0x1366b0",
+ "seg": 56,
+ "key": "bt_link_active__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_startup_step\",\"confidence\":\"medium\",\"docstring\":\"Advances a guarded Bluetooth startup sequence, dispatching initialization work and then completing the deferred RF configuration phase.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"bt_context\",\"v2\":\"startup_state\"},\"struct_hints\":[{\"offset\":108,\"meaning\":\"Boolean gate required before startup processing\"},{\"offset\":412,\"meaning\":\"State field that must equal 1 before startup processing\"},{\"offset\":13,\"meaning\":\"Startup phase flag, cleared before RF configuration and set before dispatching work\"},{\"offset\":28,\"meaning\":\"Saved pointer to the input context\"}]}"
+}

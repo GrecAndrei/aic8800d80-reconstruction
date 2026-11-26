@@ -1,0 +1,9 @@
+{
+ "fn": "rng_read_alt",
+ "img": "fmacfw_u02",
+ "addr": "0x100ee8",
+ "seg": 0,
+ "key": "rng_read_alt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_config\",\"confidence\":\"medium\",\"docstring\":\"Programs RF control fields from the stored configuration and pulses an update control when the prior mode field is not 4.\",\"subsystem\":\"rf\"}"
+}

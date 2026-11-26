@@ -1,0 +1,9 @@
+{
+ "fn": "process_bt_inquiry_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1256e0",
+ "seg": 23,
+ "key": "process_bt_inquiry_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_pwrofst2x\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Debug command handler that parses band, table, and value arguments to update clamped RF power offset tables and optionally applies the new RF setting.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v4\": \"band_code\",\n    \"v6\": \"call_count_ptr\",\n    \"v7\": \"row_index\",\n    \"v8\": \"parsed_col_index\",\n    \"v9\": \"col_index\",\n    \"v11\": \"config_ptr\",\n    \"v12\": \"parsed_offset\",\n    \"v13\": \"clamped_offset\",\n    \"v14\": \"current_channel\",\n    \"v15\": \"config_flag\",\n    \"v17\": \"call_count_ptr\",\n    \"v18\": \"row_index\",\n    \"v20\": \"col_index\",\n    \"v21\": \"offset_arg\",\n    \"v22\": \"config_ptr\",\n    \"v23\": \"parsed_offset\",\n    \"v24\": \"clamped_offset\",\n    \"v25\": \"current_channel\",\n    \"v26\": \"mapped_band\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 36,\n      \"meaning\": \"flag byte checked before applying an RF update\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"uint16 current RF channel value\"\n    }\n  ]\n}"
+}

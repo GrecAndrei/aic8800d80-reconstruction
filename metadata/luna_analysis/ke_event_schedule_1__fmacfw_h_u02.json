@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_schedule_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13bcd4",
+ "seg": 60,
+ "key": "ke_event_schedule_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_event_schedule\",\"confidence\":\"medium\",\"docstring\":\"Scans 32 event slots and processes each active slot whose stored task ID matches the supplied ID.\",\"subsystem\":\"ke\",\"var_renames\":{\"result\":\"task_id\",\"i\":\"slot_index\",\"v2\":\"slot_state_table\",\"v3\":\"event_slot_record\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Task ID used to match the event slot\"}]}"
+}

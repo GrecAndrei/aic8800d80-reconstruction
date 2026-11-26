@@ -1,0 +1,9 @@
+{
+ "fn": "clear_197750_buffer",
+ "img": "fmacfw_u02",
+ "addr": "0x140d9c",
+ "seg": 64,
+ "key": "clear_197750_buffer__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_state_reset\",\"confidence\":\"medium\",\"docstring\":\"Resets the global BLE link-layer state block, invokes the PHY-status helper with (0xB, 0), and initializes its final sentinel field to -1.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"ble_ll_state\"},\"struct_hints\":[{\"offset\":6480,\"meaning\":\"32-bit sentinel initialized to -1 after the state block is cleared\"}]}"
+}

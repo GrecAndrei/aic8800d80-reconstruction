@@ -1,0 +1,9 @@
+{
+ "fn": "get_hw_pointer",
+ "img": "fmacfw_u02",
+ "addr": "0x119448",
+ "seg": 12,
+ "key": "get_hw_pointer__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_apply_config_chain\",\"confidence\":\"medium\",\"docstring\":\"Traverses PHY configuration nodes, writes a shared value through each active node until the 0x380000 flag pattern is found, and returns a global signed-16-bit table pointer.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"node_config\",\"v2\":\"config_value\",\"v3\":\"node\",\"v4\":\"node_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next linked-list node\"},{\"offset\":28,\"meaning\":\"Nested configuration field whose nonzero value enables processing\"},{\"offset\":32,\"meaning\":\"Nested configuration pointer used to derive the write target\"},{\"offset\":36,\"meaning\":\"Flags or mode bits, tested with mask 0x380000\"},{\"offset\":76,\"meaning\":\"Pointer to the node's nested configuration\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "clear_context_182b48",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10c750",
+ "seg": 2,
+ "key": "clear_context_182b48__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_context_init\",\"confidence\":\"medium\",\"docstring\":\"Clears RF-related state buffers, initializes a context using a hardware handshake, and then applies PMU clock configuration.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"hardware_mode_word\",\"v2\":\"context_fill_byte\",\"v3\":\"context_pointer_ref\"},\"struct_hints\":[{\"offset\":580,\"meaning\":\"Word populated from a hardware register after the context buffer is initialized.\"}]}"
+}

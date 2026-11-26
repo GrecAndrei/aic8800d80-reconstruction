@@ -1,0 +1,9 @@
+{
+ "fn": "configure_dma_regs",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10ac18",
+ "seg": 2,
+ "key": "configure_dma_regs__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_misc_calib_loft\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles the MiscCalibLoft RF calibration command by loading calibration tables into radio control registers and toggling GPIO.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"calib_payload\",\n    \"a3\": \"payload_len\",\n    \"v7\": \"rf_ctrl_reg_value\",\n    \"v8\": \"rf_ctrl_reg_cleared_bit0\",\n    \"v75\": \"rf_ctrl_reg_bit0\"\n  },\n  \"struct_hints\": []\n}"
+}

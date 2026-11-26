@@ -1,0 +1,9 @@
+{
+ "fn": "ll_state_machine",
+ "img": "fmacfw_u02",
+ "addr": "0x1382dc",
+ "seg": 57,
+ "key": "ll_state_machine__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_adv_report_process\",\"confidence\":\"medium\",\"docstring\":\"Processes an incoming LE advertising scan result, applies address-record selection logic, and constructs a kernel message for report delivery.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"scan_result\",\"v5\":\"record_index\",\"v8\":\"report_msg\",\"v9\":\"advertiser_address\"},\"struct_hints\":[{\"offset\":352,\"meaning\":\"Six-byte advertiser address\"}]}"
+}

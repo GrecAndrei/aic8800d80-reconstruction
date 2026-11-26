@@ -1,0 +1,9 @@
+{
+ "fn": "enter_critical_section",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1137b8",
+ "seg": 5,
+ "key": "enter_critical_section__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_enter_critical_section\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Acquires the kernel critical section, runs check_kernel_state under that lock, then releases the lock and restores interrupt state.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v1\": \"critical_nesting_ptr\",\n    \"v2\": \"critical_lock_ptr\",\n    \"v4\": \"nesting_count\",\n    \"v5\": \"irq_disabled_flag\",\n    \"result\": \"state_check_result\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 580,\n      \"meaning\": \"kernel state field passed to check_kernel_state\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hci_tx_data",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114898",
+ "seg": 6,
+ "key": "hci_tx_data__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_tx_data\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Fetches an 80-byte HCI message from the IPC/bus buffer and transfers its 64-byte data payload to the caller buffer when the message ID and HCI type mask match.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v6\": \"type_match\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"HCI message identifier or token\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"HCI packet type mask/status bits\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"64-byte HCI data payload\"\n    }\n  ]\n}"
+}

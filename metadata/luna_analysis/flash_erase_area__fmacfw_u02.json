@@ -1,0 +1,9 @@
+{
+ "fn": "flash_erase_area",
+ "img": "fmacfw_u02",
+ "addr": "0x111d68",
+ "seg": 4,
+ "key": "flash_erase_area__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"flash_erase_area\",\"confidence\":\"medium\",\"docstring\":\"For area indices 0\u20135, dispatches to one of two handlers with a fixed 2 MiB argument based on whether the first argument is non-NULL; otherwise returns the first argument unchanged.\",\"subsystem\":\"flash\",\"var_renames\":{\"a2\":\"area_index\"}}"
+}

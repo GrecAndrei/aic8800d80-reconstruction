@@ -1,0 +1,9 @@
+{
+ "fn": "tx_slot_ref",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c834",
+ "seg": 18,
+ "key": "tx_slot_ref__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_tx_slot_inc_ref\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns a pointer to the indexed BT TX slot and increments one of its two volatile slot reference counters.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"slot_idx\",\n    \"a3\": \"inc_second_ref\",\n    \"result\": \"slot_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"tx_slot_ref_counter_a\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"tx_slot_ref_counter_b\"\n    }\n  ]\n}"
+}

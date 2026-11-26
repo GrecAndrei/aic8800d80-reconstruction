@@ -1,0 +1,9 @@
+{
+ "fn": "rf_trace_channel",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136de0",
+ "seg": 56,
+ "key": "rf_trace_channel__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_scan_idle_cancel_cfm\",\"confidence\":\"high\",\"docstring\":\"Sends a scan-idle-cancel confirmation containing the stored status and emits a feature-gated status trace.\",\"subsystem\":\"mm\",\"var_renames\":{\"v1\":\"pdu\"}}"
+}

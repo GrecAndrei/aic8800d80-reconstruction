@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_rssi",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1029a8",
+ "seg": 1,
+ "key": "rf_get_rssi__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_rssi\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies the RSSI byte and the immediately following RF status byte from a global RF data table into caller-provided output pointers.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"rssi_out\",\n    \"a2\": \"aux_status_out\",\n    \"v2\": \"rf_data_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 294,\n      \"meaning\": \"RSSI byte\"\n    },\n    {\n      \"offset\": 295,\n      \"meaning\": \"adjacent RF status/aux byte\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "strcpy",
+ "img": "fmacfw_h_u02",
+ "addr": "0x143c3c",
+ "seg": 68,
+ "key": "strcpy__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"strcpy\",\"confidence\":\"high\",\"docstring\":\"Copies the NUL-terminated source string to the destination, including its terminator.\",\"subsystem\":\"libmisc\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_tx_power",
+ "img": "fmacfw_u02",
+ "addr": "0x101f28",
+ "seg": 0,
+ "key": "rf_set_tx_power__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_tx_power\",\"confidence\":\"medium\",\"docstring\":\"Encodes the requested TX power into an RF register, selects control bits based on its sign and parity, and returns the input value.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"tx_power\",\"v1\":\"tx_control_reg\",\"v2\":\"tx_control_base\",\"v3\":\"tx_control_value\"}}"
+}

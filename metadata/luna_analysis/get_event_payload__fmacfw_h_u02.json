@@ -1,0 +1,9 @@
+{
+ "fn": "get_event_payload",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12afd4",
+ "seg": 39,
+ "key": "get_event_payload__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_channel_delay\",\"confidence\":\"medium\",\"docstring\":\"Returns the configured RF value, adding 20,000 for a fixed set of channel frequencies.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"frequency_mhz\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Base RF value returned by this helper before the frequency-dependent adjustment.\"}]}"
+}

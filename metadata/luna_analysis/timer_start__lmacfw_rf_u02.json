@@ -1,0 +1,9 @@
+{
+ "fn": "timer_start",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111304",
+ "seg": 4,
+ "key": "timer_start__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"usb_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the USB controller and descriptor state, then dispatches the USB initialization done event.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v4\": \"reg_base\",\n    \"v5\": \"idx\",\n    \"v6\": \"slot_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"message/event ID field set to 46\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"configuration register programmed with 0x2700\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"control/status register with start and ready bits\"\n    },\n    {\n      \"offset\": 2048,\n      \"meaning\": \"USB control block register\"\n    },\n    {\n      \"offset\": 2052,\n      \"meaning\": \"secondary USB control/status register\"\n    },\n    {\n      \"offset\": 2344,\n      \"meaning\": \"endpoint/descriptor word initialized to -1\"\n    },\n    {\n      \"offset\": 2856,\n      \"meaning\": \"endpoint/descriptor word initialized to -1\"\n    }\n  ]\n}"
+}

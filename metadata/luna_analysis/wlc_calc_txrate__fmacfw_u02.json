@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_calc_txrate",
+ "img": "fmacfw_u02",
+ "addr": "0x1278f0",
+ "seg": 33,
+ "key": "wlc_calc_txrate__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_scan_process\",\"confidence\":\"medium\",\"docstring\":\"Processes scan-context data, clears a status bit, and advances the BLE scan state machine when requested, applying link configuration for a matching active link.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"scan_flags\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Scan procedure parameter passed to the scan state machine\"},{\"offset\":85,\"meaning\":\"Status flags; bit 0 triggers scan-state execution and bit 5 is cleared\"}]}"
+}

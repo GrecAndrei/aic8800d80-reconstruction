@@ -1,0 +1,9 @@
+{
+ "fn": "llc_rx_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11a89c",
+ "seg": 15,
+ "key": "llc_rx_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_rx_start\",\"confidence\":\"medium\",\"docstring\":\"LLC receive start handler that walks RX buffer descriptors to compute packet space, updates the receive descriptor/frame status, and hands off or discards the frame for the LLC station.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"llc_ctx\",\"a3\":\"max_len\",\"a4\":\"pkt_len\",\"a5\":\"sta_idx\",\"v5\":\"rx_desc\",\"v7\":\"llc_ctx\",\"v10\":\"buf_desc\",\"v13\":\"accum_len\",\"v16\":\"rx_status\",\"v17\":\"buf_size\",\"v18\":\"chunk_size\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"a1 RX status word; bits 9-18 contain buffer/word count and bits 0x380000 contain frame/state flags\"},{\"offset\":68,\"meaning\":\"a1 pointer to the current LLC/RX packet descriptor\"},{\"offset\":76,\"meaning\":\"a1 pointer to the RX buffer descriptor array\"},{\"offset\":80,\"meaning\":\"a1 u16 byte count added to the packet descriptor\"},{\"offset\":14,\"meaning\":\"RX descriptor active/started byte\"},{\"offset\":10,\"meaning\":\"RX descriptor accumulated byte count\"},{\"offset\":40,\"meaning\":\"RX descriptor saved pointer/offset\"},{\"offset\":324,\"meaning\":\"RX descriptor back-pointer to the LLC context\"}]}"
+}

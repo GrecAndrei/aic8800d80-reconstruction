@@ -1,0 +1,9 @@
+{
+ "fn": "float_compare",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x109368",
+ "seg": 2,
+ "key": "float_compare__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"compare_float_sample_trends\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Compare a previous and current three-element float sample buffer, returning 2 on conflicting monotonic trends, 1 if the current samples are uniformly positive or negative, and 0 on mixed or zero signs.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"old_samples\",\n    \"a2\": \"new_samples\",\n    \"v2\": \"old_first\",\n    \"v3\": \"old_second\",\n    \"v4\": \"old_third\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first float sample\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"second float sample\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"third float sample\"\n    }\n  ]\n}"
+}

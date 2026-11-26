@@ -1,0 +1,9 @@
+{
+ "fn": "send_le_conn_update",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122ed4",
+ "seg": 28,
+ "key": "send_le_conn_update__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_le_conn_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Stage a BLE connection-update parameter into the selected per-link HCI command context and send the corresponding HCI event/message via hci_evt_alloc_send.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"conn_update_params\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint16 parameter word copied into the per-link command/context table\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"uint8 link/connection/vif index selecting the 1320-byte per-link context stride\"\n    },\n    {\n      \"offset\": 1222,\n      \"meaning\": \"uint16 command parameter slot inside each 1320-byte link context at dword_122EF4\"\n    }\n  ]\n}"
+}

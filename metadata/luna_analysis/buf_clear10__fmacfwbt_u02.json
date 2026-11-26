@@ -1,0 +1,9 @@
+{
+ "fn": "buf_clear10",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12fe54",
+ "seg": 43,
+ "key": "buf_clear10__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_dbg_config_cmd_handle\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a debug configuration command: without an argument prints the current debug mask and module flags, with selector 1 sets the debug mask, and with selector 2 sets the debug module state flags.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v4\": \"func_id\",\n    \"v6\": \"dbg_msk\",\n    \"v7\": \"dbg_mod\",\n    \"v8\": \"dbg_mod\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"argv[1]: first command argument containing the debug function selector\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"argv[2]: second command argument containing the hex debug value\"\n    }\n  ]\n}"
+}

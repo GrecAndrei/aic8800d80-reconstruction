@@ -1,0 +1,9 @@
+{
+ "fn": "wifi_disable_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x127990",
+ "seg": 33,
+ "key": "wifi_disable_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"cfm_wifi_disable_request\",\"confidence\":\"medium\",\"docstring\":\"Copies the supplied Wi-Fi disable parameters into CFM state, marks the operation active, sets a related control flag, and returns LLC flag bit 4.\",\"subsystem\":\"cfm\",\"var_renames\":{\"a1\":\"disable_params\",\"v3\":\"cfm_state\"},\"struct_hints\":[{\"offset\":88,\"meaning\":\"Request byte copied from disable_params[2]\"},{\"offset\":90,\"meaning\":\"16-bit request value copied from disable_params[0]\"},{\"offset\":92,\"meaning\":\"Duplicate of the 16-bit request value at offset 90\"},{\"offset\":96,\"meaning\":\"Request byte copied from disable_params[4]\"},{\"offset\":97,\"meaning\":\"Request byte copied from disable_params[3]\"},{\"offset\":98,\"meaning\":\"16-bit sentinel set to 0x00FF\"},{\"offset\":100,\"meaning\":\"Operation-active marker set to 1\"},{\"offset\":104,\"meaning\":\"Caller-supplied value from a2\"},{\"offset\":108,\"meaning\":\"Request state set to 3; checked against 0xFF before an MMIO write\"},{\"offset\":110,\"meaning\":\"Caller-supplied byte from a3\"}]}"
+}

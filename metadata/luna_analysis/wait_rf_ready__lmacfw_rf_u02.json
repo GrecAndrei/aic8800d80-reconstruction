@@ -1,0 +1,9 @@
+{
+ "fn": "wait_rf_ready",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103da8",
+ "seg": 2,
+ "key": "wait_rf_ready__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_iq_dc_offset_correct\",\"confidence\":\"medium\",\"docstring\":\"Scans an IQ sample capture, detects saturated samples, computes average I/Q DC offsets, and rewrites each packed sample with the DC offset subtracted while preserving the low status bits.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"align_offset\",\"v1\":\"min_i\",\"v2\":\"sample_start\",\"v3\":\"sample_end_word\",\"v4\":\"sample_cur\",\"v5\":\"sample_end\",\"v6\":\"max_q\",\"v7\":\"max_i\",\"v8\":\"sum_q\",\"v9\":\"sum_i\",\"v10\":\"i_sample\",\"v11\":\"q_sample\",\"v12\":\"raw_sample\",\"v13\":\"i_sample\",\"v14\":\"q_sample\",\"v16\":\"centered_i\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"packed IQ sample word: I in bits 20-31, Q in bits 4-15; bits 0 and 16 are status/valid bits preserved or set on rewrite\"},{\"offset\":4,\"meaning\":\"unused second 32-bit word of each 8-byte sample record, skipped by the +2 int stride\"}]}"
+}

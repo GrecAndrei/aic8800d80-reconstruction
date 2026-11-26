@@ -1,0 +1,9 @@
+{
+ "fn": "dma_reset_regs",
+ "img": "fmacfw_u02",
+ "addr": "0x10d1a8",
+ "seg": 2,
+ "key": "dma_reset_regs__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"initialize_rf_control_registers\",\"confidence\":\"low\",\"docstring\":\"Writes 0x00CC0000 then 0x08000000 to two control registers and clears selected fields in a third.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

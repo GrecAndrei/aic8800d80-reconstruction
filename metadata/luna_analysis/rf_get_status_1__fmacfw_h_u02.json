@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_status_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123660",
+ "seg": 28,
+ "key": "rf_get_status_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_version_request\",\"confidence\":\"medium\",\"docstring\":\"Reads an RF selector byte, conditionally checks it against a configured limit, invokes the RF version routine, and writes MAC header word 39.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"selector_ptr\",\"v7\":\"rf_selector\"},\"struct_hints\":[]}"
+}

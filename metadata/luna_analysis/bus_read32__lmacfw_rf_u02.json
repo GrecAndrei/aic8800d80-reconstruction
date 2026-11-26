@@ -1,0 +1,9 @@
+{
+ "fn": "bus_read32",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114558",
+ "seg": 6,
+ "key": "bus_read32__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bus_read32\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Reads a 32-bit value from a bus address by dispatching a bus read request through the kernel task handler.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"addr\"\n  },\n  \"struct_hints\": []\n}"
+}

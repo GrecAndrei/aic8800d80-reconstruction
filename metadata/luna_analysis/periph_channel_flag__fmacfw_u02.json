@@ -1,0 +1,9 @@
+{
+ "fn": "periph_channel_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x112048",
+ "seg": 4,
+ "key": "periph_channel_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"periph_dma_submit\",\"confidence\":\"high\",\"docstring\":\"Queues a 4-byte-aligned buffer transfer on an available peripheral DMA channel, clipping its length to the configured maximum.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"channel_id\",\"a2\":\"buffer_addr\",\"a3\":\"transfer_len\",\"v3\":\"channel_index\",\"v4\":\"channel_entry\",\"v7\":\"dma_descriptor\",\"v8\":\"max_transfer_len\",\"v10\":\"descriptor_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Per-channel bookkeeping entry: submitted buffer address; nonzero indicates the channel is busy.\"},{\"offset\":4,\"meaning\":\"Per-channel bookkeeping entry: transfer length.\"},{\"offset\":8,\"meaning\":\"Per-channel bookkeeping entry: active flag.\"},{\"offset\":0,\"meaning\":\"DMA descriptor: 16-bit transfer length.\"},{\"offset\":3,\"meaning\":\"DMA descriptor: control flags byte.\"},{\"offset\":4,\"meaning\":\"DMA descriptor: buffer address.\"}]}"
+}

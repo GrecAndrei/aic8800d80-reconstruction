@@ -1,0 +1,9 @@
+{
+ "fn": "init_event_control",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e6ec",
+ "seg": 20,
+ "key": "init_event_control__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_event_ctrl_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes a kernel event control block under a critical section by clearing its status/queue fields, recording the entered critical-section state, and copying a default control value from a global.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"saved_critical_state\",\n    \"v1\": \"event_ctrl\",\n    \"v2\": \"ctrl_default_val\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"saved critical-section state from critical_enter\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"control field initialized from global dword_11E718\"\n    }\n  ]\n}"
+}

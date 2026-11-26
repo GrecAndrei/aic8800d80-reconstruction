@@ -1,0 +1,9 @@
+{
+ "fn": "boot_init",
+ "img": "fmacfw_u02",
+ "addr": "0x10b430",
+ "seg": 2,
+ "key": "boot_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the RF hardware and configures its operating parameters.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

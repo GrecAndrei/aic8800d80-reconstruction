@@ -1,0 +1,9 @@
+{
+ "fn": "is_chip_ready",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10fe7c",
+ "seg": 3,
+ "key": "is_chip_ready__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_user_id\",\"confidence\":\"high\",\"docstring\":\"Obtains and validates a buffer, writes the supplied user ID to the byte immediately preceding it, and returns the buffer.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"user_id\",\"v2\":\"buffer\"}}"
+}

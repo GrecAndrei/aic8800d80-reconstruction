@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_init",
+ "img": "fmacfw_u02",
+ "addr": "0x1133f0",
+ "seg": 4,
+ "key": "ke_task_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_wlan_recv_fc_open\",\"confidence\":\"medium\",\"docstring\":\"Opens USB WLAN receive flow control by programming mode-dependent MMIO bits and copying the supplied configuration, returning an error if the operation is busy or aborted.\",\"subsystem\":\"hal\",\"var_renames\":{\"v3\":\"recv_fc_state\",\"v4\":\"mode_flag\",\"v5\":\"mmio_regs\",\"v6\":\"copy_status\"},\"struct_hints\":[{\"offset\":2864,\"meaning\":\"MMIO control register masked with 0xE007FFFF when the mode flag is set.\"},{\"offset\":2048,\"meaning\":\"MMIO control register with bit 13 set when the mode flag is set.\"},{\"offset\":2852,\"meaning\":\"MMIO control register with bit 0 set when the mode flag is clear.\"}]}"
+}

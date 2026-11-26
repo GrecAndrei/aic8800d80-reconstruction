@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_frequency",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12bab0",
+ "seg": 39,
+ "key": "rf_write_frequency__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_write_register\",\"confidence\":\"medium\",\"docstring\":\"Submits the request's 32-bit value and 16-bit RF register selector to the RF command interface, waits for completion, and returns the decoded response byte or 0xFF on error.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"request\",\"v1\":\"rf_address_reg\",\"v2\":\"rf_command_reg\",\"v3\":\"write_data\",\"v4\":\"rf_register_selector\",\"v5\":\"command_status\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"32-bit RF register write value\"},{\"offset\":4,\"meaning\":\"16-bit RF register selector\"}]}"
+}

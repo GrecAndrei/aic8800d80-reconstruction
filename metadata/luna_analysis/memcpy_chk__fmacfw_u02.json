@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy_chk",
+ "img": "fmacfw_u02",
+ "addr": "0x143444",
+ "seg": 68,
+ "key": "memcpy_chk__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"udivmod_u64\",\"confidence\":\"medium\",\"docstring\":\"Computes the unsigned 64-bit quotient and, when the remainder pointer is non-null, stores the remainder there.\",\"subsystem\":\"libmisc\",\"var_renames\":{}}"
+}

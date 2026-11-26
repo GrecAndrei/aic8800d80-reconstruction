@@ -1,0 +1,9 @@
+{
+ "fn": "pinmux_config_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10db48",
+ "seg": 2,
+ "key": "pinmux_config_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"pinmux_config_1\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"For valid low GPIO pins (0-7), clear the pin's four-bit function-select field and set the corresponding bit in the pinmux mode-1/global pin mask, returning the updated mask.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"pin\",\n    \"v1\": \"pinmux_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"uint32_t pin_mask; one bit per GPIO pin, mode/function mask\"\n    }\n  ]\n}"
+}

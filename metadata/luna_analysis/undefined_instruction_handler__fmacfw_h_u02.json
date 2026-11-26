@@ -1,0 +1,9 @@
+{
+ "fn": "undefined_instruction_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114a78",
+ "seg": 5,
+ "key": "undefined_instruction_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_run_irq_protected_hook\",\"confidence\":\"medium\",\"docstring\":\"Runs the configured no-argument hook with nested IRQ protection and restores interrupts when the outermost call exits if they were enabled on entry.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"irq_lock_depth_ptr\",\"v2\":\"remaining_lock_depth\",\"v3\":\"should_restore_irq\"}}"
+}

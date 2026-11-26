@@ -1,0 +1,9 @@
+{
+ "fn": "ke_schedule",
+ "img": "fmacfw_u02",
+ "addr": "0x125ab0",
+ "seg": 31,
+ "key": "ke_schedule__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_process_pending_work\",\"confidence\":\"medium\",\"docstring\":\"Processes pending BLE link-layer work, including connection packet encryption, connection queue dispatch, and queued HCI ACL packet routing.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"pending_countdown\",\"v3\":\"current_packet\",\"v5\":\"connection_env_base\",\"v15\":\"encryption_work_flag\",\"v16\":\"connection_task_id\",\"v17\":\"connection_work_pending_flag\",\"v19\":\"acl_packet\",\"v20\":\"connection_queue_base\",\"i\":\"queue_index\"},\"struct_hints\":[{\"offset\":53,\"meaning\":\"Connection security flags; bit 1 enables the encryption path.\"},{\"offset\":54,\"meaning\":\"Connection encryption state, temporarily set during CCM encryption.\"},{\"offset\":107,\"meaning\":\"Packet-context connection index used to derive a connection task ID.\"},{\"offset\":584,\"meaning\":\"Per-connection pending queue entry checked for dispatch across four queue lanes.\"},{\"offset\":624,\"meaning\":\"Per-connection secondary pending-work entry.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "patch_set_enabled",
+ "img": "fmacfw_u02",
+ "addr": "0x13623c",
+ "seg": 55,
+ "key": "patch_set_enabled__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_patch_state_update\",\"confidence\":\"low\",\"docstring\":\"Updates a patch-related control register based on a global flag and the value returned for index 7, invoking a Bluetooth ready handler when that value is 3.\",\"subsystem\":\"bt\",\"var_renames\":{}}"
+}

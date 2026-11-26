@@ -1,0 +1,9 @@
+{
+ "fn": "crypto_aes_setkey",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1093b8",
+ "seg": 2,
+ "key": "crypto_aes_setkey__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"quantize_vector_components\",\"confidence\":\"medium\",\"docstring\":\"Maps signed vector components to discrete byte-coded values and updates a classification code according to the mode and processing stage.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"stage\",\"a2\":\"mode\",\"a3\":\"classification_code\",\"a4\":\"quantized_components\",\"a5\":\"input_vector\"}}"
+}

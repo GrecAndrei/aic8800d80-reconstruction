@@ -1,0 +1,9 @@
+{
+ "fn": "send_scan_report_event",
+ "img": "fmacfwbt_u02",
+ "addr": "0x140e60",
+ "seg": 65,
+ "key": "send_scan_report_event__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_scan_report_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Populates a local scan report event buffer, temporarily overwrites BLE scan context event-state bytes, and calls check_scan_enable to emit or gate the scan report.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v5\": \"scan_ctx\",\n    \"v6\": \"saved_event_state\",\n    \"v8\": \"event_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 6488,\n      \"meaning\": \"scan context event-state word temporarily replaced by a2/a1\"\n    },\n    {\n      \"offset\": 6489,\n      \"meaning\": \"upper byte of scan context event-state word (a1)\"\n    }\n  ]\n}"
+}

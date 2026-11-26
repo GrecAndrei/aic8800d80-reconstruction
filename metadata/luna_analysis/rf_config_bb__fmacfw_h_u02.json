@@ -1,0 +1,9 @@
+{
+ "fn": "rf_config_bb",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10f270",
+ "seg": 3,
+ "key": "rf_config_bb__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init_baseband\",\"confidence\":\"medium\",\"docstring\":\"Sets baseband control values, clears associated state and statistics buffers, and processes 128 entries through the WLAN handler.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"bb_base\",\"v1\":\"state_buffer\",\"v2\":\"entries_end\",\"v3\":\"handler_destination\",\"v4\":\"entry\",\"v5\":\"clear_region_end\",\"v7\":\"clear_cursor\"},\"struct_hints\":[{\"offset\":3072,\"meaning\":\"16-bit baseband control value set to 0xC0BF\"},{\"offset\":3074,\"meaning\":\"byte-sized state field cleared\"},{\"offset\":3076,\"meaning\":\"state word cleared\"},{\"offset\":3080,\"meaning\":\"statistics buffer cleared\"},{\"offset\":6160,\"meaning\":\"16-bit baseband control value set to 0xC0BF\"},{\"offset\":6162,\"meaning\":\"byte-sized state field cleared\"},{\"offset\":6164,\"meaning\":\"state word cleared\"},{\"offset\":6176,\"meaning\":\"byte-sized state field cleared\"},{\"offset\":8244,\"meaning\":\"16-bit state field cleared\"}]}"
+}

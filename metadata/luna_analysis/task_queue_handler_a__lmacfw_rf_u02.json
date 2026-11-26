@@ -1,0 +1,9 @@
+{
+ "fn": "task_queue_handler_a",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116cdc",
+ "seg": 10,
+ "key": "task_queue_handler_a__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"task_queue_run\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Runs a pending task queue by popping entries, invoking each callback with its argument, nesting IRQ masking around handlers, and arming a follow-up event when queue work remains.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"queue\",\n    \"v1\": \"node\",\n    \"v3\": \"processing_nesting_count\",\n    \"v4\": \"irq_disable_flag\",\n    \"v5\": \"handler\",\n    \"v6\": \"remaining_nesting_count\",\n    \"v7\": \"saved_irq_disable_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"queued task callback pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"queued task callback argument\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"queued task pending/status byte\"\n    }\n  ]\n}"
+}

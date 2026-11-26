@@ -1,0 +1,9 @@
+{
+ "fn": "check_packet_type",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13b424",
+ "seg": 60,
+ "key": "check_packet_type__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_process_packet_type_request\",\"confidence\":\"medium\",\"docstring\":\"For a type-2 packet with a matching command state, queues a role-adjusted three-byte PDU when the connection is active, updates indexed state, and sends the vendor command.\",\"subsystem\":\"bt\",\"var_renames\":{\"v5\":\"connection_index\",\"v6\":\"connection_context\",\"v7\":\"connection_role\",\"v10\":\"role_adjusted_value\",\"v11\":\"outgoing_pdu\"},\"struct_hints\":[{\"offset\":17,\"meaning\":\"Connection-state byte; value 1 enables PDU creation.\"},{\"offset\":20,\"meaning\":\"Byte used with the connection role to derive the outgoing PDU value.\"},{\"offset\":28,\"meaning\":\"Connection handle passed to bt_conn_get_role.\"}]}"
+}

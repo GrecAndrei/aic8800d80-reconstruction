@@ -1,0 +1,9 @@
+{
+ "fn": "sched_min_delta",
+ "img": "fmacfw_u02",
+ "addr": "0x1079cc",
+ "seg": 2,
+ "key": "sched_min_delta__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_power_compensate\",\"confidence\":\"medium\",\"docstring\":\"Finds the maximum of four power values, converts it to dB, and uses that value to update the RF power adjustment at offset 8.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"max_power_value\",\"v5\":\"current_power_adjustment\",\"v6\":\"power_db\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"RF power adjustment value updated using the calculated power level\"}]}"
+}

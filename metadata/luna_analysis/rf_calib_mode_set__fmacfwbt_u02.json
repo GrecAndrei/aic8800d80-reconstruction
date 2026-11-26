@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calib_mode_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1133b4",
+ "seg": 4,
+ "key": "rf_calib_mode_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calib_mode_set\",\"confidence\":\"medium\",\"docstring\":\"Selects RF calibration mode 2 or 3; mode 2 drains queued RX packets, handles or frees them, and reinitializes calibration.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"calibration_mode_ptr\",\"v4\":\"requested_mode\",\"v5\":\"queued_packet_count_ptr\",\"v6\":\"queued_packet_count\",\"v7\":\"queued_packet_list\",\"v9\":\"queue_entry\",\"v10\":\"packet\",\"v11\":\"packet_type\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Packet type byte; its upper nibble selects the packet handling path.\"}]}"
+}

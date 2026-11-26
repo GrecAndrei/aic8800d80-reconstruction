@@ -1,0 +1,9 @@
+{
+ "fn": "stack_canary_check",
+ "img": "fmacfw_u02",
+ "addr": "0x125778",
+ "seg": 30,
+ "key": "stack_canary_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_acl_tx_context_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes per-link Bluetooth ACL transmit state, including its buffer and descriptor storage and low-level event bookkeeping.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"link_index\",\"v8\":\"acl_tx_staging\",\"v10\":\"acl_tx_buffer\",\"v11\":\"acl_tx_descriptor\"},\"struct_hints\":[{\"offset\":107,\"meaning\":\"Per-link index used to select event and transport storage.\"},{\"offset\":116,\"meaning\":\"Low-level link-layer event context initialized by ll_event_init.\"},{\"offset\":192,\"meaning\":\"Pointer to a per-link control structure whose fields are reset.\"},{\"offset\":229,\"meaning\":\"Byte offset into the per-link ACL buffer used to set a descriptor pointer.\"}]}"
+}

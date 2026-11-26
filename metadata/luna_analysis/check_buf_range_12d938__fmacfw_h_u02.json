@@ -1,0 +1,9 @@
+{
+ "fn": "check_buf_range_12d938",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d938",
+ "seg": 42,
+ "key": "check_buf_range_12d938__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_tlv_tag_0x3c_len4\",\"confidence\":\"high\",\"docstring\":\"Scans a bounded sequence of length-prefixed elements for tag 0x3C with a four-byte payload, returning its pointer or NULL if it is absent or truncated.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"cursor\",\"a2\":\"buffer_length\",\"v2\":\"buffer_end\",\"v3\":\"element_end\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"element tag\"},{\"offset\":1,\"meaning\":\"payload length\"}]}"
+}

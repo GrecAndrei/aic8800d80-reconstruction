@@ -1,0 +1,9 @@
+{
+ "fn": "lll_conn_state_match",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a4b4",
+ "seg": 37,
+ "key": "lll_conn_state_match__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lll_conn_state_alloc\",\"confidence\":\"medium\",\"docstring\":\"Selects and initializes one of two connection state slots, returning the selected slot index or 0xFF if the connection is inactive or both slots are occupied.\",\"subsystem\":\"bt\",\"var_renames\":{\"v7\":\"connection_table\",\"v8\":\"connection_index\",\"v9\":\"connection_entry\",\"v10\":\"state_slot\",\"v11\":\"connection_entry\",\"v13\":\"selected_state\",\"v14\":\"state_slot\",\"v15\":\"connection_base\",\"v17\":\"selected_state\"},\"struct_hints\":[{\"offset\":112,\"meaning\":\"Connection state gate; allocation proceeds only when this byte equals 1.\"},{\"offset\":16,\"meaning\":\"Slot 0 occupied flag; set when slot 0 is selected.\"},{\"offset\":64,\"meaning\":\"Slot 1 occupied flag; prevents allocation when already set.\"},{\"offset\":121,\"meaning\":\"Byte counter incremented on each successful allocation.\"},{\"offset\":122,\"meaning\":\"Byte counter incremented on successful allocation only when a2 is nonzero.\"},{\"offset\":19,\"meaning\":\"Selected-slot configuration byte copied from a4.\"},{\"offset\":20,\"meaning\":\"Second selected-slot configuration byte copied from a4.\"},{\"offset\":24,\"meaning\":\"Selected-slot 32-bit field copied from a6.\"},{\"offset\":28,\"meaning\":\"Selected-slot 32-bit field copied from a5.\"},{\"offset\":32,\"meaning\":\"Selected-slot flag set to whether a2 is zero.\"},{\"offset\":33,\"meaning\":\"Selected-slot byte copied from a3.\"},{\"offset\":36,\"meaning\":\"Selected-slot 32-bit field copied from a7.\"},{\"offset\":40,\"meaning\":\"Selected-slot 32-bit divisor or reload value derived from a5 when nonzero.\"}]}"
+}

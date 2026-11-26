@@ -1,0 +1,9 @@
+{
+ "fn": "rf_counter_get",
+ "img": "fmacfw_u02",
+ "addr": "0x11d7d4",
+ "seg": 20,
+ "key": "rf_counter_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_counter_ack\",\"confidence\":\"medium\",\"docstring\":\"Updates RF counter status and clears bit 8 in a control register, conditionally invoking a placeholder helper.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"control_reg\",\"v2\":\"control_value\"}}"
+}

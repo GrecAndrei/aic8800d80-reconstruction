@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process_packet",
+ "img": "fmacfw_u02",
+ "addr": "0x1225fc",
+ "seg": 24,
+ "key": "rx_process_packet__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_rx_beacon_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a received beacon-like frame by checking its channel IE, extracting its TIM IE, updating RSSI and a TIM-excluding content fingerprint, and forwarding it to the RX handler.\",\"subsystem\":\"mac\",\"var_renames\":{\"v4\":\"rx_descriptor\",\"v5\":\"rx_packet_length\",\"v6\":\"rx_frame_data\",\"v7\":\"mac_context\",\"v9\":\"channel_ie\",\"v10\":\"advertised_channel\",\"v14\":\"non_tim_crc\",\"v15\":\"tim_ie_out\",\"v16\":\"ie_cursor\",\"v18\":\"remaining_ie_bytes\",\"v19\":\"ie_length\",\"v20\":\"ie_payload\",\"v23\":\"rssi\",\"v25\":\"previous_non_tim_crc\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"RX descriptor packet length in bytes\"},{\"offset\":45,\"meaning\":\"Signed RX RSSI value\"},{\"offset\":124,\"meaning\":\"Stored RX content CRC used to detect changes, excluding the TIM IE\"},{\"offset\":414,\"meaning\":\"Current channel frequency in MHz\"}]}"
+}

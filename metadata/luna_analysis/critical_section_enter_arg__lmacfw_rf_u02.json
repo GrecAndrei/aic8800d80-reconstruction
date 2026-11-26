@@ -1,0 +1,9 @@
+{
+ "fn": "critical_section_enter_arg",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1131bc",
+ "seg": 5,
+ "key": "critical_section_enter_arg__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_event_dispatch_locked\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Temporarily acquires a nested RF/interrupt critical section, checks kernel state, and services a pending RF event when its count threshold is reached.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"expected_state\",\n    \"v2\": \"lock_depth_ptr\",\n    \"v3\": \"kernel_state_id\",\n    \"v4\": \"pending_event_ptr\",\n    \"v6\": \"event_counter\",\n    \"v7\": \"lock_depth_after\",\n    \"v8\": \"irq_saved_flag\",\n    \"v9\": \"rf_mode_selector\",\n    \"result\": \"event_status\"\n  },\n  \"struct_hints\": []\n}"
+}

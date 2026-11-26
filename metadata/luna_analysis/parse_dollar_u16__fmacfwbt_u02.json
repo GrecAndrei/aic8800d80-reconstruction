@@ -1,0 +1,9 @@
+{
+ "fn": "parse_dollar_u16",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e160",
+ "seg": 43,
+ "key": "parse_dollar_u16__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"parse_dollar_u16\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parse a dollar-delimited unsigned 16-bit value, reject it unless it lies in the range 9..18, store the mapped byte value (parsed - 3) through the output pointer, and return the parser result pointer or NULL.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"buf\",\n    \"a2\": \"len\",\n    \"a3\": \"out\",\n    \"v5\": \"parsed_val\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_slot_get_busy",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c7dc",
+ "seg": 18,
+ "key": "tx_slot_get_busy__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_tx_slot_reset\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reset and initialize a Bluetooth TX slot structure by index, releasing its busy/critical state if set and installing the current global slot context.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"slot_idx\",\n    \"v1\": \"tx_slot_pool_base\",\n    \"v2\": \"slot\",\n    \"v3\": \"slot_idx_u8\",\n    \"v4\": \"slot_byte_offset\",\n    \"v5\": \"slot_addr\",\n    \"v7\": \"tx_slot_ctx\",\n    \"result\": \"slot_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"context or list link initialized from global tx_slot_ctx\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"self pointer or list link initialized to the slot address\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"slot index/id byte\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"busy/lock flag\"\n    }\n  ]\n}"
+}

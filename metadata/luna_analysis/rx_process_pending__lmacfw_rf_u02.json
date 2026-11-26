@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process_pending",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1246f0",
+ "seg": 23,
+ "key": "rx_process_pending__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_switch_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Validate the requested band/frequency descriptor, acquire the RF lock, update TX power and baseband settings, and optionally allocate a buffer after the switch.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"chan_desc\",\n    \"v3\": \"band\",\n    \"v4\": \"freq_mhz\",\n    \"v5\": \"rf_bb_skip_flag\",\n    \"v6\": \"rf_lock_count\",\n    \"v8\": \"irq_disable_flag\",\n    \"v9\": \"rf_control_reg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint8_t band\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"uint16_t frequency/channel\"\n    }\n  ]\n}"
+}

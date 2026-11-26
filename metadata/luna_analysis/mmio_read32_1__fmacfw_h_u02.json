@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read32_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10ec44",
+ "seg": 3,
+ "key": "mmio_read32_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_read32\",\"confidence\":\"medium\",\"docstring\":\"Invokes the patched MMIO read under a nested IRQ-restoring guard, optionally waiting for and signaling a shared readiness flag.\",\"subsystem\":\"mmio\",\"var_renames\":{\"a2\":\"wait_for_ready_flag\",\"v2\":\"critical_section_depth\",\"v3\":\"ready_flag\",\"v5\":\"remaining_depth\",\"v6\":\"irq_restore_pending\"}}"
+}

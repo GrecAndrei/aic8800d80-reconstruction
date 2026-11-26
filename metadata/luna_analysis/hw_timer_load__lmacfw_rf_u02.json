@@ -1,0 +1,9 @@
+{
+ "fn": "hw_timer_load",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116c6c",
+ "seg": 10,
+ "key": "hw_timer_load__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_event_ack\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates the latched timer event state and acknowledges the hardware timer by clearing bit 8 of its event/control word.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"timer_state\",\n    \"v1\": \"timer_event_word\",\n    \"v2\": \"timer_event_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 10,\n      \"meaning\": \"latched/active timer event byte\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"current/new timer event byte\"\n    }\n  ]\n}"
+}

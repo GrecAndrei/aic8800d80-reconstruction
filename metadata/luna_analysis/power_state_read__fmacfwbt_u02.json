@@ -1,0 +1,9 @@
+{
+ "fn": "power_state_read",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c0b4",
+ "seg": 40,
+ "key": "power_state_read__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_irq_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes the MAC interrupt/status word by caching it, triggering sequence-count restart and connection/MMIO updates for selected status bits, and fatal-halting or asserting on invalid/pending timer conditions.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"irq_status\",\n    \"v2\": \"reg_base\",\n    \"v3\": \"status_byte\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 411,\n      \"meaning\": \"byte read from register base for status update\"\n    }\n  ]\n}"
+}

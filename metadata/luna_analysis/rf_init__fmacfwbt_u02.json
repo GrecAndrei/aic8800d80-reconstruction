@@ -1,0 +1,9 @@
+{
+ "fn": "rf_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1059f8",
+ "seg": 2,
+ "key": "rf_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init\",\"confidence\":\"low\",\"docstring\":\"Likely initializes RF-related state; the truncated body does not reveal its exact behavior.\",\"subsystem\":\"rf\"}"
+}

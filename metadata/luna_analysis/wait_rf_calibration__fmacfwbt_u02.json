@@ -1,0 +1,9 @@
+{
+ "fn": "wait_rf_calibration",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1207e0",
+ "seg": 23,
+ "key": "wait_rf_calibration__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_read_calibration_samples\", \"confidence\": \"medium\", \"docstring\": \"Reads four RF calibration registers, scales each raw counter by 12 bits, clamps non-zero values to 150, stores the resulting uint16_t calibration samples into a global buffer, and returns the first clamped sample.\", \"subsystem\": \"rf\", \"var_renames\": {\"result\": \"cal_sample0\", \"v1\": \"rf_cal_reg1\", \"v2\": \"cal_out\", \"v3\": \"rf_cal_raw1\", \"v4\": \"cal_sample1\", \"v5\": \"rf_cal_reg2\", \"v6\": \"cal_sample2\", \"v7\": \"rf_cal_reg3\", \"v8\": \"cal_sample3\"}, \"struct_hints\": [{\"offset\": 8, \"meaning\": \"uint16_t rf calibration sample 0 (clamped to 1..150)\"}, {\"offset\": 10, \"meaning\": \"uint16_t rf calibration sample 1 (clamped to 1..150)\"}, {\"offset\": 12, \"meaning\": \"uint16_t rf calibration sample 2 (clamped to 1..150)\"}, {\"offset\": 14, \"meaning\": \"uint16_t rf calibration sample 3 (clamped to 1..150)\"}, {\"offset\": 16, \"meaning\": \"duplicate/derived uint16_t rf calibration sample 3\"}]}"
+}

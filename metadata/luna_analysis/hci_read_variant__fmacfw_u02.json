@@ -1,0 +1,9 @@
+{
+ "fn": "hci_read_variant",
+ "img": "fmacfw_u02",
+ "addr": "0x122c34",
+ "seg": 27,
+ "key": "hci_read_variant__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_hci_update_context_and_notify\",\"confidence\":\"medium\",\"docstring\":\"Copies command parameters into an indexed HCI context, conditionally clears an MMIO register, and queues kernel message 76.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"context_table\",\"v6\":\"context_index\",\"v9\":\"context_entry\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Byte flag checked before the conditional MMIO clear.\"},{\"offset\":112,\"meaning\":\"16-bit value copied from input bytes 2\u20133.\"},{\"offset\":114,\"meaning\":\"Byte copied from input byte 4.\"}]}"
+}

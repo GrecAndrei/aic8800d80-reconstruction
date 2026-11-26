@@ -1,0 +1,9 @@
+{
+ "fn": "variant_update_cache",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100670",
+ "seg": 0,
+ "key": "variant_update_cache__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"chip_identify_and_cache\",\"confidence\":\"high\",\"docstring\":\"Identifies the chip, updates the cached chip identifier if it changed, and returns the identifier.\",\"subsystem\":\"hal\"}"
+}

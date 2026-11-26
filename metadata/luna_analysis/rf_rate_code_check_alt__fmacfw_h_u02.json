@@ -1,0 +1,9 @@
+{
+ "fn": "rf_rate_code_check_alt",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136d48",
+ "seg": 56,
+ "key": "rf_rate_code_check_alt__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"request_ap_lp_exit\",\"confidence\":\"medium\",\"docstring\":\"Clears a byte-sized state flag and allocates a TX event for AP low-power exit.\",\"subsystem\":\"mac\"}"
+}

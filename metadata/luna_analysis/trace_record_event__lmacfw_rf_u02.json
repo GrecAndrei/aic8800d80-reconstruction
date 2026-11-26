@@ -1,0 +1,9 @@
+{
+ "fn": "trace_record_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119400",
+ "seg": 12,
+ "key": "trace_record_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_event_0x8a\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies a three-field payload from a2 into the global event record at dword_11941C and invokes the kernel event handler for event 0x8A.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a2\": \"event_data\",\n    \"v4\": \"payload_word0\",\n    \"v7\": \"payload_word1\",\n    \"v6\": \"event_record_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"source word 0 copied to event record offset 0\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"source word 1 copied to event record offset 4\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"source 16-bit field copied to event record offset 8\"\n    }\n  ]\n}"
+}

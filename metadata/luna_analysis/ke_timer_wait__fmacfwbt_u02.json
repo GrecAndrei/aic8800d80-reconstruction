@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_wait",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b18c",
+ "seg": 39,
+ "key": "ke_timer_wait__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_cmd_wait\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Bluetooth/HCI wait handler that advances a command-context counter and, when the condition is satisfied or forced, dispatches the pending entry and sends the corresponding HCI event or command.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"hci_cmd_status\",\n    \"v1\": \"hci_cmd_ctx\",\n    \"v2\": \"hci_cmd_pkt\",\n    \"v3\": \"wait_limit\",\n    \"v4\": \"wait_count\",\n    \"v5\": \"connection_handle\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"hci_cmd_ctx: packet/context pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"hci_cmd_ctx: uint16_t connection or command handle\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"hci_cmd_ctx: wait/progress counter\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"hci_cmd_ctx: forced completion or abort flag\"\n    },\n    {\n      \"offset\": 367,\n      \"meaning\": \"hci_cmd_pkt: wait-limit or completion threshold byte\"\n    }\n  ]\n}"
+}

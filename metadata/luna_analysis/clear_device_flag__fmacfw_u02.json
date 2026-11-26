@@ -1,0 +1,9 @@
+{
+ "fn": "clear_device_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x120438",
+ "seg": 22,
+ "key": "clear_device_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"scan_context_flags\",\"confidence\":\"low\",\"docstring\":\"Scans the global context list, sets the output byte if any node has nonzero bytes at offsets 108 and 1224, and returns the count of nodes with offset 106 clear, offset 108 set, and offset 1224 clear.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"has_qualifying_context_out\",\"v1\":\"context_registry\",\"v2\":\"context\",\"result\":\"matching_context_count\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"next context in the linked list\"},{\"offset\":106,\"meaning\":\"byte predicate that gates whether a node contributes to the return count\"},{\"offset\":108,\"meaning\":\"byte predicate combined with offset 1224\"},{\"offset\":1224,\"meaning\":\"byte predicate that, when set with offset 108, sets the output byte\"}]}"
+}

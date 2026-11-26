@@ -1,0 +1,9 @@
+{
+ "fn": "bt_send_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x138ea4",
+ "seg": 58,
+ "key": "bt_send_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_send_packet\",\"confidence\":\"medium\",\"docstring\":\"Initializes or reuses an RF packet descriptor, applies RF command and channel settings, and submits it through the WLAN queue handler.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"rf_state\",\"v5\":\"packet_type\",\"v10\":\"packet_desc\",\"v18\":\"tx_queue\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"RF state control flags; bit 0x400 gates this path.\"},{\"offset\":88,\"meaning\":\"Pointer to the current RF packet descriptor.\"},{\"offset\":6,\"meaning\":\"Packet descriptor selector or type, compared with the requested value.\"},{\"offset\":8,\"meaning\":\"Packet descriptor initialization marker, set to 1.\"},{\"offset\":56,\"meaning\":\"Packet descriptor list-link pointer.\"},{\"offset\":60,\"meaning\":\"Packet descriptor list-link pointer.\"}]}"
+}

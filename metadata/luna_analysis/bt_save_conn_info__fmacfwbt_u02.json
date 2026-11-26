@@ -1,0 +1,9 @@
+{
+ "fn": "bt_save_conn_info",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b49c",
+ "seg": 40,
+ "key": "bt_save_conn_info__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_save_conn_info\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Persists per-connection state by writing a sub_12dd88 lookup result derived from the connection handle at offset 364 into a global, adjusting an elapsed-time counter at v2[-8] with a decrement-plus-handle delta, and zeroing a scratch field at v2[-1], while consulting bt_get_link_state as a side-effect.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"conn_info_state\",\n    \"v2\": \"timer_counter_base\",\n    \"a1\": \"conn_entry\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 364, \"meaning\": \"conn_handle or conn_interval (uint16_t) within connection entry\"},\n    {\"offset\": -12, \"meaning\": \"previous elapsed-tick reference (uint32_t) before v2\"},\n    {\"offset\": -8, \"meaning\": \"adjusted timeout / elapsed counter slot (uint32_t)\"}\n  ]\n}"
+}

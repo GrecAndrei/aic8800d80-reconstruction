@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_bit",
+ "img": "fmacfwbt_u02",
+ "addr": "0x117374",
+ "seg": 10,
+ "key": "mmio_set_bit__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"irq_ack\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears and acknowledges a hardware interrupt/channel bit, performing index-specific busy-status handshaking for entries 0 through 5.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"irq\",\n    \"v2\": \"bit_mask\",\n    \"v1\": \"saved_reg\",\n    \"v5\": \"saved_count\",\n    \"v6\": \"incremented_count\",\n    \"v8\": \"saved_irq_state\"\n  },\n  \"struct_hints\": []\n}"
+}

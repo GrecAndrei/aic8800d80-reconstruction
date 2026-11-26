@@ -1,0 +1,9 @@
+{
+ "fn": "check_event_state_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12072c",
+ "seg": 23,
+ "key": "check_event_state_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"wlc_check_event_state\", \"confidence\": \"medium\", \"docstring\": \"Returns the pending event descriptor when exactly one of two event flags is set and the descriptor's claimed/busy byte is clear; otherwise returns 0.\", \"subsystem\": \"wlan\", \"var_renames\": {\"result\": \"event_desc\"}, \"struct_hints\": [{\"offset\": 8, \"meaning\": \"pointer to event descriptor/context in the global event-state structure\"}, {\"offset\": 17, \"meaning\": \"event flag byte\"}, {\"offset\": 18, \"meaning\": \"alternate event flag byte\"}, {\"offset\": 106, \"meaning\": \"event descriptor claimed/busy/valid byte\"}]}"
+}

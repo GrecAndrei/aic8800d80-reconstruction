@@ -1,0 +1,9 @@
+{
+ "fn": "isr_flag_dispatch",
+ "img": "fmacfw_u02",
+ "addr": "0x116efc",
+ "seg": 9,
+ "key": "isr_flag_dispatch__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_event_filter_allows\",\"confidence\":\"medium\",\"docstring\":\"Returns whether MAC processing is allowed by the global and wrapper guards, applying an LLC event-field check when the context flag is set.\",\"subsystem\":\"mac\",\"struct_hints\":[{\"offset\":1224,\"meaning\":\"Flag enabling the LLC event-field check\"},{\"offset\":1225,\"meaning\":\"Byte passed to the LLC event-field extractor\"}]}"
+}

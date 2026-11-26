@@ -1,0 +1,9 @@
+{
+ "fn": "set_reg_158a08_bit16",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123fc8",
+ "seg": 23,
+ "key": "set_reg_158a08_bit16__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_reg_158a08_bit16\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Shifts the input value into bit 16 of the hardware register referenced by off_123FD8, preserving the other bits below 16, and returns the input value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"value\"\n  }\n}"
+}

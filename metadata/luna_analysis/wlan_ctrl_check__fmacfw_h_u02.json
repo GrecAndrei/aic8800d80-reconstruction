@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_ctrl_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111c74",
+ "seg": 4,
+ "key": "wlan_ctrl_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_set_hw_cfg_a\",\"confidence\":\"medium\",\"docstring\":\"Forwards the supplied arguments to set_hw_cfg_a and returns its result.\",\"subsystem\":\"wlan\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_timestamp_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11e3bc",
+ "seg": 21,
+ "key": "tx_timestamp_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_timestamp_get\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Extracts a TX timestamp from a valid packet descriptor, following descriptor links if needed, stores it into a packet context, and updates a software timestamp state with an MSB epoch bit to handle timestamp wrap while returning the previous timestamp.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v3\": \"timestamp\",\n    \"v4\": \"timestamp_state\",\n    \"v5\": \"prev_packed_timestamp\",\n    \"v7\": \"epoch_bit\",\n    \"a2\": \"tx_desc\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"descriptor next pointer\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"packed timestamp field with low two status bits\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"descriptor flags; bit 0 marks a valid timestamp\"\n    },\n    {\n      \"offset\": 152,\n      \"meaning\": \"context timestamp/output field\"\n    }\n  ]\n}"
+}

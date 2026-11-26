@@ -1,0 +1,9 @@
+{
+ "fn": "clear_status_and_continue",
+ "img": "fmacfwbt_u02",
+ "addr": "0x138acc",
+ "seg": 58,
+ "key": "clear_status_and_continue__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_status_clear_and_advance_seq\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears a 16-bit status field at offset 8 of a radio/RF context and increments the associated sequence counter.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"volatile uint16_t RF/status field cleared by this function\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ble_conn_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x119204",
+ "seg": 13,
+ "key": "ble_conn_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"proposed_name\": \"ble_conn_event_notify\",\n  \"confidence\": \"medium\",\n  \"summary\": \"The function looks up a BLE connection slot by handle/index, obtains or posts an internal BLE connection event/message of type 24, fills that event packet with connection state/parameters/subevent type and a timestamp-derived sequence field, and likely sends/notifies the resulting event.\",\n  \"current_name_issue\": \"`ble_conn_get` is misleading because the body is not merely fetching a connection object; it constructs and notifies/fills a connection event packet.\",\n  \"likely_behavior\": [\n    \"`a1` is used to index a per-connection structure at `dword_119384 + 696 * a1`, so it is probably a connection handle/index.\",\n    \"The byte at offset `+34` selects a secondary BLE slot/context entry in `dword_119370 + 1320 * slot_idx`.\",\n    \"`event_notify(1, 24)` is used to obtain or post an internal BLE event/message of type 24.\",\n    \"The filled packet begins at `*(v11 + 72)` and receives fields including a message/event byte `0x48`, a subevent/status byte of `2` or `1`, connection parameters, addresses, flags, and a timestamp/sequence field.\",\n    \"The branch on `*(v12 + 106) == 2` chooses between two BLE connection event formats/subevent types.\",\n    \"The truncated portion likely finishes packet construction and returns success/failure; `return 1` appears in allocation-failure paths.\"\n  ],\n  \"alternate_names\": [\n    \"ble_conn_report_event\",\n    \"ble_conn_send_event\",\n    \"ble_conn_evt_notify\",\n    \"ble_conn_get_event\"\n  ]\n}"
+}

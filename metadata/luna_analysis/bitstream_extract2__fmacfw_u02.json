@@ -1,0 +1,9 @@
+{
+ "fn": "bitstream_extract2",
+ "img": "fmacfw_u02",
+ "addr": "0x132820",
+ "seg": 45,
+ "key": "bitstream_extract2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"packed_u2_min_prefix\",\"confidence\":\"medium\",\"docstring\":\"Returns the lane-wise minimum of two packed 2-bit values across the low 16 bits, stopping before the first lane where either input is 3.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"packed_values_a\",\"a2\":\"packed_values_b\",\"v2\":\"bit_shift\",\"v3\":\"packed_result\",\"v4\":\"lane_a\",\"v5\":\"result_without_lane\",\"v6\":\"lane_b\",\"v7\":\"shifted_min_lane\"}}"
+}

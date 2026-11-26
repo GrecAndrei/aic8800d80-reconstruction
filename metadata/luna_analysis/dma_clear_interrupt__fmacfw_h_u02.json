@@ -1,0 +1,9 @@
+{
+ "fn": "dma_clear_interrupt",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11c7a4",
+ "seg": 19,
+ "key": "dma_clear_interrupt__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dma_irq_handler\",\"confidence\":\"high\",\"docstring\":\"Acknowledges DMA interrupt sources and, for RX-completion events, processes the indicated channel\u2019s MPDU queue and updates per-channel state.\",\"subsystem\":\"dma\",\"var_renames\":{\"v0\":\"dma_status_reg\",\"v1\":\"dma_register_base\",\"v2\":\"dma_irq_status\",\"v3\":\"channel_id\",\"v4\":\"channel_state_base\",\"v11\":\"rx_mpdu\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Per-channel current RX MPDU pointer\"},{\"offset\":26,\"meaning\":\"Per-channel active or processing flag\"},{\"offset\":28,\"meaning\":\"Per-channel queue-list head\"},{\"offset\":36,\"meaning\":\"Per-channel associated descriptor or context pointer\"},{\"offset\":80,\"meaning\":\"Per-channel completion counter decremented after processing\"}]}"
+}

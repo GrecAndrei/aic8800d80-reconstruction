@@ -1,0 +1,9 @@
+{
+ "fn": "clear_bb_irq",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118354",
+ "seg": 11,
+ "key": "clear_bb_irq__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"clear_bb_irq\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears the baseband IRQ flag/register and, when the sum of two adjacent status/link-count bytes is at most one, triggers a Bluetooth coexistence state check.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"status_sum\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 17,\n      \"meaning\": \"adjacent status/link-count byte\"\n    },\n    {\n      \"offset\": 18,\n      \"meaning\": \"adjacent status/link-count byte\"\n    }\n  ]\n}"
+}

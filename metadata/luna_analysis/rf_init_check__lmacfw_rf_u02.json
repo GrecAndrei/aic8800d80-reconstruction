@@ -1,0 +1,9 @@
+{
+ "fn": "rf_init_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11da78",
+ "seg": 20,
+ "key": "rf_init_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_init_check\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks an RF initialization/calibration flag, applies channel settings through rf_set_channel and stores a duplicated byte result when the flag is set, otherwise initializes flash for RF data when the signed status/temperature word is negative.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"rf_channel_ctx\",\n    \"v3\": \"rf_set_channel_ret\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"Pointer field in first context/message argument referencing nested RF/channel state\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"Pointer field at the +32 target leading to an RF channel configuration context\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"Packed RF channel word: bits [6:0] channel number, bits [13:11] selected subchannel or band field\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"Halfword field written with the low byte of rf_set_channel return duplicated\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"Field in first pointer argument used to derive the third rf_set_channel argument\"\n    },\n    {\n      \"offset\": 197,\n      \"meaning\": \"Global byte flag relative to off_11DAB8 indicating RF initialization/calibration readiness\"\n    }\n  ]\n}"
+}

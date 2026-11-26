@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_proc",
+ "img": "fmacfw_h_u02",
+ "addr": "0x120700",
+ "seg": 22,
+ "key": "rx_packet_proc__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_rx_beacon_tsf\",\"confidence\":\"medium\",\"docstring\":\"Uses the received beacon's TSF, interval, and RX timing metadata to derive beacon timing, falling back to a default duration if the MAC airtime measurement fails.\",\"subsystem\":\"mac\",\"var_renames\":{\"v9\":\"beacon_interval\",\"v10\":\"beacon_tsf_low\",\"v11\":\"beacon_tsf_high\",\"v19\":\"time_on_air\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Low 32 bits of the beacon frame's advertised TSF\"},{\"offset\":28,\"meaning\":\"High 32 bits of the beacon frame's advertised TSF\"},{\"offset\":32,\"meaning\":\"Beacon interval in time units\"}]}"
+}

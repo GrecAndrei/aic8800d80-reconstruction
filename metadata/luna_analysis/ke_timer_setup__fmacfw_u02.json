@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_setup",
+ "img": "fmacfw_u02",
+ "addr": "0x12b1a4",
+ "seg": 39,
+ "key": "ke_timer_setup__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_configure\",\"confidence\":\"medium\",\"docstring\":\"Checks readiness for the selected channel, updates its channel number from the center frequency, and then parses RX PHY status.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"channel_table\",\"v2\":\"selected_channel\",\"v3\":\"selected_channel_offset\",\"v4\":\"channel_flags\",\"v5\":\"ready_timeout\",\"v6\":\"channel_info\",\"v8\":\"center_frequency_mhz\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Channel center frequency in MHz (16-bit field).\"},{\"offset\":2,\"meaning\":\"Band selector: 0 for 2.4 GHz and 1 for 5 GHz.\"},{\"offset\":3,\"meaning\":\"Channel flags; bits 0 and 2 affect readiness timing.\"},{\"offset\":10,\"meaning\":\"Selected channel-record index.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "txpacket_prepare",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c3ec",
+ "seg": 19,
+ "key": "txpacket_prepare__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txpacket_prepare\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prepares a TX packet by scanning the packet's encoded header chain for a table-selected protocol/type and copying or nulling the TX-context payload pointer when a match is found.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"tx_packet_info\",\n    \"a2\": \"tx_context\",\n    \"v2\": \"packet_flags\",\n    \"v3\": \"frame_base\",\n    \"v4\": \"packet_length\",\n    \"v7\": \"remaining_length\",\n    \"v8\": \"header_ptr\",\n    \"v9\": \"protocol_entry\",\n    \"v10\": \"header_aux_word\",\n    \"v11\": \"header_length\",\n    \"v12\": \"header_word\",\n    \"v13\": \"protocol_id\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 28, \"meaning\": \"a1 pointer to packet/frame data or buffer descriptor\"},\n    {\"offset\": 48, \"meaning\": \"a1 packet total length\"},\n    {\"offset\": 84, \"meaning\": \"a1 TX packet flags/status word\"},\n    {\"offset\": 12, \"meaning\": \"a2 index selecting the protocol/filter table entry\"},\n    {\"offset\": 13, \"meaning\": \"a2 high-nibble protocol/version value compared against header_word\"},\n    {\"offset\": 224, \"meaning\": \"a2 output payload pointer, cleared or set to inline buffer\"},\n    {\"offset\": 228, \"meaning\": \"a2 inline small payload/header copy buffer\"},\n    {\"offset\": 32, \"meaning\": \"protocol table entry expected header/protocol identifier\"}\n  ]\n}"
+}

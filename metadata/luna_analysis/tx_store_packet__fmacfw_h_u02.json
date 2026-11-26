@@ -1,0 +1,9 @@
+{
+ "fn": "tx_store_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10f23c",
+ "seg": 3,
+ "key": "tx_store_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_packet_stats_buffers\",\"confidence\":\"medium\",\"docstring\":\"Initializes marker fields for two packet-stat slots and clears the data buffer following each slot.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"buffer_region\",\"v1\":\"first_stats_buffer\"},\"struct_hints\":[{\"offset\":1620,\"meaning\":\"16-bit marker for the first stats slot, initialized to 80\"},{\"offset\":1622,\"meaning\":\"8-bit marker for the first stats slot, initialized to 81\"},{\"offset\":1624,\"meaning\":\"First stats buffer, cleared by clear_stats_buf\"},{\"offset\":2432,\"meaning\":\"16-bit marker for the second stats slot, initialized to 39\"},{\"offset\":2434,\"meaning\":\"8-bit marker for the second stats slot, initialized to 40\"},{\"offset\":2436,\"meaning\":\"Second stats buffer, cleared by clear_stats_buf\"}]}"
+}

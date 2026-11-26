@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process_packet_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12c84c",
+ "seg": 40,
+ "key": "rx_process_packet_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_msg_dispatch\",\"confidence\":\"high\",\"docstring\":\"Routes a kernel message by destination task, sending low-numbered destinations through the WLAN ioctl handler and otherwise invoking the configured dispatcher.\",\"subsystem\":\"ke\",\"var_renames\":{\"v1\":\"destination_task_id\",\"v4\":\"message\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"message ID\"},{\"offset\":6,\"meaning\":\"destination task ID\"},{\"offset\":8,\"meaning\":\"source task ID\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_hw_timestamp",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1310f0",
+ "seg": 42,
+ "key": "get_hw_timestamp__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"read_hw_timestamp\",\"confidence\":\"medium\",\"docstring\":\"Looks up a timestamp value in the supplied data and stores it at offset 220 of the destination, using 0x80000000 when no value is found.\",\"subsystem\":\"bt\",\"var_renames\":{\"a3\":\"record\"},\"struct_hints\":[{\"offset\":220,\"meaning\":\"hardware timestamp, or 0x80000000 when unavailable\"}]}"
+}

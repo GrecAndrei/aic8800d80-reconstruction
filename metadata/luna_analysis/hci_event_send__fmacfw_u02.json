@@ -1,0 +1,9 @@
+{
+ "fn": "hci_event_send",
+ "img": "fmacfw_u02",
+ "addr": "0x141d9c",
+ "seg": 67,
+ "key": "hci_event_send__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_connection_msg_send\",\"confidence\":\"medium\",\"docstring\":\"Queues an eight-byte BLE link-layer message assembled from a one-byte argument and fields at offsets 4, 8, and 46 of the supplied context.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"payload_byte0\",\"a2\":\"conn_ctx\",\"v4\":\"msg_payload\",\"v5\":\"context_u16_8\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Four-byte context value copied to message bytes 2\u20135.\"},{\"offset\":8,\"meaning\":\"Two-byte context value copied to message bytes 6\u20137.\"},{\"offset\":46,\"meaning\":\"One-byte context value copied to message byte 1.\"}]}"
+}

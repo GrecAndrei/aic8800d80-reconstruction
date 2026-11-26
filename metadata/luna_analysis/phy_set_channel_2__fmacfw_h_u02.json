@@ -1,0 +1,9 @@
+{
+ "fn": "phy_set_channel_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13f104",
+ "seg": 61,
+ "key": "phy_set_channel_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_set_channel_config\",\"confidence\":\"medium\",\"docstring\":\"Stores the interface\u2019s channel setting and, when nonzero, refreshes associated channel-entry metadata and dependent receive and connection parameters.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"interface_index\",\"a2\":\"channel_setting\",\"v4\":\"channel_context\",\"v7\":\"entry_index\",\"v8\":\"active_entry_count\",\"v10\":\"entry_record\",\"v12\":\"packed_entry_config\",\"v20\":\"per_entry_counts\"},\"struct_hints\":[{\"offset\":166,\"meaning\":\"Context flags; bit 0x20 takes an early-return path that sets bit 0x80.\"},{\"offset\":182,\"meaning\":\"Stored channel setting supplied by the caller.\"},{\"offset\":184,\"meaning\":\"Active entry count used to process the channel records.\"},{\"offset\":8,\"meaning\":\"Per-entry count/state field, set to the active count or zero.\"},{\"offset\":10,\"meaning\":\"Packed per-entry configuration descriptor.\"},{\"offset\":13,\"meaning\":\"Per-entry byte count/state, set to the active count or zero.\"},{\"offset\":14,\"meaning\":\"Per-entry marker set to one during refresh.\"}]}"
+}

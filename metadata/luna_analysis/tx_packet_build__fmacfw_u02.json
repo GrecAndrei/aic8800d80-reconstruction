@@ -1,0 +1,9 @@
+{
+ "fn": "tx_packet_build",
+ "img": "fmacfw_u02",
+ "addr": "0x141f40",
+ "seg": 67,
+ "key": "tx_packet_build__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llcp_tx_packet_build\",\"confidence\":\"medium\",\"docstring\":\"Formats the supplied BLE link-layer control-PDU fields into the transmit buffer, updates transmit queue state, and invokes TX-path status handling.\",\"subsystem\":\"ble\",\"var_renames\":{\"a3\":\"pdu_fields\",\"v6\":\"tx_buffer_offset\",\"v7\":\"tx_buffer_start\",\"v8\":\"tx_packet\",\"v9\":\"header_bits\",\"v11\":\"packet_header\",\"v12\":\"conn_context\",\"v13\":\"tx_queue_state\",\"v16\":\"conn_context\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"PDU control bits used to form the transmitted header\"},{\"offset\":2,\"meaning\":\"PDU field passed to the buffer helper and encoded in the header\"},{\"offset\":4,\"meaning\":\"Optional flag that sets a header bit\"},{\"offset\":5,\"meaning\":\"PDU field encoded in the upper header bits\"},{\"offset\":7,\"meaning\":\"Byte copied to TX frame offset 13\"},{\"offset\":8,\"meaning\":\"Halfword copied to TX frame offset 14\"},{\"offset\":24,\"meaning\":\"Word copied to TX frame offset 5\"},{\"offset\":28,\"meaning\":\"Word copied to TX frame offset 9\"},{\"offset\":41,\"meaning\":\"Byte copied to TX frame offset 16\"},{\"offset\":72,\"meaning\":\"Connection-context pointer to TX buffer storage\"},{\"offset\":76,\"meaning\":\"Connection-context pointer to TX queue state\"},{\"offset\":28,\"meaning\":\"TX queue state value used to calculate the updated cursor\"},{\"offset\":32,\"meaning\":\"TX queue cursor/state pair written by this function\"}]}"
+}

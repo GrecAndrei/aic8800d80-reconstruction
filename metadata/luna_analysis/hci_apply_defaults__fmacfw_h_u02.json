@@ -1,0 +1,9 @@
+{
+ "fn": "hci_apply_defaults",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133aa4",
+ "seg": 48,
+ "key": "hci_apply_defaults__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_handle_conn_loss_indication\",\"confidence\":\"medium\",\"docstring\":\"Checks connection-loss handling for the indexed BLE link and schedules its timer when offset 106 is zero and offset 108 is nonzero.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"connection_index_ptr\",\"v2\":\"connection_index\",\"v4\":\"connection_context\",\"v5\":\"timer_delay\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Byte checked for zero and passed as the timer delay.\"},{\"offset\":108,\"meaning\":\"Nonzero byte gates the timer-set call.\"}]}"
+}

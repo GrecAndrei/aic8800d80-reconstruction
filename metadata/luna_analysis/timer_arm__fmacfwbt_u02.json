@@ -1,0 +1,9 @@
+{
+ "fn": "timer_arm",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10fdc4",
+ "seg": 3,
+ "key": "timer_arm__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_timer_arm\",\"confidence\":\"low\",\"docstring\":\"Stores the supplied values in a fixed control block, passes it to the kernel handler, initializes a second register block, and returns 0x40000.\",\"subsystem\":\"hal\"}"
+}

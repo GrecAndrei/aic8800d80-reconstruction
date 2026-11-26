@@ -1,0 +1,9 @@
+{
+ "fn": "bus_write32",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114564",
+ "seg": 6,
+ "key": "bus_write32__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bus_write32\",\"confidence\":\"medium\",\"docstring\":\"Thin bus abstraction wrapper that submits a 4-byte write request or payload through ke_task_process.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"request_payload\"},\"struct_hints\":[]}"
+}

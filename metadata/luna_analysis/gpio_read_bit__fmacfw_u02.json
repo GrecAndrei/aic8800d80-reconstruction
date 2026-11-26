@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_read_bit",
+ "img": "fmacfw_u02",
+ "addr": "0x10dd2c",
+ "seg": 3,
+ "key": "gpio_read_bit__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_read_bit\",\"confidence\":\"high\",\"docstring\":\"Returns whether the GPIO input register has the bit set for the specified pin.\",\"subsystem\":\"gpio\",\"var_renames\":{\"a1\":\"pin\"}}"
+}

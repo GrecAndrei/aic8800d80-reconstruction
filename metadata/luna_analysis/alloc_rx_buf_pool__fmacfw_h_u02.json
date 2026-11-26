@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_rx_buf_pool",
+ "img": "fmacfw_h_u02",
+ "addr": "0x120a90",
+ "seg": 22,
+ "key": "alloc_rx_buf_pool__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_wifi_pending_events\",\"confidence\":\"medium\",\"docstring\":\"Consumes pending Wi-Fi control flags and updates channel timing and MAC receive-filter configuration.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"wifi_context\",\"v3\":\"wifi_config\",\"v4\":\"pending_flags\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Wi-Fi configuration flags\"},{\"offset\":30,\"meaning\":\"Pending control-event flags\"},{\"offset\":116,\"meaning\":\"Current channel identifier\"},{\"offset\":120,\"meaning\":\"Last channel timing-update timestamp\"}]}"
+}

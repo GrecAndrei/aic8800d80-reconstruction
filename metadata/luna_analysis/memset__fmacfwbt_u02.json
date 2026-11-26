@@ -1,0 +1,9 @@
+{
+ "fn": "memset",
+ "img": "fmacfwbt_u02",
+ "addr": "0x100200",
+ "seg": 0,
+ "key": "memset__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"memset\",\"confidence\":\"high\",\"docstring\":\"Fills the destination with the low byte of the value, using aligned word stores for bulk data, and returns the original destination.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v3\":\"remaining_bytes\",\"v4\":\"dst_cursor\",\"v6\":\"repeated_fill_word\",\"v7\":\"bulk_store_cursor\",\"v8\":\"word_dst\",\"v9\":\"chunk_bytes\",\"v10\":\"tail_end\"}}"
+}

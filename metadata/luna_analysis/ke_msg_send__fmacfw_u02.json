@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_send",
+ "img": "fmacfw_u02",
+ "addr": "0x1259e0",
+ "seg": 30,
+ "key": "ke_msg_send__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_acl_tx_process\",\"confidence\":\"medium\",\"docstring\":\"Prepares a queued HCI ACL buffer for transmission, sends its associated kernel notification, updates packet metadata, and dispatches pending events.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"tx_context\",\"v2\":\"tx_buffer\",\"v4\":\"tx_buffer\",\"v7\":\"event_pending\"}}"
+}

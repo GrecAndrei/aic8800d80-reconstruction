@@ -1,0 +1,9 @@
+{
+ "fn": "link_get_connection_info",
+ "img": "fmacfw_u02",
+ "addr": "0x12b2b0",
+ "seg": 39,
+ "key": "link_get_connection_info__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_link_connection_info_send\",\"confidence\":\"medium\",\"docstring\":\"Builds and submits a controller message populated with fields from the selected connection and link contexts.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"connection_table_base\",\"v4\":\"connection_context\",\"v6\":\"link_index\",\"v12\":\"tx_message\",\"v14\":\"link_context\",\"v15\":\"payload_buffer\",\"v16\":\"sequence_counter\"},\"struct_hints\":[{\"offset\":116,\"meaning\":\"Connection-record byte used to select an entry in the link-context table.\"},{\"offset\":1224,\"meaning\":\"Connection-record flag that selects the forced message-allocation mode.\"}]}"
+}

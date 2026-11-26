@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_and_init_object",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13a588",
+ "seg": 59,
+ "key": "alloc_and_init_object__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_process_pending_queue\",\"confidence\":\"medium\",\"docstring\":\"Raises a system flag and dispatches the RF-related pending message queue referenced by a global queue pointer.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

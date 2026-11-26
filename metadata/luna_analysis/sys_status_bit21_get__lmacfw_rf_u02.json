@@ -1,0 +1,9 @@
+{
+ "fn": "sys_status_bit21_get",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101a2c",
+ "seg": 0,
+ "key": "sys_status_bit21_get__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sys_status_bit21_get\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns bit 21 of the volatile system status word accessed through off_101A38.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"off_101A38\": \"sys_status_reg\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_3",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10dd6c",
+ "seg": 3,
+ "key": "nullsub_3__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"noop_success\",\"confidence\":\"low\",\"docstring\":\"Returns zero without performing any operations.\",\"subsystem\":\"hal\"}"
+}

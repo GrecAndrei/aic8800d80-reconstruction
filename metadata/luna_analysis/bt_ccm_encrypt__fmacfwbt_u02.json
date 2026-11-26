@@ -1,0 +1,9 @@
+{
+ "fn": "bt_ccm_encrypt",
+ "img": "fmacfwbt_u02",
+ "addr": "0x104858",
+ "seg": 2,
+ "key": "bt_ccm_encrypt__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_pare_score_run\",\"confidence\":\"medium\",\"docstring\":\"Runs the segmented PARE scoring routine, deriving transmit and receive start positions and a segment count from the timing inputs.\",\"subsystem\":\"phy\",\"var_renames\":{\"v7\":\"score_constants\",\"v18\":\"initial_rx_start\",\"v19\":\"estimated_rx_start\",\"v20\":\"start_delay\",\"v21\":\"estimated_tx_start\",\"v22\":\"segment_count\",\"v23\":\"work_buffer_cursor\",\"v55\":\"tx_start_input\"}}"
+}

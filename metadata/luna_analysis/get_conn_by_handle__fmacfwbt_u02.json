@@ -1,0 +1,9 @@
+{
+ "fn": "get_conn_by_handle",
+ "img": "fmacfwbt_u02",
+ "addr": "0x127b7c",
+ "seg": 34,
+ "key": "get_conn_by_handle__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_update_link_clock_offset\", \"confidence\": \"medium\", \"docstring\": \"Updates Bluetooth link timing/clock offset state by comparing received packet timing against the RF clock and adjusting the per-link offset when the mismatch exceeds defined thresholds.\", \"subsystem\": \"bt\", \"var_renames\": {\"v2\": \"conn_table\", \"v3\": \"conn_index\", \"v4\": \"conn\", \"v6\": \"ctx\", \"v8\": \"expected_time\", \"v9\": \"abs_time_diff\", \"v10\": \"list_node\", \"v11\": \"node_offset\", \"v12\": \"conn\", \"v13\": \"conn_flags\"}, \"struct_hints\": [{\"offset\": 85, \"meaning\": \"connection/link flags; bits 0x10 and 0x40 mark timing state\"}, {\"offset\": 86, \"meaning\": \"connection index or link identifier\"}, {\"offset\": 87, \"meaning\": \"selector passed to rf_read_state\"}, {\"offset\": 88, \"meaning\": \"adjusted clock/slot offset written for the link\"}, {\"offset\": 92, \"meaning\": \"expected packet or connection clock/timestamp\"}, {\"offset\": 96, \"meaning\": \"signed measured time/clock offset\"}, {\"offset\": 107, \"meaning\": \"group/piconet identifier used to match related link entries\"}]}"
+}

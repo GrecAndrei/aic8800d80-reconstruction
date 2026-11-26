@@ -1,0 +1,9 @@
+{
+ "fn": "pdu_alloc_424",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ec8c",
+ "seg": 42,
+ "key": "pdu_alloc_424__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"inject_rx_test_packet\",\"confidence\":\"medium\",\"docstring\":\"Copies the supplied packet into a 0x424 PDU, capped at 1024 bytes, allocates a TX event, and submits the PDU to RX packet processing.\",\"subsystem\":\"test\",\"var_renames\":{\"a2\":\"packet_desc\",\"v6\":\"packet_data\",\"v7\":\"packet_length\",\"v8\":\"pdu\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"packet data pointer\"},{\"offset\":4,\"meaning\":\"packet length, capped at 1024 bytes\"},{\"offset\":8,\"meaning\":\"inline packet data\"}]}"
+}

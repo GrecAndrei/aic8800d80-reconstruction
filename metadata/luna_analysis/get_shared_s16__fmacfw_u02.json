@@ -1,0 +1,9 @@
+{
+ "fn": "get_shared_s16",
+ "img": "fmacfw_u02",
+ "addr": "0x121a74",
+ "seg": 23,
+ "key": "get_shared_s16__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_rx_status_select_mode\",\"confidence\":\"medium\",\"docstring\":\"Selects an RX PHY-status parsing mode from shared state and sets a fallback value when the alternate mode is required.\",\"subsystem\":\"phy\"}"
+}

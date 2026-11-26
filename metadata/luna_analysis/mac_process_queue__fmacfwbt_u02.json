@@ -1,0 +1,9 @@
+{
+ "fn": "mac_process_queue",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c320",
+ "seg": 19,
+ "key": "mac_process_queue__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_sync_queues\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Flushes pending per-queue descriptors into the MAC controller state, resets the MAC controller, and re-arms the queue event lock when any queue is active.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"mac_ctx\",\n    \"v1\": \"active_queue_state\",\n    \"v2\": \"pending_queue_state\",\n    \"v3\": \"queue_mask\",\n    \"v4\": \"saved_ctx_flag\",\n    \"v5\": \"src_queue_entry\",\n    \"v6\": \"dst_queue_slot\",\n    \"v8\": \"src_entry_byte\",\n    \"v9\": \"saved_event_word\",\n    \"v10\": \"timer_now\",\n    \"v11\": \"mac_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"MAC context word used as active queue state or trigger condition\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"MAC context word used as pending queue state\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"MAC context queue mask/event state word\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"Per-queue MAC context word copied from source entry offset 0x14\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"Per-queue MAC context byte copied from source entry offset 0x18\"\n    },\n    {\n      \"offset\": 160,\n      \"meaning\": \"MAC context byte saved/restored around queue synchronization\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"Queue entry word whose non-zero value triggers per-entry event locking\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"Queue entry descriptor word copied into MAC queue slot\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"Queue entry descriptor byte copied into MAC queue slot\"\n    }\n  ]\n}"
+}

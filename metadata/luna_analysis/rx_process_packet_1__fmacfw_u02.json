@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process_packet_1",
+ "img": "fmacfw_u02",
+ "addr": "0x132fb8",
+ "seg": 46,
+ "key": "rx_process_packet_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_rx_packet_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a received link-layer buffer by examining the payload after its 36-byte prefix, updating receive flags, and conditionally consulting connection state.\",\"subsystem\":\"ble\",\"var_renames\":{\"v10\":\"packet_payload\",\"v11\":\"payload_length\",\"v12\":\"payload_length\"},\"struct_hints\":[{\"offset\":412,\"meaning\":\"Byte flag that suppresses the packet pre-check when nonzero.\"},{\"offset\":440,\"meaning\":\"Connection-state context passed to ll_get_conn_state.\"},{\"offset\":462,\"meaning\":\"16-bit receive flags; bits 0 and 2 are updated from the pre-check result.\"},{\"offset\":472,\"meaning\":\"Flags field whose bit 0 gates connection-state processing.\"}]}"
+}

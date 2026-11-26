@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clock_enable",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1184b0",
+ "seg": 11,
+ "key": "rf_clock_enable__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_clock_enable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enables and configures RF clock/PLL registers, applying context flags and chip-specific control bits.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v8\": \"preserve_mask\",\n    \"v13\": \"rf_reg_1185f8_value\",\n    \"v20\": \"chip_id\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"context byte flag; nonzero sets 0x40 in a related control register\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"context byte flags: bit 0 and bit 4 select clock/control bit settings\"\n    }\n  ]\n}"
+}

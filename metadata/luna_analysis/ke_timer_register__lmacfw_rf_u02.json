@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_register",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c850",
+ "seg": 18,
+ "key": "ke_timer_register__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"scan_cancel_req\", \"confidence\": \"medium\", \"docstring\": \"Processes a scan-cancel request: invokes the underlying cancel routine, logs the returned result, and either sets a scan-cancel status byte or allocates a transmit buffer for follow-up.\", \"subsystem\": \"bt\", \"var_renames\": {\"v5\": \"cancel_result\", \"a4\": \"tx_buf_size\"}, \"struct_hints\": [{\"offset\": 11, \"meaning\": \"scan_cancel_flag_byte\"}]}"
+}

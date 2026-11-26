@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_disable_irq",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12be54",
+ "seg": 40,
+ "key": "mmio_disable_irq__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_ant_switch_setup\", \"confidence\": \"medium\", \"docstring\": \"Programs RF control registers and configuration state, then selects antenna 1.\", \"subsystem\": \"rf\", \"var_renames\": {\"v0\": \"ctrl_reg\", \"v1\": \"ctrl_reg2\", \"v2\": \"cfg_status_ptr\", \"v3\": \"cfg_data\", \"v4\": \"cfg_val\", \"v5\": \"status_ptr\", \"result\": \"ant_switch_ret\"}, \"struct_hints\": []}"
+}

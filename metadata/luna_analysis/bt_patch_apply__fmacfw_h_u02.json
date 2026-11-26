@@ -1,0 +1,9 @@
+{
+ "fn": "bt_patch_apply",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1231b0",
+ "seg": 28,
+ "key": "bt_patch_apply__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mm_process_resume_response\",\"confidence\":\"medium\",\"docstring\":\"Processes an MM resume-response buffer by iterating its listed sub-message IDs, locating recognized payloads, and skipping unknown IDs.\",\"subsystem\":\"mm\",\"var_renames\":{\"a2\":\"resume_response\",\"v6\":\"sub_msg_index\",\"v7\":\"sub_msg_id_cursor\",\"v8\":\"sub_msg_id\",\"v13\":\"sub_msg_payload\"},\"struct_hints\":[{\"offset\":668,\"meaning\":\"P2P flag for the add-VIF request\"},{\"offset\":670,\"meaning\":\"Array of 16-bit sub-message IDs\"},{\"offset\":702,\"meaning\":\"Number of listed sub-messages\"},{\"offset\":704,\"meaning\":\"Add-VIF request count\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hci_send_cmd_0x59",
+ "img": "fmacfw_u02",
+ "addr": "0x1225dc",
+ "seg": 24,
+ "key": "hci_send_cmd_0x59__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_send_cmd_0x59\",\"confidence\":\"medium\",\"docstring\":\"Allocates an HCI message with ID 0x59, copies two parameter bytes into it, and sends it to task 13.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"param_byte_0\",\"a2\":\"param_byte_1\",\"v4\":\"message_payload\"}}"
+}

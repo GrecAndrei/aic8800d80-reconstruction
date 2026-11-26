@@ -1,0 +1,9 @@
+{
+ "fn": "read_rf_timer",
+ "img": "fmacfw_h_u02",
+ "addr": "0x141c90",
+ "seg": 67,
+ "key": "read_rf_timer__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"record_rf_timer_snapshot\",\"confidence\":\"medium\",\"docstring\":\"Accumulates the entry's elapsed interval, copies a timer snapshot into it, and marks the associated link context and tracking bitmap.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"snapshot_source_offset\",\"v4\":\"accumulated_timer\",\"v5\":\"link_index\",\"v7\":\"link_context\",\"v8\":\"entry_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Entry flags; this function sets bit 3.\"},{\"offset\":4,\"meaning\":\"Byte discriminator checked for zero.\"},{\"offset\":12,\"meaning\":\"Offset used to select the snapshot source data.\"},{\"offset\":16,\"meaning\":\"Elapsed interval added to the accumulated timer.\"},{\"offset\":24,\"meaning\":\"64-bit accumulated timer value.\"},{\"offset\":47,\"meaning\":\"Link index used to select a link context.\"},{\"offset\":52,\"meaning\":\"Destination for the copied timer snapshot.\"},{\"offset\":56,\"meaning\":\"Stored global timer-related value.\"}]}"
+}

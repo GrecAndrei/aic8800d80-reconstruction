@@ -1,0 +1,9 @@
+{
+ "fn": "init_fw_config",
+ "img": "fmacfw_h_u02",
+ "addr": "0x120408",
+ "seg": 22,
+ "key": "init_fw_config__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_fw_config\",\"confidence\":\"medium\",\"docstring\":\"Zeroes and seeds the global firmware configuration block, performs a conditional MMIO update, then records the MAC-version state.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"fw_config\",\"v1\":\"config_word\",\"result\":\"mac_version\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Initial configuration word, also used to form the conditional hardware configuration value\"},{\"offset\":4,\"meaning\":\"Secondary word cleared during initialization and included in that value\"},{\"offset\":18,\"meaning\":\"16-bit field cleared during initialization\"},{\"offset\":31,\"meaning\":\"Byte flag set to 1\"},{\"offset\":36,\"meaning\":\"Word populated from dword_12046C after the MAC-version query\"}]}"
+}

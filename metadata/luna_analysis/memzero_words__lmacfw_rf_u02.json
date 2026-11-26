@@ -1,0 +1,9 @@
+{
+ "fn": "memzero_words",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x109480",
+ "seg": 2,
+ "key": "memzero_words__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_clamp_sort_s16_samples\",\"confidence\":\"medium\",\"docstring\":\"Clamps negative signed 16-bit RF sample entries, counts invalid-sample patterns, and performs a partial sort/selection over the sample array.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"mode\",\"a2\":\"samples\",\"v2\":\"sample_index\",\"v4\":\"scan_ptr\",\"result\":\"negative_mask\",\"v5\":\"high_range_negative_count\",\"v6\":\"low_range_negative_count\",\"v42\":\"packed_pair_indices\"}}"
+}

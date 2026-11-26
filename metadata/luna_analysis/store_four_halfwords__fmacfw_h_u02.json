@@ -1,0 +1,9 @@
+{
+ "fn": "store_four_halfwords",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1306c4",
+ "seg": 42,
+ "key": "store_four_halfwords__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"write_header_payload\",\"confidence\":\"medium\",\"docstring\":\"Writes three 16-bit header fields and, when a payload is supplied, appends the 0x8010 marker and 128 payload bytes, returning the number of bytes written.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"dst\",\"a2\":\"header_word_0\",\"a3\":\"header_word_1\",\"a4\":\"header_word_2\",\"a5\":\"payload\"}}"
+}

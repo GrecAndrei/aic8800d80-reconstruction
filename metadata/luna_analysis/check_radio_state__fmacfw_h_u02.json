@@ -1,0 +1,9 @@
+{
+ "fn": "check_radio_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11b100",
+ "seg": 16,
+ "key": "check_radio_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_sched_item\",\"confidence\":\"medium\",\"docstring\":\"Scans scheduler slots in descending order, returning an active queued item or initializing the first eligible link-layer transmission.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"scheduler_context\",\"v3\":\"scheduler_entries\",\"v5\":\"slot_index\",\"v7\":\"scheduler_entry\",\"v9\":\"link_list_node\",\"v13\":\"selected_link_item\",\"v16\":\"tx_descriptor\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Link-item or queue pointer associated with the scheduler entry.\"},{\"offset\":26,\"meaning\":\"Entry state byte; value 1 selects the direct queued-item path.\"},{\"offset\":36,\"meaning\":\"Pointer used to obtain the direct-path item result.\"},{\"offset\":68,\"meaning\":\"Selected item's transmit-descriptor pointer.\"}]}"
+}

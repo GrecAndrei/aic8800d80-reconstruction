@@ -1,0 +1,9 @@
+{
+ "fn": "state_get_flags",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ec6c",
+ "seg": 43,
+ "key": "state_get_flags__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"state_get_flags\", \"confidence\": \"medium\", \"docstring\": \"Returns the current volatile 32-bit global state flag word read through a data-segment pointer.\", \"subsystem\": \"ke\", \"var_renames\": {}, \"struct_hints\": []}"
+}

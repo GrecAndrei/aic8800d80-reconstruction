@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_clear_bit",
+ "img": "fmacfwbt_u02",
+ "addr": "0x121b14",
+ "seg": 24,
+ "key": "mmio_clear_bit__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_channel_settings\",\"confidence\":\"medium\",\"docstring\":\"Programs MMIO radio configuration registers from current channel/radio parameters and sets the antenna switch to its default state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_param_table\",\"v2\":\"rf_config_regs\",\"v3\":\"rf_param_value\",\"v5\":\"rf_control_reg\"},\"struct_hints\":[]}"
+}

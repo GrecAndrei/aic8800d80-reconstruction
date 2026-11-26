@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_write_85",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1233c8",
+ "seg": 29,
+ "key": "rf_reg_write_85__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_report_wifi_disable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates an HCI event buffer, reads a coexistence register bit indicating the WiFi-disable state, writes the inverted bit into the event payload, logs it, and sends the HCI event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v4\": \"evt_buffer\",\n    \"v5\": \"coex_reg_value\",\n    \"v6\": \"wifi_disable_bit\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"WiFi-disable status byte written to the allocated HCI event buffer\"\n    }\n  ]\n}"
+}

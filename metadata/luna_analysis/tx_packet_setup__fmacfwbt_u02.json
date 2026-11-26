@@ -1,0 +1,9 @@
+{
+ "fn": "tx_packet_setup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11e708",
+ "seg": 21,
+ "key": "tx_packet_setup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_packet_setup\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prepares an outgoing packet by obtaining a free transmit descriptor, programming its DMA ring entry, advancing the TX ring and sequence state under a short critical section, and servicing a pending receive path if MAC state remains active.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v7\": \"state_ptr_ptr\",\n    \"v9\": \"state_ptr\",\n    \"v11\": \"wlc_state\",\n    \"v26\": \"free_tx_desc_list\",\n    \"v27\": \"tx_desc\",\n    \"v28\": \"tx_ring_base\",\n    \"v29\": \"tx_ring_index\",\n    \"v32\": \"tx_pending_count\",\n    \"v33\": \"tx_seq_counter\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"transmit packet object field copied into callback/context frame\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"pointer to payload/buffer descriptor submitted to the transmit DMA ring\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"transmit descriptor link/pointer to DMA ring entry\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"transmit descriptor ring index or slot tag\"\n    }\n  ]\n}"
+}

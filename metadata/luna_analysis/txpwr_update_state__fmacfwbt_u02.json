@@ -1,0 +1,9 @@
+{
+ "fn": "txpwr_update_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136504",
+ "seg": 56,
+ "key": "txpwr_update_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"txpwr_handle_state_update\", \"confidence\": \"medium\", \"docstring\": \"Handles TX-power state updates by applying a pending state or issuing a short HCI command, otherwise clearing IRQ 311 before refreshing the power state.\", \"subsystem\": \"rf\", \"var_renames\": {\"v2\": \"irq_status\", \"value\": \"state_arg\"}, \"struct_hints\": []}"
+}

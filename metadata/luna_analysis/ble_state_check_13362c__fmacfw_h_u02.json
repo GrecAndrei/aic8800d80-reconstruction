@@ -1,0 +1,9 @@
+{
+ "fn": "ble_state_check_13362c",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13362c",
+ "seg": 46,
+ "key": "ble_state_check_13362c__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_state_mix\",\"confidence\":\"medium\",\"docstring\":\"Mixes a BLE state using its offset-8 word and a 0x5A marker positioned by the byte at offset 12, then performs a zero-input mix.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"state_word\",\"v2\":\"marker_byte_position\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"32-bit word combined with the marker for the first mix\"},{\"offset\":12,\"meaning\":\"Byte selecting the marker's shift position\"}]}"
+}

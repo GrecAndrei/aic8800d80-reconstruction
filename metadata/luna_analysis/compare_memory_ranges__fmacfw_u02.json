@@ -1,0 +1,9 @@
+{
+ "fn": "compare_memory_ranges",
+ "img": "fmacfw_u02",
+ "addr": "0x105188",
+ "seg": 2,
+ "key": "compare_memory_ranges__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_am_back_power_diff\",\"confidence\":\"high\",\"docstring\":\"Computes 20 times the signed difference between current and base AM backoff values, stores it at offset 96, and reports the scaled difference.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"current_backoff\",\"a2\":\"base_backoff\",\"a3\":\"rf_context\",\"v6\":\"power_difference\",\"v7\":\"scaled_difference_for_log\"},\"struct_hints\":[{\"offset\":96,\"meaning\":\"Float power difference derived from the current and base AM backoff values, scaled by 20.\"}]}"
+}

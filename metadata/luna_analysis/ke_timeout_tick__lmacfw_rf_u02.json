@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timeout_tick",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111adc",
+ "seg": 4,
+ "key": "ke_timeout_tick__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_timeout_tick\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls a timeout/event register, invokes the registered timeout handler when the event is set, and updates the timer state or re-arms the radio if needed.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"timer_base\",\n    \"v1\": \"timeout_status\",\n    \"v3\": \"timeout_handler\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 14,\n      \"meaning\": \"timeout/status word read from timer base\"\n    }\n  ]\n}"
+}

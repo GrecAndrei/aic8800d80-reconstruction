@@ -1,0 +1,9 @@
+{
+ "fn": "timer_get_counter",
+ "img": "fmacfw_u02",
+ "addr": "0x11ed58",
+ "seg": 21,
+ "key": "timer_get_counter__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_timer_get_counter\",\"confidence\":\"medium\",\"docstring\":\"Dispatches a fixed RF timer-counter request, using the chip-mode helper when the request selector\u2019s low nibble is 2.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ll_get_conn",
+ "img": "fmacfw_u02",
+ "addr": "0x139340",
+ "seg": 58,
+ "key": "ll_get_conn__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_ba_queue_update\",\"confidence\":\"medium\",\"docstring\":\"Matches a 12-bit sequence number against a 64-entry transmit queue, advancing or dispatching queued entries and updating related transmit state.\",\"subsystem\":\"mac\",\"var_renames\":{\"v9\":\"target_sequence\",\"v10\":\"tx_queue\",\"v11\":\"queue_sequence\",\"v12\":\"sequence_delta\",\"v13\":\"sequence_delta_mod\",\"v16\":\"result\",\"v17\":\"phy_config_result\",\"v19\":\"ring_head\",\"v20\":\"ring_slot_base\",\"v21\":\"next_sequence\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"12-bit queue sequence number\"},{\"offset\":10,\"meaning\":\"64-entry ring head index\"},{\"offset\":11,\"meaning\":\"queued-entry count\"},{\"offset\":16,\"meaning\":\"base of the 64-entry ring of 32-bit queue slots\"},{\"offset\":288,\"meaning\":\"queue processing state flag\"}]}"
+}

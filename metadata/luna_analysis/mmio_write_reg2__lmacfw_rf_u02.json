@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_reg2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113b80",
+ "seg": 5,
+ "key": "mmio_write_reg2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"mmio_write_reg2\", \"confidence\": \"medium\", \"docstring\": \"Thin wrapper that writes the supplied 32-bit value to MMIO register slot 2 by calling mmio_write32 with a fixed selector, pairing with rf_get_reg2/mmio_read_byte.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"value\"}, \"struct_hints\": []}"
+}

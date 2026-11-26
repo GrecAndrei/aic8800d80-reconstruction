@@ -1,0 +1,9 @@
+{
+ "fn": "hci_le_create_connection",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1417cc",
+ "seg": 66,
+ "key": "hci_le_create_connection__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_select_connection_from_adv_report\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes an incoming BLE advertising report and scans the local advertising/scan table to select a matching or strongest candidate for a connection attempt.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"adv_report_params\",\n    \"v7\": \"adv_table_end\",\n    \"v9\": \"adv_entry_count\",\n    \"v14\": \"entry\",\n    \"v15\": \"best_type3_entry\",\n    \"v17\": \"best_type1_entry\",\n    \"v18\": \"matching_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"scan/adv entry type or state (1 or 3 used for candidate selection)\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"first advertising/scan comparison field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"second advertising/scan comparison field\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"third advertising/scan comparison field\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"entry RSSI byte used to rank scan candidates\"\n    }\n  ]\n}"
+}

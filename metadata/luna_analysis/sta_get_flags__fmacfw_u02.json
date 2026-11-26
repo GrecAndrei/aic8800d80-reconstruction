@@ -1,0 +1,9 @@
+{
+ "fn": "sta_get_flags",
+ "img": "fmacfw_u02",
+ "addr": "0x127958",
+ "seg": 33,
+ "key": "sta_get_flags__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_update_station_timing\",\"confidence\":\"medium\",\"docstring\":\"Computes and stores a station timing residual, and may derive a peer-based half-offset or flag an out-of-range residual.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"state_index\",\"v4\":\"indexed_state\",\"v5\":\"max_peer_residual\",\"v6\":\"station_entry\",\"v8\":\"reference_value\",\"v9\":\"absolute_residual\",\"v11\":\"peer_residual\",\"v12\":\"state_entry\",\"v13\":\"state_flags\"},\"struct_hints\":[{\"offset\":85,\"meaning\":\"Indexed-state status flags; bits 0x20 and 0x40 gate processing, and bit 0x10 marks an out-of-range residual.\"},{\"offset\":86,\"meaning\":\"Entry index or key used to select indexed state and match peer-list entries.\"},{\"offset\":87,\"meaning\":\"Selector byte passed to the timing helper.\"},{\"offset\":88,\"meaning\":\"Derived half-offset written to the indexed state.\"},{\"offset\":92,\"meaning\":\"Reference value used to calculate the residual.\"},{\"offset\":96,\"meaning\":\"Signed residual stored for this entry and read from peer-list entries.\"},{\"offset\":107,\"meaning\":\"Indexed-state key used to filter peer-list entries.\"}]}"
+}

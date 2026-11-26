@@ -1,0 +1,9 @@
+{
+ "fn": "clear_stats_buf",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d100",
+ "seg": 40,
+ "key": "clear_stats_buf__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_stats_buffer\",\"confidence\":\"medium\",\"docstring\":\"Zeros the two 32-bit words in the supplied buffer and returns the same pointer.\",\"subsystem\":\"libmisc\"}"
+}

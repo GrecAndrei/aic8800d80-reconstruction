@@ -1,0 +1,9 @@
+{
+ "fn": "llc_buf_advance",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1277b0",
+ "seg": 33,
+ "key": "llc_buf_advance__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_rx_event_complete\",\"confidence\":\"medium\",\"docstring\":\"Copies the pending payload into the LLC event buffer, clears a status flag, and saves the receive event, optionally dispatching a matching transmit event.\",\"subsystem\":\"llc\",\"var_renames\":{\"v3\":\"status_flags\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"destination event buffer\"},{\"offset\":36,\"meaning\":\"payload base pointer\"},{\"offset\":85,\"meaning\":\"status flags\"},{\"offset\":88,\"meaning\":\"payload offset\"}]}"
+}

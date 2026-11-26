@@ -1,0 +1,9 @@
+{
+ "fn": "process_hci_command_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122bf0",
+ "seg": 26,
+ "key": "process_hci_command_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"process_dhcp_hci_command\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a host DHCP status command, stores the DHCP state/value in the per-interface context, signals a pending task if needed, and sends a completion event to the host.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a2\": \"cmd_data\",\n    \"v4\": \"iface_table_base\",\n    \"v6\": \"iface_idx\",\n    \"v9\": \"iface_ctx\",\n    \"v10\": \"dhcp_status\",\n    \"v11\": \"event_pending\",\n    \"v12\": \"dhcp_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"cmd_data: u32 DHCP value or IPv4/status payload\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"cmd_data: u8 DHCP status byte\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"cmd_data: u8 interface/station index\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"iface_ctx: u8 enable/offload-related flag\"\n    },\n    {\n      \"offset\": 149,\n      \"meaning\": \"iface_ctx: u8 pending event flag\"\n    },\n    {\n      \"offset\": 152,\n      \"meaning\": \"iface_ctx: u32 event word signaled by ke_event_set_lock\"\n    },\n    {\n      \"offset\": 1227,\n      \"meaning\": \"iface_ctx: u8 stored DHCP status byte\"\n    },\n    {\n      \"offset\": 1228,\n      \"meaning\": \"iface_ctx: u32 stored DHCP value/IPv4 payload\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "pll_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x100aa8",
+ "seg": 0,
+ "key": "pll_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_copy_memory_region\",\"confidence\":\"medium\",\"docstring\":\"Toggles hardware control bits while copying 0x2000 bytes from a fixed source region to a destination region at a fixed offset.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"register_base\",\"v1\":\"source_word_ptr\",\"v2\":\"source_end\",\"result\":\"destination_offset\",\"v4\":\"copied_word\",\"v5\":\"destination_word_ptr\",\"v6\":\"register_base\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_calc_whitening",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12de70",
+ "seg": 42,
+ "key": "rf_calc_whitening__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_encode_frequency_field\",\"confidence\":\"medium\",\"docstring\":\"Encodes the low nine bits of the supplied value together with a nibble-derived selector from byte offset 5 into an RF control field.\",\"subsystem\":\"rf\"}"
+}

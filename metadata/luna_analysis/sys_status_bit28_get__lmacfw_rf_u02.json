@@ -1,0 +1,9 @@
+{
+ "fn": "sys_status_bit28_get",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101a68",
+ "seg": 0,
+ "key": "sys_status_bit28_get__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sys_status_bit28_get\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Return bit 28 of the system status word referenced by off_101A74.\",\n  \"subsystem\": \"hal\"\n}"
+}

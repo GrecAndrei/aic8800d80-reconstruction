@@ -1,0 +1,9 @@
+{
+ "fn": "clear_mac_info",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10d43c",
+ "seg": 2,
+ "key": "clear_mac_info__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"clear_mac_info\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Zeroes a fixed 56-byte MAC information buffer by calling memset.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"dword_10D448\": \"mac_info\"\n  }\n}"
+}

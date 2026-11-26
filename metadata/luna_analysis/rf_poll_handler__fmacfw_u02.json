@@ -1,0 +1,9 @@
+{
+ "fn": "rf_poll_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x101b00",
+ "seg": 0,
+ "key": "rf_poll_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_gain_id\",\"confidence\":\"medium\",\"docstring\":\"Computes per-chain RF gain IDs using frequency-dependent calibration and optional channel-event limits.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"gain_id_0_out\",\"a3\":\"gain_id_1_out\",\"v5\":\"frequency_mhz\",\"v7\":\"gain_id_0\",\"v8\":\"gain_id_1\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"Current channel frequency in MHz\"},{\"offset\":197,\"meaning\":\"RF gain configuration valid flag\"},{\"offset\":198,\"meaning\":\"Signed configured gain value for the first chain\"},{\"offset\":210,\"meaning\":\"Signed configured gain value for the second chain\"},{\"offset\":392,\"meaning\":\"Flags; bit 1 enables channel-event gain limiting\"},{\"offset\":396,\"meaning\":\"Enables frequency-dependent gain correction\"}]}"
+}

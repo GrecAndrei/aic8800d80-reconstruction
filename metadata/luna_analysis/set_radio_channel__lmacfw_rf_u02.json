@@ -1,0 +1,9 @@
+{
+ "fn": "set_radio_channel",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x110b44",
+ "seg": 3,
+ "key": "set_radio_channel__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs a three-word RF command/register block with the selected radio channel and sets the channel/control register's MSB commit or enable bit.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"rf_cmd_base\",\n    \"a4\": \"channel\",\n    \"a5\": \"commit_bit\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first RF command register written by channel-set helper\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"second RF command register written by channel-set helper\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"RF channel/control register: retains masked bits, sets 16-bit channel value, and sets bit 31\"\n    }\n  ]\n}"
+}

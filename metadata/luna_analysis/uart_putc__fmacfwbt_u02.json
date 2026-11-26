@@ -1,0 +1,9 @@
+{
+ "fn": "uart_putc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d5f4",
+ "seg": 3,
+ "key": "uart_putc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"uart_putc\",\"confidence\":\"high\",\"docstring\":\"Waits until the UART transmit register is ready, writes the character, and returns it.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"character\"}}"
+}

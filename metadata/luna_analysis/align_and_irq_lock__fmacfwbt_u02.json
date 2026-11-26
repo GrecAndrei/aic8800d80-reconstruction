@@ -1,0 +1,9 @@
+{
+ "fn": "align_and_irq_lock",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ccbc",
+ "seg": 41,
+ "key": "align_and_irq_lock__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mem_alloc_align_locked\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns a 4-byte-aligned block from a static memory pool under a recursive IRQ-disabled critical section, writing the block's cleared header link and remaining aligned size.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"result\": \"aligned_block\",\n    \"v1\": \"lock_count_ptr\",\n    \"v2\": \"prev_lock_count\",\n    \"v3\": \"next_lock_count\",\n    \"v4\": \"remaining_aligned_size\",\n    \"v5\": \"irq_disabled_flag_ptr\",\n    \"v6\": \"irq_disabled_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"cleared block header link/next field\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"remaining aligned pool block size\"\n    }\n  ]\n}"
+}

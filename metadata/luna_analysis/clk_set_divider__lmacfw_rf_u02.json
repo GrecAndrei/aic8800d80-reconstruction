@@ -1,0 +1,9 @@
+{
+ "fn": "clk_set_divider",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x106f08",
+ "seg": 2,
+ "key": "clk_set_divider__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"clk_init_dividers\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Configures fixed hardware clock divider fields by writing value 3 into four 6-bit fields of one register and clearing the corresponding fields in adjacent divider registers.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_conn_params",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136a28",
+ "seg": 56,
+ "key": "lookup_conn_params__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_connection_param_update\",\"confidence\":\"medium\",\"docstring\":\"Checks the input record against per-connection parameter bits, records one-time handling flags, and submits a connection-related PDU when the selected condition applies.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"conn\",\"v3\":\"param_mask\",\"v4\":\"pdu\"},\"struct_hints\":[{\"offset\":27,\"meaning\":\"selector used to index the parameter-mask table\"},{\"offset\":30,\"meaning\":\"input flags; bit 12 gates handling\"},{\"offset\":32,\"meaning\":\"connection handle copied into the outgoing PDU\"},{\"offset\":34,\"meaning\":\"connection byte copied into the outgoing PDU\"},{\"offset\":53,\"meaning\":\"one-time handling flags (bits 1 and 3)\"},{\"offset\":310,\"meaning\":\"connection parameter or mode bitfield\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "call_slot_0x1b4",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10efac",
+ "seg": 2,
+ "key": "call_slot_0x1b4__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"call_function_table_0x1b4\",\"confidence\":\"medium\",\"docstring\":\"Invoke the function pointer stored at table offset 0x1B4 and return its result.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[{\"offset\":436,\"meaning\":\"function-pointer table slot\"}]}"
+}

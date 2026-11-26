@@ -1,0 +1,9 @@
+{
+ "fn": "mac_config_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12bd74",
+ "seg": 40,
+ "key": "mac_config_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_config_clear\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears and reprograms MMIO configuration registers, polls a status bit, and sets enable bits in related MAC/PHY control blocks.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"poll_status_reg\",\n    \"v6\": \"config_value\",\n    \"result\": \"target_config_reg\"\n  },\n  \"struct_hints\": []\n}"
+}

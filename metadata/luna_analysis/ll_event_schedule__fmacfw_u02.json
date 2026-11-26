@@ -1,0 +1,9 @@
+{
+ "fn": "ll_event_schedule",
+ "img": "fmacfw_u02",
+ "addr": "0x1414e0",
+ "seg": 65,
+ "key": "ll_event_schedule__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_event_schedule\",\"confidence\":\"medium\",\"docstring\":\"Processes the selected link-layer event slot, advances pending advertising activities, and checks the advertising state machine.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"event_slot_offset\",\"v2\":\"current_event_ctx\",\"v3\":\"event_state\",\"v4\":\"activity_entry\",\"v5\":\"activity_entries_end\",\"v6\":\"activity_entry_arg\",\"v8\":\"event_state\",\"v9\":\"event_state\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"Selected event context state byte\"},{\"offset\":4,\"meaning\":\"Advertising activity state; pending entries in state 1 are advanced to state 2\"},{\"offset\":6480,\"meaning\":\"Current event slot index used to select an event context\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tail_call_0x12cfc4_0x200000",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11d6e8",
+ "seg": 20,
+ "key": "tail_call_0x12cfc4_0x200000__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dma_irq_disable\",\"confidence\":\"medium\",\"docstring\":\"Disables the global interrupt source selected by mask 0x200000 and returns the helper's result.\",\"subsystem\":\"dma\"}"
+}

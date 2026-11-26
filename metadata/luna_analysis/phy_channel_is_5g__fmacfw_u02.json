@@ -1,0 +1,9 @@
+{
+ "fn": "phy_channel_is_5g",
+ "img": "fmacfw_u02",
+ "addr": "0x11908c",
+ "seg": 12,
+ "key": "phy_channel_is_5g__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_channel_access_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Selects the RF channel operation from the indexed context flag, calling channel set with selector 7 when bit 5 is set and channel get otherwise.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"context_idx\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Flags; bit 5 selects the rf_channel_set path.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rsn_derive_key",
+ "img": "fmacfw_h_u02",
+ "addr": "0x129458",
+ "seg": 35,
+ "key": "rsn_derive_key__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rsn_compute_next_key_deadline\",\"confidence\":\"medium\",\"docstring\":\"Scans three RSN timer records and computes the next eligible key-management deadline, accounting for recurring intervals.\",\"subsystem\":\"rsn\",\"var_renames\":{\"v1\":\"earliest_simple_deadline\",\"v5\":\"matching_timer_count\",\"v8\":\"no_simple_timer_found\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"timer timestamp or deadline candidate\"},{\"offset\":16,\"meaning\":\"timer record state\"},{\"offset\":19,\"meaning\":\"timer mode or recurrence count\"},{\"offset\":24,\"meaning\":\"recurring interval timing value\"},{\"offset\":28,\"meaning\":\"recurring interval duration\"},{\"offset\":32,\"meaning\":\"per-record scheduling flag\"},{\"offset\":33,\"meaning\":\"per-record scheduling enable flag\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "util_validate_name_char",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132910",
+ "seg": 46,
+ "key": "util_validate_name_char__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_feature_bit_to_index\",\"confidence\":\"medium\",\"docstring\":\"Converts a BLE HCI feature-bit offset to an internal feature index, returning 0xFF for unsupported offsets.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"feature_bit\",\"v1\":\"masked_offset\",\"result\":\"feature_index\"}}"
+}

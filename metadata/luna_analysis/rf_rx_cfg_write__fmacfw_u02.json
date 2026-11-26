@@ -1,0 +1,9 @@
+{
+ "fn": "rf_rx_cfg_write",
+ "img": "fmacfw_u02",
+ "addr": "0x107a8c",
+ "seg": 2,
+ "key": "rf_rx_cfg_write__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_rx_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Calibrates the RF receive configuration by comparing two measurements, collecting two more under the selected mode, and passing all four samples to the minimum-delta scheduler.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_ctrl_reg\",\"v2\":\"rf_ctrl2_reg\",\"v3\":\"rf_cfg_reg\",\"v4\":\"rf_cfg_preserve_mask\",\"v5\":\"rf_measurement_reg\",\"v7\":\"first_measurement\",\"v8\":\"first_exceeds_second\",\"v9\":\"selected_config\",\"v11\":\"selected_rx_mode\"}}"
+}

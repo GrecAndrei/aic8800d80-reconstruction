@@ -1,0 +1,9 @@
+{
+ "fn": "or_nonzero",
+ "img": "fmacfw_u02",
+ "addr": "0x109518",
+ "seg": 2,
+ "key": "or_nonzero__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"insert_sorted_u32_descending\",\"confidence\":\"medium\",\"docstring\":\"Inserts a value into a descending-order array, shifting larger entries right and appending it if no insertion point is found within the existing count.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"value\",\"a3\":\"entries\"}}"
+}

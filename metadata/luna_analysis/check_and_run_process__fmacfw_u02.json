@@ -1,0 +1,9 @@
+{
+ "fn": "check_and_run_process",
+ "img": "fmacfw_u02",
+ "addr": "0x13715c",
+ "seg": 57,
+ "key": "check_and_run_process__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_hci_process_command_if_nonzero\",\"confidence\":\"medium\",\"docstring\":\"Passes the nonzero byte pointed to by a2 to the HCI command processor; otherwise it returns without processing.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"command_byte_ptr\"}}"
+}

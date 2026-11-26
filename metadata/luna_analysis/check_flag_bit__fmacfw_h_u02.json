@@ -1,0 +1,9 @@
+{
+ "fn": "check_flag_bit",
+ "img": "fmacfw_h_u02",
+ "addr": "0x124ad4",
+ "seg": 29,
+ "key": "check_flag_bit__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_vendor_cca_params\",\"confidence\":\"medium\",\"docstring\":\"Applies fields from a five-byte vendor CCA parameter block to MMIO and then invokes packet-parameter processing.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"cca_params\",\"v1\":\"control_flags\"}}"
+}

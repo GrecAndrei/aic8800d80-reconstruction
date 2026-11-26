@@ -1,0 +1,9 @@
+{
+ "fn": "timestamp_diff",
+ "img": "fmacfw_u02",
+ "addr": "0x125dc8",
+ "seg": 31,
+ "key": "timestamp_diff__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lld_evt_time_within_tolerance\",\"confidence\":\"medium\",\"docstring\":\"Returns true when the time values at offset 4 in two records are equal or less than 15,000 ticks apart.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"time_a\",\"v5\":\"time_b\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"time or timestamp value in the compared record\"}]}"
+}

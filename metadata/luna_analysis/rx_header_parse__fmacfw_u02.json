@@ -1,0 +1,9 @@
+{
+ "fn": "rx_header_parse",
+ "img": "fmacfw_u02",
+ "addr": "0x13eb20",
+ "seg": 61,
+ "key": "rx_header_parse__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_rx_packet_duration\",\"confidence\":\"medium\",\"docstring\":\"Computes a PHY-dependent packet timing value from packed BLE receive-header fields using lookup tables.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"rx_header\",\"v2\":\"header_format\",\"v3\":\"length_field\",\"v6\":\"timing_lookup_value\",\"v8\":\"phy_mode_code\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"Packed receive-header and PHY metadata word\"},{\"offset\":8,\"meaning\":\"Additional PHY mode or coding field\"}]}"
+}

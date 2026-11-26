@@ -1,0 +1,9 @@
+{
+ "fn": "process_cmd_extended",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11a034",
+ "seg": 14,
+ "key": "process_cmd_extended__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_cmd_extended\",\"confidence\":\"medium\",\"docstring\":\"Processes an extended firmware command by attempting a flash-byte/calibration operation, checking status flags, and dispatching command-specific handling based on the command ID.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"cmd_id\",\"a2\":\"payload\",\"v8\":\"flash_status\"},\"struct_hints\":[]}"
+}

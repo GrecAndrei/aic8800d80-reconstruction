@@ -1,0 +1,9 @@
+{
+ "fn": "is_bt_enabled",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1360bc",
+ "seg": 55,
+ "key": "is_bt_enabled__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"check_bt_enable_state\",\"confidence\":\"medium\",\"docstring\":\"Checks the BT state and HCI command status, conditionally performs an IRQ/MMIO operation, then invokes the lock-state checker and returns zero.\",\"subsystem\":\"bt\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mac_get_params",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1053c0",
+ "seg": 2,
+ "key": "mac_get_params__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_ana_pwr_cal_params\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a bitmask of requested analog power calibration indices and populates a parameter buffer with selected indices, their count, and calibration bounds.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cal_bitmask\",\n    \"a2\": \"cal_params\",\n    \"v5\": \"req_bit\",\n    \"v6\": \"ana_pwr_index\",\n    \"v8\": \"selected_count\",\n    \"v9\": \"selected_index\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 40,\n      \"meaning\": \"selected ana_pwr index list\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"number of selected ana_pwr indices\"\n    },\n    {\n      \"offset\": 60,\n      \"meaning\": \"upper/calibration max ana_pwr index\"\n    },\n    {\n      \"offset\": 64,\n      \"meaning\": \"lower/default or extended ana_pwr index\"\n    }\n  ]\n}"
+}

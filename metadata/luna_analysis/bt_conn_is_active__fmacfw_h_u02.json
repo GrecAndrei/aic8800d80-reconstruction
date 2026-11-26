@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_is_active",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13c558",
+ "seg": 60,
+ "key": "bt_conn_is_active__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_conn_rate_status\",\"confidence\":\"medium\",\"docstring\":\"Returns a 0/1/2 activity status for the indexed connection after validating the requested rate.\",\"subsystem\":\"bt\",\"var_renames\":{\"v3\":\"entry_idx\",\"v4\":\"context_idx\",\"v5\":\"context_table\",\"v7\":\"rate_code\",\"v9\":\"entry_offset\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"8-bit index selecting a 1320-byte context record\"},{\"offset\":29,\"meaning\":\"8-bit index selecting a 696-byte entry; 0xff indicates no entry\"},{\"offset\":1200,\"meaning\":\"Nonzero context availability field gating the rate check\"},{\"offset\":1204,\"meaning\":\"Nonzero context status field that selects return value 2 in one path\"}]}"
+}

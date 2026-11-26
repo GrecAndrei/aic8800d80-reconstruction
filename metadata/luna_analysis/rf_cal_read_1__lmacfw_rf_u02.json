@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_read_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x100d18",
+ "seg": 0,
+ "key": "rf_cal_read_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_cal_apply_1\", \"confidence\": \"medium\", \"docstring\": \"Loads a stored RF calibration byte into RF control registers, updates calibration/mode fields based on an RF status byte, and pulses a calibration strobe when the previous mode field is not 4.\", \"subsystem\": \"rf\", \"var_renames\": {\"v2\": \"rf_status_byte\", \"v3\": \"rf_cal_mode\"}, \"struct_hints\": []}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "is_hci_initialized",
+ "img": "fmacfw_u02",
+ "addr": "0x10ffbc",
+ "seg": 3,
+ "key": "is_hci_initialized__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_user_id\",\"confidence\":\"high\",\"docstring\":\"Obtains a controller buffer and stores the supplied user ID in the byte immediately preceding its payload, logging if the buffer is invalid.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"user_id\",\"v2\":\"buffer\"},\"struct_hints\":[{\"offset\":-1,\"meaning\":\"one-byte user ID stored immediately before the buffer payload\"}]}"
+}

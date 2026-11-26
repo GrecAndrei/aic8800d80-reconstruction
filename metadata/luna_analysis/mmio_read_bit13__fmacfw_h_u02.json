@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_bit13",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12e8d0",
+ "seg": 42,
+ "key": "mmio_read_bit13__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wait_for_mmio_bit18\",\"confidence\":\"high\",\"docstring\":\"Busy-waits until bit 18 of a volatile word at a fixed address is set.\",\"subsystem\":\"hal\"}"
+}

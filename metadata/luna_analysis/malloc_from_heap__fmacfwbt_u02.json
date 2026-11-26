@@ -1,0 +1,9 @@
+{
+ "fn": "malloc_from_heap",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11482c",
+ "seg": 5,
+ "key": "malloc_from_heap__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_send_queued_command\",\"confidence\":\"medium\",\"docstring\":\"Processes the head queued command, logging dispatch or send failures and removing the entry only after a successful system-control send.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v1\":\"pending_command_list\",\"v3\":\"queued_command\",\"v4\":\"command_data\",\"v5\":\"command_id\",\"v7\":\"send_status\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Queued command data following the list link\"}]}"
+}

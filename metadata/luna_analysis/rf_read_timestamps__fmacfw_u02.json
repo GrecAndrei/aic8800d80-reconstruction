@@ -1,0 +1,9 @@
+{
+ "fn": "rf_read_timestamps",
+ "img": "fmacfw_u02",
+ "addr": "0x101984",
+ "seg": 0,
+ "key": "rf_read_timestamps__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_read_timestamps\",\"confidence\":\"medium\",\"docstring\":\"Reads two RF timestamp register values into caller-provided locations and returns the first output pointer.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"second_output\",\"v2\":\"second_register_ptr\"}}"
+}

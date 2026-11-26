@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_clear_bit",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10076c",
+ "seg": 0,
+ "key": "mmio_clear_bit__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_configure_registers\",\"confidence\":\"medium\",\"docstring\":\"Clears bit 16 in one MMIO register, writes 1 to another, and clears bit 0 while setting bits 30\u201331 in a third.\",\"subsystem\":\"mmio\",\"var_renames\":{\"result\":\"write_one_reg\",\"v1\":\"masked_config_reg\"}}"
+}

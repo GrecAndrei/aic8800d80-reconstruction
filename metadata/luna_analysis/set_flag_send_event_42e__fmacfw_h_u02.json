@@ -1,0 +1,9 @@
+{
+ "fn": "set_flag_send_event_42e",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130474",
+ "seg": 42,
+ "key": "set_flag_send_event_42e__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_xtal_cap_adjustment_tick\",\"confidence\":\"high\",\"docstring\":\"Marks the xtal-cap adjustment loop active, applies the configured target when the cached RF value differs, and schedules the next check.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"xtal_cap_state\",\"v2\":\"target_xtal_cap\",\"v3\":\"target_xtal_cap\"},\"struct_hints\":[{\"offset\":1,\"meaning\":\"xtal-cap adjustment active flag\"},{\"offset\":5,\"meaning\":\"target xtal-cap value\"},{\"offset\":6,\"meaning\":\"cached current xtal-cap value\"}]}"
+}

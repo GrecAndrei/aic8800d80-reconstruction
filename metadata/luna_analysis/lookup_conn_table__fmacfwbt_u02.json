@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_conn_table",
+ "img": "fmacfwbt_u02",
+ "addr": "0x126034",
+ "seg": 32,
+ "key": "lookup_conn_table__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_conn_lookup_and_invalidate\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Looks up a Bluetooth connection-table entry by index, checks or updates its connection state, and invalidates matching nodes in a linked connection or scan list.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"conn_table_base\",\n    \"v2\": \"conn_table_idx\",\n    \"v3\": \"conn_entry\",\n    \"v4\": \"input_ctx\",\n    \"v5\": \"conn_entry\",\n    \"v6\": \"conn_node\",\n    \"v7\": \"target_conn_id\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1225,\n      \"meaning\": \"connection-table index from input context\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"connection identifier or state byte used to match list entries\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"connection entry active/valid flag\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"connection entry pending/busy flag\"\n    },\n    {\n      \"offset\": 64,\n      \"meaning\": \"secondary connection entry active/valid flag\"\n    },\n    {\n      \"offset\": 80,\n      \"meaning\": \"secondary connection entry pending/busy flag\"\n    },\n    {\n      \"offset\": 86,\n      \"meaning\": \"linked-list node connection id/state field, set to -1 when invalidated\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "log_printf",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10da6c",
+ "seg": 2,
+ "key": "log_printf__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"log_printf\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Variadic printf/logging wrapper that formats output using the supplied argument list.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"varg_r1\": \"ap\"\n  }\n}"
+}

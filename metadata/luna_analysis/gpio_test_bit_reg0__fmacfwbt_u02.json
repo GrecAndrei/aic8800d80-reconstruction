@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_test_bit_reg0",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10db84",
+ "seg": 3,
+ "key": "gpio_test_bit_reg0__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_test_bit_reg0\",\"confidence\":\"high\",\"docstring\":\"Returns whether the GPIO register 0 bit selected by the bit index is set.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"bit_index\"}}"
+}

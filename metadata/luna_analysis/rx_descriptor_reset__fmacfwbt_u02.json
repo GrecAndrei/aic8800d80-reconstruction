@@ -1,0 +1,9 @@
+{
+ "fn": "rx_descriptor_reset",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134904",
+ "seg": 52,
+ "key": "rx_descriptor_reset__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_rx_desc_complete\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Completes a received Bluetooth RX descriptor by clearing it, copying frame and status metadata into an allocated HCI event buffer, sending the event, and issuing a follow-up HCI command.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"rx_desc\",\n    \"v1\": \"bt_ctl\",\n    \"v2\": \"rx_status\",\n    \"v3\": \"event_params\",\n    \"v4\": \"hci_evt_buf\",\n    \"v5\": \"desc_ptrs\",\n    \"v6\": \"frame_len\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 4, \"meaning\": \"low pointer or descriptor reference stored in RX descriptor\"},\n    {\"offset\": 8, \"meaning\": \"second descriptor pointer/metadata reference read with the low descriptor word\"},\n    {\"offset\": 12, \"meaning\": \"RX status byte copied into controller state\"},\n    {\"offset\": 14, \"meaning\": \"RX descriptor valid/ownership byte cleared when the descriptor is completed\"},\n    {\"offset\": 32, \"meaning\": \"controller status field updated from the RX status byte\"}\n  ]\n}"
+}

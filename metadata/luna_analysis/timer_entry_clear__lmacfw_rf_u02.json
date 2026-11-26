@@ -1,0 +1,9 @@
+{
+ "fn": "timer_entry_clear",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111274",
+ "seg": 4,
+ "key": "timer_entry_clear__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_entry_clear\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears the 16-byte timer entry selected by the one-based timer id and, if the entry was active, invokes its registered callback with (0, 0, 1).\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"timer_id\",\n    \"v2\": \"entry_ptr\",\n    \"v3\": \"active_flag\",\n    \"v5\": \"callback\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"timer entry active/enabled byte\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"timer callback function-pointer table in the timer controller\"\n    }\n  ]\n}"
+}

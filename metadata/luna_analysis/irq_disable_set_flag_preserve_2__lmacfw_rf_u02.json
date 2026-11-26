@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable_set_flag_preserve_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1103b0",
+ "seg": 3,
+ "key": "irq_disable_set_flag_preserve_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"irq_nested_critical_check_kernel_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enter a nested IRQ-safe critical section, run check_kernel_state on the supplied kernel-state context, then leave the critical section and re-enable interrupts only when the outermost nesting level finishes.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v2\": \"irq_nesting_count_ptr\",\n    \"v3\": \"kernel_state_context\",\n    \"v5\": \"remaining_irq_nesting_count\",\n    \"v6\": \"irq_disabled_by_this_level\",\n    \"result\": \"kernel_state_check_result\"\n  },\n  \"struct_hints\": []\n}"
+}

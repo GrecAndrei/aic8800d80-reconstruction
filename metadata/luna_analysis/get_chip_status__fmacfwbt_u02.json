@@ -1,0 +1,9 @@
+{
+ "fn": "get_chip_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122ab8",
+ "seg": 25,
+ "key": "get_chip_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"service_chip_irq_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls a masked MMIO chip status word, clears a related MMIO IRQ when indicated, records the resulting flags, and then dispatches either IRQ locking or Bluetooth state checking based on a global control byte.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"masked_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 18,\n      \"meaning\": \"global control byte selecting the IRQ-lock dispatch path\"\n    }\n  ]\n}"
+}

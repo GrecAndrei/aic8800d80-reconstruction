@@ -1,0 +1,9 @@
+{
+ "fn": "rf_read_cal_data",
+ "img": "fmacfw_u02",
+ "addr": "0x136f84",
+ "seg": 56,
+ "key": "rf_read_cal_data__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"scanu_request_trace\",\"confidence\":\"medium\",\"docstring\":\"Logs a SCANU request diagnostic using an argument and a global 16-bit value, then returns 2.\",\"subsystem\":\"mac\"}"
+}

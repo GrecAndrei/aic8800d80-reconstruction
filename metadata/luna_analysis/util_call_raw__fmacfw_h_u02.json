@@ -1,0 +1,9 @@
+{
+ "fn": "util_call_raw",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1137c4",
+ "seg": 5,
+ "key": "util_call_raw__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"util_call_handler\",\"confidence\":\"medium\",\"docstring\":\"Calls the WLAN handler with the supplied argument under nested IRQ protection, then performs RF recovery when the post-call threshold is reached.\",\"subsystem\":\"util\",\"var_renames\":{\"a1\":\"handler_arg\"}}"
+}

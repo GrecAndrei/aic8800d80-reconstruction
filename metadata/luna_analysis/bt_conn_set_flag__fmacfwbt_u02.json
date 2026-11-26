@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_set_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a74c",
+ "seg": 38,
+ "key": "bt_conn_set_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_conn_set_flag\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Set a flag in a Bluetooth connection table entry for the given link index, mark the update, and advance the connection state machine.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v2\": \"conn_table_base\",\n    \"v3\": \"conn_index\",\n    \"v4\": \"conn_ctx\",\n    \"v5\": \"conn_link_id\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 113,\n      \"meaning\": \"Bluetooth link identifier used for per-link flag tracking\"\n    },\n    {\n      \"offset\": 114,\n      \"meaning\": \"connection flag valid/changed indicator\"\n    },\n    {\n      \"offset\": 115,\n      \"meaning\": \"connection flag byte\"\n    },\n    {\n      \"offset\": 1225,\n      \"meaning\": \"connection index supplied by caller context/message\"\n    }\n  ]\n}"
+}

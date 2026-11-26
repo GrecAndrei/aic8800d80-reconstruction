@@ -1,0 +1,9 @@
+{
+ "fn": "configure_hardware_regs",
+ "img": "fmacfw_u02",
+ "addr": "0x1161d4",
+ "seg": 7,
+ "key": "configure_hardware_regs__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_hw_config_tables\",\"confidence\":\"medium\",\"docstring\":\"Initializes two fixed-size hardware configuration tables with RF- and clock-derived values and fixed defaults.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"first_table_cursor\",\"v4\":\"first_table_end\",\"v7\":\"second_table_cursor\",\"v11\":\"second_table_end\",\"v3\":\"source_value_ptr\",\"v10\":\"source_value_ptr\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Shared value loaded from dword_1162B8\"},{\"offset\":4,\"meaning\":\"RF-derived value from rf_get_field4(), shifted left by 14\"},{\"offset\":8,\"meaning\":\"Value returned by get_hw_clock_multiplier()\"},{\"offset\":16,\"meaning\":\"Shared value loaded from dword_1162AC\"},{\"offset\":36,\"meaning\":\"Value assembled from the source at off_1162B0\"},{\"offset\":40,\"meaning\":\"First table repeats the source-derived value; second table sets this field to zero\"},{\"offset\":44,\"meaning\":\"First table repeats the source-derived value; second table sets this field to zero\"},{\"offset\":48,\"meaning\":\"First table repeats the source-derived value; second table sets this field to zero\"},{\"offset\":52,\"meaning\":\"First table sets this field to 8704; second table sets it to zero\"},{\"offset\":56,\"meaning\":\"Fixed value 4128768\"}]}"
+}

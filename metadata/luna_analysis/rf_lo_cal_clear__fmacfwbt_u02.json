@@ -1,0 +1,9 @@
+{
+ "fn": "rf_lo_cal_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x103ac4",
+ "seg": 2,
+ "key": "rf_lo_cal_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_lo_cal_clear\",\"confidence\":\"medium\",\"docstring\":\"Sequences the RF LO calibration control bits through two timed transitions to clear the calibration state.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_control_reg\"}}"
+}

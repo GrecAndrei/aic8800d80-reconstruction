@@ -1,0 +1,9 @@
+{
+ "fn": "find_char_7",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12dca0",
+ "seg": 43,
+ "key": "find_char_7__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"find_tlv_0x3c_len4\", \"confidence\": \"medium\", \"docstring\": \"Scans a TLV buffer for a record whose first byte is tag 0x3C and whose length byte is 4, returning a pointer to that record or NULL if it is absent or malformed.\", \"subsystem\": \"rf\", \"var_renames\": {\"a2\": \"buf_len\", \"result\": \"tlv_ptr\", \"v2\": \"end\", \"v3\": \"next_tlv\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"TLV tag byte\"}, {\"offset\": 1, \"meaning\": \"TLV value length byte\"}]}"
+}

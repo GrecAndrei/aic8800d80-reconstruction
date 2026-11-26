@@ -1,0 +1,9 @@
+{
+ "fn": "get_instance_handle_cond",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13a4fc",
+ "seg": 59,
+ "key": "get_instance_handle_cond__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_instance_abort_check_clear\",\"confidence\":\"medium\",\"docstring\":\"Retrieves a per-index RF instance handle, logs when it is absent under an abort/debug condition, locks its KE event, checks the abort flag, and clears the stored handle slot.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"rf_ctx\",\"a2\":\"instance_idx\",\"v2\":\"slot_ptr\",\"v3\":\"handle\",\"result\":\"abort_status\"},\"struct_hints\":[{\"offset\":408,\"meaning\":\"per-instance handle pointer\"},{\"offset\":68,\"meaning\":\"handle KE event lock field\"}]}"
+}

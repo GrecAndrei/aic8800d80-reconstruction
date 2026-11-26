@@ -1,0 +1,9 @@
+{
+ "fn": "reset_radio_core",
+ "img": "fmacfw_u02",
+ "addr": "0x11c8e4",
+ "seg": 19,
+ "key": "reset_radio_core__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_radio_event_handle\",\"confidence\":\"medium\",\"docstring\":\"Acknowledges a radio event and dispatches transmit-completion handling for the active connection slot while updating radio state.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"radio_state\",\"v2\":\"event_flags\",\"v3\":\"connection_slot\",\"v4\":\"connection_context_table\",\"v6\":\"slot_context\",\"v11\":\"tx_packet\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"pointer to the current transmit-queue entry for a connection slot\"},{\"offset\":26,\"meaning\":\"flag indicating pending packet-completion cleanup\"},{\"offset\":36,\"meaning\":\"pointer to the active transmit descriptor\"},{\"offset\":190,\"meaning\":\"current connection-slot index in the radio state\"},{\"offset\":208,\"meaning\":\"radio event flags; bit 0 selects transmit-completion handling\"}]}"
+}

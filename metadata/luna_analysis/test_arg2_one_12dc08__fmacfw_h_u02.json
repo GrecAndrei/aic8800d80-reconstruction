@@ -1,0 +1,9 @@
+{
+ "fn": "test_arg2_one_12dc08",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12dc08",
+ "seg": 42,
+ "key": "test_arg2_one_12dc08__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_ie_by_id_0x47\",\"confidence\":\"medium\",\"docstring\":\"Scans a bounded sequence of two-byte-header elements for ID 0x47 and returns its start only if its encoded length is at least six bytes and fits within the buffer.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"cursor\",\"a2\":\"buffer_length\",\"v2\":\"buffer_end\",\"v3\":\"element_total_size\",\"v4\":\"element_end\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"element ID\"},{\"offset\":1,\"meaning\":\"element payload length\"}]}"
+}

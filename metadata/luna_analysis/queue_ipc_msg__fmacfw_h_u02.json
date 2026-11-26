@@ -1,0 +1,9 @@
+{
+ "fn": "queue_ipc_msg",
+ "img": "fmacfw_h_u02",
+ "addr": "0x141e00",
+ "seg": 67,
+ "key": "queue_ipc_msg__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_scan_report\",\"confidence\":\"medium\",\"docstring\":\"Builds a fixed-format BLE scan report from the supplied record and enqueues it through the ACL-backed output context.\",\"subsystem\":\"bt\",\"var_renames\":{\"a3\":\"scan_record\",\"a4\":\"report_type\",\"v6\":\"packet_offset\",\"v8\":\"report_packet\",\"v13\":\"queue_state\",\"v16\":\"acl_context\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Base pointer used to locate packet storage.\"},{\"offset\":76,\"meaning\":\"Pointer to queue state used for enqueue bookkeeping.\"}]}"
+}

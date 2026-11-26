@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x1129e8",
+ "seg": 4,
+ "key": "mmio_read_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_hardware_bringup\",\"confidence\":\"medium\",\"docstring\":\"Performs staged RF hardware initialization, invoking a table helper and polling control/status handshakes for six register entries.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_control_regs\",\"v2\":\"rf_control_regs\",\"v3\":\"first_bank_regs\",\"v4\":\"bank_enable_mask\",\"v5\":\"first_bank_regs\",\"i\":\"bank_index\",\"v7\":\"bank_status\",\"v8\":\"rf_control_regs\",\"v9\":\"second_bank_regs\",\"v10\":\"first_bank_handshake_ptr\",\"v11\":\"bank_enable_mask\",\"v12\":\"second_bank_regs\",\"v13\":\"bank_index\",\"v14\":\"bank_status\",\"v15\":\"bank_reg\",\"v16\":\"bank_handshake_reg\",\"v17\":\"rf_control_regs\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Per-entry state flags, including the 0x80008000 enable/status bits.\"},{\"offset\":8,\"meaning\":\"Per-entry command/acknowledgement register used for the bit-0x40000000 handshake.\"},{\"offset\":16,\"meaning\":\"RF control-block command/status register; written with 1072 and polled for bits 0x30 to clear.\"},{\"offset\":20,\"meaning\":\"RF control-block status register polled for ready bits 0x40 and 0x80.\"},{\"offset\":24,\"meaning\":\"RF control-block status register with bit 0x80 cleared during setup.\"},{\"offset\":2052,\"meaning\":\"RF control-block staged-operation request bits, including 0x80, 0x100, 0x200, and 0x400.\"},{\"offset\":3584,\"meaning\":\"RF control-block register whose bit 0 is cleared during setup.\"}]}"
+}

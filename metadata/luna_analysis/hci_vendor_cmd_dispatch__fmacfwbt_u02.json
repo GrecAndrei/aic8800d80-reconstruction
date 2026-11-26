@@ -1,0 +1,9 @@
+{
+ "fn": "hci_vendor_cmd_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x135b4c",
+ "seg": 54,
+ "key": "hci_vendor_cmd_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_ext_auth_state_dispatch\", \"confidence\": \"low\", \"docstring\": \"Handles an external authentication state, logging and dispatching it as an event or returning an alternate RF cache lookup for a zero state.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"state\"}, \"struct_hints\": []}"
+}

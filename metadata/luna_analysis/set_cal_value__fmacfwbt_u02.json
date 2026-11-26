@@ -1,0 +1,9 @@
+{
+ "fn": "set_cal_value",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c9c8",
+ "seg": 19,
+ "key": "set_cal_value__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"txpacket_apply_cal_value\", \"confidence\": \"medium\", \"docstring\": \"Fetches a per-station 10-bit calibration value from a TX packet descriptor and applies or inspects it across four packet words using check_packet_bits when the value is valid and the global state permits.\", \"subsystem\": \"mac\", \"var_renames\": {\"result\": \"tx_desc\", \"v1\": \"cal_value\", \"v2\": \"sta_ctx_base\", \"v3\": \"word_iter\", \"v5\": \"word_ptr\"}, \"struct_hints\": [{\"offset\": 28, \"meaning\": \"uint8_t station or context index\"}, {\"offset\": 72, \"meaning\": \"packed uint64 containing packet/context pointers used to locate packet words and a bit table\"}, {\"offset\": 1222, \"meaning\": \"uint16_t per-station calibration value (0x3ff often denotes invalid/unset)\"}]}"
+}

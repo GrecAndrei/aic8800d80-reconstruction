@@ -1,0 +1,9 @@
+{
+ "fn": "set_table_callback_data",
+ "img": "fmacfw_u02",
+ "addr": "0x1160a0",
+ "seg": 7,
+ "key": "set_table_callback_data__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"enqueue_table_callback\",\"confidence\":\"high\",\"docstring\":\"Appends a callback node to the list selected by `index + 22` and clears the node\u2019s next link.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"index\",\"a2\":\"callback_node\",\"v2\":\"table_base\",\"result\":\"table_index\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"List header head pointer; in callback nodes, the next-node link.\"},{\"offset\":8,\"meaning\":\"List header tail-node pointer.\"}]}"
+}

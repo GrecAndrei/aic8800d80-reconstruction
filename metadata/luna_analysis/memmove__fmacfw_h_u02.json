@@ -1,0 +1,9 @@
+{
+ "fn": "memmove",
+ "img": "fmacfw_h_u02",
+ "addr": "0x143764",
+ "seg": 68,
+ "key": "memmove__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"memmove\",\"confidence\":\"high\",\"docstring\":\"Copies len bytes from src to dest while preserving correct behavior when the ranges overlap.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"dest\",\"a2\":\"src\",\"a3\":\"len\"}}"
+}

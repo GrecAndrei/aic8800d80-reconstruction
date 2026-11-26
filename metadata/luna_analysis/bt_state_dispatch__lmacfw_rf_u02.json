@@ -1,0 +1,9 @@
+{
+ "fn": "bt_state_dispatch",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f6a4",
+ "seg": 2,
+ "key": "bt_state_dispatch__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_state_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches Bluetooth state-specific callback pairs and event processing based on the current Bluetooth state.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"bt_state_global_ptr\",\n    \"v1\": \"bt_state\",\n    \"v5\": \"bt_state\",\n    \"v2\": \"bt_dispatch_table\",\n    \"v6\": \"bt_dispatch_table\",\n    \"v8\": \"bt_dispatch_table\",\n    \"v10\": \"bt_dispatch_table\",\n    \"v13\": \"bt_dispatch_table\",\n    \"v15\": \"bt_dispatch_table\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"State-1 first callback slot in bt_dispatch_table\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"State-1 second callback slot in bt_dispatch_table\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"State-2 first callback slot in bt_dispatch_table\"\n    },\n    {\n      \"offset\": 7,\n      \"meaning\": \"State-2 second callback slot in bt_dispatch_table\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"State-3 first callback slot in bt_dispatch_table\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"State-3 second callback slot in bt_dispatch_table\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_clear_register",
+ "img": "fmacfw_u02",
+ "addr": "0x12f46c",
+ "seg": 42,
+ "key": "mmio_clear_register__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"assert_err\",\"confidence\":\"high\",\"docstring\":\"Disables interrupts, reports the failed assertion and its source location, then waits in the assertion halt loop.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"assertion_expression\",\"a2\":\"source_file\",\"a3\":\"line_number\"}}"
+}

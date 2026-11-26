@@ -1,0 +1,9 @@
+{
+ "fn": "bt_notify_event",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11e6b0",
+ "seg": 21,
+ "key": "bt_notify_event__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_timestamp_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Stores a TX timestamp into a pending controller state, accumulates timestamp and byte/event counters, and resets the state once the accumulated timestamp exceeds a configured threshold.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v1\": \"tx_timestamp_ctl\",\n    \"result\": \"timestamp_threshold\",\n    \"v3\": \"timestamp_accum\",\n    \"v4\": \"byte_accum\",\n    \"v5\": \"context_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"current or stored timestamp value\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"accumulated byte or event count\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"pending entry or context pointer\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"accumulated timestamp value\"\n    },\n    {\n      \"offset\": 33,\n      \"meaning\": \"pending/active state flag\"\n    }\n  ]\n}"
+}

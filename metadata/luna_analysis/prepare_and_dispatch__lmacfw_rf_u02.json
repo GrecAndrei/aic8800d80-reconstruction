@@ -1,0 +1,9 @@
+{
+ "fn": "prepare_and_dispatch",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113694",
+ "seg": 5,
+ "key": "prepare_and_dispatch__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_host_ready_event\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the host-ready event and then invokes the generic event handler.\",\"subsystem\":\"ipc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

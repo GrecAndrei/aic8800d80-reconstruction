@@ -1,0 +1,9 @@
+{
+ "fn": "rf_analog_disable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10110c",
+ "seg": 0,
+ "key": "rf_analog_disable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_configure\",\"confidence\":\"medium\",\"docstring\":\"Programs RF analog registers and selects frequency-dependent calibration settings for the requested operating frequency.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"frequency_mhz\",\"v10\":\"offset_from_5000_mhz\"}}"
+}

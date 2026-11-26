@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_setup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1103c4",
+ "seg": 3,
+ "key": "mac_tx_setup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"replenish_rx_messages\",\"confidence\":\"high\",\"docstring\":\"Adds RX buffer/descriptor pairs to the context queue until its queued-entry count exceeds one, notifying the hardware for each pair.\",\"subsystem\":\"ipc\",\"var_renames\":{\"result\":\"rx_context\",\"v2\":\"queued_entry_count\",\"v6\":\"rx_context\",\"v8\":\"rx_buffer\",\"v9\":\"rx_descriptor\",\"v10\":\"rx_descriptor\",\"v13\":\"queued_entry_count\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"RX descriptor: buffer pointer\"},{\"offset\":4,\"meaning\":\"RX descriptor: next descriptor pointer\"},{\"offset\":20,\"meaning\":\"RX context: tail descriptor pointer\"},{\"offset\":28,\"meaning\":\"RX context: queued-entry count\"}]}"
+}

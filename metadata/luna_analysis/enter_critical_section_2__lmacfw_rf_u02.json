@@ -1,0 +1,9 @@
+{
+ "fn": "enter_critical_section_2",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123068",
+ "seg": 22,
+ "key": "enter_critical_section_2__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"ke_state_check_locked\", \"confidence\": \"medium\", \"docstring\": \"Atomically initializes kernel lists and runs four kernel-state checks inside a recursive interrupt-lock critical section, returning the last check result.\", \"subsystem\": \"ke\", \"var_renames\": {\"v0\": \"lock_depth_ptr\", \"v1\": \"kernel_obj_ptr\", \"result\": \"check_result\", \"v3\": \"new_lock_depth\", \"v4\": \"irq_disable_flag\"}, \"struct_hints\": []}"
+}

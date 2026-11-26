@@ -1,0 +1,9 @@
+{
+ "fn": "radio_tx_write_byte",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10d65c",
+ "seg": 3,
+ "key": "radio_tx_write_byte__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_tx_write_byte\",\"confidence\":\"high\",\"docstring\":\"Waits until the radio transmit register is ready, writes a byte value, and returns that value.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"byte_value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mac_is_state_5b",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13e180",
+ "seg": 61,
+ "key": "mac_is_state_5b__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_encode_rx_rate_id\",\"confidence\":\"medium\",\"docstring\":\"Encodes the RX PHY format and its rate-related fields into the firmware's packed rate identifier.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"rx_vector\",\"v2\":\"rate_code\",\"v3\":\"he_code_flag\"},\"struct_hints\":[{\"offset\":169,\"meaning\":\"PHY format enum selecting non-HT, HT, VHT, or HE encoding\"},{\"offset\":177,\"meaning\":\"Rate-related value or presence indicator used to form the packed identifier\"},{\"offset\":182,\"meaning\":\"Legacy-format modifier incorporated into the packed identifier\"},{\"offset\":183,\"meaning\":\"Selects an HE-specific packed-code variant\"},{\"offset\":194,\"meaning\":\"Adds an HE-specific flag to the packed code\"}]}"
+}

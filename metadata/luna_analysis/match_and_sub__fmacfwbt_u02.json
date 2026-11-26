@@ -1,0 +1,9 @@
+{
+ "fn": "match_and_sub",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c7f0",
+ "seg": 41,
+ "key": "match_and_sub__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"match_packed_word\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the volatile 16-bit fields at byte offsets 4 and 6 of the pointed-to object match the high and low halves of the packed 32-bit key.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"candidate\",\"a2\":\"key\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"volatile u16 field compared with key high half\"},{\"offset\":6,\"meaning\":\"volatile u16 field compared with key low half\"}]}"
+}

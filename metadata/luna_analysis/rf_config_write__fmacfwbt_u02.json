@@ -1,0 +1,9 @@
+{
+ "fn": "rf_config_write",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1018e4",
+ "seg": 0,
+ "key": "rf_config_write__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_config_write\",\"confidence\":\"medium\",\"docstring\":\"Copies six 32-bit words from two input buffers into a fixed configuration block.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"config_block\"}}"
+}

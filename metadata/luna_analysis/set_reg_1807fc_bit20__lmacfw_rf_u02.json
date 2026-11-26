@@ -1,0 +1,9 @@
+{
+ "fn": "set_reg_1807fc_bit20",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123f78",
+ "seg": 23,
+ "key": "set_reg_1807fc_bit20__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_reg_1807fc_bit20\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Set bit 20 of the target register from the low bit of value, clearing it first, and return the original value.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"value\"\n  },\n  \"struct_hints\": []\n}"
+}

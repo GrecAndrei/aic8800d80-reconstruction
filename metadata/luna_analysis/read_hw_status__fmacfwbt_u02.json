@@ -1,0 +1,9 @@
+{
+ "fn": "read_hw_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1030b0",
+ "seg": 2,
+ "key": "read_hw_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_rate_timing\",\"confidence\":\"medium\",\"docstring\":\"Computes two timing values from the configured rate entry and mode flags, then stores them in radio configuration outputs.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"selected_timing_base\",\"v4\":\"rate_entry_ptr\",\"v5\":\"signed_rate_byte\",\"v6\":\"rate_byte\",\"v7\":\"base_per_rate\",\"v9\":\"timing_output_ptr\",\"v10\":\"timing_value\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Mode flags selecting the rate-derived timing path and timing base.\"},{\"offset\":32,\"meaning\":\"Byte divisor applied to the rate-derived timing value.\"},{\"offset\":36,\"meaning\":\"Low-nibble rate-entry index in the rate configuration object; also a byte divisor in the secondary timing configuration object.\"}]}"
+}

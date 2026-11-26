@@ -1,0 +1,9 @@
+{
+ "fn": "get_free_heap_size",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114a68",
+ "seg": 6,
+ "key": "get_free_heap_size__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hal_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Perform early hardware initialization by clearing and loading RAM tables, programming bus/MMIO registers and fuse-derived settings, then save RF context and initialize buffers.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"clear_ptr\",\n    \"v1\": \"clear_end\",\n    \"v2\": \"ram_table_ptr\",\n    \"v3\": \"copy_src\",\n    \"v4\": \"copy_src_end\",\n    \"v5\": \"copy_dst\",\n    \"v6\": \"word\",\n    \"v7\": \"reg_base\",\n    \"v8\": \"table_base\",\n    \"v10\": \"table_addr\",\n    \"v11\": \"otp_flags\",\n    \"v12\": \"reg_addr\"\n  },\n  \"struct_hints\": []\n}"
+}

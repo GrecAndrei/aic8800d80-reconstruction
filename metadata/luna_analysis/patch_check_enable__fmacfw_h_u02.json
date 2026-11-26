@@ -1,0 +1,9 @@
+{
+ "fn": "patch_check_enable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x125780",
+ "seg": 30,
+ "key": "patch_check_enable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_path_process_peers\",\"confidence\":\"medium\",\"docstring\":\"Walks the peer list, sets up TX paths for eligible peers, and updates confirmation and security state subject to global gating flags.\",\"subsystem\":\"tx\",\"var_renames\":{\"v0\":\"sta\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next peer in the linked list.\"},{\"offset\":106,\"meaning\":\"Peer state must equal 2 for processing.\"},{\"offset\":107,\"meaning\":\"Value copied to offset 144 during confirmation processing.\"},{\"offset\":108,\"meaning\":\"Must be nonzero for processing.\"},{\"offset\":116,\"meaning\":\"Security context passed to sec_check.\"},{\"offset\":144,\"meaning\":\"Updated from offset 107 during confirmation processing.\"},{\"offset\":145,\"meaning\":\"Set to 0xFF during confirmation processing.\"},{\"offset\":224,\"meaning\":\"Compared with offset 225 as a processing gate.\"},{\"offset\":225,\"meaning\":\"Compared with offset 224 as a processing gate.\"},{\"offset\":226,\"meaning\":\"Must be nonzero for processing.\"}]}"
+}

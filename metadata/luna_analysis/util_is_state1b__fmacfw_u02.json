@@ -1,0 +1,9 @@
+{
+ "fn": "util_is_state1b",
+ "img": "fmacfw_u02",
+ "addr": "0x1325b4",
+ "seg": 45,
+ "key": "util_is_state1b__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"util_map_state_code\",\"confidence\":\"medium\",\"docstring\":\"Maps the low two bits of a value to code 7, 9, or 11 (bits 0 and 3 both map to 7).\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v1\":\"masked_state\"}}"
+}

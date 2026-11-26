@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127a54",
+ "seg": 23,
+ "key": "double_compare__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__cmpdf2\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Compares two double-precision floating-point values and returns their ordered relationship.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

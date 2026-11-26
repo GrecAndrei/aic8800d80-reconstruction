@@ -1,0 +1,9 @@
+{
+ "fn": "util_compare_key",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11dae0",
+ "seg": 20,
+ "key": "util_compare_key__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"util_compare_key\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns true when the 32-bit key's high and low 16-bit halves match two volatile 16-bit words located at offsets 4 and 6 of the supplied target.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"key_target\",\n    \"a2\": \"key32\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"volatile uint16_t compared against high half of key32\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"volatile uint16_t compared against low half of key32\"\n    }\n  ]\n}"
+}

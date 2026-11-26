@@ -1,0 +1,9 @@
+{
+ "fn": "scan_process",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12788c",
+ "seg": 34,
+ "key": "scan_process__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_scan_process\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes Bluetooth scan/channel-switching activity by selecting the next connection block, updating its scheduling state, posting state-change or HCI events when needed, and enabling the radio channel-switch timer.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"msg\",\n    \"v2\": \"switch_enable_ptr\",\n    \"v4\": \"queue_item\",\n    \"v6\": \"switch_enable\",\n    \"v7\": \"cb_switch_ctrl\",\n    \"v23\": \"cb_flags\",\n    \"v24\": \"next_cb\",\n    \"v25\": \"old_cb\",\n    \"v26\": \"prev_cb\",\n    \"v27\": \"cb_state\",\n    \"v28\": \"timer_count_ptr\",\n    \"v29\": \"timer_ctrl_ptr\",\n    \"v31\": \"next_timer_count\",\n    \"v32\": \"next_timer_ctrl\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 88,\n      \"meaning\": \"cb_switch_ctrl flags byte\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"cb_switch_ctrl previous/current connection-block pointer\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"cb_switch_ctrl selected next connection-block pointer\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"connection-block scheduling state (1=cleared/idle, 4=selected/busy)\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"connection-block link-layer state; checked for 3 and <=2\"\n    }\n  ]\n}"
+}

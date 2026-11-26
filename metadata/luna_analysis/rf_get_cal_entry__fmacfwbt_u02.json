@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_cal_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13a5c4",
+ "seg": 60,
+ "key": "rf_get_cal_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_cal_entry\",\"confidence\":\"medium\",\"docstring\":\"Retrieves the RF calibration entry for the current channel/table indices, optionally copies the selected calibration words into the radio context, and returns the calibration code.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"rf_cal_table_base\",\"v4\":\"cal_table_index\",\"v5\":\"rf_cal_table_row\",\"v6\":\"cal_entry_ptr_pair\",\"v7\":\"rf_state_table_row\",\"v8\":\"cal_entry\",\"v10\":\"result\",\"v11\":\"copy_words\",\"v12\":\"cal_step\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"rf_context.channel (16-bit current channel, byte-swapped when compared with calibration table)\"},{\"offset\":28,\"meaning\":\"rf_context.state_table_index (index into 1320-byte RF state table)\"},{\"offset\":29,\"meaning\":\"rf_context.cal_table_index (index into 696-byte RF calibration table)\"},{\"offset\":30,\"meaning\":\"rf_context.flags (bit 0 suppresses copying calibration data)\"},{\"offset\":56,\"meaning\":\"rf_context.cal_data destination buffer for copied calibration words\"}]}"
+}

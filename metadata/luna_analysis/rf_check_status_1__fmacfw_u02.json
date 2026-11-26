@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_status_1",
+ "img": "fmacfw_u02",
+ "addr": "0x132460",
+ "seg": 45,
+ "key": "rf_check_status_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_clamp_phy_capabilities\",\"confidence\":\"medium\",\"docstring\":\"Computes a PHY capability limit from configuration and capability fields, writes it to the first record, and clamps the second record's existing mode value.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v3\":\"configured_limit\",\"v10\":\"record_capability_limit\",\"v13\":\"effective_limit\",\"v14\":\"current_mode_limit\"},\"struct_hints\":[{\"offset\":308,\"meaning\":\"First argument: field receiving the computed PHY capability limit.\"},{\"offset\":165,\"meaning\":\"Second argument: existing mode or limit value that is clamped.\"},{\"offset\":4,\"meaning\":\"First argument: flags selecting the capability fields to interpret.\"}]}"
+}

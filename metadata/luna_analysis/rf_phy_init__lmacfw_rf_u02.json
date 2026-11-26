@@ -1,0 +1,9 @@
+{
+ "fn": "rf_phy_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10d474",
+ "seg": 2,
+ "key": "rf_phy_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_phy_irq_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes RF PHY IRQ state, installs the PHY interrupt handler, and enables the RF PHY interrupt mask.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_phy_ctrl\",\n    \"v1\": \"ctrl_val\",\n    \"result\": \"phy_id\",\n    \"v3\": \"irq_enable_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"RF PHY control/status word (bit0 initialized, bit14 enable/ready)\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"RF PHY ID/state field (set to 17)\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"zeroed RF PHY list/queue state field\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"zeroed RF PHY list/queue state field\"\n    }\n  ]\n}"
+}

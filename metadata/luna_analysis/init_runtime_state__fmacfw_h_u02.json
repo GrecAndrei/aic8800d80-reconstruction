@@ -1,0 +1,9 @@
+{
+ "fn": "init_runtime_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x141f60",
+ "seg": 67,
+ "key": "init_runtime_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"init_acl_context_pool\",\"confidence\":\"medium\",\"docstring\":\"Clears three bytes of state and initializes eight ACL context entries, restoring each entry\u2019s self-reference at offset 60.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"acl_ctx\",\"v1\":\"acl_ctx_end\"},\"struct_hints\":[{\"offset\":60,\"meaning\":\"Self-reference pointer to the context entry\"}]}"
+}

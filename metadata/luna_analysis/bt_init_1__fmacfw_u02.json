@@ -1,0 +1,9 @@
+{
+ "fn": "bt_init_1",
+ "img": "fmacfw_u02",
+ "addr": "0x113aa0",
+ "seg": 5,
+ "key": "bt_init_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_host_usb_start\",\"confidence\":\"medium\",\"docstring\":\"Loads the IRQ state, dispatches the host USB start event, and returns success.\",\"subsystem\":\"bt\"}"
+}

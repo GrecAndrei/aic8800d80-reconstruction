@@ -1,0 +1,9 @@
+{
+ "fn": "rf_band_config",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x100a14",
+ "seg": 0,
+ "key": "rf_band_config__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_smem_copy_block\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies a fixed 2 KB word block between local and RF shared-memory addresses while strobing RF memory-access control bits.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_ctrl_base\",\n    \"v1\": \"src_ptr\",\n    \"v2\": \"src_end\",\n    \"v4\": \"word\",\n    \"v5\": \"dst_ptr\",\n    \"result\": \"dst_offset\",\n    \"v6\": \"rf_ctrl_base\"\n  },\n  \"struct_hints\": []\n}"
+}

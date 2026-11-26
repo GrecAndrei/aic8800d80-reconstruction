@@ -1,0 +1,9 @@
+{
+ "fn": "rf_apply_cfg",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13c050",
+ "seg": 61,
+ "key": "rf_apply_cfg__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_send_config_cmd\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Fills an RF configuration command entry for a ready PHY context and dispatches it as an HCI command.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v6\": \"rf_cmd_slot\",\n    \"v7\": \"rf_cmd_slot\",\n    \"v8\": \"rf_cmd\",\n    \"v10\": \"random_token\",\n    \"v12\": \"phy_ctx_base\",\n    \"v14\": \"rf_modem_word\",\n    \"v15\": \"phy_ctx\",\n    \"v17\": \"hci_cmd\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"RF command timestamp (32-bit)\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"RF configuration parameter (a3)\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"primary PHY/context identifier (a1)\"\n    },\n    {\n      \"offset\": 17,\n      \"meaning\": \"RF command valid/enable flag\"\n    },\n    {\n      \"offset\": 18,\n      \"meaning\": \"RF command valid/enable flag\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"mode/flags selected from PHY context bit 0x20\"\n    },\n    {\n      \"offset\": 22,\n      \"meaning\": \"secondary PHY/context identifier (a2)\"\n    },\n    {\n      \"offset\": 23,\n      \"meaning\": \"random token/sequence\"\n    },\n    {\n      \"offset\": 444,\n      \"meaning\": \"PHY context timestamp (32-bit)\"\n    },\n    {\n      \"offset\": 453,\n      \"meaning\": \"pending RF command slot\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "strchr",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143a54",
+ "seg": 69,
+ "key": "strchr__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"strchr\",\"confidence\":\"high\",\"docstring\":\"Optimized strchr that uses word-at-a-time alignment checks and byte-wise fallback to locate a character or terminator.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"s\",\"a2\":\"c\",\"v2\":\"p\",\"v3\":\"c_word\",\"v5\":\"byte\",\"v7\":\"byte\",\"v8\":\"byte\",\"v9\":\"word\"}}"
+}

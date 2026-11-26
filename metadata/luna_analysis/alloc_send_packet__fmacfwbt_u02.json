@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_send_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13e670",
+ "seg": 62,
+ "key": "alloc_send_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_ll_send_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Validates and queues a Bluetooth Low Energy link-layer packet for transmission based on its PDU type and current radio state.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"pkt_desc\",\n    \"result\": \"pdu_type\",\n    \"v8\": \"radio_state\",\n    \"v10\": \"type_support\",\n    \"v11\": \"tx_flags\",\n    \"v12\": \"tx_flags_cleared\",\n    \"v13\": \"noack_flag\",\n    \"v14\": \"immediate_tx\",\n    \"v16\": \"type_priority\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 29,\n      \"meaning\": \"LL PDU type\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"transmit flags\"\n    },\n    {\n      \"offset\": 34,\n      \"meaning\": \"per-PDU type support code\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"radio/controller state pointer\"\n    },\n    {\n      \"offset\": 340,\n      \"meaning\": \"per-PDU type priority\"\n    }\n  ]\n}"
+}

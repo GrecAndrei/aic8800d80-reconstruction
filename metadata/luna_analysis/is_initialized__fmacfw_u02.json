@@ -1,0 +1,9 @@
+{
+ "fn": "is_initialized",
+ "img": "fmacfw_u02",
+ "addr": "0x10d648",
+ "seg": 3,
+ "key": "is_initialized__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_clock_init\",\"confidence\":\"medium\",\"docstring\":\"Programs RF clock-control registers, derives divider fields from a signed clock setting when applicable, and marks the block initialized.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"clock_setting_magnitude\",\"v7\":\"reference_clock_value\",\"v8\":\"divider_ratio\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ctrl_reset_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x12737c",
+ "seg": 33,
+ "key": "ctrl_reset_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ctrl_reset_handler\",\"confidence\":\"medium\",\"docstring\":\"Updates controller reset and request state, conditionally sending a simple HCI command for the request.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v12\":\"request_state\"},\"struct_hints\":[{\"offset\":14,\"meaning\":\"16-bit field whose nonzero value gates sending a simple HCI command\"},{\"offset\":24,\"meaning\":\"request state byte; values 3 and 4 take distinct handling paths\"}]}"
+}

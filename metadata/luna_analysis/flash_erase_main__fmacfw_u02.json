@@ -1,0 +1,9 @@
+{
+ "fn": "flash_erase_main",
+ "img": "fmacfw_u02",
+ "addr": "0x111d44",
+ "seg": 4,
+ "key": "flash_erase_main__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"flash_erase_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches an operation for values 0\u20135 to one of two flash-related backends based on whether the first pointer is non-null.\",\"subsystem\":\"flash\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "check_message_len",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1222cc",
+ "seg": 22,
+ "key": "check_message_len__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_monitor\",\"confidence\":\"medium\",\"docstring\":\"Parses 12-character MAC and BSSID hex strings from a command buffer and applies monitor-mode identifiers.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"msg\",\"v3\":\"mac_str\",\"v4\":\"mac_high\",\"v5\":\"mac_low\",\"v6\":\"bssid_low\",\"v7\":\"mac_low_copy\",\"v8\":\"bssid_high\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"scratch buffer for last 4 hex chars\"},{\"offset\":4,\"meaning\":\"scratch null terminator\"}]}"
+}

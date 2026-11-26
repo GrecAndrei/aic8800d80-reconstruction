@@ -1,0 +1,9 @@
+{
+ "fn": "timer_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x100644",
+ "seg": 0,
+ "key": "timer_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"timer_delay\",\"confidence\":\"medium\",\"docstring\":\"Busy-waits until the hardware timer reaches the current tick plus the requested interval, then returns that deadline.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"delay_ticks\",\"result\":\"deadline_tick\",\"v3\":\"poll_delay_count\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "uart_driver_send",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102ccc",
+ "seg": 2,
+ "key": "uart_driver_send__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_dcq_iq_table\",\"confidence\":\"medium\",\"docstring\":\"Writes 16 packed DCQ/I values to each selected RF bank and propagates them to the applicable mirror tables.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"bank_mask\",\"a2\":\"dcq_iq_values\",\"v4\":\"bank_index\",\"v5\":\"register_preserve_mask\",\"v7\":\"bank_register\",\"v8\":\"value_index\",\"v9\":\"value_cursor\",\"v10\":\"prior_register_value\",\"v12\":\"updated_register_value\",\"v15\":\"mirror_table\",\"v16\":\"mirror_table_count\",\"v17\":\"mirror_table_cursor\",\"v18\":\"register_preserve_mask\",\"v19\":\"mirror_table_end\",\"v20\":\"mirror_entry\",\"v21\":\"value_cursor\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Packed DCQ/I value register in each 20-byte mirror-table entry\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "set_tx_offset",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1250d4",
+ "seg": 23,
+ "key": "set_tx_offset__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_tx_offset\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Command handler that parses a decimal TX offset argument and programs the RF TX-offset register field, printing a usage message when the argument is missing.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v2\": \"offset_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"argv[1] pointer to numeric string\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "patch_flag_set",
+ "img": "fmacfw_u02",
+ "addr": "0x1337fc",
+ "seg": 46,
+ "key": "patch_flag_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"patch_hci_event_send\",\"confidence\":\"medium\",\"docstring\":\"Clears a register field when the signed status is negative and RX-rate parsing does not return 7, then sends the supplied HCI event and returns 1.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"hci_event\"}}"
+}

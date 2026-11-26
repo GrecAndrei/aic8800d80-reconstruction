@@ -1,0 +1,9 @@
+{
+ "fn": "rf_read_trim",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12704c",
+ "seg": 23,
+ "key": "rf_read_trim__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_read_trim_data\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads RF trim/calibration values from fuse/MMIO status paths, clamps and stores them into the global trim structure, and marks the loaded data as valid.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"trim_base\",\n    \"v2\": \"trim_mode_flag\",\n    \"v3\": \"trim_level_clamped\",\n    \"v4\": \"xtal_ftune\",\n    \"v5\": \"temp_trim_raw\",\n    \"v6\": \"temp_trim_clamped\",\n    \"_frame.v8\": \"temp_trim_raw\",\n    \"_frame.v9\": \"bus_value32\",\n    \"_frame.v10\": \"mmio_value64\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"trim data valid/done flag\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"temperature trim/calibration byte\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"trim status byte set to 0x80 after load\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"clipped RF trim level (max 31 when present, 15 otherwise)\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"xtal frequency trim value\"\n    }\n  ]\n}"
+}

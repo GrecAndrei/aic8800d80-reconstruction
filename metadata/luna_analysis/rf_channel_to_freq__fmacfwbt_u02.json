@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_to_freq",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132460",
+ "seg": 45,
+ "key": "rf_channel_to_freq__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_lookup_channel_freq_entry\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans the selected 2.4 GHz or 5 GHz RF channel table for the entry whose first field matches the computed channel center frequency and returns that entry or NULL.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"is_5g\",\n    \"a2\": \"channel\",\n    \"v2\": \"freq_mhz\",\n    \"v3\": \"entry\",\n    \"v4\": \"table_end\",\n    \"v5\": \"entry_freq\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint16_t channel center frequency in MHz\"\n    }\n  ]\n}"
+}

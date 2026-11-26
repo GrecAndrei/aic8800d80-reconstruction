@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_role",
+ "img": "fmacfw_h_u02",
+ "addr": "0x129f0c",
+ "seg": 36,
+ "key": "bt_get_conn_role__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_conn_release_slot\",\"confidence\":\"medium\",\"docstring\":\"For a valid connection slot, decrements the global count when offset 112 is 1 and, when requested, marks offset 113 as invalid.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"conn_table_base\",\"v3\":\"conn_entry\",\"a2\":\"invalidate_slot\"},\"struct_hints\":[{\"offset\":112,\"meaning\":\"Discriminator; value 1 triggers a global counter decrement.\"},{\"offset\":113,\"meaning\":\"Slot-valid marker; 0xFF denotes an invalid slot.\"}]}"
+}

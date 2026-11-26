@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_trigger",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136408",
+ "seg": 56,
+ "key": "rf_cal_trigger__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cal_trigger\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Attempts to trigger or finalize RF calibration by checking calibration status, issuing HCI command 7 when needed, and clearing pending RF interrupt state before updating TX power state.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"value\": \"state\",\n    \"v2\": \"irq_state\"\n  },\n  \"struct_hints\": []\n}"
+}

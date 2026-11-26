@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_phy_band_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11f6f0",
+ "seg": 21,
+ "key": "wlc_phy_band_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"wlc_phy_band_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initialize a PHY band context by setting a byte field at offset 52 to 1, clearing a byte field at offset 163, and zeroing a dword field at offset 184.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"result\": \"phy_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 52,\n      \"meaning\": \"byte field marked active/enabled\"\n    },\n    {\n      \"offset\": 163,\n      \"meaning\": \"radio or band-state byte cleared\"\n    },\n    {\n      \"offset\": 184,\n      \"meaning\": \"band/channel-related dword cleared\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "send_event_to_host",
+ "img": "fmacfwbt_u02",
+ "addr": "0x126938",
+ "seg": 33,
+ "key": "send_event_to_host__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_event_to_host\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pops a free event descriptor, fills it with the caller-provided parameters, and either arms a delayed kernel event or immediately dispatches it through the context callback, using an IRQ-safe lock/counter path.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"v6\": \"event\",\n    \"v7\": \"event\",\n    \"v8\": \"host_event_ctx\",\n    \"v9\": \"abort_state\",\n    \"v12\": \"lock_count_ptr\",\n    \"v13\": \"event_timestamp\",\n    \"v14\": \"current_tick\",\n    \"v15\": \"prev_lock_count\",\n    \"v16\": \"new_lock_count\",\n    \"v17\": \"irq_flag_ptr\",\n    \"v19\": \"dec_lock_count\",\n    \"v20\": \"saved_irq_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"event context field used as the abort check target and as a zero/non-zero scheduling condition\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"dispatch callback pointer called with the event descriptor for immediate host delivery\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"context slot storing the event descriptor/current pending event\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"event descriptor timestamp or first parameter, copied from a1 and compared with hardware tick\"\n    }\n  ]\n}"
+}

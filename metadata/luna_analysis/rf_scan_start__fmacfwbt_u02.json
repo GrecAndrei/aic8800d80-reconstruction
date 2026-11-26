@@ -1,0 +1,9 @@
+{
+ "fn": "rf_scan_start",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13bd84",
+ "seg": 61,
+ "key": "rf_scan_start__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_scan_start\", \"confidence\": \"medium\", \"docstring\": \"Iterates parallel RF scan table and scan-context entries, sending an HCI command for matching contexts and clearing their started/pending flags.\", \"subsystem\": \"rf\", \"var_renames\": {\"v1\": \"scan_entry_ptr\", \"v2\": \"scan_ctx_ptr\", \"v4\": \"requested_scan_type\", \"v6\": \"scan_entry_end\", \"v7\": \"entry_valid\", \"a7\": \"format_ptr\"}, \"struct_hints\": [{\"offset\": 16, \"meaning\": \"scan context field compared with requested scan type\"}, {\"offset\": 25, \"meaning\": \"scan context started/pending flag cleared after command\"}, {\"offset\": 2, \"meaning\": \"scan table entry validity/parameter read as uint16_t\"}]}"
+}

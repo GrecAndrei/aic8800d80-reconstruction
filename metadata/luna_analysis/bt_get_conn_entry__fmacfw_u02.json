@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_entry",
+ "img": "fmacfw_u02",
+ "addr": "0x132d88",
+ "seg": 45,
+ "key": "bt_get_conn_entry__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_conn_rf_configure\",\"confidence\":\"medium\",\"docstring\":\"Applies per-link RF register and limit updates for the indexed BLE connection, then returns its LL connection-state object by handle.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"conn_index\",\"a2\":\"limit\",\"v2\":\"conn_table\",\"v4\":\"conn_entry\",\"v6\":\"link_index\",\"v16\":\"conn_entry_bytes\",\"v17\":\"effective_limit\",\"v18\":\"conn_handle\",\"v19\":\"link_limit\",\"v21\":\"rf_config\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Connection-entry control flags; bits 0x20 and 0x04 select separate RF handling paths.\"},{\"offset\":34,\"meaning\":\"Link index used to access per-link configuration.\"},{\"offset\":35,\"meaning\":\"BLE connection handle passed to the LL connection-state lookup.\"},{\"offset\":308,\"meaning\":\"Per-connection limit input, normalized and capped before use.\"},{\"offset\":309,\"meaning\":\"Effective per-connection limit after applying the supplied and per-link caps.\"},{\"offset\":350,\"meaning\":\"Connection-entry status flags; bit 3 is set before returning.\"}]}"
+}

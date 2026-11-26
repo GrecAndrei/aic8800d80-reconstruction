@@ -1,0 +1,9 @@
+{
+ "fn": "patch_check_version",
+ "img": "fmacfw_u02",
+ "addr": "0x13289c",
+ "seg": 45,
+ "key": "patch_check_version__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_update_phy_from_rates\",\"confidence\":\"medium\",\"docstring\":\"Scans a rate-code list for the highest rate after stripping the 802.11 basic-rate flag, applies the validated value to the PHY, and clears a byte in the context.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v2\":\"rate_count\",\"v3\":\"rate_cursor\",\"v4\":\"rate_list_end\",\"v5\":\"max_rate_code\",\"v6\":\"rate_code\"},\"struct_hints\":[{\"offset\":192,\"meaning\":\"Rate-code count byte; the list entries follow it.\"},{\"offset\":193,\"meaning\":\"First rate-code list entry.\"},{\"offset\":350,\"meaning\":\"Byte cleared after applying the PHY setting; its specific role is unclear.\"}]}"
+}

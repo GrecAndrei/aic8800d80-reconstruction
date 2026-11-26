@@ -1,0 +1,9 @@
+{
+ "fn": "util_check_flags",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111b30",
+ "seg": 4,
+ "key": "util_check_flags__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"usb_ep0_send_data_phase\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles the USB endpoint 0 control-IN data phase by updating expected/sent length counters in the EP0 state structure and logging setup or length errors.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v2\": \"arg_high\",\n    \"v15\": \"ep0_state\",\n    \"v58\": \"ep0_sent_len\",\n    \"v60\": \"ep0_new_sent_len\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"USB EP0 state byte (observed values include 2=error, 4=data transfer, 5=complete)\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"uint16_t expected/total endpoint 0 IN data length\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"uint16_t bytes already sent on endpoint 0 IN data phase\"\n    }\n  ]\n}"
+}

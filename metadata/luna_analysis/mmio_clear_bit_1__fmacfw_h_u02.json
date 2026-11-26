@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_clear_bit_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10dbd4",
+ "seg": 3,
+ "key": "mmio_clear_bit_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_clear_bit\",\"confidence\":\"high\",\"docstring\":\"Clears the bit at the specified index in a fixed volatile register and returns its bit mask.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"bit_index\",\"result\":\"bit_mask\"}}"
+}

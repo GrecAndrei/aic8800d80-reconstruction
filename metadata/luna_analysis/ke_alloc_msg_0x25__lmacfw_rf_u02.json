@@ -1,0 +1,9 @@
+{
+ "fn": "ke_alloc_msg_0x25",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119c4c",
+ "seg": 13,
+ "key": "ke_alloc_msg_0x25__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_msg_alloc_0x25\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a two-byte kernel message of type 0x25, populates its status and HCI-event byte from the supplied packet according to controller state, and passes the message to the RX interrupt handler.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a2\": \"pkt\",\n    \"v5\": \"msg\",\n    \"v7\": \"msg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"message status byte, initialized to 1 and cleared when an HCI event byte is generated\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"HCI event byte returned by handle_hci_event\"\n    }\n  ]\n}"
+}

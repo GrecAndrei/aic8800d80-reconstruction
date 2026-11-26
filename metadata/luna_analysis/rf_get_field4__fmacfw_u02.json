@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_field4",
+ "img": "fmacfw_u02",
+ "addr": "0x101ad8",
+ "seg": 0,
+ "key": "rf_get_field4__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_field4\",\"confidence\":\"high\",\"docstring\":\"Returns the value of bits 4\u20137 from the RF register at off_101AE8, minus one.\",\"subsystem\":\"rf\"}"
+}

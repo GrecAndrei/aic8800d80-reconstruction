@@ -1,0 +1,9 @@
+{
+ "fn": "timer_disable_delay",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11d9c0",
+ "seg": 20,
+ "key": "timer_disable_delay__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"timer_disable_delay\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Disables the timer delay path by clearing bit 0 of the timer control register and sets busy flag bit 0x8000.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 4680,\n      \"meaning\": \"timer control register (bit 0 likely controls the timer delay/enable)\"\n    }\n  ]\n}"
+}

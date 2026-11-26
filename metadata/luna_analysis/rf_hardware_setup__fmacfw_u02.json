@@ -1,0 +1,9 @@
+{
+ "fn": "rf_hardware_setup",
+ "img": "fmacfw_u02",
+ "addr": "0x10ec44",
+ "seg": 3,
+ "key": "rf_hardware_setup__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_hardware_setup\",\"confidence\":\"high\",\"docstring\":\"Programs RF-related MMIO registers, invokes rf_enable and control-field 4 setup, then restores four temporarily modified control bits.\",\"subsystem\":\"rf\",\"var_renames\":{\"v10\":\"saved_bit_19_state\",\"v11\":\"saved_bit_20_state\",\"v12\":\"saved_bit_21_state\",\"v13\":\"saved_bit_22_state\"}}"
+}

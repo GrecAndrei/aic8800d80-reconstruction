@@ -1,0 +1,9 @@
+{
+ "fn": "set_clock_divisor",
+ "img": "fmacfw_u02",
+ "addr": "0x1210e4",
+ "seg": 22,
+ "key": "set_clock_divisor__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_clock_divisor_set\",\"confidence\":\"medium\",\"docstring\":\"Writes the fixed value 48 to a volatile register and returns the result of calling the RX PHY-status helper with arguments 0 and 1.\",\"subsystem\":\"hal\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_event_0x3f",
+ "img": "fmacfw_u02",
+ "addr": "0x13698c",
+ "seg": 56,
+ "key": "ke_send_event_0x3f__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_send_msg_0x3f\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends message 0x3f with selected fields copied from a global data structure, then returns the result of rx_phy_status_parse(7, 2).\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"source_data\",\"v1\":\"message_payload\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"Word copied to message payload bytes 0\u20133\"},{\"offset\":36,\"meaning\":\"Halfword copied to message payload bytes 4\u20135\"},{\"offset\":38,\"meaning\":\"Halfword copied to message payload bytes 6\u20137\"},{\"offset\":50,\"meaning\":\"Byte copied to message payload byte 8\"},{\"offset\":51,\"meaning\":\"Byte copied to message payload byte 9\"}]}"
+}

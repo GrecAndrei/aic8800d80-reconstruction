@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_tail_write_alt",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c66c",
+ "seg": 41,
+ "key": "mmio_tail_write_alt__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sys_ctrl_clear_bit0_and_set_system_flag\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Clears bit 0 of the system-control word at offset 0x12C8 from dword_12C684, then calls the system-flag setter with the 0x40000000 base address.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"dword_12C684\": \"sys_ctrl_base\"\n  },\n  \"struct_hints\": []\n}"
+}

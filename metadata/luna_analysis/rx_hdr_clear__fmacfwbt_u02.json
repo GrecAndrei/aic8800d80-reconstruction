@@ -1,0 +1,9 @@
+{
+ "fn": "rx_hdr_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111800",
+ "seg": 4,
+ "key": "rx_hdr_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_rx_hdr_clear\",\"confidence\":\"medium\",\"docstring\":\"Clears a 16-byte receive-header slot and invokes its indexed callback if byte 11 was nonzero before clearing.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"header_slot\",\"v3\":\"saved_marker\",\"v5\":\"slot_callback\"},\"struct_hints\":[{\"offset\":11,\"meaning\":\"byte checked before the header slot is cleared; a nonzero value triggers the callback\"}]}"
+}

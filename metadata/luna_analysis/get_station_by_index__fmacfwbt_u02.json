@@ -1,0 +1,9 @@
+{
+ "fn": "get_station_by_index",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c938",
+ "seg": 19,
+ "key": "get_station_by_index__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_station_entry_value\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"When an indexed station/table entry is valid, this stores the supplied value into the entry if its update-enable byte is set and then marks the entry dirty; it returns the input value unchanged.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"result\": \"value\",\n    \"a2\": \"index\",\n    \"v2\": \"table_base\",\n    \"v3\": \"entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"entry valid/state word; if zero the update is skipped\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"32-bit value stored when the entry allows updates\"\n    },\n    {\n      \"offset\": 45,\n      \"meaning\": \"dirty/update/active mark set to 1 when the entry is valid\"\n    },\n    {\n      \"offset\": 46,\n      \"meaning\": \"update-enable or auxiliary validity flag checked before writing offset 36\"\n    }\n  ]\n}"
+}

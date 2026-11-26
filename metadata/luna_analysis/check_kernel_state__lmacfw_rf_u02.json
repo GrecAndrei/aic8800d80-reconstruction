@@ -1,0 +1,9 @@
+{
+ "fn": "check_kernel_state",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e724",
+ "seg": 21,
+ "key": "check_kernel_state__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"co_list_push_back\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Appends an entry to the tail of an intrusive kernel list, updating the list first/last pointers and initializing the entry's next pointer.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"result\": \"list\",\n    \"a2\": \"elem\",\n    \"v2\": \"list\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"list first pointer or entry next pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"list last pointer\"\n    }\n  ]\n}"
+}

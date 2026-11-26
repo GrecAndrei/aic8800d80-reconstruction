@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_irq_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f694",
+ "seg": 43,
+ "key": "mmio_irq_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_assert\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Reports a kernel assertion failure by emitting the condition/file/line ASSERT message and stalling after interrupts are disabled.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"assert_condition\",\n    \"a2\": \"assert_file\",\n    \"a3\": \"assert_line\"\n  },\n  \"struct_hints\": []\n}"
+}

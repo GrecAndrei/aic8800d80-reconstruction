@@ -1,0 +1,9 @@
+{
+ "fn": "ke_get_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10f11c",
+ "seg": 3,
+ "key": "ke_get_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_hw_config\",\"confidence\":\"medium\",\"docstring\":\"Writes fixed values to an RF configuration block unless a global condition is nonzero, in which case it clears the block\u2019s first byte.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"config_base\",\"v2\":\"config_word\",\"v3\":\"config_data_ptr\"}}"
+}

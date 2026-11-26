@@ -1,0 +1,9 @@
+{
+ "fn": "link_context_by_handle",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118908",
+ "seg": 11,
+ "key": "link_context_by_handle__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"acl_link_process_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a pending kernel event for an active Bluetooth ACL link context and, if processing fails, increments a retry counter to select a rate or status recovery path.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"event_word\",\n    \"v2\": \"link_ctxt\",\n    \"v3\": \"retry_count\",\n    \"v4\": \"retry_limit_ptr\",\n    \"v5\": \"retry_limit\",\n    \"v6\": \"event_param\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"kernel event/message or critical-section argument field embedded in the link context\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"pending event/message word used as event or payload length\"\n    },\n    {\n      \"offset\": 96,\n      \"meaning\": \"link active/ready flag\"\n    },\n    {\n      \"offset\": 102,\n      \"meaning\": \"link index into global per-link descriptor table\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"event failure retry counter\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "uart_rx_ready",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10d698",
+ "seg": 2,
+ "key": "uart_rx_ready__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"uart_rx_ready\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Checks whether the UART receiver status register reports data ready to be read.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"UART RX status word, bit 0 indicating received data available\"\n    }\n  ]\n}"
+}

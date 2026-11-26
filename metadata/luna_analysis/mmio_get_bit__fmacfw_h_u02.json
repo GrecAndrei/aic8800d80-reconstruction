@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_get_bit",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10dbec",
+ "seg": 3,
+ "key": "mmio_get_bit__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_get_bit\",\"confidence\":\"high\",\"docstring\":\"Returns whether the bit selected by bit_index is set in a fixed volatile MMIO register.\",\"subsystem\":\"mmio\",\"var_renames\":{\"a1\":\"bit_index\"}}"
+}

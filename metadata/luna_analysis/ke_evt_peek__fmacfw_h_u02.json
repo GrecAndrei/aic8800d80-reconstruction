@@ -1,0 +1,9 @@
+{
+ "fn": "ke_evt_peek",
+ "img": "fmacfw_h_u02",
+ "addr": "0x121ac8",
+ "seg": 23,
+ "key": "ke_evt_peek__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_evt_peek\",\"confidence\":\"medium\",\"docstring\":\"Peeks at the kernel event state, performing associated no-idle and nested IRQ bookkeeping before returning the event-query result.\",\"subsystem\":\"ke\",\"var_renames\":{\"v1\":\"irq_lock_depth\",\"v2\":\"remaining_irq_lock_depth\",\"v3\":\"restore_irq_on_unlock\"}}"
+}

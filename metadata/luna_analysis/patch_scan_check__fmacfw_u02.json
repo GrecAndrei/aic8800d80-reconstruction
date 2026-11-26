@@ -1,0 +1,9 @@
+{
+ "fn": "patch_scan_check",
+ "img": "fmacfw_u02",
+ "addr": "0x133920",
+ "seg": 46,
+ "key": "patch_scan_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"patch_scan_check\",\"confidence\":\"medium\",\"docstring\":\"Checks a scan-related patch condition, optionally clears an MMIO register, and passes the selected value to a Bluetooth helper.\",\"subsystem\":\"bt\"}"
+}

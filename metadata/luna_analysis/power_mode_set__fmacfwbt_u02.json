@@ -1,0 +1,9 @@
+{
+ "fn": "power_mode_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d204",
+ "seg": 2,
+ "key": "power_mode_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_power_mode_set\",\"confidence\":\"medium\",\"docstring\":\"Selects an RF power-control value for modes 1 and 2, optionally clears an interrupt when a state flag is negative, and enables an associated control bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"mode\"}}"
+}

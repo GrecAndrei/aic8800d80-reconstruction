@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_ctrl_rx",
+ "img": "fmacfw_u02",
+ "addr": "0x13f3e4",
+ "seg": 61,
+ "key": "ble_ll_conn_ctrl_rx__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_rx_pdu_validate\",\"confidence\":\"medium\",\"docstring\":\"Checks PHY-related receive constraints for a connection and forwards acceptable packets to the LL PDU dispatcher.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"conn\",\"a2\":\"rx_pdu_info\",\"v3\":\"rx_phy_code\"},\"struct_hints\":[{\"offset\":169,\"meaning\":\"PHY-related connection state used to gate received packets\"}]}"
+}

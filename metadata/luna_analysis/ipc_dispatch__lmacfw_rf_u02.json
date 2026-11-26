@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_dispatch",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11aa8c",
+ "seg": 14,
+ "key": "ipc_dispatch__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ipc_cmd_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes an IPC command buffer opcode by invoking MMIO/RF helpers and posting a kernel event for completion.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"v4\": \"cmd\",\n    \"v6\": \"event_arg2\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"command opcode\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"command payload/data\"\n    }\n  ]\n}"
+}

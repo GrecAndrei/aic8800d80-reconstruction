@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113810",
+ "seg": 5,
+ "key": "send_hci_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"check_host_ipc_interrupt\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Checks or asserts the Host IPC start interrupt condition and returns success, acting as a startup or IPC handler stub rather than an explicit HCI event transmission routine.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hash_const_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11eacc",
+ "seg": 21,
+ "key": "hash_const_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"float_sqrt_fast\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Computes an approximate single-precision square root by forming a table-based initial estimate and applying one Heron/Newton iteration.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"x\",\n    \"v25\": \"sqrt_estimate\",\n    \"v27\": \"sqrt_scale_table\",\n    \"v28\": \"sqrt_bias_table\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 256,\n      \"meaning\": \"16-entry float scale table for the square-root initial estimate\"\n    },\n    {\n      \"offset\": 320,\n      \"meaning\": \"16-entry uint32 bit-pattern bias table for the square-root initial estimate\"\n    }\n  ]\n}"
+}

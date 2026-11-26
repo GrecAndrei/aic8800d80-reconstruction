@@ -1,0 +1,9 @@
+{
+ "fn": "util_get_struct_offset",
+ "img": "fmacfw_u02",
+ "addr": "0x10de08",
+ "seg": 3,
+ "key": "util_get_struct_offset__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_write_bit2_from_flag\",\"confidence\":\"high\",\"docstring\":\"Mirrors a global boolean control byte onto GPIO bit 2, setting the bit when the byte is nonzero and clearing it otherwise.\",\"subsystem\":\"gpio\"}"
+}

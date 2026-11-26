@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_rf_table",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103fbc",
+ "seg": 2,
+ "key": "lookup_rf_table__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_iq_power_sq\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Looks up a RF table entry containing two signed 12-bit I/Q fields and returns their squared magnitude for use in RF/AGC calculations.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a3\": \"rf_table\",\n    \"v3\": \"packed_iq\",\n    \"v4\": \"iq_high_value\",\n    \"v5\": \"iq_low_value\"\n  },\n  \"struct_hints\": []\n}"
+}

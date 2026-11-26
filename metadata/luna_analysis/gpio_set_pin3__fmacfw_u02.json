@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_pin3",
+ "img": "fmacfw_u02",
+ "addr": "0x10cc88",
+ "seg": 2,
+ "key": "gpio_set_pin3__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_set_pin3\",\"confidence\":\"high\",\"docstring\":\"Sets GPIO pin 3 by writing the value 8 to its control register.\",\"subsystem\":\"gpio\"}"
+}

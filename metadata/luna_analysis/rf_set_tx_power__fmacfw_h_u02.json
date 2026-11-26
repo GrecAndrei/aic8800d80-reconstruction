@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_tx_power",
+ "img": "fmacfw_h_u02",
+ "addr": "0x138934",
+ "seg": 58,
+ "key": "rf_set_tx_power__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_tx_power\",\"confidence\":\"medium\",\"docstring\":\"Uses the request field at offset 20 for a transmit-power lookup, dispatches two command handlers, and returns a context check result.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"request\",\"v1\":\"rf_context_base\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"Value used as the transmit-power lookup selector.\"}]}"
+}

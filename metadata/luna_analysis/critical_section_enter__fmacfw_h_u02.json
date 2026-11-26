@@ -1,0 +1,9 @@
+{
+ "fn": "critical_section_enter",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1178e4",
+ "seg": 10,
+ "key": "critical_section_enter__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"radio_critical_section_update\",\"confidence\":\"medium\",\"docstring\":\"Temporarily masks interrupts while updating selected radio-context bits, marks shared state, and restores interrupts when the nesting counter returns to zero.\",\"subsystem\":\"radio\",\"var_renames\":{\"v0\":\"critical_section_depth\",\"i\":\"radio_context_idx\",\"v8\":\"irq_was_enabled\"}}"
+}

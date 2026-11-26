@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_0x0f_bit_20",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114a58",
+ "seg": 5,
+ "key": "rf_reg_0x0f_bit_20__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_reg_0x0f_get_bit_20\",\"confidence\":\"high\",\"docstring\":\"Returns bit 20 of RF register 0x0F using the ROM register accessor.\",\"subsystem\":\"rf\"}"
+}

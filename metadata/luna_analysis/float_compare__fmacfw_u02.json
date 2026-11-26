@@ -1,0 +1,9 @@
+{
+ "fn": "float_compare",
+ "img": "fmacfw_u02",
+ "addr": "0x143118",
+ "seg": 68,
+ "key": "float_compare__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"float_add\",\"confidence\":\"high\",\"docstring\":\"Implements ARM EABI single-precision floating-point addition (__aeabi_fadd).\",\"subsystem\":\"libmisc\"}"
+}

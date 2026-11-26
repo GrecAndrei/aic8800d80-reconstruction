@@ -1,0 +1,9 @@
+{
+ "fn": "parse_rx_frame",
+ "img": "fmacfw_u02",
+ "addr": "0x11a940",
+ "seg": 14,
+ "key": "parse_rx_frame__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_rx_frame_handle\",\"confidence\":\"medium\",\"docstring\":\"Validates an RX descriptor, resolves or copies its frame context, obtains RSSI metadata, and routes the frame according to its status.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"rx_descriptor\",\"a2\":\"result_out\",\"v2\":\"rx_context\",\"v4\":\"context_flags\",\"v5\":\"return_value\",\"v6\":\"descriptor_type_bits\",\"v11\":\"allocated_context\",\"v12\":\"active_rx_context\",\"v13\":\"context_index\",\"v52\":\"context_index\",\"v53\":\"special_context_flag\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"RX context status and control flags\"},{\"offset\":13,\"meaning\":\"selector used to map the context to an indexed slot\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "buf_array_clear_multiple",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1300c0",
+ "seg": 43,
+ "key": "buf_array_clear_multiple__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"dbg_set_severity_cmd\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parse a debug command that sets the global debug severity level, reporting the current severity or invalid arguments via kernel debug events.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v4\": \"command\",\n    \"v5\": \"current_severity\",\n    \"v7\": \"severity_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"argv[1] command token string pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"argv[2] severity value string pointer\"\n    }\n  ]\n}"
+}

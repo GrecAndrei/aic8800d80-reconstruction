@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_band",
+ "img": "fmacfw_u02",
+ "addr": "0x136f50",
+ "seg": 56,
+ "key": "rf_set_band__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_band\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends an RF band-selection message with a fixed control byte and the selector copied from the input structure.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"set_band_msg\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Fixed control or mode byte set to 1 in the outgoing message\"},{\"offset\":1,\"meaning\":\"Band selector copied from the input structure\"},{\"offset\":2,\"meaning\":\"Band selector byte in the input structure\"}]}"
+}

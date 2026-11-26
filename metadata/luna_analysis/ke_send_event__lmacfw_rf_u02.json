@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1116c0",
+ "seg": 4,
+ "key": "ke_send_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_open\", \"confidence\": \"medium\", \"docstring\": \"Open/enable the RF subsystem from a caller-supplied parameter block, program the USB soft-disconnect delay and timer/alarm path, enable IRQs, and optionally wait for the open completion state.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"rf_open_params\", \"a2\": \"wait_for_completion\", \"v4\": \"rf_open_state_ptr\", \"v5\": \"rf_global_ctx\", \"v6\": \"rf_param_storage\", \"v7\": \"usb_sftdiscon_delay\", \"v8\": \"rf_ctrl_base\", \"v11\": \"rf_alarm_block\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"Required non-null RF open parameter field (offset 0x00 in a1)\"}, {\"offset\": 4, \"meaning\": \"Required non-null RF open parameter field (offset 0x04 in a1)\"}, {\"offset\": 8, \"meaning\": \"Required non-null RF open parameter field (offset 0x08 in a1)\"}, {\"offset\": 20, \"meaning\": \"Required non-null RF open parameter field (offset 0x14 in a1)\"}, {\"offset\": 388, \"meaning\": \"Global RF context field used as USB soft-disconnect delay before timer programming\"}]}"
+}

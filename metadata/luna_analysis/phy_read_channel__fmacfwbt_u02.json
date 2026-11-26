@@ -1,0 +1,9 @@
+{
+ "fn": "phy_read_channel",
+ "img": "fmacfwbt_u02",
+ "addr": "0x121bc0",
+ "seg": 24,
+ "key": "phy_read_channel__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"phy_channel_is_valid\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks a 12-byte channel entry in a per-context PHY table and treats state byte 33 as invalid/unconfigured.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"a1\": \"ctx_idx\",\n    \"a2\": \"channel_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 452,\n      \"meaning\": \"start of channel entry array inside a 696-byte PHY context\"\n    }\n  ]\n}"
+}

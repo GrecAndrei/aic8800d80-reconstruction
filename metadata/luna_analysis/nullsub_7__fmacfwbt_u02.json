@@ -1,0 +1,9 @@
+{
+ "fn": "nullsub_7",
+ "img": "fmacfwbt_u02",
+ "addr": "0x117d04",
+ "seg": 11,
+ "key": "nullsub_7__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"noop_handler\",\n  \"confidence\": \"low\",\n  \"docstring\": \"No-operation function returning zero, likely a placeholder or unused handler in the connection/RF IRQ cluster.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

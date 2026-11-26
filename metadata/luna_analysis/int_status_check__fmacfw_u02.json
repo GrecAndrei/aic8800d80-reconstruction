@@ -1,0 +1,9 @@
+{
+ "fn": "int_status_check",
+ "img": "fmacfw_u02",
+ "addr": "0x13eae0",
+ "seg": 61,
+ "key": "int_status_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_status_dispatch_if_set\",\"confidence\":\"medium\",\"docstring\":\"Reads a status word through the supplied context and invokes IPC command dispatch when bit 16 or bit 23 is set.\",\"subsystem\":\"ipc\",\"var_renames\":{\"result\":\"context\",\"v1\":\"status_word\"}}"
+}

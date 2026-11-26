@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare_core",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142bbc",
+ "seg": 68,
+ "key": "double_compare_core__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_divide\",\"confidence\":\"high\",\"docstring\":\"Divides two IEEE-754 double-precision operands using the ARM EABI runtime implementation.\",\"subsystem\":\"libmisc\"}"
+}

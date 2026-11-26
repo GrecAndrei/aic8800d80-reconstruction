@@ -1,0 +1,9 @@
+{
+ "fn": "phy_reg_modify",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111f58",
+ "seg": 4,
+ "key": "phy_reg_modify__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_reg_update_flags\",\"confidence\":\"medium\",\"docstring\":\"For the register at 0x40200B00 + 0x20 * index, clears bit 31 and sets bit 26 when bit 31 is set, then returns the register address.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"register_index\",\"result\":\"register_address\",\"v2\":\"register_value\"}}"
+}

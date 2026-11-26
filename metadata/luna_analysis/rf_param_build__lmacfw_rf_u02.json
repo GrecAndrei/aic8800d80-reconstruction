@@ -1,0 +1,9 @@
+{
+ "fn": "rf_param_build",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126e80",
+ "seg": 23,
+ "key": "rf_param_build__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_param_trace\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Logs current RF temperature-compensation, crystal-cap, frequency-offset, and settings state through the debug printf/event handler.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"rf_param_state_ptr\",\n    \"v1\": \"settings_enable\",\n    \"a3\": \"settings_timer\",\n    \"v2\": \"settings_task_activity\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"temp_comp_init\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"temp_comp_enable\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"temp_comp_level_cal\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"temp_comp_last_temp_c\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"xtal_cap_cal\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"xtal_cap_target\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"xtal_cap_current\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"ofst2x_2g4_0\"\n    },\n    {\n      \"offset\": 9,\n      \"meaning\": \"ofst2x_2g4_1\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"ofst2x_2g4_2\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"ofst2x_5g_0\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"ofst2x_5g_1\"\n    },\n    {\n      \"offset\": 13,\n      \"meaning\": \"ofst2x_5g_2\"\n    },\n    {\n      \"offset\": 363,\n      \"meaning\": \"rf_settings_enable\"\n    },\n    {\n      \"offset\": 364,\n      \"meaning\": \"rf_settings_timer\"\n    }\n  ]\n}"
+}

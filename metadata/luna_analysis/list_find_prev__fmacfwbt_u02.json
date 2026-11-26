@@ -1,0 +1,9 @@
+{
+ "fn": "list_find_prev",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d62c",
+ "seg": 42,
+ "key": "list_find_prev__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"list_insert_before\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Traverses a singly linked list to find the predecessor of a target node and splices a caller-supplied node before it, aborting when the target is null or is the first node.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a2\": \"target\",\n    \"a3\": \"new_node\",\n    \"v3\": \"prev\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"next pointer of a singly linked list node\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "irq_state_load_b",
+ "img": "fmacfw_u02",
+ "addr": "0x113350",
+ "seg": 4,
+ "key": "irq_state_load_b__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_wlan_rx_start\",\"confidence\":\"medium\",\"docstring\":\"Starts a USB WLAN receive operation by configuring its peripheral channel and aborts if the operation is cancelled during setup.\",\"subsystem\":\"hal\",\"var_renames\":{\"v2\":\"cancel_flag\",\"v3\":\"recv_active\",\"v5\":\"channel_status\"},\"struct_hints\":[{\"offset\":2864,\"meaning\":\"Peripheral control register; bits 19\u201328 are cleared before channel setup.\"}]}"
+}

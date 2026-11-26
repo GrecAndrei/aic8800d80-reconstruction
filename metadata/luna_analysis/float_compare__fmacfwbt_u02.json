@@ -1,0 +1,9 @@
+{
+ "fn": "float_compare",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1095b8",
+ "seg": 2,
+ "key": "float_compare__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"f32_triplet_compare\",\"confidence\":\"medium\",\"docstring\":\"Returns 2 if a strict pairwise ordering in the first three-float array is not preserved by the second, otherwise returns 1 only if all values in the second array are strictly positive or all are strictly negative, and 0 otherwise.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v2\":\"lhs_0\",\"v3\":\"lhs_1\",\"v4\":\"lhs_2\"}}"
+}

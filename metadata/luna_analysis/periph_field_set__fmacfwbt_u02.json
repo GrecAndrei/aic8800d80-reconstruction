@@ -1,0 +1,9 @@
+{
+ "fn": "periph_field_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ed30",
+ "seg": 3,
+ "key": "periph_field_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"periph_field_set\",\"confidence\":\"medium\",\"docstring\":\"Performs fixed peripheral register operations using the argument in a shifted register access, then writes to the trigger register at 0x70000000.\",\"subsystem\":\"hal\"}"
+}

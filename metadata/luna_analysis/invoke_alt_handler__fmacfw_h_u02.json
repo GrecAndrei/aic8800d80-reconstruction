@@ -1,0 +1,9 @@
+{
+ "fn": "invoke_alt_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10cb10",
+ "seg": 2,
+ "key": "invoke_alt_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_wait_pop_pending_item\",\"confidence\":\"medium\",\"docstring\":\"Busy-waits for the readiness flag, pops one item from the RF context's pending queue, and returns its payload pointer or NULL if the queue is empty.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"ready_flag_ptr\"},\"struct_hints\":[{\"offset\":596,\"meaning\":\"pending-item queue/list head\"}]}"
+}

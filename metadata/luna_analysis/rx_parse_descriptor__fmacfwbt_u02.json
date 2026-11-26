@@ -1,0 +1,9 @@
+{
+ "fn": "rx_parse_descriptor",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133a98",
+ "seg": 47,
+ "key": "rx_parse_descriptor__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_rf_rx_descriptor_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches received BT/RF descriptor types to vendor RF read, cache, channel-check, or power-index handlers based on a masked type field.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"descriptor\",\n    \"v2\": \"descriptor_type\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"u16 descriptor type/opcode field; low two bits are masked before dispatch\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"u8 subtype/index field checked against 8 for power lookup\"\n    }\n  ]\n}"
+}

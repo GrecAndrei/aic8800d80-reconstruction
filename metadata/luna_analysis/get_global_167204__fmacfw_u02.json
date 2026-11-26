@@ -1,0 +1,9 @@
+{
+ "fn": "get_global_167204",
+ "img": "fmacfw_u02",
+ "addr": "0x114568",
+ "seg": 5,
+ "key": "get_global_167204__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_lp_level_power_error\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the fixed LP-level power-error event and returns the event dispatcher\u2019s result.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

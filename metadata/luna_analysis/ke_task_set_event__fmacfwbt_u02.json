@@ -1,0 +1,9 @@
+{
+ "fn": "ke_task_set_event",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11b8d0",
+ "seg": 18,
+ "key": "ke_task_set_event__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_task_set_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sets or wakes a kernel task event by updating the task control block and scheduling it when the associated TXL/MAC queue state permits activation.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"result\": \"task_id\",\n    \"v1\": \"task_table\",\n    \"v2\": \"task_cb\",\n    \"v3\": \"task_state_or_event_word\",\n    \"v4\": \"task_id\",\n    \"v6\": \"queue_idle\",\n    \"v7\": \"txl_queue_state_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"task event/scheduling state word\"\n    },\n    {\n      \"offset\": 47,\n      \"meaning\": \"kernel task ready/active flag\"\n    }\n  ]\n}"
+}

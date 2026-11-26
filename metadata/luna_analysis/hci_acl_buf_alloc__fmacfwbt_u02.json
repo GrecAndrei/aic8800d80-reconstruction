@@ -1,0 +1,9 @@
+{
+ "fn": "hci_acl_buf_alloc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x126a04",
+ "seg": 33,
+ "key": "hci_acl_buf_alloc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_acl_buf_release_pending\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Drains pending HCI ACL buffer list entries, notifies the kernel event, clears the associated ACL state word, and checks each popped buffer until the queue is empty.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"popped_buf\",\n    \"a2\": \"initial_buf\",\n    \"v1\": \"acl_ctrl\",\n    \"v2\": \"cur_buf\",\n    \"v3\": \"abort_ctx\",\n    \"v4\": \"acl_buf_list\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"context/flag pointer passed to check_abort_flag during buffer processing\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"list head drained repeatedly while releasing pending ACL buffers\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"ACL buffer release/state word cleared after notifying the event\"\n    }\n  ]\n}"
+}

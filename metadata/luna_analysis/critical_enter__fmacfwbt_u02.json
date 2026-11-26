@@ -1,0 +1,9 @@
+{
+ "fn": "critical_enter",
+ "img": "fmacfwbt_u02",
+ "addr": "0x112dcc",
+ "seg": 4,
+ "key": "critical_enter__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_remote_wakeup_process\",\"confidence\":\"medium\",\"docstring\":\"Processes a pending USB remote-wakeup request by pulsing a hardware control bit for 9000 timer ticks, then logging or scheduling its notification while preserving nested interrupt state.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"critical_depth_ptr\",\"v1\":\"remote_wakeup_pending_ptr\",\"v2\":\"remote_wakeup_pending\",\"v3\":\"critical_depth\",\"v4\":\"timer_start\",\"v5\":\"timer_deadline\",\"v6\":\"timer_ticks_remaining\",\"v7\":\"wakeup_config\",\"v9\":\"depth_after_leave\",\"v10\":\"irq_restore_pending\"}}"
+}

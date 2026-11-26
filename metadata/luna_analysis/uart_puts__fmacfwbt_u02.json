@@ -1,0 +1,9 @@
+{
+ "fn": "uart_puts",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10d60c",
+ "seg": 3,
+ "key": "uart_puts__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"uart_puts\",\"confidence\":\"high\",\"docstring\":\"Writes a NUL-terminated string to UART, waiting for the transmitter before each byte, and returns a pointer to the terminator.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"current_char\",\"v2\":\"uart_status_reg\",\"v3\":\"uart_tx_data_reg\",\"v4\":\"next_char\"}}"
+}

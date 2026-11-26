@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_af_config",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10c700",
+ "seg": 2,
+ "key": "gpio_af_config__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_gpio_af_config\",\"confidence\":\"medium\",\"docstring\":\"Configures alternate-function fields for several RF-related GPIO pins and writes a fixed value to a related MMIO register.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"gpio_af_reg\",\"v1\":\"gpio_af_reg_ext\",\"result\":\"rf_config_reg\",\"v3\":\"rf_config_value\"}}"
+}

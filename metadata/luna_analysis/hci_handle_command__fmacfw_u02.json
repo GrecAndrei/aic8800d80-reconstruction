@@ -1,0 +1,9 @@
+{
+ "fn": "hci_handle_command",
+ "img": "fmacfw_u02",
+ "addr": "0x10f924",
+ "seg": 3,
+ "key": "hci_handle_command__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"initialize_packet_buffer_segments\",\"confidence\":\"medium\",\"docstring\":\"Aligns the supplied buffer and initializes its nonempty segment records and buffer metadata, returning the original base address.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"buffer_context\",\"a2\":\"segment_specs\",\"a3\":\"buffer_alignment\",\"v10\":\"segment_index\",\"v13\":\"segment_length\",\"v14\":\"output_segment_record\",\"v15\":\"segment_buffer_payload\",\"v28\":\"aligned_buffer_payload_base\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"a1: base buffer address\"},{\"offset\":8,\"meaning\":\"a1: number of segment entries\"},{\"offset\":12,\"meaning\":\"a1: pointer to 12-byte output segment records\"},{\"offset\":0,\"meaning\":\"Each a2 segment entry: segment offset\"},{\"offset\":2,\"meaning\":\"Each a2 segment entry: segment length\"}]}"
+}

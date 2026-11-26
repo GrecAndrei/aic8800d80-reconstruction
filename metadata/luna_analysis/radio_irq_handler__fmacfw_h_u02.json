@@ -1,0 +1,9 @@
+{
+ "fn": "radio_irq_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13bfd8",
+ "seg": 60,
+ "key": "radio_irq_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_rx_packet_handler\",\"confidence\":\"medium\",\"docstring\":\"Dispatches a Bluetooth RX packet to its handler and updates packet and connection state.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"packet_slot\",\"v2\":\"bt_clock\",\"v3\":\"connection_index\",\"v6\":\"rx_packet\",\"v8\":\"packet_opcode\",\"v13\":\"handler_context\"},\"struct_hints\":[{\"offset\":27,\"meaning\":\"Packet-slot index; 0xFF indicates no valid slot.\"},{\"offset\":29,\"meaning\":\"Connection index.\"},{\"offset\":30,\"meaning\":\"Packet-processing flags.\"},{\"offset\":34,\"meaning\":\"Handler-derived 16-bit value written during packet processing.\"},{\"offset\":36,\"meaning\":\"Packet status flags; bit 0x200000 may be set.\"},{\"offset\":64,\"meaning\":\"16-bit scheduling timestamp written when packet flag bit 0 is clear.\"}]}"
+}

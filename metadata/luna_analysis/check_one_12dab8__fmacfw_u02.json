@@ -1,0 +1,9 @@
+{
+ "fn": "check_one_12dab8",
+ "img": "fmacfw_u02",
+ "addr": "0x12dab8",
+ "seg": 42,
+ "key": "check_one_12dab8__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_tlv_type_62\",\"confidence\":\"medium\",\"docstring\":\"Scans a byte-oriented TLV buffer for type 62, rejects incomplete records, and reports whether the matching payload is one byte long.\",\"subsystem\":\"wlan\",\"var_renames\":{\"result\":\"tlv_data\",\"a2\":\"buffer_len\",\"a3\":\"is_one_byte_payload\",\"v3\":\"buffer_end\",\"v4\":\"record_end\"}}"
+}

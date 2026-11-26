@@ -1,0 +1,9 @@
+{
+ "fn": "strncasecmp",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143fdc",
+ "seg": 69,
+ "key": "strncasecmp__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"strncasecmp\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Compares up to n characters of two strings case-insensitively using a character mapping table and returns the first signed difference or zero.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"s1\",\n    \"a2\": \"s2\",\n    \"a3\": \"n\",\n    \"v3\": \"s1_cur\",\n    \"v4\": \"s1_end\",\n    \"v6\": \"c1\",\n    \"v8\": \"c2\",\n    \"v10\": \"c2_case_flags\",\n    \"v12\": \"c2_lower\",\n    \"v5\": \"diff\"\n  },\n  \"struct_hints\": []\n}"
+}

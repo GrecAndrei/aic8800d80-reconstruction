@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_128",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1145dc",
+ "seg": 6,
+ "key": "mmio_read_128__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_read_128\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches a 128-bit MMIO read request through the kernel task handler, likely as part of the bus/HAL register-access API.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

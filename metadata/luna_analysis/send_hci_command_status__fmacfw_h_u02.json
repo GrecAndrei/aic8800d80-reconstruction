@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_command_status",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1227f0",
+ "seg": 24,
+ "key": "send_hci_command_status__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_command_response\",\"confidence\":\"medium\",\"docstring\":\"Creates a type-11 transmit PDU, stores the result of `ke_send_msg` in its first byte, and passes it to the packet processor.\",\"subsystem\":\"bt\",\"var_renames\":{\"v5\":\"response_pdu\"}}"
+}

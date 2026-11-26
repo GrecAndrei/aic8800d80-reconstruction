@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reset",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1275a0",
+ "seg": 34,
+ "key": "rf_reset__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_tx_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a Bluetooth HCI packet buffer after issuing a MAC command, updates controller/RF status counters, and forwards ready HCI or scan-related packet contexts.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v2\": \"bt_status_flags\",\n    \"v5\": \"packet_counter_ptr\",\n    \"v6\": \"packet_control_ptr\",\n    \"v12\": \"packet_state\",\n    \"v15\": \"scan_pending_flag\",\n    \"v16\": \"entry_list_ptr\",\n    \"v17\": \"entry_index\",\n    \"v18\": \"entry_value\",\n    \"v30\": \"pending_context_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"HCI packet state, values 3/4 distinguish scan or ready-command paths\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"HCI payload length or non-zero command indicator\"\n    },\n    {\n      \"offset\": 88,\n      \"meaning\": \"controller pending status bits used by RF/HCI path\"\n    },\n    {\n      \"offset\": 92,\n      \"meaning\": \"RF mode/status byte bit controlling off_127850 bit 2\"\n    },\n    {\n      \"offset\": 367,\n      \"meaning\": \"scan/connection list entry count accessed through *off_127858\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"per-entry type/state byte in six-byte scan list entries\"\n    }\n  ]\n}"
+}

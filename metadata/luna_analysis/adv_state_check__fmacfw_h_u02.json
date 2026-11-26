@@ -1,0 +1,9 @@
+{
+ "fn": "adv_state_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122a80",
+ "seg": 26,
+ "key": "adv_state_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_indexed_mac_state\",\"confidence\":\"medium\",\"docstring\":\"Copies two bytes into the indexed MAC context, clears the following byte, conditionally disables MMIO interrupts when the mode is negative and the context flag at offset 106 is set, and writes a MAC header word.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"state_update\",\"v4\":\"context_base\",\"v6\":\"context_index\",\"v9\":\"context_entry\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"Flag that gates the conditional MMIO interrupt disable.\"},{\"offset\":143,\"meaning\":\"State byte copied from input offset 1.\"},{\"offset\":144,\"meaning\":\"State byte copied from input offset 2.\"},{\"offset\":145,\"meaning\":\"State byte cleared to zero.\"}]}"
+}

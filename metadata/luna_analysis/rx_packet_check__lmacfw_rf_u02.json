@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119478",
+ "seg": 12,
+ "key": "rx_packet_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_channel_rx_update\", \"confidence\": \"medium\", \"docstring\": \"Copies RX status bytes from a message into the per-channel RF context and posts kernel event 134.\", \"subsystem\": \"rf\", \"var_renames\": {\"v4\": \"rf_ctx_base\", \"v6\": \"channel\", \"v10\": \"chan_ctx\", \"a2\": \"status_msg\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"channel identifier from first message byte\"}, {\"offset\": 1, \"meaning\": \"status byte stored into channel context offset 118\"}, {\"offset\": 2, \"meaning\": \"status byte stored into channel context offset 119\"}, {\"offset\": 94, \"meaning\": \"per-channel flag tested before auxiliary call\"}, {\"offset\": 118, \"meaning\": \"first copied status byte\"}, {\"offset\": 119, \"meaning\": \"second copied status byte\"}, {\"offset\": 120, \"meaning\": \"status byte zeroed\"}]}"
+}

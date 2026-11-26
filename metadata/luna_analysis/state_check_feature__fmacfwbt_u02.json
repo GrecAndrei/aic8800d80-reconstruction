@@ -1,0 +1,9 @@
+{
+ "fn": "state_check_feature",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12eef8",
+ "seg": 43,
+ "key": "state_check_feature__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"debug_printf_if_feature\", \"confidence\": \"medium\", \"docstring\": \"Conditionally forwards a printf-style trace to debug_printf when the supplied feature/state bit matches the global debug mask, otherwise returns the input value unchanged.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"a1\": \"feature\", \"fmt\": \"format\", \"varg_r2\": \"varargs\"}}"
+}

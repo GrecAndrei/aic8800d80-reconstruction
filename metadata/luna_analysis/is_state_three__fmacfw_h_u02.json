@@ -1,0 +1,9 @@
+{
+ "fn": "is_state_three",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12ae28",
+ "seg": 38,
+ "key": "is_state_three__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"advance_scan_channel\",\"confidence\":\"medium\",\"docstring\":\"Advances the scan-channel index and either continues processing entries or applies the selected channel and preprocesses the next command when the limit is reached or a forced transition is pending.\",\"subsystem\":\"mm\",\"var_renames\":{\"v0\":\"task_state\",\"v1\":\"scan_context\",\"v3\":\"channel_limit\",\"v4\":\"channel_index\",\"v5\":\"channel_value\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Channel value applied through the RF or MAC path.\"},{\"offset\":10,\"meaning\":\"Scan-channel index incremented on each invocation.\"},{\"offset\":11,\"meaning\":\"Flag that forces the channel-transition path and is cleared after use.\"},{\"offset\":367,\"meaning\":\"Channel limit compared with the incremented scan-channel index.\"}]}"
+}

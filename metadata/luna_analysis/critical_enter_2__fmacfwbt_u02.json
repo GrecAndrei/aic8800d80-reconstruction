@@ -1,0 +1,9 @@
+{
+ "fn": "critical_enter_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x110198",
+ "seg": 3,
+ "key": "critical_enter_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"critical_queue_pop_front\",\"confidence\":\"medium\",\"docstring\":\"Atomically removes and returns the first entry from a shared list, decrementing its queued-entry count when an entry is present.\",\"subsystem\":\"gpio\",\"var_renames\":{\"v0\":\"critical_depth_ptr\",\"v1\":\"pending_list\",\"result\":\"popped_entry\",\"v3\":\"new_critical_depth\",\"v4\":\"restore_interrupts\"}}"
+}

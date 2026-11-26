@@ -1,0 +1,9 @@
+{
+ "fn": "cmp_before",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11ab00",
+ "seg": 14,
+ "key": "cmp_before__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"u32_before\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Compares the volatile 32-bit counters at offset 12 of two objects and returns 1 when the first precedes the second under a wrap-safe signed-difference test.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"left\",\n    \"a2\": \"right\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 12,\n      \"meaning\": \"volatile 32-bit counter/timestamp\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_buffer",
+ "img": "fmacfw_u02",
+ "addr": "0x136668",
+ "seg": 56,
+ "key": "bt_get_buffer__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_get_buffer\",\"confidence\":\"medium\",\"docstring\":\"Conditionally clears a hardware register bit, zeroes an 8-byte shared buffer, and returns that buffer.\",\"subsystem\":\"bt\"}"
+}

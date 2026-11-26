@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_freq_from_channel",
+ "img": "fmacfwbt_u02",
+ "addr": "0x138db8",
+ "seg": 59,
+ "key": "rf_cal_freq_from_channel__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cal_apply_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Apply per-channel RF calibration settings by updating the RF context control word, reconfiguring RX packet setup, and returning the TX power calibration result for the selected channel.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_ctx\",\n    \"a2\": \"channel\",\n    \"v2\": \"rf_cal_data\",\n    \"v4\": \"channel_flags\",\n    \"v5\": \"rf_ctrl_base\",\n    \"v6\": \"rf_ctrl_new\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 96,\n      \"meaning\": \"RF context control word; bit 0x40 is an odd-channel flag and bit 0x80 is a band/valid-channel flag\"\n    }\n  ]\n}"
+}

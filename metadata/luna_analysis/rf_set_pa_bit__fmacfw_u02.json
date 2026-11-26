@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_pa_bit",
+ "img": "fmacfw_u02",
+ "addr": "0x101a20",
+ "seg": 0,
+ "key": "rf_set_pa_bit__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_pa_enable\",\"confidence\":\"medium\",\"docstring\":\"Sets bit 3 of the RF control register from the low bit of the argument and returns the updated register value.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"enabled\",\"result\":\"register_value\"}}"
+}

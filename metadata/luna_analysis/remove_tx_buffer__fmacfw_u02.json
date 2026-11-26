@@ -1,0 +1,9 @@
+{
+ "fn": "remove_tx_buffer",
+ "img": "fmacfw_u02",
+ "addr": "0x11c490",
+ "seg": 18,
+ "key": "remove_tx_buffer__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_tx_buffer_update\",\"confidence\":\"medium\",\"docstring\":\"Writes four packed TX-buffer entries to a hardware register bank, merges optional per-entry bits, and triggers the update.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"register_base\",\"v2\":\"entry_mask\",\"v3\":\"optional_entry_data\",\"v5\":\"register_slot\",\"v6\":\"entry_data_cursor\",\"v7\":\"packed_entry\",\"v8\":\"encoded_entry\",\"result\":\"input_cursor\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Pointer to optional per-entry supplemental data\"},{\"offset\":40,\"meaning\":\"Packed entry register, repeated with a 28-byte slot stride\"},{\"offset\":44,\"meaning\":\"Auxiliary entry byte register, repeated with a 28-byte slot stride\"},{\"offset\":160,\"meaning\":\"Update trigger written after all entries are programmed\"}]}"
+}

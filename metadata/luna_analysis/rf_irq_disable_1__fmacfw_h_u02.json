@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_disable_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x121774",
+ "seg": 23,
+ "key": "rf_irq_disable_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_irq_disable\",\"confidence\":\"high\",\"docstring\":\"Disables RF interrupt sources by clearing their enable bits and updating the associated interrupt-control registers.\",\"subsystem\":\"rf\"}"
+}

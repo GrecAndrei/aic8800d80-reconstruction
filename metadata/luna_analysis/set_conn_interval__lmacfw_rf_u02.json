@@ -1,0 +1,9 @@
+{
+ "fn": "set_conn_interval",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124f60",
+ "seg": 23,
+ "key": "set_conn_interval__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"set_conn_interval\", \"confidence\": \"high\", \"docstring\": \"BLE command handler that parses a decimal connection-interval value and writes it into the corresponding hardware bit-field, emitting usage/error traces when applicable.\", \"subsystem\": \"bt\", \"var_renames\": {\"a1\": \"argc\", \"a2\": \"argv\", \"v2\": \"conn_interval\"}, \"struct_hints\": []}"
+}

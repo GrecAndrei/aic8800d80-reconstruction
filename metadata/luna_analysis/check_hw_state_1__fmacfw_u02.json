@@ -1,0 +1,9 @@
+{
+ "fn": "check_hw_state_1",
+ "img": "fmacfw_u02",
+ "addr": "0x1270b4",
+ "seg": 32,
+ "key": "check_hw_state_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ctrl_check_hw_state\",\"confidence\":\"medium\",\"docstring\":\"Reads a value through the RF MMIO interface and checks control flags only when that value is zero.\",\"subsystem\":\"ctrl\"}"
+}

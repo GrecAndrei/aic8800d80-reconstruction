@@ -1,0 +1,9 @@
+{
+ "fn": "tx_schedule",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b740",
+ "seg": 16,
+ "key": "tx_schedule__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_schedule\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans the transmit scheduling context list for packet descriptors, validates rate lookup conditions, updates the scheduler count and rate-refresh flag, and writes baseband control for pending transmit work.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"tx_sched_ctx\",\n    \"v1\": \"current_packet\",\n    \"v2\": \"sched_count\",\n    \"v3\": \"list_entry\",\n    \"v6\": \"rate_update_flag\",\n    \"v8\": \"entry_rate_index\",\n    \"v9\": \"saved_packet_state\",\n    \"v10\": \"old_sched_count\",\n    \"v11\": \"pending_packet\",\n    \"v12\": \"sched_delta\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 40,\n      \"meaning\": \"tx_sched_ctx: current packet or descriptor pointer\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"tx_sched_ctx: next/pending packet pointer\"\n    },\n    {\n      \"offset\": 89,\n      \"meaning\": \"tx_sched_ctx: scheduling counter or pending count byte\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"tx_sched_ctx: control word with bit 2 set to mark scheduling activity\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"list_entry: next pointer in singly linked list\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"list_entry: associated packet pointer\"\n    },\n    {\n      \"offset\": 96,\n      \"meaning\": \"list_entry: ready/enabled byte for scheduling\"\n    },\n    {\n      \"offset\": 102,\n      \"meaning\": \"list_entry: rate index byte, with 0xff treated as invalid\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"packet: scheduling or rate-control state byte\"\n    }\n  ]\n}"
+}

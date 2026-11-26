@@ -1,0 +1,9 @@
+{
+ "fn": "bsscfg_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12847c",
+ "seg": 34,
+ "key": "bsscfg_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"chan_ctxt_unlink\",\"confidence\":\"high\",\"docstring\":\"Detaches a BSS configuration from its channel context and updates the associated link and reference counts.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"bsscfg_index\",\"v2\":\"bsscfg_table_base\",\"v3\":\"bsscfg_offset\",\"v4\":\"channel_context\",\"v6\":\"bsscfg\",\"v12\":\"channel_context_refcount\"},\"struct_hints\":[{\"offset\":25,\"meaning\":\"Channel-context reference or attachment count, decremented during unlink.\"},{\"offset\":27,\"meaning\":\"Channel-context cached identifier, compared with the BSSCFG identifier and invalidated to 0xFF.\"},{\"offset\":72,\"meaning\":\"BSSCFG pointer to its channel context.\"},{\"offset\":85,\"meaning\":\"BSSCFG channel-link flags.\"},{\"offset\":107,\"meaning\":\"BSSCFG identifier compared with the channel context's cached identifier.\"}]}"
+}

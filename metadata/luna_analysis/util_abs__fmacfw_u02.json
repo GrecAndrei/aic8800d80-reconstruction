@@ -1,0 +1,9 @@
+{
+ "fn": "util_abs",
+ "img": "fmacfw_u02",
+ "addr": "0x12bcc0",
+ "seg": 39,
+ "key": "util_abs__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"counter_adjust\",\"confidence\":\"medium\",\"docstring\":\"Applies the negated signed delta to a shared counter when the result stays within guarded bounds, then sets bit 24 in its control word.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"delta_magnitude\",\"v4\":\"control_word\",\"v6\":\"counter_value\",\"v7\":\"updated_control_word\",\"v10\":\"adjusted_counter_value\"}}"
+}

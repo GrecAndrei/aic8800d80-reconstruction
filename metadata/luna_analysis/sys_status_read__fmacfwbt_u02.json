@@ -1,0 +1,9 @@
+{
+ "fn": "sys_status_read",
+ "img": "fmacfwbt_u02",
+ "addr": "0x101800",
+ "seg": 0,
+ "key": "sys_status_read__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sys_status_read\",\"confidence\":\"medium\",\"docstring\":\"Reads two fixed volatile 32-bit locations into caller-provided output words and returns the first output pointer.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"first_value_out\",\"a2\":\"second_value_out\",\"v2\":\"second_register\"}}"
+}

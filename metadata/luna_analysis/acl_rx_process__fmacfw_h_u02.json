@@ -1,0 +1,9 @@
+{
+ "fn": "acl_rx_process",
+ "img": "fmacfw_h_u02",
+ "addr": "0x134f90",
+ "seg": 52,
+ "key": "acl_rx_process__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"acl_tx_confirm_handler\",\"confidence\":\"medium\",\"docstring\":\"Filters an ACL transmit confirmation by HCI state and status, invoking the security check for eligible confirmations and marking the input object's state byte.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"tx_cfm_flags\",\"v2\":\"tx_context\",\"v7\":\"tx_status\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Input object's pointer to a nested transmit context.\"},{\"offset\":98,\"meaning\":\"Input object's byte set to 1 after the security check.\"},{\"offset\":108,\"meaning\":\"Nested transmit context's 16-bit status field used to classify the confirmation.\"}]}"
+}

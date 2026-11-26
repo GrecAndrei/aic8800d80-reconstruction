@@ -1,0 +1,9 @@
+{
+ "fn": "mac_wait_scan",
+ "img": "fmacfw_u02",
+ "addr": "0x11d9a4",
+ "seg": 20,
+ "key": "mac_wait_scan__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_wait_scan\",\"confidence\":\"medium\",\"docstring\":\"Waits for the MAC scan event, processes ready queued callbacks while tracking IRQ-protected activity, and handles deferred host-buffer recovery.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"queue_head_ptr\",\"v1\":\"current_entry\",\"v3\":\"pending_count_ptr\",\"v4\":\"irq_restore_pending_ptr\",\"v5\":\"active_callback_count_ptr\",\"v6\":\"entry_flags\",\"v7\":\"completion_callback\",\"v10\":\"recovery_state\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next entry in the queue\"},{\"offset\":4,\"meaning\":\"Completion callback function pointer\"},{\"offset\":8,\"meaning\":\"Argument passed to the completion callback\"},{\"offset\":12,\"meaning\":\"Value passed to radio_get_status when nonzero\"},{\"offset\":16,\"meaning\":\"Entry flags; bit 0 controls readiness and pending-count handling\"}]}"
+}

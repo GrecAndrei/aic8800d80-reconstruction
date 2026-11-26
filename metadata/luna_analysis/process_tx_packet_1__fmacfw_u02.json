@@ -1,0 +1,9 @@
+{
+ "fn": "process_tx_packet_1",
+ "img": "fmacfw_u02",
+ "addr": "0x11c5d8",
+ "seg": 19,
+ "key": "process_tx_packet_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_event_handle\",\"confidence\":\"medium\",\"docstring\":\"Handles a radio TX completion by polling status, updating retry and PHY bookkeeping, and dispatching or freeing the packet buffer.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"tx_status_block\",\"v4\":\"tx_control_words\",\"v7\":\"tx_flags\",\"v8\":\"status_poll_budget\",\"v9\":\"tx_status_sample\",\"v10\":\"final_tx_status\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Nonzero field selects the IPC completion path rather than freeing the buffer.\"},{\"offset\":68,\"meaning\":\"Pointer to the active TX status block; cleared after processing.\"},{\"offset\":76,\"meaning\":\"Pointer to TX control words whose flag is updated during completion.\"}]}"
+}

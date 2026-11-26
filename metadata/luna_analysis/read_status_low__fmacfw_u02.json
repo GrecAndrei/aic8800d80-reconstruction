@@ -1,0 +1,9 @@
+{
+ "fn": "read_status_low",
+ "img": "fmacfw_u02",
+ "addr": "0x108238",
+ "seg": 2,
+ "key": "read_status_low__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_loft_q_calibration\",\"confidence\":\"high\",\"docstring\":\"Reads the LOFT-Q calibration value, adds it to the RF register\u2019s low 12 bits, and sets the calibration update bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"loft_q_register_value\",\"v2\":\"loft_q_calibration_value\"},\"struct_hints\":[]}"
+}

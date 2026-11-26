@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_profile_ctx",
+ "img": "fmacfw_u02",
+ "addr": "0x134bd0",
+ "seg": 52,
+ "key": "bt_get_profile_ctx__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_send_conn_profile\",\"confidence\":\"medium\",\"docstring\":\"Queues parameters from the selected Bluetooth connection profile, including optional transmit-channel information, to the relevant tasks.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"profile_table_base\",\"v1\":\"active_conn_ctx\",\"v2\":\"profile_start_msg\",\"v3\":\"profile_field_msg\",\"v5\":\"profile_status_msg\",\"v7\":\"profile_end_msg\",\"v13\":\"profile_entry\",\"v14\":\"profile_param_index\",\"v16\":\"profile_param_values\",\"v23\":\"tx_channel_msg\",\"v24\":\"conn_idx\"},\"struct_hints\":[{\"offset\":248,\"meaning\":\"Context passed to rf_get_tx_chan when the transmit-channel flag is set.\"},{\"offset\":368,\"meaning\":\"32-bit profile value copied into message 24.\"},{\"offset\":372,\"meaning\":\"16-bit profile value copied into message 24.\"},{\"offset\":412,\"meaning\":\"Byte flag controlling whether the message 22 result updates global state.\"},{\"offset\":422,\"meaning\":\"16-bit profile value copied into message 20.\"},{\"offset\":424,\"meaning\":\"Input block passed to bt_process_msg.\"},{\"offset\":440,\"meaning\":\"Start of four consecutive 32-bit values sent as profile parameter messages.\"},{\"offset\":472,\"meaning\":\"Flags field; bit 3 enables sending transmit-channel information.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_configure_whitening",
+ "img": "fmacfwbt_u02",
+ "addr": "0x107734",
+ "seg": 2,
+ "key": "rf_configure_whitening__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_configure_frequency\",\"confidence\":\"medium\",\"docstring\":\"Programs packed RF tuning fields around a frequency update, triggers the hardware operation, and schedules an event using the resulting status value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"rf_tuning_reg\",\"v8\":\"packed_tuning_config\",\"v10\":\"rf_status_reg\",\"v11\":\"rf_status\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Packed RF tuning configuration; its low 12 bits and selected upper-word bits are merged into a hardware register.\"}]}"
+}

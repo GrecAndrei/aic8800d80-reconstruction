@@ -1,0 +1,9 @@
+{
+ "fn": "check_event_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x1157d8",
+ "seg": 6,
+ "key": "check_event_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_reset_event\",\"confidence\":\"high\",\"docstring\":\"Handles a firmware reset event by reinitializing radio-related state, applying any pending PHY update, and releasing the reset critical section.\",\"subsystem\":\"ke\",\"var_renames\":{\"v2\":\"reset_refcount\",\"v8\":\"phy_update_state\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Upper limit for the PHY setting applied during an update.\"},{\"offset\":5,\"meaning\":\"Base PHY setting used to calculate the update value.\"},{\"offset\":6,\"meaning\":\"Pending PHY update flag, cleared after processing.\"},{\"offset\":7,\"meaning\":\"Current PHY setting, updated when the pending update is applied.\"}]}"
+}

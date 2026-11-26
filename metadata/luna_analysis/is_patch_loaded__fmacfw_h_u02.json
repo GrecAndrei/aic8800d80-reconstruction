@@ -1,0 +1,9 @@
+{
+ "fn": "is_patch_loaded",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114de8",
+ "seg": 6,
+ "key": "is_patch_loaded__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"firmware_startup\",\"confidence\":\"high\",\"docstring\":\"Clears and copies firmware memory sections, configures startup state, loads the AES key, checks the patch signature, initializes MAC state, and then enters an infinite loop.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"zero_fill_ptr\",\"v1\":\"zero_fill_end\",\"v2\":\"initialized_data_start\",\"v3\":\"initialized_data_source\",\"v4\":\"initialized_data_source_end\",\"v5\":\"initialized_data_dest\",\"v6\":\"copied_word\",\"v7\":\"platform_state_base\",\"i\":\"byte_index\",\"v11\":\"boot_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"16-bit platform signature checked against 0xC241\"},{\"offset\":8,\"meaning\":\"stores the initialized-data destination address\"},{\"offset\":136,\"meaning\":\"control field with 0x00F00000 bits enabled\"}]}"
+}

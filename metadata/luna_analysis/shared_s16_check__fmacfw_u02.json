@@ -1,0 +1,9 @@
+{
+ "fn": "shared_s16_check",
+ "img": "fmacfw_u02",
+ "addr": "0x121c08",
+ "seg": 23,
+ "key": "shared_s16_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_shared_s16_check\",\"confidence\":\"medium\",\"docstring\":\"Checks a shared signed-16 control value, conditionally invokes a helper under a nested IRQ-protected section, and returns a status value.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v1\":\"critical_section_depth_ptr\",\"v2\":\"depth_after_decrement\",\"v3\":\"restore_interrupts\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "printf_wrapper",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10da7c",
+ "seg": 3,
+ "key": "printf_wrapper__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"printf\",\"confidence\":\"high\",\"docstring\":\"Forwards variadic arguments to the debug output formatter.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"varg_r1\":\"args\"}}"
+}

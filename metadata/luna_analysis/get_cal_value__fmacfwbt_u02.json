@@ -1,0 +1,9 @@
+{
+ "fn": "get_cal_value",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c990",
+ "seg": 19,
+ "key": "get_cal_value__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_tx_calibration\",\"confidence\":\"medium\",\"docstring\":\"Loads a per-packet RF calibration value from a 1320-byte calibration table and patches it into the TX packet descriptor via check_packet_bits when the value is not the 1023 sentinel and the calibration state is not 2.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"cal_value\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"calibration selection index/channel byte used for table lookup\"},{\"offset\":68,\"meaning\":\"pointer to TX packet/descriptor whose calibration bits are updated\"}]}"
+}

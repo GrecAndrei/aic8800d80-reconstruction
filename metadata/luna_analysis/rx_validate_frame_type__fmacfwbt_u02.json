@@ -1,0 +1,9 @@
+{
+ "fn": "rx_validate_frame_type",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13ac0c",
+ "seg": 60,
+ "key": "rx_validate_frame_type__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_configure_channel_table\", \"confidence\": \"medium\", \"docstring\": \"Prepares an RF channel-table descriptor from a 16-bit context field and applies it through rf_set_channel_table and rf_configure_channel.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"rf_ctx\", \"a2\": \"table_desc\", \"v2\": \"raw_le_field\", \"v4\": \"applied_desc\"}, \"struct_hints\": [{\"offset\": 24, \"meaning\": \"byte-swapped 16-bit field tested against 0x600 and copied into the channel-table descriptor header\"}]}"
+}

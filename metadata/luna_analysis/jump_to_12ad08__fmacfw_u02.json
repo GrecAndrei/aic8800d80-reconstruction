@@ -1,0 +1,9 @@
+{
+ "fn": "jump_to_12ad08",
+ "img": "fmacfw_u02",
+ "addr": "0x12133c",
+ "seg": 22,
+ "key": "jump_to_12ad08__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"context_byte_get\",\"confidence\":\"low\",\"docstring\":\"Returns the byte value obtained by forwarding the supplied context to `ctx_byte_get`.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"context\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "event_cb_register",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x115ff0",
+ "seg": 8,
+ "key": "event_cb_register__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_commit_config_32\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Commits a 32-bit RF/MMIO configuration value by writing it through the indirect register pointer stored at offset 0x20 of a configuration context, checks the associated indexed state entry, and marks the configuration busy.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"cfg_ctx\",\n    \"a2\": \"cfg_value\",\n    \"a3\": \"cfg_idx\",\n    \"v3\": \"state_table_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"pointer to volatile 32-bit configuration/register target\"\n    }\n  ]\n}"
+}

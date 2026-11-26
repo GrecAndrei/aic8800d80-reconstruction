@@ -1,0 +1,9 @@
+{
+ "fn": "rx_get_length",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13e090",
+ "seg": 61,
+ "key": "rx_get_length__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_sort_entries_by_key\",\"confidence\":\"high\",\"docstring\":\"Bubble-sorts 12-byte RX entries and their parallel 32-bit keys in ascending order, using each entry\u2019s byte-9 marker to break ties when adjacent keys are zero.\",\"subsystem\":\"rx\",\"var_renames\":{\"result\":\"entry_list\",\"a2\":\"key_array\",\"v2\":\"sort_limit\",\"v4\":\"entries\",\"v5\":\"scan_index\",\"v7\":\"key_cursor\",\"v8\":\"entry_cursor\",\"v9\":\"last_swap_index\",\"v13\":\"entry_temp\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Start of the 12-byte entry array\"},{\"offset\":9,\"meaning\":\"Per-entry marker used to order adjacent entries when both keys are zero\"},{\"offset\":184,\"meaning\":\"16-bit entry count\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "process_rx_packet",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1224bc",
+ "seg": 24,
+ "key": "process_rx_packet__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_rx_beacon\",\"confidence\":\"high\",\"docstring\":\"Processes a received 802.11 beacon by checking its advertised channel, hashing information elements while excluding the TIM element, and forwarding it for further handling.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"rx_descriptor\",\"a2\":\"vif_state\",\"a4\":\"tim_ie_ptr_out\",\"v5\":\"packet_len\",\"v6\":\"frame_data\",\"v9\":\"channel_ie\",\"v10\":\"advertised_channel\",\"v14\":\"frame_crc\",\"v16\":\"ie_cursor\",\"v18\":\"remaining_ie_len\",\"v19\":\"ie_len\",\"v23\":\"rssi\",\"v25\":\"previous_crc\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"RX descriptor packet length in bytes\"},{\"offset\":45,\"meaning\":\"RX descriptor RSSI used for RF compensation\"},{\"offset\":116,\"meaning\":\"VIF current channel index passed to PHY channel validation\"},{\"offset\":124,\"meaning\":\"VIF cached CRC32 fingerprint of beacon content\"},{\"offset\":414,\"meaning\":\"VIF configured channel frequency in MHz\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_path_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136b28",
+ "seg": 57,
+ "key": "rf_path_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_path_switch_configure\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates the RF path switch for a wireless context by clearing its TX-power entry, selecting an active low-band peer interface from the context list, programming the RF register, and issuing coexistence/HCI completion messages.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"vif_ctx\",\n    \"v5\": \"iter_ctx\",\n    \"v6\": \"other_ctx_freq\",\n    \"v12\": \"active_flag_msg\",\n    \"v7\": \"coex_msg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"intrusive next-pointer used while walking the active context list\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"interface/path/channel identifier (u8), used to index TX-power state and switch messages\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"context active/connected flag (u8)\"\n    },\n    {\n      \"offset\": 416,\n      \"meaning\": \"frequency/channel value (u16), compared against 0x1387 for low-band selection\"\n    },\n    {\n      \"offset\": 413,\n      \"meaning\": \"RF path/register selector byte (u8) placed into the switch register value\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"coexistence/feature enable or context descriptor (u32) that triggers an additional HCI/coex message\"\n    }\n  ]\n}"
+}

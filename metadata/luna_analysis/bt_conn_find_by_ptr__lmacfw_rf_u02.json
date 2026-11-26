@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_find_by_ptr",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c324",
+ "seg": 17,
+ "key": "bt_conn_find_by_ptr__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_link_rf_status_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates a Bluetooth link context's cached RF/status byte by matching the link in the link table, clamping unknown 0x7f values to 15, and returns a formatted status when the link is the active entry.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"link_ctx\",\n    \"v1\": \"link_idx\",\n    \"v2\": \"link_entry_ptr\",\n    \"v3\": \"entry_link_ptr\",\n    \"v4\": \"rf_status\",\n    \"v5\": \"active_link_array\",\n    \"v6\": \"active_link_array\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 25,\n      \"meaning\": \"Bluetooth link valid/connection flag\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"Cached RF/status byte in the link context\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"Pointer to associated Bluetooth link context in the table entry\"\n    },\n    {\n      \"offset\": 97,\n      \"meaning\": \"RF status/RSSI quality byte (0x7f means unknown/invalid)\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"Active Bluetooth link pointer in the global link table\"\n    }\n  ]\n}"
+}

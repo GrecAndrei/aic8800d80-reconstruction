@@ -1,0 +1,9 @@
+{
+ "fn": "apply_patch_table",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114fec",
+ "seg": 6,
+ "key": "apply_patch_table__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dump_fault_context\",\"confidence\":\"high\",\"docstring\":\"Prints the saved Cortex-M register context and SCB fault status, then dumps 256 bytes of the captured stack.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"saved_context\",\"v1\":\"saved_context_word_ptr\",\"i\":\"register_index\",\"v4\":\"register_value\",\"v5\":\"scb_registers\",\"v6\":\"cfsr\",\"v7\":\"exception_return\",\"v10\":\"stack_pointer\",\"v15\":\"dump_address\",\"v16\":\"dump_end\",\"v17\":\"stack_word\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Saved R0-R12 register words occupy offsets 0x00-0x30.\"},{\"offset\":0,\"meaning\":\"SCB CPUID register.\"},{\"offset\":4,\"meaning\":\"SCB ICSR register.\"},{\"offset\":8,\"meaning\":\"SCB VTOR register.\"},{\"offset\":12,\"meaning\":\"SCB AIRCR register.\"},{\"offset\":36,\"meaning\":\"SCB SHCSR register.\"},{\"offset\":40,\"meaning\":\"SCB CFSR register.\"},{\"offset\":44,\"meaning\":\"SCB HFSR register.\"},{\"offset\":48,\"meaning\":\"SCB DFSR register.\"},{\"offset\":52,\"meaning\":\"SCB MMFAR register.\"},{\"offset\":56,\"meaning\":\"SCB BFAR register.\"},{\"offset\":60,\"meaning\":\"SCB AFSR register.\"}]}"
+}

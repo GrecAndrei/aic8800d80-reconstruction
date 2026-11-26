@@ -1,0 +1,9 @@
+{
+ "fn": "make_bit_mask",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10dc04",
+ "seg": 3,
+ "key": "make_bit_mask__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_configure_bit\",\"confidence\":\"medium\",\"docstring\":\"Configures RF control masks for a bit index, stores its associated value, and initializes the shared RF interface if it is not already initialized.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"bit_index\",\"a2\":\"mode\",\"a3\":\"config_value\",\"v3\":\"bit_mask\",\"v5\":\"rf_control_regs\",\"v8\":\"rf_interface_state\",\"v9\":\"interface_initialized\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Bitmap with the indexed bit set for indices up to 7.\"},{\"offset\":8,\"meaning\":\"Bitmap with the indexed bit cleared.\"},{\"offset\":12,\"meaning\":\"Bitmap with the indexed bit cleared.\"},{\"offset\":16,\"meaning\":\"Mode bitmap; the indexed bit is set when mode equals 2.\"},{\"offset\":20,\"meaning\":\"Mode bitmap; the indexed bit is set for mode 0 and cleared for nonzero modes.\"},{\"offset\":24,\"meaning\":\"Bitmap with the indexed bit set.\"},{\"offset\":36,\"meaning\":\"Overwritten with the indexed bit mask.\"},{\"offset\":40,\"meaning\":\"Bitmap with the indexed bit set.\"},{\"offset\":44,\"meaning\":\"Packed control field updated by ORing a shifted value.\"}]}"
+}

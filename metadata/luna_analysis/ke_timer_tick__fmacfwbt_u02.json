@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_tick",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11a710",
+ "seg": 14,
+ "key": "ke_timer_tick__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"llc_timer_tick\", \"confidence\": \"medium\", \"docstring\": \"Decrement a per-LLC timeout byte and, when it reaches zero, invoke abort-flag checking for the LLC context.\", \"subsystem\": \"ble\", \"var_renames\": {\"result\": \"llc_ctx\", \"v1\": \"timeout_left\"}, \"struct_hints\": [{\"offset\": 14, \"meaning\": \"timeout/remaining countdown byte\"}, {\"offset\": 340, \"meaning\": \"flag or pointer used by check_abort_flag when the timeout expires\"}]}"
+}

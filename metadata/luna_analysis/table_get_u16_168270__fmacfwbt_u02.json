@@ -1,0 +1,9 @@
+{
+ "fn": "table_get_u16_168270",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11b5dc",
+ "seg": 16,
+ "key": "table_get_u16_168270__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"table_get_u16\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads and returns a volatile 16-bit entry at the given index from a global table accessed through dword_11B5E4.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"index\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "phy_calibrate",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10b288",
+ "seg": 2,
+ "key": "phy_calibrate__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Runs a PHY/RF calibration procedure using hardware registers and floating-point measurement calculations.\",\"subsystem\":\"phy\"}"
+}

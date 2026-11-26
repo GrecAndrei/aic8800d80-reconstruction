@@ -1,0 +1,9 @@
+{
+ "fn": "handle_ipc_request",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11f594",
+ "seg": 21,
+ "key": "handle_ipc_request__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"dbg_hex_dump\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dump a memory or MMIO region as aligned hexadecimal values with a selectable word size and optional printable-ASCII trailer.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"addr\",\n    \"a2\": \"count\",\n    \"a3\": \"word_size\",\n    \"a4\": \"ascii_flag\",\n    \"v4\": \"word_size\",\n    \"v5\": \"aligned_addr\",\n    \"v6\": \"line_bytes\",\n    \"v7\": \"read_ptr\",\n    \"v8\": \"byte_offset\",\n    \"v9\": \"value\",\n    \"v10\": \"fmt\",\n    \"v18\": \"line_word_idx\",\n    \"v19\": \"word_value\",\n    \"v20\": \"total_bytes\",\n    \"v12\": \"pad_str\",\n    \"v14\": \"pad_remaining\",\n    \"v22\": \"saved_word_size\"\n  },\n  \"struct_hints\": []\n}"
+}

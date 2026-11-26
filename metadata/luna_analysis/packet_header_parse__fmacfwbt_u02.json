@@ -1,0 +1,9 @@
+{
+ "fn": "packet_header_parse",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12fd64",
+ "seg": 43,
+ "key": "packet_header_parse__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"packet_write_registers\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses size, address, value, and optional repeat fields from a packet and applies the resulting register writes.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"arg_count\",\n    \"a2\": \"fields\",\n    \"v4\": \"write_width\",\n    \"v5\": \"reg_addr\",\n    \"v6\": \"reg_value\",\n    \"v7\": \"remaining_writes\",\n    \"v10\": \"write_count\",\n    \"v8\": \"aligned_addr\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 0, \"meaning\": \"field/token providing the width or extension indicator\"},\n    {\"offset\": 4, \"meaning\": \"token pointer containing the address\"},\n    {\"offset\": 8, \"meaning\": \"token pointer containing the value\"},\n    {\"offset\": 12, \"meaning\": \"optional token pointer containing the repeat count\"}\n  ]\n}"
+}

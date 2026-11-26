@@ -1,0 +1,9 @@
+{
+ "fn": "get_reset_reason",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102de0",
+ "seg": 2,
+ "key": "get_reset_reason__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"get_reset_reason\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns whether a reset condition is indicated by bit 27 of a status word, with bit 10 of a secondary status word used as a qualification when that primary bit is set.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"result\": \"reset_status\"\n  },\n  \"struct_hints\": []\n}"
+}

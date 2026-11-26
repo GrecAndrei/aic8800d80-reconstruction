@@ -1,0 +1,9 @@
+{
+ "fn": "double_compare_ord",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142d2a",
+ "seg": 68,
+ "key": "double_compare_ord__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_compare_ordered\",\"confidence\":\"low\",\"docstring\":\"Determines whether a double-precision comparison is ordered, meaning neither operand is NaN.\",\"subsystem\":\"libmisc\"}"
+}

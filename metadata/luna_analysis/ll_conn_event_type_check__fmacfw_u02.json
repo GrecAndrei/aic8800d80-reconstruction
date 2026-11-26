@@ -1,0 +1,9 @@
+{
+ "fn": "ll_conn_event_type_check",
+ "img": "fmacfw_u02",
+ "addr": "0x13ab70",
+ "seg": 59,
+ "key": "ll_conn_event_type_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_conn_event_channel_configure\",\"confidence\":\"medium\",\"docstring\":\"Builds an event descriptor when the connection's encoded selector meets the threshold, resolves its channel context, and applies the resulting RF channel configuration.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"conn\",\"a2\":\"event_desc\",\"v2\":\"event_selector\",\"v4\":\"channel_context\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Encoded connection-event selector compared against 0x0600 and copied into the event descriptor.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_12f2c8",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f2c8",
+ "seg": 42,
+ "key": "unknown_12f2c8__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"log_assert_failure\",\"confidence\":\"high\",\"docstring\":\"Emits an ASSERT diagnostic with the failed expression, source file, and line, then performs configured RF and interrupt cleanup.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"failed_expression\",\"a2\":\"source_file\",\"a3\":\"source_line\"}}"
+}

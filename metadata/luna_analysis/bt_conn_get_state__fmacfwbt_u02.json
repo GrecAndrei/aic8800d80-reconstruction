@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_get_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a924",
+ "seg": 38,
+ "key": "bt_conn_get_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_conn_state_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a pending Bluetooth connection state-machine event for a connected link, clears the event flag, advances the state machine, updates pending counters and status flags, and issues the associated command.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"msg_or_ctx\",\n    \"a2\": \"link_type\",\n    \"a3\": \"force_or_condition\",\n    \"v3\": \"conn_idx\",\n    \"v4\": \"conn_table\",\n    \"result\": \"conn_state\",\n    \"v7\": \"link_ctx\",\n    \"v8\": \"link_ctx\",\n    \"v9\": \"conn_ctx\",\n    \"v10\": \"link_state\",\n    \"v11\": \"pending_count\",\n    \"v12\": \"conn_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1225,\n      \"meaning\": \"connection index extracted from the source message/context\"\n    },\n    {\n      \"offset\": 112,\n      \"meaning\": \"BT connection state byte; treated as valid/connected when equal to 1\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"pending state-machine event flag in the per-link 48-byte subcontext\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"secondary per-link state or event condition flag\"\n    },\n    {\n      \"offset\": 121,\n      \"meaning\": \"pending event or command counter\"\n    },\n    {\n      \"offset\": 122,\n      \"meaning\": \"secondary pending counter decremented when the link state is 1\"\n    },\n    {\n      \"offset\": 115,\n      \"meaning\": \"connection condition flag used when selecting the resulting event flag\"\n    },\n    {\n      \"offset\": 113,\n      \"meaning\": \"event or flag index byte passed to set_flag_byte\"\n    }\n  ]\n}"
+}

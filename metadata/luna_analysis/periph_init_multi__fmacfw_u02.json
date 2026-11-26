@@ -1,0 +1,9 @@
+{
+ "fn": "periph_init_multi",
+ "img": "fmacfw_u02",
+ "addr": "0x108280",
+ "seg": 2,
+ "key": "periph_init_multi__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_peripheral_init\",\"confidence\":\"low\",\"docstring\":\"Performs a multi-stage initialization of RF-related hardware using the supplied configuration and peripheral state.\",\"subsystem\":\"rf\"}"
+}

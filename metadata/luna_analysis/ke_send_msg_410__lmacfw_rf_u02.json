@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_msg_410",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1212d0",
+ "seg": 22,
+ "key": "ke_send_msg_410__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_send_boot_npc_msg\",\"confidence\":\"medium\",\"docstring\":\"Sends kernel message 0x410 for boot NPC, writes the supplied 32-bit boot NPC parameter into baseband/control registers and posts an RX event handler.\",\"subsystem\":\"ke\",\"var_renames\":{\"a2\":\"boot_npc_param\",\"v5\":\"msg_ptr\",\"v6\":\"npc_selector\",\"v7\":\"msg_header\",\"v9\":\"npc_reg_base\",\"v10\":\"npc_enable_reg\",\"v11\":\"npc_reg_base\",\"v12\":\"npc_reg_base\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"32-bit boot NPC parameter copied to control register\"},{\"offset\":4,\"meaning\":\"16-bit boot NPC selector (1 or 2)\"}]}"
+}

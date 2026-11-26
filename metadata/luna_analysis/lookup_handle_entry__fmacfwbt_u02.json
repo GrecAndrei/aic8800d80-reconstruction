@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_handle_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13831c",
+ "seg": 58,
+ "key": "lookup_handle_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_handle_table_lookup\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a 64-entry active handle table and returns the entry whose three-uint16 key fields match the supplied key, or 0 if absent.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v1\": \"entry\",\n    \"v2\": \"table_end\",\n    \"a1\": \"key\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"active/used entry flag\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"first uint16 key field\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"second uint16 key field\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"third uint16 key field\"\n    }\n  ]\n}"
+}

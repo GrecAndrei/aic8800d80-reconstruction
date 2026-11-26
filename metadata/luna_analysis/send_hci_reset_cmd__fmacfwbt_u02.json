@@ -1,0 +1,9 @@
+{
+ "fn": "send_hci_reset_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x123164",
+ "seg": 29,
+ "key": "send_hci_reset_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_hci_send_get_mac_evt\", \"confidence\": \"low\", \"docstring\": \"Allocates and sends a six-byte Bluetooth HCI event packet containing an event header and 32-bit payload obtained from ioctl or syscall, with debug text suggesting a Get MAC address path.\", \"subsystem\": \"bt\", \"var_renames\": {\"v4\": \"hci_evt_buf\", \"v5\": \"evt_hdr\", \"v6\": \"evt_payload\", \"_frame.v10\": \"evt_raw\", \"_frame.v8\": \"evt_payload\", \"_frame.a2a\": \"evt_hdr\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"HCI event code byte\"}, {\"offset\": 1, \"meaning\": \"HCI parameter length byte\"}, {\"offset\": 2, \"meaning\": \"HCI parameter byte 0\"}, {\"offset\": 3, \"meaning\": \"HCI parameter byte 1\"}, {\"offset\": 4, \"meaning\": \"HCI parameter byte 2\"}, {\"offset\": 5, \"meaning\": \"HCI parameter byte 3\"}]}"
+}

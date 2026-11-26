@@ -1,0 +1,9 @@
+{
+ "fn": "rf_clear_irq_flag_alt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x107860",
+ "seg": 2,
+ "key": "rf_clear_irq_flag_alt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_irq_clear_strobe\",\"confidence\":\"medium\",\"docstring\":\"Pulses an RF interrupt-clear/strobe control bit, configures related RF control bits, waits for an RF status acknowledgment, and restores the strobe bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"irq_strobe_reg\",\"v1\":\"rf_ctl_reg\",\"v3\":\"rf_status_reg\"}}"
+}

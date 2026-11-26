@@ -1,0 +1,9 @@
+{
+ "fn": "phy_calibrate",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1104fc",
+ "seg": 3,
+ "key": "phy_calibrate__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_replenish_h2d_buffers\",\"confidence\":\"medium\",\"docstring\":\"Allocates and links host-to-device SDIO buffers until the configured queue depth is reached, then signals replenishment work.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v6\":\"buffer_count\",\"v9\":\"allocated_buffer\",\"v11\":\"buffer_descriptor\",\"v21\":\"target_buffer_count\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Tail buffer descriptor pointer in the refill queue.\"},{\"offset\":12,\"meaning\":\"Number of buffers currently queued.\"}]}"
+}

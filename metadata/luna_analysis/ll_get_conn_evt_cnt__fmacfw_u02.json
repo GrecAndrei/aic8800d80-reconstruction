@@ -1,0 +1,9 @@
+{
+ "fn": "ll_get_conn_evt_cnt",
+ "img": "fmacfw_u02",
+ "addr": "0x131148",
+ "seg": 42,
+ "key": "ll_get_conn_evt_cnt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_get_conn_info\",\"confidence\":\"medium\",\"docstring\":\"Validates the connection and copies its access address, interval, latency, supervision timeout, and event counter to the caller's output record.\",\"subsystem\":\"ble\",\"var_renames\":{\"v5\":\"supervision_timeout\",\"v7\":\"conn_interval\",\"v8\":\"conn_latency\",\"v9\":\"access_addr\",\"v10\":\"conn_event_counter\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"Connection access address\"},{\"offset\":6,\"meaning\":\"Connection interval\"},{\"offset\":8,\"meaning\":\"Peripheral latency\"},{\"offset\":10,\"meaning\":\"Supervision timeout\"},{\"offset\":12,\"meaning\":\"Connection event counter\"}]}"
+}

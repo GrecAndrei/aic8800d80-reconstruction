@@ -1,0 +1,9 @@
+{
+ "fn": "apply_patch_block",
+ "img": "fmacfw_u02",
+ "addr": "0x12d70c",
+ "seg": 41,
+ "key": "apply_patch_block__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"fast_sqrt_approx\",\"confidence\":\"high\",\"docstring\":\"Computes a table-seeded, single-iteration Newton approximation of the square root of the input.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"input_value\",\"v25\":\"sqrt_estimate\",\"v27\":\"scale_factors\",\"v28\":\"bit_pattern_biases\"}}"
+}

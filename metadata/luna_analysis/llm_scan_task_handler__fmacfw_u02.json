@@ -1,0 +1,9 @@
+{
+ "fn": "llm_scan_task_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x126474",
+ "seg": 31,
+ "key": "llm_scan_task_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_scan_evt_schedule\",\"confidence\":\"medium\",\"docstring\":\"Selects a scan environment and submits its next BLE scan event, aligning the requested time to the activity's configured scan interval.\",\"subsystem\":\"ble\",\"var_renames\":{\"v6\":\"scan_env\",\"v7\":\"activity_env\",\"v8\":\"half_interval_ticks\",\"v9\":\"interval_ticks\",\"v10\":\"event_timestamp\",\"v12\":\"candidate_scan_time\",\"v13\":\"time_delta\",\"v14\":\"dispatch_delay\",\"v16\":\"scan_activity_table\",\"v17\":\"scan_activity_index\",\"v18\":\"interval_value\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Event anchor timestamp used to derive scan timing\"},{\"offset\":8,\"meaning\":\"Scan activity index selecting the activity environment\"},{\"offset\":10,\"meaning\":\"Activity-index validity sentinel byte\"},{\"offset\":11,\"meaning\":\"Event-kind value passed to the runtime clock helper\"}]}"
+}

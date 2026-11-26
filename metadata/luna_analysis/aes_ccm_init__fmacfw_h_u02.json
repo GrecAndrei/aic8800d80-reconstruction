@@ -1,0 +1,9 @@
+{
+ "fn": "aes_ccm_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11eb78",
+ "seg": 21,
+ "key": "aes_ccm_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"drain_ke_message_queue\",\"confidence\":\"medium\",\"docstring\":\"Drains words from a queue and forwards them to the kernel in batches of up to four while updating interrupt state.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v0\":\"queue_status_reg\",\"v1\":\"queue_data_reg\",\"v2\":\"batch_count\",\"v3\":\"queue_word\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"number of queue words in the batch\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_ring_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123884",
+ "seg": 29,
+ "key": "mmio_ring_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"send_mmio_status_pdu\",\"confidence\":\"medium\",\"docstring\":\"Builds a status PDU from MMIO snapshots and RF state bits, then passes it to the packet processor.\",\"subsystem\":\"mmio\",\"var_renames\":{\"v4\":\"status_pdu\",\"v5\":\"mmio_status_reg\",\"v6\":\"secondary_mmio_reg\",\"v7\":\"status_pdu\",\"v8\":\"rf_ready\",\"v9\":\"status_flags\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Snapshot of the MMIO word addressed by off_123944.\"},{\"offset\":8,\"meaning\":\"Snapshot of the MMIO word addressed by off_12394C.\"},{\"offset\":12,\"meaning\":\"First word populated by read_mmio_pair.\"},{\"offset\":16,\"meaning\":\"Second word populated by read_mmio_pair.\"},{\"offset\":20,\"meaning\":\"Status flags initialized from dword_123950 and augmented from MMIO and RF state.\"},{\"offset\":24,\"meaning\":\"16-bit field initialized to 32.\"},{\"offset\":26,\"meaning\":\"Byte field initialized to 4.\"}]}"
+}

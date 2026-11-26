@@ -1,0 +1,9 @@
+{
+ "fn": "rate_info_query",
+ "img": "fmacfw_h_u02",
+ "addr": "0x131044",
+ "seg": 42,
+ "key": "rate_info_query__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"query_rate_info\",\"confidence\":\"medium\",\"docstring\":\"Looks up a rate-info record, copies its fixed fields to the caller buffer, and copies optional 16-bit fields when their flags are set and the record is long enough.\",\"subsystem\":\"rf\",\"var_renames\":{\"a3\":\"output_buffer\",\"v4\":\"rate_info_record\",\"v5\":\"record_end\",\"v8\":\"record_flags\",\"v11\":\"optional_fields_cursor\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"Flags; bits 3 and 4 select optional 16-bit field pairs.\"},{\"offset\":20,\"meaning\":\"First mandatory little-endian 16-bit rate-info value.\"},{\"offset\":22,\"meaning\":\"Second mandatory little-endian 16-bit rate-info value.\"},{\"offset\":24,\"meaning\":\"Optional little-endian 16-bit pair when flag bit 3 is set; otherwise, the optional pair selected by bit 4 begins here.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_rf_calibrate",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1080d8",
+ "seg": 2,
+ "key": "bt_rf_calibrate__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibrate\",\"confidence\":\"low\",\"docstring\":\"Likely runs an RF calibration sequence, but the truncated excerpt does not reveal its specific stage or behavior.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

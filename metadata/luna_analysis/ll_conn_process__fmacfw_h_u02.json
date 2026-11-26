@@ -1,0 +1,9 @@
+{
+ "fn": "ll_conn_process",
+ "img": "fmacfw_h_u02",
+ "addr": "0x142378",
+ "seg": 67,
+ "key": "ll_conn_process__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_ble_adv_request\",\"confidence\":\"medium\",\"docstring\":\"Processes a received BLE advertising-side request, queues its metadata when the link context and channel are eligible, and submits the associated packet for further processing.\",\"subsystem\":\"bt\",\"var_renames\":{\"v5\":\"link_context_index\",\"v6\":\"link_context\",\"v17\":\"request_type\",\"v20\":\"tx_context\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Link-context index used to select the context\"},{\"offset\":1,\"meaning\":\"Request subtype passed to the IPC queue\"}]}"
+}

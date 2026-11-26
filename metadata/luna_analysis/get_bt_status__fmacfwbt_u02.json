@@ -1,0 +1,9 @@
+{
+ "fn": "get_bt_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b74c",
+ "seg": 40,
+ "key": "get_bt_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_get_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns a cached Bluetooth controller status from the global BT block when status-valid flag bits are present in the input HCI/status buffer, otherwise queries a vendor-command result via bt_check_vendor_cmd.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"hci_buffer\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3,\n      \"meaning\": \"flags byte of hci_buffer/status context; bits 0 and 2 indicate a cached controller status is valid\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"cached Bluetooth controller status field at offset 20 of the global BT control block referenced via off_12B760\"\n    }\n  ]\n}"
+}

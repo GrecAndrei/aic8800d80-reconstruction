@@ -1,0 +1,9 @@
+{
+ "fn": "is_lower_unsigned",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127f3c",
+ "seg": 23,
+ "key": "is_lower_unsigned__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_fcmplt\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Single-precision floating-point less-than helper matching the libgcc __aeabi_fcmplt implementation.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

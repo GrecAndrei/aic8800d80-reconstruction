@@ -1,0 +1,9 @@
+{
+ "fn": "parse_packet_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13afa0",
+ "seg": 59,
+ "key": "parse_packet_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_process_response\",\"confidence\":\"medium\",\"docstring\":\"Processes PHY response records, updates per-channel state, and dispatches the corresponding HCI and RF control actions.\",\"subsystem\":\"phy\",\"var_renames\":{\"a2\":\"response\",\"a3\":\"request_id\",\"v3\":\"response_type\",\"v7\":\"channel_index\",\"v9\":\"packed_measurement\",\"v10\":\"channel_table\",\"v11\":\"channel_entry\",\"v12\":\"channel_entry_offset\",\"v21\":\"register_value\",\"a4a\":\"channel_entry_ptr\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"Minimum observed measurement value for the channel entry.\"},{\"offset\":22,\"meaning\":\"Selector matched against bits 2\u20135 of the packed response measurement.\"},{\"offset\":23,\"meaning\":\"Expected response byte checked for a channel-entry match.\"},{\"offset\":24,\"meaning\":\"Channel-entry control or status byte updated from response state.\"}]}"
+}

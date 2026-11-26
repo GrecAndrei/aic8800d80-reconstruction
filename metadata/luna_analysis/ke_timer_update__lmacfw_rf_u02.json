@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_update",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c92c",
+ "seg": 19,
+ "key": "ke_timer_update__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_channel_update\", \"confidence\": \"medium\", \"docstring\": \"Updates the current RF channel state table entry and dispatches link-layer receive handling when the entry is not marked ready.\", \"subsystem\": \"rf\", \"var_renames\": {\"v0\": \"rf_channel_ctx\", \"v1\": \"chan_index\", \"v2\": \"rf_state\"}, \"struct_hints\": [{\"offset\": 10, \"meaning\": \"current RF channel index in the channel context\"}, {\"offset\": 3, \"meaning\": \"status byte offset within a 6-byte channel entry\"}]}"
+}

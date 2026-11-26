@@ -1,0 +1,9 @@
+{
+ "fn": "poll_hw_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10cef4",
+ "seg": 2,
+ "key": "poll_hw_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_desc_get\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls a status/event flag and pops the next available MAC descriptor from a free/completion list, returning the descriptor address when present.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"status_ptr\",\n    \"result\": \"desc\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 532,\n      \"meaning\": \"MAC descriptor list head/free-list pointer field in controller context\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"descriptor/payload pointer following the popped list node header\"\n    }\n  ]\n}"
+}

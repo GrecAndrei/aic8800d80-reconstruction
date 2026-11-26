@@ -1,0 +1,9 @@
+{
+ "fn": "mem_set_util",
+ "img": "fmacfw_h_u02",
+ "addr": "0x124cf4",
+ "seg": 30,
+ "key": "mem_set_util__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_wlan_ioctl_request\",\"confidence\":\"medium\",\"docstring\":\"Serializes access to a WLAN request queue, removes a matching queued request and updates control state, or forwards a nonmatching request to the WLAN ioctl handler.\",\"subsystem\":\"ipc\",\"var_renames\":{\"a1\":\"request\",\"v1\":\"irq_nesting_depth\",\"v2\":\"request_list\",\"v7\":\"control_state\",\"v8\":\"queued_control_value\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"control/status word updated with queue-state constants\"},{\"offset\":12,\"meaning\":\"queued-entry value copied into the control state\"},{\"offset\":48,\"meaning\":\"control-state field receiving the queued-entry value\"}]}"
+}

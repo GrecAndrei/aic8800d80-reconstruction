@@ -1,0 +1,9 @@
+{
+ "fn": "op_mode_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11e130",
+ "seg": 20,
+ "key": "op_mode_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_packet_batch_add\",\"confidence\":\"medium\",\"docstring\":\"Appends a descriptor to the active transmit batch, tracks its accumulated counters, and submits and clears the batch when the configured threshold is reached.\",\"subsystem\":\"tx\",\"var_renames\":{\"v1\":\"batch_state\",\"v3\":\"batch_progress\",\"v4\":\"batch_total\",\"v5\":\"current_descriptor\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Per-call amount accumulated into the batch total\"},{\"offset\":8,\"meaning\":\"Current descriptor pointer passed to the submit routine\"},{\"offset\":12,\"meaning\":\"Per-call progress accumulated toward the submission threshold\"},{\"offset\":16,\"meaning\":\"Head descriptor or value for the active batch\"},{\"offset\":20,\"meaning\":\"Accumulated batch total\"},{\"offset\":24,\"meaning\":\"Descriptor pointer whose link is set when appending\"},{\"offset\":28,\"meaning\":\"Accumulated progress used for the threshold check\"},{\"offset\":33,\"meaning\":\"Batch-active flag\"}]}"
+}

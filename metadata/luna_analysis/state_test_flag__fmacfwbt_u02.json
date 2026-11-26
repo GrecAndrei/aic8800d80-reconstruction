@@ -1,0 +1,9 @@
+{
+ "fn": "state_test_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ec84",
+ "seg": 43,
+ "key": "state_test_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"state_test_flag\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Check whether a bounded state feature flag bit is set and, when it is, whether the associated state value is at least the supplied threshold.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"flag_idx\",\n    \"a2\": \"min_value\",\n    \"result\": \"flag_set\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"feature flag bitmask accessed via global state pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"associated state value compared against min_value\"\n    }\n  ]\n}"
+}

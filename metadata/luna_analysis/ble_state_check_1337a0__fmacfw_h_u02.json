@@ -1,0 +1,9 @@
+{
+ "fn": "ble_state_check_1337a0",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1337a0",
+ "seg": 46,
+ "key": "ble_state_check_1337a0__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_check_state_and_reset_controller\",\"confidence\":\"medium\",\"docstring\":\"Checks the BLE state and HCI handler result, performs a fallback MMIO/IRQ operation when needed, and then resets the controller.\",\"subsystem\":\"ble\"}"
+}

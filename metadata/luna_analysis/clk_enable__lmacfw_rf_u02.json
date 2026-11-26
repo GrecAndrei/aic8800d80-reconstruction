@@ -1,0 +1,9 @@
+{
+ "fn": "clk_enable",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x106bb4",
+ "seg": 2,
+ "key": "clk_enable__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"clk_enable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Enables a clock path by programming clock-control/PLL registers, applying masked divider or frequency fields with timer-based delays, and returning the primary register base.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v4\": \"init_value\",\n    \"v5\": \"mask_hi\",\n    \"v9\": \"mask_lo\",\n    \"result\": \"reg_base\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "delba_ack",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130de8",
+ "seg": 42,
+ "key": "delba_ack__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"load_ba_agreement_fields\",\"confidence\":\"medium\",\"docstring\":\"Looks up a block-ack agreement and copies its 16-bit and 8-bit fields to the destination, clearing both fields if no entry is found.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"ba_entry\",\"a3\":\"destination\"},\"struct_hints\":[{\"offset\":228,\"meaning\":\"16-bit value copied from agreement entry bytes 2\u20133; cleared if no entry is found\"},{\"offset\":230,\"meaning\":\"8-bit value copied from agreement entry byte 4; cleared if no entry is found\"}]}"
+}

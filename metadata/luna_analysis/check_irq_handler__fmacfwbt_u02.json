@@ -1,0 +1,9 @@
+{
+ "fn": "check_irq_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1272d8",
+ "seg": 33,
+ "key": "check_irq_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_irq_poll\",\"confidence\":\"medium\",\"docstring\":\"Polls the MAC subsystem by invoking command send, handling timer ticks, and checking TX readiness when no timer result is returned.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"mac_cmd_status\",\"result\":\"timer_result\"}}"
+}

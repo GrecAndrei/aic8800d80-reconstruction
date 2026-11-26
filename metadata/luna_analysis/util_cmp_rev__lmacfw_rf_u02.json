@@ -1,0 +1,9 @@
+{
+ "fn": "util_cmp_rev",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x127f10",
+ "seg": 23,
+ "key": "util_cmp_rev__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_cfrcmple\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Reversed single-precision floating-point comparison routine from the ARM AEABI soft-float library.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

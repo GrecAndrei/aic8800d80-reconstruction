@@ -1,0 +1,9 @@
+{
+ "fn": "parse_data_1",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12dec8",
+ "seg": 43,
+ "key": "parse_data_1__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_find_tlv_0x36\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a bounded TLV-style byte buffer for a record with type 0x36 and length 3, returning a pointer to that record if it is fully in bounds, otherwise NULL.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"cursor\",\n    \"v2\": \"end\",\n    \"v3\": \"next\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"TLV record type byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"TLV record payload length byte, excluding this two-byte header\"\n    }\n  ]\n}"
+}

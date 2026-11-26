@@ -1,0 +1,9 @@
+{
+ "fn": "irq47_status_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x101954",
+ "seg": 0,
+ "key": "irq47_status_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sys_mode_get_high\",\"confidence\":\"medium\",\"docstring\":\"Reads the system-mode register's upper nibble and converts its one-based encoding to a zero-based value.\",\"subsystem\":\"hal\"}"
+}

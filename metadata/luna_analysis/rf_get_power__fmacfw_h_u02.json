@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_power",
+ "img": "fmacfw_h_u02",
+ "addr": "0x139db8",
+ "seg": 58,
+ "key": "rf_get_power__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"log_rx_eapol_if_present\",\"confidence\":\"high\",\"docstring\":\"Computes the frame EtherType offset and emits an RX-EAPOL diagnostic when it finds 0x888E.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"frame\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "send_cmd_74",
+ "img": "fmacfw_u02",
+ "addr": "0x122f30",
+ "seg": 28,
+ "key": "send_cmd_74__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_send_device_address\",\"confidence\":\"medium\",\"docstring\":\"Reads the controller\u2019s six-byte device address, logs it, and sends it as a message payload.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"message_payload\",\"v5\":\"address_bytes_0_1\",\"v6\":\"address_bytes_2_5\",\"a3\":\"source_task_id\",\"a4\":\"destination_task_id\"}}"
+}

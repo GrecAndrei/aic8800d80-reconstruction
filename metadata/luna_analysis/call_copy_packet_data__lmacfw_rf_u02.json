@@ -1,0 +1,9 @@
+{
+ "fn": "call_copy_packet_data",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1225c4",
+ "seg": 22,
+ "key": "call_copy_packet_data__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_patch_copy_packet_data_handler\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Dispatches on an RF-patch selector or length value to either report a temperature and rebuild RF parameters or invoke packet-data copy.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"temperature\"\n  },\n  \"struct_hints\": []\n}"
+}

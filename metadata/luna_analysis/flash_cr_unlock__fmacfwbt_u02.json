@@ -1,0 +1,9 @@
+{
+ "fn": "flash_cr_unlock",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1027d8",
+ "seg": 1,
+ "key": "flash_cr_unlock__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"flash_cr_unlock\",\"confidence\":\"medium\",\"docstring\":\"Submits three commands to the flash controller, polls each for completion, then writes a final controller setting.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"flash_cmd_status_reg\",\"v1\":\"flash_cmd_status_reg\",\"v2\":\"flash_cmd_status_reg\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "process_bt_ble_event",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x125bfc",
+ "seg": 23,
+ "key": "process_bt_ble_event__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_command_handler\",\"confidence\":\"medium\",\"docstring\":\"Parses and executes gpioa/gpiob command arguments to configure, read, or drive GPIO port A/B pins.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"argc\",\"a2\":\"argv\",\"v4\":\"port_selector\",\"v5\":\"pin_index\",\"v6\":\"is_output\",\"v7\":\"output_level\",\"v9\":\"pin_state\",\"v10\":\"pin_state\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"fifth character of argv[0] selects GPIO port A ('a') or B\"}]}"
+}

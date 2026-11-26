@@ -1,0 +1,9 @@
+{
+ "fn": "ke_mem_alloc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1110cc",
+ "seg": 3,
+ "key": "ke_mem_alloc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_send_message\",\"confidence\":\"medium\",\"docstring\":\"Allocates a packet, writes a length-and-type header with the payload, and submits it through a transmit descriptor, freeing the packet if descriptor allocation fails.\",\"subsystem\":\"gpio\",\"var_renames\":{\"v6\":\"allocated_packet\",\"v7\":\"message_packet\",\"v8\":\"tx_descriptor\",\"v9\":\"previous_descriptor_flags\",\"v10\":\"descriptor_flag_mask\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Transmit descriptor: pointer to the framed packet.\"},{\"offset\":4,\"meaning\":\"Transmit descriptor: link or auxiliary field cleared before submission.\"},{\"offset\":8,\"meaning\":\"Transmit descriptor: encoded packet length and status flags.\"},{\"offset\":0,\"meaning\":\"Packet header: low byte of the payload length.\"},{\"offset\":1,\"meaning\":\"Packet header: upper length nibble.\"},{\"offset\":2,\"meaning\":\"Packet header: message type.\"},{\"offset\":3,\"meaning\":\"Packet header: reserved byte, cleared to zero.\"}]}"
+}

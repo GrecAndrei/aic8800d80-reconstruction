@@ -1,0 +1,9 @@
+{
+ "fn": "compare_lo",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143460",
+ "seg": 69,
+ "key": "compare_lo__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"__aeabi_fcmplt\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Single-precision floating-point less-than comparison helper, matching the AEABI runtime routine __aeabi_fcmplt.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

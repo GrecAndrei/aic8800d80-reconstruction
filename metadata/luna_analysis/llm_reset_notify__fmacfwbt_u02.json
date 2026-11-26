@@ -1,0 +1,9 @@
+{
+ "fn": "llm_reset_notify",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134330",
+ "seg": 51,
+ "key": "llm_reset_notify__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_reset_notify\",\"confidence\":\"medium\",\"docstring\":\"Processes a Bluetooth link-layer reset notification by dispatching an event on a non-zero status byte and otherwise copying reset-related fields from the LL descriptor to the connection context while managing the associated IRQ/HCI notification.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"reset_msg\",\"v3\":\"status\",\"v4\":\"conn_tbl_base\",\"v5\":\"ll_desc_tbl_base\",\"v6\":\"conn_ptr\",\"v7\":\"ll_desc_idx\",\"v8\":\"ll_desc_ptr\",\"v13\":\"ll_desc_flags\",\"v14\":\"ll_desc_ptr\",\"v20\":\"conn_ptr\",\"_frame.v51\":\"conn_idx\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"reset notification status/event byte (non-zero dispatches event 1)\"},{\"offset\":1,\"meaning\":\"connection index selected by reset notification\"},{\"offset\":4,\"meaning\":\"connection flags updated during reset notify (bits 0, 1, and 6)\"},{\"offset\":34,\"meaning\":\"link-layer descriptor index stored in connection context\"},{\"offset\":472,\"meaning\":\"link-layer descriptor flags word used to gate field copies and connection flags\"}]}"
+}

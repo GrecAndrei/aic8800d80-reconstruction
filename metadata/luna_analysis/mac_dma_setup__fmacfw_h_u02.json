@@ -1,0 +1,9 @@
+{
+ "fn": "mac_dma_setup",
+ "img": "fmacfw_h_u02",
+ "addr": "0x135224",
+ "seg": 52,
+ "key": "mac_dma_setup__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sm_assoc_req_send\",\"confidence\":\"high\",\"docstring\":\"Prepares a station association-request transmission by filling per-link parameters and negotiating AMPDU settings.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"link_idx\",\"v3\":\"link_ctx\",\"v9\":\"assoc_req_info\"},\"struct_hints\":[{\"offset\":132,\"meaning\":\"AMPDU negotiation parameter block passed to ampdu_negotiate_params\"}]}"
+}

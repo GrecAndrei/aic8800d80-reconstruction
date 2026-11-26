@@ -1,0 +1,9 @@
+{
+ "fn": "rf_disable_irq",
+ "img": "fmacfw_u02",
+ "addr": "0x10dcd4",
+ "seg": 3,
+ "key": "rf_disable_irq__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_disable_irq\",\"confidence\":\"high\",\"docstring\":\"Clears the RF interrupt-enable bit for the given IRQ index and returns that bit mask.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"irq_index\",\"result\":\"irq_mask\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"RF interrupt-enable register\"}]}"
+}

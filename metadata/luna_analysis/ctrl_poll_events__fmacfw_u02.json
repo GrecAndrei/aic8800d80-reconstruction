@@ -1,0 +1,9 @@
+{
+ "fn": "ctrl_poll_events",
+ "img": "fmacfw_u02",
+ "addr": "0x126e1c",
+ "seg": 32,
+ "key": "ctrl_poll_events__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ctrl_event_process\",\"confidence\":\"medium\",\"docstring\":\"Processes the pending controller event, updates the active event record, and forwards ordinary event data in a kernel message.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"current_event\",\"v3\":\"message_payload\",\"v6\":\"same_event_config\",\"v7\":\"previous_event\",\"v8\":\"event_type\"},\"struct_hints\":[{\"offset\":14,\"meaning\":\"Boolean attribute included in the notification for event type 4\"},{\"offset\":16,\"meaning\":\"Event record processing state\"},{\"offset\":24,\"meaning\":\"Event type code\"},{\"offset\":26,\"meaning\":\"Event detail byte copied into the notification\"}]}"
+}

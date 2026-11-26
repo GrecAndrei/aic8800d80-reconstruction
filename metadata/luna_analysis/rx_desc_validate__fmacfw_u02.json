@@ -1,0 +1,9 @@
+{
+ "fn": "rx_desc_validate",
+ "img": "fmacfw_u02",
+ "addr": "0x13e270",
+ "seg": 61,
+ "key": "rx_desc_validate__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ratio_average_update\",\"confidence\":\"medium\",\"docstring\":\"Updates a 16-bit fixed-point ratio estimate from two counters, applies a 3:1 moving average after initialization, and tracks consecutive zero-denominator updates.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"denominator\",\"v3\":\"scaled_numerator\",\"v4\":\"ratio_q16\",\"v5\":\"no_sample_streak\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"16-bit denominator; zero selects the no-sample path.\"},{\"offset\":2,\"meaning\":\"16-bit numerator scaled by 2^16 to compute the ratio.\"},{\"offset\":4,\"meaning\":\"16-bit smoothed fixed-point ratio estimate.\"},{\"offset\":8,\"meaning\":\"8-bit saturating counter for consecutive zero-denominator updates; cleared when a sample is available.\"},{\"offset\":9,\"meaning\":\"8-bit flag indicating the ratio estimate has been initialized.\"}]}"
+}

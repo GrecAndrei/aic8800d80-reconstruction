@@ -1,0 +1,9 @@
+{
+ "fn": "hw_rev_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1062dc",
+ "seg": 2,
+ "key": "hw_rev_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_tx_gain_map\",\"confidence\":\"high\",\"docstring\":\"Builds and writes the TX gain-map register value for the requested index, applying configured calibration and bypass encoding.\",\"subsystem\":\"rf\",\"var_renames\":{\"v9\":\"gain_code\",\"v10\":\"register_value\",\"v11\":\"encoded_field\",\"v12\":\"gain_map_register\"},\"struct_hints\":[{\"offset\":104,\"meaning\":\"Fallback gain code produced by the calibration helper.\"},{\"offset\":132,\"meaning\":\"Configured gain-table limit used to determine whether calibration is needed.\"},{\"offset\":148,\"meaning\":\"Base of the per-index floating-point calibration values.\"}]}"
+}

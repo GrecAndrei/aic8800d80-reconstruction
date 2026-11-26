@@ -1,0 +1,9 @@
+{
+ "fn": "read_mmio_register",
+ "img": "fmacfw_u02",
+ "addr": "0x11b1f4",
+ "seg": 15,
+ "key": "read_mmio_register__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_connection_channel_attr_get\",\"confidence\":\"low\",\"docstring\":\"For a flagged connection context, invokes a timed worker and queries a PHY attribute using its byte-sized selector; otherwise it clears two shared-state words and returns the context.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"context_flag\",\"v3\":\"connection_context\"},\"struct_hints\":[{\"offset\":35,\"meaning\":\"Byte-sized selector passed to the PHY attribute query\"},{\"offset\":37,\"meaning\":\"Flag gating the timed-worker and attribute-query path\"}]}"
+}

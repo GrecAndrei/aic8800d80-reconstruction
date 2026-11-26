@@ -1,0 +1,9 @@
+{
+ "fn": "return_1000",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10186c",
+ "seg": 0,
+ "key": "return_1000__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"constant_1000\",\"confidence\":\"low\",\"docstring\":\"Returns the fixed value 1000; its specific purpose is unclear.\",\"subsystem\":\"wlan\"}"
+}

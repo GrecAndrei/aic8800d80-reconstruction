@@ -1,0 +1,9 @@
+{
+ "fn": "dma_rx_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1059a4",
+ "seg": 2,
+ "key": "dma_rx_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_filter_calibration_indices\",\"confidence\":\"high\",\"docstring\":\"Filters the requested calibration-index mask against a mode-specific analog-power-index range and records indices that require calibration.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"requested_index_mask\",\"a2\":\"calibration_state\",\"v5\":\"index_bit\",\"v6\":\"minimum_calibration_index\",\"v7\":\"maximum_calibration_index\",\"v9\":\"selected_bit\",\"v10\":\"candidate_index\",\"v11\":\"calibration_index_count\",\"v12\":\"selected_calibration_index\"},\"struct_hints\":[{\"offset\":592,\"meaning\":\"Base of the selected calibration-index array; the first slot also holds the candidate index.\"},{\"offset\":624,\"meaning\":\"Number of selected calibration indices.\"},{\"offset\":628,\"meaning\":\"Current selected index or initialization sentinel.\"},{\"offset\":632,\"meaning\":\"Fallback index used when no calibration index has been selected.\"}]}"
+}

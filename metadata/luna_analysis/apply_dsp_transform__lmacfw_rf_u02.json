@@ -1,0 +1,9 @@
+{
+ "fn": "apply_dsp_transform",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10b048",
+ "seg": 2,
+ "key": "apply_dsp_transform__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_apply_dsp_transform\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Applies an RF-related floating-point DSP transform by reading coefficient or register data and programming the resulting transformed samples.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

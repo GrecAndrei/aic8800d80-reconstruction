@@ -1,0 +1,9 @@
+{
+ "fn": "call_patch_hook_0",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10ec2c",
+ "seg": 3,
+ "key": "call_patch_hook_0__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"invoke_patch_hook_0\",\"confidence\":\"high\",\"docstring\":\"Calls the no-argument function pointer stored at MEMD offset 0x1B0 and returns its result.\",\"subsystem\":\"rf\"}"
+}

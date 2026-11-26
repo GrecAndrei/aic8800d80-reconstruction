@@ -1,0 +1,9 @@
+{
+ "fn": "get_object_by_index",
+ "img": "fmacfw_u02",
+ "addr": "0x11fbb8",
+ "seg": 21,
+ "key": "get_object_by_index__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_con_cleanup\",\"confidence\":\"medium\",\"docstring\":\"Tears down the indexed BLE link context and releases its associated scheduled transmit resources when the link is in state 2.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"link_context_base\",\"v3\":\"link_context\",\"v13\":\"irq_nesting_counter\",\"v14\":\"link_resource_table\",\"v16\":\"tx_resource_entries\",\"v17\":\"resource_index\",\"v18\":\"previous_resource_entry\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"link state\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "clear_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x13a4d8",
+ "seg": 58,
+ "key": "clear_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_flag_take\",\"confidence\":\"medium\",\"docstring\":\"Returns the current flag value at offset 0x72 and then clears the corresponding 16-bit field.\",\"subsystem\":\"mac\",\"struct_hints\":[{\"offset\":114,\"meaning\":\"Flag value read before the 16-bit field is cleared\"}]}"
+}

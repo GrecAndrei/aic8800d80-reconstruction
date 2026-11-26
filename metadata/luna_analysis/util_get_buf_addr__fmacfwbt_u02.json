@@ -1,0 +1,9 @@
+{
+ "fn": "util_get_buf_addr",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10422c",
+ "seg": 2,
+ "key": "util_get_buf_addr__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_iq_dc_offset_compensate\",\"confidence\":\"medium\",\"docstring\":\"Computes the mean I/Q offsets across 8192 packed signed 12-bit samples and subtracts those offsets from the samples in place.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"min_i\",\"v2\":\"iq_sample_ptr\",\"v4\":\"sample_scan_ptr\",\"v6\":\"max_q\",\"v7\":\"max_i\",\"v8\":\"sum_q\",\"v9\":\"sum_i\",\"v10\":\"sample_i\",\"v11\":\"sample_q\",\"v12\":\"packed_iq_sample\",\"v13\":\"sample_i\",\"v14\":\"sample_q\",\"v16\":\"corrected_i\"}}"
+}

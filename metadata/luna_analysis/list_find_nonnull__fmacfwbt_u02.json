@@ -1,0 +1,9 @@
+{
+ "fn": "list_find_nonnull",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1393ac",
+ "seg": 59,
+ "key": "list_find_nonnull__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cal_drain_ring\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Advances a 64-entry RF calibration ring by a requested count, clears pending entries encountered during the scan, updates the ring index and 12-bit counter, and dispatches the context handler.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"ctx\",\n    \"a2\": \"count\",\n    \"v2\": \"i\",\n    \"v3\": \"head_idx\",\n    \"v4\": \"valid_cnt\",\n    \"v5\": \"ring_idx\",\n    \"v6\": \"entry_addr\",\n    \"v7\": \"new_head_idx\",\n    \"v8\": \"seq_cnt\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"uint16 12-bit sequence/consumed counter\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"uint8 ring head index modulo 64\"\n    },\n    {\n      \"offset\": 11,\n      \"meaning\": \"uint8 pending/valid entry count\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"uint32 ring entry array base, stride 4\"\n    }\n  ]\n}"
+}

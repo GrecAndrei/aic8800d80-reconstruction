@@ -1,0 +1,9 @@
+{
+ "fn": "ctrl_register_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x1270cc",
+ "seg": 32,
+ "key": "ctrl_register_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ctrl_request_submit\",\"confidence\":\"medium\",\"docstring\":\"Submits a control request by storing it as pending when a request is already queued, or otherwise updating the active request and sending the associated kernel notification.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v2\":\"new_request\",\"v3\":\"active_request\",\"v4\":\"request_notice_payload\",\"v8\":\"request_event_msg\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Request lifecycle state; set to 2 on activation and 4 when the active request is submitted again.\"},{\"offset\":24,\"meaning\":\"Request byte copied into a notice message when the request is displaced; value 3 suppresses that notice.\"},{\"offset\":40,\"meaning\":\"Active request pointer in the control context.\"},{\"offset\":44,\"meaning\":\"Pending request pointer in the control context.\"}]}"
+}

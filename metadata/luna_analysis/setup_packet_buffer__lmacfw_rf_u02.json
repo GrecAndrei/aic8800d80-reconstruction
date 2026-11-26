@@ -1,0 +1,9 @@
+{
+ "fn": "setup_packet_buffer",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118324",
+ "seg": 11,
+ "key": "setup_packet_buffer__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_link_exit_critical_and_check_rx\", \"confidence\": \"medium\", \"docstring\": \"Exits a Bluetooth link critical section and invokes link RX processing when the volatile RX state field is non-zero.\", \"subsystem\": \"bt\", \"var_renames\": {\"a1\": \"link_ctx\", \"result\": \"ret\"}, \"struct_hints\": [{\"offset\": 48, \"meaning\": \"critical section or lock state passed to ke_exit_critical\"}, {\"offset\": 72, \"meaning\": \"volatile RX pending or RX status field\"}]}"
+}

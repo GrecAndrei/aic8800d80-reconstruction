@@ -1,0 +1,9 @@
+{
+ "fn": "prcm_stop",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x105578",
+ "seg": 2,
+ "key": "prcm_stop__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"prcm_stop\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Applies a power/resource clock controller stop sequence to multiple volatile hardware registers.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

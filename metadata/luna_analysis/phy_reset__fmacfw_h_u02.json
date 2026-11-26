@@ -1,0 +1,9 @@
+{
+ "fn": "phy_reset",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13a514",
+ "seg": 59,
+ "key": "phy_reset__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_reset\",\"confidence\":\"medium\",\"docstring\":\"Clears two state fields and, unless control bit 0 is set, advances an optional 12-bit table counter, calls `phy_init`, and records derived timing values.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"control_flags\",\"v7\":\"phy_timing\",\"v13\":\"phy_init_output\"},\"struct_hints\":[{\"offset\":30,\"meaning\":\"Control flags; bit 0 gates initialization and bit 8 adjusts timing.\"},{\"offset\":27,\"meaning\":\"Optional table-counter index; 0xFF skips the counter update.\"}]}"
+}

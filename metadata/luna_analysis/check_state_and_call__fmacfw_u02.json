@@ -1,0 +1,9 @@
+{
+ "fn": "check_state_and_call",
+ "img": "fmacfw_u02",
+ "addr": "0x1339c8",
+ "seg": 47,
+ "key": "check_state_and_call__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_state_check_and_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Checks status conditions, clears a hardware register on the fallback path, and forwards the selected value to a downstream handler.\",\"subsystem\":\"bt\",\"var_renames\":{\"value\":\"handler_value\",\"v2\":\"register_result\"}}"
+}

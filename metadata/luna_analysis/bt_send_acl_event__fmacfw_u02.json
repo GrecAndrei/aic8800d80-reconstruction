@@ -1,0 +1,9 @@
+{
+ "fn": "bt_send_acl_event",
+ "img": "fmacfw_u02",
+ "addr": "0x135a00",
+ "seg": 53,
+ "key": "bt_send_acl_event__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_auth_handler\",\"confidence\":\"medium\",\"docstring\":\"Processes an authentication-handler message and dispatches its selectors to connection-profile setup, acknowledgement, or profile lookup helpers.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"message\",\"v5\":\"message_type\",\"v6\":\"message_subtype\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Length or count field compared against 0x22 and reduced by 6 for the acknowledgement payload length.\"},{\"offset\":8,\"meaning\":\"Byte value passed as the acknowledgement message selector.\"},{\"offset\":12,\"meaning\":\"Primary dispatch selector.\"},{\"offset\":14,\"meaning\":\"Secondary selector used when the primary selector is 1.\"},{\"offset\":16,\"meaning\":\"Numeric authentication-handler value checked and passed to connection-profile setup.\"},{\"offset\":18,\"meaning\":\"Start of the acknowledgement payload.\"}]}"
+}

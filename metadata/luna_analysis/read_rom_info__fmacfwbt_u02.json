@@ -1,0 +1,9 @@
+{
+ "fn": "read_rom_info",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12df08",
+ "seg": 43,
+ "key": "read_rom_info__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_read_rom_info\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a five-byte ROM information record and returns it only when its leading 16-bit tag or version identifier equals 26.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"rom_header\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"uint16 ROM info tag/version identifier expected to be 26\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "context_proc_at_offset44",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11ad80",
+ "seg": 15,
+ "key": "context_proc_at_offset44__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"llc_conn_process\", \"confidence\": \"medium\", \"docstring\": \"Processes an LLC connection descriptor by dispatching connection initialization or RX-context handling and returning the resulting status or context pointer.\", \"subsystem\": \"bt\", \"var_renames\": {\"v2\": \"conn_ctx\", \"v4\": \"conn_status\", \"v5\": \"result\", \"v6\": \"desc_state\", \"v7\": \"desc\", \"v12\": \"rx_ctx\", \"v13\": \"conn_idx\"}, \"struct_hints\": [{\"offset\": 68, \"meaning\": \"LLC connection context pointer in descriptor\"}, {\"offset\": 36, \"meaning\": \"descriptor state/type bits, tested against 0x300000 and 0x380000\"}, {\"offset\": 8, \"meaning\": \"connection status/flag word in connection context\"}, {\"offset\": 13, \"meaning\": \"connection index/identifier byte used to index LLC tables\"}, {\"offset\": 340, \"meaning\": \"abort or completion flag pointer/value in connection context\"}]}"
+}

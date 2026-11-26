@@ -1,0 +1,9 @@
+{
+ "fn": "get_instance_handle",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13a490",
+ "seg": 59,
+ "key": "get_instance_handle__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_instance_handle\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates and initializes an RF instance from a free pool and stores its handle into the requested instance slot if not already populated.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v3\": \"instance_slot_ptr\",\n    \"v5\": \"instance_index\",\n    \"v7\": \"instance_from_pool\",\n    \"v8\": \"instance_ptr\",\n    \"v9\": \"instance_template\",\n    \"v10\": \"template_event_base\",\n    \"v11\": \"template_event_param\",\n    \"a1\": \"instance_array_base\",\n    \"a2\": \"instance_index\",\n    \"a3\": \"instance_flags\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"RF instance event/template field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"16-bit RF instance flags\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"6-bit RF band or calibration selector\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"RF instance index or band number\"\n    },\n    {\n      \"offset\": 272,\n      \"meaning\": \"kernel event lock object for the RF instance\"\n    },\n    {\n      \"offset\": 276,\n      \"meaning\": \"global RF event or configuration parameter\"\n    },\n    {\n      \"offset\": 280,\n      \"meaning\": \"self pointer to the RF instance\"\n    },\n    {\n      \"offset\": 408,\n      \"meaning\": \"RF instance handle slot in the per-band/per-instance context\"\n    }\n  ]\n}"
+}

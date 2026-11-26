@@ -1,0 +1,9 @@
+{
+ "fn": "check_power_flag",
+ "img": "fmacfw_u02",
+ "addr": "0x11b9d8",
+ "seg": 17,
+ "key": "check_power_flag__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_process_connection_event\",\"confidence\":\"medium\",\"docstring\":\"Dispatches pending Bluetooth connection events and applies the selected connection slot's parameters to the radio hardware.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"bt_state\",\"v1\":\"event_flags\",\"v3\":\"slot_state\",\"v4\":\"connection_ctx\",\"v5\":\"pending_slot_mask\",\"v6\":\"slot_index\",\"v8\":\"radio_regs\"},\"struct_hints\":[{\"offset\":168,\"meaning\":\"Pointer to the current connection context\"},{\"offset\":191,\"meaning\":\"Connection-event state byte\"},{\"offset\":200,\"meaning\":\"Pending-event flag\"},{\"offset\":208,\"meaning\":\"Event flags\"},{\"offset\":32,\"meaning\":\"16-bit connection or radio configuration field\"},{\"offset\":34,\"meaning\":\"Slot or channel index used to select a pending-slot bit\"}]}"
+}

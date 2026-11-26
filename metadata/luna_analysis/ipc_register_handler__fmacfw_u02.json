@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_register_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x1360a4",
+ "seg": 54,
+ "key": "ipc_register_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"apm_stop_cac_req_handler\",\"confidence\":\"high\",\"docstring\":\"Processes an APM stop-CAC request, conditionally performs station-related cleanup, and sends a no-parameter kernel response.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"request_param\",\"v7\":\"sta_info\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"station state byte; the handler proceeds only when it equals 2\"},{\"offset\":108,\"meaning\":\"station flag byte; the handler proceeds only when it is zero\"}]}"
+}

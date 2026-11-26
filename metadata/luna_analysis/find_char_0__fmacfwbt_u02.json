@@ -1,0 +1,9 @@
+{
+ "fn": "find_char_0",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12db04",
+ "seg": 43,
+ "key": "find_char_0__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"find_ie_tag_50\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a sequence of 802.11-style two-byte-header information elements/TLVs for an element whose tag byte is 50 (0x32) and whose length byte is non-zero, returning the element header and writing its payload length to the output pointer.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"result\": \"ie_ptr\",\n    \"a2\": \"buf_len\",\n    \"a3\": \"out_len\",\n    \"v3\": \"buf_end\",\n    \"v4\": \"ie_len\",\n    \"v5\": \"next_ie\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"information element ID / TLV tag byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"information element / TLV payload length\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"payload start after the 2-byte header\"\n    }\n  ]\n}"
+}

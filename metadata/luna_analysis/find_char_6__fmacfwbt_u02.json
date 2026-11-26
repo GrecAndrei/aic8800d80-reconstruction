@@ -1,0 +1,9 @@
+{
+ "fn": "find_char_6",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12dc60",
+ "seg": 43,
+ "key": "find_char_6__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_find_tlv_tag_37\", \"confidence\": \"medium\", \"docstring\": \"Scan a volatile byte buffer of tag/length records for the first tag 37 element and return it only if its length is 3 and it lies fully within the supplied buffer.\", \"subsystem\": \"rf\", \"var_renames\": {\"result\": \"tlv\", \"a2\": \"buf_len\", \"v2\": \"buf_end\", \"v3\": \"next_tlv\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"TLV tag byte (searched value 37 / 0x25)\"}, {\"offset\": 1, \"meaning\": \"TLV length byte (expected value 3)\"}]}"
+}

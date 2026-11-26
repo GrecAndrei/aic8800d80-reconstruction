@@ -1,0 +1,9 @@
+{
+ "fn": "tx_power_cal_apply",
+ "img": "fmacfwbt_u02",
+ "addr": "0x138b78",
+ "seg": 59,
+ "key": "tx_power_cal_apply__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"tx_power_cal_apply\", \"confidence\": \"medium\", \"docstring\": \"Apply TX power calibration for a PHY/channel context by reading calibration data for the context's frequency and handling calibration abort or pending-queue events.\", \"subsystem\": \"rf\", \"var_renames\": {\"v1\": \"cal_ctrl_ptr\"}, \"struct_hints\": [{\"offset\": 20, \"meaning\": \"frequency or channel-derived calibration parameter passed to tx_power_cal_read\"}]}"
+}

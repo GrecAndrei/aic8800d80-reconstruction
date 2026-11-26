@@ -1,0 +1,9 @@
+{
+ "fn": "rf_config_read_a",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100e24",
+ "seg": 0,
+ "key": "rf_config_read_a__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_config_access_setup\",\"confidence\":\"medium\",\"docstring\":\"Programs RF configuration-access registers and, when the input is zero and the prior control field is not 7, pulses an auxiliary register bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"reg_100ed8\",\"v2\":\"reg_100edc\",\"v3\":\"initial_100ed8_value\",\"v4\":\"reg_100ee0\",\"v5\":\"reg_100ee4\"}}"
+}

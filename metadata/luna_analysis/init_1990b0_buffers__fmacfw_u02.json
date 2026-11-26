@@ -1,0 +1,9 @@
+{
+ "fn": "init_1990b0_buffers",
+ "img": "fmacfw_u02",
+ "addr": "0x1420a0",
+ "seg": 67,
+ "key": "init_1990b0_buffers__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llcp_buffer_pool_init\",\"confidence\":\"medium\",\"docstring\":\"Clears associated state and initializes eight 0x48-byte buffer slots, storing each slot\u2019s address at offset 0x3c.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"buffer_slot\",\"v1\":\"buffer_pool_end\"},\"struct_hints\":[{\"offset\":60,\"meaning\":\"Self-pointer to the containing buffer slot\"}]}"
+}

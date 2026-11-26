@@ -1,0 +1,9 @@
+{
+ "fn": "tx_packet_build",
+ "img": "fmacfwbt_u02",
+ "addr": "0x119e08",
+ "seg": 14,
+ "key": "tx_packet_build__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llc_tx_packet_build\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds an LLC transmit packet by popping a buffer from the indexed pool, validating Bluetooth connection parameters, and programming TX descriptor addresses, flags, lengths, and linked fragment information.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v7\": \"tx_pkt\",\n    \"v8\": \"free_list\",\n    \"v14\": \"tx_desc\",\n    \"v16\": \"tx_flags\",\n    \"v21\": \"pkt_len\",\n    \"a5\": \"conn_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 80,\n      \"meaning\": \"transmit packet length field (uint16_t)\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"descriptor control flags; bits 9-18 appear to encode a fragment or size count\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"pointer to fragment or next descriptor in the packet chain\"\n    },\n    {\n      \"offset\": 68,\n      \"meaning\": \"back pointer to associated engine or packet context\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"destination TX descriptor buffer-address field\"\n    }\n  ]\n}"
+}

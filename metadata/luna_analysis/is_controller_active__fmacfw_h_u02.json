@@ -1,0 +1,9 @@
+{
+ "fn": "is_controller_active",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11edc8",
+ "seg": 21,
+ "key": "is_controller_active__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"register_station_context\",\"confidence\":\"medium\",\"docstring\":\"Allocates and initializes a station-management context from the free pool, optionally links a paired context, and writes the allocated context ID to the output byte.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"station_params\",\"a2\":\"context_id_out\",\"v3\":\"station_index\",\"v6\":\"station_context\",\"v7\":\"station_context_pool_base\",\"v13\":\"context_id\",\"v35\":\"paired_station_context\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"source station index\"},{\"offset\":35,\"meaning\":\"allocated context ID\"},{\"offset\":44,\"meaning\":\"pointer to paired station context\"}]}"
+}

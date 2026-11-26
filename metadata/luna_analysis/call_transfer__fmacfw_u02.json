@@ -1,0 +1,9 @@
+{
+ "fn": "call_transfer",
+ "img": "fmacfw_u02",
+ "addr": "0x102f4c",
+ "seg": 2,
+ "key": "call_transfer__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"read_peripheral_blocks\",\"confidence\":\"medium\",\"docstring\":\"Reads 16-byte peripheral blocks at offsets 0x20, 0x30, and 0x40 into configured destination buffers, returning the final read status.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"destination_buffers_at_offsets_4_and_8\",\"v1\":\"destination_buffer_at_offset_0\"}}"
+}

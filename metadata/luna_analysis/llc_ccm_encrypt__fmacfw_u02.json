@@ -1,0 +1,9 @@
+{
+ "fn": "llc_ccm_encrypt",
+ "img": "fmacfw_u02",
+ "addr": "0x11f3cc",
+ "seg": 21,
+ "key": "llc_ccm_encrypt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llm_conn_process_active\",\"confidence\":\"medium\",\"docstring\":\"Processes active link contexts, clearing each context flag and invoking radio initialization until iteration stops or the requested limit is reached.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"current_link\",\"v4\":\"processed_count\",\"v8\":\"current_link_slot\",\"v9\":\"radio_config\",\"v10\":\"link_context\",\"v12\":\"stop_flag\"},\"struct_hints\":[{\"offset\":572,\"meaning\":\"Manager-environment field holding the current link-context pointer.\"},{\"offset\":27,\"meaning\":\"Link-context byte passed to the radio initialization routine.\"},{\"offset\":97,\"meaning\":\"Link-context flag cleared before radio initialization.\"}]}"
+}

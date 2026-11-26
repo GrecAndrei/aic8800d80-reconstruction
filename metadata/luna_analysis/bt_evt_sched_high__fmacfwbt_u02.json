@@ -1,0 +1,9 @@
+{
+ "fn": "bt_evt_sched_high",
+ "img": "fmacfwbt_u02",
+ "addr": "0x113670",
+ "seg": 5,
+ "key": "bt_evt_sched_high__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_wlan_rx_pkt_free_list_init\",\"confidence\":\"high\",\"docstring\":\"Initializes the USB WLAN RX packet free list by allocating the configured receive buffers and reporting allocation failures.\",\"subsystem\":\"mm\",\"var_renames\":{\"v3\":\"initialized_buffer_count\",\"v6\":\"buffer_index\",\"v8\":\"rx_packet_item\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Configured number of RX packet buffers to initialize\"}]}"
+}

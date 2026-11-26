@@ -1,0 +1,9 @@
+{
+ "fn": "rf_read_calibration",
+ "img": "fmacfw_u02",
+ "addr": "0x1272a0",
+ "seg": 32,
+ "key": "rf_read_calibration__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_dma_step\",\"confidence\":\"medium\",\"docstring\":\"Advances the RF calibration transfer state by starting the next configured DMA transfer and updating its state flags.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"calibration_context\",\"v1\":\"transfer_flags\",\"result\":\"pending_result\"},\"struct_hints\":[{\"offset\":88,\"meaning\":\"Calibration DMA transfer state and pending-phase flags\"}]}"
+}

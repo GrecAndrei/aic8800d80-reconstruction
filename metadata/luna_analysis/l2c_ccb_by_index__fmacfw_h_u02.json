@@ -1,0 +1,9 @@
+{
+ "fn": "l2c_ccb_by_index",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13f654",
+ "seg": 62,
+ "key": "l2c_ccb_by_index__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"l2c_ccb_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the indexed L2CAP channel control block and invokes its preparation routine with mode 1.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"ccb_index\",\"v1\":\"ccb\",\"result\":\"prepare_result\"},\"struct_hints\":[{\"offset\":136,\"meaning\":\"Initialized to max(0, the 16-bit value at offset 184 minus 1).\"},{\"offset\":138,\"meaning\":\"Initialized to max(0, the 16-bit value at offset 184 minus 2).\"},{\"offset\":140,\"meaning\":\"Initialized to max(0, the 16-bit value at offset 184 minus 3).\"},{\"offset\":142,\"meaning\":\"Cleared during initialization.\"},{\"offset\":148,\"meaning\":\"Set to 0x10000 during initialization.\"},{\"offset\":152,\"meaning\":\"Set to 5 after the preparation call.\"},{\"offset\":154,\"meaning\":\"Cleared after the preparation call.\"},{\"offset\":164,\"meaning\":\"Set to the low byte of the value at offset 184 minus 4.\"},{\"offset\":166,\"meaning\":\"Cleared during initialization.\"},{\"offset\":184,\"meaning\":\"16-bit source value used to derive initial values at offsets 136, 138, 140, and 164.\"},{\"offset\":190,\"meaning\":\"Set to 0xFFFF as an initialization sentinel.\"}]}"
+}

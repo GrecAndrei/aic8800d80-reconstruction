@@ -1,0 +1,9 @@
+{
+ "fn": "llm_task_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10197c",
+ "seg": 0,
+ "key": "llm_task_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_power_calculate\",\"confidence\":\"medium\",\"docstring\":\"Computes two frequency-dependent RF transmit-power values and writes them through caller-provided output pointers.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"channel_frequency\"}}"
+}

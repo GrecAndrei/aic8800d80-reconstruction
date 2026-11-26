@@ -1,0 +1,9 @@
+{
+ "fn": "mac_isr_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x124e60",
+ "seg": 30,
+ "key": "mac_isr_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"apm_sta_probe_confirm\",\"confidence\":\"high\",\"docstring\":\"Handles a station-probe completion, recording the hardware timestamp on success and reporting the station after ten consecutive failures.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"probe_context\",\"a2\":\"completion_status\",\"result\":\"return_value\",\"v3\":\"failure_count\",\"v5\":\"station_index\",\"v6\":\"hardware_timestamp\",\"v7\":\"failure_report_pdu\",\"v8\":\"failure_report_pdu_address\"},\"struct_hints\":[{\"offset\":35,\"meaning\":\"station index\"},{\"offset\":38,\"meaning\":\"station MAC address\"},{\"offset\":664,\"meaning\":\"per-station saved probe-success hardware timestamp\"},{\"offset\":668,\"meaning\":\"consecutive probe failure count\"}]}"
+}

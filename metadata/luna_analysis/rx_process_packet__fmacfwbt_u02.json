@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11d760",
+ "seg": 21,
+ "key": "rx_process_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rx_l_frame_handle\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Handles a received MAC frame descriptor by validating the first PBD and RX error/status bits, updating or filtering per-context fields and timestamps, and returning whether the frame was accepted.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"rxh\",\n    \"v2\": \"first_pbd\",\n    \"v3\": \"hw_error_code\",\n    \"v5\": \"frame_buffer\",\n    \"v6\": \"frame_ctl\",\n    \"v7\": \"rx_info\",\n    \"v10\": \"ctx_table_base\",\n    \"v11\": \"ctx_index\",\n    \"v12\": \"ctx_entry\",\n    \"v13\": \"timer_tick\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"first PBD pointer in RX descriptor\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"RX status/error field in RX descriptor\"\n    },\n    {\n      \"offset\": 84,\n      \"meaning\": \"RX info/status field in RX descriptor\"\n    },\n    {\n      \"offset\": 37,\n      \"meaning\": \"context entry state or validity flag\"\n    },\n    {\n      \"offset\": 664,\n      \"meaning\": \"context entry RX timestamp\"\n    }\n  ]\n}"
+}

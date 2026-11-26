@@ -1,0 +1,9 @@
+{
+ "fn": "parse_data_4",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12dfb0",
+ "seg": 43,
+ "key": "parse_data_4__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"parse_tlv_records_4\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a zero-terminated byte stream of type-length-value records whose record size is given by the length byte plus two, returning a cursor or marker depending on where the supplied end offset falls.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"length_or_offset\",\n    \"result\": \"cursor\",\n    \"v2\": \"end_ptr\",\n    \"v3\": \"record_len\",\n    \"v4\": \"next_record\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"TLV type byte; 0 terminates the record list\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"payload length byte; total record size is payload length + 2\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_mac_descriptor",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10cec0",
+ "seg": 2,
+ "key": "lookup_mac_descriptor__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"check_descriptor_entry\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Uses a byte field from a status/hardware pointer to index a descriptor table, writes a fixed value to a control register, and returns whether the selected descriptor entry's word at offset 4 is nonzero.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"descriptor_entry\",\n    \"result\": \"descriptor_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"descriptor entry status or valid field\"\n    }\n  ]\n}"
+}

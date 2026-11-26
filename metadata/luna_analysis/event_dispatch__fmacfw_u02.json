@@ -1,0 +1,9 @@
+{
+ "fn": "event_dispatch",
+ "img": "fmacfw_u02",
+ "addr": "0x12ea88",
+ "seg": 42,
+ "key": "event_dispatch__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dbg_test_print\",\"confidence\":\"high\",\"docstring\":\"Filters optional high-bit debug category and severity prefixes against global settings, then forwards the remaining format string and arguments to the debug-buffer formatter.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v1\":\"debug_config\",\"v2\":\"format_cursor\",\"v4\":\"prefix_byte\",\"v5\":\"prefix_byte_raw\",\"v6\":\"prefix_bit_index\",\"varg_r0\":\"original_format\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Debug-category enable bitmap; category prefixes select bits in this field.\"},{\"offset\":4,\"meaning\":\"Severity-prefix cutoff used to suppress debug output.\"}]}"
+}

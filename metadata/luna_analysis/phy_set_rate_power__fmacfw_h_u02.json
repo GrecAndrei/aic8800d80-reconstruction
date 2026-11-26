@@ -1,0 +1,9 @@
+{
+ "fn": "phy_set_rate_power",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117424",
+ "seg": 10,
+ "key": "phy_set_rate_power__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_apply_rate_power_profile\",\"confidence\":\"medium\",\"docstring\":\"Selects and applies the indexed PHY configuration, initializes its packet-processing state, and invokes the downstream receive path.\",\"subsystem\":\"phy\",\"var_renames\":{\"a2\":\"profile_index\",\"v4\":\"profile_entry\",\"v7\":\"packet_state\",\"v10\":\"irq_nesting_counter_ptr\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Channel index passed to channel validation.\"},{\"offset\":29,\"meaning\":\"Second channel-validation input.\"},{\"offset\":30,\"meaning\":\"16-bit flags; bit 0 controls conditional state initialization.\"},{\"offset\":76,\"meaning\":\"Pointer to the packet-processing state block initialized here.\"},{\"offset\":82,\"meaning\":\"16-bit flags; bit 0 is set after processing.\"}]}"
+}

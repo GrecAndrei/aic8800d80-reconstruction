@@ -1,0 +1,9 @@
+{
+ "fn": "rx_process_packet",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119330",
+ "seg": 12,
+ "key": "rx_process_packet__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mm_dhcp_packet_notify\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a DHCP/ARP-offload packet indicator, stores packet fields in the station context, clears any pending critical state, and dispatches kernel event 98.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v4\": \"station_array_base\",\n    \"v6\": \"station_index\",\n    \"v10\": \"station_context\",\n    \"v11\": \"packet_status_byte\",\n    \"v12\": \"critical_pending_flag\",\n    \"v13\": \"packet_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"32-bit packet identifier or buffer pointer copied into station context\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"packet status/type byte copied into station context\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"station/VIF index byte\"\n    },\n    {\n      \"offset\": 94,\n      \"meaning\": \"byte flag tested for ARP offload/DHCP station condition\"\n    },\n    {\n      \"offset\": 121,\n      \"meaning\": \"byte indicating a pending critical section for this station context\"\n    },\n    {\n      \"offset\": 124,\n      \"meaning\": \"critical-section lock or handle passed to ke_exit_critical\"\n    },\n    {\n      \"offset\": 140,\n      \"meaning\": \"station context byte mirroring packet status/type byte\"\n    },\n    {\n      \"offset\": 144,\n      \"meaning\": \"station context dword mirroring packet identifier or buffer pointer\"\n    }\n  ]\n}"
+}

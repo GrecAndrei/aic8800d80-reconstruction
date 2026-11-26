@@ -1,0 +1,9 @@
+{
+ "fn": "compare_global_bytes",
+ "img": "fmacfw_u02",
+ "addr": "0x1302c4",
+ "seg": 42,
+ "key": "compare_global_bytes__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_xtal_cap_adjust\",\"confidence\":\"high\",\"docstring\":\"Moves the current crystal-capacitance setting one step toward its target and logs the adjustment.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"xtal_cap_config\",\"v2\":\"target_xtal_cap\",\"result\":\"current_xtal_cap\",\"v3\":\"adjusted_xtal_cap\"},\"struct_hints\":[{\"offset\":5,\"meaning\":\"Target crystal-capacitance value\"},{\"offset\":6,\"meaning\":\"Current crystal-capacitance value\"}]}"
+}

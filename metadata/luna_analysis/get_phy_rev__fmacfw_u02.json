@@ -1,0 +1,9 @@
+{
+ "fn": "get_phy_rev",
+ "img": "fmacfw_u02",
+ "addr": "0x13278a",
+ "seg": 45,
+ "key": "get_phy_rev__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_phy_rev\",\"confidence\":\"high\",\"docstring\":\"Returns the firmware's fixed PHY revision value, 7.\",\"subsystem\":\"phy\"}"
+}

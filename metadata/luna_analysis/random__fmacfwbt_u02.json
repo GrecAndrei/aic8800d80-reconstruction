@@ -1,0 +1,9 @@
+{
+ "fn": "random",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143a18",
+ "seg": 69,
+ "key": "random__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"random\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates a 64-bit linear-congruential PRNG state stored in C-library runtime state and returns its upper 32 bits masked to a non-negative value.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v0\": \"next_rng_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 168,\n      \"meaning\": \"64-bit PRNG state / random() LCG state\"\n    }\n  ]\n}"
+}

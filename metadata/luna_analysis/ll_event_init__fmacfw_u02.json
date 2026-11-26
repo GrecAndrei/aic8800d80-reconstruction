@@ -1,0 +1,9 @@
+{
+ "fn": "ll_event_init",
+ "img": "fmacfw_u02",
+ "addr": "0x118a6c",
+ "seg": 11,
+ "key": "ll_event_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_event_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes an event-control block, links it to the supplied context and auxiliary descriptor, clears selected descriptor fields, and returns the context subobject at offset 108.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[{\"offset\":44,\"meaning\":\"pointer to the supplied scalar field\"},{\"offset\":72,\"meaning\":\"pointer to the context object\"},{\"offset\":76,\"meaning\":\"pointer to the auxiliary descriptor\"},{\"offset\":96,\"meaning\":\"one-byte initialization or state marker\"},{\"offset\":28,\"meaning\":\"auxiliary descriptor pointer to context+108\"}]}"
+}

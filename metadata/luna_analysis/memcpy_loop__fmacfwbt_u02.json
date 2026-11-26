@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy_loop",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12da54",
+ "seg": 43,
+ "key": "memcpy_loop__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"parse_find_ext_ie\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans an 802.11 information-element buffer for the first extended element (ID 0xFF) whose extended element ID matches a requested value and reports the full element length.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v4\": \"current_end\",\n    \"v5\": \"buffer_end\",\n    \"v6\": \"element_id\",\n    \"v7\": \"element_total_len\",\n    \"v8\": \"element_start\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"802.11 element ID; 0xFF denotes an extended element ID field\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"element length byte; full element length is this value plus the 2-byte header\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"extended element ID compared against the requested target\"\n    }\n  ]\n}"
+}

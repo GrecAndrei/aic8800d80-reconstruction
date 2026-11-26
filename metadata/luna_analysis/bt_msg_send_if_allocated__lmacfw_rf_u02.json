@@ -1,0 +1,9 @@
+{
+ "fn": "bt_msg_send_if_allocated",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x125e0c",
+ "seg": 23,
+ "key": "bt_msg_send_if_allocated__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"util_list_find_if_nonnull\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Searches the supplied list for a non-null item pointer and returns the lookup result, or zero when the item pointer is null.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"list\",\n    \"a2\": \"item\"\n  },\n  \"struct_hints\": []\n}"
+}

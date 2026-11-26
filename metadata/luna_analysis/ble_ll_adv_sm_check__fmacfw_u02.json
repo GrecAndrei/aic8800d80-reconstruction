@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_adv_sm_check",
+ "img": "fmacfw_u02",
+ "addr": "0x140ae4",
+ "seg": 64,
+ "key": "ble_ll_adv_sm_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_adv_event_prepare\",\"confidence\":\"medium\",\"docstring\":\"Validates the current advertising selectors, allocates and initializes an event context, starts the advertising event, and returns its transmit-path status.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"adv_env_base\",\"v3\":\"adv_set_index\",\"v4\":\"event_arg\",\"v5\":\"adv_set_context\",\"v7\":\"allocation_mode\",\"v8\":\"event_context\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Advertising-set context flag used to select the allocation mode.\"},{\"offset\":28,\"meaning\":\"Advertising-set index copied into the event context.\"},{\"offset\":29,\"meaning\":\"Advertising state or event selector copied into the event context.\"},{\"offset\":51,\"meaning\":\"Event-context byte cleared during initialization.\"},{\"offset\":53,\"meaning\":\"Event-context byte cleared during initialization.\"},{\"offset\":72,\"meaning\":\"Pointer to the advertising-set context.\"},{\"offset\":88,\"meaning\":\"Event-context linkage pointer initialized for the primary event path.\"},{\"offset\":92,\"meaning\":\"Self-link or event-context pointer initialized for the primary event path.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "memcpy_fixed",
+ "img": "fmacfw_h_u02",
+ "addr": "0x143ddc",
+ "seg": 68,
+ "key": "memcpy_fixed__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"strncasecmp\",\"confidence\":\"high\",\"docstring\":\"Compares at most max_len bytes of two strings case-insensitively, returning the byte difference at the first mismatch.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"left_string\",\"a2\":\"right_string\",\"a3\":\"max_len\",\"v3\":\"left_cursor\",\"v4\":\"left_end\",\"v5\":\"byte_difference\",\"v6\":\"left_char_folded\",\"v8\":\"right_char\",\"v10\":\"right_char_case_flag\",\"v12\":\"right_char_folded\"}}"
+}

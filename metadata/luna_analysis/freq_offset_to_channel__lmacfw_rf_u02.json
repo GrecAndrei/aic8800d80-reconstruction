@@ -1,0 +1,9 @@
+{
+ "fn": "freq_offset_to_channel",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126f10",
+ "seg": 23,
+ "key": "freq_offset_to_channel__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel_offset\",\"confidence\":\"medium\",\"docstring\":\"Translates an RF frequency/channel request into a signed channel-table offset, updates a trim/gain byte using calibration tables, programs the TX packet pointer, and rebuilds RF parameters if a pending event flag is set.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"freq_or_channel\",\"v1\":\"channel_offset\",\"v2\":\"trim_value\",\"result\":\"rf_param_build_status\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"previous calibration-table index byte\"},{\"offset\":4,\"meaning\":\"base trim/gain byte\"},{\"offset\":5,\"meaning\":\"computed trim/gain byte\"}]}"
+}

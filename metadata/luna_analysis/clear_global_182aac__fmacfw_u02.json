@@ -1,0 +1,9 @@
+{
+ "fn": "clear_global_182aac",
+ "img": "fmacfw_u02",
+ "addr": "0x10d404",
+ "seg": 2,
+ "key": "clear_global_182aac__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_rf_state_buffer\",\"confidence\":\"medium\",\"docstring\":\"Zeros the 0x38-byte buffer referenced by a global value and returns the buffer address.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[]}"
+}

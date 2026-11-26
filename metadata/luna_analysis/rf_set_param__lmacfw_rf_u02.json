@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_param",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x111404",
+ "seg": 4,
+ "key": "rf_set_param__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_param_write\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies a radio parameter blob into the shared RF command buffer, encodes its length and opcode, and triggers the RF hardware command queue.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"param_len\",\n    \"v2\": \"rf_cmd_desc_addr\",\n    \"v3\": \"rf_param_buf\",\n    \"v4\": \"rf_cmd_desc\",\n    \"v5\": \"rf_cmd_flag\",\n    \"v6\": \"rf_ctrl_reg_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"RF command descriptor uint16 payload length\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"RF command descriptor uint8 opcode/ready flag\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"RF command descriptor uint32 payload buffer pointer\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"RF command context uint16 payload length field\"\n    },\n    {\n      \"offset\": 2304,\n      \"meaning\": \"RF control register base + 0x900; command start/strobe\"\n    },\n    {\n      \"offset\": 2312,\n      \"meaning\": \"RF control register base + 0x908; volatile status/barrier access\"\n    },\n    {\n      \"offset\": 2324,\n      \"meaning\": \"RF control register base + 0x914; command descriptor pointer\"\n    }\n  ]\n}"
+}

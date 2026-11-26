@@ -1,0 +1,9 @@
+{
+ "fn": "save_context_args",
+ "img": "fmacfw_u02",
+ "addr": "0x12f5f4",
+ "seg": 42,
+ "key": "save_context_args__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"invoke_with_irq_guard\",\"confidence\":\"medium\",\"docstring\":\"Invokes a handler under a nested interrupt guard, then releases the associated counters.\",\"subsystem\":\"hal\",\"var_renames\":{\"v3\":\"irq_guard_depth\",\"v5\":\"remaining_irq_guard_depth\",\"v6\":\"should_restore_interrupts\",\"a1\":\"counter_index\",\"a2\":\"handler_arg\"}}"
+}

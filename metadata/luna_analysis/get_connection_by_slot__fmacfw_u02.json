@@ -1,0 +1,9 @@
+{
+ "fn": "get_connection_by_slot",
+ "img": "fmacfw_u02",
+ "addr": "0x11bbb4",
+ "seg": 17,
+ "key": "get_connection_by_slot__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_connection_slot_update\",\"confidence\":\"medium\",\"docstring\":\"Forwards the current connection-slot index with the supplied arguments and conditionally updates that slot's cached fields when the input flags match.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"connection_table_base\",\"v3\":\"slot_index\",\"v6\":\"slot_record\"},\"struct_hints\":[{\"offset\":26,\"meaning\":\"Slot-record state byte, set to 2 when the flag condition matches.\"},{\"offset\":36,\"meaning\":\"Input flag word tested against mask 0x380000; in the slot record, a word copied from input offset 68.\"},{\"offset\":68,\"meaning\":\"Input word copied into the slot record at offset 36.\"}]}"
+}

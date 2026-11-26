@@ -1,0 +1,9 @@
+{
+ "fn": "rf_test_tx_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131c7c",
+ "seg": 45,
+ "key": "rf_test_tx_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"llm_rf_test_tx_cmd\", \"confidence\": \"medium\", \"docstring\": \"Implements a BLE link-layer vendor RF transmit-test command by allocating a Bluetooth HCI buffer, clearing RF state, and deriving channel/test parameters from the command parameters and indexed link-layer context.\", \"subsystem\": \"ble\", \"var_renames\": {\"v5\": \"buf\", \"v6\": \"rf_clear_status\", \"v7\": \"conn_idx\", \"v8\": \"cmd_flags\", \"v36\": \"conn_ctx_state\"}, \"struct_hints\": [{\"offset\": 120, \"meaning\": \"command parameter word containing RF test mode/select bits\"}, {\"offset\": 129, \"meaning\": \"connection or test context index byte\"}, {\"offset\": 106, \"meaning\": \"per-context state/mode byte in the 1320-byte record indexed by conn_idx\"}]}"
+}

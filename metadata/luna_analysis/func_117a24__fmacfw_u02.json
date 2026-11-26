@@ -1,0 +1,9 @@
+{
+ "fn": "func_117a24",
+ "img": "fmacfw_u02",
+ "addr": "0x117a24",
+ "seg": 10,
+ "key": "func_117a24__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_signal_eligible_slots\",\"confidence\":\"medium\",\"docstring\":\"Under an IRQ-preserving critical section, scans five slots and sets the hardware bit for each eligible slot, then marks a shared state byte.\",\"subsystem\":\"hal\",\"var_renames\":{\"i\":\"slot_index\",\"v0\":\"critical_section_depth\",\"v1\":\"slot_state_base\",\"v2\":\"shared_state_base\",\"v3\":\"slot_state_cursor\",\"v4\":\"slot_status_cursor\",\"v6\":\"depth_before_unlock\",\"v7\":\"depth_after_unlock\",\"v8\":\"irq_restore_pending\"},\"struct_hints\":[{\"offset\":158,\"meaning\":\"Per-slot byte that must be zero for the slot's hardware bit to be set; slots are traversed at 28-byte spacing.\"},{\"offset\":190,\"meaning\":\"Selected slot identifier excluded when the mode bit is set.\"},{\"offset\":208,\"meaning\":\"Mode flags; bit 0 enables the selected-slot exclusion.\"},{\"offset\":336,\"meaning\":\"Per-slot status word that must be nonzero before signaling.\"},{\"offset\":511,\"meaning\":\"Shared state byte set to 1 after the slot scan.\"}]}"
+}

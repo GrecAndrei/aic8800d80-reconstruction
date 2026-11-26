@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_offset_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a350",
+ "seg": 37,
+ "key": "rf_channel_offset_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_offset_get\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns the 8-bit RF channel offset byte from the per-channel table record indexed by the supplied channel number.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"channel_index\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 133,\n      \"meaning\": \"8-bit per-channel field at record offset 133, likely an RF channel offset/calibration byte\"\n    }\n  ]\n}"
+}

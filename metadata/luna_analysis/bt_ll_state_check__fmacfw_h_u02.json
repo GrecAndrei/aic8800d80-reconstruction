@@ -1,0 +1,9 @@
+{
+ "fn": "bt_ll_state_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1409a4",
+ "seg": 64,
+ "key": "bt_ll_state_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_acl_tx_prepare\",\"confidence\":\"medium\",\"docstring\":\"Builds an ACL transmit buffer for the current link and runs ACL setup and security processing, returning the original input if the link is invalid or allocation fails.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"bt_state\",\"v3\":\"link_index\",\"v5\":\"link_context\",\"v8\":\"tx_buffer\"},\"struct_hints\":[{\"offset\":28,\"meaning\":\"Current link index copied from BT state offset 6489.\"},{\"offset\":29,\"meaning\":\"Selector byte copied from BT state offset 6488.\"},{\"offset\":51,\"meaning\":\"Per-buffer byte cleared during initialization.\"},{\"offset\":53,\"meaning\":\"Per-buffer byte cleared during initialization.\"},{\"offset\":88,\"meaning\":\"Set to the global pointer at dword_140A30 when a2 is zero.\"},{\"offset\":92,\"meaning\":\"Set to the transmit buffer itself when a2 is zero.\"}]}"
+}

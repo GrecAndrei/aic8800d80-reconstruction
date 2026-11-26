@@ -1,0 +1,9 @@
+{
+ "fn": "jump_to_tx_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12cc60",
+ "seg": 41,
+ "key": "jump_to_tx_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_tx_packet_wrapper\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Thin wrapper that forwards a packet pointer to hci_tx_packet and returns its pointer result.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"packet\"\n  }\n}"
+}

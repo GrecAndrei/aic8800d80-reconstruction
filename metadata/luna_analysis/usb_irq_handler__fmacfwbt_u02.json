@@ -1,0 +1,9 @@
+{
+ "fn": "usb_irq_handler",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11035c",
+ "seg": 3,
+ "key": "usb_irq_handler__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_rxmsg_replenish\",\"confidence\":\"medium\",\"docstring\":\"Allocates and queues RX message buffers until the queue contains at least two entries, issuing a replenish request to the SDIO interface for each one.\",\"subsystem\":\"ipc\",\"var_renames\":{\"v2\":\"queued_rxmsg_count\",\"v6\":\"rx_queue_ctx\",\"v8\":\"rxmsg_buffer\",\"v9\":\"rxmsg_descriptor\"},\"struct_hints\":[{\"offset\":20,\"meaning\":\"Tail pointer of the queued RX message descriptors\"},{\"offset\":28,\"meaning\":\"Number of queued RX messages\"}]}"
+}

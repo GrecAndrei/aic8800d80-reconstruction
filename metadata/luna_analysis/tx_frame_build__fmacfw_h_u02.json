@@ -1,0 +1,9 @@
+{
+ "fn": "tx_frame_build",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11be6c",
+ "seg": 18,
+ "key": "tx_frame_build__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_frame_extract_station_record\",\"confidence\":\"medium\",\"docstring\":\"Scans the received frame body for a station-configured record and reports a match, copying payload-bearing records into the caller's output buffer.\",\"subsystem\":\"rx\",\"var_renames\":{\"v3\":\"frame_data\",\"v4\":\"frame_length\",\"v7\":\"remaining_length\",\"v8\":\"record_cursor\",\"v9\":\"station_config\",\"v11\":\"record_size\",\"v12\":\"record_header\",\"v13\":\"record_id\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Station index used to select the station configuration.\"},{\"offset\":13,\"meaning\":\"Requested record subtype.\"},{\"offset\":32,\"meaning\":\"Configured record ID in the station configuration.\"},{\"offset\":224,\"meaning\":\"Output pointer for the extracted record, cleared for a matching marker record.\"},{\"offset\":228,\"meaning\":\"Inline buffer receiving the extracted record.\"}]}"
+}

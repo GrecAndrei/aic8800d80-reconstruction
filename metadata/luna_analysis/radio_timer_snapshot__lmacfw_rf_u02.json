@@ -1,0 +1,9 @@
+{
+ "fn": "radio_timer_snapshot",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126174",
+ "seg": 23,
+ "key": "radio_timer_snapshot__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_radio_timer_snapshot\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Snapshots the radio timer before and after dispatching a timer kernel event, then updates and clears radio/timer control registers.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v0\": \"radio_timer_mmio\",\n    \"v1\": \"radio_timer_reset_reg\",\n    \"v2\": \"first_timer_high_word\",\n    \"v3\": \"second_timer_raw_low64\",\n    \"v11\": \"first_timestamp_low32\",\n    \"v12\": \"first_timestamp_high16\",\n    \"v13\": \"first_timer_low_word\",\n    \"v14\": \"first_timer_high_word_raw\",\n    \"v15\": \"second_timestamp_bytes\",\n    \"v16\": \"second_timestamp_low32\",\n    \"v17\": \"second_timestamp_high16\",\n    \"v18\": \"timer_event_message\",\n    \"v19\": \"timer_event_payload\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"radio timer counter low word (first snapshot)\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"radio timer counter high word (first snapshot)\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"radio timer counter low word (second snapshot)\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"radio timer counter high word (second snapshot)\"\n    }\n  ]\n}"
+}

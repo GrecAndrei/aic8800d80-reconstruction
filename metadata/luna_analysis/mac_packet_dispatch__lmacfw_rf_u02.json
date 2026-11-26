@@ -1,0 +1,9 @@
+{
+ "fn": "mac_packet_dispatch",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x126e54",
+ "seg": 23,
+ "key": "mac_packet_dispatch__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sdio_core_ensure_ready\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Checks a status flag in an SDIO core control block and returns a cached status if present, otherwise performs an alternate reset and waits for the core to become ready.\",\n  \"subsystem\": \"hal\",\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"SDIO core ready/reset-needed or cached-status valid flag\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"cached SDIO core status or result byte returned when the flag is set\"\n    }\n  ]\n}"
+}

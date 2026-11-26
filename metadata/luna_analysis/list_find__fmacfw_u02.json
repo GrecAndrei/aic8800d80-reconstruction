@@ -1,0 +1,9 @@
+{
+ "fn": "list_find",
+ "img": "fmacfw_u02",
+ "addr": "0x1392a8",
+ "seg": 58,
+ "key": "list_find__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_window_advance\",\"confidence\":\"medium\",\"docstring\":\"Retires occupied entries from a 64-slot transmit window, advances its 12-bit sequence counter and slot index, then dispatches the updated context.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"tx_context\",\"a2\":\"advance_count\",\"v2\":\"processed_count\",\"v3\":\"window_head\",\"v4\":\"occupied_count\",\"v5\":\"slot_index\",\"v6\":\"slot_address\",\"v7\":\"next_window_head\",\"v8\":\"sequence_counter\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"12-bit rolling sequence counter\"},{\"offset\":10,\"meaning\":\"64-slot window head index\"},{\"offset\":11,\"meaning\":\"number of occupied window entries\"},{\"offset\":16,\"meaning\":\"base of 4-byte per-slot entries\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_reg1_bit9",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x113b40",
+ "seg": 5,
+ "key": "rf_set_reg1_bit9__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_reg1_bit9\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Sets RF register 1 to 0x200 through the MMIO write32 accessor, enabling bit 9 of that register.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

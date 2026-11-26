@@ -1,0 +1,9 @@
+{
+ "fn": "load_version_string",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d3e0",
+ "seg": 41,
+ "key": "load_version_string__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"float_table_approx\",\"confidence\":\"medium\",\"docstring\":\"Remaps an intermediate float\u2019s mantissa using a 32-segment slope-and-base table while retaining its exponent and clearing its sign.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v1\":\"table_data\",\"v9\":\"intermediate_float_bits\",\"v11\":\"segment_slopes\",\"v12\":\"segment_bases\"}}"
+}

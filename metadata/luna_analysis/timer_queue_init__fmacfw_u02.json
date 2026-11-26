@@ -1,0 +1,9 @@
+{
+ "fn": "timer_queue_init",
+ "img": "fmacfw_u02",
+ "addr": "0x117cc4",
+ "seg": 10,
+ "key": "timer_queue_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_timing_config_init\",\"confidence\":\"medium\",\"docstring\":\"Populates a global six-value PHY timing table by scaling input values by 1000, using defaults for zero-valued entries among the first four inputs.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"timing_config\",\"v4\":\"scaled_values\",\"v6\":\"default_values\",\"v7\":\"selected_value\",\"v8\":\"input_value\"}}"
+}

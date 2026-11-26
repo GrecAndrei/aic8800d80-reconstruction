@@ -1,0 +1,9 @@
+{
+ "fn": "format_hw_version",
+ "img": "fmacfw_u02",
+ "addr": "0x130798",
+ "seg": 42,
+ "key": "format_hw_version__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_vht_capabilities_ie_append\",\"confidence\":\"medium\",\"docstring\":\"Appends the 12-byte 802.11 VHT Capabilities information element (EID 191) from the capability table and advances the caller's output cursor by 14 bytes.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"buffer_cursor_ref\",\"v2\":\"vht_capability_defaults\",\"v3\":\"ie_buffer\",\"v4\":\"rx_mcs_map\",\"v5\":\"rx_highest_rate\",\"v6\":\"tx_mcs_map\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"802.11 element ID (0xBF, VHT Capabilities)\"},{\"offset\":1,\"meaning\":\"element payload length (12 bytes)\"},{\"offset\":2,\"meaning\":\"VHT Capabilities Info\"},{\"offset\":6,\"meaning\":\"RX VHT MCS map\"},{\"offset\":8,\"meaning\":\"RX highest supported VHT data rate\"},{\"offset\":10,\"meaning\":\"TX VHT MCS map\"},{\"offset\":12,\"meaning\":\"TX highest supported VHT data rate\"}]}"
+}

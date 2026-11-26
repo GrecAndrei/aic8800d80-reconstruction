@@ -1,0 +1,9 @@
+{
+ "fn": "adv_pdu_conn_req_check",
+ "img": "fmacfw_u02",
+ "addr": "0x13b600",
+ "seg": 60,
+ "key": "adv_pdu_conn_req_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_rx_rate_config_dispatch\",\"confidence\":\"medium\",\"docstring\":\"For a recognized RX rate code, selects the rate-group argument and dispatches the corresponding 32-byte table entry indexed by the code\u2019s upper byte.\",\"subsystem\":\"rf\"}"
+}

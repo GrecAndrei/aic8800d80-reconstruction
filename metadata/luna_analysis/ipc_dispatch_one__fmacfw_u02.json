@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_dispatch_one",
+ "img": "fmacfw_u02",
+ "addr": "0x13eb0c",
+ "seg": 61,
+ "key": "ipc_dispatch_one__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ipc_dispatch_cmd_range\",\"confidence\":\"medium\",\"docstring\":\"Calls the IPC command dispatcher with the computed range length and selector 1.\",\"subsystem\":\"ipc\",\"var_renames\":{}}"
+}

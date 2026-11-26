@@ -1,0 +1,9 @@
+{
+ "fn": "is_band_5g",
+ "img": "fmacfw_h_u02",
+ "addr": "0x120f74",
+ "seg": 22,
+ "key": "is_band_5g__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_global_48_if_supported\",\"confidence\":\"medium\",\"docstring\":\"Checks a helper result, writes 48 to a global word when it is 1, and passes the corresponding status to the preprocessing helper.\",\"subsystem\":\"rf\"}"
+}

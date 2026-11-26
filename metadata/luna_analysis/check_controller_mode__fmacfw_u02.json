@@ -1,0 +1,9 @@
+{
+ "fn": "check_controller_mode",
+ "img": "fmacfw_u02",
+ "addr": "0x10ff34",
+ "seg": 3,
+ "key": "check_controller_mode__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"is_address_in_configured_regions\",\"confidence\":\"medium\",\"docstring\":\"Returns true when the address falls inclusively within either of two configured base-plus-length ranges.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"address\"}}"
+}

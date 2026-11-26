@@ -1,0 +1,9 @@
+{
+ "fn": "table_index_lookup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x113500",
+ "seg": 4,
+ "key": "table_index_lookup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_table_entry_get\",\"confidence\":\"medium\",\"docstring\":\"Returns the RF lookup-table entry for indices 0\u20137, or zero when the index is out of range.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"index\"}}"
+}

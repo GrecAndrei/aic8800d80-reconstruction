@@ -1,0 +1,9 @@
+{
+ "fn": "parse_command_parameters",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1403d4",
+ "seg": 64,
+ "key": "parse_command_parameters__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"apply_command_parameter_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Decodes command parameter fields from a word and sets/clears bit 2 (match/enable) and bit 4 (forced status) of a volatile command/status field at offset 0x3c.\",\n  \"subsystem\": \"ipc\",\n  \"var_renames\": {\n    \"result\": \"cmd_ctx\",\n    \"a2\": \"cmd_word\",\n    \"a4\": \"check_match\",\n    \"a5\": \"expected_field\",\n    \"a8\": \"force_status\",\n    \"v8\": \"cmd_word_hi\",\n    \"v9\": \"cmd_word_low7\",\n    \"v10\": \"param_field\",\n    \"v11\": \"status_value\",\n    \"v12\": \"status_value_clear_force\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 60,\n      \"meaning\": \"volatile uint32 command/status register; bit 2 updated on parameter match and bit 4 updated from force_status unless command-word bits 12-13 are clear\"\n    }\n  ]\n}"
+}

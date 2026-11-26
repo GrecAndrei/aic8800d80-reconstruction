@@ -1,0 +1,9 @@
+{
+ "fn": "parse_data_2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12df30",
+ "seg": 43,
+ "key": "parse_data_2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_data_find_tlv_type_45_len_26\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a TLV byte stream for a record whose type byte is 0x2D and length byte is 26, returning the record pointer or null on bounds or format mismatch.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"tlv\",\n    \"a2\": \"buf_len\",\n    \"v2\": \"buf_end\",\n    \"v3\": \"next_tlv\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"TLV record type byte\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"TLV record length byte\"\n    }\n  ]\n}"
+}

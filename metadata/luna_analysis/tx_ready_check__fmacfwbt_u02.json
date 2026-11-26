@@ -1,0 +1,9 @@
+{
+ "fn": "tx_ready_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12726c",
+ "seg": 33,
+ "key": "tx_ready_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_tx_ready_check\",\"confidence\":\"medium\",\"docstring\":\"Polls HCI transmit status bits, selects and updates the active TX buffer descriptor when a buffer completion bit is set, and clears the TX buffer when no further transmission is pending.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"tx_status_regs\",\"v1\":\"selected_tx_buffer_ptr\",\"v2\":\"previous_tx_buffer_ptr\"},\"struct_hints\":[{\"offset\":44,\"meaning\":\"word holding the active TX buffer descriptor/address\"},{\"offset\":88,\"meaning\":\"byte TX status flags, bits 2 and 3 indicate buffer completion/selection state\"},{\"offset\":16,\"meaning\":\"byte in a TX buffer descriptor marked when the previous buffer is released\"}]}"
+}

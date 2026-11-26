@@ -1,0 +1,9 @@
+{
+ "fn": "hci_cmd_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12cd48",
+ "seg": 40,
+ "key": "hci_cmd_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_cmd_lookup_entry\",\"confidence\":\"high\",\"docstring\":\"Returns the 16-bit HCI command-table entry selected by the packed table and entry indices, performing status and bounds checks along the way.\",\"subsystem\":\"hci\",\"var_renames\":{\"a1\":\"packed_lookup_key\",\"v2\":\"entry_index\",\"v3\":\"table_index\",\"v4\":\"command_table\",\"v5\":\"row_offset\",\"v7\":\"row_address\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Pointer to the row's 16-bit command-entry array\"},{\"offset\":14,\"meaning\":\"Entry count or upper bound for the row's entry index\"}]}"
+}

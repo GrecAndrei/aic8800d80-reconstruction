@@ -1,0 +1,9 @@
+{
+ "fn": "get_controller_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122e68",
+ "seg": 28,
+ "key": "get_controller_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ble_hci_send_controller_state_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates a BLE connection controller-state entry and sends vendor HCI event 0x4C to the host.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v6\": \"conn_idx\",\n    \"v9\": \"conn_ctx\",\n    \"v10\": \"state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"controller-state update or pending command flag\"\n    },\n    {\n      \"offset\": 112,\n      \"meaning\": \"16-bit controller-state or connection-update value\"\n    },\n    {\n      \"offset\": 114,\n      \"meaning\": \"state/status byte passed to the HCI event\"\n    }\n  ]\n}"
+}

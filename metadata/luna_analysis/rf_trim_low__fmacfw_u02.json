@@ -1,0 +1,9 @@
+{
+ "fn": "rf_trim_low",
+ "img": "fmacfw_u02",
+ "addr": "0x12e080",
+ "seg": 42,
+ "key": "rf_trim_low__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_trim_low_code_idx\",\"confidence\":\"medium\",\"docstring\":\"Maps recognized low RF trim codes to compact indices and returns 0xFF for unsupported codes.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"trim_code\"}}"
+}

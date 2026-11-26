@@ -1,0 +1,9 @@
+{
+ "fn": "build_packet_header",
+ "img": "fmacfw_u02",
+ "addr": "0x130d4c",
+ "seg": 42,
+ "key": "build_packet_header__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_build_packet_header\",\"confidence\":\"medium\",\"docstring\":\"Writes a 9-byte packet header, conditionally clears bit 0 of one 16-bit field, and selects the final 2 bytes based on another field\u2019s value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"global_config\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Fixed header byte set to 3.\"},{\"offset\":1,\"meaning\":\"Fixed header byte set to 1.\"},{\"offset\":2,\"meaning\":\"Caller-supplied 8-bit header field.\"},{\"offset\":3,\"meaning\":\"Caller-supplied 16-bit header field; its value also controls the trailing bytes.\"},{\"offset\":5,\"meaning\":\"Caller-supplied 16-bit field with bit 0 cleared when the corresponding global configuration byte is zero.\"},{\"offset\":7,\"meaning\":\"Trailing 16-bit field; zero when the field at offset 3 is nonzero, otherwise copied from the source structure.\"},{\"offset\":14,\"meaning\":\"Source structure\u2019s 16-bit value copied to the header when the field at header offset 3 is zero.\"}]}"
+}

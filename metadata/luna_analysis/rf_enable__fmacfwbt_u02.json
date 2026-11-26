@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10701c",
+ "seg": 2,
+ "key": "rf_enable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_enable\",\"confidence\":\"high\",\"docstring\":\"Enables the RF hardware by sequencing control-register bits, applying delays, and programming RF interface registers.\",\"subsystem\":\"rf\"}"
+}

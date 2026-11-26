@@ -1,0 +1,9 @@
+{
+ "fn": "parse_uint_base",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f818",
+ "seg": 42,
+ "key": "parse_uint_base__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"parse_int_base\",\"confidence\":\"high\",\"docstring\":\"Parses a signed integer using the requested base, with base zero selecting octal for a leading zero and decimal otherwise, accepts a valid `0x` prefix, and optionally stores the first unconsumed address.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"input\",\"a2\":\"end_ptr\",\"a3\":\"base\",\"v3\":\"current_char\",\"v4\":\"is_negative\",\"i\":\"value\",\"v6\":\"digit_value\",\"v8\":\"next_char\"}}"
+}

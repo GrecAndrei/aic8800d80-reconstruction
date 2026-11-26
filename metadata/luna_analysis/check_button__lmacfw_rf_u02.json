@@ -1,0 +1,9 @@
+{
+ "fn": "check_button",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x102a1c",
+ "seg": 2,
+ "key": "check_button__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"handle_spurious_irq\", \"confidence\": \"medium\", \"docstring\": \"Handles or verifies a spurious interrupt-controller event by logging it and invoking an asserted follow-up when a signed volatile status is negative.\", \"subsystem\": \"hal\", \"var_renames\": {}, \"struct_hints\": []}"
+}

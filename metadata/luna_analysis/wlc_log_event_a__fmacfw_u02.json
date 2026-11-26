@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_log_event_a",
+ "img": "fmacfw_u02",
+ "addr": "0x128ca0",
+ "seg": 34,
+ "key": "wlc_log_event_a__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_ps_enable_cfm\",\"confidence\":\"medium\",\"docstring\":\"Logs a PS-enable confirmation and, when its status check passes, decrements a pending countdown and sends message 50 to the stored task when it expires.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"status\",\"result\":\"rate_check_result\",\"v5\":\"ps_enable_context\",\"v6\":\"remaining_count\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"completion flag set when the countdown expires\"},{\"offset\":2,\"meaning\":\"destination task ID for message 50\"},{\"offset\":8,\"meaning\":\"remaining countdown count\"}]}"
+}

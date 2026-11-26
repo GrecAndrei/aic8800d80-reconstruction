@@ -1,0 +1,9 @@
+{
+ "fn": "patch_check_region",
+ "img": "fmacfw_u02",
+ "addr": "0x114f28",
+ "seg": 6,
+ "key": "patch_check_region__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"patch_bootstrap\",\"confidence\":\"medium\",\"docstring\":\"Clears and populates patch RAM, configures patch-control fields, performs magic and queue initialization, and then remains in an infinite idle loop.\",\"subsystem\":\"patch\",\"var_renames\":{\"v0\":\"clear_destination\",\"v1\":\"clear_end_rounded_up\",\"v2\":\"copy_region_start\",\"v3\":\"copy_source\",\"v4\":\"copy_source_end\",\"v5\":\"copy_destination\",\"v8\":\"fill_region_base\",\"i\":\"fill_index\",\"v11\":\"status_flags\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"16-bit magic or identifier checked during startup\"},{\"offset\":8,\"meaning\":\"Base address of the copied region\"},{\"offset\":136,\"meaning\":\"Control word with startup bits set using mask 0xF00000\"}]}"
+}

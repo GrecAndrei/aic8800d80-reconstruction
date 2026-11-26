@@ -1,0 +1,9 @@
+{
+ "fn": "dump_stats_values",
+ "img": "fmacfwbt_u02",
+ "addr": "0x128e5c",
+ "seg": 35,
+ "key": "dump_stats_values__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"record_stats_values\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Conditionally records selected statistics/MMIO context values and locks the associated kernel event when logging is enabled.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v4\": \"record_buffer\",\n    \"v7\": \"owner_id\",\n    \"v8\": \"event_lock_object\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "build_addba_request",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130bd4",
+ "seg": 42,
+ "key": "build_addba_request__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"build_addba_request\",\"confidence\":\"high\",\"docstring\":\"Serializes a 9-byte 802.11 ADDBA Request action body from block-ack parameters and returns its length.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"request_body\",\"a2\":\"ba_params\",\"v2\":\"tid\",\"v3\":\"ba_policy\",\"v4\":\"buffer_size\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Starting sequence number, shifted left four bits when encoded\"},{\"offset\":14,\"meaning\":\"Block-ack timeout\"},{\"offset\":18,\"meaning\":\"Block-ack policy flag\"},{\"offset\":20,\"meaning\":\"Block-ack buffer size\"},{\"offset\":22,\"meaning\":\"TID\"},{\"offset\":23,\"meaning\":\"Dialog token\"}]}"
+}

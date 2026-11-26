@@ -1,0 +1,9 @@
+{
+ "fn": "configure_bb_winsize",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103a00",
+ "seg": 2,
+ "key": "configure_bb_winsize__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"configure_bb_win_size\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs baseband window-size register banks by selecting each of three windows and copying the corresponding 12-word configuration entry from the BB parameter buffer.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"a1\": \"bb_cfg_base\",\n    \"a2\": \"win_idx\",\n    \"a3\": \"skip_default_cfg\",\n    \"v3\": \"cfg_stride\",\n    \"v4\": \"cfg_word_start\",\n    \"v8\": \"cfg_word_base\",\n    \"v12\": \"cfg_word_end\",\n    \"v15\": \"cfg_word_idx\",\n    \"v6\": \"win_reg_base\",\n    \"v7\": \"reg_bank_offset\",\n    \"v10\": \"chunk_start\",\n    \"v13\": \"chunk_count\",\n    \"result\": \"bank_idx\",\n    \"v16\": \"default_win_cfg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 48,\n      \"meaning\": \"base of BB window configuration word table; each win_idx uses 12 32-bit words\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_handle_command",
+ "img": "fmacfw_u02",
+ "addr": "0x136154",
+ "seg": 54,
+ "key": "bt_handle_command__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"apm_start_cac_req_handler\",\"confidence\":\"medium\",\"docstring\":\"Checks the selected APM interface and scan/STA conditions, then sends a start-CAC confirmation.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"start_cac_req\",\"v9\":\"apm_context\",\"v10\":\"confirm_status\",\"a2a\":\"bss_idx_out\",\"v14\":\"interface_idx\",\"v15\":\"bss_idx\"},\"struct_hints\":[{\"offset\":10,\"meaning\":\"Request field used to select the per-interface APM context.\"},{\"offset\":106,\"meaning\":\"APM context state, which must equal 2 to take the eligible path.\"},{\"offset\":108,\"meaning\":\"APM context flag that blocks the eligible path when nonzero.\"}]}"
+}

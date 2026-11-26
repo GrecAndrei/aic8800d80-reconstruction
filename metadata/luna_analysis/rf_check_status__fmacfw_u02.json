@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_status",
+ "img": "fmacfw_u02",
+ "addr": "0x101a0c",
+ "seg": 0,
+ "key": "rf_check_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_check_status\",\"confidence\":\"medium\",\"docstring\":\"Returns true when the RF status word at its fixed address is greater than one.\",\"subsystem\":\"rf\"}"
+}

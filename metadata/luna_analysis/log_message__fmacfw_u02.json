@@ -1,0 +1,9 @@
+{
+ "fn": "log_message",
+ "img": "fmacfw_u02",
+ "addr": "0x122b28",
+ "seg": 26,
+ "key": "log_message__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_hci_log_message\",\"confidence\":\"medium\",\"docstring\":\"Copies a 69-byte message into a shared buffer and posts a parameterless kernel message to notify another task.\",\"subsystem\":\"bt\",\"var_renames\":{\"a2\":\"message_data\",\"a3\":\"source_task_id\",\"a4\":\"destination_task_id\"}}"
+}

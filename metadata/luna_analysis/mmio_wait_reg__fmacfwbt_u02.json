@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_wait_reg",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1304a4",
+ "seg": 43,
+ "key": "mmio_wait_reg__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"uart_rx_poll\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls a UART/MMIO status register, reads a received byte when the ready state is observed, allocates a buffer, and optionally sends a kernel event.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"status_reg\",\n    \"u8\": \"rx_byte\"\n  }\n}"
+}

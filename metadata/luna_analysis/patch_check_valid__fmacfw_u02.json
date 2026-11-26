@@ -1,0 +1,9 @@
+{
+ "fn": "patch_check_valid",
+ "img": "fmacfw_u02",
+ "addr": "0x114e84",
+ "seg": 6,
+ "key": "patch_check_valid__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"patch_check_valid\",\"confidence\":\"medium\",\"docstring\":\"Checks the referenced 16-bit status and invokes the register-clear routine if it is negative, then loops indefinitely.\",\"subsystem\":\"patch\"}"
+}

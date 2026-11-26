@@ -1,0 +1,9 @@
+{
+ "fn": "swar_bit_count",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x109184",
+ "seg": 2,
+ "key": "swar_bit_count__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_measure_bit_count\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans RF/ADC samples for thresholded edges, records and filters candidate pulse intervals, and returns a measured bit/pulse count.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"sample_count\",\n    \"a2\": \"edge_threshold\",\n    \"a3\": \"samples\",\n    \"v3\": \"min_pulse_distance\",\n    \"v4\": \"candidate_start_index\",\n    \"v6\": \"candidate_count\",\n    \"v7\": \"sample_index\",\n    \"v11\": \"start_sample_value\",\n    \"v12\": \"candidate_end_index\",\n    \"v13\": \"pulse_width\",\n    \"v16\": \"pulse_slope\",\n    \"v22\": \"end_sample_value\"\n  },\n  \"struct_hints\": []\n}"
+}

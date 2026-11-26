@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_pll_setting",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13afd8",
+ "seg": 60,
+ "key": "rf_get_pll_setting__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_apply_frame_channel_settings\", \"confidence\": \"medium\", \"docstring\": \"Looks up a frame descriptor's channel/band index in a RF configuration table and applies the entry's RF/PLL settings when that entry's active flag is set.\", \"subsystem\": \"rf\", \"var_renames\": {\"result\": \"rfd\", \"v1\": \"rf_channel_cfg\"}, \"struct_hints\": [{\"offset\": 29, \"meaning\": \"frame descriptor channel/band index used to select RF table entry\"}, {\"offset\": 52, \"meaning\": \"frame descriptor PHY metric, possibly RSSI/signal/noise field\"}, {\"offset\": 48, \"meaning\": \"frame descriptor PHY field used as offset with byte at +52\"}, {\"offset\": 72, \"meaning\": \"frame descriptor integer field used in RF parameter calculation\"}, {\"offset\": 80, \"meaning\": \"RF config entry field containing settings pointer passed to check_radio_flag_2\"}, {\"offset\": 96, \"meaning\": \"RF config entry active/calibration flag\"}]}"
+}

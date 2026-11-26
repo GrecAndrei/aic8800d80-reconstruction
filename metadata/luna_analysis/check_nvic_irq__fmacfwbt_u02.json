@@ -1,0 +1,9 @@
+{
+ "fn": "check_nvic_irq",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115b00",
+ "seg": 7,
+ "key": "check_nvic_irq__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_nvic_irq_pending\",\"confidence\":\"medium\",\"docstring\":\"Checks enabled NVIC pending bits, with a special radio-status path, and returns nonzero when an interrupt condition is present.\",\"subsystem\":\"hal\",\"var_renames\":{\"v2\":\"radio_reg_base\",\"v3\":\"irq_control\",\"v5\":\"irq_status\",\"v6\":\"masked_irq_status\",\"i\":\"nvic_bank\",\"result\":\"pending_enabled_irqs\",\"v9\":\"radio_flag_status\",\"v10\":\"irq_ack_reg\"},\"struct_hints\":[{\"offset\":260,\"meaning\":\"MMIO control register whose bit 4 gates handling of the auxiliary interrupt status\"},{\"offset\":388,\"meaning\":\"MMIO register written with 0x10 while servicing the auxiliary interrupt status\"}]}"
+}

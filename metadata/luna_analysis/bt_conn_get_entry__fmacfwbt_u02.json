@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_get_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a7f4",
+ "seg": 38,
+ "key": "bt_conn_get_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_conn_get_entry\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Fetches the Bluetooth connection table slot referenced by the context, advancing its state machine when the active/valid flag is set.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"conn_ctx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1224,\n      \"meaning\": \"connection entry active/valid flag\"\n    },\n    {\n      \"offset\": 1225,\n      \"meaning\": \"connection table slot index or handle low byte\"\n    }\n  ]\n}"
+}

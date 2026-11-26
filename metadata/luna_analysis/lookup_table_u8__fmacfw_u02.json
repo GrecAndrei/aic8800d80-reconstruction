@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_table_u8",
+ "img": "fmacfw_u02",
+ "addr": "0x1193ac",
+ "seg": 12,
+ "key": "lookup_table_u8__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lookup_table_u8\",\"confidence\":\"medium\",\"docstring\":\"Returns the 8-bit value at the table base plus the combined offset formed from its two arguments.\",\"subsystem\":\"phy\"}"
+}

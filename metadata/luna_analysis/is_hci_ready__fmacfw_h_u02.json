@@ -1,0 +1,9 @@
+{
+ "fn": "is_hci_ready",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136528",
+ "seg": 56,
+ "key": "is_hci_ready__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_hci_control_state\",\"confidence\":\"medium\",\"docstring\":\"When the referenced signed state is negative and the control flag is set, performs a guarded MMIO write, then returns the stats-buffer pointer.\",\"subsystem\":\"bt\"}"
+}

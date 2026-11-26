@@ -1,0 +1,9 @@
+{
+ "fn": "get_phy_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114ee0",
+ "seg": 6,
+ "key": "get_phy_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_phy_state\",\"confidence\":\"medium\",\"docstring\":\"Returns the PHY state when the controller is in state 2 (otherwise 16), while servicing a soft reset and pending hardware status flags.\",\"subsystem\":\"phy\",\"var_renames\":{\"v0\":\"phy_state\"}}"
+}

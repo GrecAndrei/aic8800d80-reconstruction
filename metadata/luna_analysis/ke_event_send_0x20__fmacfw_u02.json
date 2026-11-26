@@ -1,0 +1,9 @@
+{
+ "fn": "ke_event_send_0x20",
+ "img": "fmacfw_u02",
+ "addr": "0x114d4c",
+ "seg": 6,
+ "key": "ke_event_send_0x20__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_event_send_0x20\",\"confidence\":\"high\",\"docstring\":\"Dispatches the 0x20 kernel event through task handler 4 with the supplied argument.\",\"subsystem\":\"ke\"}"
+}

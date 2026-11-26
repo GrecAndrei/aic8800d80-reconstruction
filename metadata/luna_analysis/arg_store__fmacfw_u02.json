@@ -1,0 +1,9 @@
+{
+ "fn": "arg_store",
+ "img": "fmacfw_u02",
+ "addr": "0x1121d4",
+ "seg": 4,
+ "key": "arg_store__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"validate_and_commit_request\",\"confidence\":\"medium\",\"docstring\":\"Copies the pending 16-bit value, treats zero as a successful status-3 case, and otherwise sets status 4 and state 7 only when callback slot 5 accepts the low byte, storing zero to a byte field if a flag is clear.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"request_state\",\"v1\":\"request_value\",\"v3\":\"request_validator\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"State byte set to 7 after a nonzero request is accepted\"},{\"offset\":14,\"meaning\":\"Pending 16-bit request value\"}]}"
+}

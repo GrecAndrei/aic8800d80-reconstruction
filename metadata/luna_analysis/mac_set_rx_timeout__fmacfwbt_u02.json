@@ -1,0 +1,9 @@
+{
+ "fn": "mac_set_rx_timeout",
+ "img": "fmacfwbt_u02",
+ "addr": "0x103d84",
+ "seg": 2,
+ "key": "mac_set_rx_timeout__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"debug_request_memory_dump\",\"confidence\":\"medium\",\"docstring\":\"Waits for a status register to clear, resets associated control fields, and emits a debug request to dump 0x4000 bytes starting at 0x100000.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"v0\":\"end_addr_status_reg\",\"v1\":\"config_reg\",\"v2\":\"config_value\",\"v3\":\"control_reg\"}}"
+}

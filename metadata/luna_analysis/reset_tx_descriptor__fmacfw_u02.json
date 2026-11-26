@@ -1,0 +1,9 @@
+{
+ "fn": "reset_tx_descriptor",
+ "img": "fmacfw_u02",
+ "addr": "0x13c3ac",
+ "seg": 60,
+ "key": "reset_tx_descriptor__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_descriptor_reset\",\"confidence\":\"medium\",\"docstring\":\"Clears and reinitializes a transmit descriptor, loading a selected calibration value and configuring its size-dependent fields.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"tx_descriptor\",\"v4\":\"tx_power_calibration\",\"v5\":\"ring_size\",\"v6\":\"ring_size_is_power_of_two\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Descriptor configuration word selected according to whether the ring size is a power of two\"},{\"offset\":4,\"meaning\":\"Selected transmit-power calibration value\"},{\"offset\":6,\"meaning\":\"Start of a 256-byte region cleared during reset\"},{\"offset\":262,\"meaning\":\"Descriptor byte reset to zero\"},{\"offset\":263,\"meaning\":\"Ring size copied from the input\"},{\"offset\":264,\"meaning\":\"Ring-size mask set to ring_size - 1 when the size is a power of two\"},{\"offset\":20,\"meaning\":\"Input ring-size value\"},{\"offset\":28,\"meaning\":\"Input pointer to the transmit descriptor\"}]}"
+}

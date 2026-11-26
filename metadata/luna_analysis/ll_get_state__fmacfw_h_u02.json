@@ -1,0 +1,9 @@
+{
+ "fn": "ll_get_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122654",
+ "seg": 24,
+ "key": "ll_get_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"poll_channel_scan\",\"confidence\":\"medium\",\"docstring\":\"Polls the active channel scan, updates its channel-specific buffer, and advances or stops it when the poll limit is reached.\",\"subsystem\":\"bt\",\"var_renames\":{\"result\":\"scan_context\",\"v2\":\"base_address\",\"v3\":\"channel_data_address\",\"v4\":\"poll_count\",\"v7\":\"poll_limit\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Current channel data address\"},{\"offset\":108,\"meaning\":\"Scan-active flag\"},{\"offset\":116,\"meaning\":\"Current channel index\"},{\"offset\":128,\"meaning\":\"Poll attempt counter\"},{\"offset\":136,\"meaning\":\"Offset used to form the scan poll address\"}]}"
+}

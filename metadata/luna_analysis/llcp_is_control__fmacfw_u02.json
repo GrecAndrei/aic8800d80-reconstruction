@@ -1,0 +1,9 @@
+{
+ "fn": "llcp_is_control",
+ "img": "fmacfw_u02",
+ "addr": "0x142338",
+ "seg": 67,
+ "key": "llcp_is_control__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llcp_rx_timeout_dispatch\",\"confidence\":\"medium\",\"docstring\":\"When enabled and the packet-status predicates pass, matches two packet-context bytes against active LLCP entries and dispatches the timeout handler for entries with status bits 0 and 3 set.\",\"subsystem\":\"ble\",\"var_renames\":{\"v3\":\"feature_flag_addr\",\"v4\":\"selected_rx_status\",\"v5\":\"conn_table_entry\",\"v6\":\"packet_key_byte\",\"v7\":\"conn_table_end\",\"v8\":\"match_count\",\"v9\":\"match_list_end\",\"v10\":\"match_list_cursor\",\"v11\":\"entry_status_ptr\",\"v12\":\"entry_status\",\"v13\":\"relevant_status_bits\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Connection-table entry status flags; bit 0 marks an active entry and bit 3 gates timeout dispatch.\"},{\"offset\":46,\"meaning\":\"Connection-table match-key byte compared with an input packet-context byte.\"},{\"offset\":47,\"meaning\":\"Connection-table match-key byte compared with an input packet-context byte.\"},{\"offset\":107,\"meaning\":\"Input packet-context byte used in the connection-table match.\"},{\"offset\":116,\"meaning\":\"Input packet-context byte used in the connection-table match.\"}]}"
+}

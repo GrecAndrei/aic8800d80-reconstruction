@@ -1,0 +1,9 @@
+{
+ "fn": "tx_packet_ack",
+ "img": "fmacfw_u02",
+ "addr": "0x1387e8",
+ "seg": 57,
+ "key": "tx_packet_ack__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_tx_packet_setup\",\"confidence\":\"medium\",\"docstring\":\"Parses a supported packet-record kind, advances the shared input cursor, and populates packet words, a backing-buffer address, and control flags.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"packet_data\",\"a2\":\"record_type_flags\",\"v2\":\"packet_control_block\",\"v3\":\"cursor_offset\",\"v4\":\"record_kind\",\"v5\":\"buffer_select_flag\",\"v6\":\"record_data\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Current input cursor offset; advanced after processing a record.\"},{\"offset\":9,\"meaning\":\"Buffer-pool index used by one backing-buffer address calculation.\"},{\"offset\":10,\"meaning\":\"Buffer-pool index used by the alternate backing-buffer address calculation.\"},{\"offset\":16,\"meaning\":\"First packet word populated from the record.\"},{\"offset\":20,\"meaning\":\"Second packet word populated from the record.\"},{\"offset\":32,\"meaning\":\"Backing-buffer address selected for the packet.\"},{\"offset\":48,\"meaning\":\"Packet control flags, with bits ORed in for supported record kinds.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_regf_high_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11416c",
+ "seg": 5,
+ "key": "rf_regf_high_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_regf_nonzero_byte_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads RF register 0xF, stores the first nonzero high or low byte into the output byte, and returns a status code indicating which byte was selected.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"out_byte\",\n    \"v2\": \"regf_value\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_get_conn_interval",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13ceb0",
+ "seg": 61,
+ "key": "bt_get_conn_interval__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_get_conn_interval\",\"confidence\":\"medium\",\"docstring\":\"Scans the connection entries, updates a scheduling flag, and computes the interval using the selected entry and timing values.\",\"subsystem\":\"bt\",\"var_renames\":{\"v2\":\"entry_count\",\"v3\":\"last_entry_index\",\"v4\":\"entry_ptr\",\"v5\":\"found_eligible_entry\",\"v13\":\"selected_entry_index\",\"v19\":\"entry_index\"},\"struct_hints\":[{\"offset\":136,\"meaning\":\"Index of the selected connection entry.\"},{\"offset\":166,\"meaning\":\"Status byte whose bit 3 is updated based on the entry scan and whose bit 1 gates selection.\"},{\"offset\":184,\"meaning\":\"Number of connection entries.\"},{\"offset\":8,\"meaning\":\"Per-entry 16-bit value checked against the 0x1998 limit.\"},{\"offset\":10,\"meaning\":\"Per-entry packed classification and status bits.\"},{\"offset\":13,\"meaning\":\"Per-entry nonzero validity indicator.\"}]}"
+}

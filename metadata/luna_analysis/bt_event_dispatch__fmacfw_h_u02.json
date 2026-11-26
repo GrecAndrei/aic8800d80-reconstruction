@@ -1,0 +1,9 @@
+{
+ "fn": "bt_event_dispatch",
+ "img": "fmacfw_h_u02",
+ "addr": "0x140aac",
+ "seg": 64,
+ "key": "bt_event_dispatch__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_event_dispatch_pending\",\"confidence\":\"medium\",\"docstring\":\"Advances Bluetooth event processing, handles matching work records, and transmits the next enabled event notification.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"event_context\",\"a2\":\"reset_state\",\"v9\":\"work_slot_cursor\",\"v10\":\"work_slot_end\",\"v11\":\"work_slot\",\"v13\":\"next_event_index\",\"v14\":\"event_index\",\"v17\":\"event_descriptor\",\"v18\":\"tx_pdu\",\"v19\":\"payload_length\"},\"struct_hints\":[{\"offset\":40,\"meaning\":\"RF delay value captured when resetting the event context\"},{\"offset\":58,\"meaning\":\"length of the payload stored at offset 59\"},{\"offset\":59,\"meaning\":\"payload bytes copied into the outgoing PDU\"},{\"offset\":92,\"meaning\":\"condition flag checked during no-more-measurement handling\"},{\"offset\":96,\"meaning\":\"current event index\"},{\"offset\":100,\"meaning\":\"event category passed to the event descriptor lookup\"},{\"offset\":101,\"meaning\":\"number of event entries to process\"},{\"offset\":102,\"meaning\":\"array of per-entry event codes\"}]}"
+}

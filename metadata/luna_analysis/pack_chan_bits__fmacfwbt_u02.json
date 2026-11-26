@@ -1,0 +1,9 @@
+{
+ "fn": "pack_chan_bits",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12e1d8",
+ "seg": 43,
+ "key": "pack_chan_bits__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_pack_chan_bits\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pack a channel-derived field and an auxiliary 9-bit value into a masked RF configuration word with fixed bits set.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"chan_struct\",\n    \"a2\": \"aux_bits\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 5,\n      \"meaning\": \"raw channel byte whose nibbles are folded into the packed field\"\n    }\n  ]\n}"
+}

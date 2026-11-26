@@ -1,0 +1,9 @@
+{
+ "fn": "mfp_key_update",
+ "img": "fmacfw_h_u02",
+ "addr": "0x128e18",
+ "seg": 34,
+ "key": "mfp_key_update__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mfp_key_update\",\"confidence\":\"medium\",\"docstring\":\"Stores the requested MFP key index, clears a state byte, and dispatches the 0x800000 operation through a handler selected by the current state and first argument.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"key_index\",\"v5\":\"update_handler\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"16-bit MFP key index\"}]}"
+}

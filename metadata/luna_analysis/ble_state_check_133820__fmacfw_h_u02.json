@@ -1,0 +1,9 @@
+{
+ "fn": "ble_state_check_133820",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133820",
+ "seg": 47,
+ "key": "ble_state_check_133820__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_check_state_and_reset_controller\",\"confidence\":\"medium\",\"docstring\":\"Checks the BLE state and resets the controller when it is 4 or 10, conditionally disabling an MMIO interrupt for other nonzero states when the shared flag is negative.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"ble_state\"}}"
+}

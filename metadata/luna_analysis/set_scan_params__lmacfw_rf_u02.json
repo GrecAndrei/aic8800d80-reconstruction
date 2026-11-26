@@ -1,0 +1,9 @@
+{
+ "fn": "set_scan_params",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124e60",
+ "seg": 23,
+ "key": "set_scan_params__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_scan_params\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Debug command handler that parses two decimal arguments, toggles GPIOs to select a table/mode pair, and logs the resulting table and mode labels.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v4\": \"mode_arg\",\n    \"v5\": \"table_arg\",\n    \"v6\": \"mode_sel\",\n    \"v7\": \"table_sel\",\n    \"v12\": \"table_name\",\n    \"v13\": \"mode_name\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"packed mode label buffer used when mode_sel is nonzero\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"third byte of the mode_sel-true label buffer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"packed mode label buffer used when mode_sel is zero\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"third byte of the mode_sel-false label buffer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"packed table label buffer used when table_sel is nonzero\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"third byte of the table_sel-true label buffer\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"packed table label buffer used when table_sel is zero\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"third byte of the table_sel-false label buffer\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "reset_link_status",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x118374",
+ "seg": 11,
+ "key": "reset_link_status__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"clear_link_status_and_count\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Clears the caller-provided status byte and scans the global link list, returning the number of entries whose byte-94 flag is clear and byte-96 flag is nonzero.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"status_byte_ptr\",\n    \"v1\": \"link_ctx\",\n    \"v2\": \"entry\",\n    \"result\": \"count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"next linked-list entry pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"context linked-list head pointer\"\n    },\n    {\n      \"offset\": 94,\n      \"meaning\": \"byte flag that must be clear for the entry to count\"\n    },\n    {\n      \"offset\": 96,\n      \"meaning\": \"byte flag that must be nonzero for the entry to count\"\n    }\n  ]\n}"
+}

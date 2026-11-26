@@ -1,0 +1,9 @@
+{
+ "fn": "crc32_update",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d71c",
+ "seg": 42,
+ "key": "crc32_update__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"crc32_update\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Updates a CRC-32 accumulator by processing a buffer of bytes using a table-driven MSB-first polynomial routine.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"data\",\n    \"a2\": \"len\",\n    \"a3\": \"crc\",\n    \"v3\": \"data_end\",\n    \"v4\": \"input_byte\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10c688",
+ "seg": 2,
+ "key": "bt_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sdio_reset_and_enable_irq\",\"confidence\":\"medium\",\"docstring\":\"Resets the SDIO bus and then enables its interrupt.\",\"subsystem\":\"hal\"}"
+}

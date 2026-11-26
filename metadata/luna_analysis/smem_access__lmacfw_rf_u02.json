@@ -1,0 +1,9 @@
+{
+ "fn": "smem_access",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1007b4",
+ "seg": 0,
+ "key": "smem_access__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_freq_comp_bits_calc\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Calculate RF frequency-dependent compensation bits from calibration tables and return the selected RF table pointer.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"mode_or_band_index\",\n    \"a2\": \"freq_mhz\",\n    \"a3\": \"comp_bits_out\",\n    \"v4\": \"comp_bits\",\n    \"v5\": \"table_ptr\",\n    \"v6\": \"debug_count\",\n    \"v8\": \"calib_index\",\n    \"v9\": \"calib_table_offset\",\n    \"v10\": \"calib_offset_byte\",\n    \"v11\": \"calib_table_ptr\",\n    \"v12\": \"calib_base\",\n    \"v13\": \"bit_index\",\n    \"v14\": \"calib_table_byte\",\n    \"v15\": \"sum_is_odd\",\n    \"v16\": \"bit_value\",\n    \"v17\": \"calib_table_ptr\",\n    \"v18\": \"calib_data_ptr\",\n    \"i\": \"bit_index\",\n    \"v20\": \"calib_table_byte\",\n    \"v21\": \"sum_or_bit\",\n    \"v22\": \"sum_is_even\"\n  },\n  \"struct_hints\": []\n}"
+}

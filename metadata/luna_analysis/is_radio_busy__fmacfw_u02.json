@@ -1,0 +1,9 @@
+{
+ "fn": "is_radio_busy",
+ "img": "fmacfw_u02",
+ "addr": "0x102f80",
+ "seg": 2,
+ "key": "is_radio_busy__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_initialize_radio\",\"confidence\":\"medium\",\"docstring\":\"Initializes radio control registers and hardware state when the initialization flag is clear, otherwise sets a radio control bit.\",\"subsystem\":\"rf\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "dispatch_config_command",
+ "img": "fmacfw_u02",
+ "addr": "0x1162bc",
+ "seg": 7,
+ "key": "dispatch_config_command__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"set_config_command_mask\",\"confidence\":\"medium\",\"docstring\":\"Maps command IDs 0\u20135 to one-hot configuration values and conditionally clears a hardware register for other IDs.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"command_id\"}}"
+}

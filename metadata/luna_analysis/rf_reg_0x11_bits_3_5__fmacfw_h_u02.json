@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_0x11_bits_3_5",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1149dc",
+ "seg": 5,
+ "key": "rf_reg_0x11_bits_3_5__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_rf_reg_0x11_bits_3_5\",\"confidence\":\"high\",\"docstring\":\"Returns bits 3\u20135 of RF register 0x11, read through the ROM API.\",\"subsystem\":\"rf\"}"
+}

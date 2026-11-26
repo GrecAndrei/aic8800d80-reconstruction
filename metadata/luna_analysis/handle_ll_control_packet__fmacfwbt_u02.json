@@ -1,0 +1,9 @@
+{
+ "fn": "handle_ll_control_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13ed0c",
+ "seg": 62,
+ "key": "handle_ll_control_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"handle_ble_ll_packet\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a Bluetooth Low Energy link-layer packet or event by checking status/count flags and dispatching through a state machine, including selection from an index/channel range and bitmask.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v2\": \"status_flags\",\n    \"v5\": \"skip_or_error_flag\",\n    \"v6\": \"packet_state\",\n    \"v25\": \"range_high\",\n    \"v26\": \"range_low\",\n    \"v42\": \"random_value\",\n    \"v43\": \"candidate_index\",\n    \"v44\": \"map_mask_shifted\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 166,\n      \"meaning\": \"uint8_t status_flags: bit 0x20 causes early return and bit 0x40 selects alternate path\"\n    },\n    {\n      \"offset\": 154,\n      \"meaning\": \"uint8_t skip/error or pending flag; nonzero suppresses processing\"\n    },\n    {\n      \"offset\": 152,\n      \"meaning\": \"uint16_t countdown/retry or packet-state counter; nonzero decrements and returns\"\n    },\n    {\n      \"offset\": 136,\n      \"meaning\": \"uint16_t current context/channel index\"\n    },\n    {\n      \"offset\": 138,\n      \"meaning\": \"uint16_t alternate/head context/channel index\"\n    },\n    {\n      \"offset\": 174,\n      \"meaning\": \"uint16_t selection or channel-map bitmask\"\n    },\n    {\n      \"offset\": 177,\n      \"meaning\": \"uint8_t selection range lower bound\"\n    },\n    {\n      \"offset\": 178,\n      \"meaning\": \"uint8_t selection range upper bound\"\n    },\n    {\n      \"offset\": 184,\n      \"meaning\": \"uint16_t entry count or channel-map threshold\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hci_evt_alloc_send",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12cc38",
+ "seg": 41,
+ "key": "hci_evt_alloc_send__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hci_evt_alloc_send\", \"confidence\": \"high\", \"docstring\": \"Allocates a Bluetooth HCI event buffer and immediately sends it.\", \"subsystem\": \"bt\", \"var_renames\": {\"v3\": \"evt_buf\"}, \"struct_hints\": []}"
+}

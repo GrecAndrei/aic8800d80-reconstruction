@@ -1,0 +1,9 @@
+{
+ "fn": "mac_backoff_rand",
+ "img": "fmacfw_h_u02",
+ "addr": "0x135970",
+ "seg": 54,
+ "key": "mac_backoff_rand__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_read_nested_u16\",\"confidence\":\"medium\",\"docstring\":\"Validates a nested 4-byte-indexed layout in the buffer and returns the final 16-bit value, or null if a bounds check fails.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"outer_offset_bytes\",\"v4\":\"remaining_after_outer_table\",\"v5\":\"outer_table_base\",\"v6\":\"inner_offset_bytes\",\"v7\":\"remaining_after_inner_table\",\"v8\":\"inner_table_base\",\"v9\":\"available_length\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Outer-table metadata used to compute a 4-byte-unit offset\"},{\"offset\":10,\"meaning\":\"Start of the outer variable-length table\"}]}"
+}

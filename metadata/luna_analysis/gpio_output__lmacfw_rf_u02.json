@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_output",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x107068",
+ "seg": 2,
+ "key": "gpio_output__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_measure_lpf_bypass_power\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Briefly enables the RF interface calibration path, samples the LPF bypass power value from an RF result register, stores it into the caller's RF context, and restores the register bits.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"rf_ctx\",\n    \"a2\": \"rf_param\",\n    \"v2\": \"rf_clock_ctrl\",\n    \"v3\": \"rf_interface_ctrl\",\n    \"v5\": \"rf_result_reg\",\n    \"v6\": \"lpf_bypass_pwr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 44,\n      \"meaning\": \"stored LPF bypass power/calibration sample\"\n    }\n  ]\n}"
+}

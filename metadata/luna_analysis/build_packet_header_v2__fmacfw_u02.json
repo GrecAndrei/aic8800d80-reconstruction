@@ -1,0 +1,9 @@
+{
+ "fn": "build_packet_header_v2",
+ "img": "fmacfw_u02",
+ "addr": "0x130d90",
+ "seg": 42,
+ "key": "build_packet_header_v2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"build_packet_header\",\"confidence\":\"medium\",\"docstring\":\"Writes a six-byte packet header with fixed type bytes, a packed control word, and the supplied 16-bit value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"header_control_word\"},\"struct_hints\":[{\"offset\":17,\"meaning\":\"One-byte selector; value 1 sets bit 11 in the header control word.\"},{\"offset\":22,\"meaning\":\"One-byte field shifted into the upper bits of the header control word.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "sys_status_bit30_get",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101a78",
+ "seg": 0,
+ "key": "sys_status_bit30_get__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"sys_status_bit30_get\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Return bit 30 of a volatile system status register addressed through the literal-pool pointer at off_101A84.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

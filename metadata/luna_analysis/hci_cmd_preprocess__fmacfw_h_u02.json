@@ -1,0 +1,9 @@
+{
+ "fn": "hci_cmd_preprocess",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12cbf4",
+ "seg": 40,
+ "key": "hci_cmd_preprocess__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_state_set\",\"confidence\":\"high\",\"docstring\":\"Updates the state of a task instance and dispatches queued messages for that task when the state changes.\",\"subsystem\":\"ke\",\"var_renames\":{\"a1\":\"task_id\",\"a2\":\"new_state\",\"v5\":\"task_instance\",\"v6\":\"task_type\",\"v7\":\"task_state_slot\",\"v11\":\"irq_reenable_pending\",\"v12\":\"dispatch_depth\",\"v16\":\"queued_message\",\"v17\":\"task_descriptor\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Pointer to the task instance state array\"},{\"offset\":14,\"meaning\":\"Maximum number of task instances\"}]}"
+}

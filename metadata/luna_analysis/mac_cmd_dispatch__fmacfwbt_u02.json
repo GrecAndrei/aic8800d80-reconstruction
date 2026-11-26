@@ -1,0 +1,9 @@
+{
+ "fn": "mac_cmd_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x109350",
+ "seg": 2,
+ "key": "mac_cmd_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_adjust\",\"confidence\":\"medium\",\"docstring\":\"Selects signed calibration adjustments from measurement values and the current mode or state, updating the adjustment bytes and state code.\",\"subsystem\":\"rf\",\"var_renames\":{\"a3\":\"calibration_state\",\"a4\":\"adjustment_values\",\"a5\":\"measurement_values\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_interface_info",
+ "img": "fmacfw_u02",
+ "addr": "0x13c0a4",
+ "seg": 60,
+ "key": "lookup_interface_info__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_peer_rx_rate_check\",\"confidence\":\"medium\",\"docstring\":\"Returns 2 for peer index 0xFF; otherwise checks the stored rate and, for parser-class-1 rates, whether its masked counter age is below the rate-specific threshold.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v3\":\"interface_context_base\",\"v5\":\"stored_rate_code\"},\"struct_hints\":[{\"offset\":316,\"meaning\":\"Base of per-peer 16-bit counter or timestamp values, indexed by peer ID.\"},{\"offset\":453,\"meaning\":\"Base of per-peer records with a 12-byte stride; the first byte stores the rate code.\"},{\"offset\":20,\"meaning\":\"Rate-table entry's 16-bit age threshold.\"},{\"offset\":28,\"meaning\":\"Rate-table entry pointer to a counter or timer object.\"},{\"offset\":4,\"meaning\":\"16-bit counter or timestamp field in the referenced object.\"}]}"
+}

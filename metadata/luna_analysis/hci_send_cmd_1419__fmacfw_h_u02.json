@@ -1,0 +1,9 @@
+{
+ "fn": "hci_send_cmd_1419",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1346c0",
+ "seg": 51,
+ "key": "hci_send_cmd_1419__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_cleanup_connection_resources\",\"confidence\":\"medium\",\"docstring\":\"Posts connection cleanup events, handles the associated scheduled event, and resets BLE controller state.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"conn_ctx\"},\"struct_hints\":[{\"offset\":107,\"meaning\":\"Connection identifier or slot used in cleanup event payloads.\"},{\"offset\":116,\"meaning\":\"Scheduled event identifier; 0xFF indicates no event.\"}]}"
+}

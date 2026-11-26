@@ -1,0 +1,9 @@
+{
+ "fn": "phy_band_validate",
+ "img": "fmacfw_u02",
+ "addr": "0x11749c",
+ "seg": 10,
+ "key": "phy_band_validate__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_rf_tx_slot_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the indexed RF transmit context and event slot, clears per-slot fields, and updates the corresponding global slot mask.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"tx_slot_context\",\"v3\":\"previous_slot_mask\",\"v4\":\"slot_bit\",\"v7\":\"previous_counter_value\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Word cleared during slot initialization\"},{\"offset\":12,\"meaning\":\"RF transmit setup data passed to rf_tx_setup\"},{\"offset\":20,\"meaning\":\"Word cleared during slot initialization\"}]}"
+}

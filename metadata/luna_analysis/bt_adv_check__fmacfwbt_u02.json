@@ -1,0 +1,9 @@
+{
+ "fn": "bt_adv_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c040",
+ "seg": 18,
+ "key": "bt_adv_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_rssi_histogram_update\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Updates Bluetooth link-quality state by histogramming eight fixed-point RSSI samples into five buckets, tracking distinct bucket usage and totals, and normalizing the aggregate values.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"event\",\n    \"v1\": \"valid_count\",\n    \"v2\": \"link_ctx\",\n    \"v3\": \"class_ptr\",\n    \"v4\": \"sample_ptr\",\n    \"v5\": \"class_end\",\n    \"v6\": \"distinct_class_count\",\n    \"v7\": \"class_mask\",\n    \"v8\": \"max_bucket_sum\",\n    \"v9\": \"total_rssi_sum\",\n    \"v10\": \"sample\",\n    \"v11\": \"raw_sample\",\n    \"v12\": \"clamped_sample\",\n    \"v13\": \"bucket_idx\",\n    \"v14\": \"bucket_ptr\",\n    \"v15\": \"bucket_sum\",\n    \"v24\": \"ctx_index\",\n    \"v25\": \"bucket_sums\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 0, \"meaning\": \"max bucket index (local frame v23)\"},\n    {\"offset\": 4, \"meaning\": \"context index (local frame v24)\"},\n    {\"offset\": 8, \"meaning\": \"array of five RSSI bucket sums (local frame v25)\"}\n  ]\n}"
+}

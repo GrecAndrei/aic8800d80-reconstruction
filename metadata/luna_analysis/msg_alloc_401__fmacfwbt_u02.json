@@ -1,0 +1,9 @@
+{
+ "fn": "msg_alloc_401",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12f154",
+ "seg": 43,
+ "key": "msg_alloc_401__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_debug_mem_read_evt\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Allocates a Bluetooth HCI event buffer, reads the 32-bit value from the supplied address, stores the address and value in the event, logs the read, and submits the event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"addr_ptr\",\n    \"v5\": \"evt_buf\",\n    \"v6\": \"addr\",\n    \"v7\": \"evt_data\",\n    \"v8\": \"value\",\n    \"v10\": \"reg_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"address whose memory contents were read\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"32-bit value read from that address\"\n    }\n  ]\n}"
+}

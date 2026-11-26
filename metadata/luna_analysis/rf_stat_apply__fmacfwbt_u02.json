@@ -1,0 +1,9 @@
+{
+ "fn": "rf_stat_apply",
+ "img": "fmacfwbt_u02",
+ "addr": "0x113a7c",
+ "seg": 5,
+ "key": "rf_stat_apply__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_stat_update\",\"confidence\":\"medium\",\"docstring\":\"Refreshes RF statistics for the supplied context and copies bytes at offsets 326 and 352 of the statistics record to global status bytes.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"status_byte_dst\",\"v2\":\"stat_status_byte\"},\"struct_hints\":[{\"offset\":326,\"meaning\":\"Byte copied to the global status byte at 0x113A9C.\"},{\"offset\":352,\"meaning\":\"Byte copied to the global status byte at 0x113AA0.\"}]}"
+}

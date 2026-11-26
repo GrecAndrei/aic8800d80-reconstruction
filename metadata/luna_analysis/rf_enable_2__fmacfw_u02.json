@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable_2",
+ "img": "fmacfw_u02",
+ "addr": "0x1305b4",
+ "seg": 42,
+ "key": "rf_enable_2__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_enable\",\"confidence\":\"medium\",\"docstring\":\"Enables RF operation, performs initial reset and temperature compensation when no worker is active, adjusts the XTAL-cap setting if needed, and schedules periodic work.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"rf_context\"},\"struct_hints\":[{\"offset\":1,\"meaning\":\"RF enable flag\"},{\"offset\":5,\"meaning\":\"target XTAL-cap value\"},{\"offset\":6,\"meaning\":\"cached current XTAL-cap value\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "decrement_refcount",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11a190",
+ "seg": 13,
+ "key": "decrement_refcount__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"btm_put_conn_entry\",\"confidence\":\"medium\",\"docstring\":\"Decrements a connection entry's reference count and invokes its final-release handler when the count reaches zero.\",\"subsystem\":\"bt\",\"var_renames\":{\"result\":\"conn_entry\",\"v1\":\"refcount\"},\"struct_hints\":[{\"offset\":14,\"meaning\":\"reference count\"},{\"offset\":340,\"meaning\":\"argument passed to the final-release handler\"}]}"
+}

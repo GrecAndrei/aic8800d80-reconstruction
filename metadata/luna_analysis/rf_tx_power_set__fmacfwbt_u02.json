@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_power_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x101da4",
+ "seg": 0,
+ "key": "rf_tx_power_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_power_set\",\"confidence\":\"medium\",\"docstring\":\"Programs RF transmit-power control registers from a signed power value, encoding its half-value and sign-dependent odd remainder.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"tx_power_ctrl_reg\",\"v2\":\"tx_power_ctrl_value\",\"v3\":\"updated_ctrl_value\"}}"
+}

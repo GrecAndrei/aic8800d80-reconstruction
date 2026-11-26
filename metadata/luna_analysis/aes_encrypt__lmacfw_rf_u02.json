@@ -1,0 +1,9 @@
+{
+ "fn": "aes_encrypt",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11cb84",
+ "seg": 19,
+ "key": "aes_encrypt__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_tx_entry_copy\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Copies the payload from an RF transmit entry into the current transmit buffer, updates the buffer/queue tail metadata, and removes the entry from its queue.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"entry\",\n    \"v1\": \"buf_ptr\",\n    \"v2\": \"buf_ctrl\",\n    \"result\": \"removed\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 360,\n      \"meaning\": \"transmit entry payload data pointer\"\n    },\n    {\n      \"offset\": 364,\n      \"meaning\": \"transmit entry payload length\"\n    },\n    {\n      \"offset\": -4,\n      \"meaning\": \"buffer/queue descriptor link or terminator cleared\"\n    },\n    {\n      \"offset\": -8,\n      \"meaning\": \"buffer/queue descriptor metadata updated from copied length\"\n    },\n    {\n      \"offset\": -12,\n      \"meaning\": \"prior buffer/queue descriptor metadata used for length update\"\n    }\n  ]\n}"
+}

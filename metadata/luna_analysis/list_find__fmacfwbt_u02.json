@@ -1,0 +1,9 @@
+{
+ "fn": "list_find",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d5a8",
+ "seg": 42,
+ "key": "list_find__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"list_insert_sorted\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Inserts a node into a singly-linked list at the first comparator stop position, updating the head, previous link, and tail pointer as needed.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"result\": \"list_head\",\n    \"a2\": \"new_node\",\n    \"a3\": \"cmp\",\n    \"v3\": \"curr\",\n    \"v4\": \"list_ptr\",\n    \"v7\": \"prev\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"first node pointer for list head / next pointer for node\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"tail pointer for list head\"\n    }\n  ]\n}"
+}

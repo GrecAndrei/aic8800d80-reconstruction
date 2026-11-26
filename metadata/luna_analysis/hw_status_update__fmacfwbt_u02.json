@@ -1,0 +1,9 @@
+{
+ "fn": "hw_status_update",
+ "img": "fmacfwbt_u02",
+ "addr": "0x112030",
+ "seg": 4,
+ "key": "hw_status_update__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_status_event_handle\",\"confidence\":\"medium\",\"docstring\":\"Reads the pending RF status, passes nonzero values to a registered callback, and updates the associated state markers when the status is handled.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"status_code\",\"v3\":\"status_callback\"}}"
+}

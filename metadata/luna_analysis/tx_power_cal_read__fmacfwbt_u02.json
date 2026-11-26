@@ -1,0 +1,9 @@
+{
+ "fn": "tx_power_cal_read",
+ "img": "fmacfwbt_u02",
+ "addr": "0x138ad4",
+ "seg": 59,
+ "key": "tx_power_cal_read__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"tx_power_cal_write\", \"confidence\": \"medium\", \"docstring\": \"Populates the next TX power calibration descriptor/table entry from caller-supplied pointers and a rate/flag value, rejects busy slots under overrun conditions, and advances a modulo-64 ring index.\", \"subsystem\": \"rf\", \"var_renames\": {\"v3\": \"cal_state\", \"v4\": \"cal_idx\", \"v5\": \"cal_table\", \"v6\": \"cal_entry\", \"v8\": \"cal_entry\", \"v9\": \"cal_entry\"}, \"struct_hints\": [{\"offset\": 12, \"meaning\": \"descriptor source pointer/address\"}, {\"offset\": 16, \"meaning\": \"descriptor flags or control byte copied from source\"}, {\"offset\": 68, \"meaning\": \"descriptor data pointer or auxiliary address\"}, {\"offset\": 76, \"meaning\": \"descriptor rate/phy-mode/status word\"}]}"
+}

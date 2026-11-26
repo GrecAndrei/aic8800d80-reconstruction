@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_rx_process",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116858",
+ "seg": 10,
+ "key": "wlan_rx_process__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rxi_frame_handle\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Handles an incoming 802.11 RX PBD by validating the security key and station context and updating RX status and counter fields.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a1\": \"rxi_frame\",\n    \"v5\": \"pbd_data_ptr\",\n    \"v6\": \"frame_control\",\n    \"v7\": \"rx_status\",\n    \"v9\": \"key_idx\",\n    \"v10\": \"sec_desc\",\n    \"v12\": \"sta_idx\",\n    \"v13\": \"sta_table_base\",\n    \"v14\": \"sta_entry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"pointer to RX PBD associated with the frame\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"RX frame processing enable/status word\"\n    },\n    {\n      \"offset\": 84,\n      \"meaning\": \"RX vector/status word containing key-index and error bits\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ll_parse_pdu",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1212d8",
+ "seg": 22,
+ "key": "ll_parse_pdu__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"install_wifi_key\",\"confidence\":\"high\",\"docstring\":\"Installs a pairwise or group Wi-Fi key and updates the associated hardware key state.\",\"subsystem\":\"mac\",\"var_renames\":{\"v4\":\"sta_idx_or_group_marker\",\"v5\":\"key_index\",\"v7\":\"key_table_slot\",\"v9\":\"sta_key_entry\"},\"struct_hints\":[{\"offset\":1,\"meaning\":\"Station index, or 0xFF to indicate a group key.\"},{\"offset\":8,\"meaning\":\"Start of the cipher-specific key data payload.\"},{\"offset\":40,\"meaning\":\"Key type or cipher selector.\"},{\"offset\":41,\"meaning\":\"Group key index.\"}]}"
+}

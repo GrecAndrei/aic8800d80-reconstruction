@@ -1,0 +1,9 @@
+{
+ "fn": "flash_write_data",
+ "img": "fmacfw_u02",
+ "addr": "0x111d8c",
+ "seg": 4,
+ "key": "flash_write_data__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"flash_region_dispatch\",\"confidence\":\"medium\",\"docstring\":\"For selectors 0\u20135, calls one of two helpers with the fixed flash region depending on whether `result` is non-null; otherwise returns `result` unchanged.\",\"subsystem\":\"flash\",\"var_renames\":{\"a2\":\"selector\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "scan_process_list",
+ "img": "fmacfw_u02",
+ "addr": "0x13cff0",
+ "seg": 61,
+ "key": "scan_process_list__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_scan_list_process\",\"confidence\":\"medium\",\"docstring\":\"Scans buffered BLE link-layer records, updates scan-status flags, and selects an entry for subsequent PDU handling.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"entry_count\",\"v3\":\"last_entry_index\",\"v4\":\"entry_ptr\",\"v5\":\"eligible_entry_seen\",\"v6\":\"pdu_header\",\"v13\":\"selected_entry_index\",\"v15\":\"selected_pdu_header\"},\"struct_hints\":[{\"offset\":136,\"meaning\":\"Selected scan-entry index\"},{\"offset\":166,\"meaning\":\"Scan-processing flags; bit 3 is updated and bit 1 affects entry selection\"},{\"offset\":184,\"meaning\":\"Number of buffered scan entries\"},{\"offset\":10,\"meaning\":\"PDU header word in a scan record\"},{\"offset\":13,\"meaning\":\"Per-record nonzero eligibility/validity field\"}]}"
+}

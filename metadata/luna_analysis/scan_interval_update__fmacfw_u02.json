@@ -1,0 +1,9 @@
+{
+ "fn": "scan_interval_update",
+ "img": "fmacfw_u02",
+ "addr": "0x132d18",
+ "seg": 45,
+ "key": "scan_interval_update__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_config_update\",\"confidence\":\"medium\",\"docstring\":\"Derives channel frequencies from 2.4- or 5-GHz channel data and updates the configuration\u2019s offset and paired-channel fields.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"first_channel_frequency\",\"v4\":\"second_channel_frequency\",\"v9\":\"reference_frequency\",\"v10\":\"channel_frequency_offset\",\"v11\":\"channel_config_bytes\",\"v12\":\"second_channel_number\",\"v13\":\"first_channel_number\"},\"struct_hints\":[{\"offset\":164,\"meaning\":\"Band selector: 0 selects 2.4 GHz and 1 selects 5 GHz.\"},{\"offset\":165,\"meaning\":\"Channel configuration state or mode.\"},{\"offset\":166,\"meaning\":\"Reference frequency copied into the selected-frequency field.\"},{\"offset\":168,\"meaning\":\"Selected channel frequency.\"},{\"offset\":170,\"meaning\":\"Optional paired-channel frequency.\"}]}"
+}

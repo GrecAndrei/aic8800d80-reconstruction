@@ -1,0 +1,9 @@
+{
+ "fn": "send_app_message",
+ "img": "fmacfw_u02",
+ "addr": "0x134368",
+ "seg": 50,
+ "key": "send_app_message__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"app_event_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches a fixed application event, performs a follow-up kernel operation, clears a byte-sized flag in global state, and returns the kernel operation's result.\",\"subsystem\":\"ke\",\"struct_hints\":[{\"offset\":15,\"meaning\":\"Byte-sized flag cleared after event dispatch\"}]}"
+}

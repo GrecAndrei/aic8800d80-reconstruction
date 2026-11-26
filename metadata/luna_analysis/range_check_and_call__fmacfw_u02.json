@@ -1,0 +1,9 @@
+{
+ "fn": "range_check_and_call",
+ "img": "fmacfw_u02",
+ "addr": "0x1094f8",
+ "seg": 2,
+ "key": "range_check_and_call__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_rf_calibration_step\",\"confidence\":\"medium\",\"docstring\":\"Updates RF calibration adjustment values from signed measurements and records the branch state for the special selector value.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"stage\",\"a3\":\"state\",\"a4\":\"adjustments\",\"a5\":\"measurements\"}}"
+}

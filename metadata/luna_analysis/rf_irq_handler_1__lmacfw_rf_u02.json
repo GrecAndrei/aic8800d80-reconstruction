@@ -1,0 +1,9 @@
+{
+ "fn": "rf_irq_handler_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x110d00",
+ "seg": 4,
+ "key": "rf_irq_handler_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_irq_handler\",\"confidence\":\"medium\",\"docstring\":\"Interrupt handler that parses a combined RF/host interrupt status register and dispatches RF register updates, device wake/presleep handling, and SDIO host reset/error events.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"irq_status\",\"v41\":\"int2dev_status\"}}"
+}

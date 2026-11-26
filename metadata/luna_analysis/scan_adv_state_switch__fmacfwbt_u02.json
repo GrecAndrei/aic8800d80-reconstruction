@@ -1,0 +1,9 @@
+{
+ "fn": "scan_adv_state_switch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13d3e8",
+ "seg": 62,
+ "key": "scan_adv_state_switch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"scan_adv_get_state_value\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Calculates a bounded 0-10 scan/advertising state value from state-dependent bit fields in a BLE scan/adv context.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v2\": \"bits_left\",\n    \"v3\": \"accum\",\n    \"v4\": \"bitmap174\",\n    \"i\": \"bit_pos\",\n    \"v6\": \"bit_value\",\n    \"v11\": \"base_value\",\n    \"v12\": \"multiplier\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 169,\n      \"meaning\": \"scan/advertising state selector byte\"\n    },\n    {\n      \"offset\": 170,\n      \"meaning\": \"state-dependent mask or selector byte\"\n    },\n    {\n      \"offset\": 174,\n      \"meaning\": \"16-bit bitmap used for bit-weighted accumulation\"\n    },\n    {\n      \"offset\": 179,\n      \"meaning\": \"numeric parameter used to form a shifted base value\"\n    },\n    {\n      \"offset\": 180,\n      \"meaning\": \"numeric multiplier or addend parameter\"\n    },\n    {\n      \"offset\": 181,\n      \"meaning\": \"shift amount for base value\"\n    },\n    {\n      \"offset\": 182,\n      \"meaning\": \"bit-weight selector used as 1-value\"\n    }\n  ]\n}"
+}

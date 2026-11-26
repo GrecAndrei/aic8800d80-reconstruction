@@ -1,0 +1,9 @@
+{
+ "fn": "rf_send_channel",
+ "img": "fmacfw_u02",
+ "addr": "0x136f20",
+ "seg": 56,
+ "key": "rf_send_channel__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_scan_idle_cancel_cfm_send\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends the scan-idle cancellation confirmation message, then logs its destination value.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"message\"}}"
+}

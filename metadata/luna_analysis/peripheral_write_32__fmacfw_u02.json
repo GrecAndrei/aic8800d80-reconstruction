@@ -1,0 +1,9 @@
+{
+ "fn": "peripheral_write_32",
+ "img": "fmacfw_u02",
+ "addr": "0x102d7c",
+ "seg": 2,
+ "key": "peripheral_write_32__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"peripheral_write_32\",\"confidence\":\"medium\",\"docstring\":\"Writes 16 supplied values, shifted by 11, into selected peripheral register banks while preserving configured bits and updating the corresponding secondary banks.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"peripheral_mask\",\"a2\":\"values\",\"v4\":\"peripheral_index\",\"v5\":\"preserve_mask\",\"v7\":\"bank_register_ptr\",\"v8\":\"value_index\",\"v9\":\"values_cursor\",\"v10\":\"old_word\",\"v11\":\"value\",\"v12\":\"updated_word\",\"_frame.v23\":\"extended_bank_selected\",\"v15\":\"destination_base\",\"v16\":\"destination_count\",\"v17\":\"destination_list_cursor\",\"v18\":\"preserve_mask\",\"v19\":\"destination_list_end\",\"v20\":\"destination_register_base\",\"v21\":\"values_ptr\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "periph_write_read",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1005f4",
+ "seg": 0,
+ "key": "periph_write_read__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"periph_write_read_strobe\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Pulses the configured peripheral write/read control register by writing 0x11, waiting about ten timer ticks, clearing it, and waiting again.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"now_ticks\",\n    \"v1\": \"deadline_ticks\",\n    \"v3\": \"elapsed_ticks\",\n    \"v4\": \"now_ticks_2\",\n    \"v6\": \"deadline_ticks_2\",\n    \"v8\": \"elapsed_ticks_2\",\n    \"v9\": \"spin_loops_1\",\n    \"v10\": \"spin_loops_2\",\n    \"result\": \"return_code\"\n  }\n}"
+}

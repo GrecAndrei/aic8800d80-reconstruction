@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_b_write",
+ "img": "fmacfw_u02",
+ "addr": "0x114a84",
+ "seg": 5,
+ "key": "rf_cmd_b_write__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"decode_rf_cmd_b_adjustment\",\"confidence\":\"medium\",\"docstring\":\"Selects the nonzero high nibble or the low nibble of an RF command byte, decodes it as signed magnitude, and returns 0, 1, or 2 for high-nibble, low-nibble, or zero encoding.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"byte_index\",\"a2\":\"adjustment_out\",\"v3\":\"packed_rf_cmd_word\",\"v4\":\"encoded_adjustment\",\"v6\":\"sign_multiplier\"}}"
+}

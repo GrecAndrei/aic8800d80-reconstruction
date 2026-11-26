@@ -1,0 +1,9 @@
+{
+ "fn": "tx_send_packet",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1362c0",
+ "seg": 55,
+ "key": "tx_send_packet__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"apm_stop_cac_evt_send\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends an APM Stop CAC request HCI event for a channel context, optionally issuing HCI command 7 and updating the related pending event counter.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a2\": \"apm_req\",\n    \"a3\": \"evt_len\",\n    \"a4\": \"evt_data\",\n    \"v6\": \"evt_len\",\n    \"v7\": \"apm_ctx\",\n    \"v9\": \"hci_cmd_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"APM/CAC channel state\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"APM/CAC busy or pending flag\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_cancel",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11d31c",
+ "seg": 19,
+ "key": "rf_cmd_cancel__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_cancel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Abort pending RF operations by clearing bit 31 in three radio command/status registers referenced through global register pointers.\",\n  \"subsystem\": \"rf\"\n}"
+}

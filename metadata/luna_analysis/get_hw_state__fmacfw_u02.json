@@ -1,0 +1,9 @@
+{
+ "fn": "get_hw_state",
+ "img": "fmacfw_u02",
+ "addr": "0x11a8b0",
+ "seg": 14,
+ "key": "get_hw_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"txl_agg_check_rts\",\"confidence\":\"medium\",\"docstring\":\"Checks the transmit aggregation status and, when permitted, clears the pending status and updates the associated hardware control word.\",\"subsystem\":\"mac\",\"var_renames\":{\"result\":\"tx_context\",\"v2\":\"agg_status\",\"v3\":\"tx_control_block\",\"v4\":\"updated_control_word\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Pointer to the associated transmit control block.\"},{\"offset\":60,\"meaning\":\"Transmit aggregation status or flags word.\"},{\"offset\":20,\"meaning\":\"Control word updated when the status is accepted.\"}]}"
+}

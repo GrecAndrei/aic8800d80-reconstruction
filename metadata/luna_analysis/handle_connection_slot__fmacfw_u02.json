@@ -1,0 +1,9 @@
+{
+ "fn": "handle_connection_slot",
+ "img": "fmacfw_u02",
+ "addr": "0x11b84c",
+ "seg": 17,
+ "key": "handle_connection_slot__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_process_connection_rx_frame\",\"confidence\":\"medium\",\"docstring\":\"Parses a received frame and updates or clears cached receive state for the current Bluetooth connection slot.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"connection_slot_table\",\"v2\":\"connection_slot\",\"v4\":\"rx_packet_flags\",\"v6\":\"connection_context\",\"v7\":\"rx_context_value\",\"v11\":\"rx_descriptor_words\",\"v12\":\"radio_status\",\"v14\":\"rx_descriptor_flags\",\"v22\":\"parsed_frame_out\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"Input frame flags; bit 0x200000 selects the parsed-frame path.\"},{\"offset\":68,\"meaning\":\"Pointer to the connection context.\"},{\"offset\":76,\"meaning\":\"Pointer to receive descriptor words.\"},{\"offset\":82,\"meaning\":\"Input frame status flags; bit 2 selects an alternate path.\"},{\"offset\":44,\"meaning\":\"Pointer to an object whose status is read at offset 60.\"},{\"offset\":8,\"meaning\":\"Connection-context flags; bit 0x400 is tested.\"},{\"offset\":20,\"meaning\":\"Alternate connection-context metadata value.\"},{\"offset\":88,\"meaning\":\"Cached connection-context metadata value.\"}]}"
+}

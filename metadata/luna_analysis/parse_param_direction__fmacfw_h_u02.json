@@ -1,0 +1,9 @@
+{
+ "fn": "parse_param_direction",
+ "img": "fmacfw_h_u02",
+ "addr": "0x138968",
+ "seg": 58,
+ "key": "parse_param_direction__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"handle_arp_request\",\"confidence\":\"high\",\"docstring\":\"Recognizes ARP frames and invokes the handler when a request targets the VIF's IPv4 address.\",\"subsystem\":\"mac\",\"var_renames\":{\"a2\":\"vif_ipv4_addr\",\"a3\":\"frame\",\"v6\":\"frame_offset\",\"v7\":\"frame_base\",\"v12\":\"arp_opcode\",\"v13\":\"target_ipv4_addr\"},\"struct_hints\":[{\"offset\":30,\"meaning\":\"Two-byte EtherType field identifying ARP (0x0806).\"},{\"offset\":38,\"meaning\":\"High byte of the ARP opcode; expected to be zero.\"},{\"offset\":39,\"meaning\":\"Low byte of the ARP opcode (1 for request, 2 for reply).\"},{\"offset\":56,\"meaning\":\"ARP target IPv4 address.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_node_offset_b",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111864",
+ "seg": 4,
+ "key": "get_node_offset_b__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_node_entry\",\"confidence\":\"medium\",\"docstring\":\"Clears the indexed 16-byte node entry and, if its byte at offset 11 was nonzero, invokes the corresponding callback with (0, 0, 1).\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"node_index\",\"v2\":\"node_entry\",\"v3\":\"callback_needed\",\"result\":\"return_value\",\"v5\":\"node_callback\"},\"struct_hints\":[{\"offset\":11,\"meaning\":\"Nonzero cleanup trigger checked before the entry is cleared.\"}]}"
+}

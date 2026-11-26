@@ -1,0 +1,9 @@
+{
+ "fn": "ipc_send_command",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133a60",
+ "seg": 47,
+ "key": "ipc_send_command__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_hci_vendor_cmd_send\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends a six-byte HCI vendor command from the supplied buffer, dispatches the vendor opcode at offset two if the send succeeds, and posts the supplied 16-bit parameters as a Bluetooth event.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a2\": \"cmd_buf\",\n    \"v5\": \"sent_len\",\n    \"v6\": \"event_param1\",\n    \"v7\": \"event_param2\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 2,\n      \"meaning\": \"uint16 field from the HCI command buffer passed to hci_vendor_cmd_dispatch\"\n    }\n  ]\n}"
+}

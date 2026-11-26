@@ -1,0 +1,9 @@
+{
+ "fn": "atomic_reg_read_alt",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ec30",
+ "seg": 3,
+ "key": "atomic_reg_read_alt__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"atomic_reg_read_guarded\",\"confidence\":\"medium\",\"docstring\":\"Runs the register-read thunk inside a nested interrupt critical section, optionally waiting for a readiness flag first.\",\"subsystem\":\"hal\",\"var_renames\":{\"a3\":\"wait_for_ready\",\"v3\":\"critical_nesting_counter\",\"v4\":\"readiness_flag_ptr\",\"v6\":\"remaining_nesting_depth\",\"v7\":\"irq_restore_pending\"}}"
+}

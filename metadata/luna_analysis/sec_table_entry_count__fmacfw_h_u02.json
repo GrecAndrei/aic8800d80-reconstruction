@@ -1,0 +1,9 @@
+{
+ "fn": "sec_table_entry_count",
+ "img": "fmacfw_h_u02",
+ "addr": "0x129c48",
+ "seg": 36,
+ "key": "sec_table_entry_count__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sec_table_update\",\"confidence\":\"medium\",\"docstring\":\"Updates the indexed security-table record from an optional encoded security list, invalidating and reparsing cached RSN state when the list discriminator changes.\",\"subsystem\":\"mac\",\"var_renames\":{\"v3\":\"table_base\",\"v4\":\"record_offset\",\"v5\":\"record_index\",\"v6\":\"record\",\"v18\":\"item_ptr\",\"v19\":\"item_index\"},\"struct_hints\":[{\"offset\":113,\"meaning\":\"Lookup key passed to sec_table_lookup.\"},{\"offset\":120,\"meaning\":\"Cached discriminator compared with the input byte at offset 3.\"},{\"offset\":121,\"meaning\":\"Flag indicating existing RSN-derived state that should be cleared before reparsing.\"},{\"offset\":132,\"meaning\":\"Validity flag for the cached discriminator at offset 120.\"}]}"
+}

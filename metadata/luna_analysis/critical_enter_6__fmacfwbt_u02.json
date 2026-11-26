@@ -1,0 +1,9 @@
+{
+ "fn": "critical_enter_6",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1102d8",
+ "seg": 3,
+ "key": "critical_enter_6__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"critical_list_pop_front\",\"confidence\":\"medium\",\"docstring\":\"Removes and returns the front element of a global list, restoring interrupts when the outermost protected operation completes.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"critical_depth_ptr\",\"v1\":\"list_head\",\"v3\":\"remaining_critical_depth\",\"v4\":\"irq_restore_flag\"},\"struct_hints\":[]}"
+}

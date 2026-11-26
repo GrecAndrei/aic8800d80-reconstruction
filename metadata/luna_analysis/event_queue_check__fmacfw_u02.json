@@ -1,0 +1,9 @@
+{
+ "fn": "event_queue_check",
+ "img": "fmacfw_u02",
+ "addr": "0x101754",
+ "seg": 0,
+ "key": "event_queue_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_init\",\"confidence\":\"medium\",\"docstring\":\"Configures RF and baseband control registers with revision-dependent settings and returns the initialization value.\",\"subsystem\":\"rf\"}"
+}

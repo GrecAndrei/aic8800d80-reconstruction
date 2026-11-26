@@ -1,0 +1,9 @@
+{
+ "fn": "rf_phy_to_power_map2",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1327d0",
+ "seg": 46,
+ "key": "rf_phy_to_power_map2__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_tx_power_by_phy_mode\",\"confidence\":\"medium\",\"docstring\":\"Maps the low two bits of a PHY/mode byte to a transmit-power value, returning 9 for mode 1, 11 for mode 2, and 7 otherwise.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"mode_bits\"}}"
+}

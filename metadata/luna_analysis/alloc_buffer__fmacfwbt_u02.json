@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_buffer",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12064c",
+ "seg": 23,
+ "key": "alloc_buffer__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_check_event_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Processes a Bluetooth event/state entry, copies peer scan/connection context, allocates an HCI event buffer, and sends the resulting event to the host.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v2\": \"evt_buf\",\n    \"v3\": \"event_entry\",\n    \"v5\": \"conn_idx\",\n    \"v6\": \"conn_status\",\n    \"v7\": \"state\",\n    \"v8\": \"cfg_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"event/state byte\"\n    },\n    {\n      \"offset\": 107,\n      \"meaning\": \"event entry index or event code\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"configuration/entry index\"\n    },\n    {\n      \"offset\": 128,\n      \"meaning\": \"cleared event flag\"\n    },\n    {\n      \"offset\": 146,\n      \"meaning\": \"saved state in idle path\"\n    },\n    {\n      \"offset\": 147,\n      \"meaning\": \"pending event/flag set\"\n    },\n    {\n      \"offset\": 231,\n      \"meaning\": \"flag cleared in state 2\"\n    },\n    {\n      \"offset\": 412,\n      \"meaning\": \"destination peer/address word 0\"\n    },\n    {\n      \"offset\": 416,\n      \"meaning\": \"destination peer/address word 1\"\n    },\n    {\n      \"offset\": 420,\n      \"meaning\": \"destination peer metadata word\"\n    },\n    {\n      \"offset\": 1212,\n      \"meaning\": \"source peer/address word 0\"\n    },\n    {\n      \"offset\": 1216,\n      \"meaning\": \"source peer/address word 1\"\n    },\n    {\n      \"offset\": 1220,\n      \"meaning\": \"source peer metadata word\"\n    }\n  ]\n}"
+}

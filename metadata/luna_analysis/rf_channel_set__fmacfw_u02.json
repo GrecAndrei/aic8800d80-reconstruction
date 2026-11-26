@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_set",
+ "img": "fmacfw_u02",
+ "addr": "0x118f48",
+ "seg": 12,
+ "key": "rf_channel_set__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_set\",\"confidence\":\"medium\",\"docstring\":\"Builds a channel-programming request for the selected PHY and advances it through the TX-path state machine after checking temperature-dependent settings.\",\"subsystem\":\"rf\",\"var_renames\":{\"v7\":\"phy_idx\",\"v13\":\"channel_op_ctx\",\"v14\":\"phy_cfg\",\"v16\":\"channel_program_req\",\"v22\":\"phy_idx\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"PHY index in the per-interface record\"},{\"offset\":72,\"meaning\":\"Pointer to the channel-programming request in the operation context\"},{\"offset\":28,\"meaning\":\"PHY index in the channel operation context\"},{\"offset\":29,\"meaning\":\"Interface index in the channel operation context\"},{\"offset\":132,\"meaning\":\"Requested channel number in the channel-programming request\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_int_lock_save",
+ "img": "fmacfw_u02",
+ "addr": "0x12c8d8",
+ "seg": 40,
+ "key": "ke_int_lock_save__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_tx_pkt_queue_flush\",\"confidence\":\"medium\",\"docstring\":\"Drains pending transmit items while holding the nestable interrupt lock, signals a fixed event, and restores IRQ state when the outermost lock exits.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"lock_depth_ptr\",\"v1\":\"pending_queue_addr\",\"result\":\"pending_tx_item\",\"v3\":\"lock_depth_after_decrement\",\"v4\":\"restore_irq\"}}"
+}

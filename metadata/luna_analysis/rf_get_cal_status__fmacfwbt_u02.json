@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_cal_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131278",
+ "seg": 43,
+ "key": "rf_get_cal_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_refresh_cal_cache\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Refreshes a cached RF calibration entry from ROM information, updating packed fields and status/version bytes when changed and initializing defaults when the ROM entry is absent.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a3\": \"cal_cache\",\n    \"a4\": \"changed\",\n    \"result\": \"cal_rom_entry\",\n    \"v7\": \"rom_status_byte\",\n    \"v8\": \"rom_field_14\",\n    \"v9\": \"rom_field_10\",\n    \"v10\": \"packed_rom_fields_18_22\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"cached RF calibration word 0, packed from ROM entry offset 14\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"cached RF calibration word 1, packed from ROM entry offset 10\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"cached RF calibration word 2, low half packed from ROM entry offset 18\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"cached RF calibration word 3, high half packed from ROM entry offset 22\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"raw cached calibration status byte copied from ROM entry offset 8\"\n    },\n    {\n      \"offset\": 17,\n      \"meaning\": \"cached status/flag bits derived from ROM entry fields at offsets 10, 14, 18, and 22\"\n    },\n    {\n      \"offset\": 18,\n      \"meaning\": \"cached low-nibble status/version byte used to detect changed calibration entries\"\n    }\n  ]\n}"
+}

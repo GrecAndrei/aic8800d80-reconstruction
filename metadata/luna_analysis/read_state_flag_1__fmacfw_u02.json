@@ -1,0 +1,9 @@
+{
+ "fn": "read_state_flag_1",
+ "img": "fmacfw_u02",
+ "addr": "0x12f0c8",
+ "seg": 42,
+ "key": "read_state_flag_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel_from_patch_state\",\"confidence\":\"medium\",\"docstring\":\"Gets the current patch state, passes it to the RF channel-setting routine, and spins indefinitely if that routine returns.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"patch_state\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llm_set_adv_data",
+ "img": "fmacfwbt_u02",
+ "addr": "0x131bec",
+ "seg": 45,
+ "key": "llm_set_adv_data__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"llm_ctrl_enable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sets or clears a BLE link-layer controller enable bit and sends HCI completion or a controller start/stop command when the enable state changes.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a2\": \"cmd_params\",\n    \"a3\": \"hci_cmd_code\",\n    \"a4\": \"config_value\",\n    \"v5\": \"llm_env\",\n    \"v6\": \"prev_enable_mask\",\n    \"v8\": \"enable_bit\",\n    \"v9\": \"new_enable_mask\",\n    \"v10\": \"llm_pending_flag\",\n    \"a3a\": \"saved_cmd_code\",\n    \"v12\": \"event_buffer\",\n    \"v13\": \"new_enable_mask\",\n    \"v14\": \"event_status\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"active controller/enable bitmap\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"last controller configuration value or command parameter\"\n    },\n    {\n      \"offset\": 375,\n      \"meaning\": \"pending/active controller state flag\"\n    },\n    {\n      \"offset\": 376,\n      \"meaning\": \"idle/default status byte reported when no enable bits remain\"\n    }\n  ]\n}"
+}

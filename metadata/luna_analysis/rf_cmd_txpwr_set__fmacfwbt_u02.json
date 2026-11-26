@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cmd_txpwr_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x137000",
+ "seg": 57,
+ "key": "rf_cmd_txpwr_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_cmd_txpwr_set\",\n  \"confidence\": \"low\",\n  \"docstring\": \"RF TX-power-set command stub that allocates and sends a small BT/HCI event carrying the TX-power parameter and checks the scan-idle-cancel state.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v4\": \"evt_buf\",\n    \"a4\": \"txpwr\"\n  },\n  \"struct_hints\": []\n}"
+}

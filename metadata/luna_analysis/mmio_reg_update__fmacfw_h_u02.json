@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_reg_update",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11df40",
+ "seg": 20,
+ "key": "mmio_reg_update__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_mmio_enable\",\"confidence\":\"high\",\"docstring\":\"Sets or clears bit 10 in one MMIO register and bit 19 in another according to bit 0 of the input, returning the updated second register value.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"enable_flag\",\"v1\":\"second_register\",\"result\":\"updated_second_register\"}}"
+}

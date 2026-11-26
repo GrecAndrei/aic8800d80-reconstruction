@@ -1,0 +1,9 @@
+{
+ "fn": "get_device_config",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1005a4",
+ "seg": 0,
+ "key": "get_device_config__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"get_device_config\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Selects a 16-byte device configuration table entry from a control-register-derived index, copies selected fields into a global and an 8-byte output buffer, and returns the table entry pointer.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"out_cfg\",\n    \"v1\": \"config_index\",\n    \"result\": \"cfg_entry\",\n    \"v3\": \"cfg_word\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"16-bit config table field copied to global pointed to by off_1005E4\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"16-bit config table field truncated and stored into out_cfg byte offset 1\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"output status/config byte set to 0xff\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"output status/config byte copied from selected table entry\"\n    }\n  ]\n}"
+}

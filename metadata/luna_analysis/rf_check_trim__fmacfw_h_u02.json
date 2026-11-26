@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_trim",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a000",
+ "seg": 36,
+ "key": "rf_check_trim__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_check_trim\",\"confidence\":\"medium\",\"docstring\":\"Conditionally performs an IRQ/MMIO operation, reads the selected 140-byte trim record's words at offsets 128 and 124 into the output pointers, and returns the high bit of their subtraction (offset 124 minus offset 128).\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"value_128_out\",\"a3\":\"value_124_out\",\"v6\":\"trim_record\",\"v7\":\"value_124\"},\"struct_hints\":[{\"offset\":1224,\"meaning\":\"Context byte gating the conditional IRQ/MMIO operation\"},{\"offset\":1225,\"meaning\":\"Index selecting a 140-byte trim record\"},{\"offset\":124,\"meaning\":\"First comparison value, also written to the second output pointer\"},{\"offset\":128,\"meaning\":\"Second comparison value, also written to the first output pointer\"}]}"
+}

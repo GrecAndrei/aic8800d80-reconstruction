@@ -1,0 +1,9 @@
+{
+ "fn": "rx_measure_rssi",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b69c",
+ "seg": 61,
+ "key": "rx_measure_rssi__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"check_hci_cmd_abort_flag\",\n  \"confidence\": \"low\",\n  \"docstring\": \"After a short HCI command send succeeds, checks the abort/status flag for a command context entry indexed by the upper byte of the command value.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v4\": \"ctx_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"abort/status word in a 32-byte command context table entry\"\n    }\n  ]\n}"
+}

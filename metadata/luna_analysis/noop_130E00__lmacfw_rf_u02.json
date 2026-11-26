@@ -1,0 +1,9 @@
+{
+ "fn": "noop_130E00",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x130e00",
+ "seg": 23,
+ "key": "noop_130E00__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"noop_130E00\", \"confidence\": \"medium\", \"docstring\": \"Empty function with no observable side effects, likely a linker, stub, or dispatch placeholder.\", \"subsystem\": \"libmisc\", \"var_renames\": {}, \"struct_hints\": []}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "copy_global_data",
+ "img": "fmacfw_u02",
+ "addr": "0x115d60",
+ "seg": 6,
+ "key": "copy_global_data__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"run_firmware_event_loop\",\"confidence\":\"medium\",\"docstring\":\"Initializes radio state, then repeatedly services transmit and configuration work and waits for event or interrupt conditions.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"global_context_slot\",\"v1\":\"event_state_slot\",\"v5\":\"tx_ring_poll_flag\",\"v6\":\"irq_restore_pending\",\"v7\":\"irq_nesting_count\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"16-bit RF frequency passed to rf_set_frequency\"}]}"
+}

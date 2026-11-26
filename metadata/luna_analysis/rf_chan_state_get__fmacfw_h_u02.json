@@ -1,0 +1,9 @@
+{
+ "fn": "rf_chan_state_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x135710",
+ "seg": 53,
+ "key": "rf_chan_state_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_chan_state_get\",\"confidence\":\"medium\",\"docstring\":\"Packages the selected connection\u2019s channel-state fields into a 44-byte report and dispatches it through the event pipeline.\",\"subsystem\":\"rf\",\"var_renames\":{\"v2\":\"conn_table_base\",\"v3\":\"conn_idx\",\"v5\":\"packet_buf\",\"v7\":\"conn_state_entry\",\"v8\":\"state_words\",\"v9\":\"packet_buf_alias\",\"v10\":\"state_words_end\"},\"struct_hints\":[{\"offset\":61,\"meaning\":\"Per-connection index used to select the record and serialized as report byte 0.\"},{\"offset\":368,\"meaning\":\"32-bit per-connection value serialized into the report.\"},{\"offset\":372,\"meaning\":\"16-bit per-connection value serialized into the report.\"},{\"offset\":374,\"meaning\":\"Start of a 33-byte per-connection block copied into the report.\"},{\"offset\":472,\"meaning\":\"Signed per-connection value checked by the conditional interrupt/MMIO path.\"}]}"
+}

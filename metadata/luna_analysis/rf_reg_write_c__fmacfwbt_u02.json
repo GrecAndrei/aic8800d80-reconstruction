@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_write_c",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111be8",
+ "seg": 4,
+ "key": "rf_reg_write_c__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mm_rx_tx_desc_hw_config\",\"confidence\":\"medium\",\"docstring\":\"Dispatches descriptor hardware configuration to the RX path for a non-null selector or the TX path for a null selector when the index is at most 5.\",\"subsystem\":\"mm\",\"var_renames\":{\"result\":\"rx_selector\",\"a2\":\"descriptor_index\"}}"
+}

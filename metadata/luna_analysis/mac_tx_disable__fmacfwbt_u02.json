@@ -1,0 +1,9 @@
+{
+ "fn": "mac_tx_disable",
+ "img": "fmacfwbt_u02",
+ "addr": "0x104f18",
+ "seg": 2,
+ "key": "mac_tx_disable__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_power_amp_back_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Programs an amplifier setting, triggers the RF power-feedback readout, and stores the measured value in the indexed power-amplifier back table.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"amplifier_setting\",\"a2\":\"power_amp_back_table\",\"a3\":\"table_column\",\"a4\":\"table_row\",\"v4\":\"rf_control_reg\",\"v5\":\"amplifier_config_reg\",\"v6\":\"amplifier_config_preserve_mask\",\"v7\":\"measurement_trigger_reg\",\"v12\":\"power_feedback_reg\",\"v13\":\"power_feedback_value\"}}"
+}

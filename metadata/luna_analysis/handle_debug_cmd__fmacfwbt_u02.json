@@ -1,0 +1,9 @@
+{
+ "fn": "handle_debug_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1159cc",
+ "seg": 7,
+ "key": "handle_debug_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"print_fault_diagnostics\",\"confidence\":\"medium\",\"docstring\":\"Prints a fault diagnostic selected by the supplied fault code, followed by context and operation-mode information.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"fault_code\"}}"
+}

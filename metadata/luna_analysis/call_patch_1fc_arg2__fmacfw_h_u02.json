@@ -1,0 +1,9 @@
+{
+ "fn": "call_patch_1fc_arg2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11471c",
+ "seg": 5,
+ "key": "call_patch_1fc_arg2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"call_patch_1fc_with_2\",\"confidence\":\"high\",\"docstring\":\"Calls the function pointer stored at address 0x1FC with argument 2 and returns its result.\",\"subsystem\":\"rf\"}"
+}

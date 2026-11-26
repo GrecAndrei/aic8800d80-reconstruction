@@ -1,0 +1,9 @@
+{
+ "fn": "read_controller_info",
+ "img": "fmacfw_u02",
+ "addr": "0x12315c",
+ "seg": 28,
+ "key": "read_controller_info__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_send_controller_info\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends a controller-info message containing a 36-byte global string with a one-byte length prefix and a trailing NUL.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"message_payload\",\"v5\":\"controller_info_string\",\"v6\":\"info_length\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Length of the controller-info string\"},{\"offset\":1,\"meaning\":\"Controller-info string bytes\"},{\"offset\":37,\"meaning\":\"NUL terminator\"}]}"
+}

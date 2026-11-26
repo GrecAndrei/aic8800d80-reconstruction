@@ -1,0 +1,9 @@
+{
+ "fn": "phy_get_channel",
+ "img": "fmacfw_h_u02",
+ "addr": "0x118c84",
+ "seg": 12,
+ "key": "phy_get_channel__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_update_channel_config\",\"confidence\":\"medium\",\"docstring\":\"Prepares a channel-configuration message from the selected interface and PHY-context parameters.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"vif_idx\",\"v3\":\"vif_table\",\"v4\":\"phy_context_table\",\"v6\":\"phy_context_idx\",\"v11\":\"shared_resource\",\"v12\":\"phy_context\",\"v13\":\"message_payload\",\"v20\":\"sequence_counter\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Interface record: PHY-context index.\"},{\"offset\":38,\"meaning\":\"Interface record: packed channel-definition value.\"},{\"offset\":42,\"meaning\":\"Interface record: channel-definition extension.\"},{\"offset\":72,\"meaning\":\"PHY-context record: channel-state pointer.\"},{\"offset\":100,\"meaning\":\"PHY-context record: channel-configuration word.\"},{\"offset\":104,\"meaning\":\"PHY-context record: channel-configuration value.\"},{\"offset\":106,\"meaning\":\"PHY-context record: channel-configuration mode.\"},{\"offset\":108,\"meaning\":\"Message payload: channel-configuration opcode and header.\"}]}"
+}

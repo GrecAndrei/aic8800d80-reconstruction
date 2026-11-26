@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_disable_bit",
+ "img": "fmacfw_u02",
+ "addr": "0x12bc2c",
+ "seg": 39,
+ "key": "mmio_disable_bit__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_configure_peripheral\",\"confidence\":\"medium\",\"docstring\":\"Updates RF peripheral control registers, conditionally invokes a shared handler based on status, and selects peripheral field 1.\",\"subsystem\":\"rf\"}"
+}

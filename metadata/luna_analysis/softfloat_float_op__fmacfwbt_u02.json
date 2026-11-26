@@ -1,0 +1,9 @@
+{
+ "fn": "softfloat_float_op",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1426b8",
+ "seg": 69,
+ "key": "softfloat_float_op__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"softfloat_double_round\", \"confidence\": \"medium\", \"docstring\": \"Round a double-precision value to the nearest integral double, ties away from zero, by manipulating IEEE-754 exponent and mantissa bits.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"a1\": \"value\", \"v1\": \"biased_exp\", \"v2\": \"unbiased_exp\", \"v3\": \"result_hi\", \"v4\": \"input_raw\", \"v5\": \"result_lo\", \"v6\": \"low_fraction_mask\", \"v7\": \"low_round_bit\", \"v9\": \"sum_with_round_bit\"}, \"struct_hints\": []}"
+}

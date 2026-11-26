@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_sm_get",
+ "img": "fmacfw_u02",
+ "addr": "0x13f0bc",
+ "seg": 61,
+ "key": "ble_ll_conn_sm_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_sm_process\",\"confidence\":\"medium\",\"docstring\":\"Processes the indexed BLE connection state-machine context, handles its pending lists, and sets a per-entry flag.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"connection_index\",\"v2\":\"connection_context_table\",\"v4\":\"connection_sm\",\"v6\":\"state_handler_result\",\"v9\":\"list_work_buffer\"},\"struct_hints\":[{\"offset\":184,\"meaning\":\"16-bit field updated with the state-handler result\"},{\"offset\":340,\"meaning\":\"pointer to the BLE connection state-machine context\"},{\"offset\":350,\"meaning\":\"per-entry flag byte with bit 0 set after processing\"}]}"
+}

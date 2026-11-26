@@ -1,0 +1,9 @@
+{
+ "fn": "rf_write_cmd_1006",
+ "img": "fmacfw_u02",
+ "addr": "0x136e9c",
+ "seg": 56,
+ "key": "rf_write_cmd_1006__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_send_table_command\",\"confidence\":\"medium\",\"docstring\":\"Selects a 60-byte RF command record using the byte at a2, sends it in message 0x1006 to the task at a4, and sends a zero marker when the index is invalid.\",\"subsystem\":\"rf\",\"var_renames\":{\"v4\":\"command_table\",\"v6\":\"message_payload\",\"v7\":\"message_words\",\"v8\":\"record_index\",\"v10\":\"record_words\",\"a2\":\"record_index_ptr\",\"a4\":\"destination_task\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"16-bit number of indexed command records\"},{\"offset\":8,\"meaning\":\"First 60-byte command record; subsequent records have a 60-byte stride\"}]}"
+}

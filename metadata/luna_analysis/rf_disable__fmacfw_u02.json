@@ -1,0 +1,9 @@
+{
+ "fn": "rf_disable",
+ "img": "fmacfw_u02",
+ "addr": "0x130618",
+ "seg": 42,
+ "key": "rf_disable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_disable\",\"confidence\":\"medium\",\"docstring\":\"Clears a byte in an RF-related control object and, if the task lookup succeeds, invokes a kernel operation for task ID 1070 and state 1.\",\"subsystem\":\"rf\"}"
+}

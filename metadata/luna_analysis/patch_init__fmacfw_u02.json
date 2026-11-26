@@ -1,0 +1,9 @@
+{
+ "fn": "patch_init",
+ "img": "fmacfw_u02",
+ "addr": "0x115354",
+ "seg": 6,
+ "key": "patch_init__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"patch_cli_poll_loop\",\"confidence\":\"medium\",\"docstring\":\"Logs the startup message, conditionally sets the RF channel from patch state, then polls a GPIO-driven command value and dispatches it indefinitely.\",\"subsystem\":\"patch\",\"var_renames\":{\"v0\":\"gpio_value\",\"v1\":\"lookup_result\",\"v3\":\"patch_state\"}}"
+}

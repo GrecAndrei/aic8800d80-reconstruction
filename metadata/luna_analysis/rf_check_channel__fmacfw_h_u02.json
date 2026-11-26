@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_channel",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1313fc",
+ "seg": 43,
+ "key": "rf_check_channel__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"request_size_allocation\",\"confidence\":\"medium\",\"docstring\":\"Requests an allocation using the byte pointed to by `size_ptr` as its size, discards the returned pointer, and always returns zero.\",\"subsystem\":\"ke\",\"var_renames\":{\"a2\":\"size_ptr\"}}"
+}

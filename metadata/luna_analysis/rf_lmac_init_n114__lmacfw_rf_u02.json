@@ -1,0 +1,9 @@
+{
+ "fn": "rf_lmac_init_n114",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x110114",
+ "seg": 3,
+ "key": "rf_lmac_init_n114__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_lmac_init_process_pending_events\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes the LMAC list and, when a non-zero pending event count is present, iterates the associated list while checking kernel state until the counted events are processed.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"v0\": \"pending_event_ctx_ptr\",\n    \"v2\": \"processed_count_ptr\",\n    \"v3\": \"iterate_list_ptr\",\n    \"v4\": \"kernel_list_ptr\",\n    \"v5\": \"processed_count\",\n    \"v6\": \"pending_count\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"uint16_t pending event count\"\n    }\n  ]\n}"
+}

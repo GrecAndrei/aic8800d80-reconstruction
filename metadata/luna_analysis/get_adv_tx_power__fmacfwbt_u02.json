@@ -1,0 +1,9 @@
+{
+ "fn": "get_adv_tx_power",
+ "img": "fmacfwbt_u02",
+ "addr": "0x14157c",
+ "seg": 66,
+ "key": "get_adv_tx_power__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_process_scan_results\",\"confidence\":\"medium\",\"docstring\":\"Processes pending BLE advertising reports from a scan-result buffer, advancing through 528-byte scan entries, dispatching each unprocessed entry to process_adv_report, issuing an HCI stop-scan command when needed, and re-enabling or disabling the scan timer based on the current scan/advertising mode fields.\",\"subsystem\":\"ble\",\"var_renames\":{\"v2\":\"scan_ctx\",\"v1\":\"scan_ctx_base_off\",\"v4\":\"scan_entry_ptr\",\"v5\":\"scan_ctx_end\",\"v6\":\"entry_cur\",\"v0\":\"scan_abort_ptr\",\"v7\":\"entry_base\",\"v3\":\"scan_mode\",\"v8\":\"scan_mode\",\"v9\":\"scan_mode\"},\"struct_hints\":[{\"offset\":6336,\"meaning\":\"scan context / advertising state sub-structure\"},{\"offset\":6338,\"meaning\":\"scan sub-mode byte (5 = active-scan variant)\"},{\"offset\":6339,\"meaning\":\"scan/advertising mode selector (0/1 = timer-restart, 2 = process reports)\"},{\"offset\":6480,\"meaning\":\"scan context index (multiplied by 136)\"},{\"offset\":4,\"meaning\":\"scan entry status (1=pending, 2=processed)\"},{\"offset\":6,\"meaning\":\"scan entry adv-data offset (16-bit)\"},{\"offset\":22,\"meaning\":\"scan entry flag byte (zeroed on process)\"},{\"offset\":24,\"meaning\":\"scan entry counter field (zeroed on process)\"},{\"offset\":28,\"meaning\":\"scan entry payload base for process_adv_report\"}]}"
+}

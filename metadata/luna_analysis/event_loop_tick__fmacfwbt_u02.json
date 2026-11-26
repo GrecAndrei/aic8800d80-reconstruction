@@ -1,0 +1,9 @@
+{
+ "fn": "event_loop_tick",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1372e0",
+ "seg": 58,
+ "key": "event_loop_tick__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"radio_event_match\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Matches a length-prefixed byte buffer against the configured radio event pattern table or a stored expected event pattern.\",\n  \"subsystem\": \"radio\",\n  \"var_renames\": {\n    \"a1\": \"event_buf\",\n    \"v3\": \"radio_ctx\",\n    \"v4\": \"filter_count\",\n    \"v5\": \"table_ptr\",\n    \"v7\": \"event_data\",\n    \"v8\": \"event_len\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 3898,\n      \"meaning\": \"radio event filter mode or active expected-pattern flag\"\n    },\n    {\n      \"offset\": 368,\n      \"meaning\": \"number of entries in the radio event pattern table\"\n    },\n    {\n      \"offset\": 252,\n      \"meaning\": \"length byte of the first pattern table entry\"\n    },\n    {\n      \"offset\": 253,\n      \"meaning\": \"payload bytes of the first pattern table entry\"\n    }\n  ]\n}"
+}

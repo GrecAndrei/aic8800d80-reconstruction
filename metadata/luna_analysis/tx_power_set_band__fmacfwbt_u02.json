@@ -1,0 +1,9 @@
+{
+ "fn": "tx_power_set_band",
+ "img": "fmacfwbt_u02",
+ "addr": "0x139e30",
+ "seg": 59,
+ "key": "tx_power_set_band__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_classify_rx_special_frame\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Classifies a received 802.11 data frame by computing the LLC/SNAP Ethernet-type offset and returns a filtering/keep-alive decision for ARP, IPv4 IGMP/SSDP, and IPv6 Neighbor Discovery/Router Advertisement traffic.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"frame\",\n    \"a2\": \"hdr_flags\",\n    \"a3\": \"ctx_idx\",\n    \"v4\": \"mac_hdr_len\",\n    \"v6\": \"ethertype_off\",\n    \"v7\": \"ethertype_ptr\",\n    \"a1a\": \"ethertype\",\n    \"v8\": \"dst_mcast\",\n    \"v10\": \"ip_proto\",\n    \"v11\": \"icmp6_type\",\n    \"v12\": \"udp_hdr\",\n    \"v13\": \"ctx\",\n    \"v14\": \"ra_value\",\n    \"v15\": \"now_ticks\",\n    \"v16\": \"now_ticks2\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"802.11 frame-control low byte, used to infer additional MAC header length\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"802.11 destination MAC address first byte; bit 0 indicates multicast destination\"\n    },\n    {\n      \"offset\": 690,\n      \"meaning\": \"per-instance context field storing an IPv6 RA metric/lifetime-related value\"\n    },\n    {\n      \"offset\": 692,\n      \"meaning\": \"per-instance context field storing the timestamp/tick of the last accepted RA-like packet\"\n    }\n  ]\n}"
+}

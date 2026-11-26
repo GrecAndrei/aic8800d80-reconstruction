@@ -1,0 +1,9 @@
+{
+ "fn": "set_periph_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10ed90",
+ "seg": 3,
+ "key": "set_periph_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"periph_status_set\",\"confidence\":\"medium\",\"docstring\":\"Atomically updates the 5-bit peripheral status field in register bits 11\u201315.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"status_value\"}}"
+}

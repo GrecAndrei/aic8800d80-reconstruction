@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_status_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11c26c",
+ "seg": 17,
+ "key": "rf_get_status_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_report_status\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds and submits an RF status message from the current RF context when the global report flag is unset and RF state is ready, then sets the flag.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"rf_status_block\",\n    \"v2\": \"rf_env_ctx\",\n    \"v3\": \"rf_global_state_ptr\",\n    \"v4\": \"rf_channel_idx\",\n    \"v5\": \"status_msg\",\n    \"v8\": \"rf_calibration_table_base\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 72,\n      \"meaning\": \"pointer to RF status/calibration data block\"\n    },\n    {\n      \"offset\": 95,\n      \"meaning\": \"RF status byte copied into status message\"\n    },\n    {\n      \"offset\": 102,\n      \"meaning\": \"channel or calibration table index\"\n    }\n  ]\n}"
+}

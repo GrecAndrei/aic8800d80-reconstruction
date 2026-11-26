@@ -1,0 +1,9 @@
+{
+ "fn": "addba_request_ack",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130d04",
+ "seg": 42,
+ "key": "addba_request_ack__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"update_addba_request_ack\",\"confidence\":\"medium\",\"docstring\":\"Copies byte 2 of the lookup result, or zero if no result is found, to the caller\u2019s byte at offset 216 and returns that value.\",\"subsystem\":\"mac\"}"
+}

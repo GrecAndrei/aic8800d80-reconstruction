@@ -1,0 +1,9 @@
+{
+ "fn": "parse_pdu_data",
+ "img": "fmacfwbt_u02",
+ "addr": "0x138378",
+ "seg": 58,
+ "key": "parse_pdu_data__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"find_table_entry\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Scans a fixed-size global table for the highest-priority record whose length-prefixed name matches the supplied key and returns a pointer to that record's data field.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"key_len_prefixed_name\",\n    \"v1\": \"table_entry\",\n    \"v3\": \"best_entry\",\n    \"v4\": \"table_end\",\n    \"v5\": \"best_priority\",\n    \"v6\": \"key_data\",\n    \"v7\": \"entry_name_len\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"entry data pointer or active-record marker (also the returned payload address)\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"length of the entry's name\"\n    },\n    {\n      \"offset\": 17,\n      \"meaning\": \"name bytes of the entry\"\n    },\n    {\n      \"offset\": 64,\n      \"meaning\": \"signed priority byte used to choose the best matching entry\"\n    }\n  ]\n}"
+}

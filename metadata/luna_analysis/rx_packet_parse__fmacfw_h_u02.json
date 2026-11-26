@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_parse",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11a800",
+ "seg": 14,
+ "key": "rx_packet_parse__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_rx_ecc_handshake\",\"confidence\":\"medium\",\"docstring\":\"Dispatches receive records by type and processes the ECC-backed handshake path, allocating and copying a per-peer context when needed.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"rx_context\",\"v4\":\"context_flags\",\"v6\":\"rx_type_flags\",\"v12\":\"active_context\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Context state flags\"},{\"offset\":13,\"meaning\":\"Index used to select a per-peer or key-table entry\"}]}"
+}

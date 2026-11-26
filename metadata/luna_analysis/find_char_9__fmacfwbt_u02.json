@@ -1,0 +1,9 @@
+{
+ "fn": "find_char_9",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12dd24",
+ "seg": 43,
+ "key": "find_char_9__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_parse_find_nested_tlv_0xc4_0xc2\", \"confidence\": \"medium\", \"docstring\": \"Scans a TLV-formatted RF blob for a top-level 0xC4 entry and returns the first nested 0xC2 entry inside its value, setting the output flag when that nested entry has length 3.\", \"subsystem\": \"rf\", \"var_renames\": {\"v3\": \"end\", \"v4\": \"outer_len\", \"v5\": \"outer_next\", \"v6\": \"nested_end\", \"v7\": \"nested_next\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"TLV type byte\"}, {\"offset\": 1, \"meaning\": \"TLV length byte\"}, {\"offset\": 2, \"meaning\": \"TLV value/payload start\"}]}"
+}

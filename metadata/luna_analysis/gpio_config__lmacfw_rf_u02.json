@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_config",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1029dc",
+ "seg": 1,
+ "key": "gpio_config__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_clock_divider\",\"confidence\":\"medium\",\"docstring\":\"Writes an RF/clock divider value into two adjacent MMIO registers, programming the raw value in bits 7:0 and the value-minus-three encoding in a secondary field.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_div_reg0\",\"v2\":\"rf_div_reg1\",\"v3\":\"encoded_div\"},\"struct_hints\":[]}"
+}

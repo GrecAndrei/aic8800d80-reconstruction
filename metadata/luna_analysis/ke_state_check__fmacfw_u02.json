@@ -1,0 +1,9 @@
+{
+ "fn": "ke_state_check",
+ "img": "fmacfw_u02",
+ "addr": "0x12af68",
+ "seg": 38,
+ "key": "ke_state_check__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_scan_channel_timeout\",\"confidence\":\"medium\",\"docstring\":\"Advances the scan-channel timeout counter, reschedules while its limit has not been reached, and otherwise cleans up and notifies the requester.\",\"subsystem\":\"mac\",\"var_renames\":{\"v0\":\"scan_task_state\",\"v1\":\"scan_context\",\"v3\":\"timeout_limit\",\"v4\":\"timeout_count\",\"v5\":\"requester_task_id\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Requester task identifier used as the completion message destination\"},{\"offset\":10,\"meaning\":\"Scan timeout counter incremented on each invocation\"},{\"offset\":11,\"meaning\":\"Flag selecting the completion handling path\"},{\"offset\":367,\"meaning\":\"Timeout or retry limit in the pointed-to scan data\"}]}"
+}

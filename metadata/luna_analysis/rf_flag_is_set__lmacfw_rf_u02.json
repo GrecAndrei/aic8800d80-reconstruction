@@ -1,0 +1,9 @@
+{
+ "fn": "rf_flag_is_set",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x12645c",
+ "seg": 23,
+ "key": "rf_flag_is_set__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_flag_is_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Returns a boolean indicating whether the RF status byte referenced by off_126468 contains a nonzero value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"flag_value\"\n  }\n}"
+}

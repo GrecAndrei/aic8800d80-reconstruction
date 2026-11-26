@@ -1,0 +1,9 @@
+{
+ "fn": "rf_setup_channel",
+ "img": "fmacfw_h_u02",
+ "addr": "0x122044",
+ "seg": 24,
+ "key": "rf_setup_channel__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_apply_channel_config\",\"confidence\":\"medium\",\"docstring\":\"Applies the supplied RF register configuration and RF byte settings, waits for hardware readiness, then returns an EDCA M0 transmit-event allocation.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_reg_dst\",\"v2\":\"reg_preserve_mask\",\"v3\":\"rf_reg_dst_end\",\"v4\":\"channel_cfg_word\",\"v5\":\"reg_template\",\"v6\":\"template_word\",\"v8\":\"template_low_bits\",\"v9\":\"rf_settings_data\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Start of the 32-bit RF register configuration words consumed sequentially.\"}]}"
+}

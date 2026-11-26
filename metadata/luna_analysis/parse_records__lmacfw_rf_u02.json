@@ -1,0 +1,9 @@
+{
+ "fn": "parse_records",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1225f4",
+ "seg": 22,
+ "key": "parse_records__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_parse_temp_comp\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parse an RF temperature-compensation record/command, updating enable and optional period_ms configuration and applying RF trim/enable changes when the enable bit changes.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"arg_count\",\n    \"a2\": \"args\",\n    \"v4\": \"parsed_enable\",\n    \"v5\": \"enable_flag\",\n    \"v6\": \"raw_parsed_enable\",\n    \"v7\": \"rf_cfg\",\n    \"v9\": \"parsed_period_ms\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"args[1] string pointer: enable field\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"args[2] string pointer: period_ms field\"\n    },\n    {\n      \"offset\": 363,\n      \"meaning\": \"rf_cfg + 0x16B: temp_comp enable byte\"\n    },\n    {\n      \"offset\": 364,\n      \"meaning\": \"rf_cfg + 0x16C: temp_comp period in milliseconds\"\n    }\n  ]\n}"
+}

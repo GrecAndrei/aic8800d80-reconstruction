@@ -1,0 +1,9 @@
+{
+ "fn": "crc32_block",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11e8e0",
+ "seg": 21,
+ "key": "crc32_block__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"float_exp2_approx\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Approximates an exponential/power-of-two result by converting a scaled fixed-point exponent/fraction to float bits and interpolating the mantissa with two 32-entry tables.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"v1\": \"table_src\",\n    \"v3\": \"input_as_float\",\n    \"v4\": \"scaled_arg\",\n    \"v5\": \"magic_round_const\",\n    \"v6\": \"scaled_arg_plus_magic1\",\n    \"v7\": \"magic_offset_const\",\n    \"v8\": \"fixed_point_double\",\n    \"v9\": \"fixed_exp_bits\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"32-entry piecewise slope table for mantissa interpolation (uint32 fixed-point)\"\n    },\n    {\n      \"offset\": 128,\n      \"meaning\": \"32-entry piecewise intercept table for mantissa interpolation (uint32 float mantissa bits)\"\n    }\n  ]\n}"
+}

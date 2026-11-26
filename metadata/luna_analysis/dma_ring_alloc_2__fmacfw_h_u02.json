@@ -1,0 +1,9 @@
+{
+ "fn": "dma_ring_alloc_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11d864",
+ "seg": 20,
+ "key": "dma_ring_alloc_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dma_completion_queue_drain\",\"confidence\":\"medium\",\"docstring\":\"Drains the deferred DMA work list, invokes each item's callback, calls phy_rate_get for its associated handle, and services a pending host-buffer-recovery check.\",\"subsystem\":\"dma\",\"var_renames\":{\"v0\":\"work_list_head\",\"v1\":\"current_work_item\",\"v3\":\"pending_item_count\",\"v4\":\"irq_restore_needed\",\"v5\":\"callback_depth\",\"v6\":\"item_flags\",\"v7\":\"completion_callback\",\"v10\":\"recovery_state\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Completion callback function pointer\"},{\"offset\":8,\"meaning\":\"Argument passed to the completion callback\"},{\"offset\":12,\"meaning\":\"PHY-rate handle passed to phy_rate_get\"},{\"offset\":16,\"meaning\":\"Item flags; bit 0 affects pending-count handling and the field is cleared before callback\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "phy_is_calibrated",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1128a8",
+ "seg": 4,
+ "key": "phy_is_calibrated__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_run_calibration\",\"confidence\":\"medium\",\"docstring\":\"Runs the PHY hardware calibration sequence by programming control registers, processing six per-entry records, and polling completion flags.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"phy_mmio\",\"i\":\"entry_index\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"Register written with 1072 before polling bits 0x30 to clear.\"},{\"offset\":20,\"meaning\":\"Status register polled for completion bits 0x80 and 0x40.\"},{\"offset\":24,\"meaning\":\"Status/control bit 0x80 is cleared before the first phase.\"},{\"offset\":2052,\"meaning\":\"Calibration control register whose bits sequence the hardware phases.\"},{\"offset\":3584,\"meaning\":\"Control register with bit 0 cleared during setup.\"}]}"
+}

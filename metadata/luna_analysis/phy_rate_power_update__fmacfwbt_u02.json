@@ -1,0 +1,9 @@
+{
+ "fn": "phy_rate_power_update",
+ "img": "fmacfwbt_u02",
+ "addr": "0x134dec",
+ "seg": 53,
+ "key": "phy_rate_power_update__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_llm_send_config_msgs\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Assembles and sends a Bluetooth link-layer configuration message sequence for a selected context, including reset cleanup, advertising-status, RSSI, and rate/power table messages, then dispatches an HCI command.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v0\": \"config_table_base\",\n    \"v1\": \"state_ptr\",\n    \"v24\": \"ctx_idx\",\n    \"v13\": \"ctx_ptr\",\n    \"v16\": \"rate_word_ptr\",\n    \"v14\": \"rate_word_idx\",\n    \"v10\": \"adv_status\",\n    \"v23\": \"rssi_msg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 61,\n      \"meaning\": \"context index stored in the state object\"\n    },\n    {\n      \"offset\": 248,\n      \"meaning\": \"RSSI status input within the context record\"\n    },\n    {\n      \"offset\": 368,\n      \"meaning\": \"32-bit context parameter copied into the message at v3 offset 0\"\n    },\n    {\n      \"offset\": 372,\n      \"meaning\": \"16-bit context parameter copied into the message at v3 offset 4\"\n    },\n    {\n      \"offset\": 412,\n      \"meaning\": \"byte flag copied to v5 offset 5 and used to skip interval selection when set\"\n    },\n    {\n      \"offset\": 422,\n      \"meaning\": \"16-bit context parameter copied into the message at v6 offset 0\"\n    },\n    {\n      \"offset\": 424,\n      \"meaning\": \"start of advertising payload passed to llm_decrypt_adv_payload\"\n    },\n    {\n      \"offset\": 440,\n      \"meaning\": \"first of four 32-bit rate/power or configuration words\"\n    },\n    {\n      \"offset\": 472,\n      \"meaning\": \"context flags; bit 3 enables an RSSI status message\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_init_regs",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1033c4",
+ "seg": 2,
+ "key": "rf_init_regs__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_mdll_duty_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Sweeps the RF MDLL duty-cycle control field, samples the duty feedback over clock edges to find a stable setting, then stores and logs the calibrated duty value.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"mdll_ctrl_reg\",\"v2\":\"rf_strobe_reg\",\"v3\":\"prev_sample\",\"v4\":\"sample_phase\",\"v5\":\"duty_count\",\"v6\":\"duty_code\",\"v8\":\"trial_duty_code\",\"v9\":\"sample_count\",\"v10\":\"wait_ticks\",\"v14\":\"sample_bit\",\"v15\":\"phase_sample\",\"v16\":\"next_duty_field\",\"v19\":\"calibrated_duty_byte\"}}"
+}

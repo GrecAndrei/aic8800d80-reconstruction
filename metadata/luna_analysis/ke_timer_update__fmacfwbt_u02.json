@@ -1,0 +1,9 @@
+{
+ "fn": "ke_timer_update",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11b9b8",
+ "seg": 18,
+ "key": "ke_timer_update__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"mac_tx_pbd_update_rate_power\", \"confidence\": \"medium\", \"docstring\": \"Copies TX frame context into MAC TX state, validates the aligned packet length, and fills up to nine retry PBD slots with gain/power codes from a rate-indexed table.\", \"subsystem\": \"mac\", \"var_renames\": {\"a1\": \"tx_desc\", \"v2\": \"tx_state\", \"v5\": \"src_desc\", \"v6\": \"tx_rate\", \"v8\": \"frag_len\", \"v9\": \"buf_ptr\", \"v10\": \"pbd_idx\", \"v11\": \"pad_dwords\", \"v14\": \"total_len\", \"v15\": \"power_tbl\", \"v16\": \"pbd_slot\", \"v19\": \"gain_code\", \"v20\": \"power_val\"}, \"struct_hints\": [{\"offset\": 92, \"meaning\": \"start of TX retry PBD/slot array (92-byte stride)\"}, {\"offset\": 116, \"meaning\": \"payload length field used for TX buffer alignment\"}, {\"offset\": 8, \"meaning\": \"available TX buffer length compared with total packet length\"}, {\"offset\": 18, \"meaning\": \"packet length supplied to buf_align_size\"}, {\"offset\": 35, \"meaning\": \"rate/power table index in the source context pointed to by tx_desc\"}]}"
+}

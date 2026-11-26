@@ -1,0 +1,9 @@
+{
+ "fn": "sys_ready_check",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101a3c",
+ "seg": 0,
+ "key": "sys_ready_check__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"sys_ready_check\",\"confidence\":\"medium\",\"docstring\":\"Returns whether the volatile system status word has advanced past initialization, using a value greater than 1 as the ready condition.\",\"subsystem\":\"hal\",\"var_renames\":{},\"struct_hints\":[]}"
+}

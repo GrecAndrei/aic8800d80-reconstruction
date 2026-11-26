@@ -1,0 +1,9 @@
+{
+ "fn": "return_true",
+ "img": "fmacfw_h_u02",
+ "addr": "0x10194c",
+ "seg": 0,
+ "key": "return_true__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"always_true\",\"confidence\":\"high\",\"docstring\":\"Always returns 1.\",\"subsystem\":\"rf\"}"
+}

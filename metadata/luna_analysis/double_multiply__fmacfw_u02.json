@@ -1,0 +1,9 @@
+{
+ "fn": "double_multiply",
+ "img": "fmacfw_u02",
+ "addr": "0x142c84",
+ "seg": 68,
+ "key": "double_multiply__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_multiply\",\"confidence\":\"high\",\"docstring\":\"Multiplies two IEEE-754 double-precision values as part of the ARM EABI double-multiplication helper.\",\"subsystem\":\"libmisc\"}"
+}

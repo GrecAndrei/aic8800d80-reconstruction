@@ -1,0 +1,9 @@
+{
+ "fn": "adv_type_valid",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11617c",
+ "seg": 7,
+ "key": "adv_type_valid__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_set_adv_type_hw_mask\",\"confidence\":\"medium\",\"docstring\":\"Maps supported link-layer advertising types to hardware bit values and writes the value to a volatile register.\",\"subsystem\":\"ll\",\"var_renames\":{\"result\":\"adv_type\"}}"
+}

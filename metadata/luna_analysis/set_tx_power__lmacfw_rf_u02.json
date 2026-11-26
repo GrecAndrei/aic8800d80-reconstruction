@@ -1,0 +1,9 @@
+{
+ "fn": "set_tx_power",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124a50",
+ "seg": 23,
+ "key": "set_tx_power__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_tx_len\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Parses a decimal TX length from command arguments, stores it as the checked configuration state, and logs the result.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"a1\": \"argc\",\n    \"a2\": \"argv\",\n    \"v2\": \"tx_len\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"pointer to first command argument string, likely argv[1]\"\n    }\n  ]\n}"
+}

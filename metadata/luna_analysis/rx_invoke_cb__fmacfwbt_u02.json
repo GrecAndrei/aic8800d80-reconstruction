@@ -1,0 +1,9 @@
+{
+ "fn": "rx_invoke_cb",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13b9f0",
+ "seg": 61,
+ "key": "rx_invoke_cb__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mm_rx_desc_get\",\"confidence\":\"medium\",\"docstring\":\"Fetches an RX descriptor through the ring callback using the 12-bit slot derived from the sequence difference and stores the provided status byte.\",\"subsystem\":\"mm\",\"var_renames\":{\"a1\":\"rx_ring\",\"a2\":\"rx_seq\",\"a3\":\"desc_status\",\"result\":\"desc_ptr\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"RX descriptor getter callback/function pointer\"},{\"offset\":4,\"meaning\":\"RX ring base sequence/head index\"},{\"offset\":6,\"meaning\":\"returned RX descriptor status/flag byte (relative to desc_ptr)\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_64",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1145d0",
+ "seg": 6,
+ "key": "mmio_write_64__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_write_64\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Thin wrapper that dispatches a 64-bit MMIO write request through the kernel task processor.\",\n  \"subsystem\": \"hal\"\n}"
+}

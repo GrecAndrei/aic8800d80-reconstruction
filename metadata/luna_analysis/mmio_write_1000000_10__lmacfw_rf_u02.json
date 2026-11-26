@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_1000000_10",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x114880",
+ "seg": 6,
+ "key": "mmio_write_1000000_10__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bus_read_buf_0x1000000\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Wrapper that reads a fixed 10-byte buffer from bus address 0x1000000 into the caller-supplied destination buffer.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"a1\": \"buf\"\n  },\n  \"struct_hints\": []\n}"
+}

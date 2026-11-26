@@ -1,0 +1,9 @@
+{
+ "fn": "get_u8_table",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11926c",
+ "seg": 12,
+ "key": "get_u8_table__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_u8_table\",\"confidence\":\"high\",\"docstring\":\"Returns the volatile byte from the table at the offset formed by OR-ing the first argument with twice the second argument.\",\"subsystem\":\"bt\"}"
+}

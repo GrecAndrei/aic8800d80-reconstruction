@@ -1,0 +1,9 @@
+{
+ "fn": "mac_data_request",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123550",
+ "seg": 28,
+ "key": "mac_data_request__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_handle_cfm_event\",\"confidence\":\"medium\",\"docstring\":\"Runs the confirmation-event handler and, if a4 is nonzero, submits a three-byte response containing a2[0], the handler result, and the fixed value 4.\",\"subsystem\":\"ke\",\"var_renames\":{\"v9\":\"response_status\",\"v10\":\"response_pdu\"},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_calibration_offsets",
+ "img": "fmacfw_h_u02",
+ "addr": "0x102a9c",
+ "seg": 1,
+ "key": "get_calibration_offsets__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_calibration_offsets\",\"confidence\":\"medium\",\"docstring\":\"Copies two RF calibration bytes from the firmware data block into the supplied output locations and returns the first output pointer.\",\"subsystem\":\"rf\",\"var_renames\":{\"result\":\"first_offset_out\",\"a2\":\"second_offset_out\",\"v2\":\"calibration_data\"}}"
+}

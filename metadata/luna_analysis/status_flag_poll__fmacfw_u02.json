@@ -1,0 +1,9 @@
+{
+ "fn": "status_flag_poll",
+ "img": "fmacfw_u02",
+ "addr": "0x10c984",
+ "seg": 2,
+ "key": "status_flag_poll__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_status_flags_update\",\"confidence\":\"medium\",\"docstring\":\"When any bits in the 0x1F00 mask are set, calls a helper with 2048, copies the masked value to two locations, and conditionally sets a byte flag and a control bit.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"status_bits\"}}"
+}

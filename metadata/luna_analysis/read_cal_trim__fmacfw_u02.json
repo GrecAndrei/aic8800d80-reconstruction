@@ -1,0 +1,9 @@
+{
+ "fn": "read_cal_trim",
+ "img": "fmacfw_u02",
+ "addr": "0x12b804",
+ "seg": 39,
+ "key": "read_cal_trim__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calibration_read_start\",\"confidence\":\"medium\",\"docstring\":\"Begins an RF calibration-read operation by setting a deadline 25,000 RF ticks ahead and updating its control flags.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_tick_count\",\"v3\":\"deadline_storage\",\"v5\":\"control_flags\"}}"
+}

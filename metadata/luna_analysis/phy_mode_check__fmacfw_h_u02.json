@@ -1,0 +1,9 @@
+{
+ "fn": "phy_mode_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f3f0",
+ "seg": 42,
+ "key": "phy_mode_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_mode_check\",\"confidence\":\"low\",\"docstring\":\"Returns the fixed value 2, whose PHY-mode meaning is unclear.\",\"subsystem\":\"phy\"}"
+}

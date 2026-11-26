@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_tx_power",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11cd50",
+ "seg": 19,
+ "key": "rf_get_tx_power__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_get_tx_power\", \"confidence\": \"medium\", \"docstring\": \"Returns the transmit power, using a cached global RF value when the channel context flag bits are set and otherwise deriving it from the channel entry.\", \"subsystem\": \"rf\", \"var_renames\": {\"a1\": \"rf_channel_ctx\"}, \"struct_hints\": [{\"offset\": 3, \"meaning\": \"RF/channel context byte containing flag bits that select a cached/global TX power\"}]}"
+}

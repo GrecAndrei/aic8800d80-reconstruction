@@ -1,0 +1,9 @@
+{
+ "fn": "pkt_buf_alloc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10cb08",
+ "seg": 2,
+ "key": "pkt_buf_alloc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_event_build_and_send\",\"confidence\":\"medium\",\"docstring\":\"Allocates and populates an HCI event buffer from the descriptor fields and payload, then submits it to the HCI event transport.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"event_desc\",\"v5\":\"event_buf\",\"v6\":\"payload_len\",\"v7\":\"event_type\",\"v13\":\"event_sequence\"},\"struct_hints\":[{\"offset\":6,\"meaning\":\"Input descriptor event type or code, copied into the outgoing header.\"},{\"offset\":8,\"meaning\":\"Input descriptor sequence-number slot, updated in event mode 3.\"},{\"offset\":10,\"meaning\":\"Input payload length.\"},{\"offset\":12,\"meaning\":\"Input payload bytes.\"}]}"
+}

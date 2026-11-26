@@ -1,0 +1,9 @@
+{
+ "fn": "phy_check_chanspec",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13aa30",
+ "seg": 59,
+ "key": "phy_check_chanspec__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_apply_chanspec\",\"confidence\":\"medium\",\"docstring\":\"Prepends a chanspec-dependent PHY command when the stored chanspec is at least 0x600, then submits it and calibrates the resulting PHY state.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"phy_context\",\"a2\":\"command_buffer\",\"v2\":\"stored_chanspec\",\"v4\":\"write_result\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Stored chanspec, byte-swapped before the threshold check.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "bt_scan_poll",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12a144",
+ "seg": 36,
+ "key": "bt_scan_poll__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"scan_process_result\",\"confidence\":\"medium\",\"docstring\":\"Processes a pending scan-result entry, copying buffered payload into the entry and invoking RSN IE parsing when appropriate.\",\"subsystem\":\"mac\",\"var_renames\":{\"v2\":\"result_index\",\"v3\":\"records_base\",\"v4\":\"record_addr\",\"v5\":\"buffer_slot\",\"v6\":\"control_flags\",\"v7\":\"record_offset\",\"v8\":\"record\",\"v9\":\"payload_source\",\"v10\":\"fallback_source\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Control flags; bit 6 is cleared.\"},{\"offset\":96,\"meaning\":\"Record buffer receiving copied payload.\"},{\"offset\":112,\"meaning\":\"Record flag selecting the immediate-copy path.\"},{\"offset\":114,\"meaning\":\"Record processing state, set to 1 or 2.\"},{\"offset\":115,\"meaning\":\"Buffer slot used to select a payload source.\"},{\"offset\":116,\"meaning\":\"Stored payload source pointer for deferred processing.\"},{\"offset\":134,\"meaning\":\"Record marker set when processing begins.\"},{\"offset\":1224,\"meaning\":\"Control-object gate indicating a pending result.\"},{\"offset\":1225,\"meaning\":\"Control-object index of the selected record.\"}]}"
+}

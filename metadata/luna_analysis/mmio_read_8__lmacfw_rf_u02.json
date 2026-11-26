@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_8",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1145a0",
+ "seg": 6,
+ "key": "mmio_read_8__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_read_8\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Thin wrapper that dispatches an MMIO read request through ke_task_handler using fixed operation parameters.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

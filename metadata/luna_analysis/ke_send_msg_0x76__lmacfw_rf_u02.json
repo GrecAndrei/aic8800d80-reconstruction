@@ -1,0 +1,9 @@
+{
+ "fn": "ke_send_msg_0x76",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119698",
+ "seg": 13,
+ "key": "ke_send_msg_0x76__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_send_msg_0x76\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Wrapper that sends a fixed 12-byte kernel message with ID 0x76 (118) using the supplied arguments and forwards the returned result to a receive/IRQ dispatch helper.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v4\": \"send_result\"\n  },\n  \"struct_hints\": []\n}"
+}

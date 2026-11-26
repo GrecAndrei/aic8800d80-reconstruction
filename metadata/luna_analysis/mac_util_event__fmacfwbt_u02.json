@@ -1,0 +1,9 @@
+{
+ "fn": "mac_util_event",
+ "img": "fmacfwbt_u02",
+ "addr": "0x121e68",
+ "seg": 24,
+ "key": "mac_util_event__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_event_send\",\"confidence\":\"medium\",\"docstring\":\"Schedules a MAC/host event under an interrupt-safe critical section when the short command status is 2, then sends HCI command 4; otherwise it simply returns that command status.\",\"subsystem\":\"mac\",\"var_renames\":{\"v1\":\"event_counter\",\"v2\":\"event_counter_next\",\"v3\":\"irq_was_disabled\"},\"struct_hints\":[]}"
+}

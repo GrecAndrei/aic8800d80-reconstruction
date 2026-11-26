@@ -1,0 +1,9 @@
+{
+ "fn": "list_find_entry",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123a28",
+ "seg": 29,
+ "key": "list_find_entry__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"process_command\",\"confidence\":\"medium\",\"docstring\":\"Classifies and preprocesses a command, invoking the callback when the command is accepted.\",\"subsystem\":\"mm\",\"var_renames\":{\"a2\":\"completion_callback\",\"a3\":\"command\"}}"
+}

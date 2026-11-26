@@ -1,0 +1,9 @@
+{
+ "fn": "process_event_queue",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d3b8",
+ "seg": 41,
+ "key": "process_event_queue__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"dispatch_pending_events\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches pending hardware event bits by calling the matching handler table entry, clearing unhandled IRQs and optionally synchronizing hardware before return.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"event_status_ptr\",\n    \"v1\": \"pending_events\",\n    \"v3\": \"handler_table\",\n    \"v7\": \"event_index\",\n    \"v8\": \"handler\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"event handler function pointer\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"handler argument or context value\"\n    }\n  ]\n}"
+}

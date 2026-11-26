@@ -1,0 +1,9 @@
+{
+ "fn": "controller_read_features",
+ "img": "fmacfw_u02",
+ "addr": "0x12b398",
+ "seg": 39,
+ "key": "controller_read_features__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_controller_queue_pending_payloads\",\"confidence\":\"medium\",\"docstring\":\"Allocates an output packet for each length-prefixed item in the controller buffer, fills its metadata, and copies the item bytes into the packet.\",\"subsystem\":\"bt\",\"var_renames\":{\"v0\":\"controller_context\",\"v1\":\"payload_cursor\",\"v4\":\"packet_entry\",\"v8\":\"packet_buffer\",\"v9\":\"packet_sequence\",\"v11\":\"queue_context\",\"v16\":\"payload_length\",\"v21\":\"link_record\"},\"struct_hints\":[{\"offset\":252,\"meaning\":\"Length byte for the next pending payload\"},{\"offset\":253,\"meaning\":\"Start of the pending payload bytes\"},{\"offset\":364,\"meaning\":\"16-bit queued quantity used in packet sizing and queue accounting\"},{\"offset\":366,\"meaning\":\"Index selecting a per-link record\"},{\"offset\":368,\"meaning\":\"Flag indicating pending work is available\"},{\"offset\":108,\"meaning\":\"Output packet type or metadata marker, set to 64\"},{\"offset\":133,\"meaning\":\"Output packet payload length\"},{\"offset\":134,\"meaning\":\"Start of output packet payload bytes\"}]}"
+}

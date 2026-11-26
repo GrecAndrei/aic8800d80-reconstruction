@@ -1,0 +1,9 @@
+{
+ "fn": "set_reg_bit",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1296ec",
+ "seg": 35,
+ "key": "set_reg_bit__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_upm_exit\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Exits an RF/power-save UPM state by setting a control bit and clearing associated RF state and status registers.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 18,\n      \"meaning\": \"UPM/power-save state flag controlling whether the low bit of off_129754 is cleared\"\n    }\n  ]\n}"
+}

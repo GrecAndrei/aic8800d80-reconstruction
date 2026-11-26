@@ -1,0 +1,9 @@
+{
+ "fn": "llc_aes_ccm_setup",
+ "img": "fmacfw_u02",
+ "addr": "0x11eda4",
+ "seg": 21,
+ "key": "llc_aes_ccm_setup__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_env_init\",\"confidence\":\"medium\",\"docstring\":\"Waits for the word at offset 572 to clear, zeroes the 0x2B8-byte environment, and initializes its repeated byte fields and invalid sentinel.\",\"subsystem\":\"ble\",\"var_renames\":{\"a1\":\"llc_env\",\"v2\":\"busy_word_addr\",\"v5\":\"slot_cursor\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Byte set to 0xFF after initialization; likely an invalid-value sentinel.\"},{\"offset\":452,\"meaning\":\"First byte of each of nine 12-byte entries, initialized to 0x21.\"},{\"offset\":453,\"meaning\":\"Second byte of each of nine 12-byte entries, initialized to 0x21.\"},{\"offset\":572,\"meaning\":\"Word polled until zero before the environment is cleared; exact role is unclear.\"}]}"
+}

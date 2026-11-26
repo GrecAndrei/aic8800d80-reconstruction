@@ -1,0 +1,9 @@
+{
+ "fn": "timer_start_capture",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119218",
+ "seg": 12,
+ "key": "timer_start_capture__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_acl_send\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Prepares an ACL packet by applying RF temperature compensation, scanning/CRCing its TLV area, and dispatching it with send_acl_packet.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v5\": \"packet_len\",\n    \"v7\": \"pkt_base\",\n    \"v11\": \"crc_before\",\n    \"v13\": \"crc\",\n    \"v15\": \"tlv_ptr\",\n    \"v16\": \"ctx\",\n    \"v17\": \"remaining_len\",\n    \"v18\": \"tlv_len\",\n    \"v19\": \"tlv_value\",\n    \"v21\": \"crc_before\",\n    \"v23\": \"temp_comp_byte\",\n    \"v24\": \"descriptor\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"descriptor packet-data pointer\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"descriptor packet length\"\n    },\n    {\n      \"offset\": 45,\n      \"meaning\": \"descriptor byte passed to RF temperature compensation\"\n    },\n    {\n      \"offset\": 102,\n      \"meaning\": \"context rate/index byte\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"context timestamp/aging field\"\n    },\n    {\n      \"offset\": 112,\n      \"meaning\": \"context CRC/state field\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"context clear flag\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"packet CRC payload start\"\n    },\n    {\n      \"offset\": 36,\n      \"meaning\": \"packet TLV start\"\n    }\n  ]\n}"
+}

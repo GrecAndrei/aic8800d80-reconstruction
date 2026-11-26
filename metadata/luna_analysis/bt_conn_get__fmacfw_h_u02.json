@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13c154",
+ "seg": 60,
+ "key": "bt_conn_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_tx_acknowledge_packets\",\"confidence\":\"medium\",\"docstring\":\"Records an acknowledgment in the per-connection transmit window and retires consecutively acknowledged packets, with flush-timing logic that may defer advancement.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"piconet_table_offset\",\"v13\":\"tx_window\",\"v17\":\"window_entry\",\"v19\":\"next_slot_index\",\"i\":\"retired_packet_count\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"12-bit acknowledgment sequence number\"},{\"offset\":64,\"meaning\":\"timestamp used for flush-time comparisons\"},{\"offset\":4,\"meaning\":\"current 12-bit transmit-window sequence number\"},{\"offset\":6,\"meaning\":\"base of per-slot acknowledgment status bytes\"},{\"offset\":262,\"meaning\":\"current transmit-window slot index\"}]}"
+}

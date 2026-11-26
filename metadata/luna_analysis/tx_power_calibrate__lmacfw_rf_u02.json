@@ -1,0 +1,9 @@
+{
+ "fn": "tx_power_calibrate",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x104200",
+ "seg": 2,
+ "key": "tx_power_calibrate__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_power_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Scans a band-specific RF lookup table for the best adjacent-entry offset, builds a smoothed 16/32-entry calibration curve, and returns the optimal TX power calibration slot.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"band_mode\",\"a2\":\"rf_lookup_arg\",\"a3\":\"rf_table\",\"v3\":\"table_span\",\"v6\":\"scan_base\",\"v7\":\"scan_limit\",\"v8\":\"cal_points\",\"v9\":\"best_delta\",\"v10\":\"scan_pos\",\"v11\":\"best_pos\",\"v12\":\"prev_pos\",\"v13\":\"cur_rf_value\",\"v14\":\"delta\",\"v15\":\"best_offset\",\"v17\":\"cal_curve\",\"v18\":\"sample_pos\",\"v20\":\"rf_value\",\"v21\":\"prev_rf_value\",\"v22\":\"curve_slot\",\"v23\":\"max_smoothed\",\"v24\":\"smoothed_entry\",\"v25\":\"best_curve_slot\",\"v27\":\"smoothed_value\",\"result\":\"calibrated_offset\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"scan_base_table_offset\"},{\"offset\":8,\"meaning\":\"table_span\"},{\"offset\":12,\"meaning\":\"best_minus_one\"},{\"offset\":16,\"meaning\":\"best_offset\"},{\"offset\":24,\"meaning\":\"best_adjusted_index\"},{\"offset\":32,\"meaning\":\"wrapped_flag\"},{\"offset\":36,\"meaning\":\"tx_power_cal_curve\"},{\"offset\":40,\"meaning\":\"tx_power_cal_curve[1]\"}]}"
+}

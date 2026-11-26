@@ -1,0 +1,9 @@
+{
+ "fn": "irq_disable_arg",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1101ec",
+ "seg": 3,
+ "key": "irq_disable_arg__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"irq_disable_nested_call\", \"confidence\": \"medium\", \"docstring\": \"Disables interrupts with nesting-count preservation around a kernel-state call and re-enables IRQs only on the outermost exit.\", \"subsystem\": \"hal\", \"var_renames\": {\"v2\": \"irq_nesting_depth_ptr\", \"v5\": \"irq_nesting_depth_next\", \"v6\": \"irq_disable_saved_flag\"}, \"struct_hints\": []}"
+}

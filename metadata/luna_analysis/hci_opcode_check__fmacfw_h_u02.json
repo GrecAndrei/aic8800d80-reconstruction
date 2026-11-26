@@ -1,0 +1,9 @@
+{
+ "fn": "hci_opcode_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13373c",
+ "seg": 46,
+ "key": "hci_opcode_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_opcode_dispatch\",\"confidence\":\"medium\",\"docstring\":\"Dispatches selected BLE message opcode classes to their corresponding firmware handlers.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"message\",\"v2\":\"opcode_class\"},\"struct_hints\":[{\"offset\":2,\"meaning\":\"16-bit opcode or message discriminator; the low two bits are ignored for dispatch.\"},{\"offset\":12,\"meaning\":\"8-bit selector checked against 8 before connection lookup.\"}]}"
+}

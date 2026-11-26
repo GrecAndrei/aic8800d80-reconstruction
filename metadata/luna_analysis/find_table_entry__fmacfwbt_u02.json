@@ -1,0 +1,9 @@
+{
+ "fn": "find_table_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1376f4",
+ "seg": 58,
+ "key": "find_table_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"table_lookup_or_reserve\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a 64-entry global table for three 16-bit key fields, returning the matching entry or reserving the first free entry when the reserve flag is set.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"key_words\",\n    \"a2\": \"reserve_flag\",\n    \"v2\": \"entry_ptr\",\n    \"v3\": \"table_end_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"used/type byte\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"key field 0\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"key field 1\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"key field 2\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"reserve/status flag byte, set to 0x80 when reserving\"\n    }\n  ]\n}"
+}

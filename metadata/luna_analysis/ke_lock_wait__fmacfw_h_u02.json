@@ -1,0 +1,9 @@
+{
+ "fn": "ke_lock_wait",
+ "img": "fmacfw_h_u02",
+ "addr": "0x133f24",
+ "seg": 49,
+ "key": "ke_lock_wait__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_process_connection_result\",\"confidence\":\"medium\",\"docstring\":\"Checks handler 6 and, for result 9, emits connection-related messages and updates the per-connection context; for result 10, resets the controller.\",\"subsystem\":\"hci\",\"var_renames\":{\"v1\":\"connection_record\",\"v2\":\"connection_env\",\"v3\":\"context_index\",\"v4\":\"connection_event_msg\",\"v5\":\"connection_context\",\"v6\":\"derived_link_mode\",\"v7\":\"swapped_field\",\"v8\":\"link_reset_msg\"},\"struct_hints\":[{\"offset\":61,\"meaning\":\"Connection index used to select the per-link environment.\"},{\"offset\":116,\"meaning\":\"Index used to select a per-connection context.\"},{\"offset\":1208,\"meaning\":\"Bit 0 determines the 1-or-2 link-mode value written to the context.\"},{\"offset\":52,\"meaning\":\"16-bit value byte-swapped before being stored in the connection context.\"}]}"
+}

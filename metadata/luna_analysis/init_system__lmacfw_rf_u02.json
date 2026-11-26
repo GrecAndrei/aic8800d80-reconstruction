@@ -1,0 +1,9 @@
+{
+ "fn": "init_system",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x122728",
+ "seg": 22,
+ "key": "init_system__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_pwrofst2x_2_4g\",\"confidence\":\"medium\",\"docstring\":\"Validate and program a 2.4 GHz RF power-offset entry in the selected NV table, read back the descriptor result, and optionally commit the register write.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"row_idx\",\"a3\":\"col_idx\",\"a4\":\"pwrofst_value\",\"v4\":\"ef_table_select\",\"v5\":\"commit_mode\",\"v57\":\"result_status\",\"v59\":\"row_stride_offset\"},\"struct_hints\":[]}"
+}

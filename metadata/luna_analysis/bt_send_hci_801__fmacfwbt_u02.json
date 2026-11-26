@@ -1,0 +1,9 @@
+{
+ "fn": "bt_send_hci_801",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12b2a4",
+ "seg": 40,
+ "key": "bt_send_hci_801__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_send_scan_start_req_hci_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends or queues HCI/vendor message 0x801 for a scan-start request/connection-info update, returning 0 when emitted directly and 1 after saving the request and clearing IRQ 73.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v6\": \"evt_buf\",\n    \"v7\": \"cmd_result\",\n    \"v8\": \"pending_req\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"stored request/connection-info pointer (a2) in pending global\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"16-bit parameter/status (a4) stored in pending global\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"byte field zeroed in pending global\"\n    },\n    {\n      \"offset\": 367,\n      \"meaning\": \"flag in a2 checked before clearing IRQ 73\"\n    }\n  ]\n}"
+}

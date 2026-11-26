@@ -1,0 +1,9 @@
+{
+ "fn": "classify_command",
+ "img": "fmacfw_h_u02",
+ "addr": "0x123ab4",
+ "seg": 29,
+ "key": "classify_command__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"route_hci_command\",\"confidence\":\"medium\",\"docstring\":\"Routes a command by its HCI class, applying RF and MAC updates on the direct path and returning 2 for special or preprocessed cases.\",\"subsystem\":\"mm\",\"var_renames\":{\"result\":\"command_class\"},\"struct_hints\":[{\"offset\":18,\"meaning\":\"16-bit state field cleared on the direct command path\"},{\"offset\":31,\"meaning\":\"byte field updated from the first input byte\"}]}"
+}

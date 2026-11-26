@@ -1,0 +1,9 @@
+{
+ "fn": "buffer_alloc",
+ "img": "fmacfwbt_u02",
+ "addr": "0x121f38",
+ "seg": 24,
+ "key": "buffer_alloc__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"phy_channel_switch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Switches the PHY to a new channel by detaching the current channel, programming the RF, clearing pending channel flags, and updating per-band channel state.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"a1\": \"ctx\",\n    \"a2\": \"new_chan_ptr\",\n    \"a3\": \"result_ptr\",\n    \"v6\": \"rc\",\n    \"v8\": \"band\",\n    \"v9\": \"chan_state\",\n    \"v10\": \"linked_chan_ctx\",\n    \"v11\": \"band_state\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 25,\n      \"meaning\": \"ctx byte: band/PHY selector used for rf_set_channel and per-band state\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"chan_state: pointer to linked channel/BSS context\"\n    },\n    {\n      \"offset\": 669,\n      \"meaning\": \"chan_state byte: pending/channel flag cleared before switching\"\n    },\n    {\n      \"offset\": 670,\n      \"meaning\": \"chan_state uint16: pending/channel field cleared before switching\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"band_state byte: initialization/lock flag that suppresses channel update\"\n    },\n    {\n      \"offset\": 116,\n      \"meaning\": \"band_state byte: current selected channel\"\n    },\n    {\n      \"offset\": 35,\n      \"meaning\": \"linked_chan_ctx byte: channel used in secondary RF programming\"\n    }\n  ]\n}"
+}

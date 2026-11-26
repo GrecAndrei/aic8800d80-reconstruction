@@ -1,0 +1,9 @@
+{
+ "fn": "bt_config_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x124efc",
+ "seg": 30,
+ "key": "bt_config_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_config_arg_check\",\"confidence\":\"medium\",\"docstring\":\"Sets up the indexed Bluetooth configuration resources and validates the requested selector against the context\u2019s stored channel/state value.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"context_index\",\"a2\":\"config_selector\",\"v4\":\"context_base\"},\"struct_hints\":[{\"offset\":1225,\"meaning\":\"Stored 8-bit channel/state selector used for channel lookup and selector validation.\"}]}"
+}

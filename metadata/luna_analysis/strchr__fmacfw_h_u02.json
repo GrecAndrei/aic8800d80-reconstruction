@@ -1,0 +1,9 @@
+{
+ "fn": "strchr",
+ "img": "fmacfw_h_u02",
+ "addr": "0x143878",
+ "seg": 68,
+ "key": "strchr__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"strchr\",\"confidence\":\"high\",\"docstring\":\"Returns a pointer to the first occurrence of the byte in the NUL-terminated string, including the terminator when searching for '\\\\0', or NULL if it is absent.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"string_cursor\",\"a2\":\"search_char\",\"v2\":\"scan_ptr\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_cal_is_valid",
+ "img": "fmacfwbt_u02",
+ "addr": "0x138cf8",
+ "seg": 59,
+ "key": "rf_cal_is_valid__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mac_handle_unknown_ctrl_frame\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Handles a received unknown control frame by matching its destination against four 802.11 contexts and its source against per-context peer entries, then scheduling key-invalid or deauth processing for unrecognized senders.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"a1\": \"frame\",\n    \"v2\": \"ctx_base\",\n    \"v3\": \"ctx_slot\",\n    \"i\": \"ctx_entry\",\n    \"v6\": \"ctx_offset\",\n    \"v7\": \"peer_node\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 4, \"meaning\": \"802.11 frame Addr1/destination address\"},\n    {\"offset\": 10, \"meaning\": \"802.11 frame Addr2/source address\"},\n    {\"offset\": 100, \"meaning\": \"context entry MAC address\"},\n    {\"offset\": 106, \"meaning\": \"context entry state byte\"},\n    {\"offset\": 108, \"meaning\": \"context entry valid/active flag\"},\n    {\"offset\": 240, \"meaning\": \"context entry linked-list head of peer/key entries\"},\n    {\"offset\": 38, \"meaning\": \"peer list entry MAC address\"}\n  ]\n}"
+}

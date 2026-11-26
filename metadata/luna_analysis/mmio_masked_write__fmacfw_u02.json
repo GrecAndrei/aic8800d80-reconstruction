@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_masked_write",
+ "img": "fmacfw_u02",
+ "addr": "0x12221c",
+ "seg": 24,
+ "key": "mmio_masked_write__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_apply_register_config\",\"confidence\":\"medium\",\"docstring\":\"Merges PHY register templates with per-configuration override words, applies the resulting register block, performs additional PHY setup, and dispatches the EDCA M1 event.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"phy_config\",\"v1\":\"override_value\",\"v2\":\"register_destination\",\"v3\":\"template_mask\",\"v4\":\"register_destination_end\",\"v5\":\"override_cursor\",\"v6\":\"template_cursor\",\"v7\":\"template_value\",\"v9\":\"register_value\"},\"struct_hints\":[{\"offset\":444,\"meaning\":\"First 32-bit per-register override value used when applying the PHY register configuration.\"}]}"
+}

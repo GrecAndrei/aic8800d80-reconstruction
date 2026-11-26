@@ -1,0 +1,9 @@
+{
+ "fn": "patch_load_cal",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11aa5c",
+ "seg": 14,
+ "key": "patch_load_cal__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"apply_clock_source_config\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"When an input byte contains a valid clock mode 0-2, stores that mode to globals and programs the clock source using two adjacent configuration bytes.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v1\": \"clock_mode\",\n    \"v2\": \"cfg_base\",\n    \"v3\": \"mode_store_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 36,\n      \"meaning\": \"first clock configuration byte passed to clock_set_source\"\n    },\n    {\n      \"offset\": 37,\n      \"meaning\": \"second clock configuration byte passed to clock_set_source\"\n    }\n  ]\n}"
+}

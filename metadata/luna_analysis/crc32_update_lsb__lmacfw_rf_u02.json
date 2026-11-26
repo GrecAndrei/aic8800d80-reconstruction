@@ -1,0 +1,9 @@
+{
+ "fn": "crc32_update_lsb",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11eb48",
+ "seg": 21,
+ "key": "crc32_update_lsb__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"crc32_update_lsb\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Update a reflected CRC-32 accumulator by processing each byte of a buffer through a 256-entry table.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"data\",\n    \"a2\": \"len\",\n    \"a3\": \"crc\",\n    \"v3\": \"end\",\n    \"v4\": \"byte\"\n  },\n  \"struct_hints\": []\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_is_state_1",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13245c",
+ "seg": 45,
+ "key": "rf_is_state_1__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_map_state_code\",\"confidence\":\"medium\",\"docstring\":\"Maps the low two bits of a state value to code 7, 8, or 9.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"state_bits\"}}"
+}

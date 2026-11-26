@@ -1,0 +1,9 @@
+{
+ "fn": "list_append",
+ "img": "fmacfwbt_u02",
+ "addr": "0x118358",
+ "seg": 11,
+ "key": "list_append__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"queue_append\", \"confidence\": \"medium\", \"docstring\": \"Appends a node to an indexed queue or event list and raises the associated system wake flag unless the target context is marked as aborting.\", \"subsystem\": \"ble\", \"var_renames\": {\"a1\": \"queue_ctx\", \"a2\": \"queue_node\", \"a3\": \"queue_index\", \"v3\": \"list_tail\", \"v5\": \"queue_state_base\", \"result\": \"abort_status\"}, \"struct_hints\": [{\"offset\": 76, \"meaning\": \"tail/list link pointer used for append\"}, {\"offset\": 36, \"meaning\": \"status flag word; bit 0x200000 suppresses wake or indicates aborting\"}, {\"offset\": 4, \"meaning\": \"next/link field of the object referenced by offset 76\"}]}"
+}

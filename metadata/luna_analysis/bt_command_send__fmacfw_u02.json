@@ -1,0 +1,9 @@
+{
+ "fn": "bt_command_send",
+ "img": "fmacfw_u02",
+ "addr": "0x131824",
+ "seg": 44,
+ "key": "bt_command_send__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_context_info_send\",\"confidence\":\"medium\",\"docstring\":\"Builds and sends a kernel-message snapshot of the selected BLE link-layer context, including scheduler-item check results.\",\"subsystem\":\"ble\",\"var_renames\":{\"a2\":\"link_idx_ptr\",\"v6\":\"link_idx\",\"v7\":\"msg\",\"v8\":\"link_ctx\",\"v12\":\"sched_item_idx\",\"v13\":\"sched_item_check_result\",\"v17\":\"irq_lock_depth_ptr\"},\"struct_hints\":[{\"offset\":184,\"meaning\":\"Scheduler-item count used as the loop bound for per-item checks.\"}]}"
+}

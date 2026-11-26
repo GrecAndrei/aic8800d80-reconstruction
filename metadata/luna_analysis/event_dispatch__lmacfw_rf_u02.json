@@ -1,0 +1,9 @@
+{
+ "fn": "event_dispatch",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x119420",
+ "seg": 12,
+ "key": "event_dispatch__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_event_0x7A\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends kernel event 0x7A (122), optionally copying the message header/fields into a global event state buffer before dispatching through ke_evt_handler.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a2\": \"event_msg\",\n    \"v7\": \"event_state\",\n    \"v8\": \"event_copy_buffer\",\n    \"v9\": \"event_msg_type\",\n    \"v10\": \"event_msg_word1\",\n    \"v11\": \"event_msg_word2\",\n    \"v12\": \"event_msg_word3\",\n    \"v13\": \"event_msg_word4\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"event message header/first byte, tested for non-zero\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"message word copied to event_copy_buffer index 1\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"message word copied to event_copy_buffer index 2\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"message word copied to event_copy_buffer index 3\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"message word copied to event_copy_buffer index 4\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"message word copied to event_copy_buffer index 5\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"message word copied to event_copy_buffer index 6\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "get_global_1671e0",
+ "img": "fmacfw_u02",
+ "addr": "0x11455c",
+ "seg": 5,
+ "key": "get_global_1671e0__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"dispatch_lp_level_power_error\",\"confidence\":\"medium\",\"docstring\":\"Dispatches the event associated with the low-power-level power error message.\",\"subsystem\":\"rf\"}"
+}

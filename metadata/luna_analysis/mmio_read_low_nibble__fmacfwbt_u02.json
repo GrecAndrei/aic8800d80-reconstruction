@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_read_low_nibble",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115ecc",
+ "seg": 7,
+ "key": "mmio_read_low_nibble__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hal_pending_irq_check\",\"confidence\":\"medium\",\"docstring\":\"Configures hardware control registers, then sets and returns a shared flag if any of the first three NVIC banks has an enabled pending interrupt.\",\"subsystem\":\"hal\",\"var_renames\":{\"v11\":\"irq_bank_index\",\"v12\":\"nvic_enable_register\"}}"
+}

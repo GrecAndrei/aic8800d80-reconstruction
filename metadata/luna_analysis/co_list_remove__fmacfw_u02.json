@@ -1,0 +1,9 @@
+{
+ "fn": "co_list_remove",
+ "img": "fmacfw_u02",
+ "addr": "0x1258a4",
+ "seg": 30,
+ "key": "co_list_remove__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_rx_dispatch\",\"confidence\":\"low\",\"docstring\":\"Selects between two HCI-related handlers for the supplied buffer based on a global state value.\",\"subsystem\":\"bt\",\"var_renames\":{\"a1\":\"buffer\"}}"
+}

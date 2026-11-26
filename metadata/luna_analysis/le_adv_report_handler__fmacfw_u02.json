@@ -1,0 +1,9 @@
+{
+ "fn": "le_adv_report_handler",
+ "img": "fmacfw_u02",
+ "addr": "0x137640",
+ "seg": 57,
+ "key": "le_adv_report_handler__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_adv_report_handle\",\"confidence\":\"low\",\"docstring\":\"Handles an LE advertising report in the Bluetooth scanning path.\",\"subsystem\":\"ble\"}"
+}

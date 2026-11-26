@@ -1,0 +1,9 @@
+{
+ "fn": "rf_path_disable",
+ "img": "fmacfw_h_u02",
+ "addr": "0x104fa8",
+ "seg": 2,
+ "key": "rf_path_disable__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_measure_power_amp_backoff\",\"confidence\":\"medium\",\"docstring\":\"Programs an amplifier setting, captures the resulting power-back value in the indexed calibration table, and reports values above the saturation threshold.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"amp_setting\",\"a2\":\"pwr_amp_back_table\",\"a3\":\"table_column\",\"a4\":\"table_row\",\"v13\":\"pwr_amp_back\"}}"
+}

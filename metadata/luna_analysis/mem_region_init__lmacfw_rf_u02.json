@@ -1,0 +1,9 @@
+{
+ "fn": "mem_region_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10fe5c",
+ "seg": 2,
+ "key": "mem_region_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mem_region_configure\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initialize and transmit a memory-region configuration message, configure a static memory-region descriptor, and return the configured region size.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"a1\": \"target_task\",\n    \"a2\": \"region_base\",\n    \"a3\": \"region_size\",\n    \"v3\": \"region_msg\",\n    \"v4\": \"region_desc\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"message: region base or start address\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"message: region size or end address\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"message: action or code byte\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"message: configuration or context parameter\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"descriptor: valid or enable flag\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"descriptor: region base or offset\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"descriptor: region index or active flag\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"descriptor: mask or attribute word (0x20002)\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"descriptor: reserved or zero field\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"descriptor: length or type field\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"descriptor: region size or upper bound\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"descriptor: 16-bit flags or alignment field\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "is_initialized",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x101a28",
+ "seg": 0,
+ "key": "is_initialized__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"is_initialized\",\n  \"confidence\": \"low\",\n  \"docstring\": \"Stub predicate that always returns true for an initialization/ready condition.\",\n  \"subsystem\": \"sys\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

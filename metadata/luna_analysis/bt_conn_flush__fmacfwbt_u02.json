@@ -1,0 +1,9 @@
+{
+ "fn": "bt_conn_flush",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12a540",
+ "seg": 37,
+ "key": "bt_conn_flush__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"bt_conn_reset_state\", \"confidence\": \"medium\", \"docstring\": \"Clears the state/event byte of the Bluetooth connection context selected by the source context and runs the connection state machine.\", \"subsystem\": \"bt\", \"var_renames\": {\"v1\": \"conn_ctx\", \"a1\": \"src_ctx\"}, \"struct_hints\": [{\"offset\": 1225, \"meaning\": \"connection index byte in source context\"}, {\"offset\": 134, \"meaning\": \"state/event byte in selected Bluetooth connection context\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hci_send_cmd_0x76",
+ "img": "fmacfw_u02",
+ "addr": "0x122958",
+ "seg": 25,
+ "key": "hci_send_cmd_0x76__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_send_cmd_0x76\",\"confidence\":\"medium\",\"docstring\":\"Allocates and sends message 118, copying a word from the connection context and selecting an accompanying byte according to the associated context state.\",\"subsystem\":\"bt\",\"var_renames\":{\"v5\":\"message\",\"v6\":\"connection_context\",\"v7\":\"associated_context_index\",\"v8\":\"associated_context\",\"v9\":\"associated_context_flag\"},\"struct_hints\":[{\"offset\":34,\"meaning\":\"Associated context index; 0xFF indicates no associated context.\"},{\"offset\":336,\"meaning\":\"Pointer to a nested context object.\"},{\"offset\":20,\"meaning\":\"Word copied from the nested object into the outgoing message.\"},{\"offset\":106,\"meaning\":\"Flag selecting which context byte is copied.\"},{\"offset\":142,\"meaning\":\"Byte copied when the associated-context flag is clear.\"},{\"offset\":689,\"meaning\":\"Fallback byte copied when the associated-context flag is set.\"}]}"
+}

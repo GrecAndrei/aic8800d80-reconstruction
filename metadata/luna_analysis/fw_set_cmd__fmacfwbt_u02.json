@@ -1,0 +1,9 @@
+{
+ "fn": "fw_set_cmd",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10efd8",
+ "seg": 3,
+ "key": "fw_set_cmd__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"periph_write_command\",\"confidence\":\"low\",\"docstring\":\"Writes the fixed 0xC2 byte through the byte-write helper and mirrors it into a global byte.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"write_result\"}}"
+}

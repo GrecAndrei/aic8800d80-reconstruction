@@ -1,0 +1,9 @@
+{
+ "fn": "hci_cmd_send_vendor",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12d154",
+ "seg": 41,
+ "key": "hci_cmd_send_vendor__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"hci_cmd_send_vendor\", \"confidence\": \"medium\", \"docstring\": \"Sends or dispatches a vendor HCI command by selecting a table entry from the low byte of a2, optionally clearing associated IRQs, and processing the chosen payload list or fallback list through list_process_count.\", \"subsystem\": \"hci\", \"var_renames\": {\"a1\": \"cmd_packet\", \"a2\": \"packed_vendor_selector\", \"v2\": \"status_pptr\", \"v4\": \"table_index\", \"v5\": \"sub_index\", \"v6\": \"table_base\", \"v7\": \"entry_offset\", \"v8\": \"primary_list\", \"v9\": \"table_entry\", \"v10\": \"selected_node\", \"v12\": \"fallback_list\", \"result\": \"list_status\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"vendor table entry primary payload list pointer\"}, {\"offset\": 4, \"meaning\": \"vendor table entry fallback payload list pointer\"}, {\"offset\": 8, \"meaning\": \"vendor table entry pointer to uint16 node-offset array\"}, {\"offset\": 14, \"meaning\": \"vendor table entry threshold/limit for high-byte sub_index\"}, {\"offset\": 4, \"meaning\": \"list node count passed to list_process_count\"}]}"
+}

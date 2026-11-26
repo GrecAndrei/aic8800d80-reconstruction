@@ -1,0 +1,9 @@
+{
+ "fn": "wlan_hw_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1346dc",
+ "seg": 52,
+ "key": "wlan_hw_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ull_scan_event_report\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Builds and sends a BLE/HCI scan event/report from stored channel or result tables, optionally with an explicit result, then issues the follow-up scan command.\",\n  \"subsystem\": \"ble\",\n  \"var_renames\": {\n    \"v4\": \"source_ptr\",\n    \"v5\": \"buf\",\n    \"v6\": \"evt\",\n    \"v16\": \"secondary_table_count\",\n    \"v17\": \"primary_table_count\",\n    \"v18\": \"table_entry\",\n    \"v19\": \"table_end\",\n    \"v20\": \"result_count\",\n    \"v21\": \"table_bases\",\n    \"a1\": \"optional_context\",\n    \"a2\": \"explicit_result\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"scan result descriptor list start (6-byte entries)\"\n    },\n    {\n      \"offset\": 252,\n      \"meaning\": \"copied controller/PHY context block\"\n    },\n    {\n      \"offset\": 268,\n      \"meaning\": \"second half of copied context block\"\n    },\n    {\n      \"offset\": 284,\n      \"meaning\": \"final byte of copied context block\"\n    },\n    {\n      \"offset\": 352,\n      \"meaning\": \"default or supplied scan context descriptor (u32 + u16)\"\n    },\n    {\n      \"offset\": 356,\n      \"meaning\": \"16-bit field paired with the context descriptor\"\n    },\n    {\n      \"offset\": 360,\n      \"meaning\": \"zeroed length/status word\"\n    },\n    {\n      \"offset\": 364,\n      \"meaning\": \"zeroed 16-bit status field\"\n    },\n    {\n      \"offset\": 366,\n      \"meaning\": \"byte copied from source configuration (type/flag)\"\n    },\n    {\n      \"offset\": 367,\n      \"meaning\": \"number of appended scan results/entries\"\n    },\n    {\n      \"offset\": 368,\n      \"meaning\": \"event ready/valid flag set to 1\"\n    }\n  ]\n}"
+}

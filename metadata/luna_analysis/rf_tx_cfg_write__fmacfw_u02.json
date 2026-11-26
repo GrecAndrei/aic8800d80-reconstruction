@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_cfg_write",
+ "img": "fmacfw_u02",
+ "addr": "0x107c48",
+ "seg": 2,
+ "key": "rf_tx_cfg_write__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_power_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Runs an RF transmit calibration sweep, captures four measurement samples, and returns the minimum-delta selection for the supplied target.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"rf_control_reg\",\"v2\":\"rf_tx_sequence_reg\",\"v3\":\"tx_calibration_mode_reg\",\"v4\":\"tx_calibration_preserve_mask\",\"v5\":\"tx_measurement_reg\",\"v8\":\"tx_calibration_mode_reg\",\"v13\":\"rf_control_reg\"}}"
+}

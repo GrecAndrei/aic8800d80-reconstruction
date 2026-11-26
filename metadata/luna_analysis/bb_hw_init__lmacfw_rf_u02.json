@@ -1,0 +1,9 @@
+{
+ "fn": "bb_hw_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x103b6c",
+ "seg": 2,
+ "key": "bb_hw_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bb_hw_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes baseband hardware by programming MMIO control, clock, power, and radio-path registers after reset.\",\"subsystem\":\"phy\",\"var_renames\":{},\"struct_hints\":[]}"
+}

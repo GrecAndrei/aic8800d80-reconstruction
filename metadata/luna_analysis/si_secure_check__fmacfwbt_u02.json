@@ -1,0 +1,9 @@
+{
+ "fn": "si_secure_check",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11fa28",
+ "seg": 22,
+ "key": "si_secure_check__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"si_secure_apply_mask\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Conditionally programs a secure bitfield by deriving a low-bit mask from a configuration byte and writing it to a hardware or control register.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v0\": \"secure_cfg\",\n    \"v1\": \"secure_mask_bits\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"byte/flag that must be zero before the secure mask is applied\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"secure enable or applicability flag\"\n    },\n    {\n      \"offset\": 117,\n      \"meaning\": \"validity flag for the secure configuration entry\"\n    },\n    {\n      \"offset\": 118,\n      \"meaning\": \"number of mask bits, 0-8, used to compute ((1 << n) - 1)\"\n    }\n  ]\n}"
+}

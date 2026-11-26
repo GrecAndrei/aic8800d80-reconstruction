@@ -1,0 +1,9 @@
+{
+ "fn": "div3_compute",
+ "img": "fmacfw_u02",
+ "addr": "0x107ee4",
+ "seg": 2,
+ "key": "div3_compute__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_generate_3x3_coordinate_grid\",\"confidence\":\"medium\",\"docstring\":\"Writes row-major 3x3 X and Y coordinate grids from signed spans and anchor coordinates using divide-by-three steps.\",\"subsystem\":\"rf\",\"var_renames\":{\"a1\":\"grid_data\",\"v1\":\"y_span\",\"v2\":\"y_step\",\"v3\":\"y_row_coordinate\",\"v4\":\"x_step\",\"v5\":\"x_div3_away_from_zero\",\"v6\":\"x_start_adjustment\",\"result\":\"output_cursor\",\"i\":\"row_offset\",\"v9\":\"x_coordinate\",\"v10\":\"x_row_cursor\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Signed X span\"},{\"offset\":4,\"meaning\":\"Signed Y span\"},{\"offset\":8,\"meaning\":\"X anchor coordinate\"},{\"offset\":12,\"meaning\":\"Y anchor coordinate\"},{\"offset\":16,\"meaning\":\"Output 3x3 X-coordinate grid\"},{\"offset\":52,\"meaning\":\"Output 3x3 Y-coordinate grid\"}]}"
+}

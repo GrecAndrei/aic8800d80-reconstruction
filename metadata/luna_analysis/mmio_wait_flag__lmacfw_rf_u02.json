@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_wait_flag",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1150a8",
+ "seg": 6,
+ "key": "mmio_wait_flag__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_reset_evt\", \"confidence\": \"medium\", \"docstring\": \"Handles an RF/RWNXL reset event by reinitializing the PHY, performing MMIO command/status waits with the timer block, and scheduling the next periodic PHY/channel parameter update.\", \"subsystem\": \"rf\", \"var_renames\": {\"v2\": \"evt_nesting_ptr\", \"v3\": \"rf_status_ptr\", \"v4\": \"start_ticks\", \"v5\": \"deadline_ticks\", \"v6\": \"ticks_remaining\", \"v7\": \"rf_cmd_ptr\", \"v8\": \"update_link\", \"v12\": \"signed_delta\", \"v13\": \"new_value\", \"v14\": \"period_ms\", \"v15\": \"now_ticks\"}, \"struct_hints\": [{\"offset\": 0, \"meaning\": \"link valid/enabled flag\"}, {\"offset\": 4, \"meaning\": \"maximum/clamp value\"}, {\"offset\": 5, \"meaning\": \"base signed delta\"}, {\"offset\": 6, \"meaning\": \"pending update flag\"}, {\"offset\": 7, \"meaning\": \"current parameter value\"}, {\"offset\": 8, \"meaning\": \"update period in milliseconds\"}, {\"offset\": 11, \"meaning\": \"timer scheduled/active flag\"}, {\"offset\": 12, \"meaning\": \"timer handle or timer list entry pointer\"}]}"
+}

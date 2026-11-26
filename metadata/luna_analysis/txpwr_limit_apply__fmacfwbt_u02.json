@@ -1,0 +1,9 @@
+{
+ "fn": "txpwr_limit_apply",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136c94",
+ "seg": 57,
+ "key": "txpwr_limit_apply__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txpwr_limit_apply\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Apply a transmit-power limit mask from configuration, update the associated state flag, and send an HCI event when a limit/no-limit transition is observed.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"txpwr_cfg\",\n    \"a2\": \"txpwr_ctx\",\n    \"v4\": \"evt_buf\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 27,\n      \"meaning\": \"uint8 index into a global tx-power limit mask table\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"uint16 configuration/status field; bit 0x1000 enables limit processing\"\n    },\n    {\n      \"offset\": 310,\n      \"meaning\": \"uint8 tx-power or channel state byte tested against the limit mask\"\n    },\n    {\n      \"offset\": 53,\n      \"meaning\": \"uint8 state flags; bit 0x02 indicates no-limit state, bit 0x08 indicates limit state\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"uint16 value copied into the first two bytes of the generated event buffer\"\n    },\n    {\n      \"offset\": 34,\n      \"meaning\": \"uint8 value copied into byte 3 of the generated event buffer\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_bit",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100730",
+ "seg": 0,
+ "key": "mmio_set_bit__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mmio_configure_registers\",\"confidence\":\"medium\",\"docstring\":\"Sets bit 16 in one MMIO register, clears another register, and sets bits 0 and 29 in a third before returning the cleared register address.\",\"subsystem\":\"mmio\",\"var_renames\":{\"result\":\"cleared_register\",\"v1\":\"control_register\"}}"
+}

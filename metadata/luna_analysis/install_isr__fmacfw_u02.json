@@ -1,0 +1,9 @@
+{
+ "fn": "install_isr",
+ "img": "fmacfw_u02",
+ "addr": "0x102bfc",
+ "seg": 2,
+ "key": "install_isr__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"install_rf_interrupt_handlers\",\"confidence\":\"high\",\"docstring\":\"Installs radio interrupt handlers in the vector table, enables their NVIC lines, and globally enables interrupts.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"nvic_register_base\",\"v2\":\"irq5_and_irq7_handler\",\"v3\":\"irq2_handler\",\"v4\":\"irq6_handler\",\"v5\":\"irq3_handler\",\"v6\":\"vector_table_base\",\"v8\":\"enable_irq9_flag\",\"v10\":\"nvic_register_base\"}}"
+}

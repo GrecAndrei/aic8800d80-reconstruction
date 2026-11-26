@@ -1,0 +1,9 @@
+{
+ "fn": "get_object_state",
+ "img": "fmacfw_h_u02",
+ "addr": "0x138134",
+ "seg": 57,
+ "key": "get_object_state__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_find_object_state\",\"confidence\":\"medium\",\"docstring\":\"Finds the active RF table entry matching a length-prefixed key with the greatest signed priority and returns its state-field address, or NULL if none matches.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"entry\",\"v3\":\"best_match_state\",\"v4\":\"table_end\",\"v5\":\"best_priority\",\"v6\":\"key_data\",\"v7\":\"key_length\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Nonzero active/state marker; this field's address is returned for the selected entry.\"},{\"offset\":16,\"meaning\":\"Key length.\"},{\"offset\":17,\"meaning\":\"Key bytes.\"},{\"offset\":64,\"meaning\":\"Signed entry priority used to select the best match.\"}]}"
+}

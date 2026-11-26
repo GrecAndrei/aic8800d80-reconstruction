@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_rx_update",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132bd8",
+ "seg": 45,
+ "key": "ble_ll_conn_rx_update__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_update_channel_state\",\"confidence\":\"medium\",\"docstring\":\"Updates RF channel frequencies from received channel metadata, applying sideband offsets and handling channel-pair spacing.\",\"subsystem\":\"rf\",\"var_renames\":{\"v3\":\"first_channel_frequency_mhz\",\"v4\":\"second_channel_frequency_mhz\",\"v5\":\"channel_spacing_mhz\",\"v9\":\"base_frequency_mhz\",\"v10\":\"frequency_offset_mhz\",\"v11\":\"channel_state_fields\",\"v12\":\"second_channel_number\",\"v13\":\"first_channel_number\"},\"struct_hints\":[{\"offset\":164,\"meaning\":\"Channel processing state or band selector.\"},{\"offset\":165,\"meaning\":\"Flag indicating that the base frequency was adjusted.\"},{\"offset\":166,\"meaning\":\"Input base frequency in MHz.\"},{\"offset\":168,\"meaning\":\"Output frequency in MHz, initially copied from offset 166.\"},{\"offset\":170,\"meaning\":\"16-bit field cleared during initialization.\"}]}"
+}

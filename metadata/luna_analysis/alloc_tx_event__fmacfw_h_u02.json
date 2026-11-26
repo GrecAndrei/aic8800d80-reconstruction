@@ -1,0 +1,9 @@
+{
+ "fn": "alloc_tx_event",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12e948",
+ "seg": 42,
+ "key": "alloc_tx_event__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"debug_test_print\",\"confidence\":\"medium\",\"docstring\":\"Checks up to two high-bit tag bytes against the debug filter, then forwards the remaining format string and arguments to the test-print backend.\",\"subsystem\":\"test\",\"var_renames\":{\"v1\":\"debug_filter_config\",\"v2\":\"tag_cursor\",\"v4\":\"tag_byte\",\"v6\":\"category_bit_index\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Bitmask enabling tagged categories 0\u20139.\"},{\"offset\":4,\"meaning\":\"Nonzero control and cutoff for extended tags.\"}]}"
+}

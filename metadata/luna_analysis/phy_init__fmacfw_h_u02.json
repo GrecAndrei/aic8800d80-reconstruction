@@ -1,0 +1,9 @@
+{
+ "fn": "phy_init",
+ "img": "fmacfw_h_u02",
+ "addr": "0x13a3e8",
+ "seg": 59,
+ "key": "phy_init__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_configure_channel\",\"confidence\":\"medium\",\"docstring\":\"Selects the PHY profile and mode for a channel, returning a result code and optionally copying profile parameters into the request.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"request\",\"a2\":\"result_out\",\"v4\":\"profile_index\",\"v8\":\"phy_profile\",\"v10\":\"result_code\",\"v11\":\"copy_halfword_count\",\"v12\":\"profile_adjustment\"},\"struct_hints\":[{\"offset\":24,\"meaning\":\"Requested channel key, byte-swapped before comparison with the cached key.\"},{\"offset\":28,\"meaning\":\"Index used to select a PHY configuration block.\"},{\"offset\":29,\"meaning\":\"Index used to select a PHY profile entry.\"},{\"offset\":30,\"meaning\":\"Flags; bit 0 suppresses updating the channel parameters.\"},{\"offset\":56,\"meaning\":\"Destination for the selected PHY profile parameter words.\"},{\"offset\":72,\"meaning\":\"In the PHY profile, packed channel-parameter words; the first 64-bit value is adjusted before copying.\"},{\"offset\":96,\"meaning\":\"In the PHY profile, type selector used to choose the result and parameter count.\"},{\"offset\":98,\"meaning\":\"In the PHY profile, subtype value used to select the adjustment for type 4.\"}]}"
+}

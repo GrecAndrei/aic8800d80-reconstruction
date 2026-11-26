@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_write_sequence",
+ "img": "fmacfw_h_u02",
+ "addr": "0x135424",
+ "seg": 52,
+ "key": "mmio_write_sequence__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_request_channel_config\",\"confidence\":\"medium\",\"docstring\":\"Queues a channel-configuration request containing the supplied 16-bit value and a selector from the radio context, then triggers follow-up processing.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"channel_value\",\"v2\":\"radio_context\",\"v3\":\"channel_request\"},\"struct_hints\":[{\"offset\":61,\"meaning\":\"Channel-configuration selector copied into the request\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_irq_handler_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11de50",
+ "seg": 20,
+ "key": "rx_irq_handler_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_msg_dispatch\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Dispatches a kernel message/event by inspecting its destination field, logging the transfer, and routing it to the appropriate handler or local kernel state update.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"msg_payload\",\n    \"v1\": \"dst_task\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": -12,\n      \"meaning\": \"kernel message header base\"\n    },\n    {\n      \"offset\": -8,\n      \"meaning\": \"message id field\"\n    },\n    {\n      \"offset\": -6,\n      \"meaning\": \"destination task/id field\"\n    },\n    {\n      \"offset\": -4,\n      \"meaning\": \"source task/id field\"\n    }\n  ]\n}"
+}

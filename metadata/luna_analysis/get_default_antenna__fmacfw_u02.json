@@ -1,0 +1,9 @@
+{
+ "fn": "get_default_antenna",
+ "img": "fmacfw_u02",
+ "addr": "0x12de4c",
+ "seg": 42,
+ "key": "get_default_antenna__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_get_default_antenna\",\"confidence\":\"medium\",\"docstring\":\"Returns antenna index 0 as the default antenna selection.\",\"subsystem\":\"rf\"}"
+}

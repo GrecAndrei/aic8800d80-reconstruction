@@ -1,0 +1,9 @@
+{
+ "fn": "process_event_queue",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d050",
+ "seg": 40,
+ "key": "process_event_queue__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ke_evt_schedule\",\"confidence\":\"medium\",\"docstring\":\"Dispatches pending kernel events in most-significant-bit order by calling each registered handler with its stored parameter.\",\"subsystem\":\"ke\",\"var_renames\":{\"v0\":\"pending_events_ptr\",\"v1\":\"pending_events\",\"v3\":\"event_handler_table\",\"v7\":\"event_index\",\"v8\":\"event_handler\"},\"struct_hints\":[{\"offset\":3,\"meaning\":\"Byte control flag that triggers a memory barrier before checking whether the pending-event bitmap is empty.\"},{\"offset\":4,\"meaning\":\"Handler-table entry parameter, paired with the callback pointer at offset 0.\"}]}"
+}

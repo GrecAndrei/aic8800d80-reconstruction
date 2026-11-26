@@ -1,0 +1,9 @@
+{
+ "fn": "get_band_all",
+ "img": "fmacfw_u02",
+ "addr": "0x12d100",
+ "seg": 40,
+ "key": "get_band_all__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"get_band_all\",\"confidence\":\"medium\",\"docstring\":\"Returns the band selector value representing all bands.\",\"subsystem\":\"rf\"}"
+}

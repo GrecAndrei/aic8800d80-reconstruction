@@ -1,0 +1,9 @@
+{
+ "fn": "get_bt_state",
+ "img": "fmacfw_u02",
+ "addr": "0x120720",
+ "seg": 22,
+ "key": "get_bt_state__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wireless_stack_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes and resets shared wireless subsystems, conditionally enabling the baseband and polling RF before returning the interrupt-poll result.\",\"subsystem\":\"hal\",\"var_renames\":{},\"struct_hints\":[]}"
+}

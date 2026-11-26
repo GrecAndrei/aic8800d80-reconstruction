@@ -1,0 +1,9 @@
+{
+ "fn": "rf_is_channel_idle",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13a5a0",
+ "seg": 59,
+ "key": "rf_is_channel_idle__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_is_channel_idle\",\"confidence\":\"medium\",\"docstring\":\"Returns true when the idle status word for the current channel RF context entry is zero.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":68,\"meaning\":\"current channel/context index used to select an entry in the RF channel table\"},{\"offset\":76,\"meaning\":\"per-channel idle or busy status word (0 interpreted as idle)\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "compare_short",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117bd0",
+ "seg": 10,
+ "key": "compare_short__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"is_u16_within_64_behind\",\"confidence\":\"medium\",\"docstring\":\"Returns true when the first object's 16-bit value is no greater than the second object's value and trails it by at most 63.\",\"subsystem\":\"phy\",\"var_renames\":{\"v2\":\"first_value\",\"v3\":\"second_value\"},\"struct_hints\":[{\"offset\":32,\"meaning\":\"16-bit value compared against the other object's value\"}]}"
+}

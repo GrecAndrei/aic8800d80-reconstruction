@@ -1,0 +1,9 @@
+{
+ "fn": "mac_time_get",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1019ec",
+ "seg": 0,
+ "key": "mac_time_get__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"phy_get_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a 64-bit PHY radio/channel state into a caller-supplied output pointer and logs when the supplied radio identifier is invalid.\",\n  \"subsystem\": \"phy\",\n  \"var_renames\": {\n    \"a2\": \"radio_id\",\n    \"result\": \"out_value\",\n    \"v2\": \"saved_out_value\"\n  }\n}"
+}

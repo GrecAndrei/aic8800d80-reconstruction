@@ -1,0 +1,9 @@
+{
+ "fn": "save_and_call_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x100be0",
+ "seg": 0,
+ "key": "save_and_call_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_set_channel\",\"confidence\":\"medium\",\"docstring\":\"Selects an RF band and channel configuration while updating the associated radio clock, power, and tuning registers.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":413,\"meaning\":\"Byte flag that selects the radio clock/PMU helper path instead of direct MMIO updates.\"}]}"
+}

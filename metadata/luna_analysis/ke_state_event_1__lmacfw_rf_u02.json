@@ -1,0 +1,9 @@
+{
+ "fn": "ke_state_event_1",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x124594",
+ "seg": 23,
+ "key": "ke_state_event_1__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_state_event_1\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Handles kernel state event 1 by dispatching message queue 1 and incrementing a 16-bit periodic call counter, triggering RF flag 3, zeroing related timers, and writing an MMIO register when the counter reaches 1000 unless the gating byte is set.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v0\": \"msg_counter_ptr\",\n    \"v2\": \"msg_counter\",\n    \"result\": \"msg_handle_result\",\n    \"v4\": \"mmio_write_base\"\n  },\n  \"struct_hints\": []\n}"
+}

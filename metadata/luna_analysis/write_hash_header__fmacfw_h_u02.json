@@ -1,0 +1,9 @@
+{
+ "fn": "write_hash_header",
+ "img": "fmacfw_h_u02",
+ "addr": "0x130580",
+ "seg": 42,
+ "key": "write_hash_header__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"write_hash_header\",\"confidence\":\"medium\",\"docstring\":\"Builds a hash-tagged test header with optional configuration- and rate-dependent fields, then advances the output buffer cursor.\",\"subsystem\":\"test\",\"var_renames\":{\"a1\":\"write_cursor_ref\",\"v2\":\"output_buffer\",\"v8\":\"header_config_base\",\"v12\":\"header_flags\",\"v14\":\"output_cursor\",\"v18\":\"phy_rate_code\",\"v20\":\"rate_payload_length\",\"result\":\"header_length\"},\"struct_hints\":[{\"offset\":66,\"meaning\":\"Header option flags; bit 3 enables two extra halfwords and bit 4 enables a duplicated halfword.\"},{\"offset\":72,\"meaning\":\"Bit 7 enables the rate-dependent section.\"},{\"offset\":78,\"meaning\":\"16-bit value appended to the header.\"},{\"offset\":80,\"meaning\":\"16-bit value appended to the header.\"},{\"offset\":82,\"meaning\":\"Optional 16-bit value appended when option bit 3 is set.\"},{\"offset\":84,\"meaning\":\"Optional 16-bit value appended when option bit 3 is set.\"},{\"offset\":86,\"meaning\":\"16-bit value duplicated when option bit 4 is set.\"},{\"offset\":373,\"meaning\":\"Multiplier used to calculate the rate-dependent section length.\"}]}"
+}

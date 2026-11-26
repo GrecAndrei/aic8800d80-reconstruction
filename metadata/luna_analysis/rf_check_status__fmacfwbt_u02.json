@@ -1,0 +1,9 @@
+{
+ "fn": "rf_check_status",
+ "img": "fmacfwbt_u02",
+ "addr": "0x133a18",
+ "seg": 47,
+ "key": "rf_check_status__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_hci_check_status\",\"confidence\":\"medium\",\"docstring\":\"Checks an HCI controller status word or issues a short HCI command, clearing a pending interrupt on failure before retrieving vendor state.\",\"subsystem\":\"bt\",\"var_renames\":{},\"struct_hints\":[]}"
+}

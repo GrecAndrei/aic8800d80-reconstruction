@@ -1,0 +1,9 @@
+{
+ "fn": "check_status_flags",
+ "img": "fmacfwbt_u02",
+ "addr": "0x115234",
+ "seg": 6,
+ "key": "check_status_flags__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"initialize_hw_info_cache\",\"confidence\":\"medium\",\"docstring\":\"Initializes two related cached hardware-info values, derives the second from the first, and sets an initialization flag.\",\"subsystem\":\"hal\",\"var_renames\":{\"v0\":\"base_value_ptr\"}}"
+}

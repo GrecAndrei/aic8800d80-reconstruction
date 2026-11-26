@@ -1,0 +1,9 @@
+{
+ "fn": "memset_ff",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1288c0",
+ "seg": 23,
+ "key": "memset_ff__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"strlen\",\"confidence\":\"high\",\"docstring\":\"Returns the length in bytes of a NUL-terminated string using an unaligned-safe, word-at-a-time zero-byte search with prefetching.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"a1\":\"s\",\"v1\":\"p_aligned_words\",\"v3\":\"misalign\",\"v5\":\"len\",\"v15\":\"head_byte_mask\"}}"
+}

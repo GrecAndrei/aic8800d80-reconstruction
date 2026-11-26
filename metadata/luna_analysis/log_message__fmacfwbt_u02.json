@@ -1,0 +1,9 @@
+{
+ "fn": "log_message",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1063c0",
+ "seg": 2,
+ "key": "log_message__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_calib_data_update\",\"confidence\":\"medium\",\"docstring\":\"Scales an input value, adjusts the indexed RF calibration slot using stored calibration state, logs threshold diagnostics, and reloads that slot.\",\"subsystem\":\"rf\",\"var_renames\":{\"v7\":\"indexed_calib_record\",\"v9\":\"previous_slot_value\",\"v12\":\"scaled_input_value\",\"v13\":\"sma_threshold\"},\"struct_hints\":[{\"offset\":140,\"meaning\":\"Array of per-index calibration values, addressed with a 4-byte stride.\"},{\"offset\":164,\"meaning\":\"64-bit calibration state; its high word is compared with the scaled input and its low word contributes to the slot update.\"},{\"offset\":172,\"meaning\":\"Threshold used for the SMA diagnostic comparison.\"}]}"
+}

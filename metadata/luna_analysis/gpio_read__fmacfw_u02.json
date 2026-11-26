@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_read",
+ "img": "fmacfw_u02",
+ "addr": "0x10d7e0",
+ "seg": 3,
+ "key": "gpio_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"uart_read_byte\",\"confidence\":\"medium\",\"docstring\":\"Busy-waits for the receive-ready status bit, then returns the low byte from the data register.\",\"subsystem\":\"hal\"}"
+}

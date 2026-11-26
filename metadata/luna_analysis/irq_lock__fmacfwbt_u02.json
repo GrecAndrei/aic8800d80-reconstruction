@@ -1,0 +1,9 @@
+{
+ "fn": "irq_lock",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12c964",
+ "seg": 41,
+ "key": "irq_lock__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_tx_queue_remove_and_send\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Under an IRQ nesting lock, removes or searches for a pending HCI transmit packet matching two 16-bit identifiers, updates the next packet's ke timer/event state when needed, and sends it via hci_tx_packet.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"match_value0\",\n    \"a2\": \"match_value1\",\n    \"v2\": \"irq_lock_count_ptr\",\n    \"v3\": \"hci_tx_queue_ctrl\",\n    \"v4\": \"hci_tx_packet\",\n    \"v5\": \"irq_lock_count\",\n    \"v7\": \"irq_was_disabled\",\n    \"v8\": \"next_hci_tx_packet\",\n    \"v9\": \"tx_queue_ke_event\",\n    \"v10\": \"current_timer_tick\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"uint16_t packet match field compared against match_value0 (possibly HCI connection handle)\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"uint16_t packet match field compared against match_value1 (possibly HCI parameter/type)\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"uint32_t packet ke timer/event value used when rescheduling after removal\"\n    },\n    {\n      \"offset\": 20,\n      \"meaning\": \"HCI transmit queue front pointer/list head in control block\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"ke event lock/state structure associated with the HCI transmit queue\"\n    }\n  ]\n}"
+}

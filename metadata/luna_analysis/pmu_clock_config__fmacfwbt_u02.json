@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_clock_config",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10c698",
+ "seg": 2,
+ "key": "pmu_clock_config__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"pmu_clock_config\",\"confidence\":\"medium\",\"docstring\":\"Programs clock-selection fields in two PMU registers and writes a fixed value to a third register.\",\"subsystem\":\"pmu\",\"var_renames\":{\"v0\":\"clock_reg_a\",\"v1\":\"clock_reg_b\",\"result\":\"config_reg\",\"v3\":\"config_value\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "hci_send_acl",
+ "img": "fmacfwbt_u02",
+ "addr": "0x126a48",
+ "seg": 33,
+ "key": "hci_send_acl__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"hci_send_acl\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sends an HCI ACL packet or completion notification to the host while updating Bluetooth ACL buffer flow-control accounting.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"a1\": \"conn\",\n    \"a2\": \"len\",\n    \"v3\": \"hci_state\",\n    \"v4\": \"hci_ctrl\",\n    \"v6\": \"link_index\",\n    \"v7\": \"link_ctx\",\n    \"_frame.v52\": \"free_acl_credit\",\n    \"_frame.v53\": \"remaining_acl_space\",\n    \"_frame.v61\": \"acl_timeout_or_delta\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"HCI ACL flow-control counter or credit field (v4+4)\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"Interface/link index byte (v4+8)\"\n    },\n    {\n      \"offset\": 72,\n      \"meaning\": \"ACL context/descriptor pointer compared across connection and interface state (conn+72 / link_ctx+72)\"\n    },\n    {\n      \"offset\": 27,\n      \"meaning\": \"Connection feature/status byte; 0xff acts as sentinel (v5+27)\"\n    },\n    {\n      \"offset\": 86,\n      \"meaning\": \"Connection feature byte; 0xff acts as sentinel (conn+86)\"\n    }\n  ]\n}"
+}

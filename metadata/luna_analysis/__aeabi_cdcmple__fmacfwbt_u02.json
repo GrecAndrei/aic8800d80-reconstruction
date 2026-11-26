@@ -1,0 +1,9 @@
+{
+ "fn": "__aeabi_cdcmple",
+ "img": "fmacfwbt_u02",
+ "addr": "0x143004",
+ "seg": 69,
+ "key": "__aeabi_cdcmple__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"__aeabi_cdcmple\",\"confidence\":\"high\",\"docstring\":\"ARM AEABI double-precision compare routine for less-than-or-equal ordering, linked from libgcc's cmpdf2 support.\",\"subsystem\":\"libmisc\",\"var_renames\":{},\"struct_hints\":[]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "is_mgmt_action_frame",
+ "img": "fmacfw_u02",
+ "addr": "0x13c484",
+ "seg": 60,
+ "key": "is_mgmt_action_frame__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_is_robust_mgmt_frame\",\"confidence\":\"high\",\"docstring\":\"Classifies deauthentication, disassociation, and robust action management frames using the action category.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a1\":\"frame_control_low\",\"a2\":\"action_category\"}}"
+}

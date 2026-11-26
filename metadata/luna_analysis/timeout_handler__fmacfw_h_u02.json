@@ -1,0 +1,9 @@
+{
+ "fn": "timeout_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114608",
+ "seg": 5,
+ "key": "timeout_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_timeout_handler\",\"confidence\":\"medium\",\"docstring\":\"Logs interrupt and processor state, dumps a bounded stack trace, and records pending-interrupt and timer state during timeout handling.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"interrupt_registers\",\"v1\":\"interrupt_status\",\"v7\":\"aligned_stack_pointer\",\"v8\":\"stack_word_count\",\"v9\":\"dump_word_count\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Interrupt acknowledge or clear register, written with 1 when status bit 0 is set.\"},{\"offset\":16,\"meaning\":\"Interrupt status register.\"}]}"
+}

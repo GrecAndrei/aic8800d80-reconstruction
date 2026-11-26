@@ -1,0 +1,9 @@
+{
+ "fn": "get_radio_state_1",
+ "img": "fmacfw_u02",
+ "addr": "0x120244",
+ "seg": 22,
+ "key": "get_radio_state_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_conn_context_check\",\"confidence\":\"medium\",\"docstring\":\"When the global mode condition is active and the context word at offset 4 is zero, invokes the handler with context+48 and returns the BLE link-manager active check; otherwise returns the context unchanged.\",\"subsystem\":\"ble\",\"var_renames\":{\"result\":\"context\",\"v1\":\"context\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"word checked for zero before the fallback path\"}]}"
+}

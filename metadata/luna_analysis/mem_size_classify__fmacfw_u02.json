@@ -1,0 +1,9 @@
+{
+ "fn": "mem_size_classify",
+ "img": "fmacfw_u02",
+ "addr": "0x116e70",
+ "seg": 9,
+ "key": "mem_size_classify__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mem_size_classify\",\"confidence\":\"high\",\"docstring\":\"Returns class code 4 when the input size exceeds 0x2000, and class code 2 otherwise.\",\"subsystem\":\"mem\",\"var_renames\":{\"a1\":\"size\"}}"
+}

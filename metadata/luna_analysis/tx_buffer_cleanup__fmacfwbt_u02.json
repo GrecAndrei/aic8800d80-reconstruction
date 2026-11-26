@@ -1,0 +1,9 @@
+{
+ "fn": "tx_buffer_cleanup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c8d0",
+ "seg": 19,
+ "key": "tx_buffer_cleanup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_write_tx_rate_vector_table\",\"confidence\":\"medium\",\"docstring\":\"Writes four packed transmit rate/vector words from a source array into spaced TXV/rate register slots, ORs optional per-slot mask bits, and sets a commit/strobe flag.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"txv_src\",\"v2\":\"mask\",\"v3\":\"table_ptr\",\"result\":\"src_ptr\",\"v5\":\"reg_ptr\",\"v6\":\"mask_ptr\",\"v7\":\"src_word\",\"v8\":\"reg_word\"},\"struct_hints\":[{\"offset\":16,\"meaning\":\"pointer to optional per-slot mask table\"},{\"offset\":40,\"meaning\":\"TX rate/vector register word for each slot\"},{\"offset\":44,\"meaning\":\"byte field from the input word for each slot\"},{\"offset\":160,\"meaning\":\"update commit/strobe byte\"}]}"
+}

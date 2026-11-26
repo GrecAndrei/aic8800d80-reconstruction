@@ -1,0 +1,9 @@
+{
+ "fn": "mem_free",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10fef8",
+ "seg": 3,
+ "key": "mem_free__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mem_free\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Frees a heap-allocated buffer by validating the pointer and dispatching to the appropriate pool/free backend based on the block header and allocator configuration.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v3\": \"buffer_header_id\",\n    \"v4\": \"allocator_mode\",\n    \"v5\": \"allocator_mode\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": -4,\n      \"meaning\": \"pool/user id header byte preceding the user buffer\"\n    }\n  ]\n}"
+}

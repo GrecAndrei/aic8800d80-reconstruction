@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_table_entry",
+ "img": "fmacfwbt_u02",
+ "addr": "0x129ebc",
+ "seg": 37,
+ "key": "lookup_table_entry__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_get_next_event_time\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Computes and updates the next periodic RF timer expiration for a table entry, decrementing the interval count and clearing the associated RF IRQ when a valid event is armed.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"timer_entry\",\n    \"a2\": \"table_idx\",\n    \"a3\": \"base_time\",\n    \"a4\": \"deadline\",\n    \"v4\": \"next_time\",\n    \"v6\": \"table_entry_ctx\",\n    \"v7\": \"period\",\n    \"v9\": \"periods_elapsed\",\n    \"v11\": \"timer_ctrl\",\n    \"v12\": \"remaining_count\",\n    \"v14\": \"timer_ctrl\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 19,\n      \"meaning\": \"timer_entry: repeat count/state (byte; 1 disabled, 255 infinite, otherwise remaining periods)\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"timer_entry: period in ticks\"\n    },\n    {\n      \"offset\": 44,\n      \"meaning\": \"timer_entry: next expiration timestamp\"\n    },\n    {\n      \"offset\": 106,\n      \"meaning\": \"table_entry_ctx: active flag used for IRQ clear\"\n    },\n    {\n      \"offset\": 132,\n      \"meaning\": \"table_entry_ctx: time base/anchor\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"timer_ctrl (off_129F80): current hardware tick/limit at word index 4\"\n    }\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "tx_queue_flush",
+ "img": "fmacfw_u02",
+ "addr": "0x12ae40",
+ "seg": 37,
+ "key": "tx_queue_flush__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"tx_queue_reset\",\"confidence\":\"medium\",\"docstring\":\"Resets transmit-queue state by accessing slots 0\u20133 and clearing a 96-byte table of three-byte records.\",\"subsystem\":\"ble\",\"var_renames\":{\"v1\":\"entry_ptr\",\"v2\":\"entries_end\"}}"
+}

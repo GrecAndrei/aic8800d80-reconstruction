@@ -1,0 +1,9 @@
+{
+ "fn": "radio_reg_init",
+ "img": "fmacfwbt_u02",
+ "addr": "0x124bbc",
+ "seg": 30,
+ "key": "radio_reg_init__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"radio_set_edca_txop_limits\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Write four EDCA TXOP limits (BK/BE/VI/VO) into radio/baseband registers, then wait for RF calibration and log the configured values.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v1\": \"txop_preserve_mask\",\n    \"v4\": \"txop_bk\",\n    \"v8\": \"txop_be\",\n    \"v7\": \"txop_vi\",\n    \"v9\": \"txop_vo\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"TXOP BK limit\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"TXOP BE limit\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"TXOP VI limit\"\n    },\n    {\n      \"offset\": 6,\n      \"meaning\": \"TXOP VO limit\"\n    }\n  ]\n}"
+}

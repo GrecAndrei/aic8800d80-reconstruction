@@ -1,0 +1,9 @@
+{
+ "fn": "phy_radio_switch",
+ "img": "fmacfw_u02",
+ "addr": "0x117074",
+ "seg": 10,
+ "key": "phy_radio_switch__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_radio_switch\",\"confidence\":\"medium\",\"docstring\":\"Handles the indexed PHY radio instance by programming its selector register and servicing the associated RF status handshake.\",\"subsystem\":\"phy\",\"var_renames\":{\"v1\":\"radio_idx\",\"v2\":\"radio_info\",\"v5\":\"radio_select_reg\",\"v6\":\"phy_context\",\"v8\":\"phy_status\",\"v10\":\"phy_event_status\",\"v41\":\"radio_mask\",\"v42\":\"radio_mask_clear_mask\",\"v43\":\"radio_reg_index\"},\"struct_hints\":[{\"offset\":26,\"meaning\":\"Per-radio byte flag gating status handling\"},{\"offset\":36,\"meaning\":\"Pointer to the PHY runtime context\"},{\"offset\":80,\"meaning\":\"Per-radio byte value checked against 1\"},{\"offset\":8,\"meaning\":\"PHY status word; bit 0x20 is polled\"},{\"offset\":88,\"meaning\":\"PHY context field used as a nonzero status or mode gate\"},{\"offset\":144,\"meaning\":\"PHY state/status word tested for its sign and bit 23\"}]}"
+}

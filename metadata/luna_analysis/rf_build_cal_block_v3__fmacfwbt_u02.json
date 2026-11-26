@@ -1,0 +1,9 @@
+{
+ "fn": "rf_build_cal_block_v3",
+ "img": "fmacfwbt_u02",
+ "addr": "0x130f30",
+ "seg": 43,
+ "key": "rf_build_cal_block_v3__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_build_cal_block_v3\",\n  \"confidence\": \"high\",\n  \"docstring\": \"Builds a 9-byte version-3 RF calibration block by copying and packing selected fields from a source calibration entry into fixed destination offsets.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"destination calibration block version/format byte, set to 3\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"destination reserved byte, set to 0\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"destination byte copied from source entry offset 23\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"destination packed 16-bit flags: (source offset 22 << 2) | (source offset 18 << 1) | (source offset 20 << 6)\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"destination 16-bit field copied from source entry offset 14\"\n    },\n    {\n      \"offset\": 7,\n      \"meaning\": \"destination 16-bit field copied from source entry offset 12 and scaled by 16\"\n    }\n  ]\n}"
+}

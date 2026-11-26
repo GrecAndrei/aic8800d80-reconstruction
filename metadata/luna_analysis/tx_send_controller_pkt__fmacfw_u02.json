@@ -1,0 +1,9 @@
+{
+ "fn": "tx_send_controller_pkt",
+ "img": "fmacfw_u02",
+ "addr": "0x132904",
+ "seg": 45,
+ "key": "tx_send_controller_pkt__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"bt_tx_packet_crypt\",\"confidence\":\"medium\",\"docstring\":\"Conditionally processes the transmit packet data using the associated cryptographic context and returns the packet buffer.\",\"subsystem\":\"bt\",\"var_renames\":{\"v1\":\"crypto_flags\",\"v2\":\"packet_buffer\",\"v12\":\"crypto_context\",\"v13\":\"round_key_cursor\",\"v70\":\"packet_status_flags\",\"v73\":\"crypto_lookup_table\"},\"struct_hints\":[{\"offset\":336,\"meaning\":\"packet buffer pointer\"},{\"offset\":340,\"meaning\":\"cryptographic context or key-schedule pointer\"},{\"offset\":350,\"meaning\":\"byte-sized control flags; bit 0 gates packet processing\"},{\"offset\":60,\"meaning\":\"packet status flags, including a bit-3 fallback check\"}]}"
+}

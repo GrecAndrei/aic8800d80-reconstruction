@@ -1,0 +1,9 @@
+{
+ "fn": "rx_queue_flush",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13bb14",
+ "seg": 61,
+ "key": "rx_queue_flush__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rx_queue_select_flush\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a linked RX buffer queue and returns the queue identifier selected for flushing based on the oldest timestamp and per-queue timeout/state checks.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"a1\": \"queue_head_ptr\",\n    \"v1\": \"head\",\n    \"v3\": \"max_age\",\n    \"v4\": \"entry\",\n    \"v5\": \"timestamp\",\n    \"v6\": \"age\",\n    \"v7\": \"queue_ctrl\",\n    \"result\": \"oldest_qid\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"queue entry next pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"queue entry timestamp\"\n    },\n    {\n      \"offset\": 26,\n      \"meaning\": \"queue entry queue id\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"queue control entry flag/state\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"queue control entry timeout threshold\"\n    }\n  ]\n}"
+}

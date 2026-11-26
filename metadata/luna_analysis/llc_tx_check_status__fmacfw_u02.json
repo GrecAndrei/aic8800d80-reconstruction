@@ -1,0 +1,9 @@
+{
+ "fn": "llc_tx_check_status",
+ "img": "fmacfw_u02",
+ "addr": "0x123bf4",
+ "seg": 29,
+ "key": "llc_tx_check_status__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_rx_status_check\",\"confidence\":\"medium\",\"docstring\":\"Checks the received status against the PHY rate, performs rate-specific recovery, and notifies the destination task on accepted paths.\",\"subsystem\":\"ble\",\"var_renames\":{\"v7\":\"rx_status_byte\",\"v8\":\"rx_context\",\"result\":\"rx_rate_code\"},\"struct_hints\":[{\"offset\":18,\"meaning\":\"16-bit receive-context field cleared on one accepted path\"},{\"offset\":31,\"meaning\":\"cached receive status byte\"}]}"
+}

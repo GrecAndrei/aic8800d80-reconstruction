@@ -1,0 +1,9 @@
+{
+ "fn": "off_84_table",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11b5e8",
+ "seg": 16,
+ "key": "off_84_table__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"btlp_table_remove_entry\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Remove a table entry from its list, decrement its counter, then either requeue its index or enter Bluetooth link-power sleep depending on a context flag.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"v4\": \"table_entry\",\n    \"v5\": \"link_power_ctx\",\n    \"v6\": \"pending_flag\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"pending or list-append condition field in a1 context\"\n    },\n    {\n      \"offset\": 76,\n      \"meaning\": \"pointer to link-power or sleep context\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"intrusive list node for table entry\"\n    },\n    {\n      \"offset\": 80,\n      \"meaning\": \"per-table-entry reference count or pending counter\"\n    }\n  ]\n}"
+}

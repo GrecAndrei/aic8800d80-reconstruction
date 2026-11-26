@@ -1,0 +1,9 @@
+{
+ "fn": "get_timer_flag",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1006cc",
+ "seg": 0,
+ "key": "get_timer_flag__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"timer_flag_get\",\"confidence\":\"medium\",\"docstring\":\"Returns the volatile timer flag byte read at offset 1 from the referenced base address.\",\"subsystem\":\"hal\"}"
+}

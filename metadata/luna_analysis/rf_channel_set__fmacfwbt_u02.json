@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_set",
+ "img": "fmacfwbt_u02",
+ "addr": "0x101904",
+ "seg": 0,
+ "key": "rf_channel_set__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_set\",\"confidence\":\"medium\",\"docstring\":\"Masks the requested channel value to 11 bits, writes it into a register field, clears the low 11 bits of a related register, and sets those bits in another register.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"field_preserve_mask\"}}"
+}

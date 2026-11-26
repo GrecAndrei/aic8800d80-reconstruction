@@ -1,0 +1,9 @@
+{
+ "fn": "uint_to_double",
+ "img": "fmacfw_u02",
+ "addr": "0x1429b4",
+ "seg": 68,
+ "key": "uint_to_double__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"uint_to_double\",\"confidence\":\"high\",\"docstring\":\"Converts an unsigned 32-bit integer to a double-precision floating-point value.\",\"subsystem\":\"libmisc\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_set_alternate",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10e84c",
+ "seg": 3,
+ "key": "gpio_set_alternate__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_pa_current_calibrate\",\"confidence\":\"medium\",\"docstring\":\"Adjusts the PA control setting to approach the configured target current and returns the selected setting offset.\",\"subsystem\":\"rf\",\"var_renames\":{\"v1\":\"pa_current_target_ptr\",\"v2\":\"pa_register_code\",\"v3\":\"previous_pa_current\",\"v4\":\"target_pa_current\",\"v5\":\"pa_control_register\",\"v6\":\"remaining_adjustment_steps\",\"v7\":\"register_code_offset\",\"v8\":\"encoded_register_field\",\"v9\":\"measured_pa_current\",\"v10\":\"target_pa_current\",\"v11\":\"current_error\",\"v12\":\"previous_error\",\"v14\":\"absolute_previous_error\",\"v15\":\"selected_pa_current\",\"v16\":\"adjustment_direction\",\"v17\":\"initial_register_code\"}}"
+}

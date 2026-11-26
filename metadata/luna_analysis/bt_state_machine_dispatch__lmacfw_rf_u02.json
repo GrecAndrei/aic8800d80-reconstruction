@@ -1,0 +1,9 @@
+{
+ "fn": "bt_state_machine_dispatch",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x125ad8",
+ "seg": 23,
+ "key": "bt_state_machine_dispatch__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_papr_apply_state\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Applies a PAPR state by programming radio register tables and dispatching a set_papr or unset_papr event depending on the input mode.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"papr_state\",\n    \"v1\": \"papr_state\",\n    \"v12\": \"mac_time\",\n    \"v3\": \"mac_time_flag\",\n    \"v2\": \"reg_base\",\n    \"v4\": \"target_reg_ptr\",\n    \"v5\": \"target_reg_value\",\n    \"v6\": \"target_reg_ptr\",\n    \"v7\": \"target_reg_value\",\n    \"v8\": \"target_reg_ptr\",\n    \"v9\": \"target_reg_value\",\n    \"v10\": \"target_reg_ptr\",\n    \"v11\": \"target_reg_value\"\n  },\n  \"struct_hints\": []\n}"
+}

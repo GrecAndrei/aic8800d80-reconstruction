@@ -1,0 +1,9 @@
+{
+ "fn": "bt_link_get",
+ "img": "fmacfwbt_u02",
+ "addr": "0x125318",
+ "seg": 31,
+ "key": "bt_link_get__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_link_update_bitmap\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Finds the Bluetooth link-info entry for the supplied connection and sets a per-link bitmap bit while updating the link's min/max byte and active-bit counters.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"link_ctx\",\n    \"v1\": \"slot_table\",\n    \"v2\": \"slot_entry_offset\",\n    \"v3\": \"slot_entry\",\n    \"v4\": \"slot_entry_end\",\n    \"v5\": \"slot_status\",\n    \"v6\": \"link_info\",\n    \"v7\": \"conn_base\",\n    \"v8\": \"tick_ptr\",\n    \"v9\": \"link_info_end\",\n    \"v10\": \"slot_index\",\n    \"v12\": \"slot_timestamp\",\n    \"v15\": \"bit_index\",\n    \"v16\": \"link_bitmap_base\",\n    \"v17\": \"bitmap_byte_offset\",\n    \"v18\": \"bitmap_bit_mask\",\n    \"v19\": \"bitmap_byte\",\n    \"v21\": \"min_bitmap_byte\",\n    \"v23\": \"max_bitmap_byte\",\n    \"v29\": \"link_index\",\n    \"v30\": \"bitmap_byte_addr\"\n  },\n  \"struct_hints\": [\n    {\"offset\": 107, \"meaning\": \"uint8_t link index used to select per-link bitmap arrays\"},\n    {\"offset\": 220, \"meaning\": \"uint16_t active-bit or bitmap-entry count\"},\n    {\"offset\": 228, \"meaning\": \"uint8_t minimum bitmap byte offset\"},\n    {\"offset\": 229, \"meaning\": \"uint8_t maximum bitmap byte offset\"}\n  ]\n}"
+}

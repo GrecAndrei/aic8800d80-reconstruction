@@ -1,0 +1,9 @@
+{
+ "fn": "handle_special_packet",
+ "img": "fmacfw_u02",
+ "addr": "0x122cdc",
+ "seg": 27,
+ "key": "handle_special_packet__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"hci_set_rf_options\",\"confidence\":\"medium\",\"docstring\":\"Applies an HCI-provided PLL calibration request and aggregation/RX disable flags, then sends message 100.\",\"subsystem\":\"bt\",\"var_renames\":{\"v4\":\"pll_calibration_request\",\"v8\":\"aggregation_disabled\",\"v9\":\"aggregation_disable_flag_ptr\",\"v10\":\"receive_disabled\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Aggregation-disable flag, normalized to a boolean\"},{\"offset\":1,\"meaning\":\"PLL calibration request; 0xFF skips calibration\"},{\"offset\":2,\"meaning\":\"Receive-disable flag\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rx_desc_page_read",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1080a8",
+ "seg": 2,
+ "key": "rx_desc_page_read__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_adjust_loft_i_calibration\",\"confidence\":\"high\",\"docstring\":\"Adds the LOFT-I calibration value to the existing 12-bit LOFT-I field, then sets bit 23 in a second RF register.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"loft_i_reg\",\"v1\":\"loft_i_reg_value\",\"v2\":\"loft_i_calibration_delta\",\"v4\":\"rf_control_reg\"},\"struct_hints\":[]}"
+}

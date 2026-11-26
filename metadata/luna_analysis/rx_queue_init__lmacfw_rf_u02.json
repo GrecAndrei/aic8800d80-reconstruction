@@ -1,0 +1,9 @@
+{
+ "fn": "rx_queue_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11b3a4",
+ "seg": 16,
+ "key": "rx_queue_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_packet_done\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Finalizes processing of an RF packet descriptor by reporting TX power/status through a kernel message, updating RF event/power registers, and signaling packet availability or RF flags.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"pkt_desc\",\n    \"a2\": \"skip_state_process\",\n    \"a3\": \"state_arg\",\n    \"v3\": \"rf_ctx\",\n    \"v4\": \"desc\",\n    \"v6\": \"desc_state\",\n    \"v7\": \"state_is_complete\",\n    \"v8\": \"rf_flags\",\n    \"v9\": \"tx_entry\",\n    \"v10\": \"msg_ptr\",\n    \"v11\": \"msg_desc\",\n    \"v12\": \"tx_power\",\n    \"v13\": \"power_scale\",\n    \"v14\": \"cal_table\",\n    \"v15\": \"rf_status_ptr\",\n    \"v16\": \"status_poll_count\",\n    \"v17\": \"rf_reg_state\",\n    \"v18\": \"power_delta\",\n    \"v19\": \"reg_bits\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 24,\n      \"meaning\": \"packet descriptor RF state byte\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"descriptor HCI/event status field\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"RF context field cleared during packet completion\"\n    },\n    {\n      \"offset\": 88,\n      \"meaning\": \"RF context status flags\"\n    },\n    {\n      \"offset\": 0,\n      \"meaning\": \"message: TX entry identifier or first halfword\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"message: scaled TX power value\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"message: scaled calibration/power value\"\n    }\n  ]\n}"
+}

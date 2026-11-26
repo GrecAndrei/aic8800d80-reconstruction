@@ -1,0 +1,9 @@
+{
+ "fn": "send_data_word",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1119bc",
+ "seg": 4,
+ "key": "send_data_word__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_submit_payload\",\"confidence\":\"medium\",\"docstring\":\"Copies the payload into a shared buffer, prepares its length and type descriptor, and triggers the hardware transfer.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v2\":\"descriptor_slot\",\"v3\":\"payload_buffer\",\"v4\":\"descriptor\",\"v5\":\"descriptor_type\",\"v6\":\"hw_regs\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Payload length, written as a 16-bit value after descriptor initialization\"},{\"offset\":3,\"meaning\":\"Descriptor type and control flags; the upper flag bits are cleared before submission\"},{\"offset\":4,\"meaning\":\"Payload buffer address\"}]}"
+}

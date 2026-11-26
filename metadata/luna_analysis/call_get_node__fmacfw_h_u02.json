@@ -1,0 +1,9 @@
+{
+ "fn": "call_get_node",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11189c",
+ "seg": 4,
+ "key": "call_get_node__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"query_node_offsets_1_to_5\",\"confidence\":\"medium\",\"docstring\":\"Calls the offset-8 and offset-0xB node accessors for IDs 1 through 5, then returns the offset-0xB result for node 5.\",\"subsystem\":\"wlan\",\"var_renames\":{\"i\":\"node_id\"}}"
+}

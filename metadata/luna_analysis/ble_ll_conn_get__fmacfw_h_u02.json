@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_conn_get",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132c48",
+ "seg": 45,
+ "key": "ble_ll_conn_get__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_conn_get_phy_channel_data\",\"confidence\":\"medium\",\"docstring\":\"Applies connection-specific RF limits and returns the PHY channel data for the connection\u2019s channel.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"conn_idx\",\"a2\":\"setting_limit\",\"v16\":\"conn\",\"v17\":\"conn_setting_limit\",\"v18\":\"channel\",\"v19\":\"effective_setting\"},\"struct_hints\":[{\"offset\":35,\"meaning\":\"Channel value passed to phy_get_channel_data.\"},{\"offset\":308,\"meaning\":\"Per-connection setting limit, normalized and bounded before use.\"},{\"offset\":309,\"meaning\":\"Stored bounded setting.\"},{\"offset\":350,\"meaning\":\"Status flags; bit 3 is set after retrieving PHY channel data.\"}]}"
+}

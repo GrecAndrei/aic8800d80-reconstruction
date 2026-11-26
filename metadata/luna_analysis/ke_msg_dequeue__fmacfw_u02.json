@@ -1,0 +1,9 @@
+{
+ "fn": "ke_msg_dequeue",
+ "img": "fmacfw_u02",
+ "addr": "0x12af2c",
+ "seg": 38,
+ "key": "ke_msg_dequeue__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"scan_cancel_req_handler\",\"confidence\":\"medium\",\"docstring\":\"Handles a scan-cancel request by recording a deferred cancellation when the scan is active and otherwise taking the immediate cancellation path.\",\"subsystem\":\"mac\",\"var_renames\":{\"v5\":\"scan_state\"}}"
+}

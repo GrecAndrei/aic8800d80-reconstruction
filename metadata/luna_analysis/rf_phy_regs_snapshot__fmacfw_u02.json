@@ -1,0 +1,9 @@
+{
+ "fn": "rf_phy_regs_snapshot",
+ "img": "fmacfw_u02",
+ "addr": "0x105ba0",
+ "seg": 2,
+ "key": "rf_phy_regs_snapshot__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_phy_regs_snapshot\",\"confidence\":\"low\",\"docstring\":\"Collects RF/PHY register state for a snapshot operation.\",\"subsystem\":\"rf\"}"
+}

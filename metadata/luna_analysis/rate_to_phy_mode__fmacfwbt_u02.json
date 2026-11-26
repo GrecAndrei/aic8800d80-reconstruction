@@ -1,0 +1,9 @@
+{
+ "fn": "rate_to_phy_mode",
+ "img": "fmacfwbt_u02",
+ "addr": "0x138bac",
+ "seg": 59,
+ "key": "rate_to_phy_mode__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_arp_request_handle\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Inspect a received frame payload for an ARP request whose target IPv4 matches the local VIF address and, on match, map the request into the RF calibration context.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a2\": \"vif_ip_addr\",\n    \"a3\": \"raw_pkt_base\",\n    \"v6\": \"payload_offset\",\n    \"v7\": \"payload_ptr\",\n    \"v10\": \"arp_op_high\",\n    \"v12\": \"arp_operation\",\n    \"v13\": \"arp_target_ip\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 1,\n      \"meaning\": \"byte 1 of raw packet/frame header; bit 0x40 selects extra payload offset\"\n    },\n    {\n      \"offset\": 30,\n      \"meaning\": \"payload offset 0x1E: first byte of ARP EtherType (0x08)\"\n    },\n    {\n      \"offset\": 31,\n      \"meaning\": \"payload offset 0x1F: second byte of ARP EtherType (0x06)\"\n    },\n    {\n      \"offset\": 38,\n      \"meaning\": \"ARP operation high byte, expected zero\"\n    },\n    {\n      \"offset\": 39,\n      \"meaning\": \"ARP operation low byte: 1 request, 2 response\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"ARP sender hardware address (MAC) field\"\n    },\n    {\n      \"offset\": 56,\n      \"meaning\": \"ARP target protocol address field start (IPv4 target IP)\"\n    }\n  ]\n}"
+}

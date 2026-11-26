@@ -1,0 +1,9 @@
+{
+ "fn": "disable_irq_800000",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116cd4",
+ "seg": 10,
+ "key": "disable_irq_800000__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"set_busy_flag_0x800000\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Thin wrapper that sets the 0x800000 bit in the busy-flag state through set_busy_flag_alt().\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

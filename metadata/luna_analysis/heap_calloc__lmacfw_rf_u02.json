@@ -1,0 +1,9 @@
+{
+ "fn": "heap_calloc",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x1047b8",
+ "seg": 2,
+ "key": "heap_calloc__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_log_calibration_values\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Logs RF calibration temperature data and a sequence of double-valued calibration samples scaled for debug output.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a5\": \"calib_values\",\n    \"v6\": \"temp_delta_float\",\n    \"v7\": \"gpio_sample_float\",\n    \"v8\": \"port_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"calib_values[0]\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"calib_values[1]\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"calib_values[2]\"\n    },\n    {\n      \"offset\": 24,\n      \"meaning\": \"calib_values[3]\"\n    },\n    {\n      \"offset\": 32,\n      \"meaning\": \"calib_values[4]\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"calib_values[5]\"\n    }\n  ]\n}"
+}

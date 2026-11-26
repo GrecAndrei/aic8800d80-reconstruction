@@ -1,0 +1,9 @@
+{
+ "fn": "rf_rate_code_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x136d34",
+ "seg": 56,
+ "key": "rf_rate_code_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"notify_ap_low_power_enter\",\"confidence\":\"medium\",\"docstring\":\"Marks AP low-power entry and allocates the corresponding AP_LP_ENTER transmit event.\",\"subsystem\":\"mm\",\"var_renames\":{},\"struct_hints\":[]}"
+}

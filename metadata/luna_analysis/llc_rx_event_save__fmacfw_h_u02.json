@@ -1,0 +1,9 @@
+{
+ "fn": "llc_rx_event_save",
+ "img": "fmacfw_h_u02",
+ "addr": "0x126444",
+ "seg": 31,
+ "key": "llc_rx_event_save__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"llc_rx_event_save\",\"confidence\":\"medium\",\"docstring\":\"Advances a link's receive-event timing across missed intervals, checks due LLC PDUs, and updates its position in the shared event list.\",\"subsystem\":\"llc\",\"var_renames\":{\"v3\":\"scheduler_state\",\"v4\":\"link_state_table\",\"v7\":\"link_event_list\",\"v11\":\"scheduled_event\",\"v12\":\"event_scan_deadline\",\"v15\":\"active_event_record\",\"v16\":\"record_timestamp\",\"v17\":\"event_timeout_deadline\",\"v21\":\"event_interval\"},\"struct_hints\":[{\"offset\":72,\"meaning\":\"Event discriminator compared with the active scheduled-event record.\"},{\"offset\":76,\"meaning\":\"Per-link event-list head.\"},{\"offset\":80,\"meaning\":\"Current event timestamp, updated from the timestamp argument.\"},{\"offset\":84,\"meaning\":\"Index used to select link state from the link-state table.\"},{\"offset\":85,\"meaning\":\"Bit 0 requests ioctl handling and is cleared after handling.\"},{\"offset\":106,\"meaning\":\"Timing mode that selects the event-interval source or units.\"},{\"offset\":116,\"meaning\":\"Index used to select an event interval from the interval table.\"},{\"offset\":222,\"meaning\":\"Interval value used when timing mode 2 is active.\"},{\"offset\":1224,\"meaning\":\"Enable byte for the LLC PDU check.\"},{\"offset\":1225,\"meaning\":\"Link index used by the LLC PDU check.\"},{\"offset\":4,\"meaning\":\"Scheduled-event node timestamp.\"},{\"offset\":8,\"meaning\":\"Scheduled-event node link index.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "double_to_uint",
+ "img": "fmacfw_u02",
+ "addr": "0x14306c",
+ "seg": 68,
+ "key": "double_to_uint__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"double_to_float\",\"confidence\":\"high\",\"docstring\":\"Converts a double-precision floating-point value to single precision using the ARM EABI conversion routine.\",\"subsystem\":\"libmisc\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "send_command_6a",
+ "img": "fmacfw_u02",
+ "addr": "0x122d28",
+ "seg": 28,
+ "key": "send_command_6a__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_send_cmd_6a\",\"confidence\":\"medium\",\"docstring\":\"Applies crystal-cap settings and initializes RF packet settings for 2.4- and 5-GHz channels before sending kernel message 0x6a.\",\"subsystem\":\"rf\",\"var_renames\":{\"v5\":\"message_6a\",\"v6\":\"coarse_xtal_cap\",\"v7\":\"fine_xtal_cap\",\"v8\":\"coarse_xtal_cap\",\"v13\":\"fine_xtal_cap\",\"v14\":\"fine_cap_register_bits\",\"v16\":\"packet_init_params\"},\"struct_hints\":[{\"offset\":12,\"meaning\":\"Nonzero value triggers a GPIO update.\"},{\"offset\":20,\"meaning\":\"User override for the coarse crystal-cap value.\"},{\"offset\":21,\"meaning\":\"User override for the fine crystal-cap value.\"}]}"
+}

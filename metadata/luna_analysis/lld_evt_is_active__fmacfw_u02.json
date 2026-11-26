@@ -1,0 +1,9 @@
+{
+ "fn": "lld_evt_is_active",
+ "img": "fmacfw_u02",
+ "addr": "0x1237a0",
+ "seg": 28,
+ "key": "lld_evt_is_active__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lld_evt_notify\",\"confidence\":\"medium\",\"docstring\":\"Conditionally clears an MMIO register when the supplied byte exceeds a register-derived threshold, then sends parameterless message 39 from a3 to a4.\",\"subsystem\":\"ble\",\"var_renames\":{\"v7\":\"input_byte\"}}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_load_cal_data",
+ "img": "fmacfwbt_u02",
+ "addr": "0x136628",
+ "seg": 56,
+ "key": "rf_load_cal_data__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txpwr_apply_path\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Applies a selected TX/RF power path table entry, calling rf_path_config when the entry is ready and otherwise sending an HCI status event.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v7\": \"path_entry\",\n    \"a2\": \"path_id_ptr\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 106,\n      \"meaning\": \"path entry state/type; value 2 indicates an applyable ready path\"\n    },\n    {\n      \"offset\": 108,\n      \"meaning\": \"path entry ready/enabled flag\"\n    }\n  ]\n}"
+}

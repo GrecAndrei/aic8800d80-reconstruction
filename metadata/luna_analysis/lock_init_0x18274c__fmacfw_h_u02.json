@@ -1,0 +1,9 @@
+{
+ "fn": "lock_init_0x18274c",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12f3a8",
+ "seg": 42,
+ "key": "lock_init_0x18274c__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"lock_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the global 8-byte lock state to 0x00000002FFFFFFFF and returns its address.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"lock_state\",\"result\":\"initialized_lock\"}}"
+}

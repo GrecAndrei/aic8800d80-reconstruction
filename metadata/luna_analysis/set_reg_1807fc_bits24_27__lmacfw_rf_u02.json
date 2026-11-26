@@ -1,0 +1,9 @@
+{
+ "fn": "set_reg_1807fc_bits24_27",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123fb4",
+ "seg": 23,
+ "key": "set_reg_1807fc_bits24_27__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "This is a read-modify-write accessor for a 4-bit register field located at bits **24\u201327** of the register whose address is stored in the literal pool entry `off_123FC4` (likely `0x1807FC`).\n\nA better name would be:\n\n```c\nrf_set_reg_1807fc_bits24_27\n```\n\nor, if you want to keep the machine-generated format:\n\n```c\nset_reg_1807fc_bits24_27\n```\n\nA safer/cleaner implementation would be:\n\n```c\nstatic inline void rf_set_reg_1807fc_bits24_27(uint32_t value)\n{\n    volatile uint32_t *reg = (volatile uint32_t *)off_123FC4;\n\n    /* Clear bits 24-27, preserve bits 28-31 and 0-23, then insert value[3:0]. */\n    *reg = (*reg & ~((uint32_t)0xF << 24)) | ((value & 0xF) << 24);\n}\n```\n\nThe current decompiled version effectively does this, but it assumes the caller has already masked `value` to 4 bits. If a larger value is passed, the current code would unintentionally affect bits **28\u201331** as well:\n\n```c\n*reg = *reg & 0xF0FFFFFF | (result << 24);\n```\n\nSo the key correction is to mask the input:\n\n```c\n(value & 0xF) << 24\n```\n\nAlso, the `return result;` is probably an artifact of the decompiler seeing that `r0` is preserved; the function likely behaves semantically as a `void` setter."
+}

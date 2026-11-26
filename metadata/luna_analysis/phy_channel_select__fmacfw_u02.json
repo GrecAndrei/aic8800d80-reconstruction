@@ -1,0 +1,9 @@
+{
+ "fn": "phy_channel_select",
+ "img": "fmacfw_u02",
+ "addr": "0x1193bc",
+ "seg": 12,
+ "key": "phy_channel_select__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_channel_config_build\",\"confidence\":\"medium\",\"docstring\":\"Populates a PHY configuration block with channel-indexed table and profile values, then returns a mode word derived from a5.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"phy_config\",\"a3\":\"channel_index\",\"v6\":\"channel_entry\",\"v7\":\"channel_profile\",\"v8\":\"channel_entry_word_38\",\"v9\":\"profile_halfword_104\",\"v11\":\"profile_word_100\"},\"struct_hints\":[{\"offset\":88,\"meaning\":\"Cleared 32-bit field.\"},{\"offset\":120,\"meaning\":\"Pointer set to the field at offset 172 in the same configuration block.\"},{\"offset\":144,\"meaning\":\"Cleared 32-bit field.\"},{\"offset\":156,\"meaning\":\"32-bit value copied from the channel entry at offset 38.\"},{\"offset\":160,\"meaning\":\"16-bit value copied from the channel entry at offset 42.\"},{\"offset\":162,\"meaning\":\"32-bit value copied from the selected profile at offset 100.\"},{\"offset\":166,\"meaning\":\"16-bit value copied from the selected profile at offset 104.\"},{\"offset\":168,\"meaning\":\"Packed 16-bit control value derived from a4.\"},{\"offset\":170,\"meaning\":\"16-bit value derived by scaling a2 by 16.\"},{\"offset\":192,\"meaning\":\"Mode word formed as 0x808 | (a5 << 7), also returned.\"},{\"offset\":208,\"meaning\":\"Packed value formed from two reads of the fixed source referenced by off_119444.\"}]}"
+}

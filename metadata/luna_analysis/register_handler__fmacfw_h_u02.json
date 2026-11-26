@@ -1,0 +1,9 @@
+{
+ "fn": "register_handler",
+ "img": "fmacfw_h_u02",
+ "addr": "0x117dd8",
+ "seg": 10,
+ "key": "register_handler__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_dispatch_handler\",\"confidence\":\"medium\",\"docstring\":\"Stores the supplied value in the context's handler slot, dispatches the indexed handler, and disables its associated IRQ unless the context flag is set.\",\"subsystem\":\"phy\",\"var_renames\":{\"a1\":\"context\",\"a2\":\"handler_value\",\"a3\":\"handler_index\",\"v3\":\"handler_slot\"},\"struct_hints\":[{\"offset\":36,\"meaning\":\"flags; bit 0x200000 suppresses the IRQ-disable call\"},{\"offset\":76,\"meaning\":\"pointer to a handler slot structure\"},{\"offset\":4,\"meaning\":\"handler slot value written from the supplied argument\"}]}"
+}

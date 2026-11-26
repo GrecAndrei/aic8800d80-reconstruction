@@ -1,0 +1,9 @@
+{
+ "fn": "validate_signature",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x123490",
+ "seg": 23,
+ "key": "validate_signature__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"validate_version_signature\",\"confidence\":\"low\",\"docstring\":\"Checks a fixed three-byte signature and accepted subtype code, stores extracted fields to globals, and performs an MMIO update for the matching version record.\",\"subsystem\":\"hal\",\"var_renames\":{\"result\":\"data\",\"v1\":\"subtype\",\"v2\":\"reg_base_ptr\",\"v3\":\"mode\"},\"struct_hints\":[{\"offset\":1,\"meaning\":\"signature byte 0xC0\"},{\"offset\":2,\"meaning\":\"signature byte 0xB5\"},{\"offset\":3,\"meaning\":\"signature byte 0x7A\"},{\"offset\":4,\"meaning\":\"subtype/version byte (0x96 or 0x97)\"},{\"offset\":5,\"meaning\":\"stored configuration byte\"}]}"
+}

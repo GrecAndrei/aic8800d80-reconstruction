@@ -1,0 +1,9 @@
+{
+ "fn": "double_is_nan",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1434b0",
+ "seg": 69,
+ "key": "double_is_nan__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"double_divide_safe\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Wrapper that calls the division helper for a nonzero divisor and returns a sentinel value for divide-by-zero cases.\",\n  \"subsystem\": \"libmisc\",\n  \"var_renames\": {\n    \"a1\": \"numerator\",\n    \"a2\": \"divisor\"\n  }\n}"
+}

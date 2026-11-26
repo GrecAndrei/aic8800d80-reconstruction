@@ -1,0 +1,9 @@
+{
+ "fn": "str_skip_spaces",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x121be0",
+ "seg": 22,
+ "key": "str_skip_spaces__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"parse_arguments\", \"confidence\": \"medium\", \"docstring\": \"Tokenizes a whitespace-separated command string into an array of argument pointers, handling quoted substrings and returning the number of parsed arguments.\", \"subsystem\": \"libmisc\", \"var_renames\": {\"a1\": \"str\", \"a2\": \"argv\", \"v2\": \"argc\", \"v4\": \"token_ptr\", \"v5\": \"current_char\", \"v7\": \"token_char\", \"v12\": \"quoted_ptr\", \"v13\": \"quoted_char\"}}"
+}

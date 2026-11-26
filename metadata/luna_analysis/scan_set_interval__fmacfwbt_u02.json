@@ -1,0 +1,9 @@
+{
+ "fn": "scan_set_interval",
+ "img": "fmacfwbt_u02",
+ "addr": "0x104680",
+ "seg": 2,
+ "key": "scan_set_interval__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_rx_sample_offset_select\",\"confidence\":\"medium\",\"docstring\":\"Selects an RX sample offset by maximizing a smoothed sum of adjacent-sample differences across a mode-dependent window.\",\"subsystem\":\"rf\",\"var_renames\":{\"v8\":\"sample_stride\",\"v32\":\"row_stride\",\"v7\":\"scan_limit\",\"v6\":\"anchor_backstep\",\"v9\":\"minimum_adjacent_delta\",\"v10\":\"scan_index\",\"v11\":\"minimum_delta_index\",\"v12\":\"previous_index\",\"v14\":\"adjacent_sample_delta\",\"v15\":\"window_start\",\"v18\":\"sample_index\",\"v20\":\"current_sample_value\",\"v21\":\"preceding_sample_value\",\"v22\":\"candidate_offset\",\"v23\":\"best_smoothed_score\",\"v25\":\"best_offset\",\"v27\":\"smoothed_score\"}}"
+}

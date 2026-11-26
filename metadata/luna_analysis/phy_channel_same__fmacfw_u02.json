@@ -1,0 +1,9 @@
+{
+ "fn": "phy_channel_same",
+ "img": "fmacfw_u02",
+ "addr": "0x1196e0",
+ "seg": 13,
+ "key": "phy_channel_same__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_channel_update\",\"confidence\":\"medium\",\"docstring\":\"Validates the requested channel against current channel state and may initiate PHY channel selection for the indexed context.\",\"subsystem\":\"phy\",\"var_renames\":{\"v3\":\"requested_channel_frequency\",\"v8\":\"channel_context\",\"v10\":\"channel_state_flags\",\"v13\":\"indexed_context\",\"v14\":\"indexed_context_state\",\"v15\":\"requested_channel_context\"},\"struct_hints\":[{\"offset\":8,\"meaning\":\"Channel state flags; bits 0-2 govern channel-selection state.\"},{\"offset\":10,\"meaning\":\"Channel frequency or channel value used in compatibility checks.\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "llm_adv_reset",
+ "img": "fmacfwbt_u02",
+ "addr": "0x132f34",
+ "seg": 46,
+ "key": "llm_adv_reset__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_channel_freq_setup\",\"confidence\":\"medium\",\"docstring\":\"Resets a radio channel context and maps command channel numbers into 2.4 GHz or 5 GHz center-frequency fields, choosing an alternate frequency when required.\",\"subsystem\":\"rf\",\"var_renames\":{\"a2\":\"chan_cmd\",\"a3\":\"chan_ctx\",\"v9\":\"base_freq\",\"v10\":\"freq_adjust\",\"v11\":\"chan_state_ptr\",\"v12\":\"channel_b\",\"v13\":\"channel_a\",\"v3\":\"freq_a\",\"v4\":\"freq_b\",\"v5\":\"freq_delta\",\"v8\":\"larger_freq\"},\"struct_hints\":[{\"offset\":164,\"meaning\":\"channel mode/band selector\"},{\"offset\":165,\"meaning\":\"channel selection state\"},{\"offset\":166,\"meaning\":\"base center frequency\"},{\"offset\":168,\"meaning\":\"selected center frequency\"},{\"offset\":170,\"meaning\":\"alternate center frequency\"}]}"
+}

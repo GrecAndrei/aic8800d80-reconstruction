@@ -1,0 +1,9 @@
+{
+ "fn": "zero_8_bytes",
+ "img": "fmacfw_u02",
+ "addr": "0x12d240",
+ "seg": 40,
+ "key": "zero_8_bytes__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"clear_8_bytes\",\"confidence\":\"high\",\"docstring\":\"Clears two volatile 32-bit words at the supplied address and returns that address.\",\"subsystem\":\"libmisc\",\"var_renames\":{\"result\":\"destination\"}}"
+}

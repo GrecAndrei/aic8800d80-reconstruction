@@ -1,0 +1,9 @@
+{
+ "fn": "send_cmd_0x68",
+ "img": "fmacfwbt_u02",
+ "addr": "0x122d4c",
+ "seg": 26,
+ "key": "send_cmd_0x68__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"send_hci_evt_0x68\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Send an HCI event with event code 0x68 (104) through the generic HCI event allocation and send helper.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

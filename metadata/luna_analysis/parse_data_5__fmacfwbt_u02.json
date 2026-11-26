@@ -1,0 +1,9 @@
+{
+ "fn": "parse_data_5",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12dff8",
+ "seg": 43,
+ "key": "parse_data_5__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_parse_find_tlv_tag_0x53_len2\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a TLV byte buffer for an entry with tag 0x53 and length 2, returning the entry start or NULL if the buffer bounds or length check fails.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"result\": \"tlv_buf\",\n    \"a2\": \"buf_len\",\n    \"v2\": \"buf_end\",\n    \"v3\": \"entry_next\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"TLV tag byte (0x53 / 83 searched)\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"TLV length byte (expected to be 2)\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"TLV value payload start (two bytes)\"\n    }\n  ]\n}"
+}

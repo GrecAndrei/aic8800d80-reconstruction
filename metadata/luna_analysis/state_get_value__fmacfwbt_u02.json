@@ -1,0 +1,9 @@
+{
+ "fn": "state_get_value",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12ec78",
+ "seg": 43,
+ "key": "state_get_value__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"state_get_value\",\"confidence\":\"medium\",\"docstring\":\"Returns the 32-bit value field located at offset +4 of the state object referenced through the volatile pointer literal off_12EC80.\",\"subsystem\":\"rf\",\"var_renames\":{},\"struct_hints\":[{\"offset\":4,\"meaning\":\"uint32_t value field of the state object\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "ke_mutex_guard",
+ "img": "fmacfw_u02",
+ "addr": "0x118c44",
+ "seg": 12,
+ "key": "ke_mutex_guard__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mac_txl_frame_get\",\"confidence\":\"medium\",\"docstring\":\"Returns the current TX-list frame after advancing its queue state, or reports that no frame is available.\",\"subsystem\":\"mac\"}"
+}

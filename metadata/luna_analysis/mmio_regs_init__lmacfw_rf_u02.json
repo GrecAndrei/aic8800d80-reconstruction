@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_regs_init",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x116ec4",
+ "seg": 10,
+ "key": "mmio_regs_init__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_task_event_poll\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Polls pending task/radio event descriptors, processes associated WLAN RX, RF calibration and ACL TX side effects, dispatches task-queue handlers, and clears a timer/calibration event block before reasserting the MMIO busy bit.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"drain_all\",\n    \"v1\": \"event_status_reg\",\n    \"v2\": \"global_task_flags\",\n    \"v3\": \"last_desc_value\",\n    \"v4\": \"rx_wrptr_reg\",\n    \"v5\": \"rx_rdptr_reg\",\n    \"i\": \"loop_count\",\n    \"result\": \"ret_status\",\n    \"v9\": \"desc_value\",\n    \"v10\": \"rx_status\",\n    \"v11\": \"queue_state\",\n    \"v12\": \"event_desc\",\n    \"v13\": \"node_callback\",\n    \"v14\": \"timer_event_state\",\n    \"v15\": \"queue_node\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 4,\n      \"meaning\": \"queue node completion callback pointer\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"queue node callback argument\"\n    },\n    {\n      \"offset\": 12,\n      \"meaning\": \"queue node associated event descriptor pointer\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"queue node pending/processed flag\"\n    },\n    {\n      \"offset\": 33,\n      \"meaning\": \"timer/calibration event active flag\"\n    },\n    {\n      \"offset\": 192,\n      \"meaning\": \"global event/task pending flag\"\n    }\n  ]\n}"
+}

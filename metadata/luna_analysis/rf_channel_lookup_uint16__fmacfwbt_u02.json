@@ -1,0 +1,9 @@
+{
+ "fn": "rf_channel_lookup_uint16",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1197dc",
+ "seg": 13,
+ "key": "rf_channel_lookup_uint16__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_channel_lookup_uint16\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Reads a 16-bit entry from an RF channel lookup table indexed by a band selector and channel value.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"band\",\n    \"a2\": \"channel\"\n  }\n}"
+}

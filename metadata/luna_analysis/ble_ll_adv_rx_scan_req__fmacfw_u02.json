@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_adv_rx_scan_req",
+ "img": "fmacfw_u02",
+ "addr": "0x140338",
+ "seg": 63,
+ "key": "ble_ll_adv_rx_scan_req__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_adv_rx_state_update\",\"confidence\":\"medium\",\"docstring\":\"Updates BLE advertising receive-state flags from packet metadata and conditional match inputs.\",\"subsystem\":\"ble\",\"struct_hints\":[{\"offset\":60,\"meaning\":\"Advertising receive-state flags; this function updates bits 2 and 4.\"}]}"
+}

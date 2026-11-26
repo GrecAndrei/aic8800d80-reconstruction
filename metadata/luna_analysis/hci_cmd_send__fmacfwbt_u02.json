@@ -1,0 +1,9 @@
+{
+ "fn": "hci_cmd_send",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12cf5c",
+ "seg": 41,
+ "key": "hci_cmd_send__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_state_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Set the kernel state slot encoded by task type/id, schedule the corresponding task event, and notify pending listeners through a critical-section list walk if the state changes.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"v5\": \"state_index\",\n    \"v6\": \"state_type\",\n    \"v7\": \"state_value_ptr\",\n    \"v9\": \"notify_callback\",\n    \"v10\": \"notify_list_head\",\n    \"v12\": \"list_process_count_ptr\",\n    \"v17\": \"state_desc\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 8,\n      \"meaning\": \"state_desc pointer to uint16_t state array\"\n    },\n    {\n      \"offset\": 14,\n      \"meaning\": \"state_desc number of valid state entries\"\n    }\n  ]\n}"
+}

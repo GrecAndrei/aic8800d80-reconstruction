@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_pin_clear",
+ "img": "fmacfwbt_u02",
+ "addr": "0x10076c",
+ "seg": 0,
+ "key": "gpio_pin_clear__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_pin_clear\",\"confidence\":\"medium\",\"docstring\":\"Updates the associated GPIO control registers and writes the output-clear bit for the fixed pin.\",\"subsystem\":\"hal\"}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "float_to_double",
+ "img": "fmacfw_h_u02",
+ "addr": "0x1428b8",
+ "seg": 68,
+ "key": "float_to_double__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"float_to_double\",\"confidence\":\"high\",\"docstring\":\"Converts a single-precision floating-point value to double precision.\",\"subsystem\":\"libmisc\"}"
+}

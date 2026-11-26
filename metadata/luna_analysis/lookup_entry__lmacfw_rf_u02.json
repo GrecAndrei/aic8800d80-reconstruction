@@ -1,0 +1,9 @@
+{
+ "fn": "lookup_entry",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x122fa4",
+ "seg": 22,
+ "key": "lookup_entry__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_ef_usb_id_get_set\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Gets or sets the efuse/RF USB ID stored in RF register 2, using RF register 1 bit 9 as the validity flag and tracing the operation.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"a1\": \"op\",\n    \"a2\": \"ef_usb_id_value\",\n    \"v4\": \"ef_usb_id_set_flag\",\n    \"v5\": \"current_ef_usb_id\"\n  }\n}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_set_bit",
+ "img": "fmacfw_u02",
+ "addr": "0x1119fc",
+ "seg": 4,
+ "key": "mmio_set_bit__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"usb_controller_init\",\"confidence\":\"medium\",\"docstring\":\"Initializes the USB controller registers and dispatches the USB-init-complete event.\",\"subsystem\":\"hal\"}"
+}

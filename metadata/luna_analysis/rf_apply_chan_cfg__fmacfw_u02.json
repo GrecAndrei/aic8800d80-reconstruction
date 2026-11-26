@@ -1,0 +1,9 @@
+{
+ "fn": "rf_apply_chan_cfg",
+ "img": "fmacfw_u02",
+ "addr": "0x13a704",
+ "seg": 59,
+ "key": "rf_apply_chan_cfg__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_conn_radio_desc_build\",\"confidence\":\"medium\",\"docstring\":\"Builds a link-layer connection-event radio descriptor from connection and PHY configuration state.\",\"subsystem\":\"ble\",\"var_renames\":{\"v12\":\"descriptor_base\",\"v13\":\"descriptor_flags\",\"v15\":\"config_flags\",\"v16\":\"config_word\"},\"struct_hints\":[{\"offset\":30,\"meaning\":\"Radio configuration flags controlling descriptor fields\"},{\"offset\":50,\"meaning\":\"Byte displacement used to locate the descriptor base relative to a2\"}]}"
+}

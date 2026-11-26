@@ -1,0 +1,9 @@
+{
+ "fn": "patch_validate",
+ "img": "fmacfw_h_u02",
+ "addr": "0x114c30",
+ "seg": 6,
+ "key": "patch_validate__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"patch_validate\",\"confidence\":\"medium\",\"docstring\":\"Forwards the input to patch_apply with selector 0x80 and a size of 4 bytes.\",\"subsystem\":\"hal\"}"
+}

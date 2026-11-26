@@ -1,0 +1,9 @@
+{
+ "fn": "tx_handle_acked_list",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13d08c",
+ "seg": 62,
+ "key": "tx_handle_acked_list__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"tx_handle_acked_list\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans a fixed-size TX status/ACKed-frame list to update the selected rate descriptor index and validity flags.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"result\": \"tx_ctx\",\n    \"a2\": \"timestamp_array\",\n    \"v2\": \"entry_count\",\n    \"v3\": \"last_entry_idx\",\n    \"v4\": \"entry\",\n    \"v5\": \"found_valid_entry\",\n    \"v6\": \"raw_entry_word\",\n    \"v8\": \"phy_type_bits\",\n    \"v9\": \"rate_or_mcs\",\n    \"v11\": \"updated_flags\",\n    \"v13\": \"selected_idx\",\n    \"v15\": \"selected_raw_word\",\n    \"v17\": \"selected_rate_or_mcs\",\n    \"v19\": \"scan_idx\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 136,\n      \"meaning\": \"uint16 selected list entry index\"\n    },\n    {\n      \"offset\": 166,\n      \"meaning\": \"uint8 list state flags; bit 0x08 updated from valid-entry scan\"\n    },\n    {\n      \"offset\": 184,\n      \"meaning\": \"uint16 number of entries in the list\"\n    },\n    {\n      \"offset\": 8,\n      \"meaning\": \"uint16 per-entry timestamp/age, compared against 0x1998\"\n    },\n    {\n      \"offset\": 10,\n      \"meaning\": \"uint16 per-entry encoded rate or PDU type field\"\n    },\n    {\n      \"offset\": 13,\n      \"meaning\": \"uint8 per-entry valid/ack status flag\"\n    }\n  ]\n}"
+}

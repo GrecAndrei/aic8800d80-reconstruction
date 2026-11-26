@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_process_2",
+ "img": "fmacfw_h_u02",
+ "addr": "0x11dc04",
+ "seg": 20,
+ "key": "rx_packet_process_2__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_packet_build_tx_chain\",\"confidence\":\"medium\",\"docstring\":\"Builds linked TX DMA descriptors for packet data across source buffers and updates the caller's buffer cursor and offset.\",\"subsystem\":\"tx\",\"var_renames\":{\"a1\":\"source_buffer_cursor\",\"a2\":\"remaining_length\",\"a3\":\"buffer_offset\",\"v5\":\"source_buffer\",\"v7\":\"previous_tx_desc\",\"v10\":\"remaining_bytes\",\"v12\":\"segment_length\",\"v13\":\"tx_desc\",\"v25\":\"last_consumed_source_buffer\",\"v9\":\"is_final_segment\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Next buffer or descriptor link.\"},{\"offset\":12,\"meaning\":\"Boundary value used to calculate available bytes in the buffer.\"}]}"
+}

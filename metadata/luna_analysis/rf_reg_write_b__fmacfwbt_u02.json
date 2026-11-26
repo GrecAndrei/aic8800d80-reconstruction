@@ -1,0 +1,9 @@
+{
+ "fn": "rf_reg_write_b",
+ "img": "fmacfwbt_u02",
+ "addr": "0x111bc4",
+ "seg": 4,
+ "key": "rf_reg_write_b__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rx_tx_desc_hw_config_dispatch\",\"confidence\":\"medium\",\"docstring\":\"For values of the second argument up to 5, dispatches to RX descriptor configuration when the first argument is non-null and TX descriptor configuration otherwise, passing the fixed value 0x200000.\",\"subsystem\":\"mm\"}"
+}

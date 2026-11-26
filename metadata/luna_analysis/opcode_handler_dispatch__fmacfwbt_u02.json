@@ -1,0 +1,9 @@
+{
+ "fn": "opcode_handler_dispatch",
+ "img": "fmacfwbt_u02",
+ "addr": "0x138a5c",
+ "seg": 58,
+ "key": "opcode_handler_dispatch__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\": \"rf_event_ring_drain\", \"confidence\": \"medium\", \"docstring\": \"Drains a 64-entry radio event descriptor ring by clearing consumed pointer slots, updating the head index, sequence, and pending field, and clearing the associated interrupt when the ring is idle.\", \"subsystem\": \"rf\", \"var_renames\": {\"result\": \"event_ring\", \"v1\": \"pending_field\", \"v5\": \"event_ring\", \"v6\": \"head_index\", \"v7\": \"sequence\", \"v9\": \"next_head_index\"}, \"struct_hints\": [{\"offset\": 8, \"meaning\": \"uint16_t event sequence masked to 12 bits\"}, {\"offset\": 10, \"meaning\": \"uint8_t ring head/read index masked to 6 bits\"}, {\"offset\": 11, \"meaning\": \"uint8_t pending/ack counter associated with the ring\"}, {\"offset\": 16, \"meaning\": \"void *event_ring[64] circular array of event descriptor pointers\"}]}"
+}

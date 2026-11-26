@@ -1,0 +1,9 @@
+{
+ "fn": "controller_status_read",
+ "img": "fmacfw_u02",
+ "addr": "0x10cbe4",
+ "seg": 2,
+ "key": "controller_status_read__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wait_for_controller_status\",\"confidence\":\"medium\",\"docstring\":\"Blocks until the shared flag is set, acknowledges it, and returns 20 or a controller-field value plus 20, clearing an MMIO register when the signed status is negative and no controller value is available.\",\"subsystem\":\"rf\",\"var_renames\":{\"v0\":\"completion_flag\",\"v1\":\"controller_value\",\"v2\":\"signed_status\",\"v4\":\"signed_status\"},\"struct_hints\":[{\"offset\":612,\"meaning\":\"Controller result word checked and returned with 20 added\"}]}"
+}

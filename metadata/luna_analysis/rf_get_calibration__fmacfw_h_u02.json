@@ -1,0 +1,9 @@
+{
+ "fn": "rf_get_calibration",
+ "img": "fmacfw_h_u02",
+ "addr": "0x132320",
+ "seg": 45,
+ "key": "rf_get_calibration__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_select_tx_calibration\",\"confidence\":\"medium\",\"docstring\":\"Derives rate-dependent RF calibration limits from packet PHY metadata and writes the selected limits to the packet and companion configuration.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":208,\"meaning\":\"16-bit transmit-rate or PHY-mode descriptor used to derive RF limits\"},{\"offset\":240,\"meaning\":\"Packed PHY configuration used to derive RF limits\"},{\"offset\":308,\"meaning\":\"Output byte storing a selected rate-dependent RF limit\"}]}"
+}

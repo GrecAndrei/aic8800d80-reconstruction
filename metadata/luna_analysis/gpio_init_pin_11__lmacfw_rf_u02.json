@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_init_pin_11",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10dc40",
+ "seg": 2,
+ "key": "gpio_init_pin_11__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"gpio_init_pin_11\",\"confidence\":\"medium\",\"docstring\":\"Initializes GPIO pin 11 by invoking the platform pin configuration and updating the corresponding GPIO control registers.\",\"subsystem\":\"hal\",\"var_renames\":{\"v1\":\"gpio_regs\"}}"
+}

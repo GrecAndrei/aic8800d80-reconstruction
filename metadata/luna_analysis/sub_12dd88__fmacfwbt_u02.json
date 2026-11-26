@@ -1,0 +1,9 @@
+{
+ "fn": "sub_12dd88",
+ "img": "fmacfwbt_u02",
+ "addr": "0x12dd88",
+ "seg": 43,
+ "key": "sub_12dd88__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"find_ds_ie\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Scans an 802.11 information-element list for a DS Parameter Set element (ID 3, length 1) and returns its pointer if present and valid.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"result\": \"current_ie\",\n    \"a2\": \"length\",\n    \"v2\": \"end\",\n    \"v3\": \"record_end\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"802.11 element ID\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"element payload length in bytes\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"element payload; for DS Parameter Set this is the channel value\"\n    }\n  ]\n}"
+}

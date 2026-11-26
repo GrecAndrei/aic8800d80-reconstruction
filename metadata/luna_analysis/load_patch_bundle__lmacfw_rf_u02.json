@@ -1,0 +1,9 @@
+{
+ "fn": "load_patch_bundle",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x107150",
+ "seg": 2,
+ "key": "load_patch_bundle__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\":\"load_patch_bundle\",\"confidence\":\"low\",\"docstring\":\"Copies a fixed block of patch-bundle header words from a global table and computes a scaled descriptor field, likely preparing parameters for a patch-load command.\",\"subsystem\":\"hal\",\"var_renames\":{\"a1\":\"bundle_desc\"}}"
+}

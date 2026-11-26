@@ -1,0 +1,9 @@
+{
+ "fn": "unknown_1",
+ "img": "fmacfw_u02",
+ "addr": "0x11101c",
+ "seg": 3,
+ "key": "unknown_1__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_commit_config\",\"confidence\":\"medium\",\"docstring\":\"Serializes an RF control update, handles a configured GPIO or worker transition, and writes the supplied values to control registers.\",\"subsystem\":\"rf\",\"var_renames\":{\"v6\":\"critical_depth_ptr\",\"v7\":\"pending_event_ptr\",\"v8\":\"critical_depth\",\"v10\":\"control_status_reg\",\"v11\":\"control_regs\",\"v12\":\"update_accumulator_ptr\",\"v13\":\"remaining_critical_depth\",\"v14\":\"irq_restore_pending\",\"v15\":\"update_accumulator_ptr\",\"v16\":\"gpio_initialized_flag\",\"v17\":\"gpio_state\",\"v18\":\"gpio_id\",\"v19\":\"gpio_config\",\"v20\":\"gpio_id\"},\"struct_hints\":[{\"offset\":369,\"meaning\":\"GPIO state selector used to choose whether to set or clear the output.\"},{\"offset\":374,\"meaning\":\"GPIO identifier passed to the GPIO set/clear helpers; value 1 also acts as a special-case sentinel.\"}]}"
+}

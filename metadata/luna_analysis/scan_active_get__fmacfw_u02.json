@@ -1,0 +1,9 @@
+{
+ "fn": "scan_active_get",
+ "img": "fmacfw_u02",
+ "addr": "0x11f6f0",
+ "seg": 21,
+ "key": "scan_active_get__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_scan_mask_update\",\"confidence\":\"medium\",\"docstring\":\"When the BLE state flags permit it, writes a contiguous mask of up to eight bits shifted to bit 8 into a hardware register.\",\"subsystem\":\"ble\",\"var_renames\":{\"v0\":\"ble_state\",\"v1\":\"mask_bit_count\"},\"struct_hints\":[{\"offset\":106,\"meaning\":\"zero-tested gate flag\"},{\"offset\":108,\"meaning\":\"nonzero gate flag\"},{\"offset\":117,\"meaning\":\"nonzero gate flag\"},{\"offset\":118,\"meaning\":\"number of bits used to form the register mask\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "rf_tx_calibrate",
+ "img": "fmacfw_h_u02",
+ "addr": "0x109ff8",
+ "seg": 2,
+ "key": "rf_tx_calibrate__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_tx_dpd_calibrate\",\"confidence\":\"high\",\"docstring\":\"Runs transmit DPD calibration for each enabled table using DMA-captured receive data and PHY measurements.\",\"subsystem\":\"rf\",\"var_renames\":{\"v17\":\"table_index\",\"v19\":\"table_calibration_flag\",\"v20\":\"table_id\"}}"
+}

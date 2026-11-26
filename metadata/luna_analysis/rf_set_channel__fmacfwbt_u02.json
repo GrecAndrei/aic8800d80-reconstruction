@@ -1,0 +1,9 @@
+{
+ "fn": "rf_set_channel",
+ "img": "fmacfwbt_u02",
+ "addr": "0x1215a0",
+ "seg": 23,
+ "key": "rf_set_channel__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_set_channel\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Programs per-channel RF parameters from a calibration table into MMIO registers, issues a hardware channel-switch command, polls the RF command status, and returns the encoded channel code.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {\n    \"v2\": \"rf_channel_table_base\",\n    \"v7\": \"rf_channel_params\",\n    \"v9\": \"rf_command_status\",\n    \"v10\": \"channel_code\",\n    \"v14\": \"rf_channel_params_retry\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 38,\n      \"meaning\": \"low half of RF channel register word programmed from channel parameters\"\n    },\n    {\n      \"offset\": 40,\n      \"meaning\": \"high half of RF channel register word programmed from channel parameters\"\n    },\n    {\n      \"offset\": 42,\n      \"meaning\": \"secondary RF channel register value programmed from channel parameters\"\n    }\n  ]\n}"
+}

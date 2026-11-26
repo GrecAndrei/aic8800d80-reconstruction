@@ -1,0 +1,9 @@
+{
+ "fn": "pmu_write_clock_ctrl",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10f110",
+ "seg": 2,
+ "key": "pmu_write_clock_ctrl__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\"name\": \"pmu_write_clock_ctrl\", \"confidence\": \"medium\", \"docstring\": \"Writes the supplied value into the PMU clock-control register field at bit 15 and commits the update by setting the control bit at 0x70000000.\", \"subsystem\": \"hal\", \"var_renames\": {\"a1\": \"clock_ctrl_field\"}}"
+}

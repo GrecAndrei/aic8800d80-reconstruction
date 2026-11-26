@@ -1,0 +1,9 @@
+{
+ "fn": "rf_enable",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x10cf3c",
+ "seg": 2,
+ "key": "rf_enable__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rf_enable\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes 0x80 to a volatile RF control/status register to assert an RF enable or active bit.\",\n  \"subsystem\": \"rf\",\n  \"var_renames\": {},\n  \"struct_hints\": []\n}"
+}

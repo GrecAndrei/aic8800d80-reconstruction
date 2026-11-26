@@ -1,0 +1,9 @@
+{
+ "fn": "rxreorder_process",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11c4bc",
+ "seg": 19,
+ "key": "rxreorder_process__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txl_he_trigger_put\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Populates an 802.11 HE trigger transmit descriptor with rate-table and TXVECTOR fields derived from the input packet descriptor and MAC status registers.\",\n  \"subsystem\": \"mac\",\n  \"var_renames\": {\n    \"result\": \"desc\",\n    \"v1\": \"tx_desc\",\n    \"v2\": \"status_ptr\",\n    \"v3\": \"desc_word\",\n    \"v5\": \"status_word\",\n    \"v6\": \"rate_word\",\n    \"v7\": \"rate_code\",\n    \"v9\": \"rate_index\",\n    \"v10\": \"rate_entry\",\n    \"v11\": \"rate_entry_index\",\n    \"v12\": \"pkt_table_base\",\n    \"v13\": \"he_params\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 28,\n      \"meaning\": \"input descriptor word read into local v4\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"input descriptor length/status field tested against 0x1C in an assert\"\n    },\n    {\n      \"offset\": 84,\n      \"meaning\": \"input descriptor word holding rate/MCS bits and HE flag bit 25\"\n    },\n    {\n      \"offset\": 34,\n      \"meaning\": \"rate-table entry index byte used to locate a packet table slot\"\n    },\n    {\n      \"offset\": 37,\n      \"meaning\": \"rate-table entry validity/configured byte\"\n    },\n    {\n      \"offset\": 38,\n      \"meaning\": \"rate-table entry 32-bit value copied into the TX descriptor\"\n    },\n    {\n      \"offset\": 42,\n      \"meaning\": \"rate-table entry 16-bit value copied into a MAC descriptor field\"\n    }\n  ]\n}"
+}

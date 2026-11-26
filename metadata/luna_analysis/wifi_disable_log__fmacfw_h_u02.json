@@ -1,0 +1,9 @@
+{
+ "fn": "wifi_disable_log",
+ "img": "fmacfw_h_u02",
+ "addr": "0x128aa0",
+ "seg": 34,
+ "key": "wifi_disable_log__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"mfp_context_cleanup\",\"confidence\":\"medium\",\"docstring\":\"After a nonzero logging result, clears shared MFP state and selected per-context flag bits.\",\"subsystem\":\"mac\",\"var_renames\":{\"v4\":\"mfp_state\",\"v5\":\"state_flag\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Per-context flags; bits 1, 2, and 9 are cleared\"},{\"offset\":8,\"meaning\":\"Byte-sized reference count decremented if nonzero\"},{\"offset\":28,\"meaning\":\"Status byte cleared during cleanup\"},{\"offset\":29,\"meaning\":\"Second status byte cleared during cleanup\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "set_flow_control_mode",
+ "img": "fmacfwbt_u02",
+ "addr": "0x13f454",
+ "seg": 62,
+ "key": "set_flow_control_mode__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"bt_set_flow_control_mode\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Sets a Bluetooth controller flow-control mode by composing an enable/mode value from the requested mode and a state bit, then writing it to four consecutive flow-control registers.\",\n  \"subsystem\": \"bt\",\n  \"var_renames\": {\n    \"result\": \"ctx\",\n    \"a2\": \"mode\",\n    \"v2\": \"mode_enable_bit\",\n    \"v3\": \"flow_control_regs\",\n    \"v4\": \"reg_value\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 336,\n      \"meaning\": \"pointer to flow-control register block/array\"\n    },\n    {\n      \"offset\": 348,\n      \"meaning\": \"16-bit controller/LL state flags; bit 0x400 gates the flow-control enable value\"\n    }\n  ]\n}"
+}

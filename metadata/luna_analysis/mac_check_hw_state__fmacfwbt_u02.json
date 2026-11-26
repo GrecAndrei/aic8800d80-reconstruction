@@ -1,0 +1,9 @@
+{
+ "fn": "mac_check_hw_state",
+ "img": "fmacfwbt_u02",
+ "addr": "0x121be4",
+ "seg": 24,
+ "key": "mac_check_hw_state__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"ke_arm_timer_event\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Arms a one-shot timer/event by clamping a signed delay against a hardware timestamp period, then either locks a kernel event or registers the IRQ handler.\",\n  \"subsystem\": \"ke\",\n  \"var_renames\": {\n    \"a1\": \"delay_ticks\",\n    \"v1\": \"timer_ctl\",\n    \"v2\": \"hw_period_ticks\",\n    \"v3\": \"abs_delay\",\n    \"v4\": \"clamped_delay\",\n    \"v5\": \"irq_guard_count\",\n    \"v6\": \"timer_table\",\n    \"v7\": \"timer_slot_index\",\n    \"v8\": \"timer_slot_base\",\n    \"v11\": \"quarter_period_ticks\",\n    \"v14\": \"irq_guard_remaining\",\n    \"v15\": \"irq_was_enabled\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 40,\n      \"meaning\": \"clamped scheduled delay stored in the timer control structure\"\n    },\n    {\n      \"offset\": 48,\n      \"meaning\": \"one-shot armed/initialized flag\"\n    },\n    {\n      \"offset\": 16,\n      \"meaning\": \"timer table base value used to derive a timer slot address/timestamp\"\n    }\n  ]\n}"
+}

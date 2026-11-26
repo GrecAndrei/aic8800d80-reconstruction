@@ -1,0 +1,9 @@
+{
+ "fn": "get_phy_channel",
+ "img": "fmacfw_u02",
+ "addr": "0x1228e8",
+ "seg": 24,
+ "key": "get_phy_channel__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"phy_count_channel_entries\",\"confidence\":\"medium\",\"docstring\":\"Counts nested-list nodes for records with a non-null child list and a byte at offset 116 other than 0xff; returns zero if any outer record has a nonzero byte at offset 106.\",\"subsystem\":\"phy\",\"var_renames\":{\"v0\":\"outer_entry\",\"v2\":\"nested_entry\"},\"struct_hints\":[{\"offset\":0,\"meaning\":\"Next pointer for an outer or nested linked-list node\"},{\"offset\":106,\"meaning\":\"Nonzero value causes the function to return zero\"},{\"offset\":108,\"meaning\":\"Enables traversal of this record's nested list when nonzero\"},{\"offset\":116,\"meaning\":\"0xff sentinel; otherwise each nested node is counted\"},{\"offset\":240,\"meaning\":\"Pointer to the nested linked-list head\"}]}"
+}

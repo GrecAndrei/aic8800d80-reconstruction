@@ -1,0 +1,9 @@
+{
+ "fn": "set_hw_cfg_c",
+ "img": "fmacfw_h_u02",
+ "addr": "0x111c4c",
+ "seg": 4,
+ "key": "set_hw_cfg_c__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlan_set_hw_config_c\",\"confidence\":\"medium\",\"docstring\":\"Dispatches indices 0\u20135 to one of two configuration handlers according to whether the pointer is non-null, and otherwise returns the pointer unchanged.\",\"subsystem\":\"wlan\",\"var_renames\":{\"a2\":\"config_index\"}}"
+}

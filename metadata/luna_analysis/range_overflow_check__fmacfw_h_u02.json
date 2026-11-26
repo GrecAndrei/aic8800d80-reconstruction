@@ -1,0 +1,9 @@
+{
+ "fn": "range_overflow_check",
+ "img": "fmacfw_h_u02",
+ "addr": "0x12d6ec",
+ "seg": 42,
+ "key": "range_overflow_check__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"find_extension_ie\",\"confidence\":\"high\",\"docstring\":\"Scans an 802.11 IE buffer for an extension IE with the requested extension ID and returns it with its encoded size.\",\"subsystem\":\"mac\",\"var_renames\":{\"a1\":\"ies\",\"a2\":\"ies_len\",\"a3\":\"extension_id\",\"a4\":\"ie_len_out\"}}"
+}

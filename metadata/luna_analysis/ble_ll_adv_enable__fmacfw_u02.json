@@ -1,0 +1,9 @@
+{
+ "fn": "ble_ll_adv_enable",
+ "img": "fmacfw_u02",
+ "addr": "0x140430",
+ "seg": 64,
+ "key": "ble_ll_adv_enable__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ble_ll_process_event_if_ready\",\"confidence\":\"medium\",\"docstring\":\"Processes a link-layer event when the selector-0x0B parser succeeds; otherwise, it invokes the shared handler if the referenced status is negative.\",\"subsystem\":\"ble\",\"var_renames\":{},\"struct_hints\":[]}"
+}

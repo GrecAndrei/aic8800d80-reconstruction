@@ -1,0 +1,9 @@
+{
+ "fn": "gpio_init_sequence",
+ "img": "fmacfw_u02",
+ "addr": "0x10de94",
+ "seg": 3,
+ "key": "gpio_init_sequence__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"rf_gpio_init\",\"confidence\":\"medium\",\"docstring\":\"Enables RF IRQs 1 and 2, configures GPIO 3, sets or clears GPIOs 1 and 2 according to a stored flag, and disables RF IRQ 3.\",\"subsystem\":\"rf\",\"struct_hints\":[{\"offset\":369,\"meaning\":\"Flag selecting whether GPIOs 1 and 2 are set or cleared\"}]}"
+}

@@ -1,0 +1,9 @@
+{
+ "fn": "wlc_rx_reclaim",
+ "img": "fmacfw_u02",
+ "addr": "0x12917c",
+ "seg": 34,
+ "key": "wlc_rx_reclaim__fmacfw_u02",
+ "status": "ok",
+ "text": "{\"name\":\"wlc_rx_reclaim\",\"confidence\":\"medium\",\"docstring\":\"Updates per-request flag bits and dispatches deferred worker actions according to the request state and global enable.\",\"subsystem\":\"wlan\",\"var_renames\":{\"v3\":\"deferred_work_record\",\"v5\":\"request_flags\",\"v6\":\"deferred_work_enabled\",\"v7\":\"updated_request_flags\"},\"struct_hints\":[{\"offset\":4,\"meaning\":\"Request flags word; bits 0\u20132 are updated by this function.\"},{\"offset\":114,\"meaning\":\"Per-request state byte checked before scheduling deferred work.\"}]}"
+}

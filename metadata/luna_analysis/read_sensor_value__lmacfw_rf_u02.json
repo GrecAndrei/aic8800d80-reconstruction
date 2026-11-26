@@ -1,0 +1,9 @@
+{
+ "fn": "read_sensor_value",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11522c",
+ "seg": 6,
+ "key": "read_sensor_value__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"txdesc_array_init\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes a transmit descriptor array by zeroing descriptors, assigning each descriptor its transmit buffer slot, and linking the descriptors into a kernel list.\",\n  \"subsystem\": \"mm\",\n  \"var_renames\": {\n    \"v0\": \"desc_array_global_pp\",\n    \"v1\": \"txbuf_base_global_pp\",\n    \"v2\": \"desc_array\",\n    \"v4\": \"desc_free_list\",\n    \"v5\": \"desc_index\",\n    \"v6\": \"desc\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 32,\n      \"meaning\": \"transmit buffer pointer assigned to this TX descriptor\"\n    }\n  ]\n}"
+}

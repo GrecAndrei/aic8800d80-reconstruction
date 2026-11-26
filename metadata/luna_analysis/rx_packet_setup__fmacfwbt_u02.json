@@ -1,0 +1,9 @@
+{
+ "fn": "rx_packet_setup",
+ "img": "fmacfwbt_u02",
+ "addr": "0x11ea44",
+ "seg": 21,
+ "key": "rx_packet_setup__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"rx_packet_setup\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Initializes an RX packet descriptor from the current link/MAC state and returns a no-buffer error when receive buffer allocation fails.\",\n  \"subsystem\": \"wlan\",\n  \"var_renames\": {\n    \"a1\": \"pkt_desc\",\n    \"v8\": \"pkt_desc\",\n    \"v7\": \"state_ptr\",\n    \"v9\": \"state\",\n    \"v59\": \"timestamp\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 16,\n      \"meaning\": \"packet descriptor flags; bit 0 set on no-buffer error\"\n    },\n    {\n      \"offset\": 28,\n      \"meaning\": \"packet timestamp copied to local frame and passed to timestamp handling\"\n    }\n  ]\n}"
+}

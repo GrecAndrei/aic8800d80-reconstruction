@@ -1,0 +1,9 @@
+{
+ "fn": "return_one",
+ "img": "fmacfwbt_u02",
+ "addr": "0x101874",
+ "seg": 0,
+ "key": "return_one__fmacfwbt_u02",
+ "status": "ok",
+ "text": "{\"name\":\"return_one\",\"confidence\":\"high\",\"docstring\":\"Returns the integer constant 1.\",\"subsystem\":\"sys\"}"
+}

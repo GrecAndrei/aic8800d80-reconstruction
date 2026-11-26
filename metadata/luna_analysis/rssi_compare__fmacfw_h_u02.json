@@ -1,0 +1,9 @@
+{
+ "fn": "rssi_compare",
+ "img": "fmacfw_h_u02",
+ "addr": "0x115ec8",
+ "seg": 7,
+ "key": "rssi_compare__fmacfw_h_u02",
+ "status": "ok",
+ "text": "{\"name\":\"ll_event_dequeue\",\"confidence\":\"medium\",\"docstring\":\"Pops an event from the pending list and disables its MMIO interrupt if the list is empty while the associated signed status is negative.\",\"subsystem\":\"ll\",\"var_renames\":{\"v0\":\"popped_item\",\"v1\":\"result\"}}"
+}

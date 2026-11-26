@@ -1,0 +1,9 @@
+{
+ "fn": "mmio_select_port",
+ "img": "lmacfw_rf_u02",
+ "addr": "0x11a8e4",
+ "seg": 14,
+ "key": "mmio_select_port__lmacfw_rf_u02",
+ "status": "ok",
+ "text": "{\n  \"name\": \"mmio_set_ports_with_scale\",\n  \"confidence\": \"medium\",\n  \"docstring\": \"Writes a six-byte port parameter buffer to four MMIO registers, storing each nonzero port value in the low byte and its scaled product in the next byte for the first three port registers.\",\n  \"subsystem\": \"hal\",\n  \"var_renames\": {\n    \"v1\": \"port0_val\",\n    \"v3\": \"scale_val\",\n    \"v4\": \"port0_reg\",\n    \"v5\": \"port1_val\",\n    \"v6\": \"port1_reg\",\n    \"v7\": \"port2_val\",\n    \"v8\": \"port2_reg\"\n  },\n  \"struct_hints\": [\n    {\n      \"offset\": 0,\n      \"meaning\": \"port0 value\"\n    },\n    {\n      \"offset\": 1,\n      \"meaning\": \"port1 value\"\n    },\n    {\n      \"offset\": 2,\n      \"meaning\": \"port2 value\"\n    },\n    {\n      \"offset\": 3,\n      \"meaning\": \"extra_reg_low\"\n    },\n    {\n      \"offset\": 4,\n      \"meaning\": \"extra_reg_mid\"\n    },\n    {\n      \"offset\": 5,\n      \"meaning\": \"extra_reg_high\"\n    }\n  ]\n}"
+}
