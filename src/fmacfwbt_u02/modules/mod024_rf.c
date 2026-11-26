@@ -418,7 +418,7 @@ int tx_lock() {
         v5(*(volatile uint32_t *)(v1 + 8));
       result = *(volatile uint32_t *)(v1 + 12);
       if ( result )
-        result = ((int (*)())rf_tx_timestamp_check)();
+        result = rf_tx_timestamp_check(result);
       if ( *v3 )
       {
         v6 = *v3 - 1;

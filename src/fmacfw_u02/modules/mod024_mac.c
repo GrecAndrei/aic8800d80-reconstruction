@@ -418,7 +418,7 @@ int mac_wait_rx() {
         v5(*(volatile uint32_t *)(v1 + 8));
       result = *(volatile uint32_t *)(v1 + 12);
       if ( result )
-        result = ((int (*)())radio_get_status)();
+        result = radio_get_status(result);
       if ( *v3 )
       {
         v6 = *v3 - 1;

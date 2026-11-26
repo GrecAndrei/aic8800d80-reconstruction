@@ -53,6 +53,7 @@ STEPS = [
     ("validate_forward_args.py", [], True),
     ("format_hd_signextend.py", [], True),
     ("format_scratch_frame.py", [], True),
+    ("first_arg_forward.py", [], True),
     ("single_input_contracts.py", [], True),
     ("fmac_zero_inputs.py", [], True),
     ("rx_queue_contract.py", [], True),

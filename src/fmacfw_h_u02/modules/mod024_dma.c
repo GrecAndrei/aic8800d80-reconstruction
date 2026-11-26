@@ -417,7 +417,7 @@ int dma_ring_alloc_0() {
         v5(*(volatile uint32_t *)(v1 + 8));
       result = *(volatile uint32_t *)(v1 + 12);
       if ( result )
-        result = ((int (*)())phy_rate_get)();
+        result = phy_rate_get(result);
       if ( *v3 )
       {
         v6 = *v3 - 1;
