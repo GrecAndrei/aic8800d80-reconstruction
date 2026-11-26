@@ -638,19 +638,37 @@ class SignedHalfwords(unittest.TestCase):
 class RfConfigFrame(unittest.TestCase):
     def test_raw_frame_rewrite_is_machine_shaped_and_idempotent(self):
         import rf_config_frame
+        sample = (
+            rf_config_frame.OLD_FRAME
+            + "  volatile uint64_t *v16; // r5\n"
+            + "  volatile uint64_t *v21; // r5\n"
+            + "  _frame.result = 0;\n"
+            + "    v21 = &_frame.vars0[a1 - 1];\n"
+            + rf_config_frame.OLD_TYPE0_READS
+            + rf_config_frame.OLD_TYPE1
+        )
+        out, n = rf_config_frame.transform_body(sample)
+        self.assertEqual(n, 1)
+        self.assertIn("uint32_t _rf_words[16];", out)
+        self.assertIn("char _rf_pad0[8];", out)
+        self.assertIn("_frame.f.result", out)
+        self.assertIn("_frame._rf_words[(0x10 + 8 * (a1 - 1)) / 4]", out)
+        self.assertIn("_frame._rf_words[(0x20 + 8 * a1) / 4]", out)
+        self.assertNotIn("vars0", out)
+        self.assertEqual(rf_config_frame.transform_body(out), (out, 0))
+
+    def test_tracked_source_is_at_the_raw_frame_fixed_point(self):
+        import rf_config_frame
         import composed_source
         text = composed_source.load_composed_text("lmacfw_rf_u02")
         out, n = rf_config_frame.apply_image(text, 0x126764)
-        self.assertEqual(n, 1)
-        start = out.index("// rf_config_load @ 0x126764")
-        end = out.index("// tx_descriptor_config @ 0x12686c")
-        body = out[start:end]
+        self.assertEqual((out, n), (text, 0))
+        start = text.index("// rf_config_load @ 0x126764")
+        end = text.index("// tx_descriptor_config @ 0x12686c")
+        body = text[start:end]
         self.assertIn("uint32_t _rf_words[16];", body)
-        self.assertIn("char _rf_pad0[8];", body)
         self.assertIn("_frame._rf_words[(0x10 + 8 * (a1 - 1)) / 4]", body)
-        self.assertIn("_frame._rf_words[(0x20 + 8 * a1) / 4]", body)
         self.assertNotIn("vars0", body)
-        self.assertEqual(rf_config_frame.apply_image(out, 0x126764)[1], 0)
 
 
 class PostCompose(unittest.TestCase):
