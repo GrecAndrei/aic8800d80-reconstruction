@@ -30,3 +30,30 @@ dataflow. Low blast radius; deferred behind corpus-level defects.
 
 ## Raw data
 `metadata/arity_defects.json` (width-adjusted), `metadata/under_arity_sites.jsonl`.
+
+## Machine-validated repair pass (2026-11-27)
+
+The syntactic under-arity scan is a triage signal, not a verdict: Hex-Rays both
+invents unused parameters and drops real register forwarding. The correct
+procedure is per-site machine evidence. Since the original note above, the
+following classes were proven against the original binaries and repaired:
+
+* zero-input fmac scheduler/dispatcher clones (`rf_is_idle`/`rf_calib_init` and
+  `rf_get_flag`/`read_state_flag`/`bt_ctrl_main_task`);
+* one-input list and packet-status helpers whose second Hex-Rays parameter is
+  register scratch rather than an input;
+* explicit first-argument forwarding in DMA completion callbacks;
+* three-argument packet helper forwarding `(a1, v4, v6)` in TX completion/setup;
+* frame-pair forwarding `(_frame.v2, _frame.v3, 0)` in event dispatchers;
+* connection-table entry forwarding in message builders;
+* configuration-halfword inputs to rate-code helpers;
+* packet-object inputs to PHY/PLL status helpers;
+* current-character inputs in packet scan loops.
+
+After those repairs the remaining syntactic census is fmacfw_h 16 functions /
+19 call rows, fmacfw 17 / 20, fmacfwbt 16 / 19, and lmac 0 / 0. Remaining rows
+are still unproven candidates. In particular `bt_conn_is_connected` and its
+clones genuinely consume r1-r3, so their four-input prototypes must not be
+"narrowed" merely because the scan is nonzero; their missing call-site argument
+requires caller-level machine reconstruction. Conversely zero-machine-input
+rows may be pass-through artifacts and require callee+caller analysis.
