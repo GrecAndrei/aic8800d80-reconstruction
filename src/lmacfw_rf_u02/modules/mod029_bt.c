@@ -2108,48 +2108,51 @@ volatile uint32_t * rf_config_load(int a1) {
   volatile uint32_t *v13; // r1
   volatile uint32_t *v14; // r4
   volatile uint32_t *v15; // r3
-  volatile uint64_t *v16; // r5
   int v17; // r2
   volatile uint32_t *v18; // r2
   volatile uint32_t *v19; // r1
   volatile uint32_t *v20; // r4
-  volatile uint64_t *v21; // r5
-  struct __attribute__((packed)) { uint64_t result; // [sp+8h] [bp-38h] BYREF
-  int v23; // [sp+10h] [bp-30h]
-  int v24; // [sp+14h] [bp-2Ch]
-  int v25; // [sp+18h] [bp-28h]
-  int v26; // [sp+1Ch] [bp-24h]
-  int v27; // [sp+20h] [bp-20h]
-  int v28; // [sp+24h] [bp-1Ch]
-  int v29; // [sp+28h] [bp-18h]
-  int v30; // [sp+2Ch] [bp-14h]
-  int v31; // [sp+30h] [bp-10h]
-  int v32; // [sp+34h] [bp-Ch]
-  int v33; // [sp+38h] [bp-8h]
-  int v34; // [sp+3Ch] [bp-4h]
-  uint64_t vars0[2]; // [sp+40h] [bp+0h] BYREF
+  union {
+    uint64_t _rf_align;
+    uint32_t _rf_words[16];
+    struct __attribute__((packed)) {
+      char _rf_pad0[8];   // sp+0x00..sp+0x07: raw scratch before result
+      uint64_t result;    // sp+0x08
+      int v23;            // sp+0x10
+      int v24;            // sp+0x14
+      int v25;            // sp+0x18
+      int v26;            // sp+0x1c
+      int v27;            // sp+0x20
+      int v28;            // sp+0x24
+      int v29;            // sp+0x28
+      int v30;            // sp+0x2c
+      int v31;            // sp+0x30
+      int v32;            // sp+0x34
+      int v33;            // sp+0x38
+      int v34;            // sp+0x3c
+    } f;
   } _frame;
   v2 = ((volatile uint32_t *)(uintptr_t)off_126848)[1];
   v3 = ((volatile uint32_t *)(uintptr_t)off_126848)[2];
   v4 = ((volatile uint32_t *)(uintptr_t)off_126848)[3];
-  _frame.v23 = ((volatile uint32_t *)(uintptr_t)off_126848)[0];
-  _frame.v24 = v2;
-  _frame.v25 = v3;
-  _frame.v26 = v4;
+  _frame.f.v23 = ((volatile uint32_t *)(uintptr_t)off_126848)[0];
+  _frame.f.v24 = v2;
+  _frame.f.v25 = v3;
+  _frame.f.v26 = v4;
   v5 = ((volatile uint32_t *)(uintptr_t)off_126848)[5];
   v6 = ((volatile uint32_t *)(uintptr_t)off_126848)[6];
   v7 = ((volatile uint32_t *)(uintptr_t)off_126848)[7];
-  _frame.v27 = ((volatile uint32_t *)(uintptr_t)off_126848)[4];
-  _frame.v28 = v5;
-  _frame.v29 = v6;
-  _frame.v30 = v7;
+  _frame.f.v27 = ((volatile uint32_t *)(uintptr_t)off_126848)[4];
+  _frame.f.v28 = v5;
+  _frame.f.v29 = v6;
+  _frame.f.v30 = v7;
   v8 = ((volatile uint32_t *)(uintptr_t)off_126848)[9];
   v9 = ((volatile uint32_t *)(uintptr_t)off_126848)[10];
   v10 = ((volatile uint32_t *)(uintptr_t)off_126848)[11];
-  _frame.v31 = ((volatile uint32_t *)(uintptr_t)off_126848)[8];
-  _frame.v32 = v8;
-  _frame.v33 = v9;
-  _frame.v34 = v10;
+  _frame.f.v31 = ((volatile uint32_t *)(uintptr_t)off_126848)[8];
+  _frame.f.v32 = v8;
+  _frame.f.v33 = v9;
+  _frame.f.v34 = v10;
   if ( !a1 )
   {
     v11 = (volatile uint32_t *)dispatch_event_handler_1(aNotchOff);
@@ -2160,9 +2163,9 @@ volatile uint32_t * rf_config_load(int a1) {
   }
   if ( a1 > 3 )
     return (volatile uint32_t *)dispatch_event_handler_1("invalid func:%d\n", a1);
-  mac_time_get(&_frame.result, 0);
-  v12 = BYTE1(_frame.result);
-  v11 = (volatile uint32_t *)dispatch_event_handler_1("notch%d on @%d,%d,%d\n", a1, WORD2(_frame.result), WORD1(_frame.result), BYTE1(_frame.result));
+  mac_time_get(&_frame.f.result, 0);
+  v12 = BYTE1(_frame.f.result);
+  v11 = (volatile uint32_t *)dispatch_event_handler_1("notch%d on @%d,%d,%d\n", a1, WORD2(_frame.f.result), WORD1(_frame.f.result), BYTE1(_frame.f.result));
   if ( !v12 )
   {
     v19 = (void *)(uintptr_t)(off_126858);
@@ -2170,10 +2173,9 @@ volatile uint32_t * rf_config_load(int a1) {
     v11 = (void *)(uintptr_t)(off_126860);
     *(volatile uint32_t *)off_126854 &= ~0x80000000;
     v15 = (void *)(uintptr_t)(off_126864);
-    v21 = &_frame.vars0[a1 - 1];
     *v19 &= ~0x80000000;
-    *v20 = *((volatile uint32_t *)v21 - 12);
-    v17 = *((volatile uint32_t *)v21 - 11);
+    *v20 = _frame._rf_words[(0x10 + 8 * (a1 - 1)) / 4];
+    v17 = _frame._rf_words[(0x14 + 8 * (a1 - 1)) / 4];
     goto LABEL_8;
   }
   if ( v12 == 1 )
@@ -2184,9 +2186,8 @@ volatile uint32_t * rf_config_load(int a1) {
     *(volatile uint32_t *)off_126854 &= ~0x80000000;
     v15 = (void *)(uintptr_t)(off_126864);
     *v13 &= ~0x80000000;
-    v16 = &_frame.vars0[a1];
-    *v14 = *((volatile uint32_t *)v16 - 8);
-    v17 = *((volatile uint32_t *)v16 - 7);
+    *v14 = _frame._rf_words[(0x20 + 8 * a1) / 4];
+    v17 = _frame._rf_words[(0x24 + 8 * a1) / 4];
 LABEL_8:
     *v11 = v17;
     *v15 |= 2u;

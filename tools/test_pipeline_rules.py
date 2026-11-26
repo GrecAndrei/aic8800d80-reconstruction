@@ -635,14 +635,38 @@ class SignedHalfwords(unittest.TestCase):
             self.assertEqual(signed_halfwords.apply_image(text, tdir)[1], 0)
 
 
+class RfConfigFrame(unittest.TestCase):
+    def test_raw_frame_rewrite_is_machine_shaped_and_idempotent(self):
+        import rf_config_frame
+        import composed_source
+        text = composed_source.load_composed_text("lmacfw_rf_u02")
+        out, n = rf_config_frame.apply_image(text, 0x126764)
+        self.assertEqual(n, 1)
+        start = out.index("// rf_config_load @ 0x126764")
+        end = out.index("// tx_descriptor_config @ 0x12686c")
+        body = out[start:end]
+        self.assertIn("uint32_t _rf_words[16];", body)
+        self.assertIn("char _rf_pad0[8];", body)
+        self.assertIn("_frame._rf_words[(0x10 + 8 * (a1 - 1)) / 4]", body)
+        self.assertIn("_frame._rf_words[(0x20 + 8 * a1) / 4]", body)
+        self.assertNotIn("vars0", body)
+        self.assertEqual(rf_config_frame.apply_image(out, 0x126764)[1], 0)
+
+
 class PostCompose(unittest.TestCase):
     RULES = {"callsite_targets.py", "periph_symbols.py", "asm_returns.py",
              "call_cast_returns.py", "double_args.py", "float_bits.py",
              "stack_frames.py", "dword_compares.py", "arm_shifts.py",
              "float_compares.py", "signed_muls.py", "signed_halfwords.py",
              "heal_two_d_subscript.py", "libmatch.py", "volatile_pointees.py",
-             "heal_composed.py", "absolute_memory.py",
-             "spilled_scalar_inputs.py", "libc_names.py", "format_hd_signextend.py"}
+             "heal_composed.py", "absolute_memory.py", "demonolithize.py",
+             "drop_spurious_fragments.py", "find_ext_strncasecmp.py",
+             "format_hd_signextend.py", "format_scratch_frame.py",
+             "heap_boundary_literal.py", "ipv4_dot_libc.py", "jump_trampolines.py",
+             "luna_rename_apply.py", "luna_semantics_apply.py",
+             "patch_tailcall_args.py", "rf_config_frame.py", "rom_copy_frames.py",
+             "spilled_scalar_inputs.py", "libc_names.py", "tick_signed_cmps.py",
+             "timer_signed_diffs.py", "uncast_memset_zero.py", "validate_forward_args.py"}
 
     def test_the_chain_runs_every_rule_and_rebinds_before_heal(self):
         steps = [(s, a) for s, a, _ in post_compose.STEPS]
