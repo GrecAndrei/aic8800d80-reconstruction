@@ -665,7 +665,7 @@ int task_queue_handler_a() {
         v5(*(volatile uint32_t *)(v1 + 8));
       result = *(volatile uint32_t *)(v1 + 12);
       if ( result )
-        result = ((int (*)())timer_is_past)();
+        result = timer_is_past(result);
       if ( *v3 )
       {
         v6 = *v3 - 1;
@@ -736,7 +736,7 @@ int task_queue_handler_b() {
         v6(*(volatile uint32_t *)(v1 + 8));
       result = *(volatile uint32_t *)(v1 + 12);
       if ( result )
-        result = ((int (*)())timer_is_past)();
+        result = timer_is_past(result);
       if ( *v4 )
       {
         v7 = *v4 - 1;
@@ -800,7 +800,7 @@ int task_queue_handler_c() {
           v7(*(volatile uint32_t *)(v1 + 8));
         result = *(volatile uint32_t *)(v1 + 12);
         if ( result )
-          result = ((int (*)())timer_is_past)();
+          result = timer_is_past(result);
         if ( *v5 )
         {
           v8 = *v5 - 1;

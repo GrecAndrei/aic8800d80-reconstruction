@@ -672,6 +672,24 @@ class RfConfigFrame(unittest.TestCase):
 
 
 
+
+class TimerTargetForward(unittest.TestCase):
+    def test_machine_proven_timer_object_is_forwarded_in_r0(self):
+        import timer_target_forward
+        sample = "  result = *(volatile uint32_t *)(v1 + 12);\n  if ( result )\n    result = ((int (*)())timer_is_past)();\n"
+        out, n = timer_target_forward.transform_body(sample)
+        self.assertEqual(n, 1)
+        self.assertIn("result = timer_is_past(result);", out)
+        self.assertEqual(timer_target_forward.transform_body(out), (out, 0))
+
+    def test_tracked_source_is_at_the_timer_forward_fixed_point(self):
+        import timer_target_forward
+        for short, addrs in timer_target_forward.TARGETS.items():
+            for addr in addrs:
+                n, seen = timer_target_forward.apply_one(short, addr, True)
+                self.assertTrue(seen)
+                self.assertEqual(n, 0)
+
 class MrsIpsr(unittest.TestCase):
     def test_machine_proven_ipsr_read_is_distinct_from_primask(self):
         import mrs_ipsr
@@ -708,7 +726,7 @@ class PostCompose(unittest.TestCase):
              "format_hd_signextend.py", "format_scratch_frame.py",
              "heap_boundary_literal.py", "ipv4_dot_libc.py", "jump_trampolines.py",
              "luna_rename_apply.py", "luna_semantics_apply.py",
-             "patch_tailcall_args.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
+             "patch_tailcall_args.py", "timer_target_forward.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
              "spilled_scalar_inputs.py", "libc_names.py", "tick_signed_cmps.py",
              "timer_signed_diffs.py", "uncast_memset_zero.py", "validate_forward_args.py"}
 
