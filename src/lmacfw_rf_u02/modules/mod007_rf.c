@@ -2210,7 +2210,7 @@ int tick_counter_update(volatile uint8_t *a1, unsigned int a2, int a3) {
       {
         if ( v10 + 4 == a2 || a2 == v10 + 5 )
         {
-          ((int (*)())check_and_process)();
+          check_and_process();
           v12 = v11[2433];
           v13 = dword_112B54;
           v14 = (uint8_t)v11[2432]
@@ -2236,7 +2236,7 @@ int tick_counter_update(volatile uint8_t *a1, unsigned int a2, int a3) {
     }
   }
   mem_free((void *)(&a1[-*(volatile uint32_t *)off_112B64]));
-  ((int (*)())check_and_process)();
+  check_and_process();
   return 1;
 }
 

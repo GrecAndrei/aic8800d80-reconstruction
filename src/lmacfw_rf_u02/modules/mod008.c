@@ -41,7 +41,7 @@ int lookup_table_value(unsigned int a1) {
 
 
 // main_event_handler @ 0x112f6c
-void main_event_handler(int a1, int a2, int a3, int a4) {
+void main_event_handler() {
   volatile uint8_t *v4; // r5
   volatile uint16_t *v5; // r2
   int v6; // r0
@@ -222,7 +222,7 @@ int critical_section_enter_arg(volatile uint32_t *a1) {
     ke_int_lock((int)(uintptr_t)((volatile char *)0x42D), 1);
     result = check_interrupt_flag(512, aWfr);
     if ( !*(volatile uint8_t *)off_11327C )
-      main_event_handler(result, v10, v11, *(volatile uint8_t *)off_11327C);
+      main_event_handler();
   }
   if ( *v2 )
   {
@@ -455,9 +455,9 @@ int refresh_config_params(int a1) {
 
 
 // check_and_process @ 0x113630
-void check_and_process(int a1, int a2, int a3) {
+void check_and_process() {
   if ( !*(volatile uint8_t *)off_11363C )
-    main_event_handler(a1, a2, a3, *(volatile uint8_t *)off_11363C);
+    main_event_handler();
 }
 
 

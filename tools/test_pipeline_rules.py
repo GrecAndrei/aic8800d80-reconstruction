@@ -722,11 +722,26 @@ class ZeroInputPrototypes(unittest.TestCase):
         )
         out, n = zero_input_prototypes.transform_text(sample, spec["replacements"])
         self.assertEqual(n, 4)
+        chain = (
+            "void main_event_handler(int a1, int a2, int a3, int a4);\n"
+            "void main_event_handler(int a1, int a2, int a3, int a4) {\n"
+            "}\n"
+            "void check_and_process(int a1, int a2, int a3) {\n"
+            "  main_event_handler(a1, a2, a3, *(volatile uint8_t *)off_11363C);\n"
+            "}\n"
+            "void tick() { ((int (*)())check_and_process)(); }\n"
+        )
         self.assertIn("int process_event() {", out)
         self.assertIn("int process_event();", out)
         self.assertIn("list_count((volatile uint32_t **)(uintptr_t)off_112E1C)", out)
         self.assertIn("return process_event();", out)
         self.assertEqual(zero_input_prototypes.transform_text(out, spec["replacements"]), (out, 0))
+        out2, n2 = zero_input_prototypes.transform_text(chain, spec["replacements"])
+        self.assertEqual(n2, 5)
+        self.assertIn("void main_event_handler() {", out2)
+        self.assertIn("main_event_handler();", out2)
+        self.assertIn("void check_and_process() {", out2)
+        self.assertIn("check_and_process();", out2)
 
     def test_tracked_source_is_at_the_zero_input_fixed_point(self):
         import zero_input_prototypes

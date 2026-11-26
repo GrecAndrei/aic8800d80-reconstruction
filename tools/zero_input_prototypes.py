@@ -28,6 +28,18 @@ TARGETS = {
             ("((int (*)())list_count)((void *)(uintptr_t)(off_112E1C), a2)",
              "list_count((volatile uint32_t **)(uintptr_t)off_112E1C)"),
             ("((int (*)())process_event)()", "process_event()"),
+            # main_event_handler (0x112f6c) loads every dispatch input from
+            # global memory/function tables before use; incoming r0-r2 are
+            # overwritten without being read. check_and_process (0x113630) is
+            # only a branch wrapper around it, so it is behaviorally
+            # zero-input as well despite the register pass-through tail branch.
+            ("void main_event_handler(int a1, int a2, int a3, int a4) {", "void main_event_handler() {"),
+            ("void main_event_handler(int a1, int a2, int a3, int a4);", "void main_event_handler();"),
+            ("void check_and_process(int a1, int a2, int a3) {", "void check_and_process() {"),
+            ("void check_and_process(int a1, int a2, int a3);", "void check_and_process();"),
+            ("main_event_handler(a1, a2, a3, *(volatile uint8_t *)off_11363C);", "main_event_handler();"),
+            ("main_event_handler(result, v10, v11, *(volatile uint8_t *)off_11327C);", "main_event_handler();"),
+            ("((int (*)())check_and_process)();", "check_and_process();"),
         ],
     }
 }
