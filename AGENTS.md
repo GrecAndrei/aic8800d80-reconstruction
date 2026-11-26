@@ -198,6 +198,18 @@ release tarball
     hand-edited into the model only): the two tick-counter registers
     `rf_tick_counter` (0x40320120) and `timer_value` (0x40501010) survive
     regeneration and make `delay_us` / elapsed-tick waits terminate.
+  - **Unicorn 2.1.4 valid-read-hook epilogue defect (machine-proven
+    2026-11-26)**: a valid `UC_HOOK_MEM_READ` hook — even one scoped only to
+    MMIO — can drop the writeback/control transfer of a Thumb epilogue
+    `pop {..., pc}`; execution then continues through the literal pool with
+    SP unchanged, producing bogus MMIO writes from data bytes. The exact same
+    machine code returns correctly with write-only or unmapped-access hooks.
+    Do not “fix” faithful C for this shape. The default meter still uses the
+    behavioral read-hook backend, but the two machine-proven artifact sites
+    (`sub_1383DC`, `osal_int_exit`) are cross-validated with
+    `Aic8800D80Platform(mmio_read_hooks=False)`; only vectors that become full
+    MMIO+RAM+r0 matches under that backend are reclassified. See
+    `docs/OSAL_INT_EXIT_FORENSICS.md`.
 - **Full-link (non-gc) analysis**: `tools/analyze_full_link_undefs.py`
   quantifies the ~421 undefs when linking without `--gc-sections`:
   58% naming artifacts (name points inside a composed function — code
