@@ -61,7 +61,19 @@ LINK_SPAN = 0x00400000
 
 @functools.lru_cache(maxsize=None)
 def marker_names(image: str) -> dict[int, str]:
-    text = (REPO / "src" / SHORT[image] / "main.c").read_text(errors="replace")
+    # main.c is an umbrella of #include "modules/modNNN.c" since
+    # de-monolithization — expand includes so markers in module files are seen
+    import re as _re
+    base = REPO / "src" / SHORT[image]
+    umbrella = (base / "main.c").read_text(errors="replace")
+    parts = []
+    for line in umbrella.splitlines(keepends=True):
+        inc = _re.match(r'#include "(modules/mod[^"]+\.c)"\s*$', line)
+        if inc and (base / inc.group(1)).exists():
+            parts.append((base / inc.group(1)).read_text(errors="replace"))
+        else:
+            parts.append(line)
+    text = "".join(parts)
     return {int(a, 16): n for n, a in MARKER.findall(text)}
 
 

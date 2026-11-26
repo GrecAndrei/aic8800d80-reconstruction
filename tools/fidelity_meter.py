@@ -510,6 +510,16 @@ def load_elf_info(elf_path: Path, image: str | None = None) -> dict:
         orig_fn_by_hw_addr = {
             a & ~1: n for a, n in emu.load_function_table(image)
         }
+    recon_analysis_by_addr = {}
+    if image:
+        try:
+            name2analysis = {n: a for a, n in lrr.marker_names(image).items()}
+            for la, nm in funcs:
+                ana = name2analysis.get(nm)
+                if ana is not None:
+                    recon_analysis_by_addr[la & ~1] = ana
+        except Exception:
+            pass
     return {
         "base": base,
         "blob": blob,
@@ -517,6 +527,7 @@ def load_elf_info(elf_path: Path, image: str | None = None) -> dict:
         "funcs": funcs,
         "by_name": {n: a for a, n in funcs},
         "recon_fn_by_addr": recon_fn_by_addr,
+        "recon_analysis_by_addr": recon_analysis_by_addr,
         "orig_fn_by_hw_addr": orig_fn_by_hw_addr,
         "rodata_range": rodata_range,
         "pseudo_ranges": pseudo_ranges,
@@ -539,8 +550,16 @@ def is_equivalent_reloc_ptr(
     if not (orig_lo <= orig_ptr < orig_hi and elf_lo <= recon_ptr < elf_hi):
         return False
 
-    # 1. Exact function entry pointer match (preserving Thumb bit).
+    # 1. Exact function entry match by ANALYSIS ADDRESS — name-independent:
+    # orig runtime ptr -0x20000 is its analysis address; the recon target's
+    # analysis address comes from the composed-source markers. Naming passes
+    # can label the same unit differently across datasets, names cannot.
     if (orig_ptr & 1) == (recon_ptr & 1):
+        ra2a = elf_info.get("recon_analysis_by_addr") or {}
+        o_ana = (orig_ptr & ~1) - 0x20000
+        r_ana = ra2a.get(recon_ptr & ~1)
+        if r_ana is not None and o_ana == r_ana:
+            return True
         oname = elf_info["orig_fn_by_hw_addr"].get(orig_ptr & ~1)
         rname = elf_info["recon_fn_by_addr"].get(recon_ptr & ~1)
         if oname and rname:
