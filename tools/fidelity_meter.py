@@ -657,9 +657,38 @@ def compare_ram_states(
     first_diff: int | None = None
     orig_img = orig_plat.image
 
+    # canonicalize data-stored code pointers before comparing: the original
+    # image stores runtime-space pointers (analysis+0x20000), the full link
+    # stores LINK_BASE-space pointers — same function, different bases, so a
+    # raw byte diff is a comparator artifact, not a behavioral difference.
+    # map: recon linked addr -> analysis addr (via by_name + func_meta)
+    canon_map: dict[int, int] = {}
+    func_meta = _CTX.get("func_meta") or {}
+    by_name = (elf_info or {}).get("by_name", {})
+    name2analysis = {}
+    for a, meta in func_meta.items():
+        cn = meta.get("c_name") if isinstance(meta, dict) else None
+        if cn:
+            name2analysis[cn] = a
+    if isinstance(by_name, dict):
+        for nm, la in by_name.items():
+            ana = name2analysis.get(nm)
+            if ana is not None and la is not None:
+                canon_map[(la & ~1) + 1] = ana + 1  # thumb-bit form -> analysis thumb form
+
+    def canon_words(buf: bytes, base: int, is_recon: bool) -> bytes:
+        b = bytearray(buf)
+        for off in range(0, len(buf) - 3, 4):
+            v = int.from_bytes(buf[off:off + 4], "little")
+            if is_recon and v in canon_map:
+                b[off:off + 4] = canon_map[v].to_bytes(4, "little")
+            elif not is_recon and 0x120001 <= v < 0x1A0000 and (v & 1):
+                b[off:off + 4] = (v - 0x20000).to_bytes(4, "little")
+        return bytes(b)
+
     for base, size in RAM_WINDOWS:
-        o_buf = bytes(orig_plat.mu.mem_read(base, size))
-        r_buf = bytes(recon_plat.mu.mem_read(base, size))
+        o_buf = canon_words(bytes(orig_plat.mu.mem_read(base, size)), base, False)
+        r_buf = canon_words(bytes(recon_plat.mu.mem_read(base, size)), base, True)
         b_buf = baseline[base]
         if o_buf != b_buf:
             orig_mutated = True
