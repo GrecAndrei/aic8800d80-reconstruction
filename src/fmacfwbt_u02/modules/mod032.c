@@ -625,12 +625,12 @@ int rf_reg_write_54(int a1, volatile uint8_t *a2) {
   *v4 = 0;
   if ( a2[1] )
   {
-    ((int (*)())bt_conn_set_flag)();
+    bt_conn_set_flag(dword_123800 + 1320 * v5, a2[1]);
 LABEL_5:
     hci_evt_send((int)(uintptr_t)(v4));
     return 0;
   }
-  ((int (*)())bt_conn_get_flag)();
+  bt_conn_get_flag(dword_123800 + 1320 * v5);
   hci_evt_send((int)(uintptr_t)(v4));
   return 0;
 }

@@ -620,12 +620,12 @@ int ke_send_msg_54(int a1, volatile uint8_t *a2) {
   *v4 = 0;
   if ( a2[1] )
   {
-    ((int (*)())lll_conn_phy_get)();
+    lll_conn_phy_get(dword_12348C + 1320 * v5, a2[1]);
 LABEL_5:
     rx_process_packet_1((int)(uintptr_t)(v4));
     return 0;
   }
-  ((int (*)())lll_conn_phy_ld_get)();
+  lll_conn_phy_ld_get(dword_12348C + 1320 * v5);
   rx_process_packet_1((int)(uintptr_t)(v4));
   return 0;
 }

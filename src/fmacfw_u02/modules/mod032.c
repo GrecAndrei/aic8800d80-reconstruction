@@ -620,12 +620,12 @@ int rf_tx_start_cmd(int a1, volatile uint8_t *a2) {
   *v4 = 0;
   if ( a2[1] )
   {
-    ((int (*)())llc_get_conn_state)();
+    llc_get_conn_state(dword_1235CC + 1320 * v5, a2[1]);
 LABEL_5:
     ke_msg_send_2((int)(uintptr_t)(v4));
     return 0;
   }
-  ((int (*)())llc_get_conn_role)();
+  llc_get_conn_role(dword_1235CC + 1320 * v5);
   ke_msg_send_2((int)(uintptr_t)(v4));
   return 0;
 }
