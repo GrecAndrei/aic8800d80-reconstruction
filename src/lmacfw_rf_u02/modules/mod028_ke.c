@@ -203,7 +203,8 @@ volatile uint8_t * validate_signature(volatile uint8_t *result) {
 
 
 // read_irq_status @ 0x1234e4
-int read_irq_status(int result) {
+int read_irq_status() {
+  int result; // r0
   volatile uint8_t *v1; // r6
   volatile uint8_t *v2; // r5
   volatile uint8_t *v3; // r7
@@ -470,7 +471,7 @@ int wait_for_hw_event() {
                 handle_cmd_type2(v15);
                 break;
               case 1:
-                ((int (*)())read_irq_status)();
+                read_irq_status();
                 break;
             }
           }

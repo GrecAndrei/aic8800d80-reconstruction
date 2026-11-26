@@ -4634,7 +4634,7 @@ void wait_hw_interrupt_flag();
 int increment_debug_counter(int a1);
 float check_chip_version(volatile uint8_t *a1);
 volatile uint8_t * validate_signature(volatile uint8_t *result);
-int read_irq_status(int result);
+int read_irq_status();
 volatile uint8_t * handle_cmd_type2(volatile uint8_t *result);
 int wait_for_hw_event();
 unsigned int wait_for_tx_ready();

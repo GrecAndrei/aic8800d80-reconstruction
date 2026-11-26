@@ -40,6 +40,13 @@ TARGETS = {
             ("main_event_handler(a1, a2, a3, *(volatile uint8_t *)off_11363C);", "main_event_handler();"),
             ("main_event_handler(result, v10, v11, *(volatile uint8_t *)off_11327C);", "main_event_handler();"),
             ("((int (*)())check_and_process)();", "check_and_process();"),
+            # read_irq_status (0x1234e4) never consumes its incoming r0. The
+            # only apparent pass-through is into mmio_set_control (hardware
+            # 0x12f15c), which immediately overwrites r0 with a constant MMIO
+            # address before any use; the input is behaviorally irrelevant.
+            ("int read_irq_status(int result) {", "int read_irq_status() {\n  int result; // r0"),
+            ("int read_irq_status(int result);", "int read_irq_status();"),
+            ("((int (*)())read_irq_status)();", "read_irq_status();"),
         ],
     }
 }
