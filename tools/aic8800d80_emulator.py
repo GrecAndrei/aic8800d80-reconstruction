@@ -476,7 +476,12 @@ class Aic8800D80Platform:
     def __init__(self, image_path: Path, mmio_model: dict[int, str] | None = None,
                  cpu_model: int = UC_CPU_ARM_CORTEX_M4,
                  behavior_model: dict[str, dict] | None = None,
-                 boot_rom_profile: dict | None = None):
+                 boot_rom_profile: dict | None = None,
+                 mmio_read_hooks: bool = True):
+        # ``mmio_read_hooks=False`` is the cross-validation backend for the
+        # machine-proven Unicorn 2.1.4 valid-read-hook epilogue corruption.
+        # It keeps write hooks but serves reads only through unmapped accesses.
+        self._mmio_read_hooks = mmio_read_hooks
         self.image_path = Path(image_path)
         self.image = self.image_path.read_bytes()
         self.image_addr = CHIP_BASE
@@ -721,10 +726,41 @@ class Aic8800D80Platform:
         except UcError:
             pass
 
+    def _record_mmio_read(self, uc, addr: int, size: int) -> None:
+        """Apply and record one modeled peripheral read.
+
+        This is shared by the valid-access hook path and the unmapped-access
+        path. The unmapped path is required for correctness under Unicorn
+        2.1.4: installing a valid UC_HOOK_MEM_READ hook can corrupt the
+        writeback/control transfer of Thumb epilogue ``pop {..., pc}``.
+        """
+        if self._spin_break and is_periph_addr(addr):
+            self._spin_last_read = self.insn_count
+            self._spin_last_read_addr = addr
+        self._inject_read_value(addr, int(size))
+        self._rx_consume(addr)
+        try:
+            rv = int.from_bytes(uc.mem_read(addr, size), "little")
+        except UcError:
+            rv = None
+        self.traffic.append({
+            "pc": hex(int(uc.reg_read(UC_ARM_REG_PC))),
+            "op": "read",
+            "addr": hex(addr),
+            "name": mmio_name(self.mmio_model, addr),
+            "size": int(size),
+            "depth": self.call_depth,
+            "value": hex(rv) if rv is not None else None,
+        })
+
     # -- hooks ------------------------------------------------------------
     def _install_hooks(self) -> None:
         def on_code(uc, address, size, user_data):
             pc = int(address)
+            # MMIO pages remain mapped after the unmapped-access hook creates
+            # them. In the default backend valid read hooks model subsequent
+            # reads; in the cross-validation backend they intentionally remain
+            # plain memory so no valid-read-hook epilogue corruption can occur.
             # ANY fetch in the sentinel page is a return: a pop {pc} restores
             # RETURN_STOP|1 (0xdeadc001), which unicorn may fetch as
             # 0xdeadc001 or align to 0xdeadc000/0xdeadc002 — all in this page.
@@ -1063,30 +1099,7 @@ class Aic8800D80Platform:
             # original's callee-register traffic must be excluded too.
             depth = self.call_depth
             if access == UC_MEM_READ:
-                # Behavioral injection BEFORE the load executes (UC_HOOK_MEM_READ
-                # is a pre-access hook): a poll register becomes ready after N
-                # reads, a strobe register clears after its window.
-                self._inject_read_value(addr, int(size))
-                # RX consume-on-read: reading a data register paired to an "rx"
-                # status register consumes the byte (clears the available bit).
-                # Real UART semantics: a byte is read once; the flag stays set
-                # only until the data register is read.
-                self._rx_consume(addr)
-                # Capture the actual read-back value (the phantom model maps a
-                # deterministic word, so this is stable) for echo/poll evidence.
-                try:
-                    rv = int.from_bytes(uc.mem_read(addr, size), "little")
-                except UcError:
-                    rv = None
-                self.traffic.append({
-                    "pc": hex(int(uc.reg_read(UC_ARM_REG_PC))),
-                    "op": "read",
-                    "addr": hex(addr),
-                    "name": mmio_name(self.mmio_model, addr),
-                    "size": int(size),
-                    "depth": depth,
-                    "value": hex(rv) if rv is not None else None,
-                })
+                self._record_mmio_read(uc, addr, int(size))
             else:
                 self.traffic.append({
                     "pc": hex(int(uc.reg_read(UC_ARM_REG_PC))),
@@ -1147,19 +1160,21 @@ class Aic8800D80Platform:
                     self.mmio_auto_mapped.add(base)
                 except UcError:
                     return False
-            # Behavioral injection for the first access of a page; otherwise a
-            # deterministic default word (or the last written value).
-            bval = self._behavior_read_word(addr, int(size))
-            if bval is not None:
-                try:
-                    lane = (1 << (8 * int(size))) - 1
-                    uc.mem_write(addr, int(bval & lane).to_bytes(int(size), "little"))
-                except UcError:
-                    return False
+            if access == UC_MEM_READ_UNMAPPED and not self._mmio_read_hooks:
+                # Cross-validation backend: with no valid-read hook installed,
+                # modeled read injection and traffic capture happen here.
+                self._record_mmio_read(uc, addr, int(size))
             else:
+                # Behavioral injection for the first access of a page;
+                # otherwise a deterministic default word (or last write).
+                bval = self._behavior_read_word(addr, int(size))
                 try:
-                    word = self.mmio_state.get(addr & ~3, 0)
-                    uc.mem_write(addr & ~3, struct.pack("<I", word))
+                    if bval is not None and access == UC_MEM_READ_UNMAPPED:
+                        lane = (1 << (8 * int(size))) - 1
+                        uc.mem_write(addr, int(bval & lane).to_bytes(int(size), "little"))
+                    else:
+                        word = self.mmio_state.get(addr & ~3, 0)
+                        uc.mem_write(addr & ~3, struct.pack("<I", word))
                 except UcError:
                     return False
             return True
@@ -1170,17 +1185,18 @@ class Aic8800D80Platform:
         self.mu.hook_add(
             UC_HOOK_MEM_FETCH_UNMAPPED, on_unmapped_fetch,
         )
-        # Scope the default READ|WRITE hook to peripheral MMIO windows only:
-        # registering UC_HOOK_MEM_READ|UC_HOOK_MEM_WRITE over executing code
-        # or stack triggers a Unicorn 2.1.4 TCG bug that corrupts conditional
-        # branches (`it`/`bne.n`). spin_break=True attaches the RAM window for
-        # the duration of run() only.
+        # Default backend: valid read+write hooks give full behavioral MMIO
+        # injection. Cross-validation backend: write hooks only. Machine
+        # evidence shows that Unicorn 2.1.4 valid READ hooks can skip the
+        # writeback/control transfer of a Thumb epilogue ``pop {..., pc}``;
+        # the write-only backend is used to classify that artifact honestly.
+        valid_types = (UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE) if self._mmio_read_hooks else UC_HOOK_MEM_WRITE
         self.mu.hook_add(
-            UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE, on_mem,
+            valid_types, on_mem,
             begin=MMIO_PHANTOM_BASE, end=MMIO_PHANTOM_END - 1,
         )
         self.mu.hook_add(
-            UC_HOOK_MEM_READ | UC_HOOK_MEM_WRITE, on_mem,
+            valid_types, on_mem,
             begin=0xE0000000, end=0xE00FFFFF,
         )
         self.mu.hook_add(
