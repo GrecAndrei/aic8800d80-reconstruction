@@ -675,6 +675,13 @@ def compare_ram_states(
             ana = name2analysis.get(nm)
             if ana is not None and la is not None:
                 canon_map[(la & ~1) + 1] = ana + 1  # thumb-bit form -> analysis thumb form
+    # known function addresses in RUNTIME (hardware) space — only words that
+    # verifiably point at real functions may be canonicalized; range-matching
+    # alone false-positives on ordinary odd data values (counters, lengths)
+    try:
+        rt_funcs = {a & ~1 for a, _nm in emu.load_function_table(_CTX.get("image", ""))}
+    except Exception:
+        rt_funcs = set()
 
     def canon_words(buf: bytes, base: int, is_recon: bool) -> bytes:
         # symmetric: BOTH sides may hold runtime-space pointers (bootstate is
@@ -684,7 +691,7 @@ def compare_ram_states(
         b = bytearray(buf)
         for off in range(0, len(buf) - 3, 4):
             v = int.from_bytes(buf[off:off + 4], "little")
-            if 0x120001 <= v < 0x1A0000 and (v & 1):
+            if (v & 1) and (v & ~1) in rt_funcs and 0x120001 <= v < 0x1A0000:
                 b[off:off + 4] = (v - 0x20000).to_bytes(4, "little")
             elif is_recon and v in canon_map:
                 b[off:off + 4] = canon_map[v].to_bytes(4, "little")
