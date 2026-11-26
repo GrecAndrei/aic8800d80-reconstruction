@@ -127,12 +127,14 @@ def load_dataset() -> dict[str, list[tuple[str, int]]]:
 
 
 def load_composed(img: str) -> dict[int, str]:
-    """{start_addr: function_name} from the composed main.c (// name @ addr)."""
-    main = REPO / "src" / LONG_TO_SHORT[img] / "main.c"
+    """{start_addr: function_name} from the logical composed source."""
+    import composed_source
+    short = LONG_TO_SHORT[img]
+    main = REPO / "src" / short / "main.c"
     d: dict[int, str] = {}
     if main.is_file():
-        for m in re.finditer(r"^// (\S+) @ (0x[0-9a-fA-F]+)$",
-                             main.read_text(errors="replace"), re.M):
+        text = composed_source.load_composed_text(short)
+        for m in re.finditer(r"^// (\S+) @ (0x[0-9a-fA-F]+)$", text, re.M):
             d[int(m.group(2), 16)] = m.group(1)
     return d
 
