@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-25T16:24:11Z",
-  "elapsed_sec": 1313.2,
+  "generated_at": "2026-11-26T20:39:38Z",
+  "elapsed_sec": 1504.7,
   "vectors": [
     "bare_zero",
     "boot_zero",
@@ -125,7 +125,7 @@
             "expected": 1
           },
           {
-            "caller": "check_cal_status",
+            "caller": "send_tx_confirmation",
             "caller_addr": "0x117bf0",
             "callee": "rf_is_idle",
             "callee_addr": "0x113374",
@@ -255,7 +255,7 @@
           {
             "caller": "mmio_register_access",
             "caller_addr": "0x130148",
-            "callee": "rf_calibration_proc",
+            "callee": "test_command_queue_process",
             "callee_addr": "0x130030",
             "passed": 0,
             "expected": 2
@@ -447,7 +447,7 @@
             "expected": 1
           },
           {
-            "caller": "check_cal_status",
+            "caller": "send_tx_confirmation",
             "caller_addr": "0x117bf0",
             "callee": "rf_is_idle",
             "callee_addr": "0x113374",
@@ -697,7 +697,7 @@
           {
             "caller": "bt_process_msg",
             "caller_addr": "0x132794",
-            "callee": "is_valid_rate_code",
+            "callee": "wlan_rate_code_to_index",
             "callee_addr": "0x1326f4",
             "passed": 0,
             "expected": 1
@@ -1729,8 +1729,8 @@
       }
     ],
     "build": {
-      "post_compose_clean": false,
-      "src_reproduce_clean": false,
+      "post_compose_clean": null,
+      "src_reproduce_clean": null,
       "full_link_images": {
         "fmacfw_8800d80_h_u02": {
           "status": "OK",
@@ -1766,142 +1766,186 @@
     }
   },
   "axis2_default_state": {
-    "match": 4369,
-    "exercised_match": 2778,
-    "vacuous_match": 1591,
+    "match": 4490,
+    "exercised_match": 2791,
+    "vacuous_match": 1699,
     "asserted_match": 547,
-    "differ": 1,
-    "mmio_only_hidden_differ": 1,
-    "not_run": 347,
-    "diff_reasons": {
-      "ram_differ": 1
-    }
+    "differ": 0,
+    "mmio_only_hidden_differ": 0,
+    "not_run": 227,
+    "diff_reasons": {}
   },
   "axis3_multivector": {
     "total_functions": 4718,
     "per_vector": {
       "bare_zero": {
-        "match": 4369,
-        "exercised_match": 2778,
-        "vacuous_match": 1591,
+        "match": 4490,
+        "exercised_match": 2791,
+        "vacuous_match": 1699,
         "asserted_match": 547,
-        "differ": 1,
-        "mmio_only_hidden_differ": 1,
-        "not_run": 347,
-        "diff_reasons": {
-          "ram_differ": 1
-        }
+        "differ": 0,
+        "mmio_only_hidden_differ": 0,
+        "not_run": 227,
+        "diff_reasons": {}
       },
       "boot_zero": {
-        "match": 3448,
-        "exercised_match": 1829,
-        "vacuous_match": 1619,
+        "match": 3566,
+        "exercised_match": 1839,
+        "vacuous_match": 1727,
         "asserted_match": 8,
-        "differ": 1,
-        "mmio_only_hidden_differ": 1,
-        "not_run": 1269,
+        "differ": 3,
+        "mmio_only_hidden_differ": 0,
+        "not_run": 1149,
         "diff_reasons": {
-          "ram_differ": 1
+          "mmio_differ": 3
         }
       },
       "boot_scalar": {
-        "match": 3536,
-        "exercised_match": 2048,
-        "vacuous_match": 1488,
+        "match": 3653,
+        "exercised_match": 2076,
+        "vacuous_match": 1577,
         "asserted_match": 20,
-        "differ": 0,
+        "differ": 3,
         "mmio_only_hidden_differ": 0,
-        "not_run": 1179,
-        "diff_reasons": {}
+        "not_run": 1059,
+        "diff_reasons": {
+          "mmio_differ": 3
+        }
       },
       "boot_neg": {
-        "match": 3458,
-        "exercised_match": 1964,
-        "vacuous_match": 1494,
+        "match": 3576,
+        "exercised_match": 1997,
+        "vacuous_match": 1579,
         "asserted_match": 20,
-        "differ": 1,
+        "differ": 3,
         "mmio_only_hidden_differ": 0,
-        "not_run": 1255,
+        "not_run": 1135,
         "diff_reasons": {
-          "mmio_differ": 1
+          "mmio_differ": 3
         }
       },
       "boot_ptr": {
-        "match": 3303,
-        "exercised_match": 2009,
-        "vacuous_match": 1294,
+        "match": 3417,
+        "exercised_match": 2034,
+        "vacuous_match": 1383,
         "asserted_match": 16,
-        "differ": 0,
+        "differ": 6,
         "mmio_only_hidden_differ": 0,
-        "not_run": 1409,
-        "diff_reasons": {}
+        "not_run": 1289,
+        "diff_reasons": {
+          "mmio_differ": 6
+        }
       }
     },
     "per_image": {
       "fmacfw_h_u02": {
         "total": 1283,
-        "exercised_all_match": 823,
-        "vacuous_all_match": 373,
-        "failing_any_vector": 0,
-        "never_comparable": 87,
-        "exercised_coverage_pct": 64.15
+        "exercised_all_match": 835,
+        "vacuous_all_match": 389,
+        "failing_any_vector": 2,
+        "never_comparable": 57,
+        "exercised_coverage_pct": 65.08
       },
       "fmacfw_u02": {
         "total": 1284,
-        "exercised_all_match": 822,
-        "vacuous_all_match": 375,
-        "failing_any_vector": 0,
-        "never_comparable": 87,
-        "exercised_coverage_pct": 64.02
+        "exercised_all_match": 834,
+        "vacuous_all_match": 391,
+        "failing_any_vector": 2,
+        "never_comparable": 57,
+        "exercised_coverage_pct": 64.95
       },
       "fmacfwbt_u02": {
         "total": 1285,
-        "exercised_all_match": 829,
-        "vacuous_all_match": 369,
-        "failing_any_vector": 0,
-        "never_comparable": 87,
-        "exercised_coverage_pct": 64.51
+        "exercised_all_match": 841,
+        "vacuous_all_match": 385,
+        "failing_any_vector": 2,
+        "never_comparable": 57,
+        "exercised_coverage_pct": 65.45
       },
       "lmacfw_rf_u02": {
         "total": 866,
-        "exercised_all_match": 650,
-        "vacuous_all_match": 138,
-        "failing_any_vector": 2,
-        "never_comparable": 76,
-        "exercised_coverage_pct": 75.06
+        "exercised_all_match": 665,
+        "vacuous_all_match": 155,
+        "failing_any_vector": 0,
+        "never_comparable": 46,
+        "exercised_coverage_pct": 76.79
       }
     },
     "aggregate": {
       "machine_nullsub_excluded": 36,
-      "exercised_all_match": 3124,
-      "vacuous_all_match": 1255,
-      "failing_any_vector": 2,
-      "never_comparable": 337,
-      "strict_all_match_pct": 92.81,
-      "comparable_all_match_pct": 99.95,
-      "exercised_coverage_pct": 66.21
+      "exercised_all_match": 3175,
+      "vacuous_all_match": 1320,
+      "failing_any_vector": 6,
+      "never_comparable": 217,
+      "strict_all_match_pct": 95.27,
+      "comparable_all_match_pct": 99.87,
+      "exercised_coverage_pct": 67.3
     },
     "top_differs": [
       {
-        "image": "lmacfw_rf_u02",
-        "address": "0x1149fc",
-        "function": "osal_int_exit",
-        "vector": "bare_zero",
-        "reason": "ram_differ",
-        "mmio_match": true,
-        "orig_r0": "0x0",
-        "recon_r0": "0x0",
-        "ram_diff_addr": "0x180564"
-      },
-      {
-        "image": "lmacfw_rf_u02",
-        "address": "0x126764",
-        "function": "rf_config_load",
-        "vector": "boot_neg",
+        "image": "fmacfw_h_u02",
+        "address": "0x10fba0",
+        "function": "buffer_release",
+        "vector": "boot_ptr",
         "reason": "mmio_differ",
         "mmio_match": false,
-        "orig_r0": "0x40342088",
-        "recon_r0": "0x40342088",
+        "orig_r0": "0xffffffff",
+        "recon_r0": "0xffffffff",
+        "ram_diff_addr": null
+      },
+      {
+        "image": "fmacfw_h_u02",
+        "address": "0x115698",
+        "function": "rx_packet_pending",
+        "vector": "boot_zero",
+        "reason": "mmio_differ",
+        "mmio_match": false,
+        "orig_r0": "0x188410",
+        "recon_r0": "0x188410",
+        "ram_diff_addr": null
+      },
+      {
+        "image": "fmacfw_u02",
+        "address": "0x10fce0",
+        "function": "util_is_nonnull",
+        "vector": "boot_ptr",
+        "reason": "mmio_differ",
+        "mmio_match": false,
+        "orig_r0": "0xffffffff",
+        "recon_r0": "0xffffffff",
+        "ram_diff_addr": null
+      },
+      {
+        "image": "fmacfw_u02",
+        "address": "0x1157d8",
+        "function": "handle_reset_event",
+        "vector": "boot_zero",
+        "reason": "mmio_differ",
+        "mmio_match": false,
+        "orig_r0": "0x188410",
+        "recon_r0": "0x188410",
+        "ram_diff_addr": null
+      },
+      {
+        "image": "fmacfwbt_u02",
+        "address": "0x10fb38",
+        "function": "list_insert",
+        "vector": "boot_ptr",
+        "reason": "mmio_differ",
+        "mmio_match": false,
+        "orig_r0": "0xffffffff",
+        "recon_r0": "0xffffffff",
+        "ram_diff_addr": null
+      },
+      {
+        "image": "fmacfwbt_u02",
+        "address": "0x115d28",
+        "function": "mac_status_check",
+        "vector": "boot_zero",
+        "reason": "mmio_differ",
+        "mmio_match": false,
+        "orig_r0": "0x188cd4",
+        "recon_r0": "0x188cd4",
         "ram_diff_addr": null
       }
     ]
@@ -1977,14 +2021,14 @@
       "orig_writes": 2251,
       "recon_term": "capped",
       "recon_insns": 500000,
-      "recon_writes": 2238,
+      "recon_writes": 2236,
       "recon_fault": "",
-      "matched_prefix_writes": 2238,
+      "matched_prefix_writes": 2236,
       "first_diff": {
-        "index": 2238,
+        "index": 2236,
         "orig": [
-          "0x4050901c",
-          "0x300"
+          "0x40509010",
+          "0x1fe12"
         ],
         "recon": null
       }
