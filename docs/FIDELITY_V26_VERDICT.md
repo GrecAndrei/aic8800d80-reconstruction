@@ -54,7 +54,16 @@ artifacts, not behavioral defects:
 - `osal_int_exit` (lmac) — the documented unicorn-level control-flow
   anomaly (docs/OSAL_INT_EXIT_FORENSICS.md), needs a second emulator
   backend to cross-validate
-- `tx_acl_queue_process` (lmac, diff at 0x18) — low-address write
+- `tx_acl_queue_process` (lmac, diff at 0x18) — low-address divergence.
+  Eval-path write trace: the ORIGINAL executes `str r0=0 -> 0x18` at
+  runtime pc 0x137340 (analysis 0x117340, a caller/callee of the tx path)
+  plus other low writes (0x14, 0x58, 0x5c, 0x94=156). The reconstruction
+  performs NO low-memory writes in the same path, yet its end state holds
+  0x38 at 0x18 with initial content 0 — the residual mystery is where the
+  recon's 0x38 originates (no write observed in any hooked run); most
+  likely a null-base struct write the decompiled code redirects or an
+  emulator-injected event write. Both remaining divergences are documented
+  open items, each requiring emulator-internals-level investigation
 - 13 r0_differ — audited: the dominant subclass is functions returning
   `volatile uint64_t *` (timer_get_counter, read_hw_clock, timer_timestamp_get)
   — POINTER returns into runtime structures or stack frames, inherently
