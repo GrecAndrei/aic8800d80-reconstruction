@@ -526,7 +526,7 @@ volatile char * write_hash_header(int a1) {
   }
   if ( *(volatile uint8_t *)(v8 + 0x48) >> 7 )
   {
-    v18 = ((int (*)())phy_get_rate_code)();
+    v18 = phy_get_rate_code(*(volatile uint16_t *)(v8 + 0x50));
     v19 = v18 + 1 + *(volatile uint8_t *)(v8 + 0x175) * (v18 + 1);
     v20 = (uint8_t)((unsigned int)(6 * v19 + 14) >> 3);
     if ( (uint8_t)((unsigned int)(6 * v19 + 14) >> 3) )

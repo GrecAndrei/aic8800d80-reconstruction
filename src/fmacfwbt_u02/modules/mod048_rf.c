@@ -426,7 +426,7 @@ volatile char * rf_write_pattern_ff23(int a1) {
   }
   if ( *(volatile uint8_t *)(v8 + 0x48) >> 7 )
   {
-    v18 = ((int (*)())rf_get_chan_index)();
+    v18 = rf_get_chan_index(*(volatile uint16_t *)(v8 + 0x50));
     v19 = v18 + 1 + *(volatile uint8_t *)(v8 + 0x175) * (v18 + 1);
     v20 = (uint8_t)((unsigned int)(6 * v19 + 14) >> 3);
     if ( (uint8_t)((unsigned int)(6 * v19 + 14) >> 3) )
