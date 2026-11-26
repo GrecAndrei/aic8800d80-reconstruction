@@ -16,11 +16,14 @@
 Genuine passing: 4,356 / 4,718 (92.3%). Measurement-limited: 347.
 Genuinely divergent: **15** (2 ram + 13 r0).
 
-The 128 not_in_linked_image are all compiler/libc runtime routines —
+The 128 not_in_linked_image were all compiler/libc runtime routines —
 exactly 32 per image: aeabi double/float conversion+arithmetic helpers,
-comparison ops (is_not_equal/cmp_eq/...), and memcpy/strcpy, which the
-reconstruction correctly satisfies from the toolchain's -lgcc/-lc instead
-of the decompiled units. Benign by design, not missing coverage.
+comparison ops (is_not_equal/cmp_eq/...), and memcpy/strcpy. They are benign
+by design, but they are no longer measurement dead zones: the meter now parses
+each libmatch comment, resolves the exact linked `__libmatch_*` routine, and
+executes it. Targeted validation of all 30 linked libmatch units in lmacfw_rf
+passes bare_zero and boot_ptr with MMIO+RAM+r0 equality; only two interior
+fragments per image remain non-callable structural units.
 
 ## What the correction chain found
 
@@ -55,7 +58,7 @@ artifacts, not behavioral defects:
   Unicorn 2.1.4 valid-read-hook epilogue-pop artifact, not reconstruction
   divergence. See the final section of docs/OSAL_INT_EXIT_FORENSICS.md:
   the write-only cross-validation backend returns identical behavior for
-  original and reconstruction. Remaining work is meter integration.
+  original and reconstruction. The fidelity meter now performs this targeted cross-validation automatically.
 - `tx_acl_queue_process` (lmac, bare_zero only) — closed as invalid input:
   null is not a valid first argument; the machine-proven boot vectors
   boot_zero/boot_scalar/boot_neg/boot_ptr all match exactly. The earlier
