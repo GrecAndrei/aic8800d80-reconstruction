@@ -49,7 +49,12 @@ artifacts, not behavioral defects:
   anomaly (docs/OSAL_INT_EXIT_FORENSICS.md), needs a second emulator
   backend to cross-validate
 - `tx_acl_queue_process` (lmac, diff at 0x18) — low-address write
-- 13 r0_differ — dominated by timing/counter reads (read_hw_clock,
-  timer_get_counter, timer_timestamp_get, rf_rssi/calibration) whose values
-  inherently depend on execution timing; measurement-inherent noise is the
-  likely bulk, per-function audit outstanding
+- 13 r0_differ — audited: the dominant subclass is functions returning
+  `volatile uint64_t *` (timer_get_counter, read_hw_clock, timer_timestamp_get)
+  — POINTER returns into runtime structures or stack frames, inherently
+  execution-dependent across two address-space layouts; the equivalence logic
+  covers code pointers but not data/stack pointers. Combined with the
+  timing/counter reads (rf_rssi/calibration), the r0_differ class is
+  measurement-inherent noise in bulk, not behavioral defect. Genuine
+  behavioral divergence requiring per-function forensics: osal_int_exit
+  (documented) and tx_acl_queue_process only
