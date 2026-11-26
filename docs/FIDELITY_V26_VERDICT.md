@@ -16,6 +16,12 @@
 Genuine passing: 4,356 / 4,718 (92.3%). Measurement-limited: 347.
 Genuinely divergent: **15** (2 ram + 13 r0).
 
+The 128 not_in_linked_image are all compiler/libc runtime routines —
+exactly 32 per image: aeabi double/float conversion+arithmetic helpers,
+comparison ops (is_not_equal/cmp_eq/...), and memcpy/strcpy, which the
+reconstruction correctly satisfies from the toolchain's -lgcc/-lc instead
+of the decompiled units. Benign by design, not missing coverage.
+
 ## What the correction chain found
 
 The path from v18's noisy measurement to v26 was almost entirely comparator
