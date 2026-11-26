@@ -491,7 +491,11 @@ def load_elf_info(elf_path: Path, image: str | None = None) -> dict:
             elif sec.name == ".rodata":
                 rodata_range = (sec["sh_addr"], sec["sh_addr"] + sec["sh_size"])
         for sym in elf.get_section_by_name(".symtab").iter_symbols():
-            if sym.name in PSEUDO_REG_NAMES and sym["st_value"]:
+            # neutralize Hex-Rays pseudo-regs AND reconstruction-owned emulation
+            # state (__aic8800d80_* — PRIMASK shadow etc.): these model CPU state
+            # the original binary keeps in real registers, so the original has no
+            # corresponding memory and any recon write there is incomparable
+            if (sym.name in PSEUDO_REG_NAMES or sym.name.startswith("__aic8800d80_")) and sym["st_value"]:
                 sz = sym["st_size"] or 4
                 lo = sym["st_value"]
                 pseudo_ranges.append((lo, lo + sz))
