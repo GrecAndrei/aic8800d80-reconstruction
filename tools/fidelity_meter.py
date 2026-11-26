@@ -543,8 +543,16 @@ def is_equivalent_reloc_ptr(
     if (orig_ptr & 1) == (recon_ptr & 1):
         oname = elf_info["orig_fn_by_hw_addr"].get(orig_ptr & ~1)
         rname = elf_info["recon_fn_by_addr"].get(recon_ptr & ~1)
-        if oname and rname and oname == rname:
-            return True
+        if oname and rname:
+            if oname == rname:
+                return True
+            # compose dedups same-name units as base + _N; the original function
+            # table keeps the shared base name for both units, so a correct data
+            # pointer to the _1 unit reads as base-vs-base_1 — strip the suffix
+            import re as _re
+            strip = lambda s: _re.sub(r"_\d+$", "", s)
+            if strip(oname) == strip(rname):
+                return True
 
     # 2. Identical C-string / read-only constant bytes inside orig image vs recon blob.
     o_off = orig_ptr - orig_lo
