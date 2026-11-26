@@ -77,7 +77,7 @@ int assert_fault(volatile uint32_t *a1) {
     ke_int_lock((int)(uintptr_t)((volatile char *)0x42D), 1);
     result = check_status_bits(512, aWfr);
     if ( !*(volatile uint8_t *)off_1139C4 )
-      read_state_flag(result, v10, v11, *(volatile uint8_t *)off_1139C4);
+      read_state_flag();
   }
   if ( *v2 )
   {
@@ -417,7 +417,7 @@ int call_checked() {
 // timer_delay_1 @ 0x114104
 void timer_delay_1() {
   if ( !*(volatile uint8_t *)off_114110 )
-    ((int (*)())read_state_flag)();
+    read_state_flag();
 }
 
 

@@ -662,7 +662,7 @@ LABEL_48:
     v49 = dword_10D9DC;
     ++*(volatile uint32_t *)off_10D9D8;
     co_list_push_back(v49, v2);
-    ((int (*)())rf_is_idle)();
+    rf_is_idle();
     if ( *v48 )
     {
       v50 = *v48 - 1;

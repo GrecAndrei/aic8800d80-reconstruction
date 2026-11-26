@@ -1104,7 +1104,7 @@ int timer_check_state(int result, volatile uint32_t *a2) {
             ++*(volatile uint32_t *)off_118300;
             ke_event_schedule_1("cfms: %x, sn=%d, st=%d\r\n", v4, v18, v19);
             check_abort_flag(dword_118308, v10);
-            result = ((int (*)())rf_calib_init)();
+            result = rf_calib_init();
             if ( *v17 )
             {
               v20 = *v17 - 1;

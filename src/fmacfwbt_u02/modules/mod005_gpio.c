@@ -660,7 +660,7 @@ LABEL_48:
     v48 = dword_10D974;
     ++*(volatile uint32_t *)off_10D970;
     check_abort_flag(v48, v2);
-    ((int (*)())rf_calib_init)();
+    rf_calib_init();
     if ( *v47 )
     {
       v49 = *v47 - 1;

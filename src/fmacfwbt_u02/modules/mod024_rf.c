@@ -1437,7 +1437,7 @@ LABEL_25:
       v39 = dword_11E9C0;
       ++*(volatile uint32_t *)off_11E9D0;
       check_abort_flag(v39, v6);
-      ((int (*)())rf_calib_init)();
+      rf_calib_init();
       if ( *v38 )
       {
         v40 = *v38 - 1;
@@ -1541,7 +1541,7 @@ LABEL_2:
   }
   v47 = (volatile int *)off_11EA38;
   ++*(volatile uint32_t *)off_11EA38;
-  v48 = ((int (*)())rf_calib_init)();
+  v48 = rf_calib_init();
   if ( *v47 )
   {
     v49 = *v47 - 1;
@@ -1654,7 +1654,7 @@ int rx_packet_setup(int a1) {
       }
       v60 = (volatile int *)off_11EEB0;
       ++*(volatile uint32_t *)off_11EEB0;
-      v61 = ((int (*)())rf_calib_init)();
+      v61 = rf_calib_init();
       if ( *v60 )
       {
         v62 = *v60 - 1;
@@ -1768,7 +1768,7 @@ LABEL_17:
             v23 = dword_11EC98;
             ++*(volatile uint32_t *)off_11EC94;
             check_abort_flag(v23, v1);
-            ((int (*)())rf_calib_init)();
+            rf_calib_init();
             if ( *v22 )
             {
               v24 = *v22 - 1;

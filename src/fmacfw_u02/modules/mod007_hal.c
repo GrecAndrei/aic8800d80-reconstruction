@@ -2611,7 +2611,7 @@ int lookup_channel_table(unsigned int a1) {
 
 
 // read_state_flag @ 0x1136b8
-void read_state_flag(int a1, int a2, int a3, int a4) {
+void read_state_flag() {
   volatile uint8_t *v4; // r5
   volatile uint16_t *v5; // r2
   int v6; // r0

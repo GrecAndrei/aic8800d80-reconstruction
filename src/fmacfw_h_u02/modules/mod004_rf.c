@@ -4149,7 +4149,7 @@ LABEL_59:
     }
     v43 = (volatile int *)off_10D044;
     ++*(volatile uint32_t *)off_10D044;
-    v44 = ((int (*)())rf_is_idle)();
+    v44 = rf_is_idle();
     if ( *v43 )
     {
       v45 = *v43 - 1;
@@ -4258,7 +4258,7 @@ LABEL_16:
       v26 = dword_10CF88;
       ++*(volatile uint32_t *)off_10CF84;
       co_list_push_back(v26, v8);
-      ((int (*)())rf_is_idle)();
+      rf_is_idle();
       if ( *v25 )
       {
         v27 = *v25 - 1;

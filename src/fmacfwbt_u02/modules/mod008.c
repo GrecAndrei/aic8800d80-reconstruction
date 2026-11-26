@@ -78,7 +78,7 @@ int critical_section_enter(volatile uint32_t *a1) {
     irq_lock((volatile char *)0x42D, 1);
     result = state_check_feature(512, aWfr);
     if ( !*(volatile uint8_t *)off_113820 )
-      bt_ctrl_main_task(result, v10, v11, *(volatile uint8_t *)off_113820);
+      bt_ctrl_main_task();
   }
   if ( *v2 )
   {
@@ -421,7 +421,7 @@ int sleep_exit_critical() {
 // bt_task_tail_dispatch @ 0x113f60
 void bt_task_tail_dispatch() {
   if ( !*(volatile uint8_t *)off_113F6C )
-    ((int (*)())bt_ctrl_main_task)();
+    bt_ctrl_main_task();
 }
 
 

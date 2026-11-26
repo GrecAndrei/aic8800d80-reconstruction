@@ -2427,7 +2427,7 @@ int global_env_init_params(int a1, int a2) {
 
 
 // rf_calib_init @ 0x113310
-int rf_calib_init(int a1, int a2) {
+int rf_calib_init() {
   volatile uint8_t *v2; // r6
   volatile int **v3; // r4
   char v4; // r0
@@ -2446,7 +2446,7 @@ int rf_calib_init(int a1, int a2) {
   if ( *(volatile uint8_t *)off_1133A4 )
     return -99;
   v3 = (volatile int **)off_1133A8;
-  v4 = ((int (*)())list_length)((void *)(uintptr_t)(off_1133A8), a2);
+  v4 = list_length((volatile uint32_t **)(uintptr_t)off_1133A8);
   v5 = (void *)(uintptr_t)(off_1133B0);
   *(volatile uint8_t *)off_1133B0 = v4;
   if ( v4 )
@@ -2551,7 +2551,7 @@ int rf_calib_mode_set(int a1, int a2, int a3) {
       while ( *v5 );
     }
 LABEL_12:
-    ((int (*)())rf_calib_init)();
+    rf_calib_init();
     return 1;
   }
   else
@@ -2612,7 +2612,7 @@ int table_index_lookup(unsigned int a1) {
 
 
 // bt_ctrl_main_task @ 0x113514
-void bt_ctrl_main_task(int a1, int a2, int a3, int a4) {
+void bt_ctrl_main_task() {
   volatile uint8_t *v4; // r5
   volatile uint16_t *v5; // r2
   int v6; // r0

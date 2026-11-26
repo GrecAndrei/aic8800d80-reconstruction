@@ -1435,7 +1435,7 @@ LABEL_25:
       v39 = dword_11E440;
       ++*(volatile uint32_t *)off_11E450;
       co_list_push_back(v39, v6);
-      ((int (*)())rf_is_idle)();
+      rf_is_idle();
       if ( *v38 )
       {
         v40 = *v38 - 1;
@@ -1539,7 +1539,7 @@ LABEL_2:
   }
   v47 = (volatile int *)off_11E4B8;
   ++*(volatile uint32_t *)off_11E4B8;
-  v48 = ((int (*)())rf_is_idle)();
+  v48 = rf_is_idle();
   if ( *v47 )
   {
     v49 = *v47 - 1;
@@ -1652,7 +1652,7 @@ int tx_packet_complete(int a1) {
       }
       v60 = (volatile int *)off_11E930;
       ++*(volatile uint32_t *)off_11E930;
-      v61 = ((int (*)())rf_is_idle)();
+      v61 = rf_is_idle();
       if ( *v60 )
       {
         v62 = *v60 - 1;
@@ -1766,7 +1766,7 @@ LABEL_17:
             v23 = dword_11E718;
             ++*(volatile uint32_t *)off_11E714;
             co_list_push_back(v23, v1);
-            ((int (*)())rf_is_idle)();
+            rf_is_idle();
             if ( *v22 )
             {
               v24 = *v22 - 1;

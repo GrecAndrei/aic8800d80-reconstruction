@@ -49,7 +49,7 @@ int get_handler_by_index(unsigned int a1) {
 
 
 // rf_get_flag @ 0x113578
-void rf_get_flag(int a1, int a2, int a3, int a4) {
+void rf_get_flag() {
   volatile uint8_t *v4; // r5
   volatile uint16_t *v5; // r2
   int v6; // r0
@@ -230,7 +230,7 @@ int util_call_raw(volatile uint32_t *a1) {
     invalid_handler_12c5fc((int)(uintptr_t)((volatile char *)0x42D), 1);
     result = check_feature_flag(512, aWfr);
     if ( !*(volatile uint8_t *)off_113884 )
-      rf_get_flag(result, v10, v11, *(volatile uint8_t *)off_113884);
+      rf_get_flag();
   }
   if ( *v2 )
   {
@@ -574,7 +574,7 @@ int util_call_deep() {
 // util_init_buffer @ 0x113fc4
 void util_init_buffer() {
   if ( !*(volatile uint8_t *)off_113FD0 )
-    ((int (*)())rf_get_flag)();
+    rf_get_flag();
 }
 
 

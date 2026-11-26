@@ -2429,7 +2429,7 @@ int check_and_init_flag(int a1, int a2) {
 
 
 // rf_is_idle @ 0x113374
-int rf_is_idle(int a1, int a2) {
+int rf_is_idle() {
   volatile uint8_t *v2; // r6
   volatile int **v3; // r4
   char v4; // r0
@@ -2448,7 +2448,7 @@ int rf_is_idle(int a1, int a2) {
   if ( *(volatile uint8_t *)off_113408 )
     return -99;
   v3 = (volatile int **)off_11340C;
-  v4 = ((int (*)())list_length)((void *)(uintptr_t)(off_11340C), a2);
+  v4 = list_length((volatile uint32_t **)(uintptr_t)off_11340C);
   v5 = (void *)(uintptr_t)(off_113414);
   *(volatile uint8_t *)off_113414 = v4;
   if ( v4 )
@@ -2553,7 +2553,7 @@ int rf_set_state(int a1, int a2, int a3) {
       while ( *v5 );
     }
 LABEL_12:
-    ((int (*)())rf_is_idle)();
+    rf_is_idle();
     return 1;
   }
   else

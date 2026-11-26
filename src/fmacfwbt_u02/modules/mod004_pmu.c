@@ -4143,7 +4143,7 @@ LABEL_59:
     }
     v43 = (volatile int *)off_10CFDC;
     ++*(volatile uint32_t *)off_10CFDC;
-    v44 = ((int (*)())rf_calib_init)();
+    v44 = rf_calib_init();
     if ( *v43 )
     {
       v45 = *v43 - 1;
@@ -4252,7 +4252,7 @@ LABEL_16:
       v26 = dword_10CF20;
       ++*(volatile uint32_t *)off_10CF1C;
       check_abort_flag(v26, v8);
-      ((int (*)())rf_calib_init)();
+      rf_calib_init();
       if ( *v25 )
       {
         v27 = *v25 - 1;

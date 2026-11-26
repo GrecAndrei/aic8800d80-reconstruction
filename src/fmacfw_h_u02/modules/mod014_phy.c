@@ -1103,7 +1103,7 @@ int send_tx_confirmation(int result, volatile uint32_t *a2) {
             ++*(volatile uint32_t *)off_117D80;
             alloc_tx_event("cfms: %x, sn=%d, st=%d\r\n", v4, v18, v19);
             co_list_push_back(dword_117D88, v10);
-            result = ((int (*)())rf_is_idle)();
+            result = rf_is_idle();
             if ( *v17 )
             {
               v20 = *v17 - 1;

@@ -5700,7 +5700,7 @@ int check_init_flag();
 int set_mode_flag(int a1, int a2, int a3);
 volatile int * is_single_channel(int a1);
 int lookup_channel_table(unsigned int a1);
-void read_state_flag(int a1, int a2, int a3, int a4);
+void read_state_flag();
 volatile uint32_t *usb_wlan_rx_pkt_free_list_init();
 int assert_fault(volatile uint32_t *a1);
 volatile uint32_t *ke_state_get_fast();

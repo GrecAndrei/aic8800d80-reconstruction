@@ -677,6 +677,22 @@ class RfConfigFrame(unittest.TestCase):
 
 
 
+
+class FmacZeroInputs(unittest.TestCase):
+    def test_scheduler_clone_rewrites_are_exact(self):
+        import fmac_zero_inputs
+        sample = "((int (*)())rf_is_idle)();\nvoid rf_get_flag(int a1, int a2, int a3, int a4);\n"
+        for old, new in fmac_zero_inputs.SPECS["fmacfw_h_u02"]:
+            sample = sample.replace(old, new)
+        self.assertIn("rf_is_idle();", sample)
+        self.assertIn("void rf_get_flag();", sample)
+        self.assertNotIn("(int (*)())rf_is_idle", sample)
+
+    def test_tracked_sources_are_at_the_fmac_zero_input_fixed_point(self):
+        import fmac_zero_inputs
+        for short in fmac_zero_inputs.SPECS:
+            self.assertEqual(fmac_zero_inputs.apply_image(short, check=True), 0)
+
 class RxQueueContract(unittest.TestCase):
     def test_machine_proven_rx_queue_contract_is_two_input(self):
         import rx_queue_contract
@@ -825,7 +841,7 @@ class PostCompose(unittest.TestCase):
              "format_hd_signextend.py", "format_scratch_frame.py",
              "heap_boundary_literal.py", "ipv4_dot_libc.py", "jump_trampolines.py",
              "luna_rename_apply.py", "luna_semantics_apply.py",
-             "patch_tailcall_args.py", "rx_queue_contract.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
+             "patch_tailcall_args.py", "fmac_zero_inputs.py", "rx_queue_contract.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
              "spilled_scalar_inputs.py", "libc_names.py", "tick_signed_cmps.py",
              "timer_signed_diffs.py", "uncast_memset_zero.py", "validate_forward_args.py"}
 
