@@ -5795,7 +5795,7 @@ int build_tx_packet(int result, int a2);
 volatile int * check_radio_flag_2(int a1, int a2, int a3, int a4);
 int hw_init_magic();
 int switch_rf_path(int result);
-int process_rx_status(int a1, int a2);
+int process_rx_status(int a1);
 int get_sta_entry(int a1, char a2);
 int get_cal_item(int a1, int a2);
 int get_bt_param(int result, int a2, int a3);

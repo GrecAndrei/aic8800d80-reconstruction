@@ -5811,7 +5811,7 @@ int rx_packet_process_1(int result, int a2);
 volatile int * rf_channel_select(int a1, int a2, int a3, int a4);
 int patch_enable();
 int adv_type_valid(int result);
-int tx_pending_check(int a1, int a2);
+int tx_pending_check(int a1);
 int conn_table_get(int a1, char a2);
 int tx_queue_set_head(int a1, int a2);
 int phy_set_cfg(int result, int a2, int a3);

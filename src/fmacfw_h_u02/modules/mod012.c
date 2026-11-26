@@ -1,5 +1,6 @@
 // tx_pending_check @ 0x1161e4
-int tx_pending_check(int a1, int a2) {
+int tx_pending_check(int a1) {
+  int a2;
   int v2; // r3
   volatile uint32_t *v3; // r5
   int v4; // r6

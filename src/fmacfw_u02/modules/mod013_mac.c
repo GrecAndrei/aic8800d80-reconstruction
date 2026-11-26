@@ -114,7 +114,7 @@ LABEL_10:
     goto LABEL_11;
   }
 LABEL_3:
-  result = process_tx_packet(a2, a4);
+  result = process_tx_packet(a2);
 LABEL_4:
   if ( (*(volatile uint32_t *)(a1 + 36) & 0x200000) == 0 )
     return radio_channel_validate(*(volatile uint32_t *)(a1 + 76) + 12, *(volatile uint32_t *)(a1 + 76) + 12, a4);

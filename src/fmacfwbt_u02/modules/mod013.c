@@ -114,7 +114,7 @@ LABEL_10:
     goto LABEL_11;
   }
 LABEL_3:
-  result = process_rx_status(a2, a4);
+  result = process_rx_status(a2);
 LABEL_4:
   if ( (*(volatile uint32_t *)(a1 + 36) & 0x200000) == 0 )
     return get_bt_param(*(volatile uint32_t *)(a1 + 76) + 12, *(volatile uint32_t *)(a1 + 76) + 12, a4);

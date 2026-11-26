@@ -5788,7 +5788,7 @@ int parse_control_packet(int result, int a2);
 volatile int * append_tkip_mic(int a1, int a2, int a3, int a4);
 int configure_hardware_regs();
 int dispatch_config_command(int result);
-int process_tx_packet(int a1, int a2);
+int process_tx_packet(int a1);
 int phy_ctx_get_by_index(int a1, char a2);
 int tx_queue_set_new_head(int a1, int a2);
 int radio_channel_validate(int result, int a2, int a3);
