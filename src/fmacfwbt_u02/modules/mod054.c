@@ -12,7 +12,7 @@ int mmio_init() {
   ull_scan_event_start((void *)(&_frame.v2), (void *)(&_frame.v3));
   if ( _frame.v2 && _frame.v3 )
   {
-    ((int (*)())rx_security_check)();
+    rx_security_check(_frame.v2, _frame.v3, 0);
     return 0;
   }
   else

@@ -12,7 +12,7 @@ int ble_state_check_133914() {
   ble_get_addr_flag((void *)(&_frame.v2), (void *)(&_frame.v3));
   if ( _frame.v2 && _frame.v3 )
   {
-    ((int (*)())ble_parse_event)();
+    ble_parse_event(_frame.v2, _frame.v3, 0);
     return 0;
   }
   else

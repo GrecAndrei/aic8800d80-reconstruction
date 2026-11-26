@@ -12,7 +12,7 @@ int main_loop_init() {
   get_controller_state_1((void *)(&_frame.v2), (void *)(&_frame.v3));
   if ( _frame.v2 && _frame.v3 )
   {
-    ((int (*)())rx_packet_handler_3)();
+    rx_packet_handler_3(_frame.v2, _frame.v3, 0);
     return 0;
   }
   else
