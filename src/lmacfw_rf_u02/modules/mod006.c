@@ -180,8 +180,7 @@ int rf_lmac_init_n114() {
     v5 = 0;
     do
     {
-      list_iterate(v3, 0x6B8u);
-      result = ((int (*)())check_kernel_state)(v4);
+      result = check_kernel_state(v4, list_iterate(v3, 0x6B8u));
       v6 = *(volatile uint16_t *)(*(volatile uint32_t *)v0 + 8);
       ++v5;
       ++*v2;

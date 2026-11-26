@@ -675,6 +675,22 @@ class RfConfigFrame(unittest.TestCase):
 
 
 
+
+class AllocResultForward(unittest.TestCase):
+    def test_machine_proven_allocator_result_is_forwarded(self):
+        import alloc_result_forward
+        spec = alloc_result_forward.TARGETS["lmacfw_rf_u02"][0]
+        out, n = alloc_result_forward.transform_body(spec["old"], spec["old"], spec["new"])
+        self.assertEqual((out, n), (spec["new"], 1))
+
+    def test_tracked_source_is_at_the_alloc_forward_fixed_point(self):
+        import alloc_result_forward
+        for short, specs in alloc_result_forward.TARGETS.items():
+            for spec in specs:
+                n, seen = alloc_result_forward.apply_target(short, spec, True)
+                self.assertTrue(seen)
+                self.assertEqual(n, 0)
+
 class TailcallInputs(unittest.TestCase):
     def test_machine_proven_tailcall_inputs_are_forwarded(self):
         import tailcall_inputs
@@ -772,7 +788,7 @@ class PostCompose(unittest.TestCase):
              "format_hd_signextend.py", "format_scratch_frame.py",
              "heap_boundary_literal.py", "ipv4_dot_libc.py", "jump_trampolines.py",
              "luna_rename_apply.py", "luna_semantics_apply.py",
-             "patch_tailcall_args.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
+             "patch_tailcall_args.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "rf_config_frame.py", "rom_copy_frames.py",
              "spilled_scalar_inputs.py", "libc_names.py", "tick_signed_cmps.py",
              "timer_signed_diffs.py", "uncast_memset_zero.py", "validate_forward_args.py"}
 
