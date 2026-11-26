@@ -38,7 +38,8 @@ def load_funcs(image: str) -> list[dict]:
     units. The composed source is the actual link/corpus universe, so it is the
     authoritative boundary set for inference over reconstruction functions.
     """
-    text = (REPO / "src" / IMAGES[image] / "main.c").read_text(errors="replace")
+    import composed_source
+    text = composed_source.load_composed_text(IMAGES[image])
     rows = [{"address": int(x, 16), "name": "composed"} for x in MARKER_RE.findall(text)]
     rows.sort(key=lambda r: r["address"])
     dedup = []

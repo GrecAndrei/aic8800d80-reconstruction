@@ -62,6 +62,7 @@ if str(TOOLS_DIR) not in sys.path:
     sys.path.insert(0, str(TOOLS_DIR))
 
 import aic8800d80_emulator as emu
+import composed_source
 import corpus_sweep as cs
 import linked_recon_run as lrr
 import prototype_infer
@@ -853,6 +854,41 @@ def evaluate_vector_pair(orig_info: dict, recon_info: dict, is_void: bool) -> di
     )
 
 
+def build_func_meta(parsed: dict[int, dict], proto_by_addr: dict[int, dict]) -> dict[int, dict]:
+    """Combine composed-source signatures with machine-grounded return contracts."""
+    func_meta = {}
+    for k, v in parsed.items():
+        prow = proto_by_addr.get(k, {})
+        machine_class = prow.get("class", "unknown")
+        contract = prow.get("contract")
+        # Machine-grounded scorer overlay: caller-use consumption proves a
+        # semantic result even when the Hex-Rays uninitialized-result heuristic
+        # says void; uniform input residue with no consuming caller proves void
+        # even when the heuristic says otherwise. Unknown contracts change nothing.
+        cevidence = " ".join(prow.get("contract_evidence", []))
+        consumed = "consumed at" in cevidence
+        no_consumer = "without consuming caller" in cevidence
+        if consumed or contract == "nonvoid_machine":
+            r0_exclude = False
+        elif contract == "void_machine" or no_consumer:
+            # No consuming call site exists anywhere in the image, so an r0
+            # difference has no behavioral consumer: it is unactionable noise
+            # regardless of the mixed provenance verdict.
+            r0_exclude = True
+        else:
+            r0_exclude = machine_class in {"exact_nullsub", "nullsub_tail_alias"}
+        func_meta[k] = {
+            "marker": v["marker"],
+            "is_void": v["is_void"],
+            "is_void_ub": v["is_void_ub"],
+            "machine_class": machine_class,
+            "contract": contract,
+            "param_types": v["param_types"],
+            "r0_exclude": r0_exclude,
+        }
+    return func_meta
+
+
 # ---------------------------------------------------------------------------
 # Multiprocessing worker for Axis 2 & Axis 3
 # ---------------------------------------------------------------------------
@@ -1427,53 +1463,12 @@ def main() -> int:
         bootstate = cs.capture_bootstate(img, 300000)
         boot_results.append(measure_boot_parity(img, elf_info, args.boot_insns))
 
-        # post-demonolith main.c is an umbrella of #include "modules/modNNN.c"
-        # lines — expand them in include order so the parser sees the logical
-        # single-TU text it was written against
-        umbrella = (REPO / "src" / short / "main.c").read_text(errors="replace")
-        parts = []
-        for line in umbrella.splitlines(keepends=True):
-            inc = re.match(r'#include "(modules/mod[^"]+\.c)"\s*$', line)
-            if inc:
-                mod_path = REPO / "src" / short / inc.group(1)
-                if mod_path.exists():
-                    parts.append(mod_path.read_text(errors="replace"))
-                    continue
-            parts.append(line)
-        main_text = "".join(parts)
+        # post-demonolith main.c is an umbrella; expand module slices in
+        # include order so the parser sees the logical single-TU text.
+        main_text = composed_source.load_composed_text(short)
         parsed = parse_composed_functions(main_text)
         proto_by_addr = {int(r["address"], 16): r for r in prototype_infer.scan_image(img)}
-        func_meta = {}
-        for k, v in parsed.items():
-            prow = proto_by_addr.get(k, {})
-            machine_class = prow.get("class", "unknown")
-            contract = prow.get("contract")
-            # Machine-grounded scorer overlay: caller-use consumption proves a
-            # semantic result even when the Hex-Rays uninitialized-result
-            # heuristic says void; uniform input residue with no consuming
-            # caller proves void even when the heuristic says otherwise.
-            # Unknown contracts change nothing.
-            cevidence = " ".join(prow.get("contract_evidence", []))
-            consumed = "consumed at" in cevidence
-            no_consumer = "without consuming caller" in cevidence
-            if consumed or contract == "nonvoid_machine":
-                r0_exclude = False
-            elif contract == "void_machine" or no_consumer:
-                # No consuming call site exists anywhere in the image, so an
-                # r0 difference has no behavioral consumer: it is unactionable
-                # noise regardless of the mixed provenance verdict.
-                r0_exclude = True
-            else:
-                r0_exclude = machine_class in {"exact_nullsub", "nullsub_tail_alias"}
-            func_meta[k] = {
-                "marker": v["marker"],
-                "is_void": v["is_void"],
-                "is_void_ub": v["is_void_ub"],
-                "machine_class": machine_class,
-                "contract": contract,
-                "param_types": v["param_types"],
-                "r0_exclude": r0_exclude,
-            }
+        func_meta = build_func_meta(parsed, proto_by_addr)
         keys = sorted(func_meta)
         with ctx.Pool(
             args.jobs,

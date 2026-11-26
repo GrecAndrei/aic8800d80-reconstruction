@@ -20,6 +20,7 @@ TOOLS = Path(__file__).resolve().parent
 sys.path.insert(0, str(TOOLS))
 
 import aic8800d80_emulator as emu
+import composed_source
 import corpus_sweep as cs
 import fidelity_meter as fm
 import linked_recon_run as lrr
@@ -49,28 +50,9 @@ def main() -> int:
         raise SystemExit(f"missing {elf_path}; run the linked-reconstruction build first")
     elf_info = fm.load_elf_info(elf_path, image=image)
     bootstate = cs.capture_bootstate(image, args.boot_insns)
-    parsed = fm.parse_composed_functions((fm.REPO / "src" / short / "main.c").read_text(errors="replace"))
+    parsed = fm.parse_composed_functions(composed_source.load_composed_text(short))
     proto_by_addr = {int(r["address"], 16): r for r in fm.prototype_infer.scan_image(image)}
-    func_meta = {}
-    for k, v in parsed.items():
-        prow = proto_by_addr.get(k, {})
-        machine_class = prow.get("class", "unknown")
-        contract = prow.get("contract")
-        if contract == "void_machine":
-            r0_exclude = True
-        elif contract == "nonvoid_machine":
-            r0_exclude = False
-        else:
-            r0_exclude = machine_class in {"exact_nullsub", "nullsub_tail_alias"}
-        func_meta[k] = {
-            "marker": v["marker"],
-            "is_void": v["is_void"],
-            "is_void_ub": v["is_void_ub"],
-            "machine_class": machine_class,
-            "contract": contract,
-            "param_types": v["param_types"],
-            "r0_exclude": r0_exclude,
-        }
+    func_meta = fm.build_func_meta(parsed, proto_by_addr)
 
     keys = []
     for sel in args.select:
