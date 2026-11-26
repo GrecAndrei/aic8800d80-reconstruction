@@ -1,5 +1,5 @@
 // rx_queue_init @ 0x11b3a4
-int rx_queue_init(int result, int a2, int a3) {
+int rx_queue_init(int result, int a2) {
   volatile uint8_t *v3; // r6
   int v4; // r4
   int v6; // r3
@@ -28,7 +28,7 @@ int rx_queue_init(int result, int a2, int a3) {
   }
   else
   {
-    result = rf_state_process(result, 0, a3);
+    result = rf_state_process();
     v6 = *(volatile uint8_t *)(v4 + 24);
     if ( v6 != 3 )
     {

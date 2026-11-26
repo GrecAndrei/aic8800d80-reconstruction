@@ -4465,7 +4465,7 @@ int rf_calibrate_1(int a1, int a2, unsigned int a3);
 int rf_register_access(int result);
 int rf_status_check_1();
 int rf_flag_set();
-int rx_queue_init(int result, int a2, int a3);
+int rx_queue_init(int result, int a2);
 int tx_processing(volatile uint32_t *a1);
 int rf_reg_update_1();
 int tx_schedule();
