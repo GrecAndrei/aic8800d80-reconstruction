@@ -670,7 +670,7 @@ int tx_pkt_complete(int a1, int a2) {
   v9 = dword_12548C;
   v10 = v4 - v5;
   *(volatile uint16_t *)(a1 + 216) = v4 - v5;
-  ((int (*)())ble_ll_conn_process)();
+  ble_ll_conn_process(a1, v4, v6);
   v12 = *(volatile uint16_t *)(a2 + 6);
   v13 = dword_125490;
   v14 = v3[7] + v12 - 1;

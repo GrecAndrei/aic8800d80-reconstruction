@@ -669,7 +669,7 @@ int hci_acl_tx_setup(int a1, int a2) {
   v9 = dword_1255CC;
   v10 = v4 - v5;
   *(volatile uint16_t *)(a1 + 216) = v4 - v5;
-  ((int (*)())rx_process_packet_1)();
+  rx_process_packet_1(a1, v4, v6);
   v12 = *(volatile uint16_t *)(a2 + 6);
   v13 = dword_1255D0;
   v14 = v3[7] + v12 - 1;
