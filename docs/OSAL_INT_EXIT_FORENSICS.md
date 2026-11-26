@@ -107,3 +107,24 @@ contents are correct, and the callback is correct in isolation, the
 residual defect is conclusively outside the reconstruction source: it is
 unicorn's execution of the nested-call translation block. The only valid
 close-out is cross-validation on an independent Thumb backend.
+
+## Root cause established: Unicorn valid-read-hook epilogue corruption (2026-11-26)
+
+The independent-backend experiment became unnecessary in one respect: the
+Unicorn failure was reproduced exactly inside Unicorn itself by A/B hook
+isolation. With no valid `UC_HOOK_MEM_READ` hook, the exact linked
+`sub_1383DC` machine code executes `pop {r4,r5,r6,pc}` at 0x80020e, advances
+sp, and returns through the sentinel. With a valid read hook installed —
+even when scoped only to the MMIO window — the same bytes skip the pop's
+writeback/control transfer and execution falls into the literal pool with
+sp unchanged. Write-only and unmapped-access hooks do not cause the failure.
+Deleting the read hook after it fires also makes the same epilogue execute
+correctly. This is therefore a machine-proven Unicorn 2.1.4 instrumentation
+artifact, not a reconstruction defect.
+
+`Aic8800D80Platform(mmio_read_hooks=False)` is now the write-only
+cross-validation backend. Under it, both original and reconstruction return
+cleanly for `sub_1383DC` and nested `osal_int_exit`, with identical RF write
+sequences (`0x40038000 = 0x35`) and r0=0. The remaining work is measurement
+integration: use this backend to classify the known artifact without
+weakening the default behavioral MMIO backend.
