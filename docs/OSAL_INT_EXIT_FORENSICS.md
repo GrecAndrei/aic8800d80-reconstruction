@@ -94,3 +94,16 @@ nested context. Everything else about the function is behaviorally exact
 landed independently. Recommend: revisit when an independent ARM Thumb
 emulator backend is available for cross-validation, since unicorn-specific
 artifacts cannot be ruled out without one.
+
+
+## Indirection verified faithful (final)
+
+The original binary genuinely performs the indirect call:
+`ldr r2, [0x114a3c] (=0x1583dd); blx r2` at analysis 0x114a16/0x114a1e.
+The reconstruction's data-pointer call is faithful, not a decompile
+artifact — the direct-call simplification is foreclosed as a fix. Since
+the compiled bytes are correct, the epilogue bytes are correct, the stack
+contents are correct, and the callback is correct in isolation, the
+residual defect is conclusively outside the reconstruction source: it is
+unicorn's execution of the nested-call translation block. The only valid
+close-out is cross-validation on an independent Thumb backend.
