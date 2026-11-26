@@ -53,6 +53,7 @@ STEPS = [
     ("validate_forward_args.py", [], True),
     ("format_hd_signextend.py", [], True),
     ("format_scratch_frame.py", [], True),
+    ("tailcall_inputs.py", [], True),
     ("zero_input_prototypes.py", [], True),
     ("timer_target_forward.py", [], True),
     ("mrs_ipsr.py", [], True),

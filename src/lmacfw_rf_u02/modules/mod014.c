@@ -2072,7 +2072,7 @@ int rx_queue_flush(int a1, int a2, int a3) {
 // capability_dispatch @ 0x117db4
 int capability_dispatch(int result) {
   if ( *(volatile uint32_t *)(result + 72) )
-    return ((int (*)())bt_link_rx_check)();
+    return bt_link_rx_check(result);
   return result;
 }
 
