@@ -373,8 +373,7 @@ def parse_composed_functions(text: str) -> dict[int, dict]:
 def scan_static_defects(image: str) -> dict:
     """Scan composed main.c of one image for deterministic C-level defects."""
     short = SHORT[image]
-    main_path = REPO / "src" / short / "main.c"
-    text = main_path.read_text(errors="replace")
+    text = composed_source.load_composed_text(short)
     funcs = parse_composed_functions(text)
     by_c_name: dict[str, list[dict]] = collections.defaultdict(list)
     for fn in funcs.values():
