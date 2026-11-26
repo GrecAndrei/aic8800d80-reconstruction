@@ -500,8 +500,11 @@ def load_elf_info(elf_path: Path, image: str | None = None) -> dict:
     recon_fn_by_addr = {a: n for a, n in funcs}
     orig_fn_by_hw_addr = {}
     if image:
+        # keyed from the original binary's authoritative function table
+        # (hardware-space, thumb bit stripped) — lrr.marker_names only covers
+        # composed-source markers and misses functions the corpus lookup needs
         orig_fn_by_hw_addr = {
-            a + emu.HW_OFFSET: n for a, n in lrr.marker_names(image).items()
+            a & ~1: n for a, n in emu.load_function_table(image)
         }
     return {
         "base": base,
@@ -657,60 +660,16 @@ def compare_ram_states(
     first_diff: int | None = None
     orig_img = orig_plat.image
 
-    # canonicalize data-stored code pointers before comparing: the original
-    # image stores runtime-space pointers (analysis+0x20000), the full link
-    # stores LINK_BASE-space pointers — same function, different bases, so a
-    # raw byte diff is a comparator artifact, not a behavioral difference.
-    # map: recon linked addr -> analysis addr (via by_name + func_meta)
-    canon_map: dict[int, int] = {}
-    func_meta = _CTX.get("func_meta") or {}
-    by_name = (elf_info or {}).get("by_name", {})
-    name2analysis = {}
-    for a, meta in func_meta.items():
-        cn = meta.get("c_name") if isinstance(meta, dict) else None
-        if cn:
-            name2analysis[cn] = a
-    if isinstance(by_name, dict):
-        for nm, la in by_name.items():
-            ana = name2analysis.get(nm)
-            if ana is not None and la is not None:
-                canon_map[(la & ~1) + 1] = ana + 1  # thumb-bit form -> analysis thumb form
-    # known function addresses in RUNTIME (hardware) space — only words that
-    # verifiably point at real functions may be canonicalized; range-matching
-    # alone false-positives on ordinary odd data values (counters, lengths)
-    try:
-        rt_funcs = {a & ~1 for a, _nm in emu.load_function_table(_CTX.get("image", ""))}
-    except Exception:
-        rt_funcs = set()
-
-    def canon_words(buf: bytes, base: int, is_recon: bool) -> bytes:
-        # symmetric: BOTH sides may hold runtime-space pointers (bootstate is
-        # injected identically into both), so both canonicalize the same way;
-        # only the recon side additionally holds LINK_BASE-space pointers
-        # written by its own code, reverse-mapped through canon_map.
-        b = bytearray(buf)
-        for off in range(0, len(buf) - 3, 4):
-            v = int.from_bytes(buf[off:off + 4], "little")
-            if (v & 1) and (v & ~1) in rt_funcs and 0x120001 <= v < 0x1A0000:
-                b[off:off + 4] = (v - 0x20000).to_bytes(4, "little")
-            elif is_recon and v in canon_map:
-                b[off:off + 4] = canon_map[v].to_bytes(4, "little")
-        return bytes(b)
-
     for base, size in RAM_WINDOWS:
-        # raw buffers drive mutation detection vs the raw baseline; canonicalized
-        # copies are used only for the orig-vs-recon equality check
         o_buf = bytes(orig_plat.mu.mem_read(base, size))
         r_buf = bytes(recon_plat.mu.mem_read(base, size))
-        o_cmp = canon_words(o_buf, base, False) if o_buf != r_buf else o_buf
-        r_cmp = canon_words(r_buf, base, True) if o_buf != r_buf else r_buf
         b_buf = baseline[base]
         if o_buf != b_buf:
             orig_mutated = True
         if r_buf != b_buf:
             recon_mutated = True
-        if o_cmp != r_cmp and ram_match:
-            d = _first_byte_diff(o_cmp, r_cmp, base, orig_img, elf_info)
+        if o_buf != r_buf and ram_match:
+            d = _first_byte_diff(o_buf, r_buf, base, orig_img, elf_info)
             if d is not None:
                 ram_match = False
                 first_diff = d
