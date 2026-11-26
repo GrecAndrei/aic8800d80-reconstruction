@@ -91,3 +91,13 @@ linked-run artifacts, targeted probes showed all six formerly failing rows
 matching every vector, and the full four-image corpus meter now reports
 **0 failing functions / 100% comparable-all-match** (4,718 functions,
 3,181 exercised all-match, 1,320 vacuous all-match, 217 never-comparable).
+
+## 2026-11-26 timer-forwarding validation
+
+The three lmac task-queue handlers were machine-proven to load the timer object
+pointer into r0 before `bl timer_is_past`; the zero-argument Hex-Rays cast was
+therefore a real latent ABI defect even though prior vectors happened to match.
+`tools/timer_target_forward.py` now forwards the argument explicitly. After
+rebuild/relink, `task_queue_handler_a/b/c` each match all five fidelity
+vectors (MMIO+RAM+r0), so the correction is both machine-motivated and
+behavior-preserving.
