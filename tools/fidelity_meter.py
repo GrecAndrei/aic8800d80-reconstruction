@@ -1516,6 +1516,10 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
             agg["EXERCISED_ALL_MATCH"] += 1
         elif any(x["status"] == "PREFIX_MATCH" for x in comparable):
             agg["PREFIX_MATCH_NONRETURN"] += 1
+            if any(x["status"] == "PREFIX_MATCH" and x.get("exercised") for x in comparable):
+                agg["PREFIX_MATCH_NONRETURN_EXERCISED"] += 1
+            else:
+                agg["PREFIX_MATCH_NONRETURN_VACUOUS"] += 1
         else:
             agg["VACUOUS_ALL_MATCH"] += 1
 
@@ -1539,6 +1543,10 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
                 i_agg["EXERCISED_ALL_MATCH"] += 1
             elif any(x["status"] == "PREFIX_MATCH" for x in comp):
                 i_agg["PREFIX_MATCH_NONRETURN"] += 1
+                if any(x["status"] == "PREFIX_MATCH" and x.get("exercised") for x in comp):
+                    i_agg["PREFIX_MATCH_NONRETURN_EXERCISED"] += 1
+                else:
+                    i_agg["PREFIX_MATCH_NONRETURN_VACUOUS"] += 1
             else:
                 i_agg["VACUOUS_ALL_MATCH"] += 1
         itot = len(img_rows)
@@ -1548,6 +1556,8 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
             "vacuous_all_match": i_agg["VACUOUS_ALL_MATCH"],
             "failing_any_vector": i_agg["FAILING_ANY_VECTOR"],
             "prefix_match_nonreturn": i_agg["PREFIX_MATCH_NONRETURN"],
+            "prefix_match_nonreturn_exercised": i_agg["PREFIX_MATCH_NONRETURN_EXERCISED"],
+            "prefix_match_nonreturn_vacuous": i_agg["PREFIX_MATCH_NONRETURN_VACUOUS"],
             "interior_libmatch_fragment": i_agg["INTERIOR_LIBMATCH_FRAGMENT"],
             "never_comparable": i_agg["NEVER_COMPARABLE"],
             "exercised_coverage_pct": round(100.0 * i_agg["EXERCISED_ALL_MATCH"] / itot, 2) if itot else 0.0,
@@ -1563,6 +1573,8 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
             "vacuous_all_match": agg["VACUOUS_ALL_MATCH"],
             "failing_any_vector": agg["FAILING_ANY_VECTOR"],
             "prefix_match_nonreturn": agg["PREFIX_MATCH_NONRETURN"],
+            "prefix_match_nonreturn_exercised": agg["PREFIX_MATCH_NONRETURN_EXERCISED"],
+            "prefix_match_nonreturn_vacuous": agg["PREFIX_MATCH_NONRETURN_VACUOUS"],
             "interior_libmatch_fragment": agg["INTERIOR_LIBMATCH_FRAGMENT"],
             "never_comparable": agg["NEVER_COMPARABLE"],
             "strict_all_match_pct": round(100.0 * (agg["EXERCISED_ALL_MATCH"] + agg["VACUOUS_ALL_MATCH"]) / total, 2) if total else 0.0,
@@ -1604,7 +1616,8 @@ def print_dashboard(report: dict) -> None:
     print(f"  EXERCISED_ALL_MATCH : {agg['exercised_all_match']:4d} ({agg['exercised_coverage_pct']:.2f}% true non-trivial fidelity)")
     print(f"  VACUOUS_ALL_MATCH   : {agg['vacuous_all_match']:4d} (all matched, but 0 MMIO/RAM/non-zero r0 observed)")
     print(f"  FAILING_ANY_VECTOR  : {agg['failing_any_vector']:4d} (proven bug on >=1 vector)")
-    print(f"  PREFIX_MATCH_NONRET : {agg.get('prefix_match_nonreturn',0):4d} (partial ordered-write evidence; not counted as full equivalence)")
+    print(f"  PREFIX_MATCH_NONRET : {agg.get('prefix_match_nonreturn',0):4d} "
+          f"(exercised={agg.get('prefix_match_nonreturn_exercised',0)}, vacuous={agg.get('prefix_match_nonreturn_vacuous',0)}; not full equivalence)")
     print(f"  INTERIOR_FRAGMENT   : {agg.get('interior_libmatch_fragment',0):4d} (proven non-entry bytes inside linked libmatch parents)")
     print(f"  NEVER_COMPARABLE    : {agg['never_comparable']:4d}")
     print(f"  MACHINE_NULLSUB_R0_EXCLUDED: {agg.get('machine_nullsub_excluded', 0):4d} (bx-lr/nullsub aliases; vacuous structural units)")
