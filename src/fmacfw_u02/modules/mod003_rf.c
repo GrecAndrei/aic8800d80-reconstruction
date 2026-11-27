@@ -1824,7 +1824,7 @@ LABEL_3:
   *v40 &= ~0x100u;
   clear_chip_ctrl_clk();
   check_status_bits(1, aStDpdDump);
-  bt_control_set((int)((volatile uint32_t *)(uintptr_t)off_1061DC)[158 * a5 + 2], (int)((volatile uint32_t *)(uintptr_t)off_1061DC)[158 * a5 + 146]);
+  bt_control_set((int)((uintptr_t)off_1061DC + 0x4F0u * a5 + 0x10u), (int)((uintptr_t)off_1061DC + 0x4F0u * a5 + 0x490u));
   *v40 &= ~0x200u;
   *v40 |= 0x200u;
   *v40 &= ~0x200u;

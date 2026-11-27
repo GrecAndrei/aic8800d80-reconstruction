@@ -780,6 +780,15 @@ def _ordered_write_prefix(orig_mmio: list, recon_mmio: list) -> tuple[int, bool]
     return shared, shared < n
 
 
+def _write_diff_fields(orig_mmio: list, recon_mmio: list, shared: int) -> dict:
+    """Machine-checkable details of the first ordered-write divergence."""
+    return {
+        "first_write_diff_index": shared,
+        "orig_first_write": orig_mmio[shared] if shared < len(orig_mmio) else None,
+        "recon_first_write": recon_mmio[shared] if shared < len(recon_mmio) else None,
+    }
+
+
 def evaluate_outcomes(
     orig_term: str,
     orig_r0: int,
@@ -815,6 +824,7 @@ def evaluate_outcomes(
             "shared_write_prefix": shared,
             "orig_write_count": len(orig_mmio),
             "recon_write_count": len(recon_mmio),
+            **_write_diff_fields(orig_mmio, recon_mmio, shared),
         }
         if mismatch:
             return {"status": "DIFFER", "reason": "mmio_differ", "mmio_match": False,
@@ -851,6 +861,13 @@ def evaluate_outcomes(
         return {"status": "DIFFER", "reason": f"assert_trap_only_in_{side}", "mmio_match": False}
 
     mmio_match = (orig_mmio == recon_mmio)
+    write_prefix, _ = _ordered_write_prefix(orig_mmio, recon_mmio)
+    write_fields = {
+        "shared_write_prefix": write_prefix,
+        "orig_write_count": len(orig_mmio),
+        "recon_write_count": len(recon_mmio),
+        **_write_diff_fields(orig_mmio, recon_mmio, write_prefix),
+    }
     orig_mmio_reads = orig_mmio_reads or []
     recon_mmio_reads = recon_mmio_reads or []
     read_prefix, read_mismatch = _ordered_write_prefix(orig_mmio_reads, recon_mmio_reads)
@@ -898,6 +915,7 @@ def evaluate_outcomes(
             "read_evidence": read_evidence,
             "orig_read_count": len(orig_mmio_reads),
             "recon_read_count": len(recon_mmio_reads),
+            **write_fields,
         }
 
     if not mmio_match:
@@ -927,6 +945,7 @@ def evaluate_outcomes(
         "read_evidence": read_evidence,
         "orig_read_count": len(orig_mmio_reads),
         "recon_read_count": len(recon_mmio_reads),
+        **write_fields,
     }
 
 

@@ -1824,7 +1824,7 @@ LABEL_3:
   *v40 &= ~0x100u;
   rf_clear_ana_bits();
   check_feature_flag(1, aStDpdDump);
-  sdio_irq_mask_enable((int)((volatile uint32_t *)(uintptr_t)off_1060C4)[158 * a5 + 2], (int)((volatile uint32_t *)(uintptr_t)off_1060C4)[158 * a5 + 146]);
+  sdio_irq_mask_enable((int)((uintptr_t)off_1060C4 + 0x4F0u * a5 + 0x10u), (int)((uintptr_t)off_1060C4 + 0x4F0u * a5 + 0x490u));
   *v40 &= ~0x200u;
   *v40 |= 0x200u;
   *v40 &= ~0x200u;

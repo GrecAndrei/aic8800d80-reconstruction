@@ -1823,7 +1823,7 @@ LABEL_3:
   *v40 &= ~0x100u;
   rf_lo_cal_clear();
   state_check_feature(1, aStDpdDump);
-  radio_irq_setup((int)((volatile uint32_t *)(uintptr_t)off_106034)[158 * a5 + 2], (int)((volatile uint32_t *)(uintptr_t)off_106034)[158 * a5 + 146]);
+  radio_irq_setup((int)((uintptr_t)off_106034 + 0x4F0u * a5 + 0x10u), (int)((uintptr_t)off_106034 + 0x4F0u * a5 + 0x490u));
   *v40 &= ~0x200u;
   *v40 |= 0x200u;
   *v40 &= ~0x200u;
