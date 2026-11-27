@@ -898,7 +898,7 @@ LABEL_24:
 
 // nop_stub @ 0x132bc4
 volatile uint32_t * nop_stub(int a1) {
-  ((int (*)())l2c_ccb_run)();
+  l2c_ccb_run(a1);
   return process_rx_event(a1);
 }
 

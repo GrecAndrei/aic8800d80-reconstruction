@@ -883,7 +883,7 @@ LABEL_24:
 
 // llm_adv_pdu_build_cmd @ 0x132f20
 volatile uint32_t * llm_adv_pdu_build_cmd(int a1) {
-  ((int (*)())update_connection_stats)();
+  update_connection_stats(a1);
   return llm_adv_pdu_build(a1);
 }
 

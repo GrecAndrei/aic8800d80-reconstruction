@@ -897,7 +897,7 @@ LABEL_24:
 
 // stub_ret @ 0x132d04
 volatile uint32_t * stub_ret(int a1) {
-  ((int (*)())ble_ll_adv_scan_req)();
+  ble_ll_adv_scan_req(a1);
   return tx_send_controller_pkt(a1);
 }
 

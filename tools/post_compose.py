@@ -54,6 +54,7 @@ STEPS = [
     ("format_hd_signextend.py", [], True),
     ("format_scratch_frame.py", [], True),
     ("strict_type_casts.py", [], True),
+    ("wrapper_arg_forward.py", [], True),
     ("conn_ready_forward.py", [], True),
     ("channel_data_forward.py", [], True),
     ("conn_is_connected_forward.py", [], True),
