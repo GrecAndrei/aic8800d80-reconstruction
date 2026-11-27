@@ -67,9 +67,23 @@ def main() -> int:
     root = Path(args.src) if args.src else REPO / "src"
     rc = 0
     for short, spec in TARGETS.items():
-        path = root / short / "main.c"
-        text = path.read_text(errors="replace")
-        out, n, err = apply_image(text, spec["addr"], spec["old"], spec["new"])
+        imgroot = root / short
+        paths = [imgroot / "main.c"] + sorted((imgroot / "modules").glob("mod*.c"))
+        chosen = None
+        for path in paths:
+            if not path.exists():
+                continue
+            text = path.read_text(errors="replace")
+            out, n, err = apply_image(text, spec["addr"], spec["old"], spec["new"])
+            if err and "not found" in err:
+                continue
+            chosen = (path, out, n, err)
+            break
+        if chosen is None:
+            print(f"[heap_boundary_literal] ERROR {short}: function {spec['addr']:#x} not found", file=sys.stderr)
+            rc = 1
+            continue
+        path, out, n, err = chosen
         if err:
             print(f"[heap_boundary_literal] ERROR {short}: {err}", file=sys.stderr)
             rc = 1

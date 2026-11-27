@@ -86,14 +86,24 @@ def main() -> int:
     root = Path(args.src) if args.src else REPO / "src"
     rc = 0
     for short, (addr, offsym) in TARGETS.items():
-        path = root / short / "main.c"
-        text = path.read_text(errors="replace")
-        out, n = apply_image(text, addr, offsym)
-        if n < 0:
+        imgroot = root / short
+        paths = [imgroot / "main.c"] + sorted((imgroot / "modules").glob("mod*.c"))
+        chosen = None
+        for path in paths:
+            if not path.exists():
+                continue
+            text = path.read_text(errors="replace")
+            out, n = apply_image(text, addr, offsym)
+            if n < 0:
+                continue
+            chosen = (path, out, n)
+            break
+        if chosen is None:
             print(f"[timer_signed_diffs] ERROR: {short} timer epilogue not matched at {addr:#x}",
                   file=sys.stderr)
             rc = 1
             continue
+        path, out, n = chosen
         print(f"[timer_signed_diffs] {short}: {n} signed delta test(s) "
               f"{'pending' if args.check else 'applied/fixed-point'}")
         if n and args.check:
