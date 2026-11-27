@@ -80,6 +80,7 @@ STEPS = [
     ("zero_input_prototypes.py", [], True),
     ("timer_target_forward.py", [], True),
     ("mrs_ipsr.py", [], True),
+    ("mrs_exception_state.py", [], True),
     ("rf_table_address_arithmetic.py", [], True),
     ("rf_config_frame.py", [], True),
     # demonolithize physically relocates the healed text into module slices;

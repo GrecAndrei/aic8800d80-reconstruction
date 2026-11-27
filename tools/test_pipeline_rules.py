@@ -830,6 +830,36 @@ class MrsIpsr(unittest.TestCase):
             self.assertTrue(seen)
             self.assertEqual(n, 0)
 
+class MrsExceptionState(unittest.TestCase):
+    def test_machine_proven_exception_registers_are_distinct(self):
+        import mrs_exception_state as mrs
+        body = (
+            "  unsigned int CPSR; // r1\n"
+            "  int v2; // lr\n"
+            "  CPSR = __get_CPSR();\n"
+            "  v4 = __get_CPSR();\n"
+            "  v5 = __get_CPSR();\n"
+            "  v6 = __get_CPSR();\n"
+            "  alloc_tx_event(aControl08xXpsr_0, CPSR, v4, v5, v6, __get_CPSR(), v2);\n"
+        )
+        out, n, err = mrs.transform_body(body, "alloc_tx_event")
+        self.assertIsNone(err)
+        self.assertEqual(n, 1)
+        self.assertIn("CONTROL = __get_CONTROL();", out)
+        self.assertIn("v4 = __get_XPSR();", out)
+        self.assertIn("v5 = __get_PSP();", out)
+        self.assertIn("v6 = __get_MSP();", out)
+        self.assertIn("__get_PRIMASK(), (int)__get_LR()", out)
+        self.assertEqual(mrs.transform_body(out, "alloc_tx_event"), (out, 0, None))
+
+    def test_tracked_sources_are_at_the_exception_state_fixed_point(self):
+        import mrs_exception_state as mrs
+        for short, (addr, helper) in mrs.TARGETS.items():
+            n, err = mrs.apply_one(mrs.REPO / "src", short, addr, helper, True)
+            self.assertIsNone(err)
+            self.assertEqual(n, 0)
+
+
 class RfTableAddressArithmetic(unittest.TestCase):
     def test_machine_proven_byte_address_arithmetic(self):
         import rf_table_address_arithmetic as rfaddr
@@ -861,7 +891,7 @@ class PostCompose(unittest.TestCase):
              "format_hd_signextend.py", "format_scratch_frame.py",
              "heap_boundary_literal.py", "ipv4_dot_libc.py", "jump_trampolines.py",
              "luna_rename_apply.py", "luna_semantics_apply.py",
-             "patch_tailcall_args.py", "strict_type_casts.py", "callback_args_forward.py", "busy_zero_contracts.py", "ops_object_forward.py", "init_period_forward.py", "record_lookup_forward.py", "wrapper_arg_forward.py", "conn_ready_forward.py", "channel_data_forward.py", "conn_is_connected_forward.py", "bsscfg_lookup_forward.py", "scheduler_list_forward.py", "char_validate_forward.py", "power_status_forward.py", "rate_code_forward.py", "conn_entry_forward.py", "frame_pair_forward.py", "triple_arg_forward.py", "first_arg_forward.py", "single_input_contracts.py", "fmac_zero_inputs.py", "rx_queue_contract.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "rf_table_address_arithmetic.py", "rf_config_frame.py", "rom_copy_frames.py",
+             "patch_tailcall_args.py", "strict_type_casts.py", "callback_args_forward.py", "busy_zero_contracts.py", "ops_object_forward.py", "init_period_forward.py", "record_lookup_forward.py", "wrapper_arg_forward.py", "conn_ready_forward.py", "channel_data_forward.py", "conn_is_connected_forward.py", "bsscfg_lookup_forward.py", "scheduler_list_forward.py", "char_validate_forward.py", "power_status_forward.py", "rate_code_forward.py", "conn_entry_forward.py", "frame_pair_forward.py", "triple_arg_forward.py", "first_arg_forward.py", "single_input_contracts.py", "fmac_zero_inputs.py", "rx_queue_contract.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "mrs_exception_state.py", "rf_table_address_arithmetic.py", "rf_config_frame.py", "rom_copy_frames.py",
              "spilled_scalar_inputs.py", "libc_names.py", "tick_signed_cmps.py",
              "timer_signed_diffs.py", "uncast_memset_zero.py", "validate_forward_args.py"}
 

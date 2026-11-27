@@ -79,6 +79,11 @@ static volatile uint32_t __aic8800d80_primask_state = 0;
 static inline uint32_t __get_PRIMASK(void) { return __aic8800d80_primask_state; }
 static inline uint32_t __get_CPSR(void) { return __aic8800d80_primask_state; }
 static inline uint32_t __get_IPSR(void) { uint32_t v; __asm volatile("mrs %0, ipsr" : "=r"(v)); return v; }
+static inline uint32_t __get_CONTROL(void) { uint32_t v; __asm volatile("mrs %0, control" : "=r"(v)); return v; }
+static inline uint32_t __get_XPSR(void) { uint32_t v; __asm volatile("mrs %0, xpsr" : "=r"(v)); return v; }
+static inline uint32_t __get_PSP(void) { uint32_t v; __asm volatile("mrs %0, psp" : "=r"(v)); return v; }
+static inline uint32_t __get_MSP(void) { uint32_t v; __asm volatile("mrs %0, msp" : "=r"(v)); return v; }
+static inline uint32_t __get_LR(void) { uint32_t v; __asm volatile("mov %0, lr" : "=r"(v)); return v; }
 static inline void __disable_irq(void) { __aic8800d80_primask_state = 1; __asm__ volatile("" ::: "memory"); }
 static inline void __enable_irq(void) { __aic8800d80_primask_state = 0; __asm__ volatile("" ::: "memory"); }
 static inline void __pld(const void *p) { (void)p; }

@@ -156,7 +156,7 @@ void timeout_handler() {
   unsigned int v0; // r5
   int v1; // r4
   int v2; // lr
-  unsigned int CPSR; // r1
+  unsigned int CONTROL; // r1
   unsigned int v4; // r2
   unsigned int v5; // r5
   unsigned int v6; // r4
@@ -169,11 +169,11 @@ void timeout_handler() {
   alloc_tx_event("\nINT:%x,%x,%x", v1, *(volatile uint32_t *)off_1146D0, *(volatile uint32_t *)off_1146CC);
   if ( (v1 & 1) != 0 )
     *(volatile uint32_t *)(*(volatile uint32_t *)v0 + 12) = 1;
-  CPSR = __get_CPSR();
-  v4 = __get_CPSR();
-  v5 = __get_CPSR();
-  v6 = __get_CPSR();
-  alloc_tx_event(aControl08xXpsr_0, CPSR, v4, v5, v6, __get_CPSR(), v2);
+  CONTROL = __get_CONTROL();
+  v4 = __get_XPSR();
+  v5 = __get_PSP();
+  v6 = __get_MSP();
+  alloc_tx_event(aControl08xXpsr_0, CONTROL, v4, v5, v6, __get_PRIMASK(), (int)__get_LR());
   if ( v5 )
   {
     alloc_tx_event(aWrongPsp);
