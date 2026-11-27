@@ -649,7 +649,7 @@ void handle_debug_cmd(int a1) {
 
 
 // check_nvic_irq @ 0x115b00
-int check_nvic_irq(int a1, int a2) {
+int check_nvic_irq() {
   volatile uint32_t *v2; // r4
   int v3; // r3
   int v4; // r2
@@ -1215,7 +1215,7 @@ LABEL_23:
           goto LABEL_29;
         goto LABEL_24;
       }
-      v3 = ((int (*)())check_nvic_irq)();
+      v3 = check_nvic_irq();
     }
     while ( !v3 );
     if ( !*(volatile uint8_t *)(*(volatile uint32_t *)v0 + 3) )

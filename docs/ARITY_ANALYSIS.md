@@ -49,10 +49,12 @@ following classes were proven against the original binaries and repaired:
 * configuration-halfword inputs to rate-code helpers;
 * packet-object inputs to PHY/PLL status helpers;
 * current-character inputs in packet scan loops;
-* current-list-node forwarding `(v10)` / `(v17)` in the three scheduler loops.
+* current-list-node forwarding `(v10)` / `(v17)` in the three scheduler loops;
+* zero-input fault/NVIC status helpers and command-queue/ioctl event helpers whose
+  machine bodies overwrite every argument register before use.
 
-After those repairs the remaining syntactic census is fmacfw_h 15 functions /
-17 call rows, fmacfw 16 / 18, fmacfwbt 15 / 17, and lmac 0 / 0. Remaining rows
+After those repairs the remaining syntactic census is fmacfw_h 13 functions /
+15 call rows, fmacfw 14 / 16, fmacfwbt 13 / 15, and lmac 0 / 0. Remaining rows
 are still unproven candidates. In particular `bt_conn_is_connected` and its
 clones genuinely consume r1-r3, so their four-input prototypes must not be
 "narrowed" merely because the scan is nonzero; their missing call-site argument

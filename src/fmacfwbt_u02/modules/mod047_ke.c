@@ -1681,7 +1681,7 @@ int ke_malloc(int a1) {
 
 
 // ke_event_send_1 @ 0x13038c
-int ke_event_send_1(int a1, int a2) {
+int ke_event_send_1() {
   volatile int *v2; // r6
   int v3; // r0
   int result; // r0

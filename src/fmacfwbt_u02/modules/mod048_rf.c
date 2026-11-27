@@ -12,7 +12,7 @@ void mmio_wait_reg() {
       if ( ke_malloc(u8) > 0 )
       {
         if ( *(volatile uint8_t *)off_1304DC )
-          ((int (*)())ke_event_send_1)();
+          ke_event_send_1();
         return;
       }
     }

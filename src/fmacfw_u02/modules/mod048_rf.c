@@ -1,5 +1,5 @@
 // parse_large_ioctl @ 0x130170
-int parse_large_ioctl(int a1, int a2) {
+int parse_large_ioctl() {
   volatile int *v2; // r6
   int v3; // r0
   int result; // r0
@@ -110,7 +110,7 @@ void read_mmio_reg() {
       if ( find_by_index(byte_uart) > 0 )
       {
         if ( *(volatile uint8_t *)off_1302C0 )
-          ((int (*)())parse_large_ioctl)();
+          parse_large_ioctl();
         return;
       }
     }

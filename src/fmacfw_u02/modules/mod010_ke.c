@@ -699,7 +699,7 @@ switch ( *(volatile uint32_t *)(uintptr_t)(off_1155A4) ) { case 1: v3 = 700 * (u
 
 
 // check_nvic_irq_status @ 0x1155b0
-int check_nvic_irq_status(int a1, int a2) {
+int check_nvic_irq_status() {
   volatile uint32_t *v2; // r4
   int v3; // r3
   int v4; // r2
@@ -1292,7 +1292,7 @@ LABEL_23:
           goto LABEL_29;
         goto LABEL_24;
       }
-      v3 = ((int (*)())check_nvic_irq_status)();
+      v3 = check_nvic_irq_status();
     }
     while ( !v3 );
     if ( !*(volatile uint8_t *)(*(volatile uint32_t *)v0 + 3) )

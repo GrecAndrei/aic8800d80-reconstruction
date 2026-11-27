@@ -1,5 +1,5 @@
 // test_command_queue_process @ 0x130030
-int test_command_queue_process(int a1, int a2) {
+int test_command_queue_process() {
   volatile int *v2; // r6
   int v3; // r0
   int result; // r0
@@ -110,7 +110,7 @@ void mmio_register_access() {
       if ( lock_with_timeout(v1) > 0 )
       {
         if ( *(volatile uint8_t *)off_130180 )
-          ((int (*)())test_command_queue_process)();
+          test_command_queue_process();
         return;
       }
     }
