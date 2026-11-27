@@ -65,10 +65,11 @@ following classes were proven against the original binaries and repaired:
 * record-search object forwarding `(v2 + 34)` in the address/record lookup clones;
 * one-input receive-PDU contracts: incoming r1 is overwritten before use in the
   ble_ll_conn_rx/handle_ll_control clones;
-* initializer period forwarding from object halfword +416 in the link-active clones.
+* initializer period forwarding from object halfword +416 in the link-active clones;
+* ops object forwarding `a1` in the three lock/type predicate clones.
 
-After those repairs the remaining syntactic census is fmacfw_h 3 functions /
-3 call rows, fmacfw 3 / 3, fmacfwbt 3 / 3, and lmac 0 / 0. Remaining rows
+After those repairs the remaining syntactic census is fmacfw_h 2 functions /
+2 call rows, fmacfw 2 / 2, fmacfwbt 2 / 2, and lmac 0 / 0. Remaining rows
 are still unproven candidates. In particular `bt_conn_is_connected` and its
 clones genuinely consume r1-r3, so their four-input prototypes must not be
 "narrowed" merely because the scan is nonzero; their missing call-site argument

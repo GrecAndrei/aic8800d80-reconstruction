@@ -357,7 +357,7 @@ int system_init_seq() {
 BOOL phy_lock(int a1) {
   if ( *((volatile uint8_t *)off_116DF0 + 510) )
     return 0;
-if ( !((int (*)())cfm_call_ops)() ) return 0;
+if ( !cfm_call_ops(a1) ) return 0;
   if ( *(volatile uint8_t *)(a1 + 1224) )
     return bt_get_conn_channel(*(volatile uint8_t *)(a1 + 1225)) != 0;
   return 1;

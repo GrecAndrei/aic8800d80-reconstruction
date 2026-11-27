@@ -356,7 +356,7 @@ int chip_init_sequence() {
 BOOL isr_flag_dispatch(int a1) {
   if ( *((volatile uint8_t *)off_116F30 + 510) )
     return 0;
-if ( !((int (*)())wlc_ops_wrapper)() ) return 0;
+if ( !wlc_ops_wrapper(a1) ) return 0;
   if ( *(volatile uint8_t *)(a1 + 1224) )
     return llc_get_evt_field(*(volatile uint8_t *)(a1 + 1225)) != 0;
   return 1;

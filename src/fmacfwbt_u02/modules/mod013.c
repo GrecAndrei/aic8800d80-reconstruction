@@ -355,7 +355,7 @@ int bt_init() {
 BOOL init_once(int a1) {
   if ( *((volatile uint8_t *)off_117370 + 510) )
     return 0;
-if ( !((int (*)())bt_link_type)() ) return 0;
+if ( !bt_link_type(a1) ) return 0;
   if ( *(volatile uint8_t *)(a1 + 1224) )
     return rf_channel_offset_get(*(volatile uint8_t *)(a1 + 1225)) != 0;
   return 1;
