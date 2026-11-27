@@ -202,7 +202,7 @@ int tx_packet_handler( unsigned int a1, int a2, unsigned int r2_0, unsigned int 
   *v20 &= ~4u;
   if ( v21 != a1 )
     get_radio_state(a1);
-  if ( **(volatile uint16_t **)off_1022E4 < 0 && a1 > 1 )
+  if ( (int16_t)**(volatile uint16_t **) off_1022E4 < 0 && a1 > 1 )
   {
     mmio_clear_register((int)aBandPhyBandMax, (int)aPhyHwSetChanne_0, 5664);
     goto LABEL_42;

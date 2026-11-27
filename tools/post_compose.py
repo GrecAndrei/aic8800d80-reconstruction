@@ -82,6 +82,7 @@ STEPS = [
     ("mrs_ipsr.py", [], True),
     ("mrs_exception_state.py", [], True),
     ("formatter_integer_codegen.py", [], True),
+    ("signed_halfword_assert.py", [], True),
     ("rf_table_address_arithmetic.py", [], True),
     ("rf_config_frame.py", [], True),
     # demonolithize physically relocates the healed text into module slices;

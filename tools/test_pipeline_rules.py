@@ -885,6 +885,24 @@ class FormatterIntegerCodegen(unittest.TestCase):
             self.assertTrue(found, short)
 
 
+class SignedHalfwordAssert(unittest.TestCase):
+    def test_signed_halfword_conversion_is_inserted_once(self):
+        import signed_halfword_assert as sha
+        body = "  if ( **(volatile uint16_t **)off_102234 < 0 && a1 > 1 )\n"
+        out, n, err = sha.transform_body(body)
+        self.assertIsNone(err)
+        self.assertEqual(n, 1)
+        self.assertIn("(int16_t)**(volatile uint16_t **)", out)
+        self.assertEqual(sha.transform_body(out), (out, 0, None))
+
+    def test_tracked_calibration_asserts_are_at_fixed_point(self):
+        import signed_halfword_assert as sha
+        for short, addr in sha.TARGETS.items():
+            n, err = sha.apply_one(sha.REPO / "src", short, addr, True)
+            self.assertIsNone(err)
+            self.assertEqual(n, 0)
+
+
 class RfTableAddressArithmetic(unittest.TestCase):
     def test_machine_proven_byte_address_arithmetic(self):
         import rf_table_address_arithmetic as rfaddr
@@ -916,7 +934,7 @@ class PostCompose(unittest.TestCase):
              "format_hd_signextend.py", "format_scratch_frame.py",
              "heap_boundary_literal.py", "ipv4_dot_libc.py", "jump_trampolines.py",
              "luna_rename_apply.py", "luna_semantics_apply.py",
-             "patch_tailcall_args.py", "strict_type_casts.py", "callback_args_forward.py", "busy_zero_contracts.py", "ops_object_forward.py", "init_period_forward.py", "record_lookup_forward.py", "wrapper_arg_forward.py", "conn_ready_forward.py", "channel_data_forward.py", "conn_is_connected_forward.py", "bsscfg_lookup_forward.py", "scheduler_list_forward.py", "char_validate_forward.py", "power_status_forward.py", "rate_code_forward.py", "conn_entry_forward.py", "frame_pair_forward.py", "triple_arg_forward.py", "first_arg_forward.py", "single_input_contracts.py", "fmac_zero_inputs.py", "rx_queue_contract.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "mrs_exception_state.py", "formatter_integer_codegen.py", "rf_table_address_arithmetic.py", "rf_config_frame.py", "rom_copy_frames.py",
+             "patch_tailcall_args.py", "strict_type_casts.py", "callback_args_forward.py", "busy_zero_contracts.py", "ops_object_forward.py", "init_period_forward.py", "record_lookup_forward.py", "wrapper_arg_forward.py", "conn_ready_forward.py", "channel_data_forward.py", "conn_is_connected_forward.py", "bsscfg_lookup_forward.py", "scheduler_list_forward.py", "char_validate_forward.py", "power_status_forward.py", "rate_code_forward.py", "conn_entry_forward.py", "frame_pair_forward.py", "triple_arg_forward.py", "first_arg_forward.py", "single_input_contracts.py", "fmac_zero_inputs.py", "rx_queue_contract.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "mrs_exception_state.py", "formatter_integer_codegen.py", "signed_halfword_assert.py", "rf_table_address_arithmetic.py", "rf_config_frame.py", "rom_copy_frames.py",
              "spilled_scalar_inputs.py", "libc_names.py", "tick_signed_cmps.py",
              "timer_signed_diffs.py", "uncast_memset_zero.py", "validate_forward_args.py"}
 

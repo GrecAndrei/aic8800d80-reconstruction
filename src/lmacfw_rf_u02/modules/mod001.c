@@ -209,7 +209,7 @@ int rf_calibrate( unsigned int a1, int a2, unsigned int r2_0, unsigned int a4, u
   *v19 &= ~4u;
   if ( v20 != a1 )
     configure_external_clock(a1);
-  if ( **(volatile uint16_t **)off_10218C < 0 && a1 > 1 )
+  if ( (int16_t)**(volatile uint16_t **) off_10218C < 0 && a1 > 1 )
   {
     flash_ctrl_init((int)aBandPhyBandMax, (int)aPhyHwSetChanne_0, 5664);
     goto LABEL_49;

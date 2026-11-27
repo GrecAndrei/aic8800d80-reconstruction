@@ -202,7 +202,7 @@ void rf_calibrate_tx( unsigned int a1, unsigned int a2, unsigned int r2_0, unsig
   *v20 &= ~4u;
   if ( v21 != a1 )
     read_radio_status_flag(a1);
-  if ( **(volatile uint16_t **)off_102234 < 0 && a1 > 1 )
+  if ( (int16_t)**(volatile uint16_t **) off_102234 < 0 && a1 > 1 )
   {
     irq_disable_mmio_write((int)aBandPhyBandMax, (int)aPhyHwSetChanne_0, 5664);
     goto LABEL_42;
