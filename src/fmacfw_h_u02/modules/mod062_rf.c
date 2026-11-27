@@ -142,7 +142,7 @@ volatile uint32_t * is_ble_connected(volatile uint32_t *result) {
       }
       else
       {
-        ((int (*)())pmu_init)();
+        pmu_init(*(volatile uint16_t *)((volatile uint8_t *)result + 416));
         v3 = v2[4];
         v4 = *((volatile uint32_t *)off_1365BC + 4);
         *((volatile uint8_t *)v2 + 13) = 1;

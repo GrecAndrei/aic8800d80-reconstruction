@@ -143,7 +143,7 @@ volatile uint32_t * bt_link_active(volatile uint32_t *result) {
       }
       else
       {
-        ((int (*)())bt_init)();
+        bt_init(*(volatile uint16_t *)((volatile uint8_t *)result + 416));
         v3 = v2[4];
         v4 = *((volatile uint32_t *)off_1366FC + 4);
         *((volatile uint8_t *)v2 + 13) = 1;
