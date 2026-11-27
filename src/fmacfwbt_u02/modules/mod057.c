@@ -52,7 +52,7 @@ LABEL_4:
   else
   {
     *a1 = v2 + 34;
-    result = ((int (*)())lookup_handle_entry)();
+    result = lookup_handle_entry((volatile uint16_t *)(uintptr_t)(v2 + 34));
     if ( result )
       goto LABEL_4;
   }

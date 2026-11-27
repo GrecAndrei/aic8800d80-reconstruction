@@ -52,7 +52,7 @@ LABEL_4:
   else
   {
     *a1 = v2 + 34;
-    result = ((int (*)())find_record_by_id)();
+    result = find_record_by_id((volatile uint16_t *)(uintptr_t)(v2 + 34));
     if ( result )
       goto LABEL_4;
   }

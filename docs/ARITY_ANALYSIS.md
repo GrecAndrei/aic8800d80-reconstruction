@@ -61,10 +61,11 @@ following classes were proven against the original binaries and repaired:
   subframe parsers;
 * one-input key/packet parser contracts: r1-r3 are overwritten before use in the
   ll_parse/rx_packet/rx_handle clones;
-* object forwarding `a1` through the three state-machine wrapper clones.
+* object forwarding `a1` through the three state-machine wrapper clones;
+* record-search object forwarding `(v2 + 34)` in the address/record lookup clones.
 
-After those repairs the remaining syntactic census is fmacfw_h 5 functions /
-5 call rows, fmacfw 6 / 6, fmacfwbt 5 / 5, and lmac 0 / 0. Remaining rows
+After those repairs the remaining syntactic census is fmacfw_h 4 functions /
+4 call rows, fmacfw 5 / 5, fmacfwbt 4 / 4, and lmac 0 / 0. Remaining rows
 are still unproven candidates. In particular `bt_conn_is_connected` and its
 clones genuinely consume r1-r3, so their four-input prototypes must not be
 "narrowed" merely because the scan is nonzero; their missing call-site argument

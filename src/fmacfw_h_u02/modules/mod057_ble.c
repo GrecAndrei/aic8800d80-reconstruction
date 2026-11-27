@@ -53,7 +53,7 @@ LABEL_4:
   else
   {
     *a1 = v2 + 34;
-    result = ((int (*)())rf_check_status)();
+    result = rf_check_status((volatile uint16_t *)(uintptr_t)(v2 + 34));
     if ( result )
       goto LABEL_4;
   }
