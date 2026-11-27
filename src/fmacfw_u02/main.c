@@ -6662,7 +6662,7 @@ uint64_t double_add_1(uint64_t a1, unsigned int a2, unsigned int a3) __asm__("__
 int double_multiply(int result, unsigned int a2, int a3, unsigned int a4, int a5, int a6, int a7, int a8);
 uint64_t double_subtract(unsigned int result, unsigned int a2, unsigned int a3, unsigned int a4) __asm__("__libmatch___aeabi_ddiv");
 int double_divide(int result, int a2, int a3, unsigned int a4);
-int double_compare_core(unsigned int a1, unsigned int a2, unsigned int a3, int a4) __asm__("__libmatch___cmpdf2");
+int double_compare(unsigned int a1, unsigned int a2, unsigned int a3, int a4) __asm__("__libmatch___cmpdf2");
 int double_swap_compare(int a1, int a2, int a3, int a4) __asm__("__libmatch___aeabi_cdrcmple");
 unsigned int double_compare_flags(unsigned int a1, unsigned int a2, unsigned int a3, int a4) __asm__("__libmatch___aeabi_cdcmpeq");
 BOOL double_eq(unsigned int a1, unsigned int a2, unsigned int a3, int a4) __asm__("__libmatch___aeabi_dcmpeq");

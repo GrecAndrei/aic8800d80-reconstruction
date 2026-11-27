@@ -450,7 +450,7 @@ unsigned int log_float_converted(unsigned int a1) {
   v1 = fast_log2f(a1);
   v2 = ((uint64_t (*)())float_to_double)(v1);
   v3 = ((uint64_t (*)())double_multiply)(v2, *(volatile uint64_t *)&dword_12D5C0);
-  return ((int (*)(uint64_t))double_to_int)(v3);
+  return ((int (*)(uint64_t))double_to_float)(v3);
 }
 
 

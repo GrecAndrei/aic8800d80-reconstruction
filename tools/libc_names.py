@@ -124,11 +124,8 @@ def rename_in_text(text: str, mapping: dict[str, str]) -> tuple[str, int]:
     return "".join(out), count
 
 
-def apply_image(text: str, short: str) -> tuple[str, int, list[str]]:
-    rows = {int(a, 16): n for n, a in MARKER_RE.findall(text)}
-    names = {}
-    for a, n in rows.items():
-        names.setdefault(n, set()).add(a)
+def mapping_from_rows(rows: dict[int, str], short: str) -> tuple[dict[str, str], list[str]]:
+    """Build the machine-verified rename mapping from an address->name table."""
     mapping: dict[str, str] = {}
     problems: list[str] = []
     for (img, addr), new in sorted(RENAMES.items()):
@@ -149,6 +146,12 @@ def apply_image(text: str, short: str) -> tuple[str, int, list[str]]:
         if colliding:
             problems.append(f"{short}: target name {new} already owned by "
                             + ",".join(f"{a:#x}" for a in sorted(colliding)))
+    return mapping, problems
+
+
+def apply_image(text: str, short: str) -> tuple[str, int, list[str]]:
+    rows = {int(a, 16): n for n, a in MARKER_RE.findall(text)}
+    mapping, problems = mapping_from_rows(rows, short)
     if problems:
         return text, 0, problems
     out, n = rename_in_text(text, mapping)
@@ -161,19 +164,43 @@ def main() -> int:
     args = ap.parse_args()
     rc = 0
     for short in IMAGES:
-        path = REPO / "src" / short / "main.c"
-        text = path.read_text(errors="replace")
-        out, n, problems = apply_image(text, short)
+        imgroot = REPO / "src" / short
+        main_path = imgroot / "main.c"
+        main_text = main_path.read_text(errors="replace")
+        if MARKER_RE.search(main_text):
+            # Fresh compose: the monolith carries every function body.
+            paths = [main_path]
+        else:
+            # Tracked tree: the umbrella carries forward declarations while
+            # the address-keyed bodies live in module slices.
+            paths = [main_path] + sorted((imgroot / "modules").glob("mod*.c"))
+        texts = {}
+        rows = {}
+        for path in paths:
+            if not path.exists():
+                continue
+            text = path.read_text(errors="replace")
+            texts[path] = text
+            rows.update({int(a, 16): n for n, a in MARKER_RE.findall(text)})
+        mapping, problems = mapping_from_rows(rows, short)
         if problems:
             for p in problems:
                 print(f"[libc_names] ERROR {p}", file=sys.stderr)
             rc = 1
             continue
-        print(f"[libc_names] {short}: {n} name references {'pending' if args.check else 'rewritten'}")
-        if n and args.check:
+        count = 0
+        outputs = {}
+        for path, text in texts.items():
+            out, n = rename_in_text(text, mapping)
+            outputs[path] = out
+            count += n
+        print(f"[libc_names] {short}: {count} name references {'pending' if args.check else 'rewritten'}")
+        if count and args.check:
             rc = 1
-        elif n and not args.check:
-            path.write_text(out)
+        elif count and not args.check:
+            for path, out in outputs.items():
+                if out != texts[path]:
+                    path.write_text(out)
     return rc
 
 

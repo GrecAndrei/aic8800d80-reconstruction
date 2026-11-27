@@ -6694,7 +6694,7 @@ BOOL double_greater_equal(int a1, int a2, int a3, int a4) __asm__("__libmatch___
 BOOL double_greater_than(int a1, int a2, int a3, int a4) __asm__("__libmatch___aeabi_dcmpgt");
 unsigned int double_to_float_1(unsigned int a1, int a2) __asm__("__libmatch___aeabi_d2iz");
 unsigned int double_to_uint32(unsigned int a1, int a2) __asm__("__libmatch___aeabi_d2uiz");
-unsigned int double_to_int(unsigned int a1, int a2) __asm__("__libmatch___aeabi_d2f");
+unsigned int double_to_float(unsigned int a1, int a2) __asm__("__libmatch___aeabi_d2f");
 int float_add(int result, int a2, int a3, int a4) __asm__("__libmatch___aeabi_fadd");
 int double_is_zero(uint64_t a1) __asm__("__libmatch___aeabi_ul2f");
 int double_compare(int result, int a2) __asm__("__libmatch___cmpsf2");

@@ -99,7 +99,7 @@ def apply_image(img, batch, check=False):
         for m in re.finditer(r"(?m)^// (\S+) @", text):
             taken.add(m.group(1))
 
-        renames = {}
+    renames = {}
     collisions = 0
     skipped = 0
     assigned = set()  # names taken by this pass itself — two noise-named
@@ -121,25 +121,49 @@ def apply_image(img, batch, check=False):
         if not re.fullmatch(r"[a-z][a-z0-9_]{2,40}", new or "") or new == disp:
             skipped += 1
             continue
-        if (new in taken and new != disp) or new in assigned:
+        if new in assigned:
             collisions += 1
             continue
         renames[disp] = new
         assigned.add(new)
 
+    # Collision-test the FINAL ownership, not the initial ownership. A target
+    # may be vacated in this same pass (for example double_compare ->
+    # aeabi_dadd), which then makes double_compare_core -> double_compare
+    # valid. Iterate because removing one colliding edge can make another
+    # target occupied again. This is deterministic and does not weaken the
+    # hard rule that two final functions may not own the same name.
+    while True:
+        final_name = {name: renames.get(name, name) for name in taken}
+        blocking = {}
+        for owner, final in final_name.items():
+            blocking.setdefault(final, set()).add(owner)
+        bad = []
+        for old, new in renames.items():
+            owners = blocking.get(new, set()) - {old}
+            if owners:
+                bad.append(old)
+        if not bad:
+            break
+        for old in bad:
+            del renames[old]
+            collisions += 1
+
     if check:
         return len(renames), skipped, collisions, {}
 
-    # apply: definition line comment + definition identifier + call sites.
-    # Word-boundary exact-token replacement is safe because C identifiers
-    # cannot partially match inside other identifiers with \b on both ends.
-    audit = {}
-    for old, new in renames.items():
+    # Apply all renames in ONE regex pass. Sequential per-name substitution is
+    # unsafe for chains (A->B, B->C would rename the newly written Bs again);
+    # a single pass rewrites only the original tokens. Word-boundary exact
+    # replacement is safe because C identifiers cannot partially match inside
+    # other identifiers with \b on both ends.
+    audit = dict(renames)
+    if renames:
+        pat = re.compile(
+            r"\b(" + "|".join(re.escape(k) for k in sorted(renames, key=len, reverse=True)) + r")\b"
+        )
         for f in files:
-            t = texts[f]
-            if re.search(rf"\b{re.escape(old)}\b", t):
-                texts[f] = re.sub(rf"\b{re.escape(old)}\b", new, t)
-        audit[old] = new
+            texts[f] = pat.sub(lambda m: renames[m.group(1)], texts[f])
 
     if renames:
         for f, t in texts.items():

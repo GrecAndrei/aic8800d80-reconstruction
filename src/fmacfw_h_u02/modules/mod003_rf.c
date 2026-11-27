@@ -77,10 +77,10 @@ LABEL_5:
     v15 = double_add(v14, *(volatile uint64_t *)&dword_1046F8);
     v16 = ((uint64_t (*)())double_multiply)(v13, v15);
     v17 = ((uint64_t (*)())double_compare_neg)(v12, v16);
-    v18 = ((int (*)(uint64_t))double_to_int)(v17);
+    v18 = ((int (*)(uint64_t))double_to_float)(v17);
     v19 = ((uint64_t (*)())float_to_double)(v18);
     v20 = ((uint64_t (*)())double_compare_neg)(*(volatile uint64_t *)&dword_104700, v19);
-    result = ((int (*)(uint64_t))double_to_int)(v20);
+    result = ((int (*)(uint64_t))double_to_float)(v20);
     if ( v7 != 1 )
       goto LABEL_16;
     goto LABEL_12;
@@ -94,7 +94,7 @@ LABEL_11:
   v29 = double_add(v28, *(volatile uint64_t *)&dword_1046F8);
   v30 = ((uint64_t (*)())double_multiply)(v27, v29);
   v31 = ((uint64_t (*)())double_compare_neg)(v26, v30);
-  result = ((int (*)(uint64_t))double_to_int)(v31);
+  result = ((int (*)(uint64_t))double_to_float)(v31);
   if ( v7 != 1 )
   {
 LABEL_16:
@@ -102,14 +102,14 @@ LABEL_16:
       return result ^ 0x80000000;
     v22 = ((uint64_t (*)())float_to_double)(result);
     v23 = ((uint64_t (*)())double_compare_neg)(v22, *(volatile uint64_t *)&dword_104708);
-    return ((int (*)(uint64_t))double_to_int)(v23);
+    return ((int (*)(uint64_t))double_to_float)(v23);
   }
 LABEL_12:
   if ( v6 != 1 )
   {
     v32 = ((uint64_t (*)())float_to_double)(result ^ 0x80000000);
     v33 = double_add(v32, *(volatile uint64_t *)&dword_104708);
-    return ((int (*)(uint64_t))double_to_int)(v33);
+    return ((int (*)(uint64_t))double_to_float)(v33);
   }
   return result;
 }
@@ -687,7 +687,7 @@ else if ( ((int (*)())double_less_equal)(v10, v68) ) { v63 = v23;
     v69 = v63;
     v64 = ((uint64_t (*)())float_to_double)(v8[63]);
     v65 = ((uint64_t (*)())double_multiply)(v64, v69);
-    result = ((int (*)(uint64_t))double_to_int)(v65);
+    result = ((int (*)(uint64_t))double_to_float)(v65);
     v8[31] = result;
   }
   while ( v8 != v36 );
@@ -751,7 +751,7 @@ int min_or_max(int a1, int a2, int a3) {
     v15 = signed_int_to_double(a1);
     v16 = signed_int_to_double(a2);
     v17 = ((uint64_t (*)())double_divide)(v15, v16);
-    v18 = ((int (*)(uint64_t))double_to_int)(v17);
+    v18 = ((int (*)(uint64_t))double_to_float)(v17);
     v13 = COERCE_FLOAT(log_float_converted(v18));
     v14 = 20.0;
     goto LABEL_6;
@@ -761,7 +761,7 @@ int min_or_max(int a1, int a2, int a3) {
     v9 = signed_int_to_double(a2);
     v10 = signed_int_to_double(a1);
     v11 = ((uint64_t (*)())double_divide)(v9, v10);
-    v12 = ((int (*)(uint64_t))double_to_int)(v11);
+    v12 = ((int (*)(uint64_t))double_to_float)(v11);
     v13 = COERCE_FLOAT(log_float_converted(v12));
     v14 = -20.0;
 LABEL_6:
@@ -1083,7 +1083,7 @@ if ( ((int (*)())double_less_than)(v16, v18) ) { check_feature_flag(1, aWarningA
     {
       v26 = signed_int_to_double(++v23);
       v27 = ((uint64_t (*)())double_divide)(v26, v25);
-      *(volatile uint32_t *)v24++ = ((int (*)(uint64_t))double_to_int)(v27);
+      *(volatile uint32_t *)v24++ = ((int (*)(uint64_t))double_to_float)(v27);
       *v21++ = 1.0;
       *v22++ = v20;
     }
@@ -2118,7 +2118,7 @@ int init_callbacks(int a1, int a2, int a3) {
   v5 = signed_int_to_double(a2);
   v6 = ((uint64_t (*)())double_divide)(v5, *(volatile uint64_t *)&dword_1064D8);
   v7 = a1 + 4 * a3;
-  v8 = ((int (*)(uint64_t))double_to_int)(v6);
+  v8 = ((int (*)(uint64_t))double_to_float)(v6);
   v9 = *(volatile uint32_t *)(v7 + 140);
   v10 = COERCE_FLOAT(log_float_converted(v8));
   v11 = *(volatile uint64_t *)(a1 + 164);

@@ -1033,7 +1033,7 @@ int rf_load_cal_config(int a1, volatile float *a2, int a3, int a4) {
         v31 = ((uint64_t (*)())double_divide)(v29, v30);
         v32 = ((uint64_t (*)())float_to_double)(COERCE_UNSIGNED_INT(v18));
         v33 = double_add(v31, v32);
-        v18 = COERCE_FLOAT(((int (*)(uint64_t))double_to_int)(v33));
+        v18 = COERCE_FLOAT(((int (*)(uint64_t))double_to_float)(v33));
         if ( v22 == v23 )
           goto LABEL_6;
       }
@@ -2937,7 +2937,7 @@ LABEL_37:
           v93 = (v93 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
           v93 = (v93 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10BA70) << 32);
           v94 = ((uint64_t (*)())double_divide)(v92, v93);
-          v95 = ((int (*)(uint64_t))double_to_int)(v94);
+          v95 = ((int (*)(uint64_t))double_to_float)(v94);
           v83 = COERCE_FLOAT(log_float_converted(v95)) * 20.0;
           _frame.v156 = _frame.v147;
           v96 = COERCE_FLOAT(load_version_string(COERCE_INT((float)-v83 / 20.0)));

@@ -1021,7 +1021,7 @@ unsigned int hw_block_disable() {
   v5 = ((uint64_t (*)())double_multiply)(v4, *(volatile uint64_t *)&dword_10DE88);
   v6 = ((uint64_t (*)())double_divide)(v5, *(volatile uint64_t *)&dword_10DE90);
   v7 = ((uint64_t (*)())double_compare_neg)(v6, *(volatile uint64_t *)&dword_10DE98);
-  return ((int (*)(uint64_t))double_to_int)(v7);
+  return ((int (*)(uint64_t))double_to_float)(v7);
 }
 
 
@@ -1065,7 +1065,7 @@ unsigned int hw_poll_status() {
   v2 = ((uint64_t (*)())double_multiply)(v1, *(volatile uint64_t *)&dword_10DF50);
   v3 = ((uint64_t (*)())double_divide)(v2, *(volatile uint64_t *)&dword_10DF58);
   v4 = ((uint64_t (*)())double_compare_neg)(v3, *(volatile uint64_t *)&dword_10DF60);
-  return ((int (*)(uint64_t))double_to_int)(v4);
+  return ((int (*)(uint64_t))double_to_float)(v4);
 }
 
 
@@ -1109,7 +1109,7 @@ int hw_block_enable() {
   v2 = ((uint64_t (*)())double_multiply)(v1, *(volatile uint64_t *)&dword_10E070);
   v3 = ((uint64_t (*)())double_divide)(v2, *(volatile uint64_t *)&dword_10E078);
   v4 = ((uint64_t (*)())double_compare_neg)(v3, *(volatile uint64_t *)&dword_10E070);
-  v5 = ((int (*)(uint64_t))double_to_int)(v4);
+  v5 = ((int (*)(uint64_t))double_to_float)(v4);
   rf_table_update(2);
   v6 = (void *)(uintptr_t)(off_10E090);
   v0[1] = 1;
@@ -1122,7 +1122,7 @@ int hw_block_enable() {
   v9 = ((uint64_t (*)())double_multiply)(v8, *(volatile uint64_t *)&dword_10E070);
   v10 = ((uint64_t (*)())double_divide)(v9, *(volatile uint64_t *)&dword_10E078);
   v11 = ((uint64_t (*)())double_compare_neg)(v10, *(volatile uint64_t *)&dword_10E070);
-  v12 = ((int (*)(uint64_t))double_to_int)(v11);
+  v12 = ((int (*)(uint64_t))double_to_float)(v11);
   v13 = ((uint64_t (*)())float_to_double)(v12);
   v14 = ((uint64_t (*)())double_divide)(v13, *(volatile uint64_t *)&dword_10E080);
   v15 = (v15 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E094) << 32);
@@ -1141,7 +1141,7 @@ int hw_block_enable() {
   v25 = (v25 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E0A0) << 32);
   v25 = (v25 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v26 = ((uint64_t (*)())double_divide)(v24, v25);
-  return (int)COERCE_FLOAT(((int (*)(uint64_t))double_to_int)(v26));
+  return (int)COERCE_FLOAT(((int (*)(uint64_t))double_to_float)(v26));
 }
 
 
@@ -1172,7 +1172,7 @@ int hw_ctrl_set() {
   v2 = ((uint64_t (*)())double_multiply)(v1, *(volatile uint64_t *)&dword_10E130);
   v3 = ((uint64_t (*)())double_divide)(v2, *(volatile uint64_t *)&dword_10E138);
   v4 = ((uint64_t (*)())double_compare_neg)(v3, *(volatile uint64_t *)&dword_10E130);
-  v5 = ((int (*)(uint64_t))double_to_int)(v4);
+  v5 = ((int (*)(uint64_t))double_to_float)(v4);
   v6 = ((uint64_t (*)())float_to_double)(v5);
   v7 = ((uint64_t (*)())double_divide)(v6, *(volatile uint64_t *)&dword_10E140);
   v8 = (v8 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E154) << 32);
@@ -1185,7 +1185,7 @@ int hw_ctrl_set() {
   v13 = (v13 & 0xFFFFFFFFu) | ((uint64_t)(uint32_t)(dword_10E15C) << 32);
   v13 = (v13 & ~0xFFFFFFFFull) | ((uint32_t)(0) & 0xFFFFFFFFu);
   v14 = ((uint64_t (*)())double_divide)(v12, v13);
-  return (int)COERCE_FLOAT(((int (*)(uint64_t))double_to_int)(v14));
+  return (int)COERCE_FLOAT(((int (*)(uint64_t))double_to_float)(v14));
 }
 
 

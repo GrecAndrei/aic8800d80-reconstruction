@@ -460,7 +460,7 @@ unsigned int rf_irq_service(unsigned int result) {
     {
       v7 = signed_int_to_double(result);
       v8 = ((uint64_t (*)())double_multiply)(v7, *(volatile uint64_t *)&dword_12B678);
-      v9 = ((int (*)(uint64_t))double_to_int)(v8);
+      v9 = ((int (*)(uint64_t))double_to_float)(v8);
       v10 = ((uint64_t (*)())float_to_double)(v9);
       v11 = double_exp_check(v10);
       *v1 = v4 & (((int (*)(uint64_t))double_to_uint32)(v11) << 18) | *v1 & v5;

@@ -150,7 +150,7 @@ unsigned int float_add(unsigned int a1) {
 /* libmatch: interior fragment of __aeabi_ddiv @ 0x142cfc (libgcc.a:_arm_muldivdf3.o); dropped */
 
 
-// double_compare_core @ 0x142edc
+// double_compare @ 0x142edc
 /* libmatch: 122 bytes identical to __cmpdf2 (libgcc.a:_arm_cmpdf2.o); the library routine is linked */
 
 

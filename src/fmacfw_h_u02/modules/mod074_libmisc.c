@@ -190,7 +190,7 @@ unsigned int float_to_int_convert(unsigned int a1) {
 /* libmatch: 64 bytes identical to __aeabi_d2uiz (libgcc.a:_arm_fixunsdfsi.o); the library routine is linked */
 
 
-// double_to_int @ 0x142f2c
+// double_to_float @ 0x142f2c
 /* libmatch: 158 bytes identical to __aeabi_d2f (libgcc.a:_arm_truncdfsf2.o); the library routine is linked */
 
 

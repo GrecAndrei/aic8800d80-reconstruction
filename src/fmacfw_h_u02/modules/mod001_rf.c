@@ -184,7 +184,7 @@ void rf_calibrate_tx( unsigned int a1, unsigned int a2, unsigned int r2_0, unsig
       v14 = ((uint64_t (*)())double_multiply)(v13, *(volatile uint64_t *)&dword_1024E8);
     else
       v14 = ((uint64_t (*)())double_multiply)(v13, *(volatile uint64_t *)&dword_1021F8);
-    v15 = ((int (*)(uint64_t))double_to_int)(v14);
+    v15 = ((int (*)(uint64_t))double_to_float)(v14);
     v16 = ((uint64_t (*)())float_to_double)(v15);
     v17 = (volatile unsigned int *)off_102218;
     v18 = double_exp_check(v16);

@@ -160,18 +160,39 @@ def main() -> int:
     args = ap.parse_args()
     rc = 0
     for img, table in TARGETS.items():
-        path = REPO / "src" / img / "main.c"
-        text = path.read_text(errors="replace")
-        out, n, errors = apply_image(text, table)
-        print(f"[rom_copy_frames] {img}: {n} ROM-copy frame rewrite(s) "
+        imgroot = REPO / "src" / img
+        main_path = imgroot / "main.c"
+        main_text = main_path.read_text(errors="replace")
+        if any(function_span(main_text, addr) is not None for addr in table):
+            paths = [main_path]
+        else:
+            paths = sorted((imgroot / "modules").glob("mod*.c"))
+        count = 0
+        errors = []
+        seen = set()
+        for path in paths:
+            if not path.exists():
+                continue
+            text = path.read_text(errors="replace")
+            subset = {addr: kind for addr, kind in table.items()
+                      if function_span(text, addr) is not None}
+            if not subset:
+                continue
+            seen.update(subset)
+            out, n, errs = apply_image(text, subset)
+            count += n
+            errors.extend(errs)
+            if n and not args.check:
+                path.write_text(out)
+        for addr in sorted(set(table) - seen):
+            errors.append(f"missing function at {addr:#x}")
+        print(f"[rom_copy_frames] {img}: {count} ROM-copy frame rewrite(s) "
               f"{'pending' if args.check else 'applied'}")
         for e in errors:
             print(f"[rom_copy_frames] ERROR: {img}: {e}", file=sys.stderr)
             rc = 1
-        if n and args.check:
+        if count and args.check:
             rc = 1
-        elif n and not args.check:
-            path.write_text(out)
     return rc
 
 

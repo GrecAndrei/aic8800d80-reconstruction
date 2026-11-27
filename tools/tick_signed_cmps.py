@@ -139,6 +139,24 @@ def block_span(text: str, addr: int):
     return None
 
 
+
+
+def fixed_point_count(body: str, new: str) -> int:
+    """Count a repaired expression, allowing Luna's semantic rename of v8.
+
+    The signed-comparison rewrite runs before luna_semantics_apply. In the
+    tracked tree Luna may have renamed the canonical Hex-Rays variable v8
+    (for example to event_time or active_timer). Accept one consistent
+    identifier in that position; the surrounding machine-anchored expression
+    still has to match exactly.
+    """
+    exact = body.count(new)
+    if exact or "v8" not in new:
+        return exact
+    pat = r"\w+".join(re.escape(part) for part in new.split("v8"))
+    return len(re.findall(pat, body))
+
+
 def apply_image(text: str, entries) -> tuple[str, int, list]:
     """Apply all rules; returns (text, n_applied, errors)."""
     total = 0
@@ -151,7 +169,7 @@ def apply_image(text: str, entries) -> tuple[str, int, list]:
         body = text[span[0]:span[1]]
         for old, new, want in rules:
             n_old = body.count(old)
-            n_new = body.count(new)
+            n_new = fixed_point_count(body, new)
             if n_old == 0:
                 if n_new == want:
                     continue  # fixed point
@@ -174,18 +192,40 @@ def main() -> int:
     root = Path(args.src) if args.src else REPO / "src"
     rc = 0
     for short, entries in TARGETS.items():
-        path = root / short / "main.c"
-        text = path.read_text(errors="replace")
-        out, n, errors = apply_image(text, entries)
+        imgroot = root / short
+        main_path = imgroot / "main.c"
+        main_text = main_path.read_text(errors="replace")
+        if any(block_span(main_text, addr) is not None for addr, _ in entries):
+            paths = [main_path]
+        else:
+            paths = sorted((imgroot / "modules").glob("mod*.c"))
+        count = 0
+        errors = []
+        seen = set()
+        for path in paths:
+            if not path.exists():
+                continue
+            text = path.read_text(errors="replace")
+            subset = [(addr, rules) for addr, rules in entries
+                      if block_span(text, addr) is not None]
+            if not subset:
+                continue
+            seen.update(addr for addr, _ in subset)
+            out, n, errs = apply_image(text, subset)
+            count += n
+            errors.extend(errs)
+            if n and not args.check:
+                path.write_text(out)
+        for addr, _ in entries:
+            if addr not in seen:
+                errors.append(f"function {addr:#x} not found")
         for e in errors:
             print(f"[tick_signed_cmps] ERROR {short}: {e}", file=sys.stderr)
             rc = 1
-        print(f"[tick_signed_cmps] {short}: {n} signed comparison(s) "
+        print(f"[tick_signed_cmps] {short}: {count} signed comparison(s) "
               f"{'pending' if args.check else 'applied/fixed-point'}")
-        if n and args.check:
+        if count and args.check:
             rc = 1
-        elif n and not args.check:
-            path.write_text(out)
     return rc
 
 
