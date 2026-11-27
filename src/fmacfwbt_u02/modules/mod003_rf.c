@@ -601,7 +601,7 @@ unsigned int bt_encrypt_wrap(volatile int *a1, int a2, uint64_t a3, volatile uin
   uint64_t v70; // [sp+8h] [bp-14h]
   uint64_t v71; // [sp+10h] [bp-Ch]
 
-  v6 = ((int (*)(uint64_t))__aeabi_d2lz)(a3);
+  v6 = ((uint64_t (*)(uint64_t))__aeabi_d2lz)(a3);
   ke_event_schedule_1("temp_delta=%d\n", v6);
   v7 = COERCE_FLOAT(gpio_init_1());
   v8 = (volatile unsigned int *)a1;

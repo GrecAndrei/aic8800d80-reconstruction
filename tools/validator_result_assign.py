@@ -21,10 +21,16 @@ TARGETS={
  'fmacfw_u02':(0x132794,'wlan_rate_code_to_index'),
 }
 def transform_body(body,helper):
- old=f'{helper}(v8[1]);'
- if f'v10 = {helper}(v8[1]);' in body:return body,0,None
- if old not in body:return body,0,'dead validator call not found'
- return body.replace(old,f'v10 = {helper}(v8[1]);',1),1,None
+ import re
+ if re.search(r'\bv10 = \w+\(v8\[1\]\);', body):
+  return body,0,None
+ # The helper's Luna-assigned name can differ between the raw composed
+ # monolith and the deduplicated module slice. In this address-keyed body the
+ # sole validator-shaped dead call is the machine-proven result source.
+ pat=re.compile(r'(?m)^(\s*)(?!v10 =)(\w+)\(v8\[1\]\);$')
+ m=pat.search(body)
+ if not m:return body,0,'dead validator call not found'
+ return body[:m.start()]+f'{m.group(1)}v10 = {m.group(2)}(v8[1]);'+body[m.end():],1,None
 
 def transform(text,addr,helper):
  import re
