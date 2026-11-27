@@ -224,6 +224,18 @@ class RamAndVerdictTests(unittest.TestCase):
 
         self.assertEqual(v_real["reason"], "r0_differ")
 
+    def test_interior_libmatch_fragments_are_structural_not_never_comparable(self):
+        def row(libdrop=False):
+            return {
+                "image": "fmacfw_h_u02", "address": "0x1000", "function": "x",
+                "machine_class": "unknown", "libmatch_dropped": libdrop,
+                "vectors": {v: {"status": "NOT_RUN", "reason": "not_in_linked_image"}
+                            for v in ("bare_zero", "boot_zero", "boot_scalar", "boot_neg", "boot_ptr")},
+            }
+        out = fm.summarize_rows([row(True), row(False)], fm.DEFAULT_VECTORS)
+        self.assertEqual(out["aggregate"]["interior_libmatch_fragment"], 1)
+        self.assertEqual(out["aggregate"]["never_comparable"], 1)
+
     def test_relocated_cstr_and_fn_ptr_match(self):
         orig_img = b"\x00" * 0x100 + b"adjust xtal_cap: tgt=0x%x\n\x00"
         blob = b"\x00" * 0x200 + b"adjust xtal_cap: tgt=0x%x\n\x00"

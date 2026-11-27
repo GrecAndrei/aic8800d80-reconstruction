@@ -1429,6 +1429,13 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
     differ_examples: list[dict] = []
     for r in rows:
         vs = list(r["vectors"].values())
+        if r.get("libmatch_dropped"):
+            # Machine-proven interior bytes of a parent byte-identical library
+            # routine, reached only by that parent's internal branch. They are
+            # not independent callable functions and their machine code is
+            # already measured through the parent routine.
+            agg["INTERIOR_LIBMATCH_FRAGMENT"] += 1
+            continue
         comparable = [x for x in vs if x["status"] not in ("NOT_RUN", "INVALID_INPUT")]
         if not comparable:
             agg["NEVER_COMPARABLE"] += 1
@@ -1455,7 +1462,7 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
         else:
             agg["VACUOUS_ALL_MATCH"] += 1
 
-    comparable_total = total - agg["NEVER_COMPARABLE"]
+    comparable_total = total - agg["NEVER_COMPARABLE"] - agg["INTERIOR_LIBMATCH_FRAGMENT"]
     per_image: dict[str, dict] = {}
     rows_by_img: dict[str, list[dict]] = collections.defaultdict(list)
     for r in rows:
@@ -1463,6 +1470,9 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
     for img_short, img_rows in sorted(rows_by_img.items()):
         i_agg = collections.Counter()
         for r in img_rows:
+            if r.get("libmatch_dropped"):
+                i_agg["INTERIOR_LIBMATCH_FRAGMENT"] += 1
+                continue
             comp = [x for x in r["vectors"].values() if x["status"] not in ("NOT_RUN", "INVALID_INPUT")]
             if not comp:
                 i_agg["NEVER_COMPARABLE"] += 1
@@ -1481,6 +1491,7 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
             "vacuous_all_match": i_agg["VACUOUS_ALL_MATCH"],
             "failing_any_vector": i_agg["FAILING_ANY_VECTOR"],
             "prefix_match_nonreturn": i_agg["PREFIX_MATCH_NONRETURN"],
+            "interior_libmatch_fragment": i_agg["INTERIOR_LIBMATCH_FRAGMENT"],
             "never_comparable": i_agg["NEVER_COMPARABLE"],
             "exercised_coverage_pct": round(100.0 * i_agg["EXERCISED_ALL_MATCH"] / itot, 2) if itot else 0.0,
         }
@@ -1495,6 +1506,7 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
             "vacuous_all_match": agg["VACUOUS_ALL_MATCH"],
             "failing_any_vector": agg["FAILING_ANY_VECTOR"],
             "prefix_match_nonreturn": agg["PREFIX_MATCH_NONRETURN"],
+            "interior_libmatch_fragment": agg["INTERIOR_LIBMATCH_FRAGMENT"],
             "never_comparable": agg["NEVER_COMPARABLE"],
             "strict_all_match_pct": round(100.0 * (agg["EXERCISED_ALL_MATCH"] + agg["VACUOUS_ALL_MATCH"]) / total, 2) if total else 0.0,
             "comparable_all_match_pct": round(100.0 * (agg["EXERCISED_ALL_MATCH"] + agg["VACUOUS_ALL_MATCH"]) / (comparable_total - agg["PREFIX_MATCH_NONRETURN"]), 2) if comparable_total - agg["PREFIX_MATCH_NONRETURN"] else 0.0,
@@ -1528,13 +1540,15 @@ def print_dashboard(report: dict) -> None:
     for img_short, ps in d.get("per_image", {}).items():
         print(f"  {img_short:14s} exercised={ps['exercised_all_match']:4d}/{ps['total']:4d} "
               f"({ps['exercised_coverage_pct']:5.2f}%) | vacuous={ps['vacuous_all_match']:4d} | "
-              f"failing={ps['failing_any_vector']:3d} | prefix={ps.get('prefix_match_nonreturn',0):3d} | never_comp={ps['never_comparable']:3d}")
+              f"failing={ps['failing_any_vector']:3d} | prefix={ps.get('prefix_match_nonreturn',0):3d} | "
+              f"frag={ps.get('interior_libmatch_fragment',0):2d} | never_comp={ps['never_comparable']:3d}")
 
     print(f"\nHeadline Aggregate ({d['total_functions']} functions):")
     print(f"  EXERCISED_ALL_MATCH : {agg['exercised_all_match']:4d} ({agg['exercised_coverage_pct']:.2f}% true non-trivial fidelity)")
     print(f"  VACUOUS_ALL_MATCH   : {agg['vacuous_all_match']:4d} (all matched, but 0 MMIO/RAM/non-zero r0 observed)")
     print(f"  FAILING_ANY_VECTOR  : {agg['failing_any_vector']:4d} (proven bug on >=1 vector)")
     print(f"  PREFIX_MATCH_NONRET : {agg.get('prefix_match_nonreturn',0):4d} (partial ordered-write evidence; not counted as full equivalence)")
+    print(f"  INTERIOR_FRAGMENT   : {agg.get('interior_libmatch_fragment',0):4d} (proven non-entry bytes inside linked libmatch parents)")
     print(f"  NEVER_COMPARABLE    : {agg['never_comparable']:4d}")
     print(f"  MACHINE_NULLSUB_R0_EXCLUDED: {agg.get('machine_nullsub_excluded', 0):4d} (bx-lr/nullsub aliases; vacuous structural units)")
 
