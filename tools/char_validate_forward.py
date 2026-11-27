@@ -10,11 +10,18 @@ from pathlib import Path
 REPO=Path(__file__).resolve().parent.parent
 SPECS={'fmacfw_h_u02':'cmd_char_validate','fmacfw_u02':'wlan_rate_code_to_index'}
 def apply_image(short,check=False):
- name=SPECS[short];total=0;old=f'((int (*)()){name})();';new=f'{name}(v8[1]);'
+ name=SPECS[short];total=0
  root=REPO/'src'/short
+ repl=[(f'((int (*)()){name})();',f'{name}(v8[1]);')]
+ if name=='wlan_rate_code_to_index':
+  repl.append(('((int (*)())is_valid_rate_code)();','is_valid_rate_code(v8[1]);'))
  for p in [root/'main.c']+sorted((root/'modules').glob('mod*.c')):
-  t=p.read_text(errors='replace');n=t.count(old);total+=n
-  if n and not check:p.write_text(t.replace(old,new))
+  if not p.exists():continue
+  t=p.read_text(errors='replace');n=0
+  for old,new in repl:
+   c=t.count(old);n+=c;t=t.replace(old,new)
+  total+=n
+  if n and not check:p.write_text(t)
  return total
 def main():
  check='--check'in sys.argv;rc=0

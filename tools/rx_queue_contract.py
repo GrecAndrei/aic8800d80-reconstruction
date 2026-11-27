@@ -34,11 +34,14 @@ def apply(check=False):
    seen=True;body=t[sp[0]:sp[1]]
   for old,new in REPL:
    c=body.count(old);n+=c;body=body.replace(old,new)
+  out=t
+  if sp is not None:
+   out=t[:sp[0]]+body+t[sp[1]:]
   # The prototype lives in main.c outside the function body.
   if p.name=='main.c':
-   c=t.count(REPL[1][0]);n+=c;t=t.replace(REPL[1][0],REPL[1][1])
+   c=out.count(REPL[1][0]);n+=c;out=out.replace(REPL[1][0],REPL[1][1])
   total+=n
-  if n and not check:p.write_text(t[:sp[0]]+body+t[sp[1]:] if p.name!='main.c' else t)
+  if n and not check:p.write_text(out)
  return total,seen
 def main():
  check='--check'in sys.argv;n,seen=apply(check);print(f'[rx_queue_contract] {n} rewrite(s)');return 1 if (not seen or (check and n)) else 0
