@@ -13,7 +13,10 @@ Two byte-cloned scheduler families are zero-input in the original machine code:
   the machine code never consumes r0-r2.
 
 The rewrite also removes the call-site casts that Hex-Rays emitted because of
-those invented parameters. Exact, idempotent, and checkable.
+those invented parameters. rf_calibration_proc is the pre-Luna spelling of
+test_command_queue_process, so both representations are rewritten; this keeps
+the rule correct before and after the post-compose rename pass. Exact,
+idempotent, and checkable.
 """
 import argparse,sys
 from pathlib import Path
@@ -31,6 +34,9 @@ SPECS={
   ('int fault_status_read(int a1, int a2) {','int fault_status_read() {'),
   ('int fault_status_read(int a1, int a2);','int fault_status_read();'),
   ('((int (*)())fault_status_read)()','fault_status_read()'),
+  ('int rf_calibration_proc(int a1, int a2) {','int rf_calibration_proc() {'),
+  ('int rf_calibration_proc(int a1, int a2);','int rf_calibration_proc();'),
+  ('((int (*)())rf_calibration_proc)()','rf_calibration_proc()'),
   ('int test_command_queue_process(int a1, int a2) {','int test_command_queue_process() {'),
   ('int test_command_queue_process(int a1, int a2);','int test_command_queue_process();'),
   ('((int (*)())test_command_queue_process)()','test_command_queue_process()'),
