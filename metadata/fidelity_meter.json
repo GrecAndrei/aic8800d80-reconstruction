@@ -1,12 +1,15 @@
 {
-  "generated_at": "2026-11-27T01:59:13Z",
-  "elapsed_sec": 1366.0,
+  "generated_at": "2026-11-27T21:17:49Z",
+  "elapsed_sec": 525.9,
   "vectors": [
     "bare_zero",
     "boot_zero",
     "boot_scalar",
     "boot_neg",
-    "boot_ptr"
+    "boot_ptr",
+    "boot_ptr4",
+    "boot_double",
+    "boot_double_nan"
   ],
   "axis1_static": {
     "total_composed": 4718,
@@ -19,8 +22,8 @@
         "image": "fmacfw_8800d80_h_u02",
         "short": "fmacfw_h_u02",
         "composed_functions": 1283,
-        "c_body_functions": 1251,
-        "libmatch_asm_functions": 32,
+        "c_body_functions": 1250,
+        "libmatch_asm_functions": 33,
         "void_functions": 66,
         "non_void_functions": 1217,
         "jumpout_functions": 0,
@@ -35,8 +38,8 @@
         "image": "fmacfw_8800d80_u02",
         "short": "fmacfw_u02",
         "composed_functions": 1284,
-        "c_body_functions": 1252,
-        "libmatch_asm_functions": 32,
+        "c_body_functions": 1251,
+        "libmatch_asm_functions": 33,
         "void_functions": 60,
         "non_void_functions": 1224,
         "jumpout_functions": 0,
@@ -51,8 +54,8 @@
         "image": "fmacfwbt_8800d80_u02",
         "short": "fmacfwbt_u02",
         "composed_functions": 1285,
-        "c_body_functions": 1253,
-        "libmatch_asm_functions": 32,
+        "c_body_functions": 1252,
+        "libmatch_asm_functions": 33,
         "void_functions": 62,
         "non_void_functions": 1223,
         "jumpout_functions": 0,
@@ -67,8 +70,8 @@
         "image": "lmacfw_rf_8800d80_u02",
         "short": "lmacfw_rf_u02",
         "composed_functions": 866,
-        "c_body_functions": 834,
-        "libmatch_asm_functions": 32,
+        "c_body_functions": 833,
+        "libmatch_asm_functions": 33,
         "void_functions": 38,
         "non_void_functions": 828,
         "jumpout_functions": 0,
@@ -81,8 +84,8 @@
       }
     ],
     "build": {
-      "post_compose_clean": true,
-      "src_reproduce_clean": true,
+      "post_compose_clean": null,
+      "src_reproduce_clean": null,
       "full_link_images": {
         "fmacfw_8800d80_h_u02": {
           "status": "OK",
@@ -94,14 +97,14 @@
         "fmacfw_8800d80_u02": {
           "status": "OK",
           "aliases": 0,
-          "data_blobs": 9,
+          "data_blobs": 40,
           "missing_stubs": 0,
           "residual_undefs": 0
         },
         "fmacfwbt_8800d80_u02": {
           "status": "OK",
           "aliases": 1,
-          "data_blobs": 6,
+          "data_blobs": 37,
           "missing_stubs": 0,
           "residual_undefs": 0
         },
@@ -118,112 +121,1798 @@
     }
   },
   "axis2_default_state": {
-    "match": 4490,
-    "exercised_match": 2791,
-    "vacuous_match": 1699,
-    "asserted_match": 547,
+    "match": 4511,
+    "prefix_match": 143,
+    "exercised_match": 4511,
+    "vacuous_match": 0,
+    "asserted_match": 546,
     "differ": 0,
     "mmio_only_hidden_differ": 0,
-    "not_run": 227,
+    "not_run": 8,
+    "invalid_input": 56,
     "diff_reasons": {}
   },
   "axis3_multivector": {
     "total_functions": 4718,
     "per_vector": {
       "bare_zero": {
-        "match": 4490,
-        "exercised_match": 2791,
-        "vacuous_match": 1699,
-        "asserted_match": 547,
+        "match": 4511,
+        "prefix_match": 143,
+        "exercised_match": 4511,
+        "vacuous_match": 0,
+        "asserted_match": 546,
         "differ": 0,
         "mmio_only_hidden_differ": 0,
-        "not_run": 227,
+        "not_run": 8,
+        "invalid_input": 56,
         "diff_reasons": {}
       },
       "boot_zero": {
-        "match": 3569,
-        "exercised_match": 1842,
-        "vacuous_match": 1727,
+        "match": 4532,
+        "prefix_match": 143,
+        "exercised_match": 4532,
+        "vacuous_match": 0,
         "asserted_match": 8,
         "differ": 0,
         "mmio_only_hidden_differ": 0,
-        "not_run": 1149,
+        "not_run": 8,
+        "invalid_input": 35,
         "diff_reasons": {}
       },
       "boot_scalar": {
-        "match": 3656,
-        "exercised_match": 2079,
-        "vacuous_match": 1577,
+        "match": 4521,
+        "prefix_match": 141,
+        "exercised_match": 4521,
+        "vacuous_match": 0,
         "asserted_match": 20,
         "differ": 0,
         "mmio_only_hidden_differ": 0,
-        "not_run": 1059,
+        "not_run": 8,
+        "invalid_input": 48,
         "diff_reasons": {}
       },
       "boot_neg": {
-        "match": 3579,
-        "exercised_match": 2000,
-        "vacuous_match": 1579,
+        "match": 4504,
+        "prefix_match": 147,
+        "exercised_match": 4504,
+        "vacuous_match": 0,
         "asserted_match": 20,
         "differ": 0,
         "mmio_only_hidden_differ": 0,
-        "not_run": 1135,
+        "not_run": 8,
+        "invalid_input": 59,
         "diff_reasons": {}
       },
       "boot_ptr": {
-        "match": 3423,
-        "exercised_match": 2040,
-        "vacuous_match": 1383,
+        "match": 4156,
+        "prefix_match": 262,
+        "exercised_match": 4156,
+        "vacuous_match": 0,
         "asserted_match": 16,
         "differ": 0,
         "mmio_only_hidden_differ": 0,
-        "not_run": 1289,
+        "not_run": 8,
+        "invalid_input": 292,
+        "diff_reasons": {}
+      },
+      "boot_ptr4": {
+        "match": 4131,
+        "prefix_match": 364,
+        "exercised_match": 4131,
+        "vacuous_match": 0,
+        "asserted_match": 16,
+        "differ": 0,
+        "mmio_only_hidden_differ": 0,
+        "not_run": 8,
+        "invalid_input": 215,
+        "diff_reasons": {}
+      },
+      "boot_double": {
+        "match": 4316,
+        "prefix_match": 158,
+        "exercised_match": 4316,
+        "vacuous_match": 0,
+        "asserted_match": 4,
+        "differ": 0,
+        "mmio_only_hidden_differ": 0,
+        "not_run": 8,
+        "invalid_input": 236,
+        "diff_reasons": {}
+      },
+      "boot_double_nan": {
+        "match": 4316,
+        "prefix_match": 158,
+        "exercised_match": 4316,
+        "vacuous_match": 0,
+        "asserted_match": 4,
+        "differ": 0,
+        "mmio_only_hidden_differ": 0,
+        "not_run": 8,
+        "invalid_input": 236,
         "diff_reasons": {}
       }
     },
     "per_image": {
       "fmacfw_h_u02": {
         "total": 1283,
-        "exercised_all_match": 837,
-        "vacuous_all_match": 389,
+        "exercised_all_match": 1240,
+        "vacuous_all_match": 0,
         "failing_any_vector": 0,
-        "never_comparable": 57,
-        "exercised_coverage_pct": 65.24
+        "prefix_match_nonreturn": 41,
+        "prefix_match_nonreturn_exercised": 30,
+        "prefix_match_nonreturn_vacuous": 11,
+        "interior_libmatch_fragment": 2,
+        "never_comparable": 0,
+        "exercised_coverage_pct": 96.65
       },
       "fmacfw_u02": {
         "total": 1284,
-        "exercised_all_match": 836,
-        "vacuous_all_match": 391,
+        "exercised_all_match": 1241,
+        "vacuous_all_match": 0,
         "failing_any_vector": 0,
-        "never_comparable": 57,
-        "exercised_coverage_pct": 65.11
+        "prefix_match_nonreturn": 41,
+        "prefix_match_nonreturn_exercised": 30,
+        "prefix_match_nonreturn_vacuous": 11,
+        "interior_libmatch_fragment": 2,
+        "never_comparable": 0,
+        "exercised_coverage_pct": 96.65
       },
       "fmacfwbt_u02": {
         "total": 1285,
-        "exercised_all_match": 843,
-        "vacuous_all_match": 385,
+        "exercised_all_match": 1242,
+        "vacuous_all_match": 0,
         "failing_any_vector": 0,
-        "never_comparable": 57,
-        "exercised_coverage_pct": 65.6
+        "prefix_match_nonreturn": 41,
+        "prefix_match_nonreturn_exercised": 30,
+        "prefix_match_nonreturn_vacuous": 11,
+        "interior_libmatch_fragment": 2,
+        "never_comparable": 0,
+        "exercised_coverage_pct": 96.65
       },
       "lmacfw_rf_u02": {
         "total": 866,
-        "exercised_all_match": 665,
-        "vacuous_all_match": 155,
+        "exercised_all_match": 831,
+        "vacuous_all_match": 0,
         "failing_any_vector": 0,
-        "never_comparable": 46,
-        "exercised_coverage_pct": 76.79
+        "prefix_match_nonreturn": 33,
+        "prefix_match_nonreturn_exercised": 28,
+        "prefix_match_nonreturn_vacuous": 5,
+        "interior_libmatch_fragment": 2,
+        "never_comparable": 0,
+        "exercised_coverage_pct": 95.96
       }
     },
     "aggregate": {
       "machine_nullsub_excluded": 36,
-      "exercised_all_match": 3181,
-      "vacuous_all_match": 1320,
+      "exercised_all_match": 4554,
+      "vacuous_all_match": 0,
       "failing_any_vector": 0,
-      "never_comparable": 217,
-      "strict_all_match_pct": 95.4,
+      "prefix_match_nonreturn": 156,
+      "prefix_match_nonreturn_exercised": 118,
+      "prefix_match_nonreturn_vacuous": 38,
+      "interior_libmatch_fragment": 8,
+      "never_comparable": 0,
+      "strict_all_match_pct": 96.52,
       "comparable_all_match_pct": 100.0,
-      "exercised_coverage_pct": 67.42
+      "exercised_coverage_pct": 96.52
+    },
+    "prefix_nonreturn_classification": {
+      "row_reason_shapes": {
+        "nonreturn_exact_write_sequence": 95,
+        "nonreturn_no_observable_writes": 38,
+        "nonreturn_write_prefix": 20,
+        "original_nonreturn_write_prefix": 3
+      },
+      "vector_reasons": {
+        "nonreturn_exact_write_sequence": 688,
+        "nonreturn_no_observable_writes": 222,
+        "nonreturn_write_prefix": 160,
+        "original_nonreturn_write_prefix": 24
+      },
+      "rows": [
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1001a8",
+          "function": "start",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x100478",
+          "function": "mac_state_init",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1033f8",
+          "function": "crypto_init",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1042bc",
+          "function": "rf_remove_iq_dc_offset",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1043c8",
+          "function": "mac_config_and_start",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x104710",
+          "function": "rx_packet_alloc",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1048e8",
+          "function": "rf_calibration",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x105a88",
+          "function": "phy_read_regs",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x107cc8",
+          "function": "pmu_clock_disable",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x107d30",
+          "function": "mmio_clear_bit0",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x109188",
+          "function": "mmio_write_reg2",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x109ff8",
+          "function": "rf_tx_calibrate",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x10c4f8",
+          "function": "rf_clock_enable",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x10c6f0",
+          "function": "rf_peripheral_clock_init",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x10d6a0",
+          "function": "radio_rx_read_byte",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x10e6fc",
+          "function": "rf_pa_current_calibrate",
+          "reasons": [
+            "original_nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x10e9d8",
+          "function": "rf_gpio_init",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x10f0c4",
+          "function": "rx_copy_stats",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x110654",
+          "function": "check_hardware_ready",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x110ce4",
+          "function": "mmio_write_reg",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1117d0",
+          "function": "set_tx_control",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1118bc",
+          "function": "mmio_set_bit_2",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1128a8",
+          "function": "phy_is_calibrated",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x11316c",
+          "function": "bt_wait_ready",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x113960",
+          "function": "init_bt_stack",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x114608",
+          "function": "timeout_handler",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x114de8",
+          "function": "firmware_startup",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x115214",
+          "function": "log_boot_message",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x115250",
+          "function": "process_debug_char",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x115500",
+          "function": "rf_power_control",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x115674",
+          "function": "system_init",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x115c20",
+          "function": "ll_init_tables",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1205e0",
+          "function": "get_rf_state",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1224bc",
+          "function": "process_rx_packet",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x12380c",
+          "function": "parse_parameter",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x1253d0",
+          "function": "tx_pkt_complete",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x12b768",
+          "function": "rf_set_power_on",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x12b77c",
+          "function": "rf_hw_init_1",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x12e8d0",
+          "function": "wait_for_mmio_bit18",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x132e78",
+          "function": "ble_ll_conn_process",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x137500",
+          "function": "rf_control_cmd",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x1001a8",
+          "function": "start",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x100478",
+          "function": "queue_init",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x103478",
+          "function": "init_radio_hw",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x1043d4",
+          "function": "correct_iq_dc_offset",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x1044e0",
+          "function": "dump_tone_type3",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x104828",
+          "function": "alloc_buffer_by_flag",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x104a00",
+          "function": "rf_scan_init",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x105ba0",
+          "function": "rf_phy_regs_snapshot",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x107e08",
+          "function": "rf_power_off",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x107e70",
+          "function": "clear_flag_and_invoke",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x1092c8",
+          "function": "mmio_write_32",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x10a138",
+          "function": "f32_process_block",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x10c638",
+          "function": "peripheral_clock_enable",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x10c830",
+          "function": "gpio_write",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x10d7e0",
+          "function": "gpio_read",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x10e83c",
+          "function": "rf_analog_ctrl_set",
+          "reasons": [
+            "original_nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x10eb18",
+          "function": "rf_hardware_init",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x10f204",
+          "function": "rf_copy_stats",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x110794",
+          "function": "call_110e24",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x110e24",
+          "function": "mmio_write_config",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x111910",
+          "function": "mmio_sync_2",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x1119fc",
+          "function": "mmio_set_bit",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x1129e8",
+          "function": "mmio_read_flag",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x1132ac",
+          "function": "irq_state_load",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x113aa0",
+          "function": "bt_init_1",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x114748",
+          "function": "load_multiple_globals",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x114f28",
+          "function": "patch_check_region",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x115354",
+          "function": "patch_init",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x115390",
+          "function": "cli_parse_char",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x115640",
+          "function": "peripheral_clock_enable_1",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x1157b4",
+          "function": "system_init",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x115d60",
+          "function": "copy_global_data",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x120720",
+          "function": "get_bt_state",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x1225fc",
+          "function": "rx_process_packet",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x12394c",
+          "function": "unknown_handler",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x125510",
+          "function": "hci_acl_tx_setup",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x12b8a8",
+          "function": "mmio_write_one",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x12b8bc",
+          "function": "bb_enable_1",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x12ea10",
+          "function": "ipc_wait_flag",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x132fb8",
+          "function": "rx_process_packet_1",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x137640",
+          "function": "le_adv_report_handler",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x1001a8",
+          "function": "start",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x100478",
+          "function": "ke_task_init",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x1032d0",
+          "function": "hw_enable",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x10422c",
+          "function": "util_get_buf_addr",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x104338",
+          "function": "rf_power_on_reset",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x104680",
+          "function": "scan_set_interval",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x104858",
+          "function": "bt_ccm_encrypt",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x1059f8",
+          "function": "rf_init",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x107c60",
+          "function": "rf_irq_clear_a",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x107cc8",
+          "function": "rf_irq_clear_b",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x109120",
+          "function": "udelay_50",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x109f90",
+          "function": "dsp_filter_process",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x10c490",
+          "function": "sdio_bus_reset",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x10c688",
+          "function": "bt_dispatch",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x10d638",
+          "function": "uart_getc",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x10e694",
+          "function": "rf_pa_current_calibrate",
+          "reasons": [
+            "original_nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x10e970",
+          "function": "board_init",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x10f05c",
+          "function": "copy_stats",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x1105ec",
+          "function": "init_after_reset",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x110c80",
+          "function": "rf_tx_start",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x11176c",
+          "function": "tx_pkt_start",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x111858",
+          "function": "rf_radio_enable",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x112844",
+          "function": "rf_init_bb",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x113108",
+          "function": "sys_cmu_clock_get",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x1138fc",
+          "function": "init_memory_regions",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x1145a4",
+          "function": "phy_calibrate_1",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x115564",
+          "function": "ring_buf_used",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x115990",
+          "function": "check_op_mode",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x1159cc",
+          "function": "handle_debug_cmd",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x115b90",
+          "function": "rf_clock_enable",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x115d04",
+          "function": "shutdown_sequence",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x116188",
+          "function": "ke_init_structures",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x120a58",
+          "function": "run_deferred_init",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x122830",
+          "function": "rx_process_packet_1",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x123b80",
+          "function": "irq_disable_save",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x125734",
+          "function": "tx_desc_prepare",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x12bad0",
+          "function": "mmio_write_poll_clear",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x12bae4",
+          "function": "mmio_poll_status",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x12ec38",
+          "function": "hw_poll_flag",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x1331d4",
+          "function": "rf_calibrate_init",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x137744",
+          "function": "process_hci_command",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x1001a8",
+          "function": "start",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x1003d4",
+          "function": "init_buffer_list",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x103da8",
+          "function": "wait_rf_ready",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x103eb4",
+          "function": "load_patch_data",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x104200",
+          "function": "tx_power_calibrate",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x1043d8",
+          "function": "wlan_init_globals",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x105578",
+          "function": "prcm_stop",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x1077f8",
+          "function": "rf_clear_irq_flag",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x107860",
+          "function": "rf_clear_irq_flag_alt",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x108cb8",
+          "function": "rf_wait_for_command",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x109d40",
+          "function": "process_signal_buffer",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x10c2e4",
+          "function": "configure_dma_engine",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x10d680",
+          "function": "uart_rx_byte",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x10ea74",
+          "function": "gpio_mode_set",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x10ed50",
+          "function": "gpio_bank_init",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x10f4b8",
+          "function": "mem_get_stats",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x110684",
+          "function": "invoke_sub_1108c0",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x1108c0",
+          "function": "rf_cmd_start",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x111218",
+          "function": "timer_read_count",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x111304",
+          "function": "timer_start",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x1122f0",
+          "function": "rf_init_1",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x112b7c",
+          "function": "wait_rf_ready_1",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x113358",
+          "function": "init_driver_states",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x11394c",
+          "function": "get_device_state",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x114a68",
+          "function": "get_free_heap_size",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x114e90",
+          "function": "bt_check_state",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x114ecc",
+          "function": "cli_process_char",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x115000",
+          "function": "sys_init",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x115018",
+          "function": "bt_driver_init",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x118624",
+          "function": "start_firmware",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x119218",
+          "function": "timer_start_capture",
+          "reasons": [
+            "nonreturn_no_observable_writes"
+          ],
+          "exercised": false
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x11d0b8",
+          "function": "rf_cmd_strobe",
+          "reasons": [
+            "nonreturn_exact_write_sequence"
+          ],
+          "exercised": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x121ee8",
+          "function": "buffer_flush",
+          "reasons": [
+            "nonreturn_write_prefix"
+          ],
+          "exercised": true
+        }
+      ],
+      "legend": {
+        "nonreturn_exact_write_sequence": "both sides capped with identical complete-to-date ordered peripheral-write sequences; strong partial evidence, future writes unproven",
+        "nonreturn_write_prefix": "one capped side emitted a strict superset; only the shared ordered prefix is proven",
+        "original_nonreturn_write_prefix": "reconstruction returned with a complete sequence and the capped original's writes are a consistent prefix",
+        "nonreturn_no_observable_writes": "vacuous in the closed standalone model: no observable peripheral writes before the cap"
+      }
+    },
+    "interior_fragment_parent_coverage": {
+      "total": 8,
+      "contained": 8,
+      "evaluated_parents": 8,
+      "parents_all_vectors_match": 8,
+      "details": [
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x142b44",
+          "function": "double_compare_nan",
+          "status": "contained_in_evaluated_parent",
+          "parent_address": "0x142968",
+          "parent_end": "0x142bbc",
+          "parent_offset": "0x1dc",
+          "parent_symbol": "__aeabi_dmul",
+          "parent_member": "_arm_muldf3.o",
+          "parent_row_function": "double_multiply",
+          "parent_statuses": {
+            "bare_zero": "MATCH",
+            "boot_zero": "MATCH",
+            "boot_scalar": "MATCH",
+            "boot_neg": "MATCH",
+            "boot_ptr": "MATCH",
+            "boot_ptr4": "MATCH",
+            "boot_double": "MATCH",
+            "boot_double_nan": "MATCH"
+          },
+          "parent_all_vectors_match": true
+        },
+        {
+          "image": "fmacfw_h_u02",
+          "address": "0x142d2a",
+          "function": "double_compare_ord",
+          "status": "contained_in_evaluated_parent",
+          "parent_address": "0x142bbc",
+          "parent_end": "0x142d8c",
+          "parent_offset": "0x16e",
+          "parent_symbol": "__aeabi_ddiv",
+          "parent_member": "_arm_muldivdf3.o",
+          "parent_row_function": "double_divide",
+          "parent_statuses": {
+            "bare_zero": "MATCH",
+            "boot_zero": "MATCH",
+            "boot_scalar": "MATCH",
+            "boot_neg": "MATCH",
+            "boot_ptr": "MATCH",
+            "boot_ptr4": "MATCH",
+            "boot_double": "MATCH",
+            "boot_double_nan": "MATCH"
+          },
+          "parent_all_vectors_match": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x142c84",
+          "function": "double_multiply",
+          "status": "contained_in_evaluated_parent",
+          "parent_address": "0x142aa8",
+          "parent_end": "0x142cfc",
+          "parent_offset": "0x1dc",
+          "parent_symbol": "__aeabi_dmul",
+          "parent_member": "_arm_muldf3.o",
+          "parent_row_function": "double_add_1",
+          "parent_statuses": {
+            "bare_zero": "MATCH",
+            "boot_zero": "MATCH",
+            "boot_scalar": "MATCH",
+            "boot_neg": "MATCH",
+            "boot_ptr": "MATCH",
+            "boot_ptr4": "MATCH",
+            "boot_double": "MATCH",
+            "boot_double_nan": "MATCH"
+          },
+          "parent_all_vectors_match": true
+        },
+        {
+          "image": "fmacfw_u02",
+          "address": "0x142e6a",
+          "function": "double_divide",
+          "status": "contained_in_evaluated_parent",
+          "parent_address": "0x142cfc",
+          "parent_end": "0x142ecc",
+          "parent_offset": "0x16e",
+          "parent_symbol": "__aeabi_ddiv",
+          "parent_member": "_arm_muldivdf3.o",
+          "parent_row_function": "double_subtract",
+          "parent_statuses": {
+            "bare_zero": "MATCH",
+            "boot_zero": "MATCH",
+            "boot_scalar": "MATCH",
+            "boot_neg": "MATCH",
+            "boot_ptr": "MATCH",
+            "boot_ptr4": "MATCH",
+            "boot_double": "MATCH",
+            "boot_double_nan": "MATCH"
+          },
+          "parent_all_vectors_match": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x142d20",
+          "function": "__aeabi_dmul_nan",
+          "status": "contained_in_evaluated_parent",
+          "parent_address": "0x142b44",
+          "parent_end": "0x142d98",
+          "parent_offset": "0x1dc",
+          "parent_symbol": "__aeabi_dmul",
+          "parent_member": "_arm_muldf3.o",
+          "parent_row_function": "__aeabi_dmul",
+          "parent_statuses": {
+            "bare_zero": "MATCH",
+            "boot_zero": "MATCH",
+            "boot_scalar": "MATCH",
+            "boot_neg": "MATCH",
+            "boot_ptr": "MATCH",
+            "boot_ptr4": "MATCH",
+            "boot_double": "MATCH",
+            "boot_double_nan": "MATCH"
+          },
+          "parent_all_vectors_match": true
+        },
+        {
+          "image": "fmacfwbt_u02",
+          "address": "0x142f06",
+          "function": "__aeabi_ddiv_nan",
+          "status": "contained_in_evaluated_parent",
+          "parent_address": "0x142d98",
+          "parent_end": "0x142f68",
+          "parent_offset": "0x16e",
+          "parent_symbol": "__aeabi_ddiv",
+          "parent_member": "_arm_muldivdf3.o",
+          "parent_row_function": "__aeabi_ddiv",
+          "parent_statuses": {
+            "bare_zero": "MATCH",
+            "boot_zero": "MATCH",
+            "boot_scalar": "MATCH",
+            "boot_neg": "MATCH",
+            "boot_ptr": "MATCH",
+            "boot_ptr4": "MATCH",
+            "boot_double": "MATCH",
+            "boot_double_nan": "MATCH"
+          },
+          "parent_all_vectors_match": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x1277fc",
+          "function": "aeabi_dadd_internal",
+          "status": "contained_in_evaluated_parent",
+          "parent_address": "0x127620",
+          "parent_end": "0x127874",
+          "parent_offset": "0x1dc",
+          "parent_symbol": "__aeabi_dmul",
+          "parent_member": "_arm_muldf3.o",
+          "parent_row_function": "aeabi_dadd",
+          "parent_statuses": {
+            "bare_zero": "MATCH",
+            "boot_zero": "MATCH",
+            "boot_scalar": "MATCH",
+            "boot_neg": "MATCH",
+            "boot_ptr": "MATCH",
+            "boot_ptr4": "MATCH",
+            "boot_double": "MATCH",
+            "boot_double_nan": "MATCH"
+          },
+          "parent_all_vectors_match": true
+        },
+        {
+          "image": "lmacfw_rf_u02",
+          "address": "0x1279e2",
+          "function": "double_unordered",
+          "status": "contained_in_evaluated_parent",
+          "parent_address": "0x127874",
+          "parent_end": "0x127a44",
+          "parent_offset": "0x16e",
+          "parent_symbol": "__aeabi_ddiv",
+          "parent_member": "_arm_muldivdf3.o",
+          "parent_row_function": "aeabi_dsub",
+          "parent_statuses": {
+            "bare_zero": "MATCH",
+            "boot_zero": "MATCH",
+            "boot_scalar": "MATCH",
+            "boot_neg": "MATCH",
+            "boot_ptr": "MATCH",
+            "boot_ptr4": "MATCH",
+            "boot_double": "MATCH",
+            "boot_double_nan": "MATCH"
+          },
+          "parent_all_vectors_match": true
+        }
+      ]
     },
     "top_differs": []
   },
@@ -236,79 +1925,55 @@
   "axis4_boot": [
     {
       "image": "fmacfw_h_u02",
-      "orig_term": "capped",
-      "orig_insns": 500000,
-      "orig_writes": 2078,
-      "recon_term": "capped",
-      "recon_insns": 500000,
-      "recon_writes": 1964,
+      "orig_term": "write_cap",
+      "orig_insns": 1127647,
+      "orig_writes": 4096,
+      "recon_term": "write_cap",
+      "recon_insns": 1165151,
+      "recon_writes": 4096,
       "recon_fault": "",
-      "matched_prefix_writes": 1964,
-      "first_diff": {
-        "index": 1964,
-        "orig": [
-          "0x40509010",
-          "0x41de10"
-        ],
-        "recon": null
-      }
+      "matched_prefix_writes": 4096,
+      "target_writes": 4096,
+      "first_diff": null
     },
     {
       "image": "fmacfw_u02",
-      "orig_term": "capped",
-      "orig_insns": 500000,
-      "orig_writes": 2074,
-      "recon_term": "capped",
-      "recon_insns": 500000,
-      "recon_writes": 1960,
+      "orig_term": "write_cap",
+      "orig_insns": 1127874,
+      "orig_writes": 4096,
+      "recon_term": "write_cap",
+      "recon_insns": 1165499,
+      "recon_writes": 4096,
       "recon_fault": "",
-      "matched_prefix_writes": 1960,
-      "first_diff": {
-        "index": 1960,
-        "orig": [
-          "0x40509010",
-          "0x1de12"
-        ],
-        "recon": null
-      }
+      "matched_prefix_writes": 4096,
+      "target_writes": 4096,
+      "first_diff": null
     },
     {
       "image": "fmacfwbt_u02",
-      "orig_term": "capped",
-      "orig_insns": 500000,
-      "orig_writes": 2069,
-      "recon_term": "capped",
-      "recon_insns": 500000,
-      "recon_writes": 1953,
+      "orig_term": "write_cap",
+      "orig_insns": 1129583,
+      "orig_writes": 4096,
+      "recon_term": "write_cap",
+      "recon_insns": 1168310,
+      "recon_writes": 4096,
       "recon_fault": "",
-      "matched_prefix_writes": 1953,
-      "first_diff": {
-        "index": 1953,
-        "orig": [
-          "0x4050901c",
-          "0x300"
-        ],
-        "recon": null
-      }
+      "matched_prefix_writes": 4096,
+      "target_writes": 4096,
+      "first_diff": null
     },
     {
       "image": "lmacfw_rf_u02",
-      "orig_term": "capped",
-      "orig_insns": 500000,
-      "orig_writes": 2251,
-      "recon_term": "capped",
-      "recon_insns": 500000,
-      "recon_writes": 2236,
+      "orig_term": "write_cap",
+      "orig_insns": 1080227,
+      "orig_writes": 4096,
+      "recon_term": "write_cap",
+      "recon_insns": 1085173,
+      "recon_writes": 4096,
       "recon_fault": "",
-      "matched_prefix_writes": 2236,
-      "first_diff": {
-        "index": 2236,
-        "orig": [
-          "0x40509010",
-          "0x1fe12"
-        ],
-        "recon": null
-      }
+      "matched_prefix_writes": 4096,
+      "target_writes": 4096,
+      "first_diff": null
     }
   ]
 }

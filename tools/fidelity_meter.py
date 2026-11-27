@@ -23,7 +23,9 @@ an explicit four-axis measurement across all composed functions:
         * boot_scalar: (1, 2, 3, 4) + bootstate
         * boot_neg:    (0xffffffff, 0xffffffff, 1, 1) + bootstate
         * boot_ptr:    (0x20002000, 0x20002400, 1, 1) + bootstate + seeded SRAM
-    - Aggregates per-function verdict across all 5 vectors and reports
+        * boot_ptr4:   four seeded SRAM struct pointers + bootstate
+        * boot_double*: finite and quiet-NaN softfp operand pairs + bootstate
+    - Aggregates per-function verdict across all 8 vectors and reports
       "exercised behavioral coverage" (functions proven with non-trivial output)
   Axis 4 — End-to-End Boot Trace & Truth-Lane Gate:
     - Truth-lane 25 targets verified with FULL (MMIO + RAM + r0) parity
@@ -38,6 +40,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import bisect
 import collections
 import json
 import multiprocessing
@@ -95,6 +98,10 @@ SRAM_PTR_A = 0x20002000
 SRAM_NODE_A = 0x20002200
 SRAM_PTR_B = 0x20002400
 SRAM_NODE_B = 0x20002600
+SRAM_PTR_C = 0x20002800
+SRAM_NODE_C = 0x20002A00
+SRAM_PTR_D = 0x20002C00
+SRAM_NODE_D = 0x20002E00
 
 # Fixed non-stack persistent RAM windows (strictly below 16KB top-of-stack [0x19c000..0x1a0000)).
 RAM_WINDOWS: tuple[tuple[int, int], ...] = (
@@ -107,17 +114,27 @@ RAM_WINDOWS: tuple[tuple[int, int], ...] = (
 )
 NULL_SHADOW_PAGE = 0xFFFFF000
 
-DEFAULT_VECTORS = ("bare_zero", "boot_zero", "boot_scalar", "boot_neg", "boot_ptr", "boot_double")
+DEFAULT_VECTORS = ("bare_zero", "boot_zero", "boot_scalar", "boot_neg", "boot_ptr", "boot_ptr4", "boot_double", "boot_double_nan")
 ALL_VECTORS = {
     "bare_zero":   {"bootstate": False, "sram_seed": False, "args": (0, 0, 0, 0)},
     "boot_zero":   {"bootstate": True,  "sram_seed": False, "args": (0, 0, 0, 0)},
     "boot_scalar": {"bootstate": True,  "sram_seed": False, "args": (1, 2, 3, 4)},
     "boot_neg":    {"bootstate": True,  "sram_seed": False, "args": (0xFFFFFFFF, 0xFFFFFFFF, 1, 1)},
     "boot_ptr":    {"bootstate": True,  "sram_seed": True,  "args": (SRAM_PTR_A, SRAM_PTR_B, 1, 1)},
+    # Multi-pointer cluster for handlers whose machine code immediately
+    # dereferences three or four input registers. The blocks are deterministic
+    # and memory-shaped; they are a stress probe, not a claim that every
+    # firmware-specific pointee invariant is satisfied.
+    "boot_ptr4":   {"bootstate": True,  "sram_seed": True,  "args": (SRAM_PTR_A, SRAM_PTR_B, SRAM_PTR_C, SRAM_PTR_D)},
     # Softfp register pairs encode two finite nonzero doubles: 1.5 in r0/r1
     # and -2.25 in r2/r3. This exercises high-word arithmetic/control flow that
     # scalar integer vectors cannot reach while remaining ordinary input data.
     "boot_double": {"bootstate": True,  "sram_seed": False, "args": (0, 0x3FF80000, 0, 0xC0020000)},
+    # Quiet-NaN first operand plus finite second operand. Softfp parent entries
+    # branch into their internal NaN/Inf special-case fragments for this input;
+    # those bytes are not independent callable functions, so this vector is the
+    # sound way to measure them through their real parent entry contract.
+    "boot_double_nan": {"bootstate": True, "sram_seed": False, "args": (0, 0x7FF80000, 0, 0x3FF80000)},
 }
 
 
@@ -884,14 +901,17 @@ def relocate_bootstate_for_recon(bootstate: dict | None, elf_info: dict) -> dict
 
 def seed_sram_pointers(uc) -> None:
     """Seed deterministic struct/list blocks at SRAM_PTR_A/B for pointer tests."""
-    for node_base in (SRAM_NODE_A, SRAM_NODE_B):
+    for node_base in (SRAM_NODE_A, SRAM_NODE_B, SRAM_NODE_C, SRAM_NODE_D):
         buf = bytearray(256)
         for off in range(8, 256, 4):
             val = ((off // 4) % 3) + 1
             buf[off : off + 4] = val.to_bytes(4, "little")
         uc.mem_write(node_base, bytes(buf))
 
-    for ptr_base, node_base in ((SRAM_PTR_A, SRAM_NODE_A), (SRAM_PTR_B, SRAM_NODE_B)):
+    for ptr_base, node_base in (
+        (SRAM_PTR_A, SRAM_NODE_A), (SRAM_PTR_B, SRAM_NODE_B),
+        (SRAM_PTR_C, SRAM_NODE_C), (SRAM_PTR_D, SRAM_NODE_D),
+    ):
         buf = bytearray(256)
         buf[0:4] = node_base.to_bytes(4, "little")
         buf[4:8] = node_base.to_bytes(4, "little")
@@ -1057,6 +1077,181 @@ def _write_diff_fields(orig_mmio: list, recon_mmio: list, shared: int) -> dict:
     }
 
 
+
+# ---------------------------------------------------------------------------
+# Closed-loop terminal-state proof
+# ---------------------------------------------------------------------------
+
+_BRANCH_MNEMONICS = {
+    "b", "beq", "bne", "bhs", "blo", "bcc", "bcs", "bmi", "bpl",
+    "bvs", "bvc", "bhi", "bls", "bge", "blt", "bgt", "ble", "cbz", "cbnz",
+}
+_CONTROL_MNEMONICS = _BRANCH_MNEMONICS | {"bl", "blx", "bx", "tbb", "tbh"}
+_COND_BRANCH_MNEMONICS = _BRANCH_MNEMONICS - {"b"}
+
+
+def _canonical_reg(tok: str) -> str | None:
+    tok = tok.strip().lower()
+    aliases = {"sb": "r9", "sl": "r10", "fp": "r11", "ip": "r12"}
+    tok = aliases.get(tok, tok)
+    return tok if re.fullmatch(r"r(?:[0-9]|1[0-5])", tok) else None
+
+
+def _imm_branch_target(ins) -> int | None:
+    try:
+        return int(ins.op_str.strip().split()[-1].lstrip("#"), 0)
+    except (TypeError, ValueError, IndexError):
+        return None
+
+
+def _simple_fixed_load(ins) -> tuple[str, str, str | None] | None:
+    """Parse a single-register LDR as (dest, base, index), or reject it.
+
+    The terminal-loop proof deliberately accepts only loads whose address is
+    fixed for every iteration. Post-indexed/writeback forms, multiple-register
+    loads, literal-pool PC loads, and stack loads are outside that fragment.
+    """
+    mn = ins.mnemonic
+    if not re.fullmatch(r"ldr(?:\.w|\.n|h|b|sh|sb)?", mn):
+        return None
+    if "!" in ins.op_str or re.search(r"\]\s*,", ins.op_str):
+        return None
+    m = re.match(r"\s*([A-Za-z0-9]+)\s*,\s*\[([^\]]+)\]\s*$", ins.op_str)
+    if not m:
+        return None
+    dest = _canonical_reg(m.group(1))
+    mem_tokens = re.findall(r"\br(?:[0-9]|1[0-5])\b|\bsb\b|\bsl\b|\bfp\b|\bip\b", m.group(2), re.IGNORECASE)
+    regs = [_canonical_reg(x) for x in mem_tokens]
+    if dest is None or not regs or regs[0] is None:
+        return None
+    base = regs[0]
+    index = regs[1] if len(regs) > 1 else None
+    if base in {"pc", "sp"} or index in {"pc", "sp"}:
+        return None
+    return dest, base, index
+
+
+def closed_loop_proof(blob: bytes, base: int, pc: int) -> dict | None:
+    """Prove that execution at pc is trapped in a memory-silent closed loop.
+
+    Accepted loop shape, within the emulator's closed standalone machine model
+    (no interrupts, host writes, DMA, or asynchronous external agents):
+
+    * one contiguous Thumb block ending in a single backward branch;
+    * no calls, memory writes, exceptions, barriers, or other control flow;
+    * all other instructions are compares/tests/nops or simple fixed-address
+      loads. A load address is fixed only when its base/index registers are
+      not rewritten in the loop and no loaded value is used as a later base.
+
+    Under those constraints every iteration observes the same memory values
+    and recomputes the same branch condition. Because the machine is closed
+    and the loop performs no write, no future state can make the branch fall
+    through. The loop is therefore permanently silent with respect to both
+    peripheral traffic and persistent RAM. Countdown loops and linked-list
+    walks are rejected rather than approximated.
+    """
+    pc &= ~1
+    if pc < base or pc >= base + len(blob):
+        return None
+    from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_MCLASS
+    md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+
+    scan_off = pc - base
+    scan = list(md.disasm(blob[scan_off:scan_off + 48], pc))
+    branch = None
+    target = None
+    for ins in scan:
+        if ins.address > pc + 32:
+            break
+        if ins.mnemonic in _CONTROL_MNEMONICS:
+            if ins.mnemonic not in _BRANCH_MNEMONICS:
+                return None
+            target = _imm_branch_target(ins)
+            if target is None or target > pc:
+                return None
+            branch = ins
+            break
+    if branch is None or target is None:
+        return None
+
+    end = branch.address + branch.size
+    if not (target <= pc < end) or target < base or end > base + len(blob):
+        return None
+    block = list(md.disasm(blob[target - base:end - base], target))
+    if not block or block[0].address != target or block[-1].address != branch.address:
+        return None
+
+    controls = [x for x in block if x.mnemonic in _CONTROL_MNEMONICS]
+    if len(controls) != 1 or controls[0].address != branch.address:
+        return None
+
+    loads = []
+    for ins in block[:-1]:
+        if ins.mnemonic in {"cmp", "cmn", "tst", "nop"}:
+            continue
+        parsed = _simple_fixed_load(ins)
+        if parsed is None:
+            return None
+        loads.append((ins, *parsed))
+
+    load_dests = {dest for _, dest, _, _ in loads}
+    address_regs = set()
+    for _, _, base_reg, index_reg in loads:
+        address_regs.add(base_reg)
+        if index_reg:
+            address_regs.add(index_reg)
+    for _, dest, base_reg, index_reg in loads:
+        # The address itself must be invariant, and a loaded value may not
+        # become a later address (which would permit pointer chasing).
+        if base_reg in load_dests or (index_reg and index_reg in load_dests):
+            return None
+        if dest in address_regs:
+            return None
+
+    return {
+        "start": target,
+        "end": end,
+        "branch": branch.address,
+        "size": end - target,
+        "load_count": len(loads),
+    }
+
+
+def _loop_has_peripheral_read(proof: dict, read_pcs: list[str] | None) -> bool:
+    if not proof or not read_pcs:
+        return False
+    start, end = proof["start"], proof["end"]
+    for pc in read_pcs:
+        try:
+            value = int(pc, 16) & ~1
+        except (TypeError, ValueError):
+            continue
+        if start <= value < end:
+            return True
+    return False
+
+
+def terminal_closed_loop_proof(
+    orig_image: bytes | None,
+    elf_info: dict | None,
+    orig_pc: int | None,
+    recon_pc: int | None,
+    orig_read_pcs: list[str] | None = None,
+    recon_read_pcs: list[str] | None = None,
+) -> bool:
+    """Machine-prove both capped runs are permanently silent closed loops."""
+    if orig_image is None or elf_info is None or orig_pc is None or recon_pc is None:
+        return False
+    oproof = closed_loop_proof(orig_image, emu.CHIP_BASE, orig_pc)
+    rproof = closed_loop_proof(elf_info.get("blob", b""), elf_info.get("base", 0), recon_pc)
+    if not oproof or not rproof:
+        return False
+    return not (
+        _loop_has_peripheral_read(oproof, orig_read_pcs)
+        or _loop_has_peripheral_read(rproof, recon_read_pcs)
+    )
+
+
 def evaluate_outcomes(
     orig_term: str,
     orig_r0: int,
@@ -1080,6 +1275,10 @@ def evaluate_outcomes(
     orig_r1: int = 0,
     recon_r1: int = 0,
     return_width: int = 32,
+    orig_final_pc: int | None = None,
+    recon_final_pc: int | None = None,
+    orig_read_pcs: list[str] | None = None,
+    recon_read_pcs: list[str] | None = None,
 ) -> dict:
     """Compare one vector execution of orig vs recon on MMIO + RAM + non-void r0."""
     if recon_term == "no_symbol":
@@ -1110,6 +1309,33 @@ def evaluate_outcomes(
             "reloc_serialized_mmio": reloc_serialized_mmio,
             **_write_diff_fields(orig_mmio, recon_mmio, shared),
         }
+        terminal_closed = (
+            orig_term == "capped"
+            and recon_term == "capped"
+            and terminal_closed_loop_proof(
+                orig_image, elf_info, orig_final_pc, recon_final_pc,
+                orig_read_pcs=orig_read_pcs, recon_read_pcs=recon_read_pcs,
+            )
+        )
+        if terminal_closed:
+            # A closed memory-silent loop has no future writes or RAM mutation
+            # in this machine model. Its currently observed write sequence and
+            # persistent RAM state are therefore complete, not merely a timing
+            # prefix. Any remaining difference is a real divergence.
+            if mismatch or len(orig_mmio) != len(recon_mmio):
+                return {"status": "DIFFER", "reason": "mmio_differ", "mmio_match": False,
+                        "ram_match": ram_match, "r0_match": None, "exercised": bool(shared),
+                        "terminal_closed_loop": True, **prefix_fields}
+            if not ram_match:
+                return {"status": "DIFFER", "reason": "ram_differ", "mmio_match": True,
+                        "ram_match": False, "r0_match": None,
+                        "ram_diff_addr": hex(ram_diff_addr) if ram_diff_addr is not None else None,
+                        "exercised": bool(shared or orig_mutated_ram or recon_mutated_ram),
+                        "terminal_closed_loop": True, **prefix_fields}
+            return {"status": "MATCH", "reason": "terminal_closed_loop_match",
+                    "mmio_match": True, "ram_match": True, "r0_match": None,
+                    "exercised": bool(shared or orig_mutated_ram or recon_mutated_ram),
+                    "terminal_closed_loop": True, **prefix_fields}
         if mismatch:
             return {"status": "DIFFER", "reason": "mmio_differ", "mmio_match": False,
                     "ram_match": None, "r0_match": None, "exercised": bool(shared), **prefix_fields}
@@ -1382,15 +1608,43 @@ def _init_worker(image: str, bootstate: dict, elf_info: dict, func_meta: dict,
 
 _DEREF_RE = re.compile(r"\[r([0-3])[,\]]")
 _DEREF_SCAN_CACHE: dict = {}
+_FUNC_EXTENT_CACHE: dict = {}
+
+
+def machine_function_extent(img_path: str, key: int, fallback: int) -> int:
+    """Bytes available for a linear scan without crossing into the next function.
+
+    Function-table entries are hardware-space; analysis keys are 0x20000 lower.
+    This bound is essential because literal pools and the following function
+    otherwise look like input-dependent memory operations to a linear scan.
+    """
+    ck = (img_path, key, fallback)
+    if ck in _FUNC_EXTENT_CACHE:
+        return _FUNC_EXTENT_CACHE[ck]
+    extent = fallback
+    try:
+        stem = Path(img_path).stem
+        hw = key + emu.HW_OFFSET
+        entries = sorted((a & ~1) for a, _ in emu.load_function_table(stem))
+        pos = bisect.bisect_right(entries, hw)
+        if pos < len(entries) and entries[pos] > hw:
+            extent = max(2, min(fallback, entries[pos] - hw))
+    except Exception:
+        pass
+    _FUNC_EXTENT_CACHE[ck] = extent
+    return extent
 
 
 def machine_deref_params(img_path: str, key: int) -> frozenset:
-    """Machine truth: which argument registers the original binary dereferences
-    as a memory base ([rN+imm] load/store) within the first 16 instructions of
-    the function at analysis-space address `key`. A scalar or wild value in
-    such a register is outside the function's valid input domain — the original
-    executes the wild access mechanically while the compiled reconstruction is
-    free to UB-optimize around it."""
+    """Machine truth: input registers used as memory base addresses.
+
+    This is a bounded may-scan of the original machine control flow, not a
+    linear byte sweep. Following only direct branch targets is essential:
+    Thumb literal pools inside a function otherwise decode as plausible
+    load/store instructions and fabricate input dereferences. The scan is
+    still intentionally conservative — indirect branches stop exploration,
+    calls clobber only r0-r3, and conditional paths are both explored.
+    """
     ck = (img_path, key)
     if ck in _DEREF_SCAN_CACHE:
         return _DEREF_SCAN_CACHE[ck]
@@ -1401,32 +1655,136 @@ def machine_deref_params(img_path: str, key: int) -> frozenset:
         off = key - 0x100000
         if 0 <= off < len(data) - 40:
             md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
-            regs = set()
-            written = set()
-            for ins in list(md.disasm(data[off:off + 48], key))[:16]:
-                # read-before-write discipline: a [rN] deref only evidences
-                # an input pointer when rN has not been written yet in the
-                # prologue — otherwise rN is a locally computed base.
+            scan_len = machine_function_extent(img_path, key, 192)
+            insns = {ins.address: ins for ins in md.disasm(data[off:off + scan_len], key)}
+            aliases = {"sb": 9, "sl": 10, "fp": 11, "ip": 12}
+
+            def regno(tok):
+                if not isinstance(tok, str):
+                    return None
+                raw = tok.lower()
+                if raw in aliases:
+                    return aliases[raw]
+                if raw.startswith("r") and raw[1:].isdigit():
+                    return int(raw[1:])
+                return None
+
+            def branch_target(ins):
+                m = re.search(r"#\s*(0x[0-9a-f]+|\d+)", ins.op_str, re.IGNORECASE)
+                if not m:
+                    return None
+                try:
+                    return int(m.group(1), 0) & ~1
+                except ValueError:
+                    return None
+
+            def frozen(taint):
+                return tuple(sorted((rg, tuple(sorted(srcs))) for rg, srcs in sorted(taint.items()) if srcs))
+
+            def thaw(state):
+                return {rg: set(srcs) for rg, srcs in state}
+
+            def step_taint(taint, ins):
+                mn = ins.mnemonic.lower()
+                if mn in {"bl", "blx"}:
+                    for rg in range(4):
+                        taint.pop(rg, None)
+                    return
                 if ins.mnemonic.startswith(("ldr", "str")):
-                    m = _DEREF_RE.search(ins.op_str)
-                    if m and int(m.group(1)) not in written:
-                        regs.add(int(m.group(1)))
-                dw = re.match(r"^(?:mov|movs|movw|mov\.w|movs\.w|add|adds|sub|subs|lsls?|lsrs?|and|ands|eor|eors|orr|orrs|bic|rev|uxth|uxtb|sxth|sxtb|mrs|ldr\w*)\s+r([0-3])\b", ins.mnemonic + " " + ins.op_str)
+                    pass  # memory base use is checked by the caller below
+                mm = re.match(r"(r\d+|sb|sl|fp|ip)\s*,\s*(r\d+|sb|sl|fp|ip)\b", ins.op_str, re.IGNORECASE)
+                if ins.mnemonic.startswith("mov") and mm:
+                    dst, src = regno(mm.group(1)), regno(mm.group(2))
+                    if dst is not None:
+                        if src in taint:
+                            taint[dst] = set(taint[src])
+                        else:
+                            taint.pop(dst, None)
+                    return
+                if mn.startswith(("and", "orr", "eor", "bic")):
+                    mm2 = re.match(r"(r\d+|sb|sl|fp|ip)\s*,\s*(r\d+|sb|sl|fp|ip)(?:\s*,\s*(r\d+|sb|sl|fp|ip))?", ins.op_str, re.IGNORECASE)
+                    if mm2:
+                        dst = regno(mm2.group(1))
+                        srcs = [regno(x) for x in mm2.groups()[1:] if x]
+                        merged = set().union(*(taint.get(x, set()) for x in srcs if x is not None))
+                        if dst is not None:
+                            if merged:
+                                taint[dst] = merged
+                            else:
+                                taint.pop(dst, None)
+                        return
+                # Any other write to r0-r3 or a tracked copy drops provenance.
+                dw = re.match(r"^(?:movw|mov(?:\.w)?|add(?:s)?(?:\.w)?|sub(?:s)?(?:\.w)?|lsl(?:s)?(?:\.w)?|lsr(?:s)?(?:\.w)?|and(?:s)?(?:\.w)?|eor(?:s)?(?:\.w)?|orr(?:s)?(?:\.w)?|bic(?:s)?(?:\.w)?|rev|uxth|uxtb|sxth|sxtb|mrs|ldr\w*)\s+(r\d+|sb|sl|fp|ip)\b", ins.mnemonic + " " + ins.op_str, re.IGNORECASE)
                 if dw:
-                    written.add(int(dw.group(1)))
-            out = frozenset(regs)
+                    dst = regno(dw.group(1))
+                    if dst is not None:
+                        taint.pop(dst, None)
+
+            initial = frozen({i: {i} for i in range(4)})
+            work = [(key, initial, 0)]
+            seen = set()
+            hits = set()
+            cond_branches = {
+                "beq", "bne", "bcs", "bhs", "bcc", "blo", "bmi", "bpl",
+                "bvs", "bvc", "bhi", "bls", "bge", "blt", "bgt", "ble",
+                "cbz", "cbnz",
+            }
+            while work and len(seen) < 1200 and len(hits) < 4:
+                pc, state, depth = work.pop()
+                if pc not in insns or depth >= 96:
+                    continue
+                skey = (pc, state)
+                if skey in seen:
+                    continue
+                seen.add(skey)
+                ins = insns[pc]
+                mn = ins.mnemonic.lower()
+                taint = thaw(state)
+
+                if ins.mnemonic.startswith(("ldr", "str")):
+                    m = re.search(r"\[\s*(r\d+|sb|sl|fp|ip)\b", ins.op_str, re.IGNORECASE)
+                    if m:
+                        base = regno(m.group(1))
+                        if base in taint:
+                            hits.update(taint[base])
+
+                step_taint(taint, ins)
+                nstate = frozen(taint)
+                target = branch_target(ins)
+                fall = pc + ins.size
+
+                # Returns, exception trampolines, and indirect branches end the
+                # local proof path. Calls are transparent except for the AAPCS
+                # caller-saved-input clobber handled above.
+                if (mn == "bx" and "lr" in ins.op_str.lower()) or ("pc" in ins.op_str.lower() and mn.startswith("pop")):
+                    continue
+                if mn in {"bx", "udf"}:
+                    continue
+                if mn in {"b", "b.w"} and target is not None:
+                    work.append((target, nstate, depth + 1))
+                    continue
+                if mn in cond_branches:
+                    if target is not None:
+                        work.append((target, nstate, depth + 1))
+                    work.append((fall, nstate, depth + 1))
+                    continue
+                # Other indirect multiway branches (tbb/tbh/bx rN) are outside
+                # this small proof fragment; stopping is conservative.
+                if mn in {"tbb", "tbh"} or mn.startswith("bx"):
+                    continue
+                work.append((fall, nstate, depth + 1))
+            out = frozenset(hits)
     except Exception:
         pass
     _DEREF_SCAN_CACHE[ck] = out
     return out
-
 
 _INDEX_SCAN_CACHE: dict = {}
 
 
 def machine_index_params(img_path: str, key: int) -> frozenset:
     """Machine truth: which input registers the original binary multiplies by a
-    stride within the first 16 instructions — index/scalar semantics, never
+    stride within a bounded 24-instruction entry fragment — index/scalar semantics, never
     pointer semantics (multiplying a pointer is meaningless). A pointer-valued
     input in such a register (e.g. the boot_ptr SRAM seeds) is outside the
     valid input domain: the stride product overflows into wild memory and any
@@ -1442,16 +1800,30 @@ def machine_index_params(img_path: str, key: int) -> frozenset:
         off = key - 0x100000
         if 0 <= off < len(data) - 40:
             md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+            scan_len = machine_function_extent(img_path, key, 96)
             # taint: input registers 0-3; copies inherit, overwriting writes drop
             taint = {0: 0, 1: 1, 2: 2, 3: 3}  # reg -> originating input reg
             hits = set()
-            for ins in list(md.disasm(data[off:off + 48], key))[:16]:
+            for ins in list(md.disasm(data[off:off + scan_len], key))[:24]:
                 ops = ins.op_str
+                if ins.mnemonic.lower() in {"bl", "blx"}:
+                    for rg in range(4):
+                        taint.pop(rg, None)
+                    continue
                 if ins.mnemonic.startswith(("mul", "mla")):
                     regs = [int(m.group(1)) for m in re.finditer(r"r(\d+)", ops)]
                     for rg in regs[1:]:  # sources only; first is the destination
                         if rg in taint:
                             hits.add(taint[rg])
+                elif ins.mnemonic.startswith(("add", "sub", "rsb")) and "lsl" in ops:
+                    # Constant-stride addressing is often strength-reduced to a
+                    # shifted add/subtract rather than mul/mla. Reusing the same
+                    # input as both unshifted and shifted terms, as in
+                    # `rsb r6,r1,r1,lsl#3` (7*x), is still multiplication of
+                    # the input value and therefore scalar/index evidence.
+                    regs = [int(m.group(1)) for m in re.finditer(r"r(\d+)", ops)]
+                    if len(regs) >= 3 and regs[1] == regs[2] and regs[1] in taint:
+                        hits.add(taint[regs[1]])
                 mm = re.match(r"mov(?:s|\.w)?\s+r(\d+),\s*r(\d+)$", ins.mnemonic + " " + ops)
                 if mm:
                     dst, src = int(mm.group(1)), int(mm.group(2))
@@ -1557,6 +1929,8 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
 
         recon_r0 = int(pr.mu.reg_read(UC_ARM_REG_R0)) & 0xFFFFFFFF
         recon_r1 = int(pr.mu.reg_read(UC_ARM_REG_R1)) & 0xFFFFFFFF
+        orig_final_pc = int(po.mu.reg_read(UC_ARM_REG_PC)) & 0xFFFFFFFF
+        recon_final_pc = int(pr.mu.reg_read(UC_ARM_REG_PC)) & 0xFFFFFFFF
         recon_fp = lrr.fingerprint(pr.traffic)
         recon_mmio = recon_fp["periph_write_sequence"]
         recon_reads = recon_fp["periph_read_sequence"]
@@ -1578,6 +1952,8 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
             r0_exclude=r0_exclude, orig_image=po.image, elf_info=elf,
             orig_mmio_reads=orig_reads, recon_mmio_reads=recon_reads,
             orig_r1=orig_r1, recon_r1=recon_r1, return_width=return_width,
+            orig_final_pc=orig_final_pc, recon_final_pc=recon_final_pc,
+            orig_read_pcs=orig_fp.get("periph_read_pcs"), recon_read_pcs=recon_fp.get("periph_read_pcs"),
         )
         # Invalid-input artifact classification: boot_scalar/boot_neg inject
         # scalar integers into every argument register. When a parameter is
@@ -1589,30 +1965,46 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
         # memory in the original while the compiled body legitimately takes
         # any path. Reclassified outcomes count neither as matches nor as
         # defects, exactly like NOT_RUN but with the reason preserved.
-        if outcome.get("status") == "DIFFER" and outcome.get("reason") in {"r0_differ", "r1_differ", "ram_differ", "r0_void_ub"}:
+        if outcome.get("status") in {"MATCH", "PREFIX_MATCH", "DIFFER"}:
             invalid = False
-            if param_types:
-                for idx, ptype in enumerate(param_types):
-                    if idx >= len(vcfg["args"]):
-                        break
-                    aval = vcfg["args"][idx]
-                    if "*" in ptype and (aval < 0x10000 or aval >= 0xFFFF0000):
-                        invalid = True
-                        break
-            if not invalid:
+            # The multiplication proof is strong enough to apply uniformly:
+            # a pointer-shaped value is never a valid index/count operand in
+            # a machine-level stride multiply, regardless of whether the wild
+            # input happened to produce a benign result.
+            for idx in machine_index_params(img_path, key):
+                if idx >= len(vcfg["args"]):
+                    break
+                aval = vcfg["args"][idx]
+                if 0x10000 <= aval < 0xFFFF0000:
+                    invalid = True
+                    break
+            # Pointer-domain proofs are conditional-execution over-approximations.
+            # They are used only to explain an observed divergence, not to discard
+            # matching evidence from a benign or early-rejected input.
+            if not invalid and (
+                (outcome.get("status") == "PREFIX_MATCH")
+                or (outcome.get("status") == "DIFFER" and outcome.get("reason") in {"r0_differ", "r1_differ", "ram_differ", "r0_void_ub"})
+            ):
+                # Hex-Rays pointer parameter spellings are not reliable enough
+                # for uniform input-domain exclusion. They are used only when a
+                # divergence has already proven the wild input reaches sensitive
+                # behavior; this explains the divergence without discarding any
+                # benign matching evidence.
+                if outcome.get("status") == "DIFFER" and param_types:
+                    for idx, ptype in enumerate(param_types):
+                        if idx >= len(vcfg["args"]):
+                            break
+                        aval = vcfg["args"][idx]
+                        if "*" in ptype and (aval < 0x10000 or aval >= 0xFFFF0000):
+                            invalid = True
+                            break
+                # Machine-observed memory-base use is stronger contractual
+                # evidence and also applies to non-returning wild-input probes.
                 for idx in machine_deref_params(img_path, key):
                     if idx >= len(vcfg["args"]):
                         break
                     aval = vcfg["args"][idx]
                     if aval < 0x10000 or aval >= 0xFFFF0000:
-                        invalid = True
-                        break
-            if not invalid:
-                for idx in machine_index_params(img_path, key):
-                    if idx >= len(vcfg["args"]):
-                        break
-                    aval = vcfg["args"][idx]
-                    if 0x10000 <= aval < 0xFFFF0000:
                         invalid = True
                         break
             if invalid:
@@ -1744,7 +2136,16 @@ def measure_truth_lane_full(rows_by_key: dict[tuple[str, int], dict]) -> dict:
             passed_all_vecs += 1
         else:
             bad = {k: v["reason"] for k, v in vecs.items() if v["status"] == "DIFFER"}
-            details.append({"function": t["function"], "image": short, "diffs": bad})
+            nonmatch = {
+                k: {"status": v["status"], "reason": v.get("reason")}
+                for k, v in vecs.items()
+                if v["status"] not in ("MATCH", "NOT_RUN", "INVALID_INPUT")
+            }
+            invalid = [k for k, v in vecs.items() if v["status"] == "INVALID_INPUT"]
+            details.append({
+                "function": t["function"], "image": short, "diffs": bad,
+                "nonmatch": nonmatch, "invalid_inputs": invalid,
+            })
     return {
         "total_targets": len(targets),
         "bare_zero_full_pass": passed_bare,
@@ -1756,6 +2157,67 @@ def measure_truth_lane_full(rows_by_key: dict[tuple[str, int], dict]) -> dict:
 # ---------------------------------------------------------------------------
 # Aggregation & reporting
 # ---------------------------------------------------------------------------
+
+def interior_fragment_parent_coverage(rows: list[dict]) -> dict:
+    """Byte-containment proof and indirect dynamic coverage for libmatch fragments.
+
+    Hex-Rays occasionally treats an internal compiler-runtime label as a
+    standalone function. Those bytes have no independent entry contract. The
+    sound representation is therefore the containing byte-identical libgcc/libc
+    routine: metadata/libmatch.json proves containment, and the corpus evaluates
+    that containing routine as a real callable unit.
+    """
+    rows_by_image_addr = {(r["image"], int(r["address"], 16)): r for r in rows}
+    try:
+        libmatch = json.loads((REPO / "metadata" / "libmatch.json").read_text())["images"]
+    except (OSError, KeyError, json.JSONDecodeError):
+        libmatch = {}
+    details = []
+    for r in rows:
+        if not r.get("libmatch_dropped"):
+            continue
+        img = r["image"]
+        addr = int(r["address"], 16)
+        parents = []
+        lib_entries = []
+        for full_img, entries in libmatch.items():
+            if SHORT.get(full_img, full_img) == img:
+                lib_entries = entries
+                break
+        for ent in lib_entries:
+            lo = int(ent["address"], 16)
+            hi = lo + int(ent["size"])
+            if lo <= addr < hi:
+                parents.append((lo, hi, ent))
+        if not parents:
+            details.append({"image": img, "address": r["address"], "function": r["function"],
+                            "status": "unproven_fragment"})
+            continue
+        lo, hi, ent = parents[0]
+        parent = rows_by_image_addr.get((img, lo))
+        parent_statuses = {k: v.get("status") for k, v in parent["vectors"].items()} if parent else {}
+        details.append({
+            "image": img,
+            "address": r["address"],
+            "function": r["function"],
+            "status": "contained_in_evaluated_parent" if parent else "contained_parent_not_evaluated",
+            "parent_address": hex(lo),
+            "parent_end": hex(hi),
+            "parent_offset": hex(addr - lo),
+            "parent_symbol": ent.get("symbol"),
+            "parent_member": ent.get("member"),
+            "parent_row_function": parent.get("function") if parent else None,
+            "parent_statuses": parent_statuses,
+            "parent_all_vectors_match": bool(parent) and all(x == "MATCH" for x in parent_statuses.values()),
+        })
+    return {
+        "total": len(details),
+        "contained": sum(1 for x in details if x["status"].startswith("contained")),
+        "evaluated_parents": sum(1 for x in details if x["status"] == "contained_in_evaluated_parent"),
+        "parents_all_vectors_match": sum(1 for x in details if x.get("parent_all_vectors_match")),
+        "details": details,
+    }
+
 
 def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
     total = len(rows)
@@ -1790,6 +2252,7 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
             "differ": st["DIFFER"],
             "mmio_only_hidden_differ": hidden_mmio_only,
             "not_run": st["NOT_RUN"],
+            "invalid_input": st["INVALID_INPUT"],
             "diff_reasons": dict(diff_reasons.most_common()),
         }
 
@@ -1833,6 +2296,27 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
                 agg["PREFIX_MATCH_NONRETURN_VACUOUS"] += 1
         else:
             agg["VACUOUS_ALL_MATCH"] += 1
+
+    prefix_rows = []
+    prefix_vector_reasons = collections.Counter()
+    prefix_row_reason_shapes = collections.Counter()
+    for r in rows:
+        if r.get("libmatch_dropped"):
+            continue
+        comparable = [x for x in r["vectors"].values() if x["status"] not in ("NOT_RUN", "INVALID_INPUT")]
+        if comparable and not any(x["status"] == "DIFFER" for x in comparable) \
+                and not any(x["status"] == "MATCH" and x.get("exercised") for x in comparable) \
+                and any(x["status"] == "PREFIX_MATCH" for x in comparable):
+            reasons = sorted({x.get("reason", "unknown") for x in comparable if x["status"] == "PREFIX_MATCH"})
+            prefix_row_reason_shapes[tuple(reasons)] += 1
+            for x in comparable:
+                if x["status"] == "PREFIX_MATCH":
+                    prefix_vector_reasons[x.get("reason", "unknown")] += 1
+            prefix_rows.append({
+                "image": r["image"], "address": r["address"], "function": r["function"],
+                "reasons": reasons,
+                "exercised": any(x["status"] == "PREFIX_MATCH" and x.get("exercised") for x in comparable),
+            })
 
     comparable_total = total - agg["NEVER_COMPARABLE"] - agg["INTERIOR_LIBMATCH_FRAGMENT"]
     per_image: dict[str, dict] = {}
@@ -1892,6 +2376,18 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
             "comparable_all_match_pct": round(100.0 * (agg["EXERCISED_ALL_MATCH"] + agg["VACUOUS_ALL_MATCH"]) / (comparable_total - agg["PREFIX_MATCH_NONRETURN"]), 2) if comparable_total - agg["PREFIX_MATCH_NONRETURN"] else 0.0,
             "exercised_coverage_pct": round(100.0 * agg["EXERCISED_ALL_MATCH"] / total, 2) if total else 0.0,
         },
+        "prefix_nonreturn_classification": {
+            "row_reason_shapes": {"+".join(k): v for k, v in sorted(prefix_row_reason_shapes.items())},
+            "vector_reasons": dict(prefix_vector_reasons.most_common()),
+            "rows": prefix_rows,
+            "legend": {
+                "nonreturn_exact_write_sequence": "both sides capped with identical complete-to-date ordered peripheral-write sequences; strong partial evidence, future writes unproven",
+                "nonreturn_write_prefix": "one capped side emitted a strict superset; only the shared ordered prefix is proven",
+                "original_nonreturn_write_prefix": "reconstruction returned with a complete sequence and the capped original's writes are a consistent prefix",
+                "nonreturn_no_observable_writes": "vacuous in the closed standalone model: no observable peripheral writes before the cap",
+            },
+        },
+        "interior_fragment_parent_coverage": interior_fragment_parent_coverage(rows),
         "top_differs": differ_examples,
     }
 
@@ -1912,7 +2408,8 @@ def print_dashboard(report: dict) -> None:
     for vname, stats in d["per_vector"].items():
         print(f"  {vname:12s} MATCH={stats['match']:4d} (exercised={stats['exercised_match']:4d}, "
               f"vacuous={stats['vacuous_match']:4d}) | PREFIX={stats.get('prefix_match',0):4d} | DIFFER={stats['differ']:4d} "
-              f"(mmio_only_hidden={stats['mmio_only_hidden_differ']:4d}) | NOT_RUN={stats['not_run']:4d}")
+              f"(mmio_only_hidden={stats['mmio_only_hidden_differ']:4d}) | NOT_RUN={stats['not_run']:4d} "
+              f"| INVALID={stats.get('invalid_input',0):3d}")
         if stats["diff_reasons"]:
             print(f"               diff breakdown: {stats['diff_reasons']}")
 

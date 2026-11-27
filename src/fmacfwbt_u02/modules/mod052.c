@@ -602,12 +602,6 @@ volatile uint32_t * assemble_bt_descriptor(int a1, volatile uint32_t *a2, int a3
   int v8; // r2
   int v9; // r6
   int v10; // r4
-  volatile uint32_t *v11; // r0
-  volatile int *v12; // r1
-  volatile uint32_t *v13; // r0
-  volatile int *v14; // r1
-  volatile uint32_t *v15; // r0
-  volatile int *v16; // r1
 
   v5 = *a4;
   v6 = *(volatile uint32_t *)(a4 + 1);
@@ -622,10 +616,11 @@ volatile uint32_t * assemble_bt_descriptor(int a1, volatile uint32_t *a2, int a3
     v10 = 0;
   else
     v10 = a5 & 7;
-  v11 = hash_mix_words((volatile uint32_t *)a1, (volatile int *)(a1 + 4), v8);
-  v13 = hash_mix_words(v11, v12, v9);
-  v15 = hash_mix_words(v13, v14, v6);
-  return hash_mix_words(v15, v16, v10);
+  hash_mix_words((volatile uint32_t *)a1, (volatile int *)(a1 + 4), v8);
+  hash_mix_words((volatile uint32_t *)a1, (volatile int *)(a1 + 4), v9);
+  hash_mix_words((volatile uint32_t *)a1, (volatile int *)(a1 + 4), v6);
+  hash_mix_words((volatile uint32_t *)a1, (volatile int *)(a1 + 4), v10);
+  return (volatile uint32_t *)a1;
 }
 
 

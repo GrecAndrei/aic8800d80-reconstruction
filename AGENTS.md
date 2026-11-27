@@ -47,16 +47,18 @@ release tarball
   `tools/fidelity_meter.py` therefore defaults `--boot-insns` to 500k.
 
 - **Final fidelity evidence (2026-11-27)**: `metadata/fidelity_meter.json`
-  covers all 4,718 composed functions across five probe vectors. Static
-  defect functions, under-arity rows, jumpout/memory-macro defects, missing
-  stubs, residual full-link undefs, and failing dynamic rows are all zero.
-  3,181 functions are exercised all-match (67.42%), 1,320 are vacuous
-  all-match, 217 are never-comparable (209 originals never return in standalone
-  probes; 8 interior libmatch fragments are non-callable), truth lane is
-  25/25 on bare_zero and all vectors, and boot MMIO writes are exact ordered
-  prefixes through the 500k-instruction cap. Do not describe vacuous or
-  never-comparable rows as proof of deep equivalence; the precise caveats are
-  in `docs/FIDELITY_V26_VERDICT.md`.
+  covers all 4,718 composed functions across eight probe vectors
+  (bare-zero, boot scalar/negative/pointer/structured-pointer, finite-double,
+  and quiet-NaN double). Static defects, failing dynamic rows, and
+  never-comparable rows are all zero. 4,554 functions are exercised
+  all-match (96.52%); 156 rows are explicitly cap-bounded nonreturning-prefix
+  evidence (118 exercised, 38 vacuous), never full-equivalence proof; 8
+  interior compiler-runtime fragments are byte-contained in evaluated
+  `__aeabi_dmul`/`__aeabi_ddiv` parents that match all eight vectors including
+  `boot_double_nan`. Truth lane is 25/25 on bare_zero and all vectors, and all
+  four boot traces are exact ordered peripheral-write prefixes through the
+  4096-write cap. Do not describe capped, vacuous, or fragment rows as proof
+  of deep equivalence; precise caveats are in `docs/FIDELITY_V26_VERDICT.md`.
 
 - **Naming DONE**: all 5,623 `sub_*` functions in `src/` have `status=ok`
   names in `harness_v17/names/` (23,498 files; 0 unnamed).

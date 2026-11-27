@@ -60,6 +60,141 @@ class SerializedRelocationTests(unittest.TestCase):
         self.assertFalse(fm.is_equivalent_serialized_code_ptr(0x133967, 0x82F497, orig_image, elf))
 
 
+class ClosedLoopProofTests(unittest.TestCase):
+    def test_countdown_loop_is_not_terminal_proof(self):
+        # subs r0,#1; bne start — a finite register countdown must never be
+        # promoted to non-returning equivalence merely because it is a loop.
+        blob = bytes.fromhex("0138fdd1")
+        self.assertIsNone(fm.closed_loop_proof(blob, 0x1000, 0x1002))
+
+    def test_real_assert_allocation_loops_are_terminal_proof(self):
+        import linked_recon_run as lrr
+        image = "fmacfw_8800d80_u02"
+        elf_path = lrr.FULL_LINK / image / f"{image}.full.elf"
+        firmware = fm.REPO / "inputs" / "firmware" / f"{image}.bin"
+        if not elf_path.is_file() or not firmware.is_file():
+            self.skipTest("linked fmac fixture not built")
+        elf = fm.load_elf_info(elf_path, image=image)
+        orig = firmware.read_bytes()
+        # Original shared assert helper: cmp/bne closed loop.
+        self.assertEqual(fm.closed_loop_proof(orig, 0x120000, 0x14F48A)["load_count"], 0)
+        # Reconstructed inlined allocation-failure path: fixed-address RAM
+        # load + cmp/bne. The fixed base is not rewritten and the loaded value
+        # is never used as a pointer, so the value is invariant in the closed
+        # machine model.
+        self.assertEqual(fm.closed_loop_proof(elf["blob"], elf["base"], 0x8126EA)["load_count"], 1)
+        self.assertTrue(fm.terminal_closed_loop_proof(orig, elf, 0x14F48A, 0x8126EA, [], []))
+        # A peripheral read inside either loop would make the proof unsound
+        # because the MMIO model may be autonomous.
+        self.assertFalse(
+            fm.terminal_closed_loop_proof(orig, elf, 0x14F48A, 0x8126EA, [], ["0x8126e6"])
+        )
+
+
+class MachineInputDomainScanTests(unittest.TestCase):
+    def scan(self, image, key):
+        return fm.machine_deref_params(str(fm.REPO / "inputs" / "firmware" / f"{image}.bin"), key)
+
+    def test_cfg_scan_skips_literal_pool_bytes(self):
+        # process_debug_char's inline literal pool decodes as spurious stores
+        # when swept linearly. Direct control flow never reaches those bytes,
+        # so the fault-character scalar input is not a machine memory base.
+        self.assertEqual(self.scan("fmacfw_8800d80_h_u02", 0x115250), frozenset())
+
+    def test_libc_pointer_scans_remain_precise(self):
+        self.assertEqual(self.scan("fmacfw_8800d80_h_u02", 0x100200), frozenset({0}))  # memset
+        self.assertEqual(self.scan("fmacfw_8800d80_h_u02", 0x143630), frozenset({0, 1}))  # memcpy
+
+    def test_machine_contract_hits_used_by_invalid_input_classification(self):
+        img = "lmacfw_rf_8800d80_u02"
+        path = str(fm.REPO / "inputs" / "firmware" / f"{img}.bin")
+        self.assertEqual(fm.machine_deref_params(path, 0x11F594), frozenset({0}))
+        self.assertEqual(fm.machine_index_params(path, 0x11F594), frozenset({1, 2}))
+        fmac = str(fm.REPO / "inputs" / "firmware" / "fmacfw_8800d80_h_u02.bin")
+        self.assertEqual(fm.machine_deref_params(fmac, 0x141C0C), frozenset({0}))
+        self.assertEqual(fm.machine_index_params(fmac, 0x141C0C), frozenset({1}))
+        # bsscfg_index strength-reduces 28*a2 to shifted rsb/add addressing
+        # and uses a later prologue MLA for 1320*a1. Both forms are machine
+        # scalar/index evidence, so large pointer-shaped probe values are not
+        # valid inputs merely because they are mapped memory.
+        self.assertEqual(fm.machine_index_params(fmac, 0x128748), frozenset({0, 1}))
+
+
+class ValidInputProbeTests(unittest.TestCase):
+    def test_rf_mem_read_machine_valid_input_exactly_matches(self):
+        """Deep valid-input evidence for the rf_mem_read truth-lane target.
+
+        The machine entry checks count != 0 and width in {1,2,4}, aligns and
+        dereferences r0 as the memory base, and multiplies count by width.
+        r0=SRAM_NODE_A (4-aligned seeded RAM), r1=4, r2=4, r3=0 is therefore
+        inside the machine-proven input domain, unlike the corpus stress rows
+        that pass a wild base or a pointer-shaped count.
+        """
+        import aic8800d80_emulator as emu
+        import composed_source
+        import corpus_sweep as cs
+        import linked_recon_run as lrr
+        import prototype_infer
+        from unicorn.arm_const import UC_ARM_REG_R0
+
+        image = "lmacfw_rf_8800d80_u02"
+        elf_path = lrr.FULL_LINK / image / f"{image}.full.elf"
+        firmware = fm.REPO / "inputs" / "firmware" / f"{image}.bin"
+        if not elf_path.is_file() or not firmware.is_file():
+            self.skipTest("linked lmac fixture not built")
+        key = 0x11F594
+        args = (fm.SRAM_NODE_A, 4, 4, 0)
+        img_path = emu.resolve_image(image)
+        model = emu.load_mmio_model()
+        bootstate = cs.capture_bootstate(image, 300000)
+        elf = fm.load_elf_info(elf_path, image=image)
+        short = lrr.SHORT[image]
+        parsed = fm.parse_composed_functions(composed_source.load_composed_text(short))
+        meta = parsed[key]
+
+        def run_one(recon: bool):
+            plat = emu.Aic8800D80Platform(img_path, mmio_model=model)
+            plat.counter_by_reads = lrr.COUNTER_TICKS_PER_READ
+            plat._free_entries = ()
+            if recon:
+                plat._map_rwx(lrr.LINK_BASE, lrr.LINK_SPAN)
+                plat.mu.mem_write(lrr.LINK_BASE, elf["blob"])
+                plat.function_table = elf["funcs"]
+                fm.relocate_image_function_pointers(plat, elf, emu.load_function_table(image))
+            else:
+                plat.function_table = emu.load_function_table(short)
+            cs.apply_bootstate(
+                plat.mu,
+                fm.relocate_bootstate_for_recon(bootstate, elf) if recon else bootstate,
+            )
+            fm.seed_sram_pointers(plat.mu)
+            fm._set_args(plat.mu, args)
+            sp = plat.ivt()["stack_pointer"]
+            if recon:
+                saved = emu.CHIP_BASE
+                emu.CHIP_BASE, plat.image = lrr.LINK_BASE, elf["blob"]
+                try:
+                    term, _stats = plat.run(elf["by_name"][meta["marker"]], 100000, sp=sp, assert_stops=True)
+                finally:
+                    emu.CHIP_BASE = saved
+            else:
+                term, _stats = plat.run(key + emu.HW_OFFSET, 100000, sp=sp, assert_stops=True)
+            fp = lrr.fingerprint(plat.traffic)
+            return term, fp, int(plat.mu.reg_read(UC_ARM_REG_R0)) & 0xFFFFFFFF
+
+        oterm, ofp, or0 = run_one(False)
+        rterm, rfp, rr0 = run_one(True)
+        self.assertEqual((oterm, rterm), ("returned", "returned"))
+        self.assertEqual(len(ofp["periph_write_sequence"]), 47)
+        self.assertEqual(ofp["periph_write_sequence"], rfp["periph_write_sequence"])
+        self.assertEqual(or0, rr0)
+        uart = bytes(
+            int(v, 16) & 0xFF for a, v in ofp["periph_write_sequence"]
+            if int(a, 16) == 0x40032000
+        )
+        self.assertEqual(uart, b"20002200: 00000000 00000000 00000003 00000001\r\n")
+
+
 class StaticScannerTests(unittest.TestCase):
     def test_splits_params_and_varargs(self):
         self.assertEqual(fm._split_params(""), (None, False))
@@ -315,6 +450,29 @@ class RamAndVerdictTests(unittest.TestCase):
         out = fm.summarize_rows([row(True), row(False)], fm.DEFAULT_VECTORS)
         self.assertEqual(out["aggregate"]["interior_libmatch_fragment"], 1)
         self.assertEqual(out["aggregate"]["never_comparable"], 1)
+        self.assertIn("interior_fragment_parent_coverage", out)
+        self.assertIn("prefix_nonreturn_classification", out)
+
+    def test_softfp_nan_vector_is_default_and_quiet_nan_shaped(self):
+        self.assertIn("boot_double_nan", fm.DEFAULT_VECTORS)
+        cfg = fm.ALL_VECTORS["boot_double_nan"]
+        self.assertEqual(cfg["args"], (0, 0x7FF80000, 0, 0x3FF80000))
+        self.assertTrue(cfg["bootstate"])
+        self.assertFalse(cfg["sram_seed"])
+
+    def test_prefix_nonreturn_reason_taxonomy_is_explicit(self):
+        def prefix_row(reason):
+            return {
+                "image": "fmacfw_h_u02", "address": "0x2000", "function": "x",
+                "machine_class": "unknown", "libmatch_dropped": False,
+                "vectors": {v: {"status": "PREFIX_MATCH", "reason": reason, "exercised": True}
+                            for v in fm.DEFAULT_VECTORS},
+            }
+        out = fm.summarize_rows([prefix_row("nonreturn_exact_write_sequence")], fm.DEFAULT_VECTORS)
+        cls = out["prefix_nonreturn_classification"]
+        self.assertEqual(cls["row_reason_shapes"], {"nonreturn_exact_write_sequence": 1})
+        self.assertEqual(cls["vector_reasons"]["nonreturn_exact_write_sequence"], len(fm.DEFAULT_VECTORS))
+        self.assertIn("future writes unproven", cls["legend"]["nonreturn_exact_write_sequence"])
 
     def test_relocated_cstr_and_fn_ptr_match(self):
         orig_img = b"\x00" * 0x100 + b"adjust xtal_cap: tgt=0x%x\n\x00"

@@ -603,12 +603,6 @@ volatile uint32_t * bt_packet_parse(int a1, volatile uint32_t *a2, int a3, volat
   int v8; // r2
   int v9; // r6
   int v10; // r4
-  volatile uint32_t *v11; // r0
-  volatile int *v12; // r1
-  volatile uint32_t *v13; // r0
-  volatile int *v14; // r1
-  volatile uint32_t *v15; // r0
-  volatile int *v16; // r1
 
   v5 = *a4;
   v6 = *(volatile uint32_t *)(a4 + 1);
@@ -623,10 +617,11 @@ volatile uint32_t * bt_packet_parse(int a1, volatile uint32_t *a2, int a3, volat
     v10 = 0;
   else
     v10 = a5 & 7;
-  v11 = crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), v8);
-  v13 = crypto_mix_round(v11, v12, v9);
-  v15 = crypto_mix_round(v13, v14, v6);
-  return crypto_mix_round(v15, v16, v10);
+  crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), v8);
+  crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), v9);
+  crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), v6);
+  crypto_mix_round((volatile uint32_t *)a1, (volatile int *)(a1 + 4), v10);
+  return (volatile uint32_t *)a1;
 }
 
 
