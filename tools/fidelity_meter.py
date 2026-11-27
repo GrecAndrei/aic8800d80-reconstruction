@@ -759,6 +759,21 @@ def compare_ram_states(
     return ram_match, orig_mutated, recon_mutated, first_diff
 
 
+def _ordered_write_prefix(orig_mmio: list, recon_mmio: list) -> tuple[int, bool]:
+    """Return (equal ordered-write prefix length, mismatch_inside_overlap).
+
+    Ordered peripheral writes are externally visible events. A common prefix is
+    meaningful even when a standalone run cannot return before the instruction
+    cap; a mismatch at the same ordinal position is genuine evidence because
+    correct ordering requires the first not-yet-emitted write to be identical.
+    """
+    n = min(len(orig_mmio), len(recon_mmio))
+    shared = 0
+    while shared < n and orig_mmio[shared] == recon_mmio[shared]:
+        shared += 1
+    return shared, shared < n
+
+
 def evaluate_outcomes(
     orig_term: str,
     orig_r0: int,
@@ -784,7 +799,39 @@ def evaluate_outcomes(
     if recon_left:
         return {"status": "NOT_RUN", "reason": "linked_run_left_reconstruction"}
     if orig_term not in lrr.ENDED:
-        return {"status": "NOT_RUN", "reason": "original_did_not_return"}
+        shared, mismatch = _ordered_write_prefix(orig_mmio, recon_mmio)
+        prefix_fields = {
+            "shared_write_prefix": shared,
+            "orig_write_count": len(orig_mmio),
+            "recon_write_count": len(recon_mmio),
+        }
+        if mismatch:
+            return {"status": "DIFFER", "reason": "mmio_differ", "mmio_match": False,
+                    "ram_match": None, "r0_match": None, "exercised": bool(shared), **prefix_fields}
+        if recon_term in lrr.ENDED:
+            # The reconstruction completed, so every write it will ever make is
+            # known. The original's observed writes must form a prefix of that
+            # complete sequence; missing writes cannot be blamed on the cap.
+            if shared == len(orig_mmio):
+                return {"status": "PREFIX_MATCH", "reason": "original_nonreturn_write_prefix",
+                        "mmio_match": True, "ram_match": None, "r0_match": None,
+                        "exercised": bool(shared), **prefix_fields}
+            return {"status": "DIFFER", "reason": "mmio_differ", "mmio_match": False,
+                    "ram_match": None, "r0_match": None, "exercised": bool(shared), **prefix_fields}
+        # Both sides are still running at the cap. Equal non-empty prefixes are
+        # real partial evidence; empty/non-empty asymmetry is inconclusive
+        # because independently compiled code may simply not have reached its
+        # first write in the same instruction budget.
+        if shared and (shared == len(orig_mmio) or shared == len(recon_mmio)):
+            reason = "nonreturn_exact_write_sequence" if len(orig_mmio) == len(recon_mmio) else "nonreturn_write_prefix"
+            return {"status": "PREFIX_MATCH", "reason": reason,
+                    "mmio_match": True, "ram_match": None, "r0_match": None,
+                    "exercised": True, **prefix_fields}
+        if not orig_mmio and not recon_mmio:
+            return {"status": "PREFIX_MATCH", "reason": "nonreturn_no_observable_writes",
+                    "mmio_match": True, "ram_match": None, "r0_match": None,
+                    "exercised": False, **prefix_fields}
+        return {"status": "NOT_RUN", "reason": "nonreturn_inconclusive", **prefix_fields}
     if recon_term not in lrr.ENDED:
         return {"status": "DIFFER", "reason": "recon_did_not_return",
                 "stopped_in": recon_stopped_in, "mmio_match": False}
@@ -1092,10 +1139,6 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
         _set_args(po.mu, args)
         to, _ = po.run(key + emu.HW_OFFSET, max_insns, sp=sp, assert_stops=True)
 
-        if to not in lrr.ENDED:
-            vec_results[vname] = {"status": "NOT_RUN", "reason": "original_did_not_return"}
-            continue
-
         orig_r0 = int(po.mu.reg_read(UC_ARM_REG_R0)) & 0xFFFFFFFF
         orig_mmio = lrr.fingerprint(po.traffic)["periph_write_sequence"]
 
@@ -1345,6 +1388,7 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
         )
         per_vector[v] = {
             "match": st["MATCH"],
+            "prefix_match": st["PREFIX_MATCH"],
             "exercised_match": exercised_match,
             "vacuous_match": vacuous_match,
             "asserted_match": asserted_match,
@@ -1377,8 +1421,10 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
                     "recon_r0": first_bad[1].get("recon_r0"),
                     "ram_diff_addr": first_bad[1].get("ram_diff_addr"),
                 })
-        elif any(x.get("exercised") for x in comparable):
+        elif any(x["status"] == "MATCH" and x.get("exercised") for x in comparable):
             agg["EXERCISED_ALL_MATCH"] += 1
+        elif any(x["status"] == "PREFIX_MATCH" for x in comparable):
+            agg["PREFIX_MATCH_NONRETURN"] += 1
         else:
             agg["VACUOUS_ALL_MATCH"] += 1
 
@@ -1395,8 +1441,10 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
                 i_agg["NEVER_COMPARABLE"] += 1
             elif any(x["status"] == "DIFFER" for x in comp):
                 i_agg["FAILING_ANY_VECTOR"] += 1
-            elif any(x.get("exercised") for x in comp):
+            elif any(x["status"] == "MATCH" and x.get("exercised") for x in comp):
                 i_agg["EXERCISED_ALL_MATCH"] += 1
+            elif any(x["status"] == "PREFIX_MATCH" for x in comp):
+                i_agg["PREFIX_MATCH_NONRETURN"] += 1
             else:
                 i_agg["VACUOUS_ALL_MATCH"] += 1
         itot = len(img_rows)
@@ -1405,6 +1453,7 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
             "exercised_all_match": i_agg["EXERCISED_ALL_MATCH"],
             "vacuous_all_match": i_agg["VACUOUS_ALL_MATCH"],
             "failing_any_vector": i_agg["FAILING_ANY_VECTOR"],
+            "prefix_match_nonreturn": i_agg["PREFIX_MATCH_NONRETURN"],
             "never_comparable": i_agg["NEVER_COMPARABLE"],
             "exercised_coverage_pct": round(100.0 * i_agg["EXERCISED_ALL_MATCH"] / itot, 2) if itot else 0.0,
         }
@@ -1418,9 +1467,10 @@ def summarize_rows(rows: list[dict], vectors: tuple[str, ...]) -> dict:
             "exercised_all_match": agg["EXERCISED_ALL_MATCH"],
             "vacuous_all_match": agg["VACUOUS_ALL_MATCH"],
             "failing_any_vector": agg["FAILING_ANY_VECTOR"],
+            "prefix_match_nonreturn": agg["PREFIX_MATCH_NONRETURN"],
             "never_comparable": agg["NEVER_COMPARABLE"],
             "strict_all_match_pct": round(100.0 * (agg["EXERCISED_ALL_MATCH"] + agg["VACUOUS_ALL_MATCH"]) / total, 2) if total else 0.0,
-            "comparable_all_match_pct": round(100.0 * (agg["EXERCISED_ALL_MATCH"] + agg["VACUOUS_ALL_MATCH"]) / comparable_total, 2) if comparable_total else 0.0,
+            "comparable_all_match_pct": round(100.0 * (agg["EXERCISED_ALL_MATCH"] + agg["VACUOUS_ALL_MATCH"]) / (comparable_total - agg["PREFIX_MATCH_NONRETURN"]), 2) if comparable_total - agg["PREFIX_MATCH_NONRETURN"] else 0.0,
             "exercised_coverage_pct": round(100.0 * agg["EXERCISED_ALL_MATCH"] / total, 2) if total else 0.0,
         },
         "top_differs": differ_examples,
@@ -1442,7 +1492,7 @@ def print_dashboard(report: dict) -> None:
     print("\nAxis 2/3 (Dynamic Vectors — MMIO + RAM + non-void r0):")
     for vname, stats in d["per_vector"].items():
         print(f"  {vname:12s} MATCH={stats['match']:4d} (exercised={stats['exercised_match']:4d}, "
-              f"vacuous={stats['vacuous_match']:4d}) | DIFFER={stats['differ']:4d} "
+              f"vacuous={stats['vacuous_match']:4d}) | PREFIX={stats.get('prefix_match',0):4d} | DIFFER={stats['differ']:4d} "
               f"(mmio_only_hidden={stats['mmio_only_hidden_differ']:4d}) | NOT_RUN={stats['not_run']:4d}")
         if stats["diff_reasons"]:
             print(f"               diff breakdown: {stats['diff_reasons']}")
@@ -1451,12 +1501,13 @@ def print_dashboard(report: dict) -> None:
     for img_short, ps in d.get("per_image", {}).items():
         print(f"  {img_short:14s} exercised={ps['exercised_all_match']:4d}/{ps['total']:4d} "
               f"({ps['exercised_coverage_pct']:5.2f}%) | vacuous={ps['vacuous_all_match']:4d} | "
-              f"failing={ps['failing_any_vector']:3d} | never_comp={ps['never_comparable']:3d}")
+              f"failing={ps['failing_any_vector']:3d} | prefix={ps.get('prefix_match_nonreturn',0):3d} | never_comp={ps['never_comparable']:3d}")
 
     print(f"\nHeadline Aggregate ({d['total_functions']} functions):")
     print(f"  EXERCISED_ALL_MATCH : {agg['exercised_all_match']:4d} ({agg['exercised_coverage_pct']:.2f}% true non-trivial fidelity)")
     print(f"  VACUOUS_ALL_MATCH   : {agg['vacuous_all_match']:4d} (all matched, but 0 MMIO/RAM/non-zero r0 observed)")
     print(f"  FAILING_ANY_VECTOR  : {agg['failing_any_vector']:4d} (proven bug on >=1 vector)")
+    print(f"  PREFIX_MATCH_NONRET : {agg.get('prefix_match_nonreturn',0):4d} (partial ordered-write evidence; not counted as full equivalence)")
     print(f"  NEVER_COMPARABLE    : {agg['never_comparable']:4d}")
     print(f"  MACHINE_NULLSUB_R0_EXCLUDED: {agg.get('machine_nullsub_excluded', 0):4d} (bx-lr/nullsub aliases; vacuous structural units)")
 

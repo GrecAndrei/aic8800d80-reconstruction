@@ -118,6 +118,46 @@ class RamAndVerdictTests(unittest.TestCase):
         self.assertEqual(v["status"], "MATCH")
         self.assertTrue(v["exercised"])
 
+    def test_nonreturn_ordered_write_prefix_is_partial_evidence(self):
+        # Both sides capped: a non-empty exact prefix is comparable partial
+        # evidence, distinct from both a full MATCH and neutral NOT_RUN.
+        v = fm.evaluate_outcomes(
+            "capped", 0, [["0x40032000", "1"], ["0x40032000", "2"]],
+            "capped", 0, [["0x40032000", "1"]], None, [], True, False, False, None,
+            is_void=False,
+        )
+        self.assertEqual(v["status"], "PREFIX_MATCH")
+        self.assertEqual(v["reason"], "nonreturn_write_prefix")
+        self.assertTrue(v["exercised"])
+        self.assertEqual(v["shared_write_prefix"], 1)
+
+        # A mismatch at the same ordinal position remains a genuine difference.
+        v = fm.evaluate_outcomes(
+            "capped", 0, [["0x40032000", "1"]],
+            "capped", 0, [["0x40032000", "2"]], None, [], True, False, False, None,
+            is_void=False,
+        )
+        self.assertEqual(v["status"], "DIFFER")
+        self.assertEqual(v["reason"], "mmio_differ")
+
+        # Empty/non-empty asymmetry is timing-inconclusive, not evidence.
+        v = fm.evaluate_outcomes(
+            "capped", 0, [["0x40032000", "1"]],
+            "capped", 0, [], None, [], True, False, False, None,
+            is_void=False,
+        )
+        self.assertEqual(v["status"], "NOT_RUN")
+        self.assertEqual(v["reason"], "nonreturn_inconclusive")
+
+        # If the reconstruction returned, missing original writes cannot be
+        # excused as cap timing.
+        v = fm.evaluate_outcomes(
+            "capped", 0, [["0x40032000", "1"]],
+            "returned", 0, [], None, [], True, False, False, None,
+            is_void=False,
+        )
+        self.assertEqual(v["status"], "DIFFER")
+
     def test_machine_nullsub_excludes_r0_without_counting_as_exercised(self):
         v = fm.evaluate_outcomes(
             "returned", 0x1234, [], "returned", 0, [], None, [], True, False, False, None,
