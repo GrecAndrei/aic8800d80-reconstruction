@@ -107,13 +107,17 @@ RAM_WINDOWS: tuple[tuple[int, int], ...] = (
 )
 NULL_SHADOW_PAGE = 0xFFFFF000
 
-DEFAULT_VECTORS = ("bare_zero", "boot_zero", "boot_scalar", "boot_neg", "boot_ptr")
+DEFAULT_VECTORS = ("bare_zero", "boot_zero", "boot_scalar", "boot_neg", "boot_ptr", "boot_double")
 ALL_VECTORS = {
     "bare_zero":   {"bootstate": False, "sram_seed": False, "args": (0, 0, 0, 0)},
     "boot_zero":   {"bootstate": True,  "sram_seed": False, "args": (0, 0, 0, 0)},
     "boot_scalar": {"bootstate": True,  "sram_seed": False, "args": (1, 2, 3, 4)},
     "boot_neg":    {"bootstate": True,  "sram_seed": False, "args": (0xFFFFFFFF, 0xFFFFFFFF, 1, 1)},
     "boot_ptr":    {"bootstate": True,  "sram_seed": True,  "args": (SRAM_PTR_A, SRAM_PTR_B, 1, 1)},
+    # Softfp register pairs encode two finite nonzero doubles: 1.5 in r0/r1
+    # and -2.25 in r2/r3. This exercises high-word arithmetic/control flow that
+    # scalar integer vectors cannot reach while remaining ordinary input data.
+    "boot_double": {"bootstate": True,  "sram_seed": False, "args": (0, 0x3FF80000, 0, 0xC0020000)},
 }
 
 

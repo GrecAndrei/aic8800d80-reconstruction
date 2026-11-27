@@ -259,7 +259,7 @@ class RamAndVerdictTests(unittest.TestCase):
                 "image": "fmacfw_h_u02", "address": "0x1000", "function": "x",
                 "machine_class": "unknown", "libmatch_dropped": libdrop,
                 "vectors": {v: {"status": "NOT_RUN", "reason": "not_in_linked_image"}
-                            for v in ("bare_zero", "boot_zero", "boot_scalar", "boot_neg", "boot_ptr")},
+                            for v in fm.DEFAULT_VECTORS},
             }
         out = fm.summarize_rows([row(True), row(False)], fm.DEFAULT_VECTORS)
         self.assertEqual(out["aggregate"]["interior_libmatch_fragment"], 1)
