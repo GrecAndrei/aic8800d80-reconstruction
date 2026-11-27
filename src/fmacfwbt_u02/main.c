@@ -6603,7 +6603,7 @@ unsigned int alloc_send_packet(int a1, unsigned int a2, unsigned int a3, int a4,
 unsigned int check_radio_irq_status(unsigned int result);
 unsigned int send_acl_data(int a1, unsigned int a2, int a3, int a4);
 unsigned int parse_ll_header(int a1);
-int handle_ll_control_packet(int a1, int a2);
+int handle_ll_control_packet(int a1);
 int is_connection_active(int a1);
 int get_connection_state(int a1, unsigned int a2, unsigned int a3);
 int fetch_connection_params(int a1, int a2);

@@ -6606,7 +6606,7 @@ unsigned int ipc_dispatch_cmd(int a1, unsigned int a2, unsigned int a3, int a4, 
 unsigned int int_status_check(unsigned int result);
 unsigned int ipc_dispatch_one(int a1, unsigned int a2, int a3, int a4);
 unsigned int rx_header_parse(int a1);
-int ble_ll_conn_rx_pdu(int a1, int a2);
+int ble_ll_conn_rx_pdu(int a1);
 int ble_ll_conn_sm_get(int a1);
 int ble_ll_conn_sm_get_by_handle(int a1, unsigned int a2, unsigned int a3);
 int ble_ll_conn_sm_validate(int a1, int a2);
