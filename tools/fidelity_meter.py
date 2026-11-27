@@ -792,6 +792,8 @@ def evaluate_outcomes(
     r0_exclude: bool = False,
     orig_image: bytes | None = None,
     elf_info: dict | None = None,
+    orig_mmio_reads: list | None = None,
+    recon_mmio_reads: list | None = None,
 ) -> dict:
     """Compare one vector execution of orig vs recon on MMIO + RAM + non-void r0."""
     if recon_term == "no_symbol":
@@ -840,6 +842,18 @@ def evaluate_outcomes(
         return {"status": "DIFFER", "reason": f"assert_trap_only_in_{side}", "mmio_match": False}
 
     mmio_match = (orig_mmio == recon_mmio)
+    orig_mmio_reads = orig_mmio_reads or []
+    recon_mmio_reads = recon_mmio_reads or []
+    read_prefix, read_mismatch = _ordered_write_prefix(orig_mmio_reads, recon_mmio_reads)
+    # Peripheral reads are real machine observations. They are not pass/fail
+    # criteria because polling frequency is legitimately compilation- and
+    # timing-dependent, but an exact non-empty read sequence is genuine
+    # behavioral evidence and therefore counts as exercised coverage.
+    read_evidence = bool(
+        orig_mmio_reads
+        and not read_mismatch
+        and read_prefix == len(orig_mmio_reads) == len(recon_mmio_reads)
+    )
     check_r0 = (not is_void) and (not r0_exclude) and (orig_term == "returned")
     r0_match = True
     reloc_r0 = False
@@ -856,6 +870,7 @@ def evaluate_outcomes(
         or orig_mutated_ram
         or recon_mutated_ram
         or (check_r0 and not is_void_ub and (orig_r0 != 0 or recon_r0 != 0))
+        or read_evidence
     )
 
     if mmio_match and ram_match and r0_match:
@@ -867,6 +882,9 @@ def evaluate_outcomes(
             "ram_match": True,
             "r0_match": True,
             "exercised": exercised,
+            "read_evidence": read_evidence,
+            "orig_read_count": len(orig_mmio_reads),
+            "recon_read_count": len(recon_mmio_reads),
         }
 
     if not mmio_match:
@@ -888,6 +906,9 @@ def evaluate_outcomes(
         "recon_r0": hex(recon_r0),
         "ram_diff_addr": hex(ram_diff_addr) if ram_diff_addr is not None else None,
         "exercised": exercised,
+        "read_evidence": read_evidence,
+        "orig_read_count": len(orig_mmio_reads),
+        "recon_read_count": len(recon_mmio_reads),
     }
 
 
@@ -1140,7 +1161,9 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
         to, _ = po.run(key + emu.HW_OFFSET, max_insns, sp=sp, assert_stops=True)
 
         orig_r0 = int(po.mu.reg_read(UC_ARM_REG_R0)) & 0xFFFFFFFF
-        orig_mmio = lrr.fingerprint(po.traffic)["periph_write_sequence"]
+        orig_fp = lrr.fingerprint(po.traffic)
+        orig_mmio = orig_fp["periph_write_sequence"]
+        orig_reads = orig_fp["periph_read_sequence"]
 
         pr = emu.Aic8800D80Platform(img_path, mmio_model=model, mmio_read_hooks=mmio_read_hooks)
         pr.counter_by_reads = lrr.COUNTER_TICKS_PER_READ
@@ -1168,7 +1191,9 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
             emu.CHIP_BASE = saved
 
         recon_r0 = int(pr.mu.reg_read(UC_ARM_REG_R0)) & 0xFFFFFFFF
-        recon_mmio = lrr.fingerprint(pr.traffic)["periph_write_sequence"]
+        recon_fp = lrr.fingerprint(pr.traffic)
+        recon_mmio = recon_fp["periph_write_sequence"]
+        recon_reads = recon_fp["periph_read_sequence"]
         stopped_in = lrr.function_at(elf["funcs"], pr.mu.reg_read(UC_ARM_REG_PC)) if tr not in lrr.ENDED else None
 
         ram_match, o_mut, r_mut, ram_diff_addr = compare_ram_states(
@@ -1185,6 +1210,7 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
             stopped_in, left,
             ram_match, o_mut, r_mut, ram_diff_addr, is_void, is_void_ub,
             r0_exclude=r0_exclude, orig_image=po.image, elf_info=elf,
+            orig_mmio_reads=orig_reads, recon_mmio_reads=recon_reads,
         )
         # Invalid-input artifact classification: boot_scalar/boot_neg inject
         # scalar integers into every argument register. When a parameter is

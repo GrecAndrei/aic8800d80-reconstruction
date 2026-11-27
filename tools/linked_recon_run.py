@@ -124,6 +124,7 @@ def fingerprint(traffic: list[dict]) -> dict:
         "periph_write_addrs": sorted({a for a, _ in writes}),
         "periph_write_sequence": [[a, v] for a, v in writes],
         "periph_write_pcs": [t["pc"] for t in p if t["op"] == "write"],
+        "periph_read_sequence": [[t["addr"], t.get("value")] for t in p if t["op"] == "read"],
         "periph_sequence": [[t["op"], t["addr"]] for t in p],
     }
 

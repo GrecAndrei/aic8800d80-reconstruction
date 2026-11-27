@@ -166,6 +166,26 @@ class RamAndVerdictTests(unittest.TestCase):
         self.assertEqual(v["status"], "MATCH")
         self.assertFalse(v["exercised"])
 
+    def test_exact_peripheral_reads_are_evidence_not_a_pass_criterion(self):
+        reads = [["0x40500010", "0x1"]]
+        v = fm.evaluate_outcomes(
+            "returned", 0, [], "returned", 0, [], None, [], True, False, False, None,
+            is_void=False, orig_mmio_reads=reads, recon_mmio_reads=reads,
+        )
+        self.assertEqual(v["status"], "MATCH")
+        self.assertTrue(v["read_evidence"])
+        self.assertTrue(v["exercised"])
+
+        # Unequal polling frequency does not fail the row, but also cannot be
+        # counted as exercised evidence.
+        v = fm.evaluate_outcomes(
+            "returned", 0, [], "returned", 0, [], None, [], True, False, False, None,
+            is_void=False, orig_mmio_reads=reads, recon_mmio_reads=reads + reads,
+        )
+        self.assertEqual(v["status"], "MATCH")
+        self.assertFalse(v["read_evidence"])
+        self.assertFalse(v["exercised"])
+
     def test_narrow_abi_vector_arguments_are_normalized(self):
         self.assertEqual(
             fm.normalize_abi_args((0xFFFFFFFF, 0xFFFFFF80, 0x12345678, 0), ["uint8_t a1", "int8_t a2"]),
