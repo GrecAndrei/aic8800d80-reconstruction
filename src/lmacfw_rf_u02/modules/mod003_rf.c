@@ -1,5 +1,5 @@
 // heap_calloc @ 0x1047b8
-unsigned int heap_calloc(volatile int *a1, int a2, unsigned int a3, int a4, volatile uint64_t *a5) {
+unsigned int heap_calloc(volatile int *a1, int a2, uint64_t a3, volatile uint64_t *a5) {
   int v6; // r0
   float v7; // r0
   volatile unsigned int *v8; // r11
@@ -67,7 +67,7 @@ unsigned int heap_calloc(volatile int *a1, int a2, unsigned int a3, int a4, vola
   uint64_t v70; // [sp+8h] [bp-14h]
   uint64_t v71; // [sp+10h] [bp-Ch]
 
-  v6 = ((int (*)())double_to_float_1)(*(volatile uint64_t *)&a3);
+  v6 = ((int (*)(uint64_t))double_to_float_1)(a3);
   dispatch_event_handler_1("temp_delta=%d\n", v6);
   v7 = COERCE_FLOAT(gpio_port_init());
   v8 = (volatile unsigned int *)a1;
@@ -5148,7 +5148,7 @@ int mmio_set_flag( int a1, volatile int *a2, int a3, int a4, int a5, uint8_t a6,
         v20[63] = v22;
       }
       while ( v16 != (volatile int *)v19 );
-      heap_calloc(a2, v24, a9, a10, (volatile uint64_t *)a11);
+      heap_calloc(a2, v24, (((uint64_t)(uint32_t)a10 << 32) | (uint32_t)a9), (volatile uint64_t *)a11);
     }
     rx_packet_handler(16, 32, (int)a2, a3, v15, 1, a6, a1, a7);
     result = (int)bb_reset(a3);

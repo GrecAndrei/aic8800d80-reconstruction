@@ -533,7 +533,7 @@ LABEL_42:
 
 
 // float_interp @ 0x104cc8
-unsigned int float_interp(volatile int *a1, int a2, unsigned int a3, int a4, volatile uint64_t *a5) {
+unsigned int float_interp(volatile int *a1, int a2, uint64_t a3, volatile uint64_t *a5) {
   int v6; // r0
   float v7; // r0
   volatile unsigned int *v8; // r11
@@ -601,7 +601,7 @@ unsigned int float_interp(volatile int *a1, int a2, unsigned int a3, int a4, vol
   uint64_t v70; // [sp+8h] [bp-14h]
   uint64_t v71; // [sp+10h] [bp-Ch]
 
-  v6 = ((int (*)())double_to_float_1)(*(volatile uint64_t *)&a3);
+  v6 = ((int (*)(uint64_t))double_to_float_1)(a3);
   alloc_tx_event("temp_delta=%d\n", v6);
   v7 = COERCE_FLOAT(hw_block_disable());
   v8 = (volatile unsigned int *)a1;

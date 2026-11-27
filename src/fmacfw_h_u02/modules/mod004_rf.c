@@ -1192,7 +1192,7 @@ int mmio_set_bit10( int a1, volatile int *a2, int a3, int a4, int a5, uint8_t a6
         v20[63] = v22;
       }
       while ( v16 != (volatile int *)v19 );
-      float_interp(a2, v24, a9, a10, (volatile uint64_t *)a11);
+      float_interp(a2, v24, (((uint64_t)(uint32_t)a10 << 32) | (uint32_t)a9), (volatile uint64_t *)a11);
     }
     rf_calibrate_start(16, 32, (int)a2, a3, v15, 1, a6, a1, a7);
     result = (int)scan_enable(a3);

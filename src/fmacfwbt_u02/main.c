@@ -5490,7 +5490,7 @@ int rx_parse_desc(int a1, int a2, volatile uint32_t *a3);
 int tx_parse_desc(int a1, int a2, int a3);
 int scan_set_interval(int a1, int a2, volatile uint32_t *a3);
 int bt_ccm_encrypt(int a1, int a2, int a3, int a4, int a5, int a6);
-unsigned int bt_encrypt_wrap(volatile int *a1, int a2, unsigned int a3, int a4, volatile uint64_t *a5);
+unsigned int bt_encrypt_wrap(volatile int *a1, int a2, uint64_t a3, volatile uint64_t *a5);
 int mac_tx_disable(int a1, int a2, int a3, int a4);
 int util_compare_time(int a1, int a2, int a3);
 int temp_sensor_convert(float a1, int a2, int a3);

@@ -533,7 +533,7 @@ LABEL_42:
 
 
 // rf_calibrate_power @ 0x104de0
-unsigned int rf_calibrate_power(volatile int *a1, int a2, unsigned int a3, int a4, volatile uint64_t *a5) {
+unsigned int rf_calibrate_power(volatile int *a1, int a2, uint64_t a3, volatile uint64_t *a5) {
   int v6; // r0
   float v7; // r0
   volatile unsigned int *v8; // r11
@@ -601,7 +601,7 @@ unsigned int rf_calibrate_power(volatile int *a1, int a2, unsigned int a3, int a
   uint64_t v70; // [sp+8h] [bp-14h]
   uint64_t v71; // [sp+10h] [bp-Ch]
 
-  v6 = ((int (*)())double_to_float_1)(*(volatile uint64_t *)&a3);
+  v6 = ((int (*)(uint64_t))double_to_float_1)(a3);
   event_dispatch("temp_delta=%d\n", v6);
   v7 = COERCE_FLOAT(rf_core_reset());
   v8 = (volatile unsigned int *)a1;

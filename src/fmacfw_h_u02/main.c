@@ -5520,7 +5520,7 @@ int tx_desc_parse(int a1, int a2, volatile uint32_t *a3);
 int rx_packet_process(int a1, int a2, int a3);
 int rx_packet_alloc(int a1, int a2, volatile uint32_t *a3);
 int rf_calibration(int a1, int a2, int a3, int a4, int a5, int a6);
-unsigned int float_interp(volatile int *a1, int a2, unsigned int a3, int a4, volatile uint64_t *a5);
+unsigned int float_interp(volatile int *a1, int a2, uint64_t a3, volatile uint64_t *a5);
 int rf_path_disable(int a1, int a2, int a3, int a4);
 int min_or_max(int a1, int a2, int a3);
 int rf_set_digital_power_from_delta(float a1, int a2, int a3);

@@ -5497,7 +5497,7 @@ int lookup_rate_entry(int a1, int a2, volatile uint32_t *a3);
 int handle_tx_descriptor(int a1, int a2, int a3);
 int alloc_buffer_by_flag(int a1, int a2, volatile uint32_t *a3);
 int rf_scan_init(int a1, int a2, int a3, int a4, int a5, int a6);
-unsigned int rf_calibrate_power(volatile int *a1, int a2, unsigned int a3, int a4, volatile uint64_t *a5);
+unsigned int rf_calibrate_power(volatile int *a1, int a2, uint64_t a3, volatile uint64_t *a5);
 int mac_reset_disable(int a1, int a2, int a3, int a4);
 int rf_update_am_back_power_diff(int a1, int a2, int a3);
 int adc_to_temp_scale(float a1, int a2, int a3);

@@ -3995,7 +3995,7 @@ int lookup_rf_table(int a1, int a2, volatile uint32_t *a3);
 int apply_tx_power(int a1, int a2, int a3);
 int tx_power_calibrate(int a1, int a2, volatile uint32_t *a3);
 int wlan_init_globals(int a1, int a2, int a3, int a4, int a5, int a6);
-unsigned int heap_calloc(volatile int *a1, int a2, unsigned int a3, int a4, volatile uint64_t *a5);
+unsigned int heap_calloc(volatile int *a1, int a2, uint64_t a3, volatile uint64_t *a5);
 int prcm_set_mask(int a1, int a2, int a3, int a4);
 int min_u32(int a1, int a2, int a3);
 int scale_f32(float a1, int a2, int a3);
