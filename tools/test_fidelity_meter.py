@@ -9,6 +9,57 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import fidelity_meter as fm
 
 
+class SerializedRelocationTests(unittest.TestCase):
+    def _uart_seq(self, payload: bytes):
+        return [["0x40032000", hex(b)] for b in payload]
+
+    def test_proven_serialized_function_pointer_relocation(self):
+        orig = self._uart_seq(b", func 0x132a0d unknown\r\n")
+        recon = self._uart_seq(b", func 0x818f15 unknown\r\n")
+        old = fm.is_equivalent_serialized_code_ptr
+        seen = []
+        try:
+            def proof(o, r, image, elf):
+                seen.append((o, r))
+                return (o, r) == (0x132A0D, 0x818F15)
+            fm.is_equivalent_serialized_code_ptr = proof
+            self.assertTrue(fm.equivalent_ordered_mmio_with_reloc(orig, recon, b"", {}))
+        finally:
+            fm.is_equivalent_serialized_code_ptr = old
+        self.assertEqual(seen, [(0x132A0D, 0x818F15)])
+
+    def test_unproven_or_textual_uart_differences_are_not_normalized(self):
+        orig = self._uart_seq(b", func 0x132a0d unknown\r\n")
+        recon = self._uart_seq(b", func 0x818f15 unknown\r\n")
+        old = fm.is_equivalent_serialized_code_ptr
+        try:
+            fm.is_equivalent_serialized_code_ptr = lambda *args: False
+            self.assertFalse(fm.equivalent_ordered_mmio_with_reloc(orig, recon, b"", {}))
+        finally:
+            fm.is_equivalent_serialized_code_ptr = old
+
+        recon_text = self._uart_seq(b", func 0x132a0d unknowx\r\n")
+        self.assertFalse(fm.equivalent_ordered_mmio_with_reloc(orig, recon_text, b"", {}))
+
+    def test_real_lmac_return_site_and_entry_proofs(self):
+        import linked_recon_run as lrr
+        image = "lmacfw_rf_8800d80_u02"
+        elf_path = lrr.FULL_LINK / image / f"{image}.full.elf"
+        firmware = fm.REPO / "inputs" / "firmware" / f"{image}.bin"
+        if not elf_path.is_file() or not firmware.is_file():
+            self.skipTest("linked lmac fixture not built")
+        elf = fm.load_elf_info(elf_path, image=image)
+        orig_image = firmware.read_bytes()
+        # USB-style callback diagnostic: exact function-entry relocation.
+        self.assertTrue(fm.is_equivalent_serialized_code_ptr(0x132A0D, 0x818F15, orig_image, elf))
+        # Exception dump LR: same enclosing analysis function, both BL
+        # fallthroughs, and equivalent immediate call targets.
+        self.assertTrue(fm.is_equivalent_serialized_code_ptr(0x133967, 0x82F495, orig_image, elf))
+        # Adjacent non-equivalent values must not be accepted merely because
+        # they are hexadecimal code-shaped words.
+        self.assertFalse(fm.is_equivalent_serialized_code_ptr(0x133967, 0x82F497, orig_image, elf))
+
+
 class StaticScannerTests(unittest.TestCase):
     def test_splits_params_and_varargs(self):
         self.assertEqual(fm._split_params(""), (None, False))

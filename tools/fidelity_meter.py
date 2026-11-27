@@ -614,6 +614,207 @@ def is_equivalent_reloc_ptr(
     return False
 
 
+
+def _containing_function(entries: list[int], addr: int) -> int | None:
+    """Greatest function entry not after addr, or None."""
+    import bisect
+    i = bisect.bisect_right(entries, addr) - 1
+    return entries[i] if i >= 0 else None
+
+
+def _bl_target_before_return(blob: bytes, base: int, ret_ptr: int) -> int | None:
+    """Return the immediate target of a Thumb BL whose fallthrough is ret_ptr.
+
+    ARM Thumb link registers/return addresses carry the Thumb bit. A normal
+    32-bit ``bl`` occupies four bytes, so the even part of the return pointer
+    is four bytes after the start of that instruction.
+    """
+    ret = ret_ptr & ~1
+    bl_addr = ret - 4
+    off = bl_addr - base
+    if off < 0 or off + 4 > len(blob):
+        return None
+    from capstone import Cs, CS_ARCH_ARM, CS_MODE_THUMB, CS_MODE_MCLASS
+    md = Cs(CS_ARCH_ARM, CS_MODE_THUMB | CS_MODE_MCLASS)
+    insns = list(md.disasm(blob[off:off + 4], bl_addr, count=1))
+    if not insns or insns[0].mnemonic != "bl":
+        return None
+    try:
+        return int(insns[0].op_str.strip().lstrip("#"), 0)
+    except (TypeError, ValueError):
+        return None
+
+
+def is_equivalent_return_site_ptr(
+    orig_ptr: int,
+    recon_ptr: int,
+    orig_image: bytes,
+    elf_info: dict,
+) -> bool:
+    """Machine-prove that two serialized code addresses are analogous return sites.
+
+    Function-entry pointers can already be compared exactly through the
+    analysis-address map. Exception diagnostics can additionally serialize a
+    link-register value that is a return address in the middle of a function;
+    because the reconstruction is independently compiled and relocated, the
+    numeric addresses necessarily differ. Treat them as equivalent only when
+    all of the following machine facts agree:
+
+    1. both are fallthrough addresses of an immediate ``bl``;
+    2. those ``bl`` instructions sit inside the same analysis-space function;
+    3. their immediate call targets are equivalent relocated entries.
+
+    This is intentionally narrower than a textual hex-digit exemption.
+    """
+    if (orig_ptr & 1) != (recon_ptr & 1):
+        return False
+    obase = emu.CHIP_BASE
+    rbase = elf_info["base"]
+    if not (obase <= orig_ptr < obase + len(orig_image)):
+        return False
+    if not (rbase <= recon_ptr < elf_info["mem_end"]):
+        return False
+
+    oret = orig_ptr & ~1
+    rret = recon_ptr & ~1
+    oentries = sorted(elf_info.get("orig_fn_by_hw_addr") or {})
+    rentries = sorted(elf_info.get("recon_fn_by_addr") or {})
+    oentry = _containing_function(oentries, oret)
+    rentry = _containing_function(rentries, rret)
+    if oentry is None or rentry is None:
+        return False
+    rana = (elf_info.get("recon_analysis_by_addr") or {}).get(rentry)
+    if rana is None or oentry - 0x20000 != rana:
+        return False
+
+    otarget = _bl_target_before_return(orig_image, obase, orig_ptr)
+    rtarget = _bl_target_before_return(elf_info["blob"], rbase, recon_ptr)
+    if otarget is None or rtarget is None:
+        return False
+    return is_equivalent_reloc_ptr(otarget, rtarget, orig_image, elf_info)
+
+
+def is_equivalent_serialized_code_ptr(
+    orig_ptr: int,
+    recon_ptr: int,
+    orig_image: bytes,
+    elf_info: dict,
+) -> bool:
+    """Compare a code pointer serialized as text by the firmware."""
+    return (
+        is_equivalent_reloc_ptr(orig_ptr, recon_ptr, orig_image, elf_info)
+        or is_equivalent_return_site_ptr(orig_ptr, recon_ptr, orig_image, elf_info)
+    )
+
+
+def _hex_token_span(buf: bytes, pos: int) -> tuple[int, int] | None:
+    hexdigits = b"0123456789abcdefABCDEF"
+    if pos >= len(buf) or buf[pos] not in hexdigits:
+        return None
+    start = pos
+    while start > 0 and buf[start - 1] in hexdigits:
+        start -= 1
+    end = pos + 1
+    while end < len(buf) and buf[end] in hexdigits:
+        end += 1
+    # Exception dumps use zero-padded %08x tokens. Diagnostic strings often
+    # use an explicit 0x prefix with %x and therefore fewer than eight digits.
+    # Accept only those two unambiguous hexadecimal forms.
+    if end - start == 8:
+        return start, end
+    if 1 <= end - start < 8 and start >= 2 and buf[start - 2:start] == b"0x":
+        return start, end
+    return None
+
+
+def serialized_reloc_uart_mask(
+    orig_bytes: bytes,
+    recon_bytes: bytes,
+    orig_image: bytes,
+    elf_info: dict,
+) -> bytearray | None:
+    """Mask UART byte positions proven to be relocation-equivalent pointers.
+
+    The two byte streams must have the same length and alignment. At every
+    mismatch, both positions must lie in the same unambiguous hexadecimal
+    token (%08x or 0x%x), and the complete token values must be machine-proven equivalent
+    code pointers. Any other mismatch rejects normalization.
+    """
+    if len(orig_bytes) != len(recon_bytes):
+        return None
+    mask = bytearray(len(orig_bytes))
+    i = 0
+    while i < len(orig_bytes):
+        if orig_bytes[i] == recon_bytes[i]:
+            i += 1
+            continue
+        ospan = _hex_token_span(orig_bytes, i)
+        rspan = _hex_token_span(recon_bytes, i)
+        if ospan is None or rspan is None or ospan != rspan:
+            return None
+        start, end = ospan
+        try:
+            oval = int(orig_bytes[start:end].decode("ascii"), 16)
+            rval = int(recon_bytes[start:end].decode("ascii"), 16)
+        except (UnicodeDecodeError, ValueError):
+            return None
+        if not is_equivalent_serialized_code_ptr(oval, rval, orig_image, elf_info):
+            return None
+        mask[start:end] = b"\x01" * (end - start)
+        i = end
+    return mask
+
+
+def equivalent_ordered_mmio_with_reloc(
+    orig_mmio: list,
+    recon_mmio: list,
+    orig_image: bytes,
+    elf_info: dict,
+) -> bool:
+    """Compare ordered writes with proven serialized code-pointer relocation.
+
+    Event order, addresses, widths/high bits, and lengths remain exact. The
+    only tolerated difference is the low byte of same-ordinal UART writes
+    (0x40032000) whose complete serialized token is proven to be the same
+    logical code address after relocation.
+    """
+    if len(orig_mmio) != len(recon_mmio):
+        return False
+
+    def uart_bytes(seq):
+        return bytes(
+            int(value, 16) & 0xFF
+            for addr, value in seq
+            if int(addr, 16) == 0x40032000
+        )
+
+    obytes = uart_bytes(orig_mmio)
+    rbytes = uart_bytes(recon_mmio)
+    mask = serialized_reloc_uart_mask(obytes, rbytes, orig_image, elf_info)
+    if mask is None:
+        return False
+
+    oidx = ridx = 0
+    for (oaddr, oval), (raddr, rval) in zip(orig_mmio, recon_mmio):
+        if [oaddr, oval] == [raddr, rval]:
+            if int(oaddr, 16) == 0x40032000:
+                oidx += 1
+                ridx += 1
+            continue
+        oa = int(oaddr, 16)
+        ra = int(raddr, 16)
+        if oa != 0x40032000 or ra != 0x40032000:
+            return False
+        ov = int(oval, 16)
+        rv = int(rval, 16)
+        if (ov & ~0xFF) != (rv & ~0xFF):
+            return False
+        if oidx != ridx or oidx >= len(mask) or not mask[oidx]:
+            return False
+        oidx += 1
+        ridx += 1
+    return True
+
 def relocate_image_function_pointers(plat, elf_info: dict, orig_funcs) -> int:
     """Relocate exact Thumb function-entry pointers in the recon's data image.
 
@@ -885,12 +1086,28 @@ def evaluate_outcomes(
         return {"status": "NOT_RUN", "reason": "not_in_linked_image"}
     if recon_left:
         return {"status": "NOT_RUN", "reason": "linked_run_left_reconstruction"}
+
+    # A relocated implementation cannot numerically reproduce code addresses
+    # that firmware serializes as text. Canonicalize only byte differences
+    # that are machine-proven function-entry or BL-return-site relocations;
+    # all other ordered-write bytes remain exact.
+    reloc_serialized_mmio = False
+    if (
+        orig_image is not None
+        and elf_info is not None
+        and orig_mmio != recon_mmio
+        and equivalent_ordered_mmio_with_reloc(orig_mmio, recon_mmio, orig_image, elf_info)
+    ):
+        recon_mmio = [list(x) for x in orig_mmio]
+        reloc_serialized_mmio = True
+
     if orig_term not in lrr.ENDED:
         shared, mismatch = _ordered_write_prefix(orig_mmio, recon_mmio)
         prefix_fields = {
             "shared_write_prefix": shared,
             "orig_write_count": len(orig_mmio),
             "recon_write_count": len(recon_mmio),
+            "reloc_serialized_mmio": reloc_serialized_mmio,
             **_write_diff_fields(orig_mmio, recon_mmio, shared),
         }
         if mismatch:
@@ -970,7 +1187,12 @@ def evaluate_outcomes(
     )
 
     if mmio_match and ram_match and r0_match and r1_match:
-        reason = "asserted_match" if orig_term == "asserted" else ("reloc_ptr_match" if reloc_r0 else "full_match")
+        if reloc_serialized_mmio:
+            reason = "reloc_serialized_ptr_match"
+        elif orig_term == "asserted":
+            reason = "asserted_match"
+        else:
+            reason = "reloc_ptr_match" if reloc_r0 else "full_match"
         return {
             "status": "MATCH",
             "reason": reason,
@@ -980,6 +1202,7 @@ def evaluate_outcomes(
             "r1_match": True,
             "exercised": exercised,
             "read_evidence": read_evidence,
+            "reloc_serialized_mmio": reloc_serialized_mmio,
             "orig_read_count": len(orig_mmio_reads),
             "recon_read_count": len(recon_mmio_reads),
             **write_fields,
@@ -1010,6 +1233,7 @@ def evaluate_outcomes(
         "ram_diff_addr": hex(ram_diff_addr) if ram_diff_addr is not None else None,
         "exercised": exercised,
         "read_evidence": read_evidence,
+        "reloc_serialized_mmio": reloc_serialized_mmio,
         "orig_read_count": len(orig_mmio_reads),
         "recon_read_count": len(recon_mmio_reads),
         **write_fields,

@@ -23,8 +23,13 @@ NEWPROTO='volatile int *a1, int a2, uint64_t a3, volatile uint64_t *a5'
 
 def transform(text,name):
  n=0
+ # Canonicalize the helper call even when the prototype was already repaired.
+ # The raw composed body can carry either width in the dead Hex-Rays cast;
+ # the machine contract is the softfp double input in r2:r3 and the integer
+ # conversion result consumed as a 32-bit print argument.
+ text,c=re.subn(r'\(\(uint64_t \(\*\)\(uint64_t\)\)(\w+)\)\(a3\)',lambda m:f'((int (*)(uint64_t)){m.group(1)})(a3)',text);n+=c
  if NEWPROTO in text and '*(volatile uint64_t *)&a3' not in text:
-  return text,0
+  return text,n
  text,c=re.subn(rf'\b{name}\('+re.escape(OLDPROTO)+r'\)',name+'('+NEWPROTO+')',text);n+=c
  text,c=re.subn(r'\(\((?:int|uint64_t) \(\*\)\(\)\)(\w+)\)\(\*\(volatile uint64_t \*\)&a3\)',lambda m:f'((int (*)(uint64_t)){m.group(1)})(a3)',text);n+=c
  # Callers pass the two ABI words separately; join low word then high word.
