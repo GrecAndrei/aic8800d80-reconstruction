@@ -13,7 +13,8 @@ SPECS={'fmacfw_h_u02':'phy_get_rate_code','fmacfw_u02':'util_extract_bits','fmac
 def apply_image(short,check=False):
  name=SPECS[short];total=0
  old=f'((int (*)()){name})();';new=f'{name}(*(volatile uint16_t *)(v8 + 0x50));'
- for p in sorted((REPO/'src'/short/'modules').glob('mod*.c')):
+ root=REPO/'src'/short
+ for p in [root/'main.c']+sorted((root/'modules').glob('mod*.c')):
   t=p.read_text(errors='replace');n=t.count(old);total+=n
   if n and not check:p.write_text(t.replace(old,new))
  return total

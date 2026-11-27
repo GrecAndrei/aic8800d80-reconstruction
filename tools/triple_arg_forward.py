@@ -26,7 +26,8 @@ SPECS={
 def apply_image(short,check=False):
  name,rel=SPECS[short];p=REPO/rel
  # Module numbering is not stable across regeneration; scan all modules.
- paths=sorted((REPO/'src'/short/'modules').glob('mod*.c'))
+ root=REPO/'src'/short
+ paths=[root/'main.c']+sorted((root/'modules').glob('mod*.c'))
  total=0
  old=f'((int (*)()){name})();';new=f'{name}(a1, v4, v6);'
  for p in paths:

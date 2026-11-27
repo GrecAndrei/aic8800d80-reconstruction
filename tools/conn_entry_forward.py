@@ -22,7 +22,8 @@ def apply_image(short,check=False):
   (f'((int (*)()){two})();',f'{two}({base} + 1320 * v5, a2[1]);'),
   (f'((int (*)()){one})();',f'{one}({base} + 1320 * v5);'),
  ]
- for p in sorted((REPO/'src'/short/'modules').glob('mod*.c')):
+ root=REPO/'src'/short
+ for p in [root/'main.c']+sorted((root/'modules').glob('mod*.c')):
   t=p.read_text(errors='replace');n=0
   for old,new in repl:c=t.count(old);n+=c;t=t.replace(old,new)
   total+=n

@@ -15,11 +15,14 @@ SPECS={
  'fmacfwbt_u02':('rf_tx_timestamp_check','src/fmacfwbt_u02/modules/mod024_rf.c'),
 }
 def apply_image(short,check=False):
- p=REPO/SPECS[short][1];t=p.read_text(errors='replace');name=SPECS[short][0]
+ name=SPECS[short][0];total=0
+ root=REPO/'src'/short
  old=f'result = ((int (*)()){name})();';new=f'result = {name}(result);'
- n=t.count(old)
- if n and not check:p.write_text(t.replace(old,new))
- return n
+ for p in [root/'main.c']+sorted((root/'modules').glob('mod*.c')):
+  if not p.exists():continue
+  t=p.read_text(errors='replace');n=t.count(old);total+=n
+  if n and not check:p.write_text(t.replace(old,new))
+ return total
 def main():
  check='--check'in sys.argv;rc=0
  for s in SPECS:

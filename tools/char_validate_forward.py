@@ -11,7 +11,8 @@ REPO=Path(__file__).resolve().parent.parent
 SPECS={'fmacfw_h_u02':'cmd_char_validate','fmacfw_u02':'wlan_rate_code_to_index'}
 def apply_image(short,check=False):
  name=SPECS[short];total=0;old=f'((int (*)()){name})();';new=f'{name}(v8[1]);'
- for p in sorted((REPO/'src'/short/'modules').glob('mod*.c')):
+ root=REPO/'src'/short
+ for p in [root/'main.c']+sorted((root/'modules').glob('mod*.c')):
   t=p.read_text(errors='replace');n=t.count(old);total+=n
   if n and not check:p.write_text(t.replace(old,new))
  return total
