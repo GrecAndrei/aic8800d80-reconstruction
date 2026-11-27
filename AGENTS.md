@@ -43,8 +43,20 @@ release tarball
   artifact at `0x100100` (file 0x100-0x1a7 is header/padding, not code).
   Targeted boot verification at 500k instructions: every reconstructed
   peripheral write matches the original prefix (fmacfw_h 1,964/1,964,
-  fmacfw 1,960/1,960, fmacfwbt 1,953/1,953, lmacfw_rf 2,238/2,238);
+  fmacfw 1,960/1,960, fmacfwbt 1,953/1,953, lmacfw_rf 2,236/2,236);
   `tools/fidelity_meter.py` therefore defaults `--boot-insns` to 500k.
+
+- **Final fidelity evidence (2026-11-27)**: `metadata/fidelity_meter.json`
+  covers all 4,718 composed functions across five probe vectors. Static
+  defect functions, under-arity rows, jumpout/memory-macro defects, missing
+  stubs, residual full-link undefs, and failing dynamic rows are all zero.
+  3,181 functions are exercised all-match (67.42%), 1,320 are vacuous
+  all-match, 217 are never-comparable (209 originals never return in standalone
+  probes; 8 interior libmatch fragments are non-callable), truth lane is
+  25/25 on bare_zero and all vectors, and boot MMIO writes are exact ordered
+  prefixes through the 500k-instruction cap. Do not describe vacuous or
+  never-comparable rows as proof of deep equivalence; the precise caveats are
+  in `docs/FIDELITY_V26_VERDICT.md`.
 
 - **Naming DONE**: all 5,623 `sub_*` functions in `src/` have `status=ok`
   names in `harness_v17/names/` (23,498 files; 0 unnamed).

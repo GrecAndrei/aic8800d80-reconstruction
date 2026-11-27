@@ -70,9 +70,10 @@ following classes were proven against the original binaries and repaired:
 * zero-input busy-flag contracts: the inner interrupt helpers overwrite r0 before use;
 * callback forwarding `(_frame.v55, _frame.v60, 2)` in the frame-builder clones.
 
-After those repairs the remaining syntactic census is all four images are at 0 functions / 0 call rows. Remaining rows
-are still unproven candidates. In particular `bt_conn_is_connected` and its
-clones genuinely consume r1-r3, so their four-input prototypes must not be
-"narrowed" merely because the scan is nonzero; their missing call-site argument
-requires caller-level machine reconstruction. Conversely zero-machine-input
-rows may be pass-through artifacts and require callee+caller analysis.
+After those repairs the syntactic census is zero in all four images (0 defective
+functions / 0 call rows). During the campaign `bt_conn_is_connected` and its
+clones were important negative controls: they genuinely consume r1-r3, so their
+four-input prototypes were preserved and their missing call-site arguments were
+reconstructed from caller-level machine evidence rather than narrowed away.
+Conversely zero-machine-input rows were narrowed only when callee register
+writes proved the apparent inputs unreachable.
