@@ -942,7 +942,7 @@ LABEL_17:
       printf_wrapper((const volatile char *)off_1039B4);
       v18[1] |= 1u;
     }
-    memset(_frame.a2, 0, 20);
+    memset((volatile int *)(uintptr_t)_frame.a2, 0, 20);
     if ( !ioctl_cmd_4((int)_frame.a2) )
     {
       v65 = (void *)(uintptr_t)(off_1039A8);

@@ -11,7 +11,7 @@ from pathlib import Path
 REPO=Path(__file__).resolve().parent.parent
 SPECS={'fmacfw_h_u02':'phy_get_txpower','fmacfw_u02':'ll_conn_rx_packet_get','fmacfwbt_u02':'rf_get_pll_setting'}
 def apply_image(short,check=False):
- name=SPECS[short];total=0;old=f'((int (*)()){name})();';new=f'{name}(a1);'
+ name=SPECS[short];total=0;old=f'((int (*)()){name})();';new=f'{name}((volatile int *)(uintptr_t)a1);'
  root=REPO/'src'/short
  for p in [root/'main.c']+sorted((root/'modules').glob('mod*.c')):
   t=p.read_text(errors='replace');n=t.count(old);total+=n

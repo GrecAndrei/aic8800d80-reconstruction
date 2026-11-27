@@ -462,7 +462,7 @@ volatile uint32_t * rx_irq_handler_1(int a1) {
     if ( *(volatile uint8_t *)off_11DECC )
       return check_buffer_size((volatile char *)(a1 - 12));
     else
-      return (volatile uint32_t *)patch_trampoline(a1 - 12);
+      return (volatile uint32_t *)patch_trampoline((volatile uint16_t *)(uintptr_t)(a1 - 12));
   }
   else
   {

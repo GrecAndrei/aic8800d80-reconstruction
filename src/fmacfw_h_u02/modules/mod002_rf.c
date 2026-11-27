@@ -946,7 +946,7 @@ LABEL_17:
       debug_printf(&aNoTxDscrHdr[16]);
       v17[1] |= 1u;
     }
-    memset(_frame.a2, 0, 20);
+    memset((volatile int *)(uintptr_t)_frame.a2, 0, 20);
     if ( !send_smc_cmd_0x20((int)_frame.a2) )
     {
       debug_printf(aFlTxpwrOfst5g);

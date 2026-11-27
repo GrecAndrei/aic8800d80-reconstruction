@@ -30,7 +30,7 @@ TARGETS = {
         {
             "addr": 0x11DE50,
             "old": "return (volatile uint32_t *)((int (*)())patch_trampoline)();",
-            "new": "return (volatile uint32_t *)patch_trampoline(a1 - 12);",
+            "new": "return (volatile uint32_t *)patch_trampoline((volatile uint16_t *)(uintptr_t)(a1 - 12));",
         },
     ]
 }

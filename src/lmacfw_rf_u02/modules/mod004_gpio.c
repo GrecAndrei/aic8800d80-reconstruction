@@ -1490,7 +1490,7 @@ LABEL_22:
       log_printf((const volatile char *)off_10CBC8);
       v58[1] |= 1u;
     }
-    memset(_frame.v95, 0, 20);
+    memset((volatile int *)(uintptr_t)_frame.v95, 0, 20);
     if ( !mmio_read_4((int)_frame.v95) )
     {
       v68 = (void *)(uintptr_t)(((volatile uint32_t *)(uintptr_t)&off_10CBD8)[0]);

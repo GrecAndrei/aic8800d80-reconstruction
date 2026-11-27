@@ -131,7 +131,7 @@ LABEL_66:
       v18 = *(volatile uint32_t *)(v4 + 24);
       goto LABEL_35;
     }
-    phy_get_txpower(a1);
+    phy_get_txpower((volatile int *)(uintptr_t)a1);
     v30 = v3[24];
     *(volatile uint32_t *)(v4 + 64) = v30;
     if ( !*(volatile uint8_t *)(dword_1164EC + 1320 * *(volatile uint8_t *)(a1 + 28) + 106)
