@@ -290,6 +290,18 @@ class RamAndVerdictTests(unittest.TestCase):
         self.assertEqual(res["status"], "MATCH")
         self.assertEqual(res["reason"], "reloc_ptr_match")
 
+    def test_bootstate_function_pointer_relocation_is_exact(self):
+        bs = {
+            0x2000: (4, 0x132A0D),
+            0x2004: (4, 0xDEADBEEF),
+            0x2008: (2, 0x132A),
+        }
+        elf = {"recon_analysis_by_addr": {0x831000: 0x112A0C}}
+        out = fm.relocate_bootstate_for_recon(bs, elf)
+        self.assertEqual(out[0x2000], (4, 0x831001))
+        self.assertEqual(out[0x2004], (4, 0xDEADBEEF))
+        self.assertEqual(out[0x2008], (2, 0x132A))
+
 
 if __name__ == "__main__":
     unittest.main()

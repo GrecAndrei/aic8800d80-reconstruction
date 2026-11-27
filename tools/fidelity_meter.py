@@ -614,6 +614,73 @@ def is_equivalent_reloc_ptr(
     return False
 
 
+def relocate_image_function_pointers(plat, elf_info: dict, orig_funcs) -> int:
+    """Relocate exact Thumb function-entry pointers in the recon's data image.
+
+    The reconstruction executes linked code at LINK_BASE but intentionally keeps
+    the original image mapped as its absolute-address data model. Static data
+    tables inside that image contain Thumb function pointers (for example the
+    USB completion-handler lookup table at lmac 0x1583b8). Leaving those words
+    at 0x120000-space makes relocated callbacks compare as unknown. Patch only
+    aligned words exactly equal to an original function entry with the Thumb
+    bit set, and only when that entry's analysis address exists in the linked
+    reconstruction. This is the runtime loader relocation step for the data
+    image; instructions and non-entry constants are untouched.
+    """
+    ana_to_linked = {}
+    for linked, ana in (elf_info.get("recon_analysis_by_addr") or {}).items():
+        ana_to_linked.setdefault(ana, linked)
+    entries = {a & ~1 for a, _ in orig_funcs}
+    image = bytes(plat.image)
+    count = 0
+    for off in range(0, len(image) - 3, 4):
+        value = int.from_bytes(image[off:off + 4], "little")
+        if not (value & 1) or (value & ~1) not in entries:
+            continue
+        linked = ana_to_linked.get((value & ~1) - 0x20000)
+        if linked is None:
+            continue
+        plat.mu.mem_write(emu.CHIP_BASE + off, ((linked | 1) & 0xFFFFFFFF).to_bytes(4, "little"))
+        count += 1
+    return count
+
+
+def relocate_bootstate_for_recon(bootstate: dict | None, elf_info: dict) -> dict | None:
+    """Return bootstate with exact function-entry pointers relocated for the ELF.
+
+    The original bootstate is captured after the original binary has installed
+    callback/function-pointer tables containing hardware addresses in
+    0x120000-space. The reconstruction is deliberately linked at LINK_BASE so
+    its pseudo-data model can coexist with those original absolute pointers.
+    Injecting the captured words unchanged would therefore compare a relocated
+    reconstruction function pointer with the original's pre-relocation pointer
+    and incorrectly take "unknown callback" paths.
+
+    This is runtime-linker relocation, not comparison weakening: only exact
+    original function-entry words whose analysis address is present in the
+    linked reconstruction are translated, preserving the Thumb bit. Data,
+    strings, non-entry code addresses, and all non-word values remain byte
+    identical. The original run always receives the unmodified capture.
+    """
+    if not bootstate:
+        return bootstate
+    ana_to_linked = {}
+    for linked, ana in (elf_info.get("recon_analysis_by_addr") or {}).items():
+        ana_to_linked.setdefault(ana, linked)
+    if not ana_to_linked:
+        return bootstate
+    out = {}
+    for addr, item in bootstate.items():
+        size, value = item
+        if size == 4:
+            o_ana = (value & ~1) - 0x20000
+            linked = ana_to_linked.get(o_ana)
+            if linked is not None:
+                value = (linked | (value & 1)) & 0xFFFFFFFF
+        out[addr] = (size, value)
+    return out
+
+
 def seed_sram_pointers(uc) -> None:
     """Seed deterministic struct/list blocks at SRAM_PTR_A/B for pointer tests."""
     for node_base in (SRAM_NODE_A, SRAM_NODE_B):
@@ -1244,8 +1311,9 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
         pr.mu.mem_write(lrr.LINK_BASE, elf["blob"])
         pr._free_entries = ()
         pr.function_table = elf["funcs"]
+        relocate_image_function_pointers(pr, elf, orig_funcs)
         if bs:
-            cs.apply_bootstate(pr.mu, bs)
+            cs.apply_bootstate(pr.mu, relocate_bootstate_for_recon(bs, elf))
         if sram_seed:
             seed_sram_pointers(pr.mu)
         _set_args(pr.mu, args)
