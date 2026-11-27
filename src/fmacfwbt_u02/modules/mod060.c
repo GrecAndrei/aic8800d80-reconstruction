@@ -302,7 +302,7 @@ LABEL_31:
     if ( v35 != 33 && hci_cmd_send_short((v35 << 8) | 8) == 1 )
     {
       _frame.v55 = *(volatile uint32_t *)(dword_1361E4 + 32 * v35 + 28);
-      ((int (*)())rx_invoke_cb)();
+      rx_invoke_cb(_frame.v55, _frame.v60, 2);
       rf_scan_entry(_frame.v55);
     }
     if ( (a3[1] & 0x40) != 0 && *(volatile uint8_t *)(_frame.v53 + 96) == 1 )

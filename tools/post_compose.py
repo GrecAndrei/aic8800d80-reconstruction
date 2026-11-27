@@ -54,6 +54,7 @@ STEPS = [
     ("format_hd_signextend.py", [], True),
     ("format_scratch_frame.py", [], True),
     ("strict_type_casts.py", [], True),
+    ("callback_args_forward.py", [], True),
     ("busy_zero_contracts.py", [], True),
     ("ops_object_forward.py", [], True),
     ("init_period_forward.py", [], True),

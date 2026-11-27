@@ -302,7 +302,7 @@ LABEL_31:
     if ( v35 != 33 && rx_rate_field_parse((v35 << 8) | 8) == 1 )
     {
       _frame.v55 = *(volatile uint32_t *)(dword_135FC8 + 32 * v35 + 28);
-      ((int (*)())event_timer_callback)();
+      event_timer_callback(_frame.v55, _frame.v60, 2);
       adv_pdu_rx_handler(_frame.v55);
     }
     if ( (a3[1] & 0x40) != 0 && *(volatile uint8_t *)(_frame.v53 + 96) == 1 )

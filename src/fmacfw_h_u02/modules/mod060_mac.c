@@ -302,7 +302,7 @@ LABEL_31:
     if ( v35 != 33 && hci_cmd_handler((v35 << 8) | 8) == 1 )
     {
       _frame.v55 = *(volatile uint32_t *)(dword_135E88 + 32 * v35 + 28);
-      ((int (*)())call_callback)();
+      call_callback(_frame.v55, _frame.v60, 2);
       process_bt_states(_frame.v55);
     }
     if ( (a3[1] & 0x40) != 0 && *(volatile uint8_t *)(_frame.v53 + 96) == 1 )

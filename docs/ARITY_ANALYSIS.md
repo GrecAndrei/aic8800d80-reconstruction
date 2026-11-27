@@ -67,10 +67,10 @@ following classes were proven against the original binaries and repaired:
   ble_ll_conn_rx/handle_ll_control clones;
 * initializer period forwarding from object halfword +416 in the link-active clones;
 * ops object forwarding `a1` in the three lock/type predicate clones;
-* zero-input busy-flag contracts: the inner interrupt helpers overwrite r0 before use.
+* zero-input busy-flag contracts: the inner interrupt helpers overwrite r0 before use;
+* callback forwarding `(_frame.v55, _frame.v60, 2)` in the frame-builder clones.
 
-After those repairs the remaining syntactic census is fmacfw_h 1 function /
-1 call row, fmacfw 1 / 1, fmacfwbt 1 / 1, and lmac 0 / 0. Remaining rows
+After those repairs the remaining syntactic census is all four images are at 0 functions / 0 call rows. Remaining rows
 are still unproven candidates. In particular `bt_conn_is_connected` and its
 clones genuinely consume r1-r3, so their four-input prototypes must not be
 "narrowed" merely because the scan is nonzero; their missing call-site argument
