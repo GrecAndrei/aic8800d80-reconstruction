@@ -71,23 +71,20 @@ release tarball
     precedes a function start → `naming_src.py::disasm_at_fallback` spawns
     r2 per address with the proven `-a arm -b 16 -m 0x100000` form.
 - **Verification**: `make -C src check` — all 4 images compile clean
-  (real decompiled bodies + materialized data segment, no stubs);
-  `tools/truth_lane_smoke.py --src` — **18 PASS / 7 REVIEW / 0 FAIL** with
-  Clang 14, Unicorn 2.1.4 and ARM GCC's libgcc. PASS requires a return and
-  either a peripheral write or, per `metadata/truth_lane_orig_depth0.json`,
-  an original body that writes no peripheral (callees included) with the same
-  peripheral address footprint. The 7 REVIEW rows are targets whose original
-  peripheral writes happen only in callees the smoke stubs;
-  `tools/linked_recon_run.py` decides them in the fully linked reconstruction
-  (callees real, ordered writes with values compared to the original):
-  **1 PASS / 6 FAIL**, the failures being callee decompile defects (a
-  non-terminating `strlen`, a non-volatile MMIO poll, a formatter). `--all`
-  gives 14/25 at `-O2` and 19/25 at `-O0`: registers are not volatile in
-  `src/`, so `-O2` merges and reorders register writes. Per-target reasons:
-  `docs/TRUTH_LANE_REVIEW_VERDICTS.md`. The former 25/25
-  figure counted ordinary memory writes. The manifest in
-  `metadata/truth_lane_targets.json` includes the stale v12 target correction
-  to `log_system_init_mode2 @ 0x10f458` in fmacfw_u02.
+  (real decompiled bodies + materialized data segment, no stubs).
+  `tools/truth_lane_smoke.py --src` remains only the shallow depth-0 screen
+  (**18 PASS / 7 REVIEW / 0 FAIL**): it stubs callees, so the 7 REVIEW rows are
+  targets whose original writes occur in callees. The authoritative ordered-
+  peripheral truth-lane gate is `python3 tools/linked_recon_run.py --all`;
+  rerun on 2026-11-27 it is **25 PASS / 0 REVIEW / 0 FAIL**. Twenty rows have
+  identical full peripheral sequences; five (`rf_timer_toggle_update`, the two
+  `rf_bus_write2`, and the two `rf_level_apply`) have identical ordered
+  peripheral write sequences while read timing differs, which the linked-run
+  criterion treats as PASS because writes are the externally visible sequence.
+  The older 1-PASS/6-FAIL callee defects are historical forensic evidence in
+  `docs/TRUTH_LANE_REVIEW_VERDICTS.md`, not the current status. The fidelity
+  meter independently reports the same 25 targets as 25/25 on bare_zero and
+  all vectors under its MMIO+RAM+r0 comparison.
 - **Emulator (milestone)**: `tools/aic8800d80_emulator.py` — full-system
   Unicorn platform, **Cortex-M4 CPU model** (corrected 2026-08-02: the
   firmware uses VFP instructions like `vpush {d8}`, which hardfault on a

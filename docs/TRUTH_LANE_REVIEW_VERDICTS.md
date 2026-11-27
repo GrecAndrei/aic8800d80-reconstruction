@@ -1,5 +1,19 @@
 # Truth-lane smoke: verdicts for the 16 former REVIEW targets
 
+## Current authoritative result (2026-11-27)
+
+`python3 tools/linked_recon_run.py --all --out /tmp/linked_run_final` now
+reports **25 PASS / 0 REVIEW / 0 FAIL**. Twenty rows are
+`identical_peripheral_sequence` (reads and writes in order); five are
+`identical_peripheral_write_sequence` (`rf_timer_toggle_update`, the two
+`rf_bus_write2`, and the two `rf_level_apply`), meaning the externally visible
+ordered peripheral writes are exact while read timing can differ around polls.
+Everything after this section is historical forensic evidence explaining how
+the callee, formatter, volatility, and data-materialization defects were found
+and closed; intermediate 1-PASS/6-FAIL or 20-PASS/5-FAIL figures are not the
+current reconstruction state.
+
+
 `python3 tools/truth_lane_smoke.py --src` on the 25 targets in
 `metadata/truth_lane_targets.json`, Clang 14, Unicorn 2.1.4, arm-none-eabi-gcc 10.3.1 (libgcc).
 
@@ -59,7 +73,7 @@ Original columns: instructions executed, depth-0 peripheral reads/writes, whethe
 
 The smoke found no defect in the 16 target bodies. The linked run below finds defects in callees.
 
-## The 7 REVIEW rows, decided by a linked run
+## Historical archaeology: the 7 REVIEW rows in an early linked run
 
 The smoke cannot see callee writes, so `tools/linked_recon_run.py` runs each
 target inside the fully linked reconstruction (`tools/full_link.py`, every
@@ -87,7 +101,7 @@ These are defects in reconstructed callee bodies, not in the 7 target bodies.
 None is fixed here: the bodies are Hex-Rays output, a correct replacement needs
 a re-decompile (IDA) or a pipeline rule, and hand-written C is not allowed.
 
-### All 25 targets in the linked run
+### Historical archaeology: all 25 targets in earlier linked runs
 
 `--all` runs every target. It is a stricter comparison than the smoke (ordered
 writes with values, callees included) and it shows a second, wider defect:
