@@ -850,7 +850,7 @@ int ke_mem_alloc(int a1, volatile uint8_t *a2, int a3, int a4) {
 LABEL_4:
       if ( v8 && a2[4] <= 0x20u && *a2 <= 5u )
       {
-        v7[1] = ((int (*)())ll_parse_pdu)(a2);
+        v7[1] = ll_parse_pdu(a2);
         *v7 = 0;
       }
       break;

@@ -5984,7 +5984,7 @@ int rf_write_reg();
 void ke_timer_handler();
 int jump_0x12abc8();
 int ll_tx_setup(int a1, int a2);
-int ll_parse_pdu(volatile char *a1, int a2, int a3, int a4);
+int ll_parse_pdu(volatile char *a1);
 volatile uint32_t * rf_get_version(int a1);
 int util_delay_clear_flag();
 unsigned int rf_init(volatile int *a1);

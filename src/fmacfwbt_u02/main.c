@@ -5966,7 +5966,7 @@ int write_pmu_control();
 void irq_lock_save();
 int jump_to_12af2c();
 int rf_set_channel(int a1, int a2);
-int rx_handle_frame(volatile char *a1, int a2, int a3, int a4);
+int rx_handle_frame(volatile char *a1);
 volatile uint32_t * check_hw_version(int a1);
 int dma_free_buf();
 unsigned int read_hw_stats(volatile int *a1);

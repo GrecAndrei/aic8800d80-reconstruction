@@ -1341,7 +1341,7 @@ int rf_set_channel(int a1, int a2) {
 
 
 // rx_handle_frame @ 0x121678
-int rx_handle_frame(volatile char *a1, int a2, int a3, int a4) {
+int rx_handle_frame(volatile char *a1) {
   unsigned int v4; // r7
   int v5; // r5
   int v7; // r6

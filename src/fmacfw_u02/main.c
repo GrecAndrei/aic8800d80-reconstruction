@@ -5961,7 +5961,7 @@ int set_clock_divisor();
 void event_queue_drain();
 int jump_to_12ad08();
 int mac_core_setup(int a1, int a2);
-int rx_packet_parse_header(volatile char *a1, int a2, int a3, int a4);
+int rx_packet_parse_header(volatile char *a1);
 volatile uint32_t * get_core_rev(int a1);
 int delay_and_clear_flag();
 unsigned int read_mac_int_status(volatile int *a1);

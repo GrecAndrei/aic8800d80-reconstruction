@@ -1406,7 +1406,7 @@ int ll_tx_setup(int a1, int a2) {
 
 // ll_parse_pdu @ 0x1212d8
 /* luna: Installs a pairwise or group Wi-Fi key and updates the associated hardware key state. */
-int ll_parse_pdu(volatile char *a1, int a2, int a3, int a4) {
+int ll_parse_pdu(volatile char *a1) {
   unsigned int sta_idx_or_group_marker; // r7
   int key_index; // r5
   int key_table_slot; // r6

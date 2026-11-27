@@ -860,7 +860,7 @@ int process_percent_char(int a1, volatile uint8_t *a2, int a3, int a4) {
 LABEL_4:
       if ( v8 && a2[4] <= 0x20u && *a2 <= 5u )
       {
-        v7[1] = ((int (*)())rx_handle_frame)(a2);
+        v7[1] = rx_handle_frame(a2);
         *v7 = 0;
       }
       break;

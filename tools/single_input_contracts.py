@@ -14,6 +14,11 @@ and process_rx_status (fmacfwbt 0x116764). A CFG scan shows incoming r1 never
 survives to an explicit read, call, or return; the decompiler only reused r1
 as scratch after overwriting it, so the body keeps a local a2 declaration
 while the prototype takes one input. Exact/idempotent.
+
+The byte-cloned ll_parse_pdu / rx_packet_parse_header / rx_handle_frame key
+helpers are likewise one-input: r0 is read immediately, while r1-r3 are first
+overwritten before any read in the original machine code. Their a2-a4
+parameters are register-scratch artifacts.
 """
 import sys
 from pathlib import Path
@@ -26,6 +31,8 @@ SPECS={
   ('int tx_pending_check(int a1, int a2)','int tx_pending_check(int a1)'),
   ('int tx_pending_check(int a1) {\n  int v2; // r3','int tx_pending_check(int a1) {\n  int a2;\n  int v2; // r3'),
   ('tx_pending_check(a2, a4)','tx_pending_check(a2)'),
+  ('int ll_parse_pdu(volatile char *a1, int a2, int a3, int a4)','int ll_parse_pdu(volatile char *a1)'),
+  ('((int (*)())ll_parse_pdu)(a2)','ll_parse_pdu(a2)'),
  ]),
  'fmacfw_u02':('load_and_process_r0',[
   ('volatile int * load_and_process_r0(volatile int *result, int a2)','volatile int * load_and_process_r0(volatile int *result)'),
@@ -34,6 +41,8 @@ SPECS={
   ('int process_tx_packet(int a1, int a2)','int process_tx_packet(int a1)'),
   ('int process_tx_packet(int a1) {\n  int v2; // r3','int process_tx_packet(int a1) {\n  int a2;\n  int v2; // r3'),
   ('process_tx_packet(a2, a4)','process_tx_packet(a2)'),
+  ('int rx_packet_parse_header(volatile char *a1, int a2, int a3, int a4)','int rx_packet_parse_header(volatile char *a1)'),
+  ('((int (*)())rx_packet_parse_header)(a2)','rx_packet_parse_header(a2)'),
  ]),
  'fmacfwbt_u02':('process_pending_queue',[
   ('volatile int * process_pending_queue(volatile int *result, int a2)','volatile int * process_pending_queue(volatile int *result)'),
@@ -42,6 +51,8 @@ SPECS={
   ('int process_rx_status(int a1, int a2)','int process_rx_status(int a1)'),
   ('int process_rx_status(int a1) {\n  int v2; // r3','int process_rx_status(int a1) {\n  int a2;\n  int v2; // r3'),
   ('process_rx_status(a2, a4)','process_rx_status(a2)'),
+  ('int rx_handle_frame(volatile char *a1, int a2, int a3, int a4)','int rx_handle_frame(volatile char *a1)'),
+  ('((int (*)())rx_handle_frame)(a2)','rx_handle_frame(a2)'),
  ]),
 }
 def apply_image(short,check=False):

@@ -1403,7 +1403,7 @@ int mac_core_setup(int a1, int a2) {
 
 
 // rx_packet_parse_header @ 0x121418
-int rx_packet_parse_header(volatile char *a1, int a2, int a3, int a4) {
+int rx_packet_parse_header(volatile char *a1) {
   unsigned int v4; // r7
   int v5; // r5
   int v7; // r6
