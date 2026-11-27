@@ -461,7 +461,7 @@ int bt_process_msg(volatile uint8_t *a1, int a2) {
     {
       if ( a2 && (v8[1] & 0x80u) == 0 )
         goto LABEL_6;
-      wlan_rate_code_to_index(v8[1]);
+      v10 = wlan_rate_code_to_index(v8[1]);
       if ( **v3 < 0 )
         break;
       if ( v10 <= 11 )
