@@ -1183,7 +1183,7 @@ int bt_get_conn_entry(int a1, unsigned int a2) {
   if ( v19 >= v17 )
     v19 = (v19 & ~0xFFu) | ((uint8_t)(v17) & 0xFFu);
   v16[309] = v19;
-  result = ((int (*)())ble_ll_conn_sm_get_by_handle)(v18);
+  result = ((int (*)())ble_ll_conn_sm_get_by_handle)(v18, (uint8_t)v19, 0);
   v16[350] |= 8u;
   return result;
 }
