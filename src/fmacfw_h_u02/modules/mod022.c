@@ -319,12 +319,12 @@ LABEL_18:
 
 
 // run_with_busy_flag @ 0x11c1b4
-void run_with_busy_flag(int a1) {
+void run_with_busy_flag() {
   volatile uint8_t *v1; // r4
 
   v1 = (void *)(uintptr_t)(off_11C1CC);
   *(volatile uint8_t *)off_11C1CC = 1;
-  check_hw_fw_status(a1);
+  check_hw_fw_status();
   *v1 = 0;
   check_mode_flag();
 }

@@ -319,12 +319,12 @@ LABEL_18:
 
 
 // global_flag_set @ 0x11c734
-void global_flag_set(int a1) {
+void global_flag_set() {
   volatile uint8_t *v1; // r4
 
   v1 = (void *)(uintptr_t)(off_11C74C);
   *(volatile uint8_t *)off_11C74C = 1;
-  mac_irq_handler_1(a1);
+  mac_irq_handler_1();
   *v1 = 0;
   ke_event_poll();
 }

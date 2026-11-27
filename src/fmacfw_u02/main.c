@@ -5878,7 +5878,7 @@ int init_radio_data();
 int handle_radio_done();
 int parse_rx_header(int a1, int a2);
 int update_phy_status(int result);
-void enable_radio_clock(int a1);
+void enable_radio_clock();
 int check_radio_interrupt();
 void mmio_set_radio_bit();
 int nullsub_8(void);

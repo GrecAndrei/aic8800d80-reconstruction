@@ -647,7 +647,7 @@ unsigned int radio_isr() {
       pending_irq_status |= 0x1000u;
       *((volatile uint32_t *)off_1177E0 + 52) |= 4u;
     }
-    ((int (*)())run_with_busy_flag)();
+    run_with_busy_flag();
   }
   result = pending_irq_status & 0xF00000;
   if ( (pending_irq_status & 0xF00000) != 0 )

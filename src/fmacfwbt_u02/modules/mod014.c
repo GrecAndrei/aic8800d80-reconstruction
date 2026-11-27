@@ -647,7 +647,7 @@ unsigned int rf_irq_status() {
       v0 |= 0x1000u;
       *((volatile uint32_t *)off_117D60 + 52) |= 4u;
     }
-    ((int (*)())global_flag_set)();
+    global_flag_set();
   }
   result = v0 & 0xF00000;
   if ( (v0 & 0xF00000) != 0 )

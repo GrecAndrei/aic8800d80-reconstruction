@@ -319,12 +319,12 @@ LABEL_18:
 
 
 // enable_radio_clock @ 0x11c2f4
-void enable_radio_clock(int a1) {
+void enable_radio_clock() {
   volatile uint8_t *v1; // r4
 
   v1 = (void *)(uintptr_t)(off_11C30C);
   *(volatile uint8_t *)off_11C30C = 1;
-  rf_irq_status_check(a1);
+  rf_irq_status_check();
   *v1 = 0;
   check_power_flag();
 }

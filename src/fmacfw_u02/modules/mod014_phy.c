@@ -648,7 +648,7 @@ unsigned int core_rev_read() {
       v0 |= 0x1000u;
       *((volatile uint32_t *)off_117920 + 52) |= 4u;
     }
-    ((int (*)())enable_radio_clock)();
+    enable_radio_clock();
   }
   result = v0 & 0xF00000;
   if ( (v0 & 0xF00000) != 0 )

@@ -5885,7 +5885,7 @@ int mac_reset_controller();
 int mac_process_queue();
 int txpacket_prepare(int a1, int a2);
 int rxreorder_process(int result);
-void global_flag_set(int a1);
+void global_flag_set();
 int check_hw_status();
 void enable_irq();
 int nullsub_8(void);

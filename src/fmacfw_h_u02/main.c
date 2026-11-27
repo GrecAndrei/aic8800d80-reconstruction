@@ -5901,7 +5901,7 @@ int wifi_core_init();
 int rx_queue_process();
 int tx_frame_build(int a1, int a2);
 int tx_frame_send(int result);
-void run_with_busy_flag(int a1);
+void run_with_busy_flag();
 int read_int_status();
 void mmio_set_register_bit();
 int nullsub_8(void);
