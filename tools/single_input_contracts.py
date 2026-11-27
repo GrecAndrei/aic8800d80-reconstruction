@@ -18,7 +18,8 @@ while the prototype takes one input. Exact/idempotent.
 The byte-cloned ll_parse_pdu / rx_packet_parse_header / rx_handle_frame key
 helpers are likewise one-input: r0 is read immediately, while r1-r3 are first
 overwritten before any read in the original machine code. Their a2-a4
-parameters are register-scratch artifacts.
+parameters are register-scratch artifacts. The same first-write evidence shows
+the ble_ll_conn_rx_pdu / handle_ll_control_packet a2 parameters are artifacts.
 """
 import sys
 from pathlib import Path
@@ -43,6 +44,9 @@ SPECS={
   ('process_tx_packet(a2, a4)','process_tx_packet(a2)'),
   ('int rx_packet_parse_header(volatile char *a1, int a2, int a3, int a4)','int rx_packet_parse_header(volatile char *a1)'),
   ('((int (*)())rx_packet_parse_header)(a2)','rx_packet_parse_header(a2)'),
+  ('int ble_ll_conn_rx_pdu(int a1, int a2)','int ble_ll_conn_rx_pdu(int a1)'),
+  ('int ble_ll_conn_rx_pdu(int a1) {\n  int v2; // r3','int ble_ll_conn_rx_pdu(int a1) {\n  int a2;\n  int v2; // r3'),
+  ('((int (*)())ble_ll_conn_rx_pdu)(v4)','ble_ll_conn_rx_pdu(v4)'),
  ]),
  'fmacfwbt_u02':('process_pending_queue',[
   ('volatile int * process_pending_queue(volatile int *result, int a2)','volatile int * process_pending_queue(volatile int *result)'),
@@ -53,6 +57,9 @@ SPECS={
   ('process_rx_status(a2, a4)','process_rx_status(a2)'),
   ('int rx_handle_frame(volatile char *a1, int a2, int a3, int a4)','int rx_handle_frame(volatile char *a1)'),
   ('((int (*)())rx_handle_frame)(a2)','rx_handle_frame(a2)'),
+  ('int handle_ll_control_packet(int a1, int a2)','int handle_ll_control_packet(int a1)'),
+  ('int handle_ll_control_packet(int a1) {\n  int v2; // r3','int handle_ll_control_packet(int a1) {\n  int a2;\n  int v2; // r3'),
+  ('((int (*)())handle_ll_control_packet)(v4)','handle_ll_control_packet(v4)'),
  ]),
 }
 def apply_image(short,check=False):

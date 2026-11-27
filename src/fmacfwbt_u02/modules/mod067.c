@@ -2616,7 +2616,8 @@ LABEL_7:
 
 
 // handle_ll_control_packet @ 0x13ed0c
-int handle_ll_control_packet(int a1, int a2) {
+int handle_ll_control_packet(int a1) {
+  int a2;
   int v2; // r3
   unsigned int v3; // r2
   int v5; // r0

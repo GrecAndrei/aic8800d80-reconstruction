@@ -62,10 +62,12 @@ following classes were proven against the original binaries and repaired:
 * one-input key/packet parser contracts: r1-r3 are overwritten before use in the
   ll_parse/rx_packet/rx_handle clones;
 * object forwarding `a1` through the three state-machine wrapper clones;
-* record-search object forwarding `(v2 + 34)` in the address/record lookup clones.
+* record-search object forwarding `(v2 + 34)` in the address/record lookup clones;
+* one-input receive-PDU contracts: incoming r1 is overwritten before use in the
+  ble_ll_conn_rx/handle_ll_control clones.
 
 After those repairs the remaining syntactic census is fmacfw_h 4 functions /
-4 call rows, fmacfw 5 / 5, fmacfwbt 4 / 4, and lmac 0 / 0. Remaining rows
+4 call rows, fmacfw 4 / 4, fmacfwbt 3 / 3, and lmac 0 / 0. Remaining rows
 are still unproven candidates. In particular `bt_conn_is_connected` and its
 clones genuinely consume r1-r3, so their four-input prototypes must not be
 "narrowed" merely because the scan is nonzero; their missing call-site argument

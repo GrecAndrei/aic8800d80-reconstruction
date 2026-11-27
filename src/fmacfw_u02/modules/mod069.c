@@ -55,7 +55,7 @@ int ble_ll_adv_set_data(int result) {
     {
       *(volatile uint8_t *)(v2 + 54) = *(volatile uint8_t *)(v4 + 168) | (4 * *(volatile uint8_t *)(v4 + 167));
     }
-    result = ((int (*)())ble_ll_conn_rx_pdu)(v4);
+    result = ble_ll_conn_rx_pdu(v4);
     if ( result )
     {
       v8 = *(volatile uint32_t *)(v2 + 36);

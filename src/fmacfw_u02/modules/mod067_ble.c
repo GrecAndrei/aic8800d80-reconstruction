@@ -2616,7 +2616,8 @@ LABEL_7:
 
 
 // ble_ll_conn_rx_pdu @ 0x13ec70
-int ble_ll_conn_rx_pdu(int a1, int a2) {
+int ble_ll_conn_rx_pdu(int a1) {
+  int a2;
   int v2; // r3
   unsigned int v3; // r2
   int v5; // r0

@@ -55,7 +55,7 @@ int send_data_packet(int result) {
     {
       *(volatile uint8_t *)(v2 + 54) = *(volatile uint8_t *)(v4 + 168) | (4 * *(volatile uint8_t *)(v4 + 167));
     }
-    result = ((int (*)())handle_ll_control_packet)(v4);
+    result = handle_ll_control_packet(v4);
     if ( result )
     {
       v8 = *(volatile uint32_t *)(v2 + 36);
