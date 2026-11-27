@@ -258,7 +258,7 @@ int alloc_ctrl_block(int a1) {
       *(volatile uint8_t *)(a1 + 231) = 0;
       if ( !v5 )
       {
-        ((int (*)())bsscfg_index)();
+        bsscfg_index(*(volatile uint8_t *)(a1 + 107), (uint8_t)v6);
         *((volatile uint8_t *)off_1202B0 + 9) = 1;
       }
     }
@@ -268,7 +268,7 @@ int alloc_ctrl_block(int a1) {
   if ( !v5 )
   {
     v8 = *(volatile uint8_t *)(a1 + 116);
-    ((int (*)())bsscfg_index)();
+    bsscfg_index(*(volatile uint8_t *)(a1 + 107), (uint8_t)v6);
     mem_set_util(a1 + 48);
     mm_timer_set((void *)(uintptr_t)(a1 + 24), *((volatile uint32_t *)off_1202AC + 4) + *(volatile uint32_t *)(dword_1202A8 + 696 * v8 + 8));
     *(volatile uint8_t *)(a1 + 128) = 0;

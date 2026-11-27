@@ -258,7 +258,7 @@ int alloc_buffer(int a1) {
       *(volatile uint8_t *)(a1 + 231) = 0;
       if ( !v5 )
       {
-        ((int (*)())update_entries_from_config)();
+        update_entries_from_config(*(volatile uint8_t *)(a1 + 107), (uint8_t)v6);
         *((volatile uint8_t *)off_120728 + 9) = 1;
       }
     }
@@ -268,7 +268,7 @@ int alloc_buffer(int a1) {
   if ( !v5 )
   {
     v8 = *(volatile uint8_t *)(a1 + 116);
-    ((int (*)())update_entries_from_config)();
+    update_entries_from_config(*(volatile uint8_t *)(a1 + 107), (uint8_t)v6);
     ke_event_set_lock(a1 + 48);
     ke_event_lock((void *)(uintptr_t)(a1 + 24), *((volatile uint32_t *)off_120724 + 4) + *(volatile uint32_t *)(dword_120720 + 696 * v8 + 8));
     *(volatile uint8_t *)(a1 + 128) = 0;

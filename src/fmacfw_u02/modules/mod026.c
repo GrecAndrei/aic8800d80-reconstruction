@@ -258,7 +258,7 @@ int alloc_kernel_message(int a1) {
       *(volatile uint8_t *)(a1 + 231) = 0;
       if ( !v5 )
       {
-        ((int (*)())sta_lookup_by_bss)();
+        sta_lookup_by_bss(*(volatile uint8_t *)(a1 + 107), (uint8_t)v6);
         *((volatile uint8_t *)off_1203F0 + 9) = 1;
       }
     }
@@ -268,7 +268,7 @@ int alloc_kernel_message(int a1) {
   if ( !v5 )
   {
     v8 = *(volatile uint8_t *)(a1 + 116);
-    ((int (*)())sta_lookup_by_bss)();
+    sta_lookup_by_bss(*(volatile uint8_t *)(a1 + 107), (uint8_t)v6);
     fault_handler(a1 + 48);
     unknown_worker((void *)(uintptr_t)(a1 + 24), *((volatile uint32_t *)off_1203EC + 4) + *(volatile uint32_t *)(dword_1203E8 + 696 * v8 + 8));
     *(volatile uint8_t *)(a1 + 128) = 0;
