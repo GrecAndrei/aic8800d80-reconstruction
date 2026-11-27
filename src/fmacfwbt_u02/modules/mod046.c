@@ -1143,7 +1143,7 @@ int rssi_to_power_index(int a1) {
 
 
 // main_loop_dispatch @ 0x12e344
-unsigned int main_loop_dispatch(volatile char *a1, int a2, unsigned int a3, volatile uint8_t *a4, volatile unsigned int *a5) {
+__attribute__((target("general-regs-only"))) unsigned int main_loop_dispatch(volatile char *a1, int a2, unsigned int a3, volatile uint8_t *a4, volatile unsigned int *a5) {
   int v7; // r2
   volatile uint8_t *v8; // r5
   volatile char *v9; // r7

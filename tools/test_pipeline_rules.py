@@ -860,6 +860,31 @@ class MrsExceptionState(unittest.TestCase):
             self.assertEqual(n, 0)
 
 
+class FormatterIntegerCodegen(unittest.TestCase):
+    def test_formatter_definition_is_integer_only_and_idempotent(self):
+        import formatter_integer_codegen as fic
+        text = "// rf_parse_cal_cmd @ 0x11ebb4\nunsigned int rf_parse_cal_cmd(volatile char *a1, int a2, unsigned int a3, volatile uint8_t *a4, volatile unsigned int *a5) {\n  return 0;\n}\n"
+        out, n, err = fic.transform(text, 0x11EBB4, "rf_parse_cal_cmd")
+        self.assertIsNone(err)
+        self.assertEqual(n, 1)
+        self.assertIn('__attribute__((target("general-regs-only")))', out)
+        self.assertEqual(fic.transform(out, 0x11EBB4, "rf_parse_cal_cmd"), (out, 0, None))
+
+    def test_tracked_formatter_definitions_are_at_fixed_point(self):
+        import formatter_integer_codegen as fic
+        for short, (addr, name) in fic.TARGETS.items():
+            found = False
+            for path in sorted((fic.REPO / "src" / short / "modules").glob("mod*.c")):
+                text = path.read_text(errors="replace")
+                if name in text and (f"@ 0x{addr:x}" in text or f"@ 0x{addr:X}" in text):
+                    _out, n, err = fic.transform(text, addr, name)
+                    self.assertIsNone(err)
+                    self.assertEqual(n, 0)
+                    found = True
+                    break
+            self.assertTrue(found, short)
+
+
 class RfTableAddressArithmetic(unittest.TestCase):
     def test_machine_proven_byte_address_arithmetic(self):
         import rf_table_address_arithmetic as rfaddr
@@ -891,7 +916,7 @@ class PostCompose(unittest.TestCase):
              "format_hd_signextend.py", "format_scratch_frame.py",
              "heap_boundary_literal.py", "ipv4_dot_libc.py", "jump_trampolines.py",
              "luna_rename_apply.py", "luna_semantics_apply.py",
-             "patch_tailcall_args.py", "strict_type_casts.py", "callback_args_forward.py", "busy_zero_contracts.py", "ops_object_forward.py", "init_period_forward.py", "record_lookup_forward.py", "wrapper_arg_forward.py", "conn_ready_forward.py", "channel_data_forward.py", "conn_is_connected_forward.py", "bsscfg_lookup_forward.py", "scheduler_list_forward.py", "char_validate_forward.py", "power_status_forward.py", "rate_code_forward.py", "conn_entry_forward.py", "frame_pair_forward.py", "triple_arg_forward.py", "first_arg_forward.py", "single_input_contracts.py", "fmac_zero_inputs.py", "rx_queue_contract.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "mrs_exception_state.py", "rf_table_address_arithmetic.py", "rf_config_frame.py", "rom_copy_frames.py",
+             "patch_tailcall_args.py", "strict_type_casts.py", "callback_args_forward.py", "busy_zero_contracts.py", "ops_object_forward.py", "init_period_forward.py", "record_lookup_forward.py", "wrapper_arg_forward.py", "conn_ready_forward.py", "channel_data_forward.py", "conn_is_connected_forward.py", "bsscfg_lookup_forward.py", "scheduler_list_forward.py", "char_validate_forward.py", "power_status_forward.py", "rate_code_forward.py", "conn_entry_forward.py", "frame_pair_forward.py", "triple_arg_forward.py", "first_arg_forward.py", "single_input_contracts.py", "fmac_zero_inputs.py", "rx_queue_contract.py", "alloc_result_forward.py", "tailcall_inputs.py", "zero_input_prototypes.py", "timer_target_forward.py", "mrs_ipsr.py", "mrs_exception_state.py", "formatter_integer_codegen.py", "rf_table_address_arithmetic.py", "rf_config_frame.py", "rom_copy_frames.py",
              "spilled_scalar_inputs.py", "libc_names.py", "tick_signed_cmps.py",
              "timer_signed_diffs.py", "uncast_memset_zero.py", "validate_forward_args.py"}
 

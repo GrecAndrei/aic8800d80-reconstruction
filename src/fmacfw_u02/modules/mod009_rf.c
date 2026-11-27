@@ -186,7 +186,7 @@ LABEL_5:
   event_dispatch(aIspr);
   send_msg(dword_114828, 8, 4, 0);
   event_dispatch(aTim2);
-  send_msg((int)REG_4050_1000, 16, 4, 0);
+  send_msg((int)&REG_4050_1000, 16, 4, 0);
   patch_init();
 }
 

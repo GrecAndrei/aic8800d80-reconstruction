@@ -15,12 +15,16 @@ exception/timeout dump clones is instead::
 with the variadic dump arguments ordered CONTROL, xPSR, PSP, MSP, PRIMASK,
 LR. Treating the stack pointers as the PRIMASK shadow makes MSP/PSP zero in
 the reconstruction, suppressing part of the dump and changing the number of
-``\\r\\n`` rows emitted before the panic line.
+``\\r\\n`` rows emitted before the panic line. The same literal pool also
+passes the TIM2 peripheral base 0x40501000 to the dump helper; three clones
+erroneously read the register value with ``(int)REG_4050_1000`` instead of
+passing its address ``(int)&REG_4050_1000``.
 
 Machine evidence:
   fmacfw_h   0x114608+0x24 (hardware 0x13462c)
   fmacfw     0x114748+0x24 (hardware 0x13476c)
   fmacfwbt   0x1145a4+0x24 (hardware 0x1345c8)
+  lmacfw_rf  0x11394c+0x24 (hardware 0x133970)
 
 Address-keyed and idempotent; --check reports pending rewrites.
 """
@@ -34,6 +38,7 @@ TARGETS = {
     "fmacfw_h_u02": (0x114608, "alloc_tx_event"),
     "fmacfw_u02": (0x114748, "event_dispatch"),
     "fmacfwbt_u02": (0x1145A4, "ke_event_schedule_1"),
+    "lmacfw_rf_u02": (0x11394C, "dispatch_event_handler_1"),
 }
 MARKER_RE = re.compile(r"(?m)^// (\w+) @ 0x([0-9a-fA-F]+)\s*$")
 
@@ -50,7 +55,11 @@ def function_span(text: str, addr: int) -> tuple[int, int] | None:
 def transform_body(body: str, helper: str) -> tuple[str, int, str | None]:
     if "__get_CONTROL();" in body:
         expected = f"{helper}(aControl08xXpsr_0, CONTROL, v4, v5, v6, __get_PRIMASK(), (int)__get_LR());"
-        return (body, 0, None) if expected in body else (body, 0, "partially repaired CONTROL site")
+        if expected not in body:
+            return body, 0, "partially repaired CONTROL site"
+        if "(int)REG_4050_1000" in body:
+            return body.replace("(int)REG_4050_1000", "(int)&REG_4050_1000", 1), 1, None
+        return body, 0, None
     required = [
         "unsigned int CPSR; // r1",
         "CPSR = __get_CPSR();",
@@ -75,6 +84,8 @@ def transform_body(body: str, helper: str) -> tuple[str, int, str | None]:
     out = out.replace(old_call.replace("CPSR,", "CONTROL,"), new_call, 1)
     if old_call in out:
         out = out.replace(old_call, new_call, 1)
+    if "(int)REG_4050_1000" in out:
+        out = out.replace("(int)REG_4050_1000", "(int)&REG_4050_1000", 1)
     return out, 1, None
 
 

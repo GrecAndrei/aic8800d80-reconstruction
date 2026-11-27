@@ -463,7 +463,7 @@ volatile uint8_t * memchr(volatile uint8_t *result, int a2) {
 
 
 // rf_parse_cal_cmd @ 0x11ebb4
-unsigned int rf_parse_cal_cmd(volatile char *a1, int a2, unsigned int a3, volatile uint8_t *a4, volatile unsigned int *a5) {
+__attribute__((target("general-regs-only"))) unsigned int rf_parse_cal_cmd(volatile char *a1, int a2, unsigned int a3, volatile uint8_t *a4, volatile unsigned int *a5) {
   int v7; // r2
   volatile uint8_t *v8; // r5
   volatile char *v9; // r7

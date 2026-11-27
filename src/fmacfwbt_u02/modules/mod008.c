@@ -775,7 +775,7 @@ LABEL_5:
   ke_event_schedule_1(aIspr);
   rx_packet_handler_2(dword_114684, 8, 4, 0);
   ke_event_schedule_1(aTim2);
-  rx_packet_handler_2((int)REG_4050_1000, 16, 4, 0);
+  rx_packet_handler_2((int)&REG_4050_1000, 16, 4, 0);
   check_op_mode();
 }
 
