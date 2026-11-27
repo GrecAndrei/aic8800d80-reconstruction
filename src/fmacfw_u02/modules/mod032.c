@@ -667,7 +667,7 @@ LABEL_6:
     ke_msg_send_2((int)(uintptr_t)(v4));
     return 0;
   }
-  *v4 = ((int (*)())rf_calib_required)();
+  *v4 = rf_calib_required(v6, a2[1], 1);
   ke_msg_send_2((int)(uintptr_t)(v4));
   return 0;
 }

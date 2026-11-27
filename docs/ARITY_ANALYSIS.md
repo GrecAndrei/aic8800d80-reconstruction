@@ -56,10 +56,12 @@ following classes were proven against the original binaries and repaired:
   allocation clones;
 * the fourth connection-helper argument: zero at the flag-gated call sites and the
   connection index `v2` at the packet-builder call sites;
-* channel-data helper forwarding `(v18, v19, 0)` in the connection-table helpers.
+* channel-data helper forwarding `(v18, v19, 0)` in the connection-table helpers;
+* ready-check forwarding `(v4, slot, 0)` in lookup helpers and `(v6, a2[1], 1)` in
+  subframe parsers.
 
-After those repairs the remaining syntactic census is fmacfw_h 9 functions /
-10 call rows, fmacfw 10 / 11, fmacfwbt 9 / 10, and lmac 0 / 0. Remaining rows
+After those repairs the remaining syntactic census is fmacfw_h 7 functions /
+7 call rows, fmacfw 8 / 8, fmacfwbt 7 / 7, and lmac 0 / 0. Remaining rows
 are still unproven candidates. In particular `bt_conn_is_connected` and its
 clones genuinely consume r1-r3, so their four-input prototypes must not be
 "narrowed" merely because the scan is nonzero; their missing call-site argument

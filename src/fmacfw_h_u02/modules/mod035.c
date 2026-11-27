@@ -325,10 +325,10 @@ int scan_entry_lookup(int result) {
   v3 = dword_125D30 + 140 * v2;
   v4 = result;
   if ( !*(volatile uint8_t *)(v3 + 32) && *(volatile uint8_t *)(v3 + 16) )
-    result = ((int (*)(void))lll_conn_ready_check)();
+    result = lll_conn_ready_check(v4, 0, 0);
   v5 = v1 + 140 * v2;
   if ( !*(volatile uint8_t *)(v5 + 80) && *(volatile uint8_t *)(v5 + 64) )
-    result = ((int (*)())lll_conn_ready_check)(v4, 1);
+    result = lll_conn_ready_check(v4, 1, 0);
   v6 = *((volatile int **)off_125D34 + 2);
   if ( v6 )
   {

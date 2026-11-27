@@ -325,10 +325,10 @@ int lookup_conn_table(int result) {
   v3 = dword_126094 + 140 * v2;
   v4 = result;
   if ( !*(volatile uint8_t *)(v3 + 32) && *(volatile uint8_t *)(v3 + 16) )
-    result = ((int (*)(void))bt_conn_get_state)();
+    result = bt_conn_get_state(v4, 0, 0);
   v5 = v1 + 140 * v2;
   if ( !*(volatile uint8_t *)(v5 + 80) && *(volatile uint8_t *)(v5 + 64) )
-    result = ((int (*)())bt_conn_get_state)(v4, 1);
+    result = bt_conn_get_state(v4, 1, 0);
   v6 = *((volatile int **)off_126098 + 2);
   if ( v6 )
   {

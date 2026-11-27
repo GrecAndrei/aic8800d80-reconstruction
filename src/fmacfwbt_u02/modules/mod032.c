@@ -672,7 +672,7 @@ LABEL_6:
     hci_evt_send((int)(uintptr_t)(v4));
     return 0;
   }
-  *v4 = ((int (*)())bt_conn_get_state)();
+  *v4 = bt_conn_get_state(v6, a2[1], 1);
   hci_evt_send((int)(uintptr_t)(v4));
   return 0;
 }

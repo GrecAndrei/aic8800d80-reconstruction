@@ -667,7 +667,7 @@ LABEL_6:
     rx_process_packet_1((int)(uintptr_t)(v4));
     return 0;
   }
-  *v4 = ((int (*)())lll_conn_ready_check)();
+  *v4 = lll_conn_ready_check(v6, a2[1], 1);
   rx_process_packet_1((int)(uintptr_t)(v4));
   return 0;
 }
