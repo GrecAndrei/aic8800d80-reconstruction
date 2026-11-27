@@ -1993,7 +1993,7 @@ int rx_task() {
             v6 = *(volatile uint32_t *)(v6 + 4);
             if ( v9 == v8 )
               break;
-            ((int (*)())mmio_write_0)();
+            mmio_write_0((volatile uint32_t *)(uintptr_t)v10);
             v9 = v7;
             if ( v7 >= v5 )
               goto LABEL_8;
@@ -2001,7 +2001,7 @@ int rx_task() {
           v17 = v10;
           dma_ring_alloc_1();
           v8 = (v8 & ~0xFFFFu) | ((uint16_t)(v8 + (*(volatile uint8_t *)(v17 + 11) & 0x7F)) & 0xFFFFu);
-          ((int (*)())mmio_write_0)();
+          mmio_write_0((volatile uint32_t *)(uintptr_t)v17);
           v9 = v7;
           v8 = (uint16_t)v8;
         }
