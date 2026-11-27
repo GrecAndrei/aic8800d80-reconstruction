@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-26T23:05:10Z",
-  "elapsed_sec": 1478.0,
+  "generated_at": "2026-11-27T00:21:19Z",
+  "elapsed_sec": 1317.7,
   "vectors": [
     "bare_zero",
     "boot_zero",
@@ -12,8 +12,8 @@
     "total_composed": 4718,
     "jumpout_functions": 0,
     "memory_macro_functions": 0,
-    "under_arity_cast_calls": 128,
-    "static_defect_functions": 107,
+    "under_arity_cast_calls": 58,
+    "static_defect_functions": 49,
     "per_image": [
       {
         "image": "fmacfw_8800d80_h_u02",
@@ -26,33 +26,9 @@
         "jumpout_functions": 0,
         "jumpout_examples": [],
         "memory_macro_functions": 0,
-        "under_arity_cast_calls": 40,
+        "under_arity_cast_calls": 19,
         "under_arity_calls": [
           {
-            "caller": "rx_packet_dispatch",
-            "caller_addr": "0x10cc94",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rx_packet_dispatch",
-            "caller_addr": "0x10cc94",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "stack_struct_init",
-            "caller_addr": "0x10d6c8",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
             "caller": "rx_task",
             "caller_addr": "0x110b20",
             "callee": "mmio_write_0",
@@ -67,22 +43,6 @@
             "callee_addr": "0x1101bc",
             "passed": 0,
             "expected": 1
-          },
-          {
-            "caller": "rf_set_state",
-            "caller_addr": "0x113418",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "util_init_buffer",
-            "caller_addr": "0x113fc4",
-            "callee": "rf_get_flag",
-            "callee_addr": "0x113578",
-            "passed": 0,
-            "expected": 4
           },
           {
             "caller": "ll_init_tables",
@@ -91,14 +51,6 @@
             "callee_addr": "0x115470",
             "passed": 0,
             "expected": 2
-          },
-          {
-            "caller": "tx_pending_check",
-            "caller_addr": "0x1161e4",
-            "callee": "phy_get_txpower",
-            "callee_addr": "0x13adfc",
-            "passed": 0,
-            "expected": 1
           },
           {
             "caller": "mac_update_flags",
@@ -125,62 +77,6 @@
             "expected": 1
           },
           {
-            "caller": "send_tx_confirmation",
-            "caller_addr": "0x117bf0",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "btm_get_conn_entry",
-            "caller_addr": "0x119d88",
-            "callee": "tx_pending_check",
-            "callee_addr": "0x1161e4",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "dma_ring_alloc_0",
-            "caller_addr": "0x11d6f0",
-            "callee": "phy_rate_get",
-            "callee_addr": "0x11df74",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "tx_packet_start",
-            "caller_addr": "0x11e188",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "tx_packet_start",
-            "caller_addr": "0x11e188",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "tx_packet_complete",
-            "caller_addr": "0x11e4c4",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "tx_packet_complete",
-            "caller_addr": "0x11e4c4",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
             "caller": "alloc_ctrl_block",
             "caller_addr": "0x1201d4",
             "callee": "bsscfg_index",
@@ -195,22 +91,6 @@
             "callee_addr": "0x128748",
             "passed": 0,
             "expected": 2
-          },
-          {
-            "caller": "ke_send_msg_54",
-            "caller_addr": "0x12343c",
-            "callee": "lll_conn_phy_get",
-            "callee_addr": "0x12a3e8",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "ke_send_msg_54",
-            "caller_addr": "0x12343c",
-            "callee": "lll_conn_phy_ld_get",
-            "callee_addr": "0x12a424",
-            "passed": 0,
-            "expected": 1
           },
           {
             "caller": "parse_subframe_header",
@@ -227,14 +107,6 @@
             "callee_addr": "0x1212d8",
             "passed": 1,
             "expected": 4
-          },
-          {
-            "caller": "tx_pkt_complete",
-            "caller_addr": "0x1253d0",
-            "callee": "ble_ll_conn_process",
-            "callee_addr": "0x132e78",
-            "passed": 0,
-            "expected": 3
           },
           {
             "caller": "scan_entry_lookup",
@@ -261,22 +133,6 @@
             "expected": 2
           },
           {
-            "caller": "write_hash_header",
-            "caller_addr": "0x130580",
-            "callee": "phy_get_rate_code",
-            "callee_addr": "0x13248c",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "handle_rx_packet",
-            "caller_addr": "0x132654",
-            "callee": "cmd_char_validate",
-            "callee_addr": "0x1325b4",
-            "passed": 0,
-            "expected": 1
-          },
-          {
             "caller": "nop_stub",
             "caller_addr": "0x132bc4",
             "callee": "l2c_ccb_run",
@@ -290,14 +146,6 @@
             "callee": "phy_get_channel_data",
             "callee_addr": "0x13f03c",
             "passed": 1,
-            "expected": 3
-          },
-          {
-            "caller": "ble_state_check_133914",
-            "caller_addr": "0x133914",
-            "callee": "ble_parse_event",
-            "callee_addr": "0x134480",
-            "passed": 0,
             "expected": 3
           },
           {
@@ -331,50 +179,10 @@
             "callee_addr": "0x100b14",
             "passed": 0,
             "expected": 1
-          },
-          {
-            "caller": "rf_lookup_rate_table",
-            "caller_addr": "0x1391b4",
-            "callee": "deref_and_check",
-            "callee_addr": "0x12f414",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "alloc_dma_buf_1",
-            "caller_addr": "0x13a3ac",
-            "callee": "deref_and_check",
-            "callee_addr": "0x12f414",
-            "passed": 1,
-            "expected": 2
           }
         ],
         "under_arity_examples": [
           {
-            "caller": "rx_packet_dispatch",
-            "caller_addr": "0x10cc94",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rx_packet_dispatch",
-            "caller_addr": "0x10cc94",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "stack_struct_init",
-            "caller_addr": "0x10d6c8",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
             "caller": "rx_task",
             "caller_addr": "0x110b20",
             "callee": "mmio_write_0",
@@ -389,22 +197,6 @@
             "callee_addr": "0x1101bc",
             "passed": 0,
             "expected": 1
-          },
-          {
-            "caller": "rf_set_state",
-            "caller_addr": "0x113418",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "util_init_buffer",
-            "caller_addr": "0x113fc4",
-            "callee": "rf_get_flag",
-            "callee_addr": "0x113578",
-            "passed": 0,
-            "expected": 4
           },
           {
             "caller": "ll_init_tables",
@@ -413,14 +205,6 @@
             "callee_addr": "0x115470",
             "passed": 0,
             "expected": 2
-          },
-          {
-            "caller": "tx_pending_check",
-            "caller_addr": "0x1161e4",
-            "callee": "phy_get_txpower",
-            "callee_addr": "0x13adfc",
-            "passed": 0,
-            "expected": 1
           },
           {
             "caller": "mac_update_flags",
@@ -447,58 +231,10 @@
             "expected": 1
           },
           {
-            "caller": "send_tx_confirmation",
-            "caller_addr": "0x117bf0",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "btm_get_conn_entry",
-            "caller_addr": "0x119d88",
-            "callee": "tx_pending_check",
-            "callee_addr": "0x1161e4",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "dma_ring_alloc_0",
-            "caller_addr": "0x11d6f0",
-            "callee": "phy_rate_get",
-            "callee_addr": "0x11df74",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "tx_packet_start",
-            "caller_addr": "0x11e188",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "tx_packet_start",
-            "caller_addr": "0x11e188",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "tx_packet_complete",
-            "caller_addr": "0x11e4c4",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "tx_packet_complete",
-            "caller_addr": "0x11e4c4",
-            "callee": "rf_is_idle",
-            "callee_addr": "0x113374",
+            "caller": "alloc_ctrl_block",
+            "caller_addr": "0x1201d4",
+            "callee": "bsscfg_index",
+            "callee_addr": "0x128748",
             "passed": 0,
             "expected": 2
           },
@@ -509,9 +245,97 @@
             "callee_addr": "0x128748",
             "passed": 0,
             "expected": 2
+          },
+          {
+            "caller": "parse_subframe_header",
+            "caller_addr": "0x123490",
+            "callee": "lll_conn_ready_check",
+            "callee_addr": "0x12a5c0",
+            "passed": 0,
+            "expected": 3
+          },
+          {
+            "caller": "ke_mem_alloc",
+            "caller_addr": "0x1236b4",
+            "callee": "ll_parse_pdu",
+            "callee_addr": "0x1212d8",
+            "passed": 1,
+            "expected": 4
+          },
+          {
+            "caller": "scan_entry_lookup",
+            "caller_addr": "0x125cd0",
+            "callee": "lll_conn_ready_check",
+            "callee_addr": "0x12a5c0",
+            "passed": 0,
+            "expected": 3
+          },
+          {
+            "caller": "scan_entry_lookup",
+            "caller_addr": "0x125cd0",
+            "callee": "lll_conn_ready_check",
+            "callee_addr": "0x12a5c0",
+            "passed": 2,
+            "expected": 3
+          },
+          {
+            "caller": "mmio_register_access",
+            "caller_addr": "0x130148",
+            "callee": "test_command_queue_process",
+            "callee_addr": "0x130030",
+            "passed": 0,
+            "expected": 2
+          },
+          {
+            "caller": "nop_stub",
+            "caller_addr": "0x132bc4",
+            "callee": "l2c_ccb_run",
+            "callee_addr": "0x13f6f4",
+            "passed": 0,
+            "expected": 1
+          },
+          {
+            "caller": "ble_ll_conn_get",
+            "caller_addr": "0x132c48",
+            "callee": "phy_get_channel_data",
+            "callee_addr": "0x13f03c",
+            "passed": 1,
+            "expected": 3
+          },
+          {
+            "caller": "ble_get_addr_flag",
+            "caller_addr": "0x134334",
+            "callee": "rf_check_status",
+            "callee_addr": "0x1380d8",
+            "passed": 0,
+            "expected": 1
+          },
+          {
+            "caller": "ble_rx_process",
+            "caller_addr": "0x134950",
+            "callee": "bt_conn_is_connected",
+            "callee_addr": "0x13c5d0",
+            "passed": 3,
+            "expected": 4
+          },
+          {
+            "caller": "rf_chan_pwr_calc",
+            "caller_addr": "0x1359bc",
+            "callee": "call_callback",
+            "callee_addr": "0x13b814",
+            "passed": 0,
+            "expected": 3
+          },
+          {
+            "caller": "is_ble_connected",
+            "caller_addr": "0x136570",
+            "callee": "pmu_init",
+            "callee_addr": "0x100b14",
+            "passed": 0,
+            "expected": 1
           }
         ],
-        "static_defect_functions": 33
+        "static_defect_functions": 16
       },
       {
         "image": "fmacfw_8800d80_u02",
@@ -524,7 +348,7 @@
         "jumpout_functions": 0,
         "jumpout_examples": [],
         "memory_macro_functions": 0,
-        "under_arity_cast_calls": 32,
+        "under_arity_cast_calls": 20,
         "under_arity_calls": [
           {
             "caller": "bt_scheduler_run",
@@ -543,28 +367,12 @@
             "expected": 1
           },
           {
-            "caller": "timer_delay_1",
-            "caller_addr": "0x114104",
-            "callee": "read_state_flag",
-            "callee_addr": "0x1136b8",
-            "passed": 0,
-            "expected": 4
-          },
-          {
             "caller": "copy_global_data",
             "caller_addr": "0x115d60",
             "callee": "check_nvic_irq_status",
             "callee_addr": "0x1155b0",
             "passed": 0,
             "expected": 2
-          },
-          {
-            "caller": "process_tx_packet",
-            "caller_addr": "0x116324",
-            "callee": "ll_conn_rx_packet_get",
-            "callee_addr": "0x13af3c",
-            "passed": 0,
-            "expected": 1
           },
           {
             "caller": "mac_flags_set",
@@ -591,22 +399,6 @@
             "expected": 1
           },
           {
-            "caller": "rate_get_config",
-            "caller_addr": "0x119ec8",
-            "callee": "process_tx_packet",
-            "callee_addr": "0x116324",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "mac_wait_rx",
-            "caller_addr": "0x11d830",
-            "callee": "radio_get_status",
-            "callee_addr": "0x11e0b4",
-            "passed": 0,
-            "expected": 1
-          },
-          {
             "caller": "alloc_kernel_message",
             "caller_addr": "0x120314",
             "callee": "sta_lookup_by_bss",
@@ -621,22 +413,6 @@
             "callee_addr": "0x128888",
             "passed": 0,
             "expected": 2
-          },
-          {
-            "caller": "rf_tx_start_cmd",
-            "caller_addr": "0x12357c",
-            "callee": "llc_get_conn_state",
-            "callee_addr": "0x12a528",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rf_tx_start_cmd",
-            "caller_addr": "0x12357c",
-            "callee": "llc_get_conn_role",
-            "callee_addr": "0x12a564",
-            "passed": 0,
-            "expected": 1
           },
           {
             "caller": "rf_tx_stop_cmd",
@@ -653,14 +429,6 @@
             "callee_addr": "0x121418",
             "passed": 1,
             "expected": 4
-          },
-          {
-            "caller": "hci_acl_tx_setup",
-            "caller_addr": "0x125510",
-            "callee": "rx_process_packet_1",
-            "callee_addr": "0x132fb8",
-            "passed": 0,
-            "expected": 3
           },
           {
             "caller": "lld_evt_update",
@@ -687,22 +455,6 @@
             "expected": 2
           },
           {
-            "caller": "format_bt_address",
-            "caller_addr": "0x1306c0",
-            "callee": "util_extract_bits",
-            "callee_addr": "0x1325cc",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "bt_process_msg",
-            "caller_addr": "0x132794",
-            "callee": "wlan_rate_code_to_index",
-            "callee_addr": "0x1326f4",
-            "passed": 0,
-            "expected": 1
-          },
-          {
             "caller": "stub_ret",
             "caller_addr": "0x132d04",
             "callee": "ble_ll_adv_scan_req",
@@ -716,14 +468,6 @@
             "callee": "ble_ll_conn_sm_get_by_handle",
             "callee_addr": "0x13f17c",
             "passed": 1,
-            "expected": 3
-          },
-          {
-            "caller": "main_loop_init",
-            "caller_addr": "0x133a54",
-            "callee": "rx_packet_handler_3",
-            "callee_addr": "0x1345c0",
-            "passed": 0,
             "expected": 3
           },
           {
@@ -759,22 +503,6 @@
             "expected": 1
           },
           {
-            "caller": "rf_get_chan_param",
-            "caller_addr": "0x1392f4",
-            "callee": "load_and_process_r0",
-            "callee_addr": "0x12f554",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "ke_task_schedule",
-            "caller_addr": "0x13a4ec",
-            "callee": "load_and_process_r0",
-            "callee_addr": "0x12f554",
-            "passed": 1,
-            "expected": 2
-          },
-          {
             "caller": "ble_ll_adv_set_data",
             "caller_addr": "0x140204",
             "callee": "ble_ll_conn_rx_pdu",
@@ -801,28 +529,12 @@
             "expected": 1
           },
           {
-            "caller": "timer_delay_1",
-            "caller_addr": "0x114104",
-            "callee": "read_state_flag",
-            "callee_addr": "0x1136b8",
-            "passed": 0,
-            "expected": 4
-          },
-          {
             "caller": "copy_global_data",
             "caller_addr": "0x115d60",
             "callee": "check_nvic_irq_status",
             "callee_addr": "0x1155b0",
             "passed": 0,
             "expected": 2
-          },
-          {
-            "caller": "process_tx_packet",
-            "caller_addr": "0x116324",
-            "callee": "ll_conn_rx_packet_get",
-            "callee_addr": "0x13af3c",
-            "passed": 0,
-            "expected": 1
           },
           {
             "caller": "mac_flags_set",
@@ -849,22 +561,6 @@
             "expected": 1
           },
           {
-            "caller": "rate_get_config",
-            "caller_addr": "0x119ec8",
-            "callee": "process_tx_packet",
-            "callee_addr": "0x116324",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "mac_wait_rx",
-            "caller_addr": "0x11d830",
-            "callee": "radio_get_status",
-            "callee_addr": "0x11e0b4",
-            "passed": 0,
-            "expected": 1
-          },
-          {
             "caller": "alloc_kernel_message",
             "caller_addr": "0x120314",
             "callee": "sta_lookup_by_bss",
@@ -879,22 +575,6 @@
             "callee_addr": "0x128888",
             "passed": 0,
             "expected": 2
-          },
-          {
-            "caller": "rf_tx_start_cmd",
-            "caller_addr": "0x12357c",
-            "callee": "llc_get_conn_state",
-            "callee_addr": "0x12a528",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rf_tx_start_cmd",
-            "caller_addr": "0x12357c",
-            "callee": "llc_get_conn_role",
-            "callee_addr": "0x12a564",
-            "passed": 0,
-            "expected": 1
           },
           {
             "caller": "rf_tx_stop_cmd",
@@ -911,14 +591,6 @@
             "callee_addr": "0x121418",
             "passed": 1,
             "expected": 4
-          },
-          {
-            "caller": "hci_acl_tx_setup",
-            "caller_addr": "0x125510",
-            "callee": "rx_process_packet_1",
-            "callee_addr": "0x132fb8",
-            "passed": 0,
-            "expected": 3
           },
           {
             "caller": "lld_evt_update",
@@ -943,9 +615,65 @@
             "callee_addr": "0x130170",
             "passed": 0,
             "expected": 2
+          },
+          {
+            "caller": "stub_ret",
+            "caller_addr": "0x132d04",
+            "callee": "ble_ll_adv_scan_req",
+            "callee_addr": "0x13f834",
+            "passed": 0,
+            "expected": 1
+          },
+          {
+            "caller": "bt_get_conn_entry",
+            "caller_addr": "0x132d88",
+            "callee": "ble_ll_conn_sm_get_by_handle",
+            "callee_addr": "0x13f17c",
+            "passed": 1,
+            "expected": 3
+          },
+          {
+            "caller": "get_controller_state_1",
+            "caller_addr": "0x134474",
+            "callee": "find_record_by_id",
+            "callee_addr": "0x138218",
+            "passed": 0,
+            "expected": 1
+          },
+          {
+            "caller": "bt_get_conn_state",
+            "caller_addr": "0x134a90",
+            "callee": "is_conn_active",
+            "callee_addr": "0x13c710",
+            "passed": 3,
+            "expected": 4
+          },
+          {
+            "caller": "bt_get_acl_by_ble",
+            "caller_addr": "0x135afc",
+            "callee": "event_timer_callback",
+            "callee_addr": "0x13b954",
+            "passed": 0,
+            "expected": 3
+          },
+          {
+            "caller": "bt_link_active",
+            "caller_addr": "0x1366b0",
+            "callee": "bt_init",
+            "callee_addr": "0x100b14",
+            "passed": 0,
+            "expected": 1
+          },
+          {
+            "caller": "ble_ll_adv_set_data",
+            "caller_addr": "0x140204",
+            "callee": "ble_ll_conn_rx_pdu",
+            "callee_addr": "0x13ec70",
+            "passed": 1,
+            "expected": 2
           }
         ],
-        "static_defect_functions": 28
+        "static_defect_functions": 17
       },
       {
         "image": "fmacfwbt_8800d80_u02",
@@ -958,33 +686,9 @@
         "jumpout_functions": 0,
         "jumpout_examples": [],
         "memory_macro_functions": 0,
-        "under_arity_cast_calls": 39,
+        "under_arity_cast_calls": 19,
         "under_arity_calls": [
           {
-            "caller": "host_event_process",
-            "caller_addr": "0x10cc2c",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "host_event_process",
-            "caller_addr": "0x10cc2c",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "debug_printf",
-            "caller_addr": "0x10d660",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
             "caller": "sch_arbitrate",
             "caller_addr": "0x110abc",
             "callee": "critical_enter_1",
@@ -999,22 +703,6 @@
             "callee_addr": "0x110154",
             "passed": 0,
             "expected": 1
-          },
-          {
-            "caller": "rf_calib_mode_set",
-            "caller_addr": "0x1133b4",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "bt_task_tail_dispatch",
-            "caller_addr": "0x113f60",
-            "callee": "bt_ctrl_main_task",
-            "callee_addr": "0x113514",
-            "passed": 0,
-            "expected": 4
           },
           {
             "caller": "ke_init_structures",
@@ -1023,14 +711,6 @@
             "callee_addr": "0x115b00",
             "passed": 0,
             "expected": 2
-          },
-          {
-            "caller": "process_rx_status",
-            "caller_addr": "0x116764",
-            "callee": "rf_get_pll_setting",
-            "callee_addr": "0x13afd8",
-            "passed": 0,
-            "expected": 1
           },
           {
             "caller": "mac_set_flag",
@@ -1057,62 +737,6 @@
             "expected": 1
           },
           {
-            "caller": "timer_check_state",
-            "caller_addr": "0x118170",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "llc_tx_llcp_handler",
-            "caller_addr": "0x11a308",
-            "callee": "process_rx_status",
-            "callee_addr": "0x116764",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "tx_lock",
-            "caller_addr": "0x11dc70",
-            "callee": "rf_tx_timestamp_check",
-            "callee_addr": "0x11e4f4",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "tx_packet_setup",
-            "caller_addr": "0x11e708",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "tx_packet_setup",
-            "caller_addr": "0x11e708",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rx_packet_setup",
-            "caller_addr": "0x11ea44",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rx_packet_setup",
-            "caller_addr": "0x11ea44",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
             "caller": "alloc_buffer",
             "caller_addr": "0x12064c",
             "callee": "update_entries_from_config",
@@ -1127,22 +751,6 @@
             "callee_addr": "0x128aac",
             "passed": 0,
             "expected": 2
-          },
-          {
-            "caller": "rf_reg_write_54",
-            "caller_addr": "0x1237b0",
-            "callee": "bt_conn_set_flag",
-            "callee_addr": "0x12a74c",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rf_reg_write_54",
-            "caller_addr": "0x1237b0",
-            "callee": "bt_conn_get_flag",
-            "callee_addr": "0x12a788",
-            "passed": 0,
-            "expected": 1
           },
           {
             "caller": "rf_reg_write_53",
@@ -1159,14 +767,6 @@
             "callee_addr": "0x121678",
             "passed": 1,
             "expected": 4
-          },
-          {
-            "caller": "tx_desc_prepare",
-            "caller_addr": "0x125734",
-            "callee": "rf_calibrate_init",
-            "callee_addr": "0x1331d4",
-            "passed": 0,
-            "expected": 3
           },
           {
             "caller": "lookup_conn_table",
@@ -1193,14 +793,6 @@
             "expected": 2
           },
           {
-            "caller": "rf_write_pattern_ff23",
-            "caller_addr": "0x1308dc",
-            "callee": "rf_get_chan_index",
-            "callee_addr": "0x1327e8",
-            "passed": 0,
-            "expected": 1
-          },
-          {
             "caller": "llm_adv_pdu_build_cmd",
             "caller_addr": "0x132f20",
             "callee": "update_connection_stats",
@@ -1214,14 +806,6 @@
             "callee": "get_connection_state",
             "callee_addr": "0x13f218",
             "passed": 1,
-            "expected": 3
-          },
-          {
-            "caller": "mmio_init",
-            "caller_addr": "0x133c70",
-            "callee": "rx_security_check",
-            "callee_addr": "0x1347dc",
-            "passed": 0,
             "expected": 3
           },
           {
@@ -1249,22 +833,6 @@
             "expected": 3
           },
           {
-            "caller": "tx_power_index_lookup",
-            "caller_addr": "0x1393f8",
-            "callee": "process_pending_queue",
-            "callee_addr": "0x12f770",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "alloc_and_init_object",
-            "caller_addr": "0x13a588",
-            "callee": "process_pending_queue",
-            "callee_addr": "0x12f770",
-            "passed": 1,
-            "expected": 2
-          },
-          {
             "caller": "send_data_packet",
             "caller_addr": "0x1402a0",
             "callee": "handle_ll_control_packet",
@@ -1275,30 +843,6 @@
         ],
         "under_arity_examples": [
           {
-            "caller": "host_event_process",
-            "caller_addr": "0x10cc2c",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "host_event_process",
-            "caller_addr": "0x10cc2c",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "debug_printf",
-            "caller_addr": "0x10d660",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
             "caller": "sch_arbitrate",
             "caller_addr": "0x110abc",
             "callee": "critical_enter_1",
@@ -1313,22 +857,6 @@
             "callee_addr": "0x110154",
             "passed": 0,
             "expected": 1
-          },
-          {
-            "caller": "rf_calib_mode_set",
-            "caller_addr": "0x1133b4",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "bt_task_tail_dispatch",
-            "caller_addr": "0x113f60",
-            "callee": "bt_ctrl_main_task",
-            "callee_addr": "0x113514",
-            "passed": 0,
-            "expected": 4
           },
           {
             "caller": "ke_init_structures",
@@ -1337,14 +865,6 @@
             "callee_addr": "0x115b00",
             "passed": 0,
             "expected": 2
-          },
-          {
-            "caller": "process_rx_status",
-            "caller_addr": "0x116764",
-            "callee": "rf_get_pll_setting",
-            "callee_addr": "0x13afd8",
-            "passed": 0,
-            "expected": 1
           },
           {
             "caller": "mac_set_flag",
@@ -1371,58 +891,10 @@
             "expected": 1
           },
           {
-            "caller": "timer_check_state",
-            "caller_addr": "0x118170",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "llc_tx_llcp_handler",
-            "caller_addr": "0x11a308",
-            "callee": "process_rx_status",
-            "callee_addr": "0x116764",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "tx_lock",
-            "caller_addr": "0x11dc70",
-            "callee": "rf_tx_timestamp_check",
-            "callee_addr": "0x11e4f4",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "tx_packet_setup",
-            "caller_addr": "0x11e708",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "tx_packet_setup",
-            "caller_addr": "0x11e708",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rx_packet_setup",
-            "caller_addr": "0x11ea44",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rx_packet_setup",
-            "caller_addr": "0x11ea44",
-            "callee": "rf_calib_init",
-            "callee_addr": "0x113310",
+            "caller": "alloc_buffer",
+            "caller_addr": "0x12064c",
+            "callee": "update_entries_from_config",
+            "callee_addr": "0x128aac",
             "passed": 0,
             "expected": 2
           },
@@ -1433,9 +905,97 @@
             "callee_addr": "0x128aac",
             "passed": 0,
             "expected": 2
+          },
+          {
+            "caller": "rf_reg_write_53",
+            "caller_addr": "0x123804",
+            "callee": "bt_conn_get_state",
+            "callee_addr": "0x12a924",
+            "passed": 0,
+            "expected": 3
+          },
+          {
+            "caller": "process_percent_char",
+            "caller_addr": "0x123a28",
+            "callee": "rx_handle_frame",
+            "callee_addr": "0x121678",
+            "passed": 1,
+            "expected": 4
+          },
+          {
+            "caller": "lookup_conn_table",
+            "caller_addr": "0x126034",
+            "callee": "bt_conn_get_state",
+            "callee_addr": "0x12a924",
+            "passed": 0,
+            "expected": 3
+          },
+          {
+            "caller": "lookup_conn_table",
+            "caller_addr": "0x126034",
+            "callee": "bt_conn_get_state",
+            "callee_addr": "0x12a924",
+            "passed": 2,
+            "expected": 3
+          },
+          {
+            "caller": "mmio_wait_reg",
+            "caller_addr": "0x1304a4",
+            "callee": "ke_event_send_1",
+            "callee_addr": "0x13038c",
+            "passed": 0,
+            "expected": 2
+          },
+          {
+            "caller": "llm_adv_pdu_build_cmd",
+            "caller_addr": "0x132f20",
+            "callee": "update_connection_stats",
+            "callee_addr": "0x13f8d0",
+            "passed": 0,
+            "expected": 1
+          },
+          {
+            "caller": "rf_config_chan_table",
+            "caller_addr": "0x132fa4",
+            "callee": "get_connection_state",
+            "callee_addr": "0x13f218",
+            "passed": 1,
+            "expected": 3
+          },
+          {
+            "caller": "ull_scan_event_start",
+            "caller_addr": "0x134690",
+            "callee": "lookup_handle_entry",
+            "callee_addr": "0x13831c",
+            "passed": 0,
+            "expected": 1
+          },
+          {
+            "caller": "rx_desc_read_status",
+            "caller_addr": "0x134cac",
+            "callee": "bt_check_conn_active",
+            "callee_addr": "0x13c7ac",
+            "passed": 3,
+            "expected": 4
+          },
+          {
+            "caller": "rf_map_to_cal",
+            "caller_addr": "0x135d18",
+            "callee": "rx_invoke_cb",
+            "callee_addr": "0x13b9f0",
+            "passed": 0,
+            "expected": 3
+          },
+          {
+            "caller": "send_data_packet",
+            "caller_addr": "0x1402a0",
+            "callee": "handle_ll_control_packet",
+            "callee_addr": "0x13ed0c",
+            "passed": 1,
+            "expected": 2
           }
         ],
-        "static_defect_functions": 32
+        "static_defect_functions": 16
       },
       {
         "image": "lmacfw_rf_8800d80_u02",
@@ -1448,289 +1008,15 @@
         "jumpout_functions": 0,
         "jumpout_examples": [],
         "memory_macro_functions": 0,
-        "under_arity_cast_calls": 17,
-        "under_arity_calls": [
-          {
-            "caller": "mac_ll_scheduler",
-            "caller_addr": "0x10d06c",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "mac_ll_scheduler",
-            "caller_addr": "0x10d06c",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "hci_cmd_init",
-            "caller_addr": "0x10d6a8",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rf_lmac_init_n114",
-            "caller_addr": "0x110114",
-            "callee": "check_kernel_state",
-            "callee_addr": "0x11e724",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "tick_counter_update",
-            "caller_addr": "0x112a0c",
-            "callee": "check_and_process",
-            "callee_addr": "0x113630",
-            "passed": 0,
-            "expected": 3
-          },
-          {
-            "caller": "tick_counter_update",
-            "caller_addr": "0x112a0c",
-            "callee": "check_and_process",
-            "callee_addr": "0x113630",
-            "passed": 0,
-            "expected": 3
-          },
-          {
-            "caller": "set_event_mode",
-            "caller_addr": "0x112e28",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "wlan_hw_init",
-            "caller_addr": "0x1160fc",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "task_queue_handler_a",
-            "caller_addr": "0x116cdc",
-            "callee": "timer_is_past",
-            "callee_addr": "0x1174ec",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "task_queue_handler_b",
-            "caller_addr": "0x116d98",
-            "callee": "timer_is_past",
-            "callee_addr": "0x1174ec",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "task_queue_handler_c",
-            "caller_addr": "0x116e24",
-            "callee": "timer_is_past",
-            "callee_addr": "0x1174ec",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "tx_acl_queue_process",
-            "caller_addr": "0x117590",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "tx_acl_queue_process",
-            "caller_addr": "0x117590",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "capability_dispatch",
-            "caller_addr": "0x117db4",
-            "callee": "bt_link_rx_check",
-            "callee_addr": "0x11c158",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "tx_processing",
-            "caller_addr": "0x11b4e8",
-            "callee": "rx_queue_init",
-            "callee_addr": "0x11b3a4",
-            "passed": 2,
-            "expected": 3
-          },
-          {
-            "caller": "rx_irq_handler_1",
-            "caller_addr": "0x11de50",
-            "callee": "patch_trampoline",
-            "callee_addr": "0x121a5c",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "wait_for_hw_event",
-            "caller_addr": "0x12373c",
-            "callee": "read_irq_status",
-            "callee_addr": "0x1234e4",
-            "passed": 0,
-            "expected": 1
-          }
-        ],
-        "under_arity_examples": [
-          {
-            "caller": "mac_ll_scheduler",
-            "caller_addr": "0x10d06c",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "mac_ll_scheduler",
-            "caller_addr": "0x10d06c",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "hci_cmd_init",
-            "caller_addr": "0x10d6a8",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "rf_lmac_init_n114",
-            "caller_addr": "0x110114",
-            "callee": "check_kernel_state",
-            "callee_addr": "0x11e724",
-            "passed": 1,
-            "expected": 2
-          },
-          {
-            "caller": "tick_counter_update",
-            "caller_addr": "0x112a0c",
-            "callee": "check_and_process",
-            "callee_addr": "0x113630",
-            "passed": 0,
-            "expected": 3
-          },
-          {
-            "caller": "tick_counter_update",
-            "caller_addr": "0x112a0c",
-            "callee": "check_and_process",
-            "callee_addr": "0x113630",
-            "passed": 0,
-            "expected": 3
-          },
-          {
-            "caller": "set_event_mode",
-            "caller_addr": "0x112e28",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "wlan_hw_init",
-            "caller_addr": "0x1160fc",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "task_queue_handler_a",
-            "caller_addr": "0x116cdc",
-            "callee": "timer_is_past",
-            "callee_addr": "0x1174ec",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "task_queue_handler_b",
-            "caller_addr": "0x116d98",
-            "callee": "timer_is_past",
-            "callee_addr": "0x1174ec",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "task_queue_handler_c",
-            "caller_addr": "0x116e24",
-            "callee": "timer_is_past",
-            "callee_addr": "0x1174ec",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "tx_acl_queue_process",
-            "caller_addr": "0x117590",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "tx_acl_queue_process",
-            "caller_addr": "0x117590",
-            "callee": "process_event",
-            "callee_addr": "0x112d84",
-            "passed": 0,
-            "expected": 2
-          },
-          {
-            "caller": "capability_dispatch",
-            "caller_addr": "0x117db4",
-            "callee": "bt_link_rx_check",
-            "callee_addr": "0x11c158",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "tx_processing",
-            "caller_addr": "0x11b4e8",
-            "callee": "rx_queue_init",
-            "callee_addr": "0x11b3a4",
-            "passed": 2,
-            "expected": 3
-          },
-          {
-            "caller": "rx_irq_handler_1",
-            "caller_addr": "0x11de50",
-            "callee": "patch_trampoline",
-            "callee_addr": "0x121a5c",
-            "passed": 0,
-            "expected": 1
-          },
-          {
-            "caller": "wait_for_hw_event",
-            "caller_addr": "0x12373c",
-            "callee": "read_irq_status",
-            "callee_addr": "0x1234e4",
-            "passed": 0,
-            "expected": 1
-          }
-        ],
-        "static_defect_functions": 14
+        "under_arity_cast_calls": 0,
+        "under_arity_calls": [],
+        "under_arity_examples": [],
+        "static_defect_functions": 0
       }
     ],
     "build": {
-      "post_compose_clean": null,
-      "src_reproduce_clean": null,
+      "post_compose_clean": false,
+      "src_reproduce_clean": false,
       "full_link_images": {
         "fmacfw_8800d80_h_u02": {
           "status": "OK",
