@@ -79,7 +79,7 @@ int rx_desc_read_status() {
     v15 = util_store_u16_return_2((volatile uint16_t *)(v6 + 132), v1);
     v16 = v15 + 24;
     if ( v13 == 2 )
-      v16 += ((int (*)())bt_check_conn_active)(v5, v14, v15 + 24);
+      v16 += ((int (*)())bt_check_conn_active)(v5, v14, v15 + 24, v2);
   }
   v17 = *(volatile uint32_t **)(v5 + 76);
   v17[8] = v17[7] - 1 + v16;

@@ -79,7 +79,7 @@ LABEL_11:
               }
               else if ( *(volatile uint8_t *)(a2 + 53) )
               {
-                ((int (*)())bt_conn_is_connected)(a2, v10, *(volatile uint16_t *)(a2 + 4));
+                ((int (*)())bt_conn_is_connected)(a2, v10, *(volatile uint16_t *)(a2 + 4), 0);
               }
             }
           }

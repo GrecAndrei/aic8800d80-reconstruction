@@ -53,10 +53,12 @@ following classes were proven against the original binaries and repaired:
 * zero-input fault/NVIC status helpers and command-queue/ioctl event helpers whose
   machine bodies overwrite every argument register before use;
 * channel/index plus slot-byte forwarding `(a1+107, v6)` in the three control-block
-  allocation clones.
+  allocation clones;
+* the fourth connection-helper argument: zero at the flag-gated call sites and the
+  connection index `v2` at the packet-builder call sites.
 
-After those repairs the remaining syntactic census is fmacfw_h 12 functions /
-13 call rows, fmacfw 13 / 14, fmacfwbt 12 / 13, and lmac 0 / 0. Remaining rows
+After those repairs the remaining syntactic census is fmacfw_h 10 functions /
+11 call rows, fmacfw 11 / 12, fmacfwbt 10 / 11, and lmac 0 / 0. Remaining rows
 are still unproven candidates. In particular `bt_conn_is_connected` and its
 clones genuinely consume r1-r3, so their four-input prototypes must not be
 "narrowed" merely because the scan is nonzero; their missing call-site argument

@@ -54,6 +54,7 @@ STEPS = [
     ("format_hd_signextend.py", [], True),
     ("format_scratch_frame.py", [], True),
     ("strict_type_casts.py", [], True),
+    ("conn_is_connected_forward.py", [], True),
     ("bsscfg_lookup_forward.py", [], True),
     ("scheduler_list_forward.py", [], True),
     ("char_validate_forward.py", [], True),
