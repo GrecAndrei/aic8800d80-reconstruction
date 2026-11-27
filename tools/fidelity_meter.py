@@ -326,6 +326,7 @@ def _parse_fn_signature(block: str) -> dict:
     body_offset = block.find("{", close_idx + 1) + 1
     return {
         "c_name": c_name,
+        "return_type": ret_prefix,
         "is_void": is_void,
         "param_count": pcount,
         "param_types": param_types,
@@ -371,6 +372,7 @@ def parse_composed_functions(text: str) -> dict[int, dict]:
             "addr": addr,
             "marker": marker_name,
             "c_name": sig["c_name"] or marker_name,
+            "return_type": sig.get("return_type"),
             "is_void": sig["is_void"],
             "is_void_ub": is_void_ub,
             "param_count": sig["param_count"],
@@ -794,6 +796,9 @@ def evaluate_outcomes(
     elf_info: dict | None = None,
     orig_mmio_reads: list | None = None,
     recon_mmio_reads: list | None = None,
+    orig_r1: int = 0,
+    recon_r1: int = 0,
+    return_width: int = 32,
 ) -> dict:
     """Compare one vector execution of orig vs recon on MMIO + RAM + non-void r0."""
     if recon_term == "no_symbol":
@@ -863,6 +868,8 @@ def evaluate_outcomes(
             reloc_r0 = True
         else:
             r0_match = False
+    check_r1 = check_r0 and return_width == 64
+    r1_match = (not check_r1) or orig_r1 == recon_r1
 
     exercised = bool(
         orig_mmio
@@ -870,10 +877,11 @@ def evaluate_outcomes(
         or orig_mutated_ram
         or recon_mutated_ram
         or (check_r0 and not is_void_ub and (orig_r0 != 0 or recon_r0 != 0))
+        or (check_r1 and not is_void_ub and (orig_r1 != 0 or recon_r1 != 0))
         or read_evidence
     )
 
-    if mmio_match and ram_match and r0_match:
+    if mmio_match and ram_match and r0_match and r1_match:
         reason = "asserted_match" if orig_term == "asserted" else ("reloc_ptr_match" if reloc_r0 else "full_match")
         return {
             "status": "MATCH",
@@ -881,6 +889,7 @@ def evaluate_outcomes(
             "mmio_match": True,
             "ram_match": True,
             "r0_match": True,
+            "r1_match": True,
             "exercised": exercised,
             "read_evidence": read_evidence,
             "orig_read_count": len(orig_mmio_reads),
@@ -893,8 +902,10 @@ def evaluate_outcomes(
         reason = "ram_differ"
     elif is_void_ub:
         reason = "r0_void_ub"
-    else:
+    elif not r0_match:
         reason = "r0_differ"
+    else:
+        reason = "r1_differ"
 
     return {
         "status": "DIFFER",
@@ -902,8 +913,11 @@ def evaluate_outcomes(
         "mmio_match": mmio_match,
         "ram_match": ram_match,
         "r0_match": r0_match,
+        "r1_match": r1_match,
         "orig_r0": hex(orig_r0),
         "recon_r0": hex(recon_r0),
+        "orig_r1": hex(orig_r1),
+        "recon_r1": hex(recon_r1),
         "ram_diff_addr": hex(ram_diff_addr) if ram_diff_addr is not None else None,
         "exercised": exercised,
         "read_evidence": read_evidence,
@@ -936,6 +950,38 @@ def evaluate_vector_pair(orig_info: dict, recon_info: dict, is_void: bool) -> di
     )
 
 
+DOUBLE_LIBMATCH_TARGETS = {
+    "__aeabi_dadd", "__aeabi_dsub", "__aeabi_dmul", "__aeabi_ddiv",
+    "__aeabi_f2d", "__aeabi_i2d", "__aeabi_ui2d", "__aeabi_ul2d",
+}
+
+
+def abi_return_width(return_type: str | None, libmatch_target: str | None = None) -> int:
+    """ABI result width in bits for the softfp integer-register return ABI.
+
+    With ``-mfloat-abi=softfp`` both uint64_t and double results occupy r0/r1.
+    Pointer results remain 32-bit even when their pointee is 64-bit. Libmatch
+    markers have no C signature, so the byte-identical libgcc symbol supplies
+    the machine-proven return contract.
+    """
+    if libmatch_target in DOUBLE_LIBMATCH_TARGETS:
+        return 64
+    if not return_type:
+        return 32
+    rt = " ".join(return_type.split())
+    if "*" in rt:
+        return 32
+    rt = re.sub(r"\b(?:static|inline|const|volatile|register)\b", " ", rt)
+    rt = " ".join(rt.split())
+    if rt in {
+        "uint64_t", "int64_t", "double", "long long", "long long int",
+        "unsigned long long", "unsigned long long int",
+        "signed long long", "signed long long int",
+    }:
+        return 64
+    return 32
+
+
 def build_func_meta(parsed: dict[int, dict], proto_by_addr: dict[int, dict]) -> dict[int, dict]:
     """Combine composed-source signatures with machine-grounded return contracts."""
     func_meta = {}
@@ -965,6 +1011,8 @@ def build_func_meta(parsed: dict[int, dict], proto_by_addr: dict[int, dict]) -> 
             "is_void_ub": v["is_void_ub"],
             "machine_class": machine_class,
             "contract": contract,
+            "return_type": v.get("return_type"),
+            "return_width": abi_return_width(v.get("return_type"), v.get("libmatch_target")),
             "param_types": v["param_types"],
             "r0_exclude": r0_exclude,
             "libmatch_target": v.get("libmatch_target"),
@@ -1122,6 +1170,7 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
     is_void = meta["is_void"]
     is_void_ub = meta.get("is_void_ub", False)
     r0_exclude = meta.get("r0_exclude", False)
+    return_width = meta.get("return_width", 32)
     machine_class = meta.get("machine_class", "unknown")
     param_types = meta.get("param_types")
     max_insns = _CTX["max_insns"]
@@ -1161,6 +1210,7 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
         to, _ = po.run(key + emu.HW_OFFSET, max_insns, sp=sp, assert_stops=True)
 
         orig_r0 = int(po.mu.reg_read(UC_ARM_REG_R0)) & 0xFFFFFFFF
+        orig_r1 = int(po.mu.reg_read(UC_ARM_REG_R1)) & 0xFFFFFFFF
         orig_fp = lrr.fingerprint(po.traffic)
         orig_mmio = orig_fp["periph_write_sequence"]
         orig_reads = orig_fp["periph_read_sequence"]
@@ -1191,6 +1241,7 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
             emu.CHIP_BASE = saved
 
         recon_r0 = int(pr.mu.reg_read(UC_ARM_REG_R0)) & 0xFFFFFFFF
+        recon_r1 = int(pr.mu.reg_read(UC_ARM_REG_R1)) & 0xFFFFFFFF
         recon_fp = lrr.fingerprint(pr.traffic)
         recon_mmio = recon_fp["periph_write_sequence"]
         recon_reads = recon_fp["periph_read_sequence"]
@@ -1211,6 +1262,7 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
             ram_match, o_mut, r_mut, ram_diff_addr, is_void, is_void_ub,
             r0_exclude=r0_exclude, orig_image=po.image, elf_info=elf,
             orig_mmio_reads=orig_reads, recon_mmio_reads=recon_reads,
+            orig_r1=orig_r1, recon_r1=recon_r1, return_width=return_width,
         )
         # Invalid-input artifact classification: boot_scalar/boot_neg inject
         # scalar integers into every argument register. When a parameter is
@@ -1222,7 +1274,7 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
         # memory in the original while the compiled body legitimately takes
         # any path. Reclassified outcomes count neither as matches nor as
         # defects, exactly like NOT_RUN but with the reason preserved.
-        if outcome.get("status") == "DIFFER" and outcome.get("reason") in {"r0_differ", "ram_differ", "r0_void_ub"}:
+        if outcome.get("status") == "DIFFER" and outcome.get("reason") in {"r0_differ", "r1_differ", "ram_differ", "r0_void_ub"}:
             invalid = False
             if param_types:
                 for idx, ptype in enumerate(param_types):
@@ -1260,6 +1312,7 @@ def _eval_function_impl(key: int, mmio_read_hooks: bool = True) -> dict:
         "function": name,
         "is_void": is_void,
         "machine_class": machine_class,
+        "return_width": return_width,
         "evaluation_symbol": evaluation_symbol,
         "libmatch_target": meta.get("libmatch_target"),
         "libmatch_linked": meta.get("libmatch_linked", False),

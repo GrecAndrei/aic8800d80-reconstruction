@@ -166,6 +166,35 @@ class RamAndVerdictTests(unittest.TestCase):
         self.assertEqual(v["status"], "MATCH")
         self.assertFalse(v["exercised"])
 
+    def test_64bit_results_compare_and_exercise_high_word(self):
+        v = fm.evaluate_outcomes(
+            "returned", 1, [], "returned", 1, [], None, [], True, False, False, None,
+            is_void=False, orig_r1=0x12345678, recon_r1=0x12345678, return_width=64,
+        )
+        self.assertEqual(v["status"], "MATCH")
+        self.assertTrue(v["exercised"])
+
+        v = fm.evaluate_outcomes(
+            "returned", 1, [], "returned", 1, [], None, [], True, False, False, None,
+            is_void=False, orig_r1=0x12345678, recon_r1=0, return_width=64,
+        )
+        self.assertEqual(v["status"], "DIFFER")
+        self.assertEqual(v["reason"], "r1_differ")
+        self.assertFalse(v["r1_match"])
+
+        # The same r1 difference is irrelevant to a 32-bit result contract.
+        v = fm.evaluate_outcomes(
+            "returned", 1, [], "returned", 1, [], None, [], True, False, False, None,
+            is_void=False, orig_r1=0x12345678, recon_r1=0, return_width=32,
+        )
+        self.assertEqual(v["status"], "MATCH")
+
+    def test_abi_return_widths(self):
+        self.assertEqual(fm.abi_return_width("uint64_t"), 64)
+        self.assertEqual(fm.abi_return_width("volatile uint64_t *"), 32)
+        self.assertEqual(fm.abi_return_width(None, "__aeabi_dmul"), 64)
+        self.assertEqual(fm.abi_return_width(None, "__aeabi_d2uiz"), 32)
+
     def test_exact_peripheral_reads_are_evidence_not_a_pass_criterion(self):
         reads = [["0x40500010", "0x1"]]
         v = fm.evaluate_outcomes(
