@@ -1238,7 +1238,7 @@ int sub_13DA90(int a1, int a2) {
   unsigned int v10; // r9
   unsigned int v11; // r6
   unsigned int v12; // r4
-  volatile uint16_t **v13; // r7
+  volatile int16_t **v13; // r7
   int v14; // r1
   int v15; // r4
   volatile char *v16; // r0
@@ -1267,8 +1267,8 @@ int sub_13DA90(int a1, int a2) {
     v11 = (v2 >> 4) & 7;
     v12 = v2 & 0xF;
 LABEL_3:
-    v13 = (volatile uint16_t **)off_13DDE4;
-    v14 = **(volatile uint16_t **)off_13DDE4;
+    v13 = (volatile int16_t **)off_13DDE4;
+    v14 = **(volatile int16_t **)off_13DDE4;
     switch ( *(volatile uint8_t *)(a1 + 169) )
     {
       case 0:
@@ -1291,9 +1291,9 @@ LABEL_3:
     v12 = v2 & 0x7F;
     goto LABEL_3;
   }
-  v13 = (volatile uint16_t **)off_13DDE4;
+  v13 = (volatile int16_t **)off_13DDE4;
   v11 = (v2 >> 3) & 3;
-  v14 = **(volatile uint16_t **)off_13DDE4;
+  v14 = **(volatile int16_t **)off_13DDE4;
   v12 = v2 & 7;
   switch ( *(volatile uint8_t *)(a1 + 169) )
   {
