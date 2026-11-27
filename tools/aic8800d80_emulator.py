@@ -527,6 +527,9 @@ class Aic8800D80Platform:
         # emulation of a UART/console with no host attached.
         self._rx_available: set[int] = set()   # status addrs currently "byte ready"
         self.insn_count = 0
+        self._max_periph_writes: int | None = None
+        self._periph_write_count = 0
+        self._write_cap_hit = False
         self.counter_by_reads = 0   # ticks per counter read; 0 = by instruction count
         self._counter_reads = 0
         self.branch_taken = 0
@@ -1111,6 +1114,12 @@ class Aic8800D80Platform:
                     "depth": depth,
                 })
                 self.mmio_state[addr] = int(value)
+                if is_periph_addr(addr):
+                    self._periph_write_count += 1
+                    if (self._max_periph_writes is not None
+                            and self._periph_write_count >= self._max_periph_writes):
+                        self._write_cap_hit = True
+                        uc.emu_stop()
                 # Behavioral-model state on writes: a poll register is re-armed
                 # (read counter reset), a strobe register starts its window.
                 bh = self._behavior_for(addr)
@@ -1448,7 +1457,8 @@ class Aic8800D80Platform:
     # -- execution --------------------------------------------------------
     def run(self, entry: int, max_insns: int, sp: int | None = None,
             lr: int | None = None, spin_break: bool = False,
-            max_reexits: int = 256, assert_stops: bool = False) -> tuple[str, dict]:
+            max_reexits: int = 256, assert_stops: bool = False,
+            max_periph_writes: int | None = None) -> tuple[str, dict]:
         """Run from ``entry`` (thumb bit honored) until return, cap, or fault.
 
         ``spin_break`` enables the wait-loop breaker: a backward-branch wait
@@ -1469,6 +1479,9 @@ class Aic8800D80Platform:
         """
         self.insn_count = 0
         self._counter_reads = 0
+        self._max_periph_writes = max_periph_writes
+        self._periph_write_count = 0
+        self._write_cap_hit = False
         self.traffic = []
         self.cur_fn = None
         self.fn_entries = []
@@ -1615,6 +1628,9 @@ class Aic8800D80Platform:
             self.mu.hook_del(cap_hook)
             if sb_hook is not None:
                 self.mu.hook_del(sb_hook)
+
+        if self._write_cap_hit and stop["value"] == "running":
+            stop["value"] = "write_cap"
 
         if stop["value"] == "running":
             pc = self.mu.reg_read(UC_ARM_REG_PC)

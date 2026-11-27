@@ -1297,7 +1297,7 @@ def _eval_function(key: int) -> dict:
 # Axis 4: End-to-End Boot Prefix Parity & Truth-Lane Full Check
 # ---------------------------------------------------------------------------
 
-def measure_boot_parity(image: str, elf_info: dict, max_insns: int = 100000) -> dict:
+def measure_boot_parity(image: str, elf_info: dict, max_insns: int = 100000, target_writes: int | None = None) -> dict:
     """Run original reset_vector vs linked `start` and measure prefix MMIO parity."""
     img_path = emu.resolve_image(f"{image}.bin")
     model = emu.load_mmio_model()
@@ -1305,7 +1305,7 @@ def measure_boot_parity(image: str, elf_info: dict, max_insns: int = 100000) -> 
     po = emu.Aic8800D80Platform(img_path, mmio_model=model)
     po.function_table = emu.load_function_table(image)
     ivt = po.ivt()
-    to, so = po.run(ivt["reset_vector"], max_insns, sp=ivt["stack_pointer"], assert_stops=False)
+    to, so = po.run(ivt["reset_vector"], max_insns, sp=ivt["stack_pointer"], assert_stops=False, max_periph_writes=target_writes)
     o_writes = [(t["addr"], t.get("value")) for t in lrr.periph_traffic(po.traffic) if t["op"] == "write"]
 
     start_addr = elf_info["by_name"].get("start")
@@ -1320,7 +1320,7 @@ def measure_boot_parity(image: str, elf_info: dict, max_insns: int = 100000) -> 
     saved = emu.CHIP_BASE
     emu.CHIP_BASE, pr.image = lrr.LINK_BASE, elf_info["blob"]
     try:
-        tr, sr = pr.run(start_addr, max_insns, sp=ivt["stack_pointer"], assert_stops=False)
+        tr, sr = pr.run(start_addr, max_insns, sp=ivt["stack_pointer"], assert_stops=False, max_periph_writes=target_writes)
     finally:
         emu.CHIP_BASE = saved
     r_writes = [(t["addr"], t.get("value")) for t in lrr.periph_traffic(pr.traffic) if t["op"] == "write"]
@@ -1349,6 +1349,7 @@ def measure_boot_parity(image: str, elf_info: dict, max_insns: int = 100000) -> 
         "recon_writes": len(r_writes),
         "recon_fault": sr.get("fault"),
         "matched_prefix_writes": prefix,
+        "target_writes": target_writes,
         "first_diff": first_diff,
     }
 
@@ -1553,7 +1554,8 @@ def main() -> int:
     ap.add_argument("--image", choices=IMAGES, help="evaluate one image only")
     ap.add_argument("--jobs", type=int, default=8, help="worker processes (default: 8)")
     ap.add_argument("--max-insns", type=int, default=50000, help="per-vector instruction cap")
-    ap.add_argument("--boot-insns", type=int, default=500000, help="Axis 4 boot trace cap")
+    ap.add_argument("--boot-insns", type=int, default=2000000, help="Axis 4 boot instruction safety cap")
+    ap.add_argument("--boot-writes", type=int, default=4096, help="Axis 4 ordered peripheral-write event target")
     ap.add_argument("--vectors", default=",".join(DEFAULT_VECTORS),
                     help=f"comma-separated vectors from {','.join(ALL_VECTORS)}")
     ap.add_argument("--no-build-check", action="store_true",
@@ -1592,7 +1594,7 @@ def main() -> int:
             raise SystemExit(f"missing {elf_path}: run tools/full_link.py --text-base 0x800000 --out build/full_link_run")
         elf_info = load_elf_info(elf_path, image=img)
         bootstate = cs.capture_bootstate(img, 300000)
-        boot_results.append(measure_boot_parity(img, elf_info, args.boot_insns))
+        boot_results.append(measure_boot_parity(img, elf_info, args.boot_insns, args.boot_writes))
 
         # post-demonolith main.c is an umbrella; expand module slices in
         # include order so the parser sees the logical single-TU text.
